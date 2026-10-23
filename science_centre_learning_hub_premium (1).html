@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102a56">
+<title>Science Centre Learning Hub | Smart Learning Experience</title>
+<style>
+:root{--navy:#102a56;--blue:#2563eb;--sky:#eaf3ff;--gold:#f5b82e;--green:#16845b;--ink:#18243a;--muted:#65748b;--paper:#f5f8fc;--line:#dce5f0}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.5}
+button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 15px;font-weight:700}.primary{background:var(--blue);color:#fff}.secondary{background:#e8efff;color:#153a80}.gold{background:var(--gold);color:#2c250d}.quiet{background:#eef2f7;color:#27364b}
+header{background:linear-gradient(120deg,#102a56,#1d4d92);color:#fff;padding:22px 16px 26px}.wrap{max-width:1100px;margin:auto;padding:0 14px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.brand{font-size:clamp(18px,3vw,25px);font-weight:900;letter-spacing:.2px}.brand small{display:block;color:#cbdcff;font-size:12px;font-weight:600;letter-spacing:1.4px}.top-actions{display:flex;gap:8px;align-items:center}.top select{border:1px solid #ffffff55;background:#173967;color:#fff;padding:9px;border-radius:10px;max-width:140px}
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;align-items:center;padding-top:25px}.eyebrow{color:#ffd56a;font-weight:800;font-size:12px;letter-spacing:1.5px}.hero h1{font-size:clamp(29px,5vw,48px);line-height:1.08;margin:8px 0 12px}.hero p{color:#dce8ff;max-width:610px;margin:0 0 18px}.hero-art{background:#ffffff12;border:1px solid #ffffff2a;border-radius:22px;padding:15px;min-height:190px;display:grid;place-items:center}
+main{padding:22px 0 50px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.stat,.panel,.course{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 5px 20px #18345b08}.stat{padding:15px}.stat strong{display:block;font-size:25px;color:var(--navy)}.stat span{color:var(--muted);font-size:13px}
+.tabs{display:flex;gap:8px;overflow:auto;padding:3px 0 13px}.tab{white-space:nowrap;background:#e7edf6;color:#33445e}.tab.active{background:var(--navy);color:white}
+.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,.8fr);gap:16px;align-items:start}.panel{padding:20px;margin-bottom:16px}.panel h2{margin:0 0 5px;font-size:22px}.sub{color:var(--muted);font-size:14px;margin:0 0 16px}.course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.course{padding:15px;box-shadow:none}.course .emoji{font-size:27px}.course h3{margin:5px 0;font-size:17px}.course p{color:var(--muted);font-size:13px;margin:0 0 12px}.course button{width:100%}.tag{display:inline-block;background:#eef4ff;color:#234d9b;padding:4px 8px;border-radius:99px;font-size:11px;font-weight:800}
+.qhead{display:flex;justify-content:space-between;gap:10px;align-items:center}.progress{height:8px;background:#e7edf5;border-radius:99px;overflow:hidden;margin:13px 0}.progress div{height:100%;width:0;background:linear-gradient(90deg,#2563eb,#26b985);transition:width .2s}
+.question{font-weight:800;font-size:19px;margin:14px 0}.options{display:grid;gap:9px}.option{background:#f7f9fc;border:1px solid var(--line);color:var(--ink);text-align:left;font-weight:600}.option:hover{border-color:#7ea4f8}.option.correct{background:#e5f8ef;border-color:#54bf8d;color:#075f3c}.option.wrong{background:#fff0f0;border-color:#ed9a9a;color:#9c2424}.feedback{margin-top:12px;border-radius:12px;padding:12px;background:#f0f5ff;font-size:14px;display:none}.quiz-actions{display:flex;justify-content:space-between;gap:10px;margin-top:15px;flex-wrap:wrap}
+.diagram{background:#f7faff;border:1px solid var(--line);border-radius:15px;padding:10px;text-align:center}.diagram svg{width:100%;height:auto;max-height:220px}.notes-list{padding-left:20px;margin-bottom:0}.notes-list li{margin:7px 0}.row{display:flex;gap:8px;flex-wrap:wrap}.row button{flex:1}.history{display:grid;gap:8px}.history-item{padding:10px;border-radius:12px;background:#f5f8fc;display:flex;justify-content:space-between;gap:8px;font-size:13px}.small{font-size:12px;color:var(--muted)}footer{background:#0d2143;color:#cbd8ef;padding:22px 15px;text-align:center;font-size:13px}
+.toast{margin-top:12px;font-size:13px;color:var(--green);min-height:18px}.hidden{display:none!important}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero-art{min-height:140px}.layout{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:21px}.panel{padding:16px}.top{align-items:flex-start}.brand small{font-size:10px}}
+@media(max-width:420px){.course-grid{grid-template-columns:1fr}.hero h1{font-size:32px}.stats{grid-template-columns:repeat(3,1fr)}.stat span{font-size:11px}}
+
+/* Premium visual refresh */
+:root{--navy:#091a3a;--blue:#4169f5;--sky:#edf4ff;--gold:#ffd166;--green:#0c9b70;--ink:#17233d;--muted:#697995;--paper:#f4f7ff;--line:#e0e7f3}
+body{background:radial-gradient(ellipse at 8% 4%,#e6edff 0,transparent 34%),radial-gradient(ellipse at 92% 28%,#e8fff6 0,transparent 30%),#f6f8fd}
+header{position:relative;overflow:hidden;background:linear-gradient(125deg,#081735 0%,#143b79 52%,#3b50b8 100%);padding-bottom:34px}
+header:before,header:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+header:before{width:300px;height:300px;border:1px solid #ffffff18;right:-90px;top:-120px;box-shadow:0 0 0 28px #ffffff08,0 0 0 58px #ffffff06}
+header:after{width:180px;height:180px;border:1px solid #ffffff15;left:-100px;bottom:-110px;box-shadow:0 0 0 24px #ffffff08}
+header .wrap{position:relative;z-index:1}
+.brand{letter-spacing:.4px;text-shadow:0 2px 12px #0002}
+.brand small{letter-spacing:2px;color:#bcd3ff;margin-top:3px}
+.hero{padding-top:34px;gap:28px}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:99px;background:#ffffff13;border:1px solid #ffffff20}
+.hero h1{letter-spacing:-1.4px;text-wrap:balance}
+.hero p{font-size:16px;line-height:1.75}
+.hero-art{background:linear-gradient(145deg,#ffffff1c,#ffffff08);backdrop-filter:blur(8px);border:1px solid #ffffff35;box-shadow:0 20px 60px #020d2c30;transform:rotate(1deg)}
+button{transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+button:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 7px 18px #1b3c7918}
+button:active:not(:disabled){transform:translateY(0)}
+.primary{background:linear-gradient(135deg,#4169f5,#3154dc);box-shadow:0 5px 13px #4169f52b}
+.gold{background:linear-gradient(135deg,#ffe18c,#ffc744);box-shadow:0 5px 16px #ffcc5030}
+main{padding-top:26px}
+.stats{gap:14px}
+.stat{position:relative;overflow:hidden;border:1px solid #e3eaf6;box-shadow:0 8px 25px #1b3c7908;padding:17px 18px}
+.stat:after{content:"";position:absolute;width:70px;height:70px;border-radius:50%;right:-25px;top:-28px;background:#edf2ff}
+.stat:nth-child(2):after{background:#e2faf0}.stat:nth-child(3):after{background:#fff2d3}
+.stat strong,.stat span{position:relative;z-index:1}
+.stat strong{font-size:28px;letter-spacing:-.8px}
+.tabs{gap:9px;margin:2px 0 6px}
+.tab{border:1px solid transparent;background:#e9eef9;color:#435270;padding:11px 17px}
+.tab.active{background:linear-gradient(135deg,#102a56,#2e4fa8);box-shadow:0 7px 17px #173b7d24}
+.panel{border:1px solid #e3eaf5;box-shadow:0 12px 34px #1a376a0a;border-radius:21px;padding:22px}
+.panel h2{letter-spacing:-.45px}
+.course-grid{gap:14px}
+.course{position:relative;overflow:hidden;border:1px solid #e6ecf7;border-radius:17px;padding:17px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.course:hover{transform:translateY(-4px);box-shadow:0 13px 25px #1d3f7a12;border-color:#c7d5ff}
+.course .emoji{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#edf3ff,#e5edff);font-size:28px;margin-bottom:9px}
+.course:nth-child(2) .emoji{background:linear-gradient(135deg,#e5fbf2,#d9f5e9)}
+.course:nth-child(3) .emoji{background:linear-gradient(135deg,#fff5d9,#ffedbd)}
+.course:nth-child(4) .emoji{background:linear-gradient(135deg,#f6eaff,#eadbff)}
+.course h3{font-size:18px;letter-spacing:-.3px}
+.tag{letter-spacing:.7px;background:#edf2ff;color:#3154a3}
+.option{border-radius:13px;padding:13px 14px;border:1px solid #e0e7f3;background:linear-gradient(120deg,#fbfcff,#f5f8ff)}
+.option:hover:not(:disabled){background:#eef3ff;border-color:#8da8ff;transform:translateX(2px)}
+.option.correct{background:#e5f9f0;border-color:#65cba0;color:#086343}
+.option.wrong{background:#fff0f1;border-color:#f1a2aa;color:#9d2635}
+.progress{height:9px;background:#e9eef8}
+.progress div{background:linear-gradient(90deg,#4169f5,#20c997);border-radius:99px}
+.feedback{border:1px solid #dce7ff;line-height:1.65}
+.diagram{background:linear-gradient(145deg,#fbfdff,#f1f6ff);border:1px solid #e1eaf7;border-radius:17px;padding:13px}
+.history-item{border:1px solid #e8edf6;background:linear-gradient(120deg,#f9fbff,#f3f7fd);border-radius:13px;padding:12px}
+input,select{outline-color:#7d9bff}
+#videoUrl:focus{border-color:#7d9bff!important;box-shadow:0 0 0 3px #4169f51c}
+footer{background:linear-gradient(120deg,#081735,#15356c);line-height:1.9}
+@media(max-width:760px){.hero{padding-top:24px}.hero-art{transform:none}.panel{padding:17px}.stat{padding:13px 11px}.stats{gap:8px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
+
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="top">
+   <div class="brand">🔬 SCIENCE CENTRE LEARNING HUB <small>GUIDED BY VISHWENDRA SIR</small></div>
+   <div class="top-actions">
+    <select id="language" aria-label="Language"><option value="en">English</option><option value="hi">हिन्दी</option></select>
+    <button class="gold" id="voiceBtn" onclick="speakPage()">🔊 <span data-en="Listen" data-hi="सुनें">Listen</span></button>
+   </div>
+  </div>
+  <section class="hero">
+   <div>
+    <div class="eyebrow" data-en="LEARN • PRACTISE • GROW" data-hi="सीखें • अभ्यास करें • आगे बढ़ें">LEARN • PRACTISE • GROW</div>
+    <h1 data-en="Learning becomes an adventure." data-hi="सीखना अब एक रोमांचक अनुभव।">Learning becomes an adventure.</h1>
+    <p data-en="Explore science, mathematics and general knowledge with bilingual notes, diagrams and instant-score quizzes." data-hi="विज्ञान, गणित और सामान्य ज्ञान को द्विभाषी नोट्स, चित्रों और तुरंत अंक बताने वाली क्विज़ के साथ सीखें।">Explore science, mathematics and general knowledge with bilingual notes, diagrams and instant-score quizzes.</p>
+    <button class="gold" onclick="document.getElementById('learning').scrollIntoView({behavior:'smooth'})" data-en="Start learning ↓" data-hi="पढ़ना शुरू करें ↓">Start learning ↓</button>
+   </div>
+   <div class="hero-art" aria-label="Science illustration">
+    <svg viewBox="0 0 320 190" role="img" aria-label="Book, atom and stars">
+     <circle cx="230" cy="52" r="37" fill="#f5b82e" opacity=".95"/><g fill="none" stroke="#cfe1ff" stroke-width="2.5"><ellipse cx="160" cy="82" rx="75" ry="28" transform="rotate(30 160 82)"/><ellipse cx="160" cy="82" rx="75" ry="28" transform="rotate(-30 160 82)"/><ellipse cx="160" cy="82" rx="75" ry="28"/></g><circle cx="160" cy="82" r="9" fill="#5de0b1"/><circle cx="100" cy="120" r="4" fill="#fff"/><circle cx="248" cy="133" r="4" fill="#fff"/><path d="M65 142 Q95 124 125 142 L125 174 Q95 156 65 174Z" fill="#fff"/><path d="M125 142 Q155 124 185 142 L185 174 Q155 156 125 174Z" fill="#d8e7ff"/><path d="M125 142V174" stroke="#7396d3" stroke-width="3"/><path d="M76 148l36 0M76 156l36 0M137 148l36 0M137 156l36 0" stroke="#7396d3" stroke-width="2"/><path d="M40 48l5 10 11 2-8 7 2 11-10-6-10 6 2-11-8-7 11-2Z" fill="#f5b82e"/>
+    </svg>
+   </div>
+  </section>
+ </div>
+</header>
+<main class="wrap" id="learning">
+ <section class="stats" aria-label="Learning statistics">
+  <div class="stat"><strong id="totalScore">0</strong><span data-en="Total points" data-hi="कुल अंक">Total points</span></div>
+  <div class="stat"><strong id="quizzesDone">0</strong><span data-en="Quizzes completed" data-hi="पूरी की गई क्विज़">Quizzes completed</span></div>
+  <div class="stat"><strong id="bestScore">—</strong><span data-en="Best score" data-hi="सर्वश्रेष्ठ अंक">Best score</span></div>
+ </section>
+ <nav class="tabs" aria-label="Sections">
+  <button class="tab active" data-tab="learn" data-en="📚 Learn" data-hi="📚 सीखें">📚 Learn</button>
+  <button class="tab" data-tab="quiz" data-en="📝 Quiz" data-hi="📝 क्विज़">📝 Quiz</button>
+  <button class="tab" data-tab="progress" data-en="📈 My progress" data-hi="📈 मेरी प्रगति">📈 My progress</button>
+ </nav>
+ <div class="layout">
+  <div>
+   <section class="panel" id="learnPanel">
+    <h2 data-en="Choose a learning topic" data-hi="सीखने के लिए विषय चुनें">Choose a learning topic</h2>
+    <p class="sub" data-en="Each topic includes bilingual key facts, a visual and a short quiz." data-hi="हर विषय में द्विभाषी मुख्य तथ्य, चित्र और छोटी क्विज़ शामिल है।">Each topic includes bilingual key facts, a visual and a short quiz.</p>
+    <div class="course-grid">
+     <article class="course"><div class="emoji">🌍</div><span class="tag">SCIENCE</span><h3 data-en="Solar System" data-hi="सौरमंडल">Solar System</h3><p data-en="Planets, the Sun and Earth's place in space." data-hi="ग्रह, सूर्य और अंतरिक्ष में पृथ्वी का स्थान।">Planets, the Sun and Earth's place in space.</p><button class="secondary" onclick="openTopic('space')" data-en="Explore topic" data-hi="विषय पढ़ें">Explore topic</button></article>
+     <article class="course"><div class="emoji">🧲</div><span class="tag">SCIENCE</span><h3 data-en="Metals & Non-metals" data-hi="धातु और अधातु">Metals & Non-metals</h3><p data-en="Properties, examples and everyday uses." data-hi="गुण, उदाहरण और दैनिक उपयोग।">Properties, examples and everyday uses.</p><button class="secondary" onclick="openTopic('materials')" data-en="Explore topic" data-hi="विषय पढ़ें">Explore topic</button></article>
+     <article class="course"><div class="emoji">➗</div><span class="tag">MATHEMATICS</span><h3 data-en="Number Skills" data-hi="संख्या कौशल">Number Skills</h3><p data-en="Place value, calculation and number sense." data-hi="स्थानीय मान, गणना और संख्या बोध।">Place value, calculation and number sense.</p><button class="secondary" onclick="openTopic('math')" data-en="Explore topic" data-hi="विषय पढ़ें">Explore topic</button></article>
+     <article class="course"><div class="emoji">💡</div><span class="tag">GENERAL KNOWLEDGE</span><h3 data-en="Everyday GK" data-hi="दैनिक सामान्य ज्ञान">Everyday GK</h3><p data-en="Quick facts about India and the world." data-hi="भारत और दुनिया के बारे में उपयोगी तथ्य।">Quick facts about India and the world.</p><button class="secondary" onclick="openTopic('gk')" data-en="Explore topic" data-hi="विषय पढ़ें">Explore topic</button></article>
+    </div>
+   </section>
+   <section class="panel hidden" id="topicPanel">
+    <div class="qhead"><h2 id="topicTitle">Topic notes</h2><button class="quiet" onclick="showTab('learn')" data-en="← Topics" data-hi="← विषय">← Topics</button></div>
+    <p class="sub" id="topicIntro"></p>
+    <div class="diagram" id="topicDiagram"></div>
+    <ul class="notes-list" id="topicNotes"></ul>
+    <div class="row" style="margin-top:16px"><button class="primary" id="topicQuizBtn" onclick="startQuiz('space')" data-en="Take this topic's quiz" data-hi="इस विषय की क्विज़ दें">Take this topic's quiz</button><button class="secondary" onclick="speakTopic()" data-en="🔊 Read aloud" data-hi="🔊 पढ़कर सुनें">🔊 Read aloud</button></div>
+   </section>
+   <section class="panel hidden" id="quizPanel">
+    <div class="qhead"><div><h2 data-en="Quick knowledge check" data-hi="ज्ञान की छोटी परीक्षा">Quick knowledge check</h2><p class="sub" id="quizTopicLabel">Solar System</p></div><span class="tag" id="qCounter">Question 1/5</span></div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <div class="question" id="questionText"></div>
+    <div class="options" id="options"></div>
+    <div class="feedback" id="feedback" role="status"></div>
+    <div class="quiz-actions"><button class="quiet" onclick="speakQuestion()" data-en="🔊 Hear question" data-hi="🔊 प्रश्न सुनें">🔊 Hear question</button><button class="primary" id="nextBtn" onclick="nextQuestion()" disabled data-en="Next →" data-hi="अगला →">Next →</button></div>
+    <div class="toast" id="quizToast"></div>
+   </section>
+   <section class="panel hidden" id="resultPanel">
+    <div style="font-size:42px">🏆</div><h2 data-en="Quiz complete!" data-hi="क्विज़ पूरी हुई!">Quiz complete!</h2>
+    <p id="resultMessage"></p><div class="row"><button class="primary" onclick="startQuiz(currentTopic)" data-en="Try again" data-hi="फिर से प्रयास करें">Try again</button><button class="secondary" onclick="showTab('learn')" data-en="Choose another topic" data-hi="दूसरा विषय चुनें">Choose another topic</button></div>
+   </section>
+   <section class="panel hidden" id="progressPanel">
+    <h2 data-en="My learning progress" data-hi="मेरी सीखने की प्रगति">My learning progress</h2><p class="sub" data-en="Saved on this device automatically." data-hi="इस डिवाइस पर अपने आप सेव होता है।">Saved on this device automatically.</p>
+    <div class="history" id="historyList"></div>
+    <div class="row" style="margin-top:14px"><button class="secondary" onclick="exportProgress()" data-en="⬇ Export progress" data-hi="⬇ प्रगति डाउनलोड करें">⬇ Export progress</button><button class="quiet" onclick="clearProgress()" data-en="Clear saved progress" data-hi="सेव प्रगति हटाएँ">Clear saved progress</button></div>
+    <p class="small" data-en="Note: local saving stays in this browser/device. To collect student scores across different phones, connect this page to a shared online database or form." data-hi="ध्यान दें: स्थानीय सेव इसी ब्राउज़र/डिवाइस पर रहता है। अलग-अलग मोबाइल के विद्यार्थियों के अंक एक जगह पाने के लिए साझा ऑनलाइन डेटाबेस या फॉर्म जोड़ना होगा।">Note: local saving stays in this browser/device. To collect student scores across different phones, connect this page to a shared online database or form.</p>
+   </section>
+  </div>
+  <aside>
+   <section class="panel">
+    <h2 data-en="Today's learning tip" data-hi="आज का अध्ययन सुझाव">Today's learning tip</h2>
+    <p data-en="Learn one idea, explain it in your own words, then test yourself without looking at the notes." data-hi="एक विचार सीखें, उसे अपने शब्दों में समझाएँ और फिर नोट्स देखे बिना खुद को परखें।">Learn one idea, explain it in your own words, then test yourself without looking at the notes.</p>
+    <div class="diagram"><svg viewBox="0 0 260 115" role="img" aria-label="Learning cycle diagram"><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#2563eb"/></marker></defs><rect x="6" y="12" width="70" height="38" rx="10" fill="#dceaff"/><rect x="94" y="12" width="72" height="38" rx="10" fill="#dff8ed"/><rect x="184" y="12" width="70" height="38" rx="10" fill="#fff0c6"/><g font-size="10" font-weight="700" fill="#18365e" text-anchor="middle"><text x="41" y="35">LEARN</text><text x="130" y="35">EXPLAIN</text><text x="219" y="35">PRACTISE</text></g><g stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrow)"><path d="M77 31H91"/><path d="M167 31H181"/><path d="M219 53Q219 91 130 91Q41 91 41 53"/></g><text x="130" y="108" text-anchor="middle" fill="#526780" font-size="10">Repeat • दोहराएँ</text></svg></div>
+   </section>
+   <section class="panel">
+    <h2 data-en="Your recent results" data-hi="आपके हाल के परिणाम">Your recent results</h2>
+    <div class="history" id="recentList"><p class="small" data-en="Complete a quiz to see your results here." data-hi="यहाँ परिणाम देखने के लिए क्विज़ पूरी करें।">Complete a quiz to see your results here.</p></div>
+    <button class="secondary" style="width:100%;margin-top:12px" onclick="showTab('progress')" data-en="View all progress" data-hi="पूरी प्रगति देखें">View all progress</button>
+   </section>
+   <section class="panel">
+    <h2 data-en="Learning resources" data-hi="अध्ययन सामग्री">Learning resources</h2>
+    <p class="sub" data-en="Use your own lesson videos and notes." data-hi="अपने पाठ के वीडियो और नोट्स जोड़ें।">Use your own lesson videos and notes.</p>
+    <label class="small" for="videoUrl" data-en="YouTube video ID or URL" data-hi="YouTube वीडियो ID या URL">YouTube video ID or URL</label>
+    <input id="videoUrl" placeholder="https://youtube.com/watch?v=..." style="width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;margin:6px 0 9px">
+    <button class="primary" style="width:100%" onclick="loadVideo()" data-en="Load video" data-hi="वीडियो खोलें">Load video</button>
+    <div id="videoBox" class="hidden" style="margin-top:12px"><div style="position:relative;padding-bottom:56.25%;height:0"><iframe id="videoFrame" title="Learning video" style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:10px" allowfullscreen></iframe></div></div>
+   </section>
+  </aside>
+ </div>
+</main>
+<footer>SCIENCE CENTRE LEARNING HUB • Guided by Vishwendra Sir<br><span data-en="Keep curious. Keep learning." data-hi="जिज्ञासु रहें। सीखते रहें।">Keep curious. Keep learning.</span></footer>
+<script>
+const topics={
+space:{title:{en:"Solar System",hi:"सौरमंडल"},intro:{en:"The Sun and the objects that move around it form our Solar System.",hi:"सूर्य और उसके चारों ओर घूमने वाले पिंड मिलकर हमारा सौरमंडल बनाते हैं।"},notes:[{en:"The Sun is a star at the centre of our Solar System.",hi:"सूर्य हमारे सौरमंडल के केंद्र में स्थित एक तारा है।"},{en:"There are eight recognised planets in the Solar System.",hi:"सौरमंडल में आठ मान्यता प्राप्त ग्रह हैं।"},{en:"Earth takes about 365¼ days to orbit the Sun.",hi:"पृथ्वी सूर्य की एक परिक्रमा लगभग 365¼ दिनों में पूरी करती है।"},{en:"The Moon is Earth's natural satellite.",hi:"चंद्रमा पृथ्वी का प्राकृतिक उपग्रह है।"}],diagram:'<svg viewBox="0 0 320 150" role="img" aria-label="Simplified solar system diagram"><circle cx="38" cy="75" r="21" fill="#f6bd35"/><g fill="none" stroke="#b6c7e1" stroke-dasharray="3 4"><ellipse cx="38" cy="75" rx="48" ry="34"/><ellipse cx="38" cy="75" rx="76" ry="49"/><ellipse cx="38" cy="75" rx="105" ry="64"/><ellipse cx="38" cy="75" rx="136" ry="73"/></g><g><circle cx="81" cy="58" r="5" fill="#9b7653"/><circle cx="111" cy="102" r="7" fill="#d6a06c"/><circle cx="138" cy="36" r="8" fill="#3988e8"/><circle cx="172" cy="112" r="7" fill="#d95b4b"/><circle cx="205" cy="41" r="14" fill="#e0b46b"/><circle cx="245" cy="103" r="12" fill="#c9b18a"/><circle cx="277" cy="37" r="10" fill="#8bc8d8"/></g><g font-size="10" fill="#344c70"><text x="16" y="112">Sun</text><text x="124" y="23">Earth</text><text x="184" y="137">Jupiter</text></g></svg>',questions:[{q:{en:"How many recognised planets are in our Solar System?",hi:"हमारे सौरमंडल में कितने मान्यता प्राप्त ग्रह हैं?"},a:["7","8","9","10"],hiA:["7","8","9","10"],correct:1,why:{en:"There are eight recognised planets.",hi:"सौरमंडल में आठ मान्यता प्राप्त ग्रह हैं।"}},{q:{en:"Which object is at the centre of our Solar System?",hi:"हमारे सौरमंडल के केंद्र में कौन-सा पिंड है?"},a:["Earth","Moon","Sun","Mars"],hiA:["पृथ्वी","चंद्रमा","सूर्य","मंगल"],correct:2,why:{en:"The Sun is the central star.",hi:"सूर्य केंद्र में स्थित तारा है।"}},{q:{en:"What is Earth's natural satellite?",hi:"पृथ्वी का प्राकृतिक उपग्रह कौन है?"},a:["Mars","Moon","Venus","Sun"],hiA:["मंगल","चंद्रमा","शुक्र","सूर्य"],correct:1,why:{en:"The Moon orbits Earth.",hi:"चंद्रमा पृथ्वी की परिक्रमा करता है।"}},{q:{en:"Earth takes about how long to orbit the Sun?",hi:"पृथ्वी सूर्य की परिक्रमा लगभग कितने समय में करती है?"},a:["24 hours","30 days","365¼ days","12 hours"],hiA:["24 घंटे","30 दिन","365¼ दिन","12 घंटे"],correct:2,why:{en:"One orbit takes about one year.",hi:"एक परिक्रमा में लगभग एक वर्ष लगता है।"}},{q:{en:"The Sun is a…",hi:"सूर्य एक… है।"},a:["Planet","Comet","Star","Satellite"],hiA:["ग्रह","धूमकेतु","तारा","उपग्रह"],correct:2,why:{en:"The Sun produces its own light and is a star.",hi:"सूर्य अपना प्रकाश देता है, इसलिए यह तारा है।"}}]},
+materials:{title:{en:"Metals & Non-metals",hi:"धातु और अधातु"},intro:{en:"Materials are grouped by properties such as lustre, conductivity and malleability.",hi:"चमक, चालकता और आघातवर्धनीयता जैसे गुणों के आधार पर पदार्थों का वर्गीकरण किया जाता है।"},notes:[{en:"Many metals are lustrous and conduct heat and electricity well.",hi:"कई धातुएँ चमकदार होती हैं और ऊष्मा व बिजली की अच्छी चालक होती हैं।"},{en:"Copper is commonly used in electrical wires.",hi:"ताँबे का उपयोग सामान्यतः बिजली के तारों में होता है।"},{en:"Sulphur is a non-metal.",hi:"सल्फर एक अधातु है।"},{en:"Graphite, a form of carbon, can conduct electricity.",hi:"कार्बन का एक रूप ग्रेफाइट बिजली का संचालन कर सकता है।"}],diagram:'<svg viewBox="0 0 320 145" role="img" aria-label="Metal and non-metal comparison"><rect x="8" y="10" width="145" height="124" rx="12" fill="#e1edff"/><rect x="167" y="10" width="145" height="124" rx="12" fill="#e3f7ed"/><text x="80" y="34" text-anchor="middle" font-size="14" font-weight="800" fill="#204c92">METALS</text><text x="239" y="34" text-anchor="middle" font-size="14" font-weight="800" fill="#176647">NON-METALS</text><rect x="38" y="48" width="85" height="24" rx="5" fill="#9daec6" stroke="#536b8d"/><path d="M42 52h76" stroke="#fff" stroke-width="3"/><circle cx="211" cy="60" r="14" fill="#d7b84b"/><path d="M234 49l18 22M252 49l-18 22" stroke="#9a7d23" stroke-width="4"/><g font-size="10" fill="#334b6d" text-anchor="middle"><text x="80" y="91">Often shiny</text><text x="80" y="105">Good conductors</text><text x="239" y="91">Often dull</text><text x="239" y="105">Usually poor conductors</text></g></svg>',questions:[{q:{en:"Which metal is commonly used in electrical wires?",hi:"बिजली के तारों में सामान्यतः किस धातु का उपयोग होता है?"},a:["Sulphur","Copper","Coal","Wood"],hiA:["सल्फर","ताँबा","कोयला","लकड़ी"],correct:1,why:{en:"Copper conducts electricity well.",hi:"ताँबा बिजली का अच्छा चालक है।"}},{q:{en:"Which of these is a non-metal?",hi:"इनमें से कौन-सा अधातु है?"},a:["Iron","Aluminium","Sulphur","Copper"],hiA:["लोहा","एल्युमिनियम","सल्फर","ताँबा"],correct:2,why:{en:"Sulphur is classified as a non-metal.",hi:"सल्फर को अधातु माना जाता है।"}},{q:{en:"Which property describes a shiny surface?",hi:"चमकदार सतह के गुण को क्या कहते हैं?"},a:["Lustre","Solubility","Elasticity","Density"],hiA:["चमक","विलेयता","प्रत्यास्थता","घनत्व"],correct:0,why:{en:"Lustre means a surface has shine.",hi:"Lustre का अर्थ सतह की चमक है।"}},{q:{en:"Which non-metal form can conduct electricity?",hi:"अधातु का कौन-सा रूप बिजली का संचालन कर सकता है?"},a:["Sulphur","Graphite","Oxygen","Phosphorus"],hiA:["सल्फर","ग्रेफाइट","ऑक्सीजन","फॉस्फोरस"],correct:1,why:{en:"Graphite is a conducting form of carbon.",hi:"ग्रेफाइट कार्बन का विद्युत चालक रूप है।"}},{q:{en:"Metals are generally good conductors of…",hi:"धातुएँ सामान्यतः किसकी अच्छी चालक होती हैं?"},a:["Only sound","Heat and electricity","Only light","None"],hiA:["केवल ध्वनि","ऊष्मा और बिजली","केवल प्रकाश","इनमें से कोई नहीं"],correct:1,why:{en:"Most metals conduct heat and electricity well.",hi:"अधिकांश धातुएँ ऊष्मा और बिजली की अच्छी चालक हैं।"}}]},
+math:{title:{en:"Number Skills",hi:"संख्या कौशल"},intro:{en:"Place value helps us understand the value of each digit in a number.",hi:"स्थानीय मान हमें संख्या में प्रत्येक अंक का मान समझने में मदद करता है।"},notes:[{en:"In 4,582, the digit 5 is in the hundreds place.",hi:"4,582 में अंक 5 सैकड़े के स्थान पर है।"},{en:"Place value of 5 in 4,582 is 500.",hi:"4,582 में 5 का स्थानीय मान 500 है।"},{en:"Addition combines quantities; subtraction finds the difference.",hi:"जोड़ मात्राओं को मिलाता है; घटाव अंतर बताता है।"},{en:"Estimate an answer to check whether it is reasonable.",hi:"उत्तर उचित है या नहीं, यह जाँचने के लिए अनुमान लगाएँ।"}],diagram:'<svg viewBox="0 0 320 120" role="img" aria-label="Place value chart"><g font-size="11" font-weight="700" text-anchor="middle"><rect x="10" y="15" width="70" height="65" rx="8" fill="#dceaff"/><rect x="88" y="15" width="70" height="65" rx="8" fill="#e0f7ed"/><rect x="166" y="15" width="70" height="65" rx="8" fill="#fff0c6"/><rect x="244" y="15" width="65" height="65" rx="8" fill="#f8e5ff"/><g fill="#35506f"><text x="45" y="34">Thousands</text><text x="123" y="34">Hundreds</text><text x="201" y="34">Tens</text><text x="276" y="34">Ones</text></g><g font-size="23" fill="#172d50"><text x="45" y="64">4</text><text x="123" y="64">5</text><text x="201" y="64">8</text><text x="276" y="64">2</text></g><g font-size="11" fill="#526780"><text x="160" y="105">4,582 = 4,000 + 500 + 80 + 2</text></g></g></svg>',questions:[{q:{en:"What is the place value of 5 in 4,582?",hi:"4,582 में 5 का स्थानीय मान क्या है?"},a:["5","50","500","5,000"],hiA:["5","50","500","5,000"],correct:2,why:{en:"5 is in the hundreds place, so its value is 500.",hi:"5 सैकड़े के स्थान पर है, इसलिए इसका मान 500 है।"}},{q:{en:"What is 240 + 60?",hi:"240 + 60 कितना होगा?"},a:["260","300","320","200"],hiA:["260","300","320","200"],correct:1,why:{en:"240 + 60 = 300.",hi:"240 + 60 = 300।"}},{q:{en:"Which is the greatest number?",hi:"सबसे बड़ी संख्या कौन-सी है?"},a:["3,209","3,902","3,290","3,029"],hiA:["3,209","3,902","3,290","3,029"],correct:1,why:{en:"3,902 is the greatest of these numbers.",hi:"इन संख्याओं में 3,902 सबसे बड़ी है।"}},{q:{en:"What is 9 × 7?",hi:"9 × 7 कितना है?"},a:["54","63","72","56"],hiA:["54","63","72","56"],correct:1,why:{en:"9 multiplied by 7 equals 63.",hi:"9 गुणा 7 = 63।"}},{q:{en:"Which operation finds the difference between numbers?",hi:"संख्याओं का अंतर ज्ञात करने के लिए कौन-सी संक्रिया है?"},a:["Addition","Multiplication","Subtraction","Division"],hiA:["जोड़","गुणा","घटाव","भाग"],correct:2,why:{en:"Subtraction finds the difference.",hi:"घटाव से अंतर ज्ञात होता है।"}}]},
+gk:{title:{en:"Everyday GK",hi:"दैनिक सामान्य ज्ञान"},intro:{en:"Build a strong knowledge base with simple facts about India and the world.",hi:"भारत और दुनिया के सरल तथ्यों से अपना सामान्य ज्ञान मजबूत करें।"},notes:[{en:"New Delhi is the capital of India.",hi:"नई दिल्ली भारत की राजधानी है।"},{en:"The national flag of India has saffron, white and green stripes with a navy-blue Ashoka Chakra.",hi:"भारत के राष्ट्रीय ध्वज में केसरिया, सफेद और हरी पट्टियाँ तथा गहरे नीले रंग का अशोक चक्र है।"},{en:"The Pacific Ocean is the largest ocean on Earth.",hi:"प्रशांत महासागर पृथ्वी का सबसे बड़ा महासागर है।"},{en:"The United Nations was founded in 1945.",hi:"संयुक्त राष्ट्र की स्थापना 1945 में हुई थी।"}],diagram:'<svg viewBox="0 0 320 130" role="img" aria-label="Indian flag diagram"><rect x="55" y="12" width="210" height="35" rx="3" fill="#ff9933"/><rect x="55" y="47" width="210" height="35" fill="#fff" stroke="#e0e5ee"/><rect x="55" y="82" width="210" height="35" rx="3" fill="#138808"/><circle cx="160" cy="64.5" r="14" fill="none" stroke="#000080" stroke-width="2"/><circle cx="160" cy="64.5" r="2.5" fill="#000080"/><g stroke="#000080" stroke-width="1"><path d="M160 50v29M145.5 64.5h29M149.7 54.2l20.6 20.6M170.3 54.2l-20.6 20.6"/></g></svg>',questions:[{q:{en:"What is the capital of India?",hi:"भारत की राजधानी क्या है?"},a:["Mumbai","New Delhi","Kolkata","Chennai"],hiA:["मुंबई","नई दिल्ली","कोलकाता","चेन्नई"],correct:1,why:{en:"New Delhi is the capital of India.",hi:"नई दिल्ली भारत की राजधानी है।"}},{q:{en:"Which is the largest ocean on Earth?",hi:"पृथ्वी का सबसे बड़ा महासागर कौन-सा है?"},a:["Indian","Atlantic","Pacific","Arctic"],hiA:["हिंद","अटलांटिक","प्रशांत","आर्कटिक"],correct:2,why:{en:"The Pacific Ocean is the largest.",hi:"प्रशांत महासागर सबसे बड़ा है।"}},{q:{en:"In which year was the United Nations founded?",hi:"संयुक्त राष्ट्र की स्थापना किस वर्ष हुई?"},a:["1919","1945","1950","1965"],hiA:["1919","1945","1950","1965"],correct:1,why:{en:"The United Nations was founded in 1945.",hi:"संयुक्त राष्ट्र की स्थापना 1945 में हुई।"}},{q:{en:"How many colours are on the Indian national flag's horizontal stripes?",hi:"भारतीय राष्ट्रीय ध्वज की क्षैतिज पट्टियों में कितने रंग हैं?"},a:["2","3","4","5"],hiA:["2","3","4","5"],correct:1,why:{en:"The stripes are saffron, white and green.",hi:"पट्टियाँ केसरिया, सफेद और हरे रंग की हैं।"}},{q:{en:"Which planet is known as the Red Planet?",hi:"किस ग्रह को लाल ग्रह कहा जाता है?"},a:["Venus","Mars","Jupiter","Mercury"],hiA:["शुक्र","मंगल","बृहस्पति","बुध"],correct:1,why:{en:"Iron-rich dust makes Mars appear reddish.",hi:"लौह-युक्त धूल के कारण मंगल लाल दिखाई देता है।"}}]}
+};
+let lang='en',currentTopic='space',quiz=[],qIndex=0,score=0,answered=false;
+const $=id=>document.getElementById(id);
+function tr(obj){return obj[lang]||obj.en}
+function showTab(tab){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['learn','quiz','progress'].forEach(t=>$(t+'Panel').classList.toggle('hidden',t!==tab));$('topicPanel').classList.add('hidden');$('resultPanel').classList.add('hidden');if(tab==='progress')renderProgress();if(tab==='learn')$('learnPanel').classList.remove('hidden')}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+function openTopic(id){currentTopic=id;const t=topics[id];$('learnPanel').classList.add('hidden');$('topicPanel').classList.remove('hidden');$('topicTitle').textContent=tr(t.title);$('topicIntro').textContent=tr(t.intro);$('topicDiagram').innerHTML=t.diagram;$('topicNotes').innerHTML=t.notes.map(n=>'<li>'+esc(tr(n))+'</li>').join('');$('topicQuizBtn').onclick=()=>startQuiz(id);window.scrollTo({top:$('learning').offsetTop-10,behavior:'smooth'})}
+function startQuiz(id){currentTopic=id;quiz=topics[id].questions.slice();qIndex=0;score=0;answered=false;$('learnPanel').classList.add('hidden');$('topicPanel').classList.add('hidden');$('progressPanel').classList.add('hidden');$('resultPanel').classList.add('hidden');$('quizPanel').classList.remove('hidden');document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab==='quiz'));$('quizTopicLabel').textContent=tr(topics[id].title);renderQuestion();window.scrollTo({top:$('learning').offsetTop-10,behavior:'smooth'})}
+function renderQuestion(){answered=false;const q=quiz[qIndex];$('qCounter').textContent=(lang==='hi'?'प्रश्न ':'Question ')+(qIndex+1)+'/'+quiz.length;$('progressBar').style.width=(qIndex/quiz.length*100)+'%';$('questionText').textContent=tr(q.q);$('options').innerHTML='';$('feedback').style.display='none';$('nextBtn').disabled=true;$('nextBtn').textContent=qIndex===quiz.length-1?(lang==='hi'?'परिणाम देखें':'See results'):(lang==='hi'?'अगला →':'Next →');q.a.forEach((a,i)=>{let b=document.createElement('button');b.className='option';b.textContent=(lang==='hi'?q.hiA[i]:a);b.onclick=()=>answer(i,b);$('options').appendChild(b)})}
+function answer(i,btn){if(answered)return;answered=true;const q=quiz[qIndex];const buttons=[...$('options').children];buttons.forEach((b,j)=>{b.disabled=true;if(j===q.correct)b.classList.add('correct')});if(i===q.correct){score++;btn.classList.add('correct')}else btn.classList.add('wrong');$('feedback').style.display='block';$('feedback').textContent=(i===q.correct?(lang==='hi'?'सही जवाब! ':'Correct! '):(lang==='hi'?'सही उत्तर: '+q.hiA[q.correct]+'. ':'Correct answer: '+q.a[q.correct]+'. '))+tr(q.why);$('nextBtn').disabled=false;$('progressBar').style.width=((qIndex+1)/quiz.length*100)+'%'}
+function nextQuestion(){if(!answered)return;if(qIndex<quiz.length-1){qIndex++;renderQuestion()}else finishQuiz()}
+function finishQuiz(){const percent=Math.round(score/quiz.length*100);const rec={topic:currentTopic,topicName:tr(topics[currentTopic].title),score,total:quiz.length,percent,date:new Date().toISOString()};let data=getData();data.history.unshift(rec);data.history=data.history.slice(0,100);data.totalPoints+=score;data.quizzesDone++;data.bestScore=Math.max(data.bestScore||0,percent);saveData(data);$('quizPanel').classList.add('hidden');$('resultPanel').classList.remove('hidden');$('resultMessage').textContent=(lang==='hi'?'आपके अंक: ':'Your score: ')+score+'/'+quiz.length+' ('+percent+'%). '+(percent>=80?(lang==='hi'?'बहुत बढ़िया! शानदार काम।':'Excellent work! Keep it up.'):percent>=50?(lang==='hi'?'अच्छा प्रयास! नोट्स दोबारा पढ़कर फिर कोशिश करें।':'Good effort! Review the notes and try again.'): (lang==='hi'?'अभ्यास जारी रखें—आप बेहतर कर सकते हैं।':'Keep practising—you can improve.'));document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab==='quiz'));updateStats();renderRecent()}
+function getData(){try{return JSON.parse(localStorage.getItem('schub_progress')||'{"totalPoints":0,"quizzesDone":0,"bestScore":0,"history":[]}')}catch(e){return {totalPoints:0,quizzesDone:0,bestScore:0,history:[]}}}
+function saveData(d){try{localStorage.setItem('schub_progress',JSON.stringify(d))}catch(e){alert('Could not save progress in this browser.')}} 
+function updateStats(){const d=getData();$('totalScore').textContent=d.totalPoints;$('quizzesDone').textContent=d.quizzesDone;$('bestScore').textContent=d.quizzesDone?d.bestScore+'%':'—'}
+function renderRecent(){const h=getData().history.slice(0,3);$('recentList').innerHTML=h.length?h.map(r=>'<div class="history-item"><span>'+esc(r.topicName)+'</span><strong>'+r.score+'/'+r.total+' · '+r.percent+'%</strong></div>').join(''):'<p class="small">Complete a quiz to see your results here.</p>'}
+function renderProgress(){const h=getData().history;$('historyList').innerHTML=h.length?h.map(r=>'<div class="history-item"><span>'+esc(r.topicName)+'<br><span class="small">'+new Date(r.date).toLocaleString()+'</span></span><strong>'+r.score+'/'+r.total+'<br>'+r.percent+'%</strong></div>').join(''):'<p class="small">'+(lang==='hi'?'अभी कोई परिणाम सेव नहीं है।':'No results saved yet.')+'</p>'}
+function clearProgress(){if(confirm(lang==='hi'?'क्या आप इस डिवाइस से सेव प्रगति हटाना चाहते हैं?':'Clear saved progress from this device?')){localStorage.removeItem('schub_progress');updateStats();renderProgress();renderRecent()}}
+function exportProgress(){const blob=new Blob([JSON.stringify(getData(),null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='science-centre-learning-progress.json';a.click();URL.revokeObjectURL(a.href)}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function speak(text){if(!('speechSynthesis'in window)){alert('Text-to-speech is not supported in this browser.');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=lang==='hi'?'hi-IN':'en-IN';u.rate=.9;speechSynthesis.speak(u)}
+function speakPage(){speak(lang==='hi'?'साइंस सेंटर लर्निंग हब में आपका स्वागत है। विज्ञान, गणित और सामान्य ज्ञान के विषय चुनें, नोट्स पढ़ें और क्विज़ हल करें।':'Welcome to Science Centre Learning Hub. Choose a topic in science, mathematics or general knowledge, explore the notes and take a quiz.')}
+function speakTopic(){const t=topics[currentTopic];speak(tr(t.title)+'. '+tr(t.intro)+'. '+t.notes.map(tr).join('. '))}
+function speakQuestion(){if(quiz.length)speak(tr(quiz[qIndex].q))}
+function loadVideo(){let v=$('videoUrl').value.trim();let id='';try{if(/^[\w-]{11}$/.test(v))id=v;else{const u=new URL(v);id=u.searchParams.get('v')||((u.hostname.includes('youtu.be'))?u.pathname.slice(1):'');if(u.pathname.includes('/shorts/'))id=u.pathname.split('/shorts/')[1].split('/')[0]}}catch(e){}if(!/^[\w-]{11}$/.test(id)){alert(lang==='hi'?'कृपया सही YouTube वीडियो URL या 11-अक्षर की वीडियो ID डालें।':'Please enter a valid YouTube video URL or 11-character video ID.');return}$('videoFrame').src='https://www.youtube-nocookie.com/embed/'+id;$('videoBox').classList.remove('hidden')}
+$('language').addEventListener('change',e=>{lang=e.target.value;document.documentElement.lang=lang;document.querySelectorAll('[data-en][data-hi]').forEach(el=>el.textContent=el.dataset[lang]);updateStats();renderRecent();if(!$('topicPanel').classList.contains('hidden'))openTopic(currentTopic);if(!$('quizPanel').classList.contains('hidden')){const wasAnswered=answered;renderQuestion();if(wasAnswered){/* language switch resets current question for a fair, clear view */}}if(!$('progressPanel').classList.contains('hidden'))renderProgress()});
+updateStats();renderRecent();
+</script>
+</body>
+</html>

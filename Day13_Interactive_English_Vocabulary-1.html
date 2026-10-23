@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Day 13 Interactive Vocabulary</title>
+<style>
+:root{--navy:#10284b;--blue:#2463eb;--yellow:#ffe45c;--green:#16834a;--paper:#f4f8ff;--ink:#17243a}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 Arial,sans-serif}header{background:linear-gradient(120deg,#10284b,#2257a7);color:#fff;text-align:center;padding:24px 14px}header .day{background:#ffe45c;color:#10284b;padding:5px 14px;border-radius:99px;font-weight:bold}h1{font-size:clamp(1.6rem,5vw,2.4rem);margin:12px 0 4px}main{max-width:850px;margin:16px auto;padding:0 12px 28px}.panel{background:#fff;border:1px solid #e1e9f5;border-radius:16px;padding:17px;margin:14px 0;box-shadow:0 5px 18px #10284b12}h2{margin:0 0 12px;color:var(--navy)}.word{border-left:5px solid var(--blue);padding:10px 12px;margin:10px 0;background:#f6f9ff;border-radius:9px}.word strong{font-size:1.1rem;color:#174db2}.meaning{font-weight:bold;color:var(--green)}.example{margin:4px 0}.toggle{border:0;background:#e4edff;color:#163f88;padding:7px 10px;border-radius:8px;font-weight:bold;margin-top:5px}.question{padding:13px 0;border-bottom:1px solid #e7edf6}.question p{font-weight:bold;margin:0 0 8px}.options{display:grid;grid-template-columns:1fr 1fr;gap:8px}.options label{display:flex;gap:8px;align-items:center;border:1px solid #dce5f2;border-radius:9px;padding:10px}.options input{accent-color:var(--blue)}button{font:inherit;cursor:pointer}.primary{background:var(--blue);color:#fff;border:0;border-radius:10px;padding:10px 15px;font-weight:bold}.secondary{background:#edf2fa;color:#1d3150;border:0;border-radius:10px;padding:10px 15px;font-weight:bold}.feedback{font-weight:bold;margin-top:7px;min-height:22px}.score{font-size:1.2rem;font-weight:bold;color:var(--navy);margin-top:10px}textarea{width:100%;border:1px solid #cad6e7;border-radius:10px;padding:12px;font:inherit}.small{font-size:.92rem;color:#52627a}footer{background:var(--navy);color:white;text-align:center;padding:20px 12px}footer strong{color:var(--yellow)}@media(max-width:520px){.options{grid-template-columns:1fr}.panel{padding:14px}}
+</style></head><body>
+<header><span class="day">DAY 13 • INTERACTIVE LEARNING</span><h1>🔬 Science &amp; Discovery</h1><p>Learn 5 English words • हिंदी अर्थ • Examples • Quiz</p><strong>Science Centre Learning Hub</strong></header>
+<main>
+<section class="panel"><h2>🔊 Audio Learning</h2>
+<p>Tap a button to hear the words and example sentences aloud. Sound uses your device/browser speech voice.</p>
+<div style="display:flex;gap:9px;flex-wrap:wrap"><button class="primary" type="button" onclick="speakAll()">▶️ Play All Words</button><button class="secondary" type="button" onclick="stopSpeech()">⏹ Stop Audio</button></div>
+<div id="audioStatus" class="feedback" aria-live="polite"></div></section>
+<section class="panel"><h2>📘 Learn the 5 Words</h2>
+<div class="word"><strong>1. Observe</strong> <span class="meaning">— निरीक्षण करना</span><p class="example">Example: Observe the stars carefully.</p><button class="toggle" onclick="toggleMeaning(this)">Hide Hindi meaning</button> <button class="toggle" onclick="speakText('Observe. Observe the stars carefully.')">🔊 Listen</button></div>
+<div class="word"><strong>2. Discover</strong> <span class="meaning">— खोज करना / पता लगाना</span><p class="example">Example: Scientists discover new things.</p><button class="toggle" onclick="toggleMeaning(this)">Hide Hindi meaning</button> <button class="toggle" onclick="speakText('Discover. Scientists discover new things.')">🔊 Listen</button></div>
+<div class="word"><strong>3. Explore</strong> <span class="meaning">— खोजबीन करना</span><p class="example">Example: We explore the world around us.</p><button class="toggle" onclick="toggleMeaning(this)">Hide Hindi meaning</button> <button class="toggle" onclick="speakText('Explore. We explore the world around us.')">🔊 Listen</button></div>
+<div class="word"><strong>4. Experiment</strong> <span class="meaning">— प्रयोग</span><p class="example">Example: We perform an experiment in the lab.</p><button class="toggle" onclick="toggleMeaning(this)">Hide Hindi meaning</button> <button class="toggle" onclick="speakText('Experiment. We perform an experiment in the lab.')">🔊 Listen</button></div>
+<div class="word"><strong>5. Conclusion</strong> <span class="meaning">— निष्कर्ष</span><p class="example">Example: We reached the right conclusion.</p><button class="toggle" onclick="toggleMeaning(this)">Hide Hindi meaning</button> <button class="toggle" onclick="speakText('Conclusion. We reached the right conclusion.')">🔊 Listen</button></div><p class="small">Tip: Read each word aloud, then say its example sentence.</p></section>
+<section class="panel"><h2>🧠 Quick Quiz</h2><p class="small">Choose one answer for each question, then tap “Check Score”.</p><form id="quiz">
+<div class="question"><p>1. What does “Observe” mean?</p><div class="options"><label><input type="radio" name="q1" value="a"> प्रयोग करना</label><label><input type="radio" name="q1" value="b"> निरीक्षण करना</label><label><input type="radio" name="q1" value="c"> निष्कर्ष</label></div><div class="feedback" id="f1"></div></div>
+<div class="question"><p>2. Scientists ______ new things.</p><div class="options"><label><input type="radio" name="q2" value="a"> discover</label><label><input type="radio" name="q2" value="b"> patient</label><label><input type="radio" name="q2" value="c"> humid</label></div><div class="feedback" id="f2"></div></div>
+<div class="question"><p>3. “Explore” means:</p><div class="options"><label><input type="radio" name="q3" value="a"> आभारी</label><label><input type="radio" name="q3" value="b"> बूंदाबांदी</label><label><input type="radio" name="q3" value="c"> खोजबीन करना</label></div><div class="feedback" id="f3"></div></div>
+<div class="question"><p>4. What do we call a scientific test done to learn something?</p><div class="options"><label><input type="radio" name="q4" value="a"> Breeze</label><label><input type="radio" name="q4" value="b"> Experiment</label><label><input type="radio" name="q4" value="c"> Sapling</label></div><div class="feedback" id="f4"></div></div>
+<div class="question"><p>5. “Conclusion” means:</p><div class="options"><label><input type="radio" name="q5" value="a"> निष्कर्ष</label><label><input type="radio" name="q5" value="b"> हल्की हवा</label><label><input type="radio" name="q5" value="c"> जिज्ञासु</label></div><div class="feedback" id="f5"></div></div>
+<div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:15px"><button type="button" class="primary" onclick="checkQuiz()">Check Score</button><button type="reset" class="secondary" onclick="resetQuiz()">Try Again</button></div><div class="score" id="score" aria-live="polite"></div></form></section>
+<section class="panel"><h2>✍️ Your Comment Challenge</h2><p>Write one English sentence using <strong>DISCOVER</strong>.</p><textarea id="sentence" rows="3" placeholder="Example: I want to discover a new planet."></textarea><div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:10px"><button class="primary" onclick="checkSentence()">Check My Sentence</button><button class="secondary" onclick="copyChallenge()">Copy Challenge</button></div><div class="feedback" id="sentenceFeedback" aria-live="polite"></div><p class="small">Your sentence stays on this page. Copy it if you want to share it in a comment.</p></section>
+<section class="panel"><h2>🔗 Keep Learning</h2><p>Follow us on Instagram and Facebook, and subscribe on YouTube.</p><strong>Science Centre Learning Hub</strong><p>📞 6350248088</p><p class="small">Guided by Vishwendra Sir</p></section></main>
+<footer><strong>Science Centre Learning Hub</strong><br>Guided by Vishwendra Sir<br>📞 6350248088<br><span class="small" style="color:#e5ecf7">Learn Daily • Practice Smart • Grow Confident</span></footer>
+<script>
+
+function speakText(text){
+ const status=document.getElementById('audioStatus');
+ if(!('speechSynthesis' in window)){status.textContent='Audio is not supported in this browser. Please try Chrome.';status.style.color='#c12a37';return}
+ window.speechSynthesis.cancel();
+ const u=new SpeechSynthesisUtterance(text);u.lang='en-IN';u.rate=0.86;u.pitch=1;
+ u.onstart=()=>{status.textContent='🔊 Playing audio…';status.style.color='#16834a'};
+ u.onend=()=>{status.textContent='Audio finished.'};
+ u.onerror=()=>{status.textContent='Could not play audio. Check volume and browser settings.';status.style.color='#c12a37'};
+ window.speechSynthesis.speak(u);
+}
+function speakAll(){
+ const items=['Observe. Observe the stars carefully.','Discover. Scientists discover new things.','Explore. We explore the world around us.','Experiment. We perform an experiment in the lab.','Conclusion. We reached the right conclusion.'];
+ if(!('speechSynthesis' in window)){document.getElementById('audioStatus').textContent='Audio is not supported in this browser. Please try Chrome.';return}
+ window.speechSynthesis.cancel();let i=0;
+ function next(){if(i>=items.length){document.getElementById('audioStatus').textContent='All words played. Great practice!';return}
+ const u=new SpeechSynthesisUtterance(items[i++]);u.lang='en-IN';u.rate=0.86;u.pitch=1;
+ u.onstart=()=>document.getElementById('audioStatus').textContent='🔊 Playing word '+i+' of '+items.length;
+ u.onend=next;u.onerror=next;window.speechSynthesis.speak(u)}
+ next();
+}
+function stopSpeech(){if('speechSynthesis' in window)window.speechSynthesis.cancel();document.getElementById('audioStatus').textContent='Audio stopped.'}
+
+function toggleMeaning(btn){const el=btn.parentElement.querySelector('.meaning');const hidden=el.style.visibility==='hidden';el.style.visibility=hidden?'visible':'hidden';btn.textContent=hidden?'Hide Hindi meaning':'Show Hindi meaning'}
+const answers={q1:'b',q2:'a',q3:'c',q4:'b',q5:'a'};
+function checkQuiz(){let score=0;for(let i=1;i<=5;i++){const n='q'+i,c=document.querySelector('input[name="'+n+'"]:checked'),f=document.getElementById('f'+i);if(!c){f.textContent='Please choose an answer.';f.style.color='#9a6700'}else if(c.value===answers[n]){score++;f.textContent='Correct! ✓';f.style.color='#16834a'}else{f.textContent='Not quite. Review the words and try again.';f.style.color='#c12a37'}}document.getElementById('score').textContent='Your Score: '+score+' / 5'+(score===5?' — Excellent work!':score>=3?' — Good effort!':' — Keep practising!')}
+function resetQuiz(){setTimeout(()=>{for(let i=1;i<=5;i++)document.getElementById('f'+i).textContent='';document.getElementById('score').textContent=''},0)}
+function checkSentence(){const s=document.getElementById('sentence').value.trim(),f=document.getElementById('sentenceFeedback');if(!s){f.textContent='Please write a sentence first.';f.style.color='#9a6700';return}if(!/\bdiscover(?:s|ed|ing)?\b/i.test(s)){f.textContent='Try including the word DISCOVER in your sentence.';f.style.color='#9a6700';return}if(s.split(/\s+/).length<3){f.textContent='Add a few more words to make a complete sentence.';f.style.color='#9a6700';return}f.textContent='Great effort! Your sentence includes DISCOVER. ✓';f.style.color='#16834a'}
+function copyChallenge(){const s=document.getElementById('sentence').value.trim(),t='Science Centre Learning Hub — Day 13 Challenge: Write one English sentence using DISCOVER.\nMy sentence: '+(s||'');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(()=>showCopy('Challenge copied!')).catch(()=>fallbackCopy(t))}else fallbackCopy(t)}
+function showCopy(t){const f=document.getElementById('sentenceFeedback');f.textContent=t;f.style.color='#16834a'}
+function fallbackCopy(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');showCopy('Challenge copied!')}catch(e){showCopy('Please select and copy the challenge text manually.')}a.remove()}
+</script></body></html>
