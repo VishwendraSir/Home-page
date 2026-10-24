@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14532d">
+  <title>Science Centre Learning Hub | Premium Library</title>
+  <style>
+    :root {
+      --green-900: #14532d;
+      --green-800: #166534;
+      --green-700: #15803d;
+      --green-600: #16a34a;
+      --green-500: #22c55e;
+      --green-100: #dcfce7;
+      --sky-100: #eff6ff;
+      --blue-700: #1d4ed8;
+      --amber-100: #fef3c7;
+      --paper: #f5f8f6;
+      --ink: #172033;
+      --muted: #53657d;
+      --line: #dfe9ef;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(20, 83, 45, 0.12);
+      --gold: #f59e0b;
+      --danger: #b91c1c;
+      --violet: #4f46e5;
+      --warning-bg: #fff7ed;
+      --gray-100: #f3f4f6;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans Devanagari", sans-serif;
+      background: linear-gradient(180deg, #eefbf4 0%, #f6faf7 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 24px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: linear-gradient(135deg, #052e16 0%, #166534 32%, #0f766e 100%);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.14);
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.24);
+      font-size: 1.3rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-copy strong {
+      font-size: clamp(0.95rem, 2vw, 1.4rem);
+    }
+
+    .brand-copy span {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link,
+    .btn,
+    .outline-btn,
+    .status-btn {
+      border: none;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      text-decoration: none;
+    }
+
+    .nav-link {
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #166534, #16a34a);
+      color: white;
+      box-shadow: 0 12px 24px rgba(22, 101, 52, 0.16);
+    }
+
+    .outline-btn {
+      background: #eef2ff;
+      color: #1f2a44;
+      border: 1px solid #dfe7ff;
+    }
+
+    .status-btn {
+      background: var(--warning-bg);
+      color: #7c4a00;
+      border: 1px solid #f0d39a;
+    }
+
+    .nav-link:hover, .btn:hover, .outline-btn:hover, .status-btn:hover, .resource-card:hover {
+      transform: translateY(-2px);
+    }
+
+    main {
+      padding: 28px 0 42px;
+    }
+
+    .hero {
+      margin-bottom: 26px;
+      background: linear-gradient(135deg, #f3faf5, #eff6ff);
+      border: 1px solid #dfeaf4;
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 18px 32px rgba(15, 23, 42, 0.04);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--green-800);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      padding: 7px 12px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 16px 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      color: var(--green-900);
+    }
+
+    .hero p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      max-width: 65ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .info-box {
+      background: white;
+      border: 1px solid #dfeaf4;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-box h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: var(--green-900);
+    }
+
+    .pay-box {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .pay-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: #f8fafc;
+      border: 1px solid #dfeaf4;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .badge.free {
+      background: #dcfce7;
+      color: var(--green-800);
+    }
+
+    .badge.premium {
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+
+    .badge.locked {
+      background: #fee2e2;
+      color: var(--danger);
+    }
+
+    .badge.archived {
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(140px, 0.5fr) auto;
+      gap: 10px;
+      align-items: center;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03);
+      margin-bottom: 18px;
+    }
+
+    .toolbar input,
+    .toolbar select,
+    .toolbar button {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      padding: 11px 12px;
+      background: white;
+      color: var(--ink);
+    }
+
+    .toolbar button {
+      background: var(--green-800);
+      color: white;
+      border: none;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .resource-card {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 16px 14px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
+      min-height: 260px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resource-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #3b82f6, #f59e0b);
+    }
+
+    .resource-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      background: #effaf3;
+      color: var(--green-800);
+      border: 1px solid #dfeee4;
+    }
+
+    .resource-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      color: var(--ink);
+    }
+
+    .resource-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .resource-card p {
+      color: var(--muted);
+      margin: 0 0 12px;
+      flex: 1;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1px solid #eef2f7;
+    }
+
+    .price {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--green-900);
+    }
+
+    .resource-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .small-btn {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .small-btn.primary {
+      background: var(--green-800);
+      color: white;
+      border-color: var(--green-800);
+    }
+
+    .small-btn.secondary {
+      background: #eef2ff;
+      color: #1f2a44;
+      border-color: #dfe7ff;
+    }
+
+    .small-btn.warn {
+      background: var(--warning-bg);
+      border-color: #f0d39a;
+      color: #7c4a00;
+    }
+
+    .footer {
+      background: linear-gradient(180deg, #062a1c, #0c3d2d);
+      color: white;
+      margin-top: 26px;
+      padding: 22px 0 26px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      font-size: 1.1rem;
+    }
+
+    .footer small {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .hide { display: none !important; }
+
+    @media (max-width: 760px) {
+      .hero-grid,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .header-row {
+        align-items: flex-start;
+      }
+
+      .header-nav {
+        width: 100%;
+      }
+
+      .nav-link, .btn, .outline-btn, .status-btn {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <div class="brand" aria-label="Science Centre Learning Hub">
+        <div class="brand-mark">🔬</div>
+        <div class="brand-copy">
+          <strong>SCIENCE CENTRE LEARNING HUB</strong>
+          <span>Guided by Vishwendra Sir</span>
+        </div>
+      </div>
+
+      <nav class="header-nav" aria-label="Main navigation">
+        <a class="nav-link" href="/Home-page/index.html">Home</a>
+        <a class="nav-link" href="/Home-page/question-bank.html">Question Bank</a>
+        <a class="nav-link" href="/Home-page/owner-dashboard.html">Owner Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Premium library</span>
+            <h1>Safe prototype access for free and premium learning resources.</h1>
+            <p>This catalogue is a front-end prototype for planning premium access. Public resources remain open. Premium access is not granted until a verified owner manually reviews the payment request.</p>
+            <div class="hero-actions">
+              <a class="btn" href="#catalog">Browse library</a>
+              <a class="outline-btn" href="/Home-page/owner-dashboard.html">Owner controls</a>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h3>Payment request (prototype only)</h3>
+            <div class="pay-box">
+              <div class="pay-row"><span>UPI ID</span><strong>6350248088@ybl</strong></div>
+              <div class="pay-row"><span>Sample amount</span><strong>₹199</strong></div>
+              <div class="pay-row"><span>Access rule</span><strong>Manual review required</strong></div>
+            </div>
+            <div class="hero-actions" style="margin-top:18px;">
+              <a class="btn" href="upi://pay?pa=6350248088@ybl&pn=Science%20Centre%20Learning%20Hub&am=199&cu=INR&tn=Premium%20Library%20Demo" target="_blank" rel="noreferrer">Pay via UPI</a>
+              <button class="status-btn" type="button" onclick="alert('Opening or returning from a UPI app is not proof of payment. Manual owner verification is required before premium access is granted.')">Access status</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="toolbar" id="catalog">
+        <input id="search" type="search" placeholder="Search resources, keywords, classes or subjects..." aria-label="Filter premium library resources">
+        <select id="category" aria-label="Filter by category">
+          <option value="all">All</option>
+          <option value="free">Free</option>
+          <option value="premium">Premium</option>
+          <option value="locked">Locked</option>
+          <option value="archived">Archived</option>
+          <option value="science">Science</option>
+          <option value="english">English</option>
+          <option value="lkg">LKG</option>
+          <option value="portal">Portal</option>
+        </select>
+        <button type="button" id="reset">Reset</button>
+      </div>
+
+      <div class="grid" id="resourceGrid">
+        <article class="resource-card" data-title="all subjects learning portal general questions" data-category="free portal" data-status="free" data-price="0">
+          <div class="resource-top">
+            <div class="icon">📚</div>
+            <span class="badge free">Free</span>
+          </div>
+          <div class="resource-meta"><span>Portal</span><span>All Subjects</span></div>
+          <h3>All Subjects Learning Portal</h3>
+          <p>Subject-wise study pages, classroom notes, and practice resources that remain openly accessible.</p>
+          <div class="price-row">
+            <span class="price">₹0</span>
+            <span>Public</span>
+          </div>
+          <div class="resource-actions">
+            <a class="small-btn primary" href="/Home-page/Science_Centre_Learning_Hub_All_Subjects_Questions.html">Open</a>
+          </div>
+        </article>
+
+        <article class="resource-card" data-title="all subjects upgrade classroom notes revision" data-category="free all subjects" data-status="free" data-price="0">
+          <div class="resource-top">
+            <div class="icon">🚀</div>
+            <span class="badge free">Free</span>
+          </div>
+          <div class="resource-meta"><span>Upgrade</span><span>All Subjects</span></div>
+          <h3>All Subjects Upgrade</h3>
+          <p>Improved practice pages and study flow designed for classroom-to-home revision.</p>
+          <div class="price-row">
+            <span class="price">₹0</span>
+            <span>Public</span>
+          </div>
+          <div class="resource-actions">
+            <a class="small-btn primary" href="/Home-page/Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">Open</a>
+          </div>
+        </article>
+
+        <article class="resource-card" data-title="premium smart learning portal sample upi payment demo" data-category="premium portal" data-status="premium" data-price="199">
+          <div class="resource-top">
+            <div class="icon">✨</div>
+            <span class="badge premium">Premium</span>
+          </div>
+          <div class="resource-meta"><span>Demo</span><span>Portal</span></div>
+          <h3>Premium Smart Learning</h3>
+          <p>Prototype premium page with a sample pricing model. Access remains pending manual owner verification.</p>
+          <div class="price-row">
+            <span class="price">₹199</span>
+            <span>Manual verify</span>
+          </div>
+          <div class="resource-actions">
+            <button class="small-btn warn" type="button" onclick="alert('This is a prototype premium item. Payment request is not proof of payment. Manual owner verification is required before access is granted.')">Preview</button>
+            <a class="small-btn secondary" href="/Home-page/science_centre_learning_hub_premium.html">Open page</a>
+          </div>
+        </article>
+
+        <article class="resource-card" data-title="metals materials science quiz class 5" data-category="free science" data-status="free" data-price="0">
+          <div class="resource-top">
+            <div class="icon">🧪</div>
+            <span class="badge free">Free</span>
+          </div>
+          <div class="resource-meta"><span>Science</span><span>Quiz</span></div>
+          <h3>Metals and Materials Quiz</h3>
+          <p>Science practice with audio support and instant feedback for classroom or home revision.</p>
+          <div class="price-row">
+            <span class="price">₹0</span>
+            <span>Public</span>
+          </div>
+          <div class="resource-actions">
+            <a class="small-btn primary" href="/Home-page/metals_materials_quiz_with_sound-2.html">Open</a>
+          </div>
+        </article>
+
+        <article class="resource-card" data-title="lkg hindi english voice quiz motivation" data-category="free lkg" data-status="free" data-price="0">
+          <div class="resource-top">
+            <div class="icon">🔊</div>
+            <span class="badge free">Free</span>
+          </div>
+          <div class="resource-meta"><span>LKG</span><span>Voice</span></div>
+          <h3>LKG Hindi + English Voice Quiz</h3>
+          <p>Interactive practice and bilingual prompts built for beginner engagement and motivation.</p>
+          <div class="price-row">
+            <span class="price">₹0</span>
+            <span>Public</span>
+          </div>
+          <div class="resource-actions">
+            <a class="small-btn primary" href="/Home-page/LKG_Hindi_English_Voice_Changer_Motivation.html">Open</a>
+          </div>
+        </article>
+
+        <article class="resource-card" data-title="english grammar worksheets practice 900 questions" data-category="premium english" data-status="premium" data-price="249">
+          <div class="resource-top">
+            <div class="icon">📘</div>
+            <span class="badge premium">Premium</span>
+          </div>
+          <div class="resource-meta"><span>English</span><span>Grammar</span></div>
+          <h3>English Grammar 30 Worksheets</h3>
+          <p>Prototype premium page for grammar-focused revision. Manual studio approval is required.</p>
+          <div class="price-row">
+            <span class="price">₹249</span>
+            <span>Review</span>
+          </div>
+          <div class="resource-actions">
+            <button class="small-btn warn" type="button" onclick="alert('This item is not automatically unlocked. The owner must confirm payment before access is granted.')">Status</button>
+            <a class="small-btn secondary" href="/Home-page/Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">Preview file</a>
+          </div>
+        </article>
+
+        <article class="resource-card" data-title="complete english grammar practice 900 questions" data-category="premium english" data-status="locked" data-price="399">
+          <div class="resource-top">
+            <div class="icon">📝</div>
+            <span class="badge locked">Locked</span>
+          </div>
+          <div class="resource-meta"><span>English</span><span>Full pack</span></div>
+          <h3>Complete English Grammar</h3>
+          <p>Demo locked resource. This prototype uses a lock label and requires owner verification before access.</p>
+          <div class="price-row">
+            <span class="price">₹399</span>
+            <span>Pending</span>
+          </div>
+          <div class="resource-actions">
+            <button class="small-btn warn" type="button" onclick="alert('Manual review is required before this premium file will be unlocked.')">Locked</button>
+            <a class="small-btn secondary" href="/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html">Preview file</a>
+          </div>
+        </article>
+
+        <article class="resource-card" data-title="question bank sample paper revision study" data-category="free question bank" data-status="free" data-price="0">
+          <div class="resource-top">
+            <div class="icon">🧠</div>
+            <span class="badge free">Free</span>
+          </div>
+          <div class="resource-meta"><span>Question Bank</span><span>Practice</span></div>
+          <h3>Question Bank</h3>
+          <p>Public question bank page for revision and mixed practice across textbooks and subjects.</p>
+          <div class="price-row">
+            <span class="price">₹0</span>
+            <span>Public</span>
+          </div>
+          <div class="resource-actions">
+            <a class="small-btn primary" href="/Home-page/question-bank.html">Open</a>
+          </div>
+        </article>
+
+        <article class="resource-card" data-title="hindi worksheets nursery class 1" data-category="archived free" data-status="archived" data-price="0">
+          <div class="resource-top">
+            <div class="icon">🌿</div>
+            <span class="badge archived">Archived</span>
+          </div>
+          <div class="resource-meta"><span>Hindi</span><span>Archive</span></div>
+          <h3>Hindi Worksheets Part 2</h3>
+          <p>Archived sample marker only. The real file remains in the repository and is not deleted.</p>
+          <div class="price-row">
+            <span class="price">₹0</span>
+            <span>Hidden</span>
+          </div>
+          <div class="resource-actions">
+            <button class="small-btn warn" type="button" onclick="alert('This is an archive prototype only. The actual file is still in the repository and is not deleted.')">Archive note</button>
+            <a class="small-btn secondary" href="/Home-page/30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">Preview file</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">SCIENCE CENTRE LEARNING HUB</div>
+        <small>Guided by Vishwendra Sir</small>
+      </div>
+      <div>
+        <small>Prototype note: GitHub Pages cannot authenticate owners or protect premium files behind secure access control. Manual verification is still required.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const search = document.getElementById('search');
+    const category = document.getElementById('category');
+    const resetBtn = document.getElementById('reset');
+    const cards = [...document.querySelectorAll('.resource-card')];
+
+    function filterCards() {
+      const query = (search.value || '').trim().toLowerCase();
+      const selected = category.value;
+
+      cards.forEach(card => {
+        const title = (card.dataset.title || '').toLowerCase();
+        const cat = (card.dataset.category || '').toLowerCase();
+        const status = (card.dataset.status || '').toLowerCase();
+
+        const matchesQuery = !query || title.includes(query) || cat.includes(query);
+        const matchesCategory = selected === 'all' || cat.includes(selected) || status === selected;
+        card.classList.toggle('hide', !(matchesQuery && matchesCategory));
+      });
+    }
+
+    search.addEventListener('input', filterCards);
+    category.addEventListener('change', filterCards);
+    resetBtn.addEventListener('click', () => {
+      search.value = '';
+      category.value = 'all';
+      filterCards();
+    });
+  </script>
+</body>
+</html>
