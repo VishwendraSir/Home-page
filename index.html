@@ -22,6 +22,9 @@
       --line: #dfe9ef;
       --white: #ffffff;
       --shadow: 0 10px 30px rgba(20, 83, 45, 0.12);
+      --gold: #f59e0b;
+      --danger: #b91c1c;
+      --warning-bg: #fff7ed;
     }
 
     * { box-sizing: border-box; }
@@ -286,6 +289,69 @@
       color: #7a4d00;
       font-weight: 700;
       margin-bottom: 18px;
+    }
+
+    .premium-highlight {
+      margin: 0 0 22px;
+      display: grid;
+      grid-template-columns: 1.2fr auto;
+      gap: 16px;
+      align-items: center;
+      background: linear-gradient(135deg, #eff6ff, #f8fafc);
+      border: 1px solid #c7d2fe;
+      border-radius: 20px;
+      padding: 18px 20px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .premium-highlight .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #dbeafe;
+      color: #1d4ed8;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 800;
+      width: fit-content;
+    }
+
+    .premium-highlight h3 {
+      margin: 12px 0 8px;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      color: var(--green-900);
+    }
+
+    .premium-highlight p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .premium-link-btn,
+    .premium-link-btn.secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 12px;
+      padding: 0 16px;
+      font-weight: 800;
+      border: 1px solid transparent;
+    }
+
+    .premium-link-btn {
+      background: linear-gradient(135deg, #166534, #16a34a);
+      color: white;
+      box-shadow: 0 12px 24px rgba(22, 101, 52, 0.16);
+    }
+
+    .premium-link-btn.secondary {
+      background: #eef2ff;
+      color: #1f2a44;
+      border-color: #dfe7ff;
     }
 
     .section-head {
@@ -603,8 +669,13 @@
 
     @media (max-width: 760px) {
       .hero-inner,
-      .footer-inner {
+      .footer-inner,
+      .premium-highlight {
         grid-template-columns: 1fr;
+      }
+
+      .premium-highlight {
+        display: grid;
       }
 
       .toolbar {
@@ -664,7 +735,7 @@
       <div class="hero-copy">
         <span class="eyebrow" id="eyebrowText">One Home • All Learning</span>
         <h1 id="heroTitle">Learn, practise and grow! 🚀</h1>
-        <p id="heroText">Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and classroom use.</p>
+        <p id="heroText">Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and classroom revision.</p>
 
         <div class="quick-actions">
           <button class="action-btn cta-primary" type="button" id="startLearningBtn">Start Learning</button>
@@ -696,6 +767,18 @@
   <main class="main">
     <div class="container">
       <div class="notice" id="noticeText">📌 <b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.</div>
+
+      <div class="premium-highlight">
+        <div>
+          <span class="tag">Premium Library</span>
+          <h3>Separate free and premium study resources with UPI payment and manual owner verification.</h3>
+          <p>Public resources stay open. Premium resources remain restricted until a trusted payment confirmation is recorded by the owner.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a class="premium-link-btn" href="./library.html">Open Premium Library</a>
+          <a class="premium-link-btn secondary" href="./owner-dashboard.html">Owner controls (prototype)</a>
+        </div>
+      </div>
 
       <div class="section-head">
         <div>
@@ -957,24 +1040,34 @@
     const selectedClassDisplay = document.getElementById('selectedClassDisplay');
     const openLearningBtn = document.getElementById('openLearningBtn');
     const startLearningBtn = document.getElementById('startLearningBtn');
-    const learningSection = document.getElementById('resources');
     const questionBankBtn = document.getElementById('questionBankBtn');
+
+    openLearningBtn.addEventListener('click', () => {
+      document.getElementById('resources').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    startLearningBtn.addEventListener('click', () => {
+      document.getElementById('resources').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
     questionBankBtn.addEventListener('click', () => {
       window.location.href = './question-bank.html';
     });
 
+    langToggle.addEventListener('click', () => {
+      const isHindi = langToggle.getAttribute('aria-pressed') === 'true';
+      langToggle.setAttribute('aria-pressed', String(!isHindi));
+      langToggle.textContent = isHindi ? 'हिन्दी' : 'English';
+    });
+
     function filterCards() {
       const q = search.value.trim().toLowerCase();
       const c = category.value;
-      let count = 0;
-
       cards.forEach(card => {
         const title = (card.dataset.title || '').toLowerCase();
         const cat = card.dataset.category || '';
         const ok = (!q || title.includes(q)) && (c === 'all' || cat === c);
         card.classList.toggle('hide', !ok);
-        if (ok) count++;
       });
     }
 
@@ -999,58 +1092,17 @@
       }
     }
 
-    classSelector.addEventListener('change', (e) => updateSelectedClass(e.target.value));
+    classSelector.addEventListener('change', (event) => {
+      updateSelectedClass(event.target.value);
+    });
+
     classCards.forEach(card => {
-      card.addEventListener('click', () => updateSelectedClass(card.dataset.class));
-    });
-
-    openLearningBtn.addEventListener('click', () => {
-      learningSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    startLearningBtn.addEventListener('click', () => {
-      learningSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    if (langToggle) {
-      let isHindi = false;
-      langToggle.addEventListener('click', () => {
-        isHindi = !isHindi;
-        langToggle.textContent = isHindi ? 'English' : 'हिन्दी';
-        langToggle.setAttribute('aria-pressed', String(isHindi));
-        const title = document.getElementById('heroTitle');
-        const text = document.getElementById('heroText');
-        const eyebrow = document.getElementById('eyebrowText');
-        const notice = document.getElementById('noticeText');
-        const resourceTitle = document.getElementById('learningResourcesTitle');
-        const resourceSub = document.getElementById('learningResourcesSub');
-        const categoriesTitle = document.getElementById('studyCategories');
-        const categoriesSub = document.getElementById('studyCategoriesSub');
-
-        if (isHindi) {
-          title.textContent = 'सीखें, अभ्यास करें और आगे बढ़ें! 🚀';
-          text.textContent = 'कक्षाओं 1 से 10 तक के छात्रों के लिए वर्कशीट, नोट्स, क्विज़, प्रश्न बैंक, नमूना पेपर और द्विभाषी शैक्षिक संसाधन। घर और कक्षा दोनों के लिए सरल, मोबाइल-फ्रेंडली सीखना।';
-          eyebrow.textContent = 'एक घर • सभी सीखें';
-          notice.innerHTML = '📌 <b>महत्वपूर्ण:</b> सभी संसाधन पेज़ परियोजना में उपलब्ध हैं। यह होमपेज़ केवल आधुनिक लैंडिंग पेज़ है।';
-          resourceTitle.textContent = 'सीखने के संसाधन';
-          resourceSub.textContent = 'विषयों, अभ्यास पेज़ और अध्ययन सामग्री को देखें।';
-          categoriesTitle.textContent = 'अध्ययन श्रेणियाँ';
-          categoriesSub.textContent = 'अपनी सीख के लिए सही मार्ग चुनें';
-        } else {
-          title.textContent = 'Learn, practise and grow! 🚀';
-          text.textContent = 'Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and classroom use.';
-          eyebrow.textContent = 'One Home • All Learning';
-          notice.innerHTML = '📌 <b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.';
-          resourceTitle.textContent = 'Learning Resources';
-          resourceSub.textContent = 'Browse subjects, practice pages and study materials.';
-          categoriesTitle.textContent = 'Study Categories';
-          categoriesSub.textContent = 'Choose the right path for your learning';
-        }
+      card.addEventListener('click', () => {
+        updateSelectedClass(card.dataset.class);
       });
-    }
+    });
 
-    filterCards();
-    updateSelectedClass(classSelector.value);
+    updateSelectedClass('Class 1');
   </script>
 </body>
 </html>
