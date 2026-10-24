@@ -756,7 +756,7 @@
             </div>
             <div class="stat">
               <strong>✅</strong>
-              <span>Practice & quizzes</span>
+              <span>Practice &amp; quizzes</span>
             </div>
           </div>
         </div>
@@ -766,7 +766,7 @@
 
   <main class="main">
     <div class="container">
-      <div class="notice" id="noticeText">📌 <b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.</div>
+      <div class="notice" id="noticeText"><b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.</div>
 
       <div class="premium-highlight">
         <div>
@@ -775,7 +775,7 @@
           <p>Public resources stay open. Premium resources remain restricted until a trusted payment confirmation is recorded by the owner.</p>
         </div>
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <a class="premium-link-btn" href="./library.html">Open Premium Library</a>
+          <a class="premium-link-btn" href="./premium-library.html">Open Premium Library</a>
           <a class="premium-link-btn secondary" href="./owner-dashboard.html">Owner controls (prototype)</a>
         </div>
       </div>
@@ -998,15 +998,15 @@
       <div class="feature-row">
         <div class="feature-card">
           <h3>Books &amp; Curriculum</h3>
-          <p>Class-friendly subject material, structured lessons and study maps that fit daily practice.</p>
+          <p>From class-wise books to revision notes, the site keeps each stage of learning accessible in one place.</p>
         </div>
         <div class="feature-card">
-          <h3>Daily Notes &amp; Practice</h3>
-          <p>Short notes, revision tasks and focused practice pages that make home learning simple.</p>
+          <h3>Daily Practice</h3>
+          <p>Use worksheets, quizzes and short exercises to reinforce classroom concepts at home.</p>
         </div>
         <div class="feature-card">
-          <h3>Interactive Quizzes</h3>
-          <p>Self-check activities with scoring, explanations and optional voice support where supported.</p>
+          <h3>Smart Learning</h3>
+          <p>Move from concept to confidence through an easy-to-navigate layout and targeted study flows.</p>
         </div>
       </div>
     </div>
@@ -1016,93 +1016,148 @@
     <div class="container footer-inner">
       <div>
         <div class="footer-brand">SCIENCE CENTRE LEARNING HUB</div>
-        <p style="margin:10px 0 0; color: rgba(255,255,255,0.8);">Guided by Vishwendra Sir</p>
+        <p style="margin: 10px 0 0; opacity: 0.9;">Guided learning for students, parents and classrooms with practice, worksheets and revision support.</p>
       </div>
       <div class="footer-links">
-        <a href="https://youtube.com/@sciencecentreguruj?si=idrWQdFvG9c3v1Vf" target="_blank" rel="noreferrer">YouTube</a>
-        <a href="https://www.facebook.com/ScienceCentreGuruj" target="_blank" rel="noreferrer">Facebook</a>
-        <a href="https://www.instagram.com/sciencecentre_learninghub/?r=nametag" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="https://chat.whatsapp.com/BrVYqaZMnHDQH4LDSR4uV0q" target="_blank" rel="noreferrer">WhatsApp Group</a>
-        <a href="https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q" target="_blank" rel="noreferrer">WhatsApp Channel</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfN3JaD9BK0D2wKy-4Ym7KjRrMokbXfYdUHuM2hCjL1T4hYg/viewform" target="_blank" rel="noreferrer">Google Form</a>
+        <a href="#resources">Resources</a>
+        <a href="./question-bank.html">Question Bank</a>
+        <a href="./premium-library.html">Premium Library</a>
+        <a href="./owner-dashboard.html">Owner Dashboard</a>
       </div>
     </div>
   </footer>
 
   <script>
-    const search = document.getElementById('search');
-    const category = document.getElementById('category');
-    const cards = [...document.querySelectorAll('.resource-card')];
-    const resetBtn = document.getElementById('reset');
-    const langToggle = document.getElementById('langToggle');
-    const classSelector = document.getElementById('classSelector');
-    const classCards = [...document.querySelectorAll('.class-card')];
-    const selectedClassDisplay = document.getElementById('selectedClassDisplay');
-    const openLearningBtn = document.getElementById('openLearningBtn');
-    const startLearningBtn = document.getElementById('startLearningBtn');
-    const questionBankBtn = document.getElementById('questionBankBtn');
+    document.addEventListener('DOMContentLoaded', function () {
+      const classSelector = document.getElementById('classSelector');
+      const selectedClassDisplay = document.getElementById('selectedClassDisplay');
+      const classButtons = document.querySelectorAll('.class-card');
+      const searchInput = document.getElementById('search');
+      const categorySelect = document.getElementById('category');
+      const resetButton = document.getElementById('reset');
+      const cardNodes = document.querySelectorAll('.resource-card');
+      const langToggle = document.getElementById('langToggle');
+      const openLearningBtn = document.getElementById('openLearningBtn');
+      const startLearningBtn = document.getElementById('startLearningBtn');
+      const questionBankBtn = document.getElementById('questionBankBtn');
 
-    openLearningBtn.addEventListener('click', () => {
-      document.getElementById('resources').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    startLearningBtn.addEventListener('click', () => {
-      document.getElementById('resources').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    questionBankBtn.addEventListener('click', () => {
-      window.location.href = './question-bank.html';
-    });
-
-    langToggle.addEventListener('click', () => {
-      const isHindi = langToggle.getAttribute('aria-pressed') === 'true';
-      langToggle.setAttribute('aria-pressed', String(!isHindi));
-      langToggle.textContent = isHindi ? 'हिन्दी' : 'English';
-    });
-
-    function filterCards() {
-      const q = search.value.trim().toLowerCase();
-      const c = category.value;
-      cards.forEach(card => {
-        const title = (card.dataset.title || '').toLowerCase();
-        const cat = card.dataset.category || '';
-        const ok = (!q || title.includes(q)) && (c === 'all' || cat === c);
-        card.classList.toggle('hide', !ok);
-      });
-    }
-
-    search.addEventListener('input', filterCards);
-    category.addEventListener('change', filterCards);
-    resetBtn.addEventListener('click', () => {
-      search.value = '';
-      category.value = 'all';
-      filterCards();
-    });
-
-    function updateSelectedClass(value) {
-      const selected = value || 'Class 1';
-      classSelector.value = selected;
-      classCards.forEach(card => {
-        const isSelected = card.dataset.class === selected;
-        card.classList.toggle('is-selected', isSelected);
-        card.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
-      });
-      if (selectedClassDisplay) {
-        selectedClassDisplay.textContent = `Selected class: ${selected}`;
+      function updateSelectedClass(className) {
+        if (!className) return;
+        const formatted = className.trim();
+        if (selectedClassDisplay) {
+          selectedClassDisplay.textContent = 'Selected class: ' + formatted;
+        }
+        if (classSelector) {
+          classSelector.value = formatted;
+        }
+        classButtons.forEach((button) => {
+          const isSelected = button.dataset.class === formatted;
+          button.classList.toggle('is-selected', isSelected);
+          button.setAttribute('aria-pressed', String(isSelected));
+        });
       }
-    }
 
-    classSelector.addEventListener('change', (event) => {
-      updateSelectedClass(event.target.value);
-    });
-
-    classCards.forEach(card => {
-      card.addEventListener('click', () => {
-        updateSelectedClass(card.dataset.class);
+      classSelector && classSelector.addEventListener('change', function (event) {
+        updateSelectedClass(event.target.value);
       });
-    });
 
-    updateSelectedClass('Class 1');
+      classButtons.forEach((button) => {
+        button.addEventListener('click', function () {
+          updateSelectedClass(button.dataset.class);
+        });
+      });
+
+      function filterCards() {
+        const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+        const category = categorySelect ? categorySelect.value : 'all';
+
+        cardNodes.forEach((card) => {
+          const title = (card.dataset.title || '').toLowerCase();
+          const cardCategory = card.dataset.category || '';
+          const matchesSearch = !query || title.includes(query);
+          const matchesCategory = category === 'all' || cardCategory === category;
+          card.classList.toggle('hide', !(matchesSearch && matchesCategory));
+        });
+      }
+
+      searchInput && searchInput.addEventListener('input', filterCards);
+      categorySelect && categorySelect.addEventListener('change', filterCards);
+      resetButton && resetButton.addEventListener('click', function () {
+        if (searchInput) searchInput.value = '';
+        if (categorySelect) categorySelect.value = 'all';
+        filterCards();
+      });
+
+      const englishLabels = {
+        eyebrow: 'One Home • All Learning',
+        title: 'Learn, practise and grow! 🚀',
+        description: 'Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and classroom revision.',
+        startBtn: 'Start Learning',
+        bankBtn: 'Question Bank',
+        notice: 'Important: All resource pages remain available in the project. This homepage is a modernised landing page only.',
+        resourcesTitle: 'Learning Resources',
+        resourcesSub: 'Browse subjects, practice pages and study materials.'
+      };
+
+      const hindiLabels = {
+        eyebrow: 'एक घर • सभी सीखें',
+        title: 'सीखें, अभ्यास करें और आगे बढ़ें! 🚀',
+        description: 'कक्षा 1 से 10 तक के छात्रों के लिए पत्रक, नोट्स, क्विज़, प्रश्न बैंक, नमूने पेपर और द्विभाषिक शैक्षिक संसाधन। घर और कक्षा पुनरावृत्ति के लिए आसान, मोबाइल-फ्रेंडली सीखना।',
+        startBtn: 'सीखना शुरू करें',
+        bankBtn: 'प्रश्न बैंक',
+        notice: 'महत्वपूर्ण: सभी संसाधन पेज परियोजना में उपलब्ध हैं। यह होमपेज केवल एक आधुनिक लैंडिंग पेज है।',
+        resourcesTitle: 'शैक्षिक संसाधन',
+        resourcesSub: 'विषय, अभ्यास पेज और अध्ययन सामग्री देखें।'
+      };
+
+      let isHindi = false;
+
+      function applyLanguageState() {
+        const labels = isHindi ? hindiLabels : englishLabels;
+        const eyebrow = document.getElementById('eyebrowText');
+        const heroTitle = document.getElementById('heroTitle');
+        const heroText = document.getElementById('heroText');
+        const startButton = document.getElementById('startLearningBtn');
+        const bankButton = document.getElementById('questionBankBtn');
+        const noticeText = document.getElementById('noticeText');
+        const resourcesTitle = document.getElementById('learningResourcesTitle');
+        const resourcesSub = document.getElementById('learningResourcesSub');
+
+        if (eyebrow) eyebrow.textContent = labels.eyebrow;
+        if (heroTitle) heroTitle.textContent = labels.title;
+        if (heroText) heroText.textContent = labels.description;
+        if (startButton) startButton.textContent = labels.startBtn;
+        if (bankButton) bankButton.textContent = labels.bankBtn;
+        if (noticeText) noticeText.innerHTML = '<b>' + (isHindi ? 'महत्वपूर्ण:' : 'Important:') + '</b> ' + (isHindi ? 'सभी संसाधन पेज परियोजना में उपलब्ध हैं। यह होमपेज केवल एक आधुनिक लैंडिंग पेज है।' : 'All resource pages remain available in the project. This homepage is a modernised landing page only.');
+        if (resourcesTitle) resourcesTitle.textContent = labels.resourcesTitle;
+        if (resourcesSub) resourcesSub.textContent = labels.resourcesSub;
+        if (langToggle) {
+          langToggle.textContent = isHindi ? 'English' : 'हिन्दी';
+          langToggle.setAttribute('aria-pressed', String(isHindi));
+        }
+      }
+
+      langToggle && langToggle.addEventListener('click', function () {
+        isHindi = !isHindi;
+        applyLanguageState();
+      });
+
+      openLearningBtn && openLearningBtn.addEventListener('click', function () {
+        document.getElementById('resources')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      startLearningBtn && startLearningBtn.addEventListener('click', function () {
+        document.getElementById('resources')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      questionBankBtn && questionBankBtn.addEventListener('click', function () {
+        window.location.href = './question-bank.html';
+      });
+
+      updateSelectedClass('Class 1');
+      filterCards();
+      applyLanguageState();
+    });
   </script>
 </body>
 </html>
