@@ -1,140 +1,1056 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#172554">
-<title>Science Centre Learning Hub | All Subjects Learning Portal</title>
-<style>
-:root{--navy:#172554;--blue:#2563eb;--cyan:#06b6d4;--purple:#7c3aed;--green:#059669;--gold:#f59e0b;--ink:#18233d;--muted:#64748b;--paper:#f5f7ff;--line:#e2e8f0;--card:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
-button,input,select{font:inherit}button{cursor:pointer}.topbar{position:sticky;top:0;z-index:20;background:rgba(23,37,84,.96);color:#fff;backdrop-filter:blur(14px);box-shadow:0 6px 24px #0f172a22}.topinner{max-width:1320px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#60a5fa,#22c55e);display:grid;place-items:center;font-size:1.5rem;box-shadow:0 10px 18px rgba(37,99,235,.25)}.brand h1{margin:0;font-size:1.05rem;letter-spacing:.06em}.brand small{display:block;color:#dbeafe;letter-spacing:.08em;font-size:.68rem}.top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pillbtn{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.22);padding:9px 12px;border-radius:12px;font-weight:700}.pillbtn:hover{background:rgba(255,255,255,.16)}.wrap{max-width:1320px;margin:0 auto;padding:24px 18px 48px}.hero{background:linear-gradient(135deg,#eff6ff,#ecfdf5);border:1px solid var(--line);border-radius:24px;box-shadow:0 10px 28px #0f172a08;overflow:hidden}.hero-inner{display:grid;grid-template-columns:1.35fr .95fr;gap:22px;padding:26px 26px 20px;align-items:center}.eyebrow{display:inline-block;padding:7px 12px;border-radius:999px;background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.18);color:var(--navy);font-size:.73rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.hero h2{margin:18px 0 10px;font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;color:var(--navy)}.hero p{margin:0;color:var(--muted);font-size:1.02rem;max-width:62ch}.hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.primary,.secondary,.mini-btn,.chip,.subject-btn,.topic,.option,.action-btn,.reset-btn,.toggle-btn{transition:transform .18s ease,box-shadow .18s ease}.primary,.secondary{border:none;border-radius:12px;padding:11px 16px;font-weight:800;cursor:pointer;box-shadow:0 10px 20px rgba(15,23,42,.08)}.primary{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:#fff}.secondary{background:#fff;color:var(--navy);border:1px solid rgba(37,99,235,.2)}.primary:hover,.secondary:hover,.chip:hover,.subject-btn:hover,.topic:hover,.option:hover,.mini-btn:hover,.reset-btn:hover,.toggle-btn:hover,.action-btn:hover{transform:translateY(-1px)}.hero-stat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}.stat{background:rgba(255,255,255,.8);border:1px solid rgba(148,163,184,.2);border-radius:16px;padding:14px;text-align:center}.stat strong{display:block;color:var(--navy);font-size:clamp(1.3rem,2vw,2rem)}.stat span{font-size:.75rem;color:var(--muted)}.notice{margin-top:18px;background:linear-gradient(135deg,#eff6ff,#ecfeff);border:1px solid #bfdbfe;border-left:6px solid #2563eb;border-radius:16px;padding:14px 16px;color:#1d4ed8;font-weight:700}.toolbar{margin-top:20px;display:grid;grid-template-columns:1.35fr .7fr auto auto;gap:10px;padding:10px;border-radius:16px;background:rgba(255,255,255,.92);border:1px solid var(--line);box-shadow:0 8px 20px rgba(15,23,42,.04)}.searchbox,.selectbox,.reset-btn,.toggle-btn{border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;color:var(--ink)}.reset-btn,.toggle-btn{font-weight:800;cursor:pointer}.toggle-btn{background:linear-gradient(180deg,#f8fafc,#eef2ff)}.layout{display:grid;grid-template-columns:310px minmax(0,1fr);gap:16px;margin-top:18px}.sidebar,.content-card{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:20px;box-shadow:0 10px 24px rgba(15,23,42,.04)}.sidebar{padding:14px}.section-label{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}.subject-list{display:flex;flex-direction:column;gap:8px;max-height:540px;overflow:auto;padding-right:4px}.subject-btn{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border-radius:12px;border:1px solid transparent;background:#f8fafc;color:var(--ink);text-align:left;font-weight:700}.subject-btn.active{background:linear-gradient(135deg,#dbeafe,#ecfeff);border-color:#93c5fd;color:var(--navy)}.emoji{width:32px;height:32px;border-radius:10px;background:#fff;display:grid;place-items:center;font-size:1.2rem;border:1px solid rgba(148,163,184,.22)}.subject-btn.active .emoji{background:#dbeafe}.progressbox{margin-top:16px;padding:14px 12px;border-radius:16px;background:linear-gradient(180deg,#eff6ff,#f8fafc);border:1px solid #dbeafe}.progressbar{height:12px;border-radius:999px;background:#e2e8f0;overflow:hidden}.progressfill{height:100%;width:0%;background:linear-gradient(90deg,#22c55e,#3b82f6);border-radius:999px}.progressmeta{font-size:.78rem;display:flex;justify-content:space-between;margin-top:6px;color:var(--muted);font-weight:700}.content-card{padding:18px}.content-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}.subject-title{display:flex;align-items:center;gap:12px}.subject-icon{height:46px;width:46px;border-radius:14px;background:linear-gradient(135deg,#dbeafe,#ecfeff);display:grid;place-items:center;font-size:1.8rem;border:1px solid #bfdbfe}.subject-title h3{margin:0;font-size:1.55rem;color:var(--navy)}.subject-title p{margin:3px 0 0;color:var(--muted);font-size:.88rem}.topic-tools{display:flex;gap:8px;flex-wrap:wrap}.mini-btn{background:#f8fafc;border:1px solid var(--line);padding:8px 11px;border-radius:10px;font-weight:700;color:var(--navy);cursor:pointer}.topic-panel{margin-top:16px}.topic-header{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.topic-count{padding:6px 10px;border-radius:999px;background:#ecfeff;border:1px solid #a5f3fc;color:#0f766e;font-weight:800;font-size:.7rem;letter-spacing:.08em}.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:12px}.topic{padding:14px 12px;border:none;border-radius:16px;background:linear-gradient(180deg,#fff,#f8fafc);border:1px solid var(--line);text-align:left;cursor:pointer;min-height:118px;display:flex;flex-direction:column;justify-content:space-between}.topic .num{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:800}.topic .topic-name{font-size:1rem;font-weight:800;color:var(--ink);margin-top:6px}.topic .level{margin-top:8px;font-size:.76rem;color:var(--muted);font-weight:700}.topic.done{background:linear-gradient(180deg,#ecfdf5,#f0fdf4);border-color:#86efac}.empty{display:none;padding:28px 12px;text-align:center;color:var(--muted);border:1px dashed #cbd5e1;border-radius:16px;background:#f8fafc;margin-top:14px}.empty.visible{display:block}.study{display:none;margin-top:18px;border:1px solid var(--line);padding:16px;border-radius:18px;background:linear-gradient(180deg,#f8fafc,#ffffff)}.study.open{display:block}.study-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.study-top h4{margin:0;font-size:1.4rem;color:var(--navy)}.subline{font-size:.82rem;color:var(--muted);margin-top:6px}.study-actions{display:flex;gap:8px;flex-wrap:wrap}.study-block{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:16px}.learn-panel,.plan-panel,.quiz-panel,.card-box{background:linear-gradient(180deg,#fff,#f8fafc);border:1px solid var(--line);border-radius:16px;padding:14px}.card-box h5,.learn-panel h5,.plan-panel h5,.quiz-panel h5{margin:0 0 10px;font-size:1rem;color:var(--navy)}.learn-panel ul{padding-left:18px;margin:0;color:var(--ink)}.learn-panel li{margin:8px 0}.sequence{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.sequence span{padding:7px 10px;border-radius:999px;background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;font-weight:800;font-size:.78rem}.quick-quiz{margin-top:18px}.quiz-panel .question{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:10px}.option-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.option{padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#fff;text-align:left;font-weight:700;color:var(--ink);cursor:pointer}.option.correct{background:#dcfce7;border-color:#86efac;color:#166534}.option.wrong{background:#fee2e2;border-color:#fca5a5;color:#991b1b}.quiz-feedback{margin-top:10px;font-weight:800;color:#0f766e;min-height:24px}.study-actions-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}.action-btn{border:none;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;box-shadow:0 10px 24px rgba(34,197,94,.25)}.action-btn.secondary{background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#3f2d00}.toast{position:fixed;right:18px;bottom:18px;background:#0f172a;color:#fff;padding:10px 14px;border-radius:999px;box-shadow:0 12px 28px rgba(15,23,42,.25);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;transform:translateY(8px)}.toast.show{opacity:1;transform:translateY(0)}.footer{margin-top:24px;padding:18px 0 8px;color:var(--muted)}.footer-inner{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}.footer strong{color:var(--navy)}@media(max-width:850px){.hero-inner,.layout,.study-block{grid-template-columns:1fr}.hero-stat{grid-template-columns:repeat(4,1fr)}.stat strong{font-size:21px}.toolbar{grid-template-columns:1fr 1fr;align-items:stretch}.reset-btn,.toggle-btn{min-height:46px}.toolbar .selectbox{grid-column:span 2}.subject-list{max-height:none}}@media(max-width:560px){.topinner{padding:9px 12px;align-items:flex-start}.brand h1{font-size:12px}.brand small{font-size:9px}.logo{width:38px;height:38px;flex-basis:38px}.top-actions{gap:5px}.pillbtn{padding:7px 10px}.toolbar{grid-template-columns:1fr}.toolbar .selectbox{grid-column:auto}.hero-inner{padding:18px 16px 16px}.hero-buttons{gap:8px}.subject-title{align-items:flex-start}.content-card{padding:14px}.study-actions-row{align-items:flex-start}.option-grid{grid-template-columns:1fr}.hero-stat{grid-template-columns:repeat(2,1fr)}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#14532d">
+  <title>Science Centre Learning Hub | Home</title>
+  <style>
+    :root {
+      --green-900: #14532d;
+      --green-800: #166534;
+      --green-700: #15803d;
+      --green-600: #16a34a;
+      --green-500: #22c55e;
+      --green-100: #dcfce7;
+      --sky-100: #eff6ff;
+      --blue-700: #1d4ed8;
+      --amber-100: #fef3c7;
+      --paper: #f5f8f6;
+      --ink: #172033;
+      --muted: #53657d;
+      --line: #dfe9ef;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(20, 83, 45, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans Devanagari", sans-serif;
+      background: linear-gradient(180deg, #eefbf4 0%, #f6faf7 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 24px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: linear-gradient(135deg, #052e16 0%, #166534 32%, #0f766e 100%);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.14);
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.24);
+      font-size: 1.3rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-copy strong {
+      font-size: clamp(0.95rem, 2vw, 1.4rem);
+    }
+
+    .brand-copy span {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .header-tools {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill, .toggle, .action-btn {
+      border: none;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      min-height: 46px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.14);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .toggle {
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      min-width: 120px;
+    }
+
+    .action-btn {
+      background: linear-gradient(135deg, #facc15, #f59e0b);
+      color: #16302a;
+      box-shadow: 0 8px 18px rgba(245, 158, 11, 0.25);
+    }
+
+    .pill:hover, .toggle:hover, .action-btn:hover,
+    .link-card:hover, .resource-card:hover, .feature-card:hover,
+    .cat-card:hover, .class-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(134, 239, 172, 0.18), transparent 24%),
+        linear-gradient(135deg, rgba(5,46,22,0.34), rgba(22,101,52,0.18)),
+        #f3faf5;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 32px 0 26px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--green-800);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      padding: 7px 12px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.05em;
+      color: var(--green-900);
+    }
+
+    .hero-copy p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1.03rem;
+      max-width: 62ch;
+    }
+
+    .quick-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .cta-primary {
+      background: linear-gradient(135deg, #166534, #16a34a);
+      color: white;
+      box-shadow: 0 12px 24px rgba(22, 101, 52, 0.24);
+    }
+
+    .cta-secondary {
+      background: #e0f2fe;
+      color: #0f172a;
+      border: 1px solid #bfdbfe;
+    }
+
+    .hero-art {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 260px;
+    }
+
+    .hero-panel {
+      width: min(100%, 430px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(220,252,231,0.7));
+      border: 1px solid rgba(34, 197, 94, 0.18);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before, .hero-panel::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.08);
+    }
+
+    .hero-panel::before {
+      width: 180px;
+      height: 180px;
+      top: -40px;
+      right: -20px;
+    }
+
+    .hero-panel::after {
+      width: 130px;
+      height: 130px;
+      left: -20px;
+      bottom: -32px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: var(--green-800);
+    }
+
+    .stat span {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .main {
+      padding: 28px 0 42px;
+    }
+
+    .notice {
+      background: linear-gradient(135deg, #fff7ed, #fef3c7);
+      border: 1px solid #f9d67e;
+      border-left: 6px solid #f59e0b;
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: #7a4d00;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 6px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--green-900);
+      font-size: clamp(1.45rem, 3vw, 2.1rem);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(120px, 0.5fr) auto;
+      gap: 10px;
+      align-items: center;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(20, 83, 45, 0.04);
+      margin-bottom: 18px;
+    }
+
+    .toolbar input, .toolbar select, .toolbar button {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      padding: 11px 12px;
+      background: white;
+      color: var(--ink);
+    }
+
+    .toolbar button {
+      background: var(--green-800);
+      color: white;
+      border: none;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .resource-card {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 16px 14px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resource-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #3b82f6, #f59e0b);
+    }
+
+    .icon,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    .icon {
+      background: #effaf3;
+      color: var(--green-800);
+      font-size: 1.9rem;
+      width: 52px;
+      height: 52px;
+      padding: 0;
+      border-radius: 14px;
+    }
+
+    .tag {
+      background: #e0f2fe;
+      color: #1e40af;
+    }
+
+    .resource-card h3 {
+      font-size: 1.2rem;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+
+    .resource-card p {
+      color: var(--muted);
+      margin: 0 0 14px;
+      font-size: 0.94rem;
+      flex: 1;
+    }
+
+    .open-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      font-weight: 800;
+      color: var(--green-800);
+    }
+
+    .default-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .link-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 12px;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
+      text-align: center;
+      font-weight: 700;
+      color: var(--green-900);
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .feature-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 10px;
+      color: var(--green-900);
+      font-size: 1.12rem;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .cat-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 14px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 160px;
+      cursor: pointer;
+      width: 100%;
+      color: inherit;
+      text-align: left;
+    }
+
+    .cat-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .cat-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      color: var(--ink);
+    }
+
+    .cat-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .green { background: linear-gradient(180deg, #f0fdf4, #ffffff); }
+    .blue { background: linear-gradient(180deg, #eff6ff, #ffffff); }
+    .orange { background: linear-gradient(180deg, #fff7ed, #ffffff); }
+    .purple { background: linear-gradient(180deg, #faf5ff, #ffffff); }
+    .red { background: linear-gradient(180deg, #fef2f2, #ffffff); }
+    .teal { background: linear-gradient(180deg, #ecfeff, #ffffff); }
+    .gold { background: linear-gradient(180deg, #fefce8, #ffffff); }
+    .pink { background: linear-gradient(180deg, #fdf2f8, #ffffff); }
+    .indigo { background: linear-gradient(180deg, #eef2ff, #ffffff); }
+    .cyan { background: linear-gradient(180deg, #ecfeff, #ffffff); }
+    .amber { background: linear-gradient(180deg, #fffbeb, #ffffff); }
+    .lime { background: linear-gradient(180deg, #f7fee7, #ffffff); }
+
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .class-card {
+      background: linear-gradient(135deg, #ffffff, #f0fdf4);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 12px;
+      text-align: center;
+      font-weight: 800;
+      color: var(--green-900);
+      box-shadow: 0 6px 16px rgba(20, 83, 45, 0.04);
+      transition: transform 0.2s ease;
+      cursor: pointer;
+      width: 100%;
+      min-height: 90px;
+      appearance: none;
+    }
+
+    .class-card span {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+      color: var(--green-700);
+    }
+
+    .class-card.is-selected {
+      background: linear-gradient(135deg, #dcfce7, #f0fdf4);
+      border-color: #86efac;
+      box-shadow: 0 10px 18px rgba(34, 197, 94, 0.12);
+    }
+
+    .selected-class {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(22, 163, 74, 0.08);
+      border: 1px solid rgba(22, 163, 74, 0.22);
+      color: var(--green-800);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .site-footer {
+      background: linear-gradient(180deg, #062a1c, #0c3d2d);
+      color: white;
+      padding: 24px 0 28px;
+      margin-top: 26px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .footer-brand {
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      font-size: 1.1rem;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      justify-items: start;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.88);
+      font-weight: 600;
+    }
+
+    .hide { display: none !important; }
+
+    @media (max-width: 760px) {
+      .hero-inner,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .header-row {
+        align-items: flex-start;
+      }
+
+      .brand {
+        width: 100%;
+      }
+
+      .header-tools {
+        width: 100%;
+      }
+
+      .toggle, .action-btn, .pill {
+        flex: 1;
+      }
+    }
+  </style>
 </head>
 <body>
-<header class="topbar"><div class="topinner">
-  <div class="brand"><div class="logo">✦</div><div><h1>SCIENCE CENTRE LEARNING HUB</h1><small>GUIDED BY VISHWENDRA SIR · Learn • Practise • Progress</small></div></div>
-  <div class="top-actions"><button class="pillbtn" id="langBtn" onclick="toggleLang()">हिंदी / English</button><button class="pillbtn" onclick="speakCurrent()">🔊 Voice</button><button class="pillbtn" onclick="shareSite()">🔗 Share</button></div>
-</div></header>
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <span class="eyebrow">📚 Complete Learning Portal</span>
-      <h2 id="heroTitle">One Hub. Every Subject.<br>Step by Step to Success.</h2>
-      <p id="heroDesc">Explore a structured learning roadmap from Basic to Advanced. Choose a subject, open a topic, listen to it, and track your learning progress — in Hindi or English.</p>
-      <div class="hero-buttons"><button class="primary" onclick="document.getElementById('subjectSearch').focus()">🔎 Explore Topics</button><button class="secondary" onclick="showNextTopic()">▶ Continue Learning</button></div>
-      <div class="hero-stat"><div class="stat"><strong id="subjectStat">14</strong><span>Subjects / विषय</span></div><div class="stat"><strong id="topicStat">280</strong><span>Topic Roadmap</span></div><div class="stat"><strong>100%</strong><span>Skill Growth</span></div><div class="stat"><strong>✅</strong><span>Progress Saved</span></div></div>
+  <header class="site-header">
+    <div class="container header-row">
+      <div class="brand" aria-label="Science Centre Learning Hub">
+        <div class="brand-mark">🔬</div>
+        <div class="brand-copy">
+          <strong>SCIENCE CENTRE LEARNING HUB</strong>
+          <span>Guided by Vishwendra Sir</span>
+        </div>
+      </div>
+
+      <div class="header-tools">
+        <select id="classSelector" class="toggle" aria-label="Choose class">
+          <option value="Class 1">Class 1</option>
+          <option value="Class 2">Class 2</option>
+          <option value="Class 3">Class 3</option>
+          <option value="Class 4">Class 4</option>
+          <option value="Class 5">Class 5</option>
+          <option value="Class 6">Class 6</option>
+          <option value="Class 7">Class 7</option>
+          <option value="Class 8">Class 8</option>
+          <option value="Class 9">Class 9</option>
+          <option value="Class 10">Class 10</option>
+        </select>
+        <button class="pill" type="button" id="langToggle" aria-label="Switch interface language" aria-pressed="false">हिन्दी</button>
+        <button class="action-btn" type="button" id="openLearningBtn">Open Learning</button>
+      </div>
     </div>
-    <div class="hero-art">
-      <div style="background:linear-gradient(135deg,#dbeafe,#ecfdf5);border:1px solid rgba(37,99,235,.18);border-radius:22px;padding:18px;width:min(100%,460px);box-shadow:0 10px 22px rgba(15,23,42,.08)"><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
-        <div style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-size:2rem">📘</div><div style="font-weight:800;color:var(--navy);margin-top:6px">Bilingual</div><div style="font-size:.8rem;color:var(--muted)">Hindi + English</div></div>
-        <div style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-size:2rem">🧠</div><div style="font-weight:800;color:var(--navy);margin-top:6px">Smart Practice</div><div style="font-size:.8rem;color:var(--muted)">Concept checks</div></div>
-        <div style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-size:2rem">🎧</div><div style="font-weight:800;color:var(--navy);margin-top:6px">Voice</div><div style="font-size:.8rem;color:var(--muted)">Read aloud</div></div>
-        <div style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px"><div style="font-size:2rem">📈</div><div style="font-weight:800;color:var(--navy);margin-top:6px">Track</div><div style="font-size:.8rem;color:var(--muted)">Progress saved</div></div>
-      </div></div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow" id="eyebrowText">One Home • All Learning</span>
+        <h1 id="heroTitle">Learn, practise and grow! 🚀</h1>
+        <p id="heroText">Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and classroom use.</p>
+
+        <div class="quick-actions">
+          <button class="action-btn cta-primary" type="button" id="startLearningBtn">Start Learning</button>
+          <button class="pill cta-secondary" type="button" id="questionBankBtn">Question Bank</button>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Learning illustration">
+        <div class="hero-panel">
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>10+</strong>
+              <span>Learning pages</span>
+            </div>
+            <div class="stat">
+              <strong>🎧</strong>
+              <span>Voice enabled</span>
+            </div>
+            <div class="stat">
+              <strong>✅</strong>
+              <span>Practice & quizzes</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-<main class="wrap">
-<div class="notice" id="notice">💡 <b>Learning tip:</b> Start with Level 1 and move towards advanced topics. Your completed-topic progress is saved on this device/browser. This version works offline-friendly and stays lightweight.</div>
-<div class="toolbar"><input id="subjectSearch" class="searchbox" type="search" placeholder="Search subject or topic… / विषय खोजें" oninput="renderTopics()"><select id="levelFilter" class="selectbox" onchange="renderTopics()"><option value="all">All Levels / सभी स्तर</option><option value="Basic">Basic / आधार</option><option value="Intermediate">Intermediate / मध्य</option><option value="Advanced">Advanced / उन्नत</option></select><button class="toggle-btn" onclick="resetSearch()">Reset / रीसेट</button><button class="toggle-btn" onclick="toggleTopicLanguage()">हिंदी / English</button></div>
-<div class="layout">
-<aside class="sidebar"><div class="section-label">Choose a subject / विषय चुनें</div><div class="subject-list" id="subjectList"></div><div class="progressbox"><div style="display:flex;justify-content:space-between;align-items:center"><strong style="font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)">Progress</strong><span id="progressText" style="font-size:.78rem;color:var(--muted);font-weight:800">0 of 280 completed</span></div><div class="progressbar" style="margin-top:8px"><div class="progressfill" id="progressFill"></div></div><div class="progressmeta"><span>Saved locally</span><span id="progressPct">0%</span></div></div></aside>
-<section class="content-card"><div class="content-head"><div class="subject-title"><div class="subject-icon" id="currentIcon">📚</div><div><h3 id="currentTitle">All Subjects</h3><p id="currentDesc">Choose a subject to begin.</p></div></div><div class="topic-tools"><button class="mini-btn" onclick="showNextTopic()">Next topic</button><button class="mini-btn" onclick="speakCurrent()">🔊 Voice</button></div></div>
-<div class="topic-panel"><div class="topic-header"><div class="topic-count" id="topicCountBadge">0 TOPICS</div></div><div id="topicGrid" class="topic-grid"></div><div id="emptyState" class="empty">No matching topics found. Try another search or level filter.</div></div>
-<div id="studyPanel" class="study"><div class="study-top"><div><h4 id="studyTitle">Topic title</h4><div class="subline" id="studyMeta"></div></div><div class="study-actions"><button class="mini-btn" onclick="speakTopic()">🔊 Listen</button><button class="mini-btn" onclick="completeCurrent()">✅ Mark done</button></div></div>
-<div class="study-block"><div class="learn-panel"><h5 id="learnHeading">🎯 Learning goals</h5><p id="learnIntro" style="margin:0 0 10px;color:var(--muted)">Understand the topic deeply and practise with examples.</p><ul id="learnList"></ul></div><div class="plan-panel"><h5 id="planHeading">🪜 Suggested learning path</h5><p id="planText">Follow the steps below to build understanding and confidence.</p><div class="sequence" id="sequence"></div></div></div>
-<div class="quick-quiz"><div class="quiz-panel"><h5 id="practiceHeading">🧠 Quick practice</h5><div id="quizQuestion" class="question">Question text</div><div id="quizOptions" class="option-grid"></div><div id="quizFeedback" class="quiz-feedback"></div></div></div>
-<div class="study-actions-row"><button class="action-btn" id="completeBtn" onclick="completeCurrent()">✅ Mark as done</button><button class="action-btn secondary" onclick="showNextTopic()">➡ Next topic</button></div></div></div>
-<footer class="footer"><div class="footer-inner"><div><strong>SCIENCE CENTRE LEARNING HUB</strong><br><span style="font-size:12px">GUIDED BY VISHWENDRA SIR</span><p>Learn with curiosity. Practise with focus. Grow with confidence.</p></div><div style="text-align:right"><span style="font-size:12px;color:var(--muted)">Version: Question Bank / प्रश्न बैंक</span></div></div></footer>
-</main><div id="toast" class="toast"></div>
-<script>
-const subjects = [
-{id:"math",name:"Mathematics",hi:"गणित",icon:"➗",desc:"Number sense, arithmetic, algebra, geometry and higher-level problem solving.",topics:["Numbers & Place Value","Addition","Subtraction","Multiplication","Division","Fractions","Decimals","Geometry","Measurement","Patterns","Data Handling","Time & Calendar","Money","Ratio & Proportion","Percentage","Simple Equations","Area & Perimeter","Symmetry","Number Operations","Factors & Multiples"]},
-{id:"science",name:"Science",hi:"विज्ञान",icon:"🔬",desc:"Build concepts from everyday science to physics, chemistry and biology.",topics:["Science Around Us","Living & Non-living","Plants","Animals","Human Body","Food & Nutrition","Air & Water","Matter","Forces & Motion","Light","Sound","Electricity","Earth & Space","Weather","Habitat","Reproduction","Adaptation","Environment","Health & Hygiene","Chemical Changes"]},
-{id:"english",name:"English",hi:"अंग्रेज़ी",icon:"🔤",desc:"From letters and phonics to grammar, comprehension and confident writing.",topics:["Alphabet & Letter Sounds","Phonics","Reading Skills","Sentence Building","Nouns","Pronouns","Verbs","Adjectives","Adverbs","Articles","Prepositions","Tenses","Comprehension","Writing Skills","Vocabulary","Grammar Basics","Punctuation","Synonyms & Antonyms","Essay Writing","Poetry Basics"]},
-{id:"hindi",name:"Hindi",hi:"हिंदी",icon:"🪷",desc:"वर्णमाला से व्याकरण, पठन-बोध और रचनात्मक लेखन तक।",topics:["अक्षर और शब्द","व्यंजन","सर्वनाम","संज्ञा","विशेषण","क्रिया","वाक्य बनाना","मुहावरे","कहानी लेखन","अनुच्छेद","पाठ बोध","वर्तनी","संधि","समास","अपठित गद्यांश","पत्र लेखन","निबंध","वाक्यांश","उपसर्ग-प्रत्यय","हिंदी कविता"]},
-{id:"sst",name:"Social Studies",hi:"सामाजिक अध्ययन",icon:"🌍",desc:"History, geography, civics and economics in a progressive roadmap.",topics:["Family & Community","Our Country","Map Skills","Natural Resources","Our Earth","History Basics","Sources","Civics","Government","Culture","Transport","Communication","Weather & Climate","Citizenship","Festivals","Rights & Duties","Local Self-Government","Population","Trade & Industry"]},
-{id:"gk",name:"GK & General Studies",hi:"सामान्य ज्ञान",icon:"🌟",desc:"Useful general knowledge, India, world, current-affairs foundations and exam facts.",topics:["Myself & Family","India","State Symbols","World Geography","Famous Places","Science Facts","Sports","Awards","Inventions","Leaders","Festivals","Missions","Current Affairs Basics","National Symbols","Environment Awareness","Public Services","General Awareness","History Facts","Space Science","Culture & Heritage"]},
-{id:"computer",name:"Computer",hi:"कंप्यूटर",icon:"💻",desc:"Digital literacy, office tools, internet safety, coding and computational thinking.",topics:["Parts of a Computer","Input & Output","Keyboard & Mouse","Internet Basics","Browsing Safety","MS Word","MS Excel","PowerPoint","Files & Folders","Email Basics","Typing Skills","Hardware","Software","Coding Basics","Internet Search","Digital Citizenship","Privacy","Networking","Cloud Tools","Shortcut Keys"]},
-{id:"evs",name:"EVS",hi:"पर्यावरण अध्ययन",icon:"🌱",desc:"Everyday environment, health, family, nature and responsible living.",topics:["My Body","Food & Health","Safety","Air","Water","Plants","Animals","Weather","Seasons","Waste Management","Cleanliness","Travel","Community Helpers","Natural Resources","Environment","Soil","Conservation","Pollution","Habitat","Sustainable Living"]},
-{id:"reasoning",name:"Reasoning & Mental Ability",hi:"रीजनिंग / मानसिक योग्यता",icon:"🧩",desc:"Pattern recognition and logical thinking for school and entrance exams.",topics:["Number Series","Alphabet Series","Odd One Out","Analogies","Directions","Coding-Decoding","Classification","Patterns","Clock Reading","Calendar","Logical Statements","Blood Relations","Ranking","Sequence","Venn Diagrams","Data Interpretation","Mirror Images","Embedded Figures","Cubes & Dice","Mental Ability Basics"]},
-{id:"navodaya",name:"Navodaya (JNVST)",hi:"नवोदय प्रवेश परीक्षा",icon:"🎯",desc:"Entrance preparation roadmap: arithmetic, mental ability and language.",topics:["Number System","Fractions & Decimal","Speed & Distance","Time & Work","Mental Ability","Reasoning","English Grammar","Reading Passage","Hindi Grammar","Terms & Concepts","Patterns","Data Questions","Verbal Ability","Aptitude","Word Problems","Logical Thinking","Mixed Practice","Practice Tests","Shortcut Tricks","Mock Questions"]},
-{id:"sainik",name:"Sainik School",hi:"सैनिक स्कूल प्रवेश",icon:"🛡️",desc:"Foundation plan for mathematics, intelligence, language and general awareness.",topics:["Arithmetic Review","Algebra Basics","Mensuration","Logical Reasoning","Language Flow","Comprehension","General Science","History","Geography","Current Affairs","Mental Ability","Word Problems","Basic Statistics","English Usage","Hindi Vocabulary","Synonyms","Practice Mock","Time Strategy","Career Awareness","Exam Readiness"]},
-{id:"ctet",name:"CTET: CDP & Pedagogy",hi:"सीटेट: बाल विकास",icon:"👩‍🏫",desc:"Teacher-exam study map for child development, learning, inclusion and pedagogy.",topics:["Child Development","Learning Theories","Learning Disabilities","Inclusive Education","Assessment","Teaching Methods","Classroom Management","Motivation","Curriculum","Gender & Society","Psychology Basics","Planning Lessons","Observation","Evaluation","Child Rights","Pedagogy","ICT in Education","School Environment","Teacher Role","Exam Preparation"]},
-{id:"sanskrit",name:"Sanskrit",hi:"संस्कृत",icon:"🕉️",desc:"संस्कृत भाषा की आधारभूत समझ से व्याकरण और सरल वाक्य तक।",topics:["अक्षर ज्ञान","वर्णमाला","लिंग","वचन","वाक्य रचना","संज्ञा","सर्वनाम","क्रिया","धातु रूप","संख्याएँ","वाक्यांश","शब्द भेद","प्रार्थना","परिचय","अनुवाद","व्याकरण","भाषा प्रयोग","गद्यांश","पारिवारिक शब्द","पद परिचय"]},
-{id:"art",name:"Art & Creativity",hi:"कला और रचनात्मकता",icon:"🎨",desc:"Visual observation, drawing skills, colour, design and creative expression.",topics:["Lines & Shapes","Colour Mixing","Composition","Sketching","Observational Drawing","Patterns","Poster Design","Craft Basics","Texture","Perspective","Imagery","Still Life","Landscape","Calligraphy","Storyboards","Creative Thinking","Design Ideas","Art History","Creative Practice","Workshop Techniques"]},
-{id:"health",name:"Health, Yoga & Life Skills",hi:"स्वास्थ्य, योग और जीवन कौशल",icon:"🧘",desc:"Age-appropriate habits for wellbeing, movement, safety and resilience.",topics:["Personal Hygiene","Balanced Diet","Exercise","Yoga Basics","Breathing","Mental Calm","Safety","First Aid","Time Management","Decision Making","Teamwork","Respect","Empathy","Stress Relief","Healthy Habits","Sleep","Nutrition","Daily Routine","Communication","Life Skills"]}
-];
-const state={subject:"math",query:"",level:"all",lang:"en",study:null,studyLang:"en",quizAnswered:false};
-let completed=new Set();try{completed=new Set(JSON.parse(localStorage.getItem("sch_completed_v2")||"[]"))}catch(e){}
-const $=id=>document.getElementById(id);
-const totalTopics=subjects.reduce((a,s)=>a+s.topics.length,0);
-$("subjectStat").textContent=subjects.length;$("topicStat").textContent=totalTopics;
-function levelFor(i){return i<7?"Basic":i<14?"Intermediate":"Advanced"}
-function topicKey(s,i){return s.id+"-"+i}
-function getSubject(){return subjects.find(s=>s.id===state.subject)||subjects[0]}
-function renderSubjects(){
-  $("subjectList").innerHTML=subjects.map(s=>`<button class="subject-btn ${state.subject===s.id?"active":""}" onclick="selectSubject('${s.id}')"><span class="emoji">${s.icon}</span><span>${state.lang==="hi"?s.hi:s.name}</span></button>`).join("");
-}
-function renderTopics(){
-  state.query=$("subjectSearch").value.trim().toLowerCase();state.level=$("levelFilter").value;
-  const s=getSubject();$("currentIcon").textContent=s.icon;$("currentTitle").textContent=state.lang==="hi"?s.hi:s.name;$("currentDesc").textContent=(state.lang==="hi"?s.hi+" — ":"")+s.desc;
-  let all=state.subject==="all"?subjects.flatMap(x=>x.topics.map((t,i)=>({s:x,t,i}))):s.topics.map((t,i)=>({s:t,i}));
-  all=all.filter(o=>(state.level==="all"||levelFor(o.i)===state.level)&&(!state.query||(typeof o.s==="object"?o.s.name+" "+o.s.hi+" "+o.t:o.t).toLowerCase().includes(state.query)));
-  $("topicCountBadge").textContent=all.length+" TOPICS";
-  $("topicGrid").innerHTML=all.map(o=>{let k=topicKey(o.s.id?o.s:o.s,i),lev=levelFor(o.i);return `<button class="topic ${completed.has(k)?"done":""}" onclick="openTopic('${o.s.id?o.s.id:o.s}',${o.i})"><span class="num">${lev}</span><span class="topic-name">${o.t}</span><span class="level">Topic ${o.i+1}</span></button>`}).join("");
-  $("emptyState").classList.toggle("visible",all.length===0);updateProgress();renderSubjects();
-}
-function selectSubject(id){state.subject=id;state.study=null;$("studyPanel").classList.remove("open");renderTopics();$("topicGrid").scrollIntoView({behavior:"smooth",block:"nearest"})}
-function resetSearch(){$("subjectSearch").value="";$("levelFilter").value="all";state.subject="all";state.study=null;$("studyPanel").classList.remove("open");renderTopics()}
-function openTopic(sid,i){
-  state.subject=sid;state.study={sid,i};state.studyLang=state.lang;state.quizAnswered=false;const s=subjects.find(x=>x.id===sid),t=s.topics[i],lev=levelFor(i);
-  $("studyPanel").classList.add("open");$("studyTitle").textContent=t;$("studyMeta").textContent=(state.lang==="hi"?s.hi:s.name)+" · Topic "+(i+1)+" of 20 · "+lev;
-  $("learnHeading").textContent=state.lang==="hi"?"🎯 इस विषय में क्या सीखेंगे":"🎯 Learning goals";
-  $("learnIntro").textContent=state.lang==="hi"?`“${t}” की मुख्य अवधारणाओं को समझें और उदाहरणों के साथ अभ्यास करें।`:`Understand the key ideas behind “${t}” and practise with clear examples.`;
-  const bullets=state.lang==="hi"?["मुख्य शब्दों और परिभाषाओं को समझें","एक सरल उदाहरण स्वयं हल करें","आसान अभ्यास प्रश्नों से आत्मविश्वास बढ़ाएँ"]:["Understand the core terms and definitions","Work through a simple example","Build confidence with short practice tasks"];
-  $("learnList").innerHTML=bullets.map(x=>`<li>${x}</li>`).join("");
-  $("planHeading").textContent=state.lang==="hi"?"🪜 सीखने का क्रम":"🪜 Suggested learning path";
-  $("planText").textContent=state.lang==="hi"?"पहले आधारभूत समझ, फिर उदाहरण, अभ्यास और अंत में चुनौतीपूर्ण प्रश्न।":"Start with the concept, then example, then practise, and finish with a quick check.";
-  $("sequence").innerHTML=(state.lang==="hi"?["समझें","उदाहरण","अभ्यास","जाँचें"]:["Understand","Example","Practise","Self-check"]).map(x=>`<span>${x}</span>`).join("");
-  $("practiceHeading").textContent=state.lang==="hi"?"🧠 त्वरित अभ्यास":"🧠 Quick practice";
-  buildQuickQuiz(s,t,i);$("completeBtn").textContent=completed.has(topicKey(s,i))?(state.lang==="hi"?"✓ पूरा हुआ — फिर से देखें":"✓ Completed — review"):(state.lang==="hi"?"✅ पूरा करें":"✅ Mark as done");
-  renderTopics();$("studyPanel").classList.add("open");$("studyPanel").scrollIntoView({behavior:"smooth",block:"start"});
-}
-const questionBanks = {
-math:[["What is the place value of 5 in 3,542?","500","50","5","500"],["What is 18 + 27?","45","35","55","45"],["Which operation finds the total of equal groups?","Multiplication","Division","Subtraction","Multiplication"],["What is 9 × 7?","63","56","72","63"],["Which fraction is equal to 1/2?","2/4","2/3","3/5","2/4"],["What is 25% of 200?","50","25","75","50"],["Solve: x + 7 = 15","8","7","22","8"]],
-science:[["Which part of a plant usually absorbs water from soil?","Roots","Leaves","Flower","Roots"],["Which state of matter has a fixed volume but no fixed shape?","Liquid","Gas","Plasma","Liquid"],["What is the basic unit of life?","Cell","Tissue","Organ","Cell"],["Which force pulls objects toward Earth?","Gravity","Friction","Magnetism","Gravity"],["Which gas do green plants use in photosynthesis?","Carbon dioxide","Oxygen","Nitrogen","Carbon dioxide"],["A substance with pH less than 7 is generally…","Acidic","Basic","Neutral","Acidic"],["Which material is usually a good electrical conductor?","Copper","Rubber","Dry wood","Copper"]],
-english:[["Which word is a noun?","Teacher","Quickly","Beautiful","Teacher"],["Choose the correct article: ___ apple","An","A","Thee","An"],["What is the past tense of “go”?","Went","Goed","Going","Went"],["Which sentence is punctuated correctly?","Where are you?","Where are you.","where are you?","Where are you?"],["Choose the correct verb: She ___ to school every day.","goes","go","going","goes"],["A word with a similar meaning is a…","Synonym","Antonym","Pronoun","Synonym"]],
-hindi:[["‘विद्यालय’ शब्द किसका उदाहरण है?","संज्ञा","क्रिया","विशेषण","संज्ञा"],["‘दिन’ का विलोम शब्द क्या है?","रात","सुबह","समय","रात"],["‘मैं’ कौन-सा शब्द है?","सर्वनाम","संज्ञा","क्रिया","सर्वनाम"],["‘सुंदर फूल’ में ‘सुंदर’ क्या है?","विशेषण","क्रिया","सर्वनाम","विशेषण"],["‘लड़के’ शब्द का एकवचन क्या है?","लड़का","लड़की","लड़कियाँ","लड़का"]],
-computer:[["Which device is mainly used to type text?","Keyboard","Monitor","Speaker","Keyboard"],["Which of these is an input device?","Mouse","Printer","Speaker","Mouse"],["What does a strong password help protect?","Your account","Screen brightness","Battery size","Your account"],["HTML is mainly used to…","Structure web pages","Clean a keyboard","Edit photos only","Structure web pages"],["Which is safer when receiving an unknown link?","Verify before opening","Open immediately","Share your password","Verify before opening"]],
-evs:[["Which habit helps prevent the spread of germs?","Wash hands with soap","Share used tissues","Skip bathing always","Wash hands with soap"],["Which of these is a source of clean drinking water when properly treated?","Treated tap water","Flood water","Unknown pond water","Treated tap water"],["Which action helps reduce waste?","Reuse suitable items","Throw everything away","Use more single-use plastic","Reuse suitable items"]],
-reasoning:[["Find the next number: 2, 4, 6, 8, __","10","9","12","10"],["Which one is different? Apple, Mango, Carrot, Banana","Carrot","Apple","Mango","Carrot"],["If NORTH is opposite SOUTH, which direction is opposite EAST?","West","North","South","West"],["Book is to Reading as Fork is to…","Eating","Writing","Sleeping","Eating"]],
-gk:[["What is the capital of India?","New Delhi","Mumbai","Kolkata","New Delhi"],["Which planet is known as the Red Planet?","Mars","Venus","Jupiter","Mars"],["How many colours are traditionally shown in a rainbow?","Seven","Five","Nine","Seven"],["Which is India's national animal?","Bengal tiger","Lion","Elephant","Bengal tiger"]],
-sst:[["A map is used to represent…","Places and locations","Only sounds","Only temperatures","Places and locations"],["Which is a fundamental feature of democracy?","People participate in choosing leaders","No elections ever","Only one person votes","People participate in choosing leaders"],["The Earth has how many continents in the commonly taught model?","Seven","Five","Eight","Seven"]],
-navodaya:[["What is 36 ÷ 6?","6","5","7","6"],["What is the LCM of 4 and 6?","12","10","24","12"],["What is 3/4 of 20?","15","12","16","15"],["Complete the series: 5, 10, 15, 20, __","25","22","30","25"]],
-sainik:[["What is 15% of 200?","30","15","20","30"],["How many degrees are in a right angle?","90°","45°","180°","90°"],["Complete the series: 3, 6, 12, 24, __","48","36","30","48"]],
-ctet:[["Child-centred teaching primarily focuses on…","Learners' needs and participation","Only copying notes","Punishment as the main method","Learners' needs and participation"],["Formative assessment is mainly used to…","Improve learning during teaching","Rank students only at year end","Replace all teaching","Improve learning during teaching"],["Inclusive education aims to…","Support participation of all learners","Teach only high scorers","Separate every learner","Support participation of all learners"]],
-sanskrit:[["‘रामः पठति’ वाक्य में क्रिया कौन-सी है?","पठति","रामः","वाक्य","पठति"],["‘फलम्’ शब्द का अर्थ क्या है?","Fruit","Water","Book","Fruit"],["‘अहम्’ का अर्थ क्या है?","मैं","तुम","वह","मैं"]],
-art:[["Which are the traditional primary colours in basic paint theory?","Red, yellow, blue","Green, orange, purple","Black, white, grey","Red, yellow, blue"],["Which tool is useful for making a light pencil sketch?","HB pencil","Permanent marker","Wet paintbrush only","HB pencil"]],
-health:[["Which habit supports good health?","Regular sleep and activity","Skipping all meals","Never drinking water","Regular sleep and activity"],["What should you do before trying a new exercise?","Use safe technique and suitable guidance","Ignore pain","Copy risky stunts","Use safe technique and suitable guidance"],["A balanced diet includes…","Different food groups","Only sweets","Only one food every day","Different food groups"]]
-};
-const genericBank=[['What is the best way to learn this topic?','Understand the idea, then practise','Skip the examples','Guess without checking','Understand the idea, then practise'],['Which is a good study habit?','Check and learn from mistakes','Never review answers','Memorise without understanding','Check and learn from mistakes'],['When a question is difficult, what should you do first?','Break it into smaller steps','Give up immediately','Choose randomly','Break it into smaller steps']];
-function buildQuickQuiz(s,t,i){
-  let bank=questionBanks[s.id]||genericBank;let d=bank[i%bank.length];let opts=[d[1],d[2],d[3]];let shift=(i*2+Math.floor(i/3))%opts.length;opts=opts.slice(shift).concat(opts.slice(0,shift));$("quizQuestion").textContent=(state.lang==="hi"?"प्रश्न: ":"Quick practice: ")+d[0];$("quizOptions").innerHTML=opts.map(x=>`<button class="option" onclick="answerQuick(this,${JSON.stringify(x).replace(/"/g,'&quot;')},${JSON.stringify(d[4]).replace(/"/g,'&quot;')})">${x}</button>`).join("");$("quizFeedback").textContent="";state.quizAnswered=false;
-}
-function answerQuick(btn,choice,correct){if(state.quizAnswered)return;state.quizAnswered=true;document.querySelectorAll("#quizOptions .option").forEach(b=>{if(b.textContent===correct)b.classList.add("correct")});if(choice===correct){$("quizFeedback").textContent=state.lang==="hi"?"सही उत्तर! बहुत अच्छा।":"Correct! Great work.";btn.classList.add("correct");playTone(true)}else{$("quizFeedback").textContent=(state.lang==="hi"?"सही उत्तर: ":"Correct answer: ")+correct;btn.classList.add("wrong");playTone(false)}}
-function completeCurrent(){if(!state.study)return;const k=topicKey(subjects.find(s=>s.id===state.study.sid),state.study.i);completed.add(k);localStorage.setItem("sch_completed_v2",JSON.stringify([...completed]));updateProgress();$("completeBtn").textContent=state.lang==="hi"?"✓ पूरा हुआ — फिर से देखें":"✓ Completed — review";toast(state.lang==="hi"?"टॉपिक पूरा हुआ!":"Topic marked complete!")}
-function updateProgress(){const n=completed.size,p=Math.round(n/totalTopics*100);$("progressFill").style.width=p+"%";$("progressText").textContent=`${n} of ${totalTopics} completed`;$("progressPct").textContent=p+"%"}
-function showNextTopic(){let next=null;for(const s of subjects){for(let i=0;i<s.topics.length;i++){if(!completed.has(topicKey(s,i))){next={s,i};break}}if(next)break}if(next)openTopic(next.s.id,next.i);else toast(state.lang==="hi"?"सभी विषय पूरे हो चुके हैं।":"You’ve completed all available topics.")}
-function toggleLang(){state.lang=state.lang==="en"?"hi":"en";$("heroTitle").innerHTML=state.lang==="hi"?"एक हब, हर विषय।<br>सीखें कदम-दर-कदम।":"One Hub. Every Subject.<br>Step by Step to Success.";$("heroDesc").textContent=state.lang==="hi"?"बेसिक से एडवांस्ड तक एक संरचित सीखने की राह चुनें। विषय चुनें, टॉपिक खोलें, सुनें और प्रगति ट्रैक करें — हिंदी या English में।":"Explore a structured learning roadmap from Basic to Advanced. Choose a subject, open a topic, listen to it, and track your learning progress — in Hindi or English.";renderSubjects();renderTopics();if(state.study)openTopic(state.study.sid,state.study.i)}
-function toggleTopicLanguage(){state.lang=state.lang==="en"?"hi":"en";renderSubjects();renderTopics();if(state.study)openTopic(state.study.sid,state.study.i)}
-function speakText(text){if(!("speechSynthesis" in window)){toast("Voice is not supported in this browser");return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang=state.lang==="hi"?"hi-IN":"en-US";speechSynthesis.speak(u)}
-function speakTopic(){if(!state.study)return;let s=subjects.find(x=>x.id===state.study.sid),t=s.topics[state.study.i];speakText((state.lang==="hi"?s.hi+". विषय: ":"Subject: "+s.name+". Topic: ")+t)}
-function speakCurrent(){if(state.study)speakTopic();else speakText(state.lang==="hi"?"साइंस सेंटर लर्निंग हब। आज का विषय चुनें।":"Science Centre Learning Hub. Choose a subject to begin.")}
-function playTone(ok){try{const AudioCtx=window.AudioContext||window.webkitAudioContext;const ctx=new AudioCtx();const osc=ctx.createOscillator();const gain=ctx.createGain();osc.connect(gain);gain.connect(ctx.destination);osc.frequency.value=ok?740:220;gain.gain.value=.04;osc.start();osc.stop(ctx.currentTime+.12)}catch(e){}}
-function toast(msg){$("toast").textContent=msg;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2200)}
-function shareSite(){if(navigator.share)navigator.share({title:"Science Centre Learning Hub",text:"Explore all-subject bilingual learning topics from basic to advanced."}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(location.href).then(()=>toast("Link copied!"));else toast("Share this page from your browser menu.")}
-renderSubjects();renderTopics();
-</script>
-</body></html>
+  </section>
+
+  <main class="main">
+    <div class="container">
+      <div class="notice" id="noticeText">📌 <b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.</div>
+
+      <div class="section-head">
+        <div>
+          <h2 id="learningResourcesTitle">Learning Resources</h2>
+          <div class="muted" id="learningResourcesSub">Browse subjects, practice pages and study materials.</div>
+        </div>
+      </div>
+
+      <div class="toolbar" id="resources">
+        <input id="search" type="search" placeholder="Search: LKG, Hindi, Grammar, Science..." aria-label="Search learning pages">
+        <select id="category" aria-label="Filter by category">
+          <option value="all">All categories</option>
+          <option value="All Subjects">All Subjects</option>
+          <option value="Portal">Portal</option>
+          <option value="Science">Science</option>
+          <option value="LKG">LKG</option>
+          <option value="English">English</option>
+          <option value="Hindi">Hindi</option>
+        </select>
+        <button type="button" id="reset">Reset</button>
+      </div>
+
+      <div class="grid" id="grid">
+        <article class="resource-card" data-title="all subjects learning portal all subjects questions" data-category="All Subjects">
+          <div class="icon">📚</div>
+          <div class="tag">All Subjects</div>
+          <h3>All Subjects Learning Portal</h3>
+          <p>Learning resources, practice questions and subject-wise study pages for students.</p>
+          <a class="open-link" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="all subjects upgrade all subjects upgraded" data-category="All Subjects">
+          <div class="icon">🚀</div>
+          <div class="tag">All Subjects</div>
+          <h3>All Subjects Upgrade</h3>
+          <p>Improved study pages and subject updates for a strong classroom-to-home learning flow.</p>
+          <a class="open-link" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="premium smart learning portal" data-category="Portal">
+          <div class="icon">✨</div>
+          <div class="tag">Portal</div>
+          <h3>Premium Smart Learning</h3>
+          <p>Premium learning experience with polished pages and subject-focused study modules.</p>
+          <a class="open-link" href="science_centre_learning_hub_premium.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="metals and materials quiz class 5 science" data-category="Science">
+          <div class="icon">🧪</div>
+          <div class="tag">Science</div>
+          <h3>Metals and Materials Quiz</h3>
+          <p>Class 5 EVS science quiz on materials and their properties with sound-based learning.</p>
+          <a class="open-link" href="metals_materials_quiz_with_sound-2.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="lkg hindi english voice quiz lkg hindi english motivation" data-category="LKG">
+          <div class="icon">🔊</div>
+          <div class="tag">LKG</div>
+          <h3>LKG Hindi + English Voice Quiz</h3>
+          <p>Motivational feedback, voice controls and LKG-friendly learning with bilingual prompts.</p>
+          <a class="open-link" href="LKG_Hindi_English_Voice_Changer_Motivation.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="lkg english 100 questions worksheet" data-category="LKG">
+          <div class="icon">✏️</div>
+          <div class="tag">LKG</div>
+          <h3>LKG English 100 Questions</h3>
+          <p>English worksheet and practice pages with Hindi sound support and beginner-friendly layout.</p>
+          <a class="open-link" href="Science_Centre_LKG_100Q_English_Worksheet_Hindi_Sound.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="english grammar 30 worksheets 900 questions interactive fixed" data-category="English">
+          <div class="icon">📘</div>
+          <div class="tag">English</div>
+          <h3>English Grammar 30 Worksheets</h3>
+          <p>Interactive grammar practice with 900 practice questions and workbook-style revision.</p>
+          <a class="open-link" href="Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="complete english grammar 30 parts 900 questions language option" data-category="English">
+          <div class="icon">📝</div>
+          <div class="tag">English</div>
+          <h3>Complete English Grammar</h3>
+          <p>30 parts / 900 question grammar coverage with language and voice options.</p>
+          <a class="open-link" href="Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="hindi worksheets part 2 nursery to class 1" data-category="Hindi">
+          <div class="icon">🌿</div>
+          <div class="tag">Hindi</div>
+          <h3>Hindi Worksheets Part 2</h3>
+          <p>Hindi writing and recognition practice worksheets for nursery to class 1.</p>
+          <a class="open-link" href="30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="day 13 interactive english vocabulary" data-category="English">
+          <div class="icon">🧠</div>
+          <div class="tag">English</div>
+          <h3>Day 13 Interactive Vocabulary</h3>
+          <p>English vocabulary practice with audio support and interactive learning activities.</p>
+          <a class="open-link" href="Day13_Interactive_English_Vocabulary-1.html">Open →</a>
+        </article>
+      </div>
+
+      <section class="category-showcase" aria-label="Study categories">
+        <div class="section-head">
+          <div>
+            <h2 id="studyCategories">Study Categories</h2>
+            <div class="muted" id="studyCategoriesSub">Choose the right path for your learning</div>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <a class="cat-card green" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
+            <span class="cat-icon">🏫</span>
+            <h3>Classes 1–10</h3>
+            <p>Class-wise study plans and revision resources.</p>
+          </a>
+          <a class="cat-card blue" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">
+            <span class="cat-icon">📖</span>
+            <h3>Books</h3>
+            <p>Academic books and recommended reading material.</p>
+          </a>
+          <a class="cat-card orange" href="science_centre_learning_hub_premium.html">
+            <span class="cat-icon">🧭</span>
+            <h3>Curriculum</h3>
+            <p>Course-aligned learning goals and syllabus support.</p>
+          </a>
+          <a class="cat-card purple" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
+            <span class="cat-icon">📝</span>
+            <h3>Daily Notes</h3>
+            <p>Short and focused notes for daily revision.</p>
+          </a>
+          <a class="cat-card red" href="30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">
+            <span class="cat-icon">✏️</span>
+            <h3>Worksheets</h3>
+            <p>Practice sheets for learning and homework support.</p>
+          </a>
+          <a class="cat-card teal" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
+            <span class="cat-icon">📄</span>
+            <h3>Sample Papers</h3>
+            <p>Exam-style writing and practiced question formats.</p>
+          </a>
+          <a class="cat-card gold" href="./question-bank.html">
+            <span class="cat-icon">🧠</span>
+            <h3>Question Bank</h3>
+            <p>Ready-to-practice questions across subjects.</p>
+          </a>
+          <a class="cat-card pink" href="metals_materials_quiz_with_sound-2.html">
+            <span class="cat-icon">🎯</span>
+            <h3>Interactive Quizzes</h3>
+            <p>Self-test modules with instant learning checks.</p>
+          </a>
+          <a class="cat-card indigo" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">
+            <span class="cat-icon">🏆</span>
+            <h3>Navodaya / Sainik</h3>
+            <p>Objective-based preparation and aptitude practice.</p>
+          </a>
+          <a class="cat-card cyan" href="metals_materials_quiz_with_sound-2.html">
+            <span class="cat-icon">🔬</span>
+            <h3>GK &amp; Science</h3>
+            <p>General awareness and science learning for all ages.</p>
+          </a>
+          <a class="cat-card amber" href="Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">
+            <span class="cat-icon">📘</span>
+            <h3>English</h3>
+            <p>Grammar, vocabulary, writing and reading support.</p>
+          </a>
+          <a class="cat-card lime" href="science_centre_learning_hub_premium.html">
+            <span class="cat-icon">💻</span>
+            <h3>Computer</h3>
+            <p>Basic computer literacy and digital learning activities.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="class-path" aria-label="Classes 1 to 10">
+        <div class="section-head">
+          <div>
+            <h2 id="classesPathTitle">Classes 1 to 10</h2>
+            <div class="muted" id="classesPathSub">Learning tracks for every stage</div>
+          </div>
+        </div>
+
+        <div class="class-grid" id="classGrid">
+          <button type="button" class="class-card is-selected" data-class="Class 1" aria-pressed="true"><span>1</span> Class 1</button>
+          <button type="button" class="class-card" data-class="Class 2" aria-pressed="false"><span>2</span> Class 2</button>
+          <button type="button" class="class-card" data-class="Class 3" aria-pressed="false"><span>3</span> Class 3</button>
+          <button type="button" class="class-card" data-class="Class 4" aria-pressed="false"><span>4</span> Class 4</button>
+          <button type="button" class="class-card" data-class="Class 5" aria-pressed="false"><span>5</span> Class 5</button>
+          <button type="button" class="class-card" data-class="Class 6" aria-pressed="false"><span>6</span> Class 6</button>
+          <button type="button" class="class-card" data-class="Class 7" aria-pressed="false"><span>7</span> Class 7</button>
+          <button type="button" class="class-card" data-class="Class 8" aria-pressed="false"><span>8</span> Class 8</button>
+          <button type="button" class="class-card" data-class="Class 9" aria-pressed="false"><span>9</span> Class 9</button>
+          <button type="button" class="class-card" data-class="Class 10" aria-pressed="false"><span>10</span> Class 10</button>
+        </div>
+        <div class="selected-class" id="selectedClassDisplay" aria-live="polite">Selected class: Class 1</div>
+      </section>
+
+      <div class="section-head" style="margin-top: 30px;">
+        <div>
+          <h2>Quick Access</h2>
+          <div class="muted">Useful links already present in the project.</div>
+        </div>
+      </div>
+
+      <div class="default-links">
+        <a class="link-card" href="https://docs.google.com/forms/d/e/1FAIpQLSfN3JaD9BK0D2wKy-4Ym7KjRrMokbXfYdUHuM2hCjL1T4hYg/viewform" target="_blank" rel="noreferrer">Google Form</a>
+        <a class="link-card" href="https://youtube.com/@sciencecentreguruj?si=idrWQdFvG9c3v1Vf" target="_blank" rel="noreferrer">YouTube</a>
+        <a class="link-card" href="https://www.facebook.com/ScienceCentreGuruj" target="_blank" rel="noreferrer">Facebook</a>
+        <a class="link-card" href="https://www.instagram.com/sciencecentre_learninghub/?r=nametag" target="_blank" rel="noreferrer">Instagram</a>
+        <a class="link-card" href="https://chat.whatsapp.com/BrVYqaZMnHDQH4LDSR4uV0q" target="_blank" rel="noreferrer">WhatsApp Group</a>
+        <a class="link-card" href="https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q" target="_blank" rel="noreferrer">WhatsApp Channel</a>
+        <a class="link-card" href="mailto:sciencecentrelearninghub@gmail.com">Contact</a>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-card">
+          <h3>Books &amp; Curriculum</h3>
+          <p>Class-friendly subject material, structured lessons and study maps that fit daily practice.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Daily Notes &amp; Practice</h3>
+          <p>Short notes, revision tasks and focused practice pages that make home learning simple.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Interactive Quizzes</h3>
+          <p>Self-check activities with scoring, explanations and optional voice support where supported.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">SCIENCE CENTRE LEARNING HUB</div>
+        <p style="margin:10px 0 0; color: rgba(255,255,255,0.8);">Guided by Vishwendra Sir</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://youtube.com/@sciencecentreguruj?si=idrWQdFvG9c3v1Vf" target="_blank" rel="noreferrer">YouTube</a>
+        <a href="https://www.facebook.com/ScienceCentreGuruj" target="_blank" rel="noreferrer">Facebook</a>
+        <a href="https://www.instagram.com/sciencecentre_learninghub/?r=nametag" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://chat.whatsapp.com/BrVYqaZMnHDQH4LDSR4uV0q" target="_blank" rel="noreferrer">WhatsApp Group</a>
+        <a href="https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q" target="_blank" rel="noreferrer">WhatsApp Channel</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfN3JaD9BK0D2wKy-4Ym7KjRrMokbXfYdUHuM2hCjL1T4hYg/viewform" target="_blank" rel="noreferrer">Google Form</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const search = document.getElementById('search');
+    const category = document.getElementById('category');
+    const cards = [...document.querySelectorAll('.resource-card')];
+    const resetBtn = document.getElementById('reset');
+    const langToggle = document.getElementById('langToggle');
+    const classSelector = document.getElementById('classSelector');
+    const classCards = [...document.querySelectorAll('.class-card')];
+    const selectedClassDisplay = document.getElementById('selectedClassDisplay');
+    const openLearningBtn = document.getElementById('openLearningBtn');
+    const startLearningBtn = document.getElementById('startLearningBtn');
+    const learningSection = document.getElementById('resources');
+    const questionBankBtn = document.getElementById('questionBankBtn');
+
+    questionBankBtn.addEventListener('click', () => {
+      window.location.href = './question-bank.html';
+    });
+
+    function filterCards() {
+      const q = search.value.trim().toLowerCase();
+      const c = category.value;
+      let count = 0;
+
+      cards.forEach(card => {
+        const title = (card.dataset.title || '').toLowerCase();
+        const cat = card.dataset.category || '';
+        const ok = (!q || title.includes(q)) && (c === 'all' || cat === c);
+        card.classList.toggle('hide', !ok);
+        if (ok) count++;
+      });
+    }
+
+    search.addEventListener('input', filterCards);
+    category.addEventListener('change', filterCards);
+    resetBtn.addEventListener('click', () => {
+      search.value = '';
+      category.value = 'all';
+      filterCards();
+    });
+
+    function updateSelectedClass(value) {
+      const selected = value || 'Class 1';
+      classSelector.value = selected;
+      classCards.forEach(card => {
+        const isSelected = card.dataset.class === selected;
+        card.classList.toggle('is-selected', isSelected);
+        card.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+      });
+      if (selectedClassDisplay) {
+        selectedClassDisplay.textContent = `Selected class: ${selected}`;
+      }
+    }
+
+    classSelector.addEventListener('change', (e) => updateSelectedClass(e.target.value));
+    classCards.forEach(card => {
+      card.addEventListener('click', () => updateSelectedClass(card.dataset.class));
+    });
+
+    openLearningBtn.addEventListener('click', () => {
+      learningSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    startLearningBtn.addEventListener('click', () => {
+      learningSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    if (langToggle) {
+      let isHindi = false;
+      langToggle.addEventListener('click', () => {
+        isHindi = !isHindi;
+        langToggle.textContent = isHindi ? 'English' : 'हिन्दी';
+        langToggle.setAttribute('aria-pressed', String(isHindi));
+        const title = document.getElementById('heroTitle');
+        const text = document.getElementById('heroText');
+        const eyebrow = document.getElementById('eyebrowText');
+        const notice = document.getElementById('noticeText');
+        const resourceTitle = document.getElementById('learningResourcesTitle');
+        const resourceSub = document.getElementById('learningResourcesSub');
+        const categoriesTitle = document.getElementById('studyCategories');
+        const categoriesSub = document.getElementById('studyCategoriesSub');
+
+        if (isHindi) {
+          title.textContent = 'सीखें, अभ्यास करें और आगे बढ़ें! 🚀';
+          text.textContent = 'कक्षाओं 1 से 10 तक के छात्रों के लिए वर्कशीट, नोट्स, क्विज़, प्रश्न बैंक, नमूना पेपर और द्विभाषी शैक्षिक संसाधन। घर और कक्षा दोनों के लिए सरल, मोबाइल-फ्रेंडली सीखना।';
+          eyebrow.textContent = 'एक घर • सभी सीखें';
+          notice.innerHTML = '📌 <b>महत्वपूर्ण:</b> सभी संसाधन पेज़ परियोजना में उपलब्ध हैं। यह होमपेज़ केवल आधुनिक लैंडिंग पेज़ है।';
+          resourceTitle.textContent = 'सीखने के संसाधन';
+          resourceSub.textContent = 'विषयों, अभ्यास पेज़ और अध्ययन सामग्री को देखें।';
+          categoriesTitle.textContent = 'अध्ययन श्रेणियाँ';
+          categoriesSub.textContent = 'अपनी सीख के लिए सही मार्ग चुनें';
+        } else {
+          title.textContent = 'Learn, practise and grow! 🚀';
+          text.textContent = 'Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and classroom use.';
+          eyebrow.textContent = 'One Home • All Learning';
+          notice.innerHTML = '📌 <b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.';
+          resourceTitle.textContent = 'Learning Resources';
+          resourceSub.textContent = 'Browse subjects, practice pages and study materials.';
+          categoriesTitle.textContent = 'Study Categories';
+          categoriesSub.textContent = 'Choose the right path for your learning';
+        }
+      });
+    }
+
+    filterCards();
+    updateSelectedClass(classSelector.value);
+  </script>
+</body>
+</html>
