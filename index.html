@@ -137,7 +137,8 @@
     }
 
     .pill:hover, .toggle:hover, .action-btn:hover,
-    .link-card:hover, .resource-card:hover, .feature-card:hover {
+    .link-card:hover, .resource-card:hover, .feature-card:hover,
+    .cat-card:hover, .class-card:hover {
       transform: translateY(-2px);
     }
 
@@ -460,6 +461,79 @@
       color: var(--muted);
     }
 
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .cat-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 14px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+      transition: transform 0.2s ease;
+    }
+
+    .cat-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .cat-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      color: var(--ink);
+    }
+
+    .cat-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .green { background: linear-gradient(180deg, #f0fdf4, #ffffff); }
+    .blue { background: linear-gradient(180deg, #eff6ff, #ffffff); }
+    .orange { background: linear-gradient(180deg, #fff7ed, #ffffff); }
+    .purple { background: linear-gradient(180deg, #faf5ff, #ffffff); }
+    .red { background: linear-gradient(180deg, #fef2f2, #ffffff); }
+    .teal { background: linear-gradient(180deg, #ecfeff, #ffffff); }
+    .gold { background: linear-gradient(180deg, #fefce8, #ffffff); }
+    .pink { background: linear-gradient(180deg, #fdf2f8, #ffffff); }
+    .indigo { background: linear-gradient(180deg, #eef2ff, #ffffff); }
+    .cyan { background: linear-gradient(180deg, #ecfeff, #ffffff); }
+    .amber { background: linear-gradient(180deg, #fffbeb, #ffffff); }
+    .lime { background: linear-gradient(180deg, #f7fee7, #ffffff); }
+
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .class-card {
+      background: linear-gradient(135deg, #ffffff, #f0fdf4);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 12px;
+      text-align: center;
+      font-weight: 800;
+      color: var(--green-900);
+      box-shadow: 0 6px 16px rgba(20, 83, 45, 0.04);
+      transition: transform 0.2s ease;
+    }
+
+    .class-card span {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+      color: var(--green-700);
+    }
+
     .site-footer {
       background: linear-gradient(180deg, #062a1c, #0c3d2d);
       color: white;
@@ -694,6 +768,100 @@
         </article>
       </div>
 
+      <section class="category-showcase" aria-label="Study categories">
+        <div class="section-head">
+          <div>
+            <h2 id="studyCategories">Study Categories</h2>
+            <div class="muted" id="studyCategoriesSub">Choose the right path for your learning</div>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <div class="cat-card green">
+            <span class="cat-icon">🏫</span>
+            <h3>Classes 1–10</h3>
+            <p>Class-wise study plans and revision resources.</p>
+          </div>
+          <div class="cat-card blue">
+            <span class="cat-icon">📖</span>
+            <h3>Books</h3>
+            <p>Academic books and recommended reading material.</p>
+          </div>
+          <div class="cat-card orange">
+            <span class="cat-icon">🧭</span>
+            <h3>Curriculum</h3>
+            <p>Course-aligned learning goals and syllabus support.</p>
+          </div>
+          <div class="cat-card purple">
+            <span class="cat-icon">📝</span>
+            <h3>Daily Notes</h3>
+            <p>Short and focused notes for daily revision.</p>
+          </div>
+          <div class="cat-card red">
+            <span class="cat-icon">✏️</span>
+            <h3>Worksheets</h3>
+            <p>Practice sheets for learning and homework support.</p>
+          </div>
+          <div class="cat-card teal">
+            <span class="cat-icon">📄</span>
+            <h3>Sample Papers</h3>
+            <p>Exam-style writing and practiced question formats.</p>
+          </div>
+          <div class="cat-card gold">
+            <span class="cat-icon">🧠</span>
+            <h3>Question Bank</h3>
+            <p>Ready-to-practice questions across subjects.</p>
+          </div>
+          <div class="cat-card pink">
+            <span class="cat-icon">🎯</span>
+            <h3>Interactive Quizzes</h3>
+            <p>Self-test modules with instant learning checks.</p>
+          </div>
+          <div class="cat-card indigo">
+            <span class="cat-icon">🏆</span>
+            <h3>Navodaya / Sainik</h3>
+            <p>Objective-based preparation and aptitude practice.</p>
+          </div>
+          <div class="cat-card cyan">
+            <span class="cat-icon">🔬</span>
+            <h3>GK & Science</h3>
+            <p>General awareness and science learning for all ages.</p>
+          </div>
+          <div class="cat-card amber">
+            <span class="cat-icon">📘</span>
+            <h3>English</h3>
+            <p>Grammar, vocabulary, writing and reading support.</p>
+          </div>
+          <div class="cat-card lime">
+            <span class="cat-icon">💻</span>
+            <h3>Computer</h3>
+            <p>Basic computer literacy and digital learning activities.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="class-path" aria-label="Classes 1 to 10">
+        <div class="section-head">
+          <div>
+            <h2 id="classesPathTitle">Classes 1 to 10</h2>
+            <div class="muted" id="classesPathSub">Learning tracks for every stage</div>
+          </div>
+        </div>
+
+        <div class="class-grid">
+          <div class="class-card"><span>1</span> Class 1</div>
+          <div class="class-card"><span>2</span> Class 2</div>
+          <div class="class-card"><span>3</span> Class 3</div>
+          <div class="class-card"><span>4</span> Class 4</div>
+          <div class="class-card"><span>5</span> Class 5</div>
+          <div class="class-card"><span>6</span> Class 6</div>
+          <div class="class-card"><span>7</span> Class 7</div>
+          <div class="class-card"><span>8</span> Class 8</div>
+          <div class="class-card"><span>9</span> Class 9</div>
+          <div class="class-card"><span>10</span> Class 10</div>
+        </div>
+      </section>
+
       <div class="section-head" style="margin-top: 30px;">
         <div>
           <h2>Quick Access</h2>
@@ -782,6 +950,16 @@
       document.querySelectorAll('.hero-copy h1').forEach(node => {
         node.textContent = hindi ? 'सीखें, अभ्यास करें और आगे बढ़ें! 🚀' : 'Learn, practise and grow! 🚀';
       });
+
+      const studyTitle = document.getElementById('studyCategories');
+      const studySub = document.getElementById('studyCategoriesSub');
+      const classTitle = document.getElementById('classesPathTitle');
+      const classSub = document.getElementById('classesPathSub');
+
+      if (studyTitle) studyTitle.textContent = hindi ? 'अध्ययन श्रेणियाँ' : 'Study Categories';
+      if (studySub) studySub.textContent = hindi ? 'अपना सही सीखने का रास्ता चुनें' : 'Choose the right path for your learning';
+      if (classTitle) classTitle.textContent = hindi ? 'कक्षा 1 से 10' : 'Classes 1 to 10';
+      if (classSub) classSub.textContent = hindi ? 'हर स्तर के लिए सीखने की पथ' : 'Learning tracks for every stage';
     });
   </script>
 </body>
