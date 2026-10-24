@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="hi">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -115,6 +115,7 @@
       font-weight: 700;
       cursor: pointer;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
+      min-height: 46px;
     }
 
     .pill {
@@ -475,6 +476,14 @@
       padding: 18px 14px;
       box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
       transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 160px;
+      cursor: pointer;
+      width: 100%;
+      color: inherit;
+      text-align: left;
     }
 
     .cat-icon {
@@ -525,6 +534,10 @@
       color: var(--green-900);
       box-shadow: 0 6px 16px rgba(20, 83, 45, 0.04);
       transition: transform 0.2s ease;
+      cursor: pointer;
+      width: 100%;
+      min-height: 90px;
+      appearance: none;
     }
 
     .class-card span {
@@ -532,6 +545,25 @@
       font-size: 1.5rem;
       margin-bottom: 4px;
       color: var(--green-700);
+    }
+
+    .class-card.is-selected {
+      background: linear-gradient(135deg, #dcfce7, #f0fdf4);
+      border-color: #86efac;
+      box-shadow: 0 10px 18px rgba(34, 197, 94, 0.12);
+    }
+
+    .selected-class {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(22, 163, 74, 0.08);
+      border: 1px solid rgba(22, 163, 74, 0.22);
+      color: var(--green-800);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-weight: 700;
     }
 
     .site-footer {
@@ -609,20 +641,20 @@
       </div>
 
       <div class="header-tools">
-        <select class="toggle" aria-label="Choose class">
-          <option>Class 1</option>
-          <option>Class 2</option>
-          <option>Class 3</option>
-          <option>Class 4</option>
-          <option>Class 5</option>
-          <option>Class 6</option>
-          <option>Class 7</option>
-          <option>Class 8</option>
-          <option>Class 9</option>
-          <option>Class 10</option>
+        <select id="classSelector" class="toggle" aria-label="Choose class">
+          <option value="Class 1">Class 1</option>
+          <option value="Class 2">Class 2</option>
+          <option value="Class 3">Class 3</option>
+          <option value="Class 4">Class 4</option>
+          <option value="Class 5">Class 5</option>
+          <option value="Class 6">Class 6</option>
+          <option value="Class 7">Class 7</option>
+          <option value="Class 8">Class 8</option>
+          <option value="Class 9">Class 9</option>
+          <option value="Class 10">Class 10</option>
         </select>
-        <button class="pill" type="button" id="langToggle">हिन्दी</button>
-        <button class="action-btn" type="button" onclick="document.getElementById('resources').scrollIntoView({behavior:'smooth'})">Open Learning</button>
+        <button class="pill" type="button" id="langToggle" aria-label="Switch interface language" aria-pressed="false">हिन्दी</button>
+        <button class="action-btn" type="button" id="openLearningBtn">Open Learning</button>
       </div>
     </div>
   </header>
@@ -630,12 +662,12 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-copy">
-        <span class="eyebrow">One Home • All Learning</span>
-        <h1>सीखें, अभ्यास करें और आगे बढ़ें! 🚀</h1>
-        <p>Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and school practice.</p>
+        <span class="eyebrow" id="eyebrowText">One Home • All Learning</span>
+        <h1 id="heroTitle">Learn, practise and grow! 🚀</h1>
+        <p id="heroText">Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and school practice.</p>
 
         <div class="quick-actions">
-          <button class="action-btn cta-primary" type="button" onclick="document.getElementById('resources').scrollIntoView({behavior:'smooth'})">Start Learning</button>
+          <button class="action-btn cta-primary" type="button" id="startLearningBtn">Start Learning</button>
           <button class="pill cta-secondary" type="button" onclick="window.location.href='Science_Centre_Learning_Hub_All_Subjects_Questions.html'">Question Bank</button>
         </div>
       </div>
@@ -663,17 +695,17 @@
 
   <main class="main">
     <div class="container">
-      <div class="notice">📌 <b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.</div>
+      <div class="notice" id="noticeText">📌 <b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.</div>
 
       <div class="section-head">
         <div>
-          <h2>Learning Resources</h2>
-          <div class="muted">Browse subjects, practice pages and study materials.</div>
+          <h2 id="learningResourcesTitle">Learning Resources</h2>
+          <div class="muted" id="learningResourcesSub">Browse subjects, practice pages and study materials.</div>
         </div>
       </div>
 
       <div class="toolbar" id="resources">
-        <input id="search" type="search" placeholder="Search: LKG, Hindi, Grammar, Science..." aria-label="Search learning pages"></input>
+        <input id="search" type="search" placeholder="Search: LKG, Hindi, Grammar, Science..." aria-label="Search learning pages">
         <select id="category" aria-label="Filter by category">
           <option value="all">All categories</option>
           <option value="All Subjects">All Subjects</option>
@@ -777,66 +809,66 @@
         </div>
 
         <div class="category-grid">
-          <div class="cat-card green">
+          <a class="cat-card green" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
             <span class="cat-icon">🏫</span>
             <h3>Classes 1–10</h3>
             <p>Class-wise study plans and revision resources.</p>
-          </div>
-          <div class="cat-card blue">
+          </a>
+          <a class="cat-card blue" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">
             <span class="cat-icon">📖</span>
             <h3>Books</h3>
             <p>Academic books and recommended reading material.</p>
-          </div>
-          <div class="cat-card orange">
+          </a>
+          <a class="cat-card orange" href="science_centre_learning_hub_premium.html">
             <span class="cat-icon">🧭</span>
             <h3>Curriculum</h3>
             <p>Course-aligned learning goals and syllabus support.</p>
-          </div>
-          <div class="cat-card purple">
+          </a>
+          <a class="cat-card purple" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
             <span class="cat-icon">📝</span>
             <h3>Daily Notes</h3>
             <p>Short and focused notes for daily revision.</p>
-          </div>
-          <div class="cat-card red">
+          </a>
+          <a class="cat-card red" href="30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">
             <span class="cat-icon">✏️</span>
             <h3>Worksheets</h3>
             <p>Practice sheets for learning and homework support.</p>
-          </div>
-          <div class="cat-card teal">
+          </a>
+          <a class="cat-card teal" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
             <span class="cat-icon">📄</span>
             <h3>Sample Papers</h3>
             <p>Exam-style writing and practiced question formats.</p>
-          </div>
-          <div class="cat-card gold">
+          </a>
+          <a class="cat-card gold" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
             <span class="cat-icon">🧠</span>
             <h3>Question Bank</h3>
             <p>Ready-to-practice questions across subjects.</p>
-          </div>
-          <div class="cat-card pink">
+          </a>
+          <a class="cat-card pink" href="metals_materials_quiz_with_sound-2.html">
             <span class="cat-icon">🎯</span>
             <h3>Interactive Quizzes</h3>
             <p>Self-test modules with instant learning checks.</p>
-          </div>
-          <div class="cat-card indigo">
+          </a>
+          <a class="cat-card indigo" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">
             <span class="cat-icon">🏆</span>
             <h3>Navodaya / Sainik</h3>
             <p>Objective-based preparation and aptitude practice.</p>
-          </div>
-          <div class="cat-card cyan">
+          </a>
+          <a class="cat-card cyan" href="metals_materials_quiz_with_sound-2.html">
             <span class="cat-icon">🔬</span>
-            <h3>GK & Science</h3>
+            <h3>GK &amp; Science</h3>
             <p>General awareness and science learning for all ages.</p>
-          </div>
-          <div class="cat-card amber">
+          </a>
+          <a class="cat-card amber" href="Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">
             <span class="cat-icon">📘</span>
             <h3>English</h3>
             <p>Grammar, vocabulary, writing and reading support.</p>
-          </div>
-          <div class="cat-card lime">
+          </a>
+          <a class="cat-card lime" href="science_centre_learning_hub_premium.html">
             <span class="cat-icon">💻</span>
             <h3>Computer</h3>
             <p>Basic computer literacy and digital learning activities.</p>
-          </div>
+          </a>
         </div>
       </section>
 
@@ -848,18 +880,19 @@
           </div>
         </div>
 
-        <div class="class-grid">
-          <div class="class-card"><span>1</span> Class 1</div>
-          <div class="class-card"><span>2</span> Class 2</div>
-          <div class="class-card"><span>3</span> Class 3</div>
-          <div class="class-card"><span>4</span> Class 4</div>
-          <div class="class-card"><span>5</span> Class 5</div>
-          <div class="class-card"><span>6</span> Class 6</div>
-          <div class="class-card"><span>7</span> Class 7</div>
-          <div class="class-card"><span>8</span> Class 8</div>
-          <div class="class-card"><span>9</span> Class 9</div>
-          <div class="class-card"><span>10</span> Class 10</div>
+        <div class="class-grid" id="classGrid">
+          <button type="button" class="class-card is-selected" data-class="Class 1" aria-pressed="true"><span>1</span> Class 1</button>
+          <button type="button" class="class-card" data-class="Class 2" aria-pressed="false"><span>2</span> Class 2</button>
+          <button type="button" class="class-card" data-class="Class 3" aria-pressed="false"><span>3</span> Class 3</button>
+          <button type="button" class="class-card" data-class="Class 4" aria-pressed="false"><span>4</span> Class 4</button>
+          <button type="button" class="class-card" data-class="Class 5" aria-pressed="false"><span>5</span> Class 5</button>
+          <button type="button" class="class-card" data-class="Class 6" aria-pressed="false"><span>6</span> Class 6</button>
+          <button type="button" class="class-card" data-class="Class 7" aria-pressed="false"><span>7</span> Class 7</button>
+          <button type="button" class="class-card" data-class="Class 8" aria-pressed="false"><span>8</span> Class 8</button>
+          <button type="button" class="class-card" data-class="Class 9" aria-pressed="false"><span>9</span> Class 9</button>
+          <button type="button" class="class-card" data-class="Class 10" aria-pressed="false"><span>10</span> Class 10</button>
         </div>
+        <div class="selected-class" id="selectedClassDisplay" aria-live="polite">Selected class: Class 1</div>
       </section>
 
       <div class="section-head" style="margin-top: 30px;">
@@ -881,11 +914,11 @@
 
       <div class="feature-row">
         <div class="feature-card">
-          <h3>Books & Curriculum</h3>
+          <h3>Books &amp; Curriculum</h3>
           <p>Class-friendly subject material, structured lessons and study maps that fit daily practice.</p>
         </div>
         <div class="feature-card">
-          <h3>Daily Notes & Practice</h3>
+          <h3>Daily Notes &amp; Practice</h3>
           <p>Short notes, revision tasks and focused practice pages that make home learning simple.</p>
         </div>
         <div class="feature-card">
@@ -919,6 +952,12 @@
     const cards = [...document.querySelectorAll('.resource-card')];
     const resetBtn = document.getElementById('reset');
     const langToggle = document.getElementById('langToggle');
+    const classSelector = document.getElementById('classSelector');
+    const classCards = [...document.querySelectorAll('.class-card')];
+    const selectedClassDisplay = document.getElementById('selectedClassDisplay');
+    const openLearningBtn = document.getElementById('openLearningBtn');
+    const startLearningBtn = document.getElementById('startLearningBtn');
+    const learningSection = document.getElementById('resources');
 
     function filterCards() {
       const q = search.value.trim().toLowerCase();
@@ -928,7 +967,7 @@
       cards.forEach(card => {
         const title = (card.dataset.title || '').toLowerCase();
         const cat = card.dataset.category || '';
-        const ok = (!q || title.includes(q)) && (c === 'all' || cat === c || c === 'All categories');
+        const ok = (!q || title.includes(q)) && (c === 'all' || cat === c);
         card.classList.toggle('hide', !ok);
         if (ok) count++;
       });
@@ -942,25 +981,72 @@
       filterCards();
     });
 
+    function updateSelectedClass(value) {
+      const selected = value || 'Class 1';
+      classSelector.value = selected;
+      classCards.forEach(card => {
+        const isSelected = card.dataset.class === selected;
+        card.classList.toggle('is-selected', isSelected);
+        card.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+      });
+      if (selectedClassDisplay) {
+        selectedClassDisplay.textContent = `Selected class: ${selected}`;
+      }
+    }
+
+    classSelector.addEventListener('change', (event) => {
+      updateSelectedClass(event.target.value);
+    });
+
+    classCards.forEach(card => {
+      card.addEventListener('click', () => {
+        updateSelectedClass(card.dataset.class);
+      });
+    });
+
+    function handleOpenLearning() {
+      if (learningSection) {
+        learningSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    openLearningBtn.addEventListener('click', handleOpenLearning);
+    startLearningBtn.addEventListener('click', handleOpenLearning);
+
     let hindi = false;
-    langToggle.addEventListener('click', () => {
-      hindi = !hindi;
+
+    function setLanguage(nextHindi) {
+      hindi = Boolean(nextHindi);
       document.documentElement.lang = hindi ? 'hi' : 'en';
       langToggle.textContent = hindi ? 'English' : 'हिन्दी';
-      document.querySelectorAll('.hero-copy h1').forEach(node => {
-        node.textContent = hindi ? 'सीखें, अभ्यास करें और आगे बढ़ें! 🚀' : 'Learn, practise and grow! 🚀';
-      });
+      langToggle.setAttribute('aria-pressed', String(hindi));
 
-      const studyTitle = document.getElementById('studyCategories');
-      const studySub = document.getElementById('studyCategoriesSub');
-      const classTitle = document.getElementById('classesPathTitle');
-      const classSub = document.getElementById('classesPathSub');
+      const eyebrow = document.getElementById('eyebrowText');
+      const heroTitle = document.getElementById('heroTitle');
+      const heroText = document.getElementById('heroText');
+      const noticeText = document.getElementById('noticeText');
+      const learningResourcesTitle = document.getElementById('learningResourcesTitle');
+      const learningResourcesSub = document.getElementById('learningResourcesSub');
+      const studyCategories = document.getElementById('studyCategories');
+      const studyCategoriesSub = document.getElementById('studyCategoriesSub');
+      const classesPathTitle = document.getElementById('classesPathTitle');
+      const classesPathSub = document.getElementById('classesPathSub');
 
-      if (studyTitle) studyTitle.textContent = hindi ? 'अध्ययन श्रेणियाँ' : 'Study Categories';
-      if (studySub) studySub.textContent = hindi ? 'अपना सही सीखने का रास्ता चुनें' : 'Choose the right path for your learning';
-      if (classTitle) classTitle.textContent = hindi ? 'कक्षा 1 से 10' : 'Classes 1 to 10';
-      if (classSub) classSub.textContent = hindi ? 'हर स्तर के लिए सीखने की पथ' : 'Learning tracks for every stage';
-    });
+      if (eyebrow) eyebrow.textContent = hindi ? 'एक घर • सभी सीखें' : 'One Home • All Learning';
+      if (heroTitle) heroTitle.textContent = hindi ? 'सीखें, अभ्यास करें और आगे बढ़ें! 🚀' : 'Learn, practise and grow! 🚀';
+      if (heroText) heroText.textContent = hindi ? 'कक्षा 1 से 10 तक के छात्रों के लिए वर्कशीट, नोट्स, क्विज़, प्रश्न बैंक, नमूना पेपर और द्विभाषी शैक्षणिक संसाधन। घर और स्कूल अभ्यास के लिए सरल, मोबाइल-फ्रेंडली सीखना।' : 'Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and school practice.';
+      if (noticeText) noticeText.innerHTML = hindi ? '📌 <b>महत्वपूर्ण:</b> सभी संसाधन पेज प्रोजेक्ट में उपलब्ध हैं। यह होमपेज केवल एक आधुनिक लैंडिंग पेज है।' : '📌 <b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.';
+      if (learningResourcesTitle) learningResourcesTitle.textContent = hindi ? 'सीखने के संसाधन' : 'Learning Resources';
+      if (learningResourcesSub) learningResourcesSub.textContent = hindi ? 'विषयों, अभ्यास पेज और अध्ययन सामग्री को देखें।' : 'Browse subjects, practice pages and study materials.';
+      if (studyCategories) studyCategories.textContent = hindi ? 'अध्ययन श्रेणियाँ' : 'Study Categories';
+      if (studyCategoriesSub) studyCategoriesSub.textContent = hindi ? 'अपना सही सीखने का रास्ता चुनें' : 'Choose the right path for your learning';
+      if (classesPathTitle) classesPathTitle.textContent = hindi ? 'कक्षा 1 से 10' : 'Classes 1 to 10';
+      if (classesPathSub) classesPathSub.textContent = hindi ? 'हर स्तर के लिए सीखने की पथ' : 'Learning tracks for every stage';
+    }
+
+    langToggle.addEventListener('click', () => setLanguage(!hindi));
+    updateSelectedClass(classSelector.value);
+    setLanguage(false);
   </script>
 </body>
 </html>
