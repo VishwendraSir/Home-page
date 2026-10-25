@@ -1,0 +1,1138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#14532d">
+  <title>Science Centre Learning Hub | Home</title>
+  <style>
+    :root {
+      --green-900: #14532d;
+      --green-800: #166534;
+      --green-700: #15803d;
+      --green-600: #16a34a;
+      --green-500: #22c55e;
+      --green-100: #dcfce7;
+      --sky-100: #eff6ff;
+      --blue-700: #1d4ed8;
+      --amber-100: #fef3c7;
+      --paper: #f5f8f6;
+      --ink: #172033;
+      --muted: #53657d;
+      --line: #dfe9ef;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(20, 83, 45, 0.12);
+      --gold: #f59e0b;
+      --danger: #b91c1c;
+      --warning-bg: #fff7ed;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans Devanagari", sans-serif;
+      background: linear-gradient(180deg, #eefbf4 0%, #f6faf7 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 24px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      background: linear-gradient(135deg, #052e16 0%, #166534 32%, #0f766e 100%);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.14);
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.24);
+      font-size: 1.3rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-copy strong {
+      font-size: clamp(0.95rem, 2vw, 1.4rem);
+    }
+
+    .brand-copy span {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .header-tools {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill, .toggle, .action-btn {
+      border: none;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      min-height: 46px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.14);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .toggle {
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
+      min-width: 120px;
+    }
+
+    .action-btn {
+      background: linear-gradient(135deg, #facc15, #f59e0b);
+      color: #16302a;
+      box-shadow: 0 8px 18px rgba(245, 158, 11, 0.25);
+    }
+
+    .pill:hover, .toggle:hover, .action-btn:hover,
+    .link-card:hover, .resource-card:hover, .feature-card:hover,
+    .cat-card:hover, .class-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(134, 239, 172, 0.18), transparent 24%),
+        linear-gradient(135deg, rgba(5,46,22,0.34), rgba(22,101,52,0.18)),
+        #f3faf5;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 28px;
+      align-items: center;
+      padding: 32px 0 26px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--green-800);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      padding: 7px 12px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.05em;
+      color: var(--green-900);
+    }
+
+    .hero-copy p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 1.03rem;
+      max-width: 62ch;
+    }
+
+    .quick-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .cta-primary {
+      background: linear-gradient(135deg, #166534, #16a34a);
+      color: white;
+      box-shadow: 0 12px 24px rgba(22, 101, 52, 0.24);
+    }
+
+    .cta-secondary {
+      background: #e0f2fe;
+      color: #0f172a;
+      border: 1px solid #bfdbfe;
+    }
+
+    .hero-art {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 260px;
+    }
+
+    .hero-panel {
+      width: min(100%, 430px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(220,252,231,0.7));
+      border: 1px solid rgba(34, 197, 94, 0.18);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before, .hero-panel::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.08);
+    }
+
+    .hero-panel::before {
+      width: 180px;
+      height: 180px;
+      top: -40px;
+      right: -20px;
+    }
+
+    .hero-panel::after {
+      width: 130px;
+      height: 130px;
+      left: -20px;
+      bottom: -32px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: var(--green-800);
+    }
+
+    .stat span {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .main {
+      padding: 28px 0 42px;
+    }
+
+    .notice {
+      background: linear-gradient(135deg, #fff7ed, #fef3c7);
+      border: 1px solid #f9d67e;
+      border-left: 6px solid #f59e0b;
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: #7a4d00;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .premium-highlight {
+      margin: 0 0 22px;
+      display: grid;
+      grid-template-columns: 1.2fr auto;
+      gap: 16px;
+      align-items: center;
+      background: linear-gradient(135deg, #eff6ff, #f8fafc);
+      border: 1px solid #c7d2fe;
+      border-radius: 20px;
+      padding: 18px 20px;
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.04);
+    }
+
+    .premium-highlight .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #dbeafe;
+      color: #1d4ed8;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 800;
+      width: fit-content;
+    }
+
+    .premium-highlight h3 {
+      margin: 12px 0 8px;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      color: var(--green-900);
+    }
+
+    .premium-highlight p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .premium-link-btn,
+    .premium-link-btn.secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 12px;
+      padding: 0 16px;
+      font-weight: 800;
+      border: 1px solid transparent;
+    }
+
+    .premium-link-btn {
+      background: linear-gradient(135deg, #166534, #16a34a);
+      color: white;
+      box-shadow: 0 12px 24px rgba(22, 101, 52, 0.16);
+    }
+
+    .premium-link-btn.secondary {
+      background: #eef2ff;
+      color: #1f2a44;
+      border-color: #dfe7ff;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 6px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--green-900);
+      font-size: clamp(1.45rem, 3vw, 2.1rem);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(120px, 0.5fr) auto;
+      gap: 10px;
+      align-items: center;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(20, 83, 45, 0.04);
+      margin-bottom: 18px;
+    }
+
+    .toolbar input, .toolbar select, .toolbar button {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      padding: 11px 12px;
+      background: white;
+      color: var(--ink);
+    }
+
+    .toolbar button {
+      background: var(--green-800);
+      color: white;
+      border: none;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .resource-card {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 16px 14px;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resource-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #3b82f6, #f59e0b);
+    }
+
+    .icon,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    .icon {
+      background: #effaf3;
+      color: var(--green-800);
+      font-size: 1.9rem;
+      width: 52px;
+      height: 52px;
+      padding: 0;
+      border-radius: 14px;
+    }
+
+    .tag {
+      background: #e0f2fe;
+      color: #1e40af;
+    }
+
+    .resource-card h3 {
+      font-size: 1.2rem;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+
+    .resource-card p {
+      color: var(--muted);
+      margin: 0 0 14px;
+      font-size: 0.94rem;
+      flex: 1;
+    }
+
+    .open-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      font-weight: 800;
+      color: var(--green-800);
+    }
+
+    .default-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .link-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 12px;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
+      text-align: center;
+      font-weight: 700;
+      color: var(--green-900);
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .feature-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 10px;
+      color: var(--green-900);
+      font-size: 1.12rem;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .cat-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 14px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 160px;
+      cursor: pointer;
+      width: 100%;
+      color: inherit;
+      text-align: left;
+    }
+
+    .cat-icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .cat-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      color: var(--ink);
+    }
+
+    .cat-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .green { background: linear-gradient(180deg, #f0fdf4, #ffffff); }
+    .blue { background: linear-gradient(180deg, #eff6ff, #ffffff); }
+    .orange { background: linear-gradient(180deg, #fff7ed, #ffffff); }
+    .purple { background: linear-gradient(180deg, #faf5ff, #ffffff); }
+    .red { background: linear-gradient(180deg, #fef2f2, #ffffff); }
+    .teal { background: linear-gradient(180deg, #ecfeff, #ffffff); }
+    .gold { background: linear-gradient(180deg, #fefce8, #ffffff); }
+    .pink { background: linear-gradient(180deg, #fdf2f8, #ffffff); }
+    .indigo { background: linear-gradient(180deg, #eef2ff, #ffffff); }
+    .cyan { background: linear-gradient(180deg, #ecfeff, #ffffff); }
+    .amber { background: linear-gradient(180deg, #fffbeb, #ffffff); }
+    .lime { background: linear-gradient(180deg, #f7fee7, #ffffff); }
+
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .class-card {
+      background: linear-gradient(135deg, #ffffff, #f0fdf4);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 12px;
+      text-align: center;
+      font-weight: 800;
+      color: var(--green-900);
+      box-shadow: 0 6px 16px rgba(20, 83, 45, 0.04);
+      transition: transform 0.2s ease;
+      cursor: pointer;
+      width: 100%;
+      min-height: 90px;
+      appearance: none;
+    }
+
+    .class-card span {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+      color: var(--green-700);
+    }
+
+    .class-card.is-selected {
+      background: linear-gradient(135deg, #dcfce7, #f0fdf4);
+      border-color: #86efac;
+      box-shadow: 0 10px 18px rgba(34, 197, 94, 0.12);
+    }
+
+    .selected-class {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(22, 163, 74, 0.08);
+      border: 1px solid rgba(22, 163, 74, 0.22);
+      color: var(--green-800);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .site-footer {
+      background: linear-gradient(180deg, #062a1c, #0c3d2d);
+      color: white;
+      padding: 24px 0 28px;
+      margin-top: 26px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .footer-brand {
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      font-size: 1.1rem;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      justify-items: start;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.88);
+      font-weight: 600;
+    }
+
+    .hide { display: none !important; }
+
+    @media (max-width: 760px) {
+      .hero-inner,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .header-row {
+        align-items: flex-start;
+      }
+
+      .brand {
+        width: 100%;
+      }
+
+      .header-tools {
+        width: 100%;
+      }
+
+      .toggle, .action-btn, .pill {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <div class="brand" aria-label="Science Centre Learning Hub">
+        <div class="brand-mark">🔬</div>
+        <div class="brand-copy">
+          <strong>SCIENCE CENTRE LEARNING HUB</strong>
+          <span>Guided by Vishwendra Sir</span>
+        </div>
+      </div>
+
+      <div class="header-tools">
+        <select id="classSelector" class="toggle" aria-label="Choose class">
+          <option value="Class 1">Class 1</option>
+          <option value="Class 2">Class 2</option>
+          <option value="Class 3">Class 3</option>
+          <option value="Class 4">Class 4</option>
+          <option value="Class 5">Class 5</option>
+          <option value="Class 6">Class 6</option>
+          <option value="Class 7">Class 7</option>
+          <option value="Class 8">Class 8</option>
+          <option value="Class 9">Class 9</option>
+          <option value="Class 10">Class 10</option>
+        </select>
+        <button class="pill" type="button" id="langToggle" aria-label="Switch interface language" aria-pressed="false">हिन्दी</button>
+        <button class="action-btn" type="button" id="openLearningBtn">Open Learning</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow" id="eyebrowText">One Home • All Learning</span>
+        <h1 id="heroTitle">Learn, practise and grow! 🚀</h1>
+        <p id="heroText">Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and classroom study.</p>
+
+        <div class="quick-actions">
+          <button class="action-btn cta-primary" type="button" id="startLearningBtn">Start Learning</button>
+          <button class="pill cta-secondary" type="button" id="questionBankBtn">Question Bank</button>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Learning illustration">
+        <div class="hero-panel">
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>10+</strong>
+              <span>Learning pages</span>
+            </div>
+            <div class="stat">
+              <strong>🎧</strong>
+              <span>Voice enabled</span>
+            </div>
+            <div class="stat">
+              <strong>✅</strong>
+              <span>Practice &amp; quizzes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="container">
+      <div class="notice" id="noticeText"><b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.</div>
+
+      <div class="premium-highlight">
+        <div>
+          <span class="tag">Premium Library</span>
+          <h3>Separate free and premium study resources with UPI payment and manual owner verification.</h3>
+          <p>Public resources stay open. Premium resources remain restricted until a trusted payment confirmation is recorded by the owner.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a class="premium-link-btn" href="./premium-library.html">Open Premium Library</a>
+          <a class="premium-link-btn secondary" href="./owner-dashboard.html">Owner controls (prototype)</a>
+        </div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <h2 id="learningResourcesTitle">Learning Resources</h2>
+          <div class="muted" id="learningResourcesSub">Browse subjects, practice pages and study materials.</div>
+        </div>
+      </div>
+
+      <div class="toolbar" id="resources">
+        <input id="search" type="search" placeholder="Search: LKG, Hindi, Grammar, Science..." aria-label="Search learning pages">
+        <select id="category" aria-label="Filter by category">
+          <option value="all">All categories</option>
+          <option value="All Subjects">All Subjects</option>
+          <option value="Portal">Portal</option>
+          <option value="Science">Science</option>
+          <option value="LKG">LKG</option>
+          <option value="English">English</option>
+          <option value="Hindi">Hindi</option>
+        </select>
+        <button type="button" id="reset">Reset</button>
+      </div>
+
+      <div class="grid" id="grid">
+        <article class="resource-card" data-title="all subjects learning portal all subjects questions" data-category="All Subjects">
+          <div class="icon">📚</div>
+          <div class="tag">All Subjects</div>
+          <h3>All Subjects Learning Portal</h3>
+          <p>Learning resources, practice questions and subject-wise study pages for students.</p>
+          <a class="open-link" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="all subjects upgrade all subjects upgraded" data-category="All Subjects">
+          <div class="icon">🚀</div>
+          <div class="tag">All Subjects</div>
+          <h3>All Subjects Upgrade</h3>
+          <p>Improved study pages and subject updates for a strong classroom-to-home learning flow.</p>
+          <a class="open-link" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="premium smart learning portal" data-category="Portal">
+          <div class="icon">✨</div>
+          <div class="tag">Portal</div>
+          <h3>Premium Smart Learning</h3>
+          <p>Premium learning experience with polished pages and subject-focused study modules.</p>
+          <a class="open-link" href="science_centre_learning_hub_premium.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="metals and materials quiz class 5 science" data-category="Science">
+          <div class="icon">🧪</div>
+          <div class="tag">Science</div>
+          <h3>Metals and Materials Quiz</h3>
+          <p>Class 5 EVS science quiz on materials and their properties with sound-based learning.</p>
+          <a class="open-link" href="metals_materials_quiz_with_sound-2.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="lkg hindi english voice quiz lkg hindi english motivation" data-category="LKG">
+          <div class="icon">🔊</div>
+          <div class="tag">LKG</div>
+          <h3>LKG Hindi + English Voice Quiz</h3>
+          <p>Motivational feedback, voice controls and LKG-friendly learning with bilingual prompts.</p>
+          <a class="open-link" href="LKG_Hindi_English_Voice_Changer_Motivation.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="lkg english 100 questions worksheet" data-category="LKG">
+          <div class="icon">✏️</div>
+          <div class="tag">LKG</div>
+          <h3>LKG English 100 Questions</h3>
+          <p>English worksheet and practice pages with Hindi sound support and beginner-friendly layout.</p>
+          <a class="open-link" href="Science_Centre_LKG_100Q_English_Worksheet_Hindi_Sound.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="english grammar 30 worksheets 900 questions interactive fixed" data-category="English">
+          <div class="icon">📘</div>
+          <div class="tag">English</div>
+          <h3>English Grammar 30 Worksheets</h3>
+          <p>Interactive grammar practice with 900 practice questions and workbook-style revision.</p>
+          <a class="open-link" href="Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="complete english grammar 30 parts 900 questions language option" data-category="English">
+          <div class="icon">📝</div>
+          <div class="tag">English</div>
+          <h3>Complete English Grammar</h3>
+          <p>30 parts / 900 question grammar coverage with language and voice options.</p>
+          <a class="open-link" href="Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="hindi worksheets part 2 nursery to class 1" data-category="Hindi">
+          <div class="icon">🌿</div>
+          <div class="tag">Hindi</div>
+          <h3>Hindi Worksheets Part 2</h3>
+          <p>Hindi writing and recognition practice worksheets for nursery to class 1.</p>
+          <a class="open-link" href="30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">Open →</a>
+        </article>
+
+        <article class="resource-card" data-title="day 13 interactive english vocabulary" data-category="English">
+          <div class="icon">🧠</div>
+          <div class="tag">English</div>
+          <h3>Day 13 Interactive Vocabulary</h3>
+          <p>English vocabulary practice with audio support and interactive learning activities.</p>
+          <a class="open-link" href="Day13_Interactive_English_Vocabulary-1.html">Open →</a>
+        </article>
+      </div>
+
+      <section class="category-showcase" aria-label="Study categories">
+        <div class="section-head">
+          <div>
+            <h2 id="studyCategories">Study Categories</h2>
+            <div class="muted" id="studyCategoriesSub">Choose the right path for your learning</div>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <a class="cat-card green" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
+            <span class="cat-icon">🏫</span>
+            <h3>Classes 1–10</h3>
+            <p>Class-wise study plans and revision resources.</p>
+          </a>
+          <a class="cat-card blue" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">
+            <span class="cat-icon">📖</span>
+            <h3>Books</h3>
+            <p>Academic books and recommended reading material.</p>
+          </a>
+          <a class="cat-card orange" href="science_centre_learning_hub_premium.html">
+            <span class="cat-icon">🧭</span>
+            <h3>Curriculum</h3>
+            <p>Course-aligned learning goals and syllabus support.</p>
+          </a>
+          <a class="cat-card purple" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
+            <span class="cat-icon">📝</span>
+            <h3>Daily Notes</h3>
+            <p>Short and focused notes for daily revision.</p>
+          </a>
+          <a class="cat-card red" href="30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">
+            <span class="cat-icon">✏️</span>
+            <h3>Worksheets</h3>
+            <p>Practice sheets for learning and homework support.</p>
+          </a>
+          <a class="cat-card teal" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
+            <span class="cat-icon">📄</span>
+            <h3>Sample Papers</h3>
+            <p>Exam-style writing and practiced question formats.</p>
+          </a>
+          <a class="cat-card gold" href="./question-bank.html">
+            <span class="cat-icon">🧠</span>
+            <h3>Question Bank</h3>
+            <p>Ready-to-practice questions across subjects.</p>
+          </a>
+          <a class="cat-card pink" href="metals_materials_quiz_with_sound-2.html">
+            <span class="cat-icon">🎯</span>
+            <h3>Interactive Quizzes</h3>
+            <p>Self-test modules with instant learning checks.</p>
+          </a>
+          <a class="cat-card indigo" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">
+            <span class="cat-icon">🏆</span>
+            <h3>Navodaya / Sainik</h3>
+            <p>Objective-based preparation and aptitude practice.</p>
+          </a>
+          <a class="cat-card cyan" href="metals_materials_quiz_with_sound-2.html">
+            <span class="cat-icon">🔬</span>
+            <h3>GK &amp; Science</h3>
+            <p>General awareness and science learning for all ages.</p>
+          </a>
+          <a class="cat-card amber" href="Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">
+            <span class="cat-icon">📘</span>
+            <h3>English</h3>
+            <p>Grammar, vocabulary, writing and reading support.</p>
+          </a>
+          <a class="cat-card lime" href="science_centre_learning_hub_premium.html">
+            <span class="cat-icon">💻</span>
+            <h3>Computer</h3>
+            <p>Basic computer literacy and digital learning activities.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="class-path" aria-label="Classes 1 to 10">
+        <div class="section-head">
+          <div>
+            <h2 id="classesPathTitle">Classes 1 to 10</h2>
+            <div class="muted" id="classesPathSub">Learning tracks for every stage</div>
+          </div>
+        </div>
+
+        <div class="class-grid" id="classGrid">
+          <button type="button" class="class-card is-selected" data-class="Class 1" aria-pressed="true"><span>1</span> Class 1</button>
+          <button type="button" class="class-card" data-class="Class 2" aria-pressed="false"><span>2</span> Class 2</button>
+          <button type="button" class="class-card" data-class="Class 3" aria-pressed="false"><span>3</span> Class 3</button>
+          <button type="button" class="class-card" data-class="Class 4" aria-pressed="false"><span>4</span> Class 4</button>
+          <button type="button" class="class-card" data-class="Class 5" aria-pressed="false"><span>5</span> Class 5</button>
+          <button type="button" class="class-card" data-class="Class 6" aria-pressed="false"><span>6</span> Class 6</button>
+          <button type="button" class="class-card" data-class="Class 7" aria-pressed="false"><span>7</span> Class 7</button>
+          <button type="button" class="class-card" data-class="Class 8" aria-pressed="false"><span>8</span> Class 8</button>
+          <button type="button" class="class-card" data-class="Class 9" aria-pressed="false"><span>9</span> Class 9</button>
+          <button type="button" class="class-card" data-class="Class 10" aria-pressed="false"><span>10</span> Class 10</button>
+        </div>
+        <div class="selected-class" id="selectedClassDisplay" aria-live="polite">Selected class: Class 1</div>
+      </section>
+
+      <div class="section-head" style="margin-top: 30px;">
+        <div>
+          <h2>Quick Access</h2>
+          <div class="muted">Useful links already present in the project.</div>
+        </div>
+      </div>
+
+      <div class="default-links">
+        <a class="link-card" href="https://docs.google.com/forms/d/e/1FAIpQLSfN3JaD9BK0D2wKy-4Ym7KjRrMokbXfYdUHuM2hCjL1T4hYg/viewform" target="_blank" rel="noreferrer">Google Form</a>
+        <a class="link-card" href="https://youtube.com/@sciencecentreguruj?si=idrWQdFvG9c3v1Vf" target="_blank" rel="noreferrer">YouTube</a>
+        <a class="link-card" href="https://www.facebook.com/ScienceCentreGuruj" target="_blank" rel="noreferrer">Facebook</a>
+        <a class="link-card" href="https://www.instagram.com/sciencecentre_learninghub/?r=nametag" target="_blank" rel="noreferrer">Instagram</a>
+        <a class="link-card" href="https://chat.whatsapp.com/BrVYqaZMnHDQH4LDSR4uV0q" target="_blank" rel="noreferrer">WhatsApp Group</a>
+        <a class="link-card" href="https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q" target="_blank" rel="noreferrer">WhatsApp Channel</a>
+        <a class="link-card" href="mailto:sciencecentrelearninghub@gmail.com">Contact</a>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-card">
+          <h3>Books &amp; Curriculum</h3>
+          <p>Keep learning structured with book recommendations, curriculum guidance, and revision resources.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Exam Champion Practice</h3>
+          <p>Stay focused with regular tests, score-based progression, and targeted chapter revision.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Student Support</h3>
+          <p>Reach out using contact information, WhatsApp community links, and guided academic support.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">SCIENCE CENTRE LEARNING HUB</div>
+        <small>Guided by Vishwendra Sir</small>
+      </div>
+      <div class="footer-links">
+        <a href="./index.html">Home</a>
+        <a href="./premium-library.html">Premium Library</a>
+        <a href="./question-bank.html">Question Bank</a>
+        <a href="./owner-dashboard.html">Owner Dashboard</a>
+        <a href="https://chat.whatsapp.com/BrVYqaZMnHDQH4LDSR4uV0q" target="_blank" rel="noreferrer">WhatsApp Group</a>
+        <a href="mailto:sciencecentrelearninghub@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const classSelector = document.getElementById('classSelector');
+    const selectedClassDisplay = document.getElementById('selectedClassDisplay');
+    const classCards = [...document.querySelectorAll('.class-card')];
+    const searchInput = document.getElementById('search');
+    const categorySelect = document.getElementById('category');
+    const resetBtn = document.getElementById('reset');
+    const cards = [...document.querySelectorAll('.resource-card')];
+    const langToggle = document.getElementById('langToggle');
+
+    const englishTexts = {
+      eyebrow: 'One Home • All Learning',
+      heroTitle: 'Learn, practise and grow! 🚀',
+      heroText: 'Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and classroom study.',
+      notice: '<b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.',
+      learningResourcesTitle: 'Learning Resources',
+      learningResourcesSub: 'Browse subjects, practice pages and study materials.',
+      studyCategories: 'Study Categories',
+      studyCategoriesSub: 'Choose the right path for your learning',
+      classesPathTitle: 'Classes 1 to 10',
+      classesPathSub: 'Learning tracks for every stage',
+      selected: 'Selected class: '
+    };
+
+    const hindiTexts = {
+      eyebrow: 'एक घर • सभी सीखें',
+      heroTitle: 'सीखें, अभ्यास करें और आगे बढ़ें! 🚀',
+      heroText: 'कक्षा 1 से 10 तक के छात्रों के लिए वर्कशीट, नोट्स, क्विज़, क्वेश्चन बैंक, सैंपल पेपर और द्विभाषी शैक्षिक संसाधन। घर और कक्षा दोनों के लिए आसान मोबाइल-फ्रेंडली सीखना।',
+      notice: '<b>महत्वपूर्ण:</b> सभी रिसोर्स पेज़ प्रोजेक्ट में उपलब्ध हैं। यह होमपेज केवल आधुनिक लैडिंग पेज है।',
+      learningResourcesTitle: 'लर्निंग रिसोर्स',
+      learningResourcesSub: 'विषय, प्रैक्टिस पेज और स्टडी मटेरियल देखें।',
+      studyCategories: 'स्टडी श्रेणियाँ',
+      studyCategoriesSub: 'अपनी सीख के लिए सही रास्ता चुनें',
+      classesPathTitle: 'कक्षा 1 से 10',
+      classesPathSub: 'हर स्तर के लिए सीखने का ट्रैक',
+      selected: 'चयनित कक्षा: '
+    };
+
+    let isHindi = false;
+
+    function updateLanguage() {
+      const texts = isHindi ? hindiTexts : englishTexts;
+      document.getElementById('eyebrowText').textContent = texts.eyebrow;
+      document.getElementById('heroTitle').textContent = texts.heroTitle;
+      document.getElementById('heroText').textContent = texts.heroText;
+      document.getElementById('noticeText').innerHTML = texts.notice;
+      document.getElementById('learningResourcesTitle').textContent = texts.learningResourcesTitle;
+      document.getElementById('learningResourcesSub').textContent = texts.learningResourcesSub;
+      document.getElementById('studyCategories').textContent = texts.studyCategories;
+      document.getElementById('studyCategoriesSub').textContent = texts.studyCategoriesSub;
+      document.getElementById('classesPathTitle').textContent = texts.classesPathTitle;
+      document.getElementById('classesPathSub').textContent = texts.classesPathSub;
+      selectedClassDisplay.textContent = texts.selected + classSelector.value;
+      langToggle.textContent = isHindi ? 'English' : 'हिन्दी';
+      langToggle.setAttribute('aria-pressed', String(isHindi));
+    }
+
+    classSelector.addEventListener('change', () => {
+      selectedClassDisplay.textContent = (isHindi ? hindiTexts.selected : englishTexts.selected) + classSelector.value;
+    });
+
+    classCards.forEach(card => {
+      card.addEventListener('click', () => {
+        classCards.forEach(item => {
+          item.classList.toggle('is-selected', item === card);
+          item.setAttribute('aria-pressed', String(item === card));
+        });
+        classSelector.value = card.dataset.class;
+        selectedClassDisplay.textContent = (isHindi ? hindiTexts.selected : englishTexts.selected) + classSelector.value;
+      });
+    });
+
+    langToggle.addEventListener('click', () => {
+      isHindi = !isHindi;
+      updateLanguage();
+    });
+
+    function filterCards() {
+      const query = (searchInput.value || '').trim().toLowerCase();
+      const selected = categorySelect.value;
+
+      cards.forEach(card => {
+        const title = (card.dataset.title || '').toLowerCase();
+        const category = (card.dataset.category || '').toLowerCase();
+        const matchesQuery = !query || title.includes(query) || category.includes(query);
+        const matchesCategory = selected === 'all' || category.includes(selected.toLowerCase());
+        card.classList.toggle('hide', !(matchesQuery && matchesCategory));
+      });
+    }
+
+    searchInput.addEventListener('input', filterCards);
+    categorySelect.addEventListener('change', filterCards);
+    resetBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      categorySelect.value = 'all';
+      filterCards();
+    });
+
+    document.getElementById('startLearningBtn').addEventListener('click', () => {
+      document.getElementById('grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    document.getElementById('openLearningBtn').addEventListener('click', () => {
+      document.getElementById('grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    document.getElementById('questionBankBtn').addEventListener('click', () => {
+      window.location.href = './question-bank.html';
+    });
+
+    updateLanguage();
+  </script>
+</body>
+</html>
