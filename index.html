@@ -3,700 +3,365 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#14532d">
+  <meta name="theme-color" content="#0f172a">
   <title>Science Centre Learning Hub | Home</title>
   <style>
-    :root {
-      --green-900: #14532d;
-      --green-800: #166534;
-      --green-700: #15803d;
-      --green-600: #16a34a;
-      --green-500: #22c55e;
-      --green-100: #dcfce7;
-      --sky-100: #eff6ff;
-      --blue-700: #1d4ed8;
-      --amber-100: #fef3c7;
-      --paper: #f5f8f6;
-      --ink: #172033;
-      --muted: #53657d;
-      --line: #dfe9ef;
-      --white: #ffffff;
-      --shadow: 0 10px 30px rgba(20, 83, 45, 0.12);
-      --gold: #f59e0b;
-      --danger: #b91c1c;
-      --warning-bg: #fff7ed;
+    :root{
+      --navy-950:#0b1f3a;
+      --navy-900:#0f172a;
+      --navy-800:#1d3557;
+      --navy-700:#234a7d;
+      --orange-600:#f97316;
+      --orange-500:#fb923c;
+      --orange-100:#fff1e6;
+      --white:#ffffff;
+      --gray-50:#f8fafc;
+      --gray-100:#eef2f7;
+      --gray-200:#e2e8f0;
+      --gray-300:#cbd5e1;
+      --gray-500:#64748b;
+      --gray-700:#334155;
+      --green-600:#16a34a;
+      --green-100:#eafaf0;
+      --sky-100:#eaf4ff;
+      --indigo-100:#eef2ff;
+      --yellow-100:#fff7ed;
+      --shadow:0 18px 45px rgba(15, 23, 42, 0.12);
+      --shadow-soft:0 12px 30px rgba(31, 41, 55, 0.08);
+      --radius-xl:26px;
+      --radius-lg:20px;
+      --radius-md:14px;
+      --radius-sm:10px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
       font-family: Arial, "Noto Sans Devanagari", sans-serif;
-      background: linear-gradient(180deg, #eefbf4 0%, #f6faf7 100%);
-      color: var(--ink);
-      line-height: 1.6;
+      background:linear-gradient(180deg,#f8fafc 0%,#f4f7fb 100%);
+      color:var(--navy-900);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button,input,select{font:inherit}
+    .container{width:min(1200px,calc(100% - 24px));margin:0 auto}
+    .section{padding:32px 0}
+    .section-head{
+      display:flex;align-items:end;justify-content:space-between;gap:12px;
+      flex-wrap:wrap;margin:0 0 18px
+    }
+    .section-head h2{
+      margin:0;font-size:clamp(1.5rem,2.5vw,2.3rem);line-height:1.15;color:var(--navy-900)
+    }
+    .muted{color:var(--gray-500);font-size:0.96rem}
+    .eyebrow{
+      display:inline-flex;align-items:center;justify-content:center;
+      background:var(--orange-100);color:var(--orange-600);
+      border:1px solid rgba(249,115,22,0.2);border-radius:999px;
+      padding:7px 12px;font-size:0.72rem;font-weight:800;
+      letter-spacing:0.12em;text-transform:uppercase
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    button, input, select {
-      font: inherit;
+    .site-header{
+      position:sticky;top:0;z-index:30;
+      background:linear-gradient(135deg,var(--navy-950) 0%,var(--navy-900) 40%,var(--navy-800) 100%);
+      color:var(--white);
+      box-shadow:0 8px 24px rgba(11,31,58,0.2);
+    }
+    .header-row{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      flex-wrap:wrap;padding:14px 0
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:0.04em
+    }
+    .brand-mark{
+      width:46px;height:46px;border-radius:14px;
+      display:grid;place-items:center;background:rgba(255,255,255,0.1);
+      border:1px solid rgba(255,255,255,0.18);font-size:1.4rem
+    }
+    .brand-copy{display:flex;flex-direction:column;line-height:1.1}
+    .brand-copy strong{font-size:clamp(0.95rem,2vw,1.45rem)}
+    .brand-copy span{
+      font-size:0.72rem;color:rgba(255,255,255,0.86);
+      letter-spacing:0.08em;text-transform:uppercase;margin-top:3px
     }
 
-    .container {
-      width: min(1200px, calc(100% - 24px));
-      margin: 0 auto;
+    .header-actions{
+      display:flex;align-items:center;gap:10px;flex-wrap:wrap
+    }
+    .header-btn,.primary-btn,.secondary-btn,.ghost-btn{
+      border:none;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;
+      min-height:46px;padding:10px 16px;font-weight:800;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease
+    }
+    .header-btn{
+      background:rgba(255,255,255,0.08);color:var(--white);
+      border:1px solid rgba(255,255,255,0.18)
+    }
+    .primary-btn{
+      background:linear-gradient(135deg,var(--orange-600),#ff8a3d);
+      color:var(--white);box-shadow:0 14px 24px rgba(249,115,22,0.22)
+    }
+    .secondary-btn{
+      background:rgba(255,255,255,0.1);color:var(--white);border:1px solid rgba(255,255,255,0.16)
+    }
+    .ghost-btn{
+      background:var(--white);color:var(--navy-900);border:1px solid var(--gray-200)
+    }
+    .header-btn:hover,.primary-btn:hover,.secondary-btn:hover,.ghost-btn:hover,.resource-card:hover,.class-card:hover,.cat-card:hover,.stat-card:hover,.cta-card:hover{
+      transform:translateY(-2px)
     }
 
-    .site-header {
-      background: linear-gradient(135deg, #052e16 0%, #166534 32%, #0f766e 100%);
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.14);
-    }
-
-    .header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 0;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-    }
-
-    .brand-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.24);
-      font-size: 1.3rem;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
-    }
-
-    .brand-copy {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .brand-copy strong {
-      font-size: clamp(0.95rem, 2vw, 1.4rem);
-    }
-
-    .brand-copy span {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.9);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 3px;
-    }
-
-    .header-tools {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .pill, .toggle, .action-btn {
-      border: none;
-      border-radius: 12px;
-      padding: 10px 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      min-height: 46px;
-    }
-
-    .pill {
-      background: rgba(255,255,255,0.14);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.16);
-    }
-
-    .toggle {
-      background: rgba(255,255,255,0.12);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.2);
-      min-width: 120px;
-    }
-
-    .action-btn {
-      background: linear-gradient(135deg, #facc15, #f59e0b);
-      color: #16302a;
-      box-shadow: 0 8px 18px rgba(245, 158, 11, 0.25);
-    }
-
-    .pill:hover, .toggle:hover, .action-btn:hover,
-    .link-card:hover, .resource-card:hover, .feature-card:hover,
-    .cat-card:hover, .class-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .hero {
+    .hero{
       background:
-        radial-gradient(circle at top left, rgba(134, 239, 172, 0.18), transparent 24%),
-        linear-gradient(135deg, rgba(5,46,22,0.34), rgba(22,101,52,0.18)),
-        #f3faf5;
-      border-bottom: 1px solid var(--line);
+        radial-gradient(circle at 15% 15%, rgba(251,146,60,0.16), transparent 22%),
+        radial-gradient(circle at 80% 25%, rgba(59,130,246,0.12), transparent 28%),
+        linear-gradient(135deg,#fffdfb 0%, #f4f9ff 100%);
+      border-bottom:1px solid var(--gray-200)
+    }
+    .hero-inner{
+      display:grid;grid-template-columns:1.4fr 1fr;gap:26px;align-items:center;
+      padding:36px 0 26px
+    }
+    .hero-copy h1{
+      margin:16px 0 12px;font-size:clamp(2.1rem,4vw,4rem);line-height:1.08;letter-spacing:-0.06em;color:var(--navy-900)
+    }
+    .hero-copy p{
+      margin:0 0 18px;color:var(--gray-700);font-size:1.06rem;max-width:62ch
+    }
+    .hero-actions{
+      display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:8px
+    }
+    .hero-panel{
+      background:linear-gradient(180deg,rgba(255,255,255,0.9), rgba(248,250,252,0.96));
+      border:1px solid rgba(148,163,184,0.25);border-radius:var(--radius-xl);
+      padding:20px;box-shadow:var(--shadow-soft);position:relative;overflow:hidden
+    }
+    .hero-panel:before,.hero-panel:after{
+      content:"";position:absolute;border-radius:50%;background:rgba(249,115,22,0.08)
+    }
+    .hero-panel:before{
+      width:170px;height:170px;top:-35px;right:-32px
+    }
+    .hero-panel:after{
+      width:120px;height:120px;bottom:-24px;left:-20px
+    }
+    .hero-stats{
+      position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px
+    }
+    .stat-card{
+      background:var(--white);border:1px solid var(--gray-200);border-radius:18px;padding:16px 12px;text-align:center
+    }
+    .stat-card strong{
+      display:block;font-size:clamp(1.4rem,2.7vw,2.1rem);color:var(--orange-600)
+    }
+    .stat-card span{
+      display:block;color:var(--gray-500);font-size:0.8rem;margin-top:2px
     }
 
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 28px;
-      align-items: center;
-      padding: 32px 0 26px;
+    .notice{
+      background:linear-gradient(135deg,#fff7ed,#fffdf8);
+      border:1px solid #f8d8a9;border-left:6px solid var(--orange-600);
+      border-radius:18px;padding:14px 16px;color:#7c4500;
+      box-shadow:0 8px 20px rgba(249,115,22,0.06);margin:22px auto 0
     }
 
-    .eyebrow {
-      display: inline-block;
-      background: rgba(34, 197, 94, 0.12);
-      color: var(--green-800);
-      border: 1px solid rgba(34, 197, 94, 0.2);
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      padding: 7px 12px;
-      text-transform: uppercase;
+    .promo-strip{
+      display:grid;grid-template-columns:1.2fr auto;gap:16px;align-items:center;
+      background:linear-gradient(135deg,#eef6ff,#f8fafc);
+      border:1px solid #dfeaf7;border-radius:22px;padding:18px 20px;margin:22px 0
+    }
+    .promo-strip .tag{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:fit-content;background:#dbeafe;color:#1d4ed8;border-radius:999px;
+      padding:6px 10px;font-size:0.72rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase
+    }
+    .promo-strip h3{
+      margin:10px 0 8px;font-size:clamp(1.2rem,2vw,1.8rem);color:var(--navy-900)
+    }
+    .promo-strip p{
+      margin:0;color:var(--gray-700)
+    }
+    .promo-actions{
+      display:flex;flex-direction:column;gap:10px
+    }
+    .compact-btn{
+      display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:12px;
+      font-weight:800;border:1px solid transparent
+    }
+    .compact-btn.primary{
+      background:linear-gradient(135deg,var(--navy-800),var(--navy-900));color:var(--white)
+    }
+    .compact-btn.secondary{
+      background:var(--white);color:var(--navy-900);border-color:var(--gray-200)
     }
 
-    h1 {
-      margin: 18px 0 12px;
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      line-height: 1.1;
-      letter-spacing: -0.05em;
-      color: var(--green-900);
+    .toolbar{
+      display:grid;grid-template-columns:minmax(0,1.4fr) minmax(130px,0.5fr) auto;gap:10px;align-items:center;
+      background:rgba(255,255,255,0.9);border:1px solid var(--gray-200);border-radius:18px;
+      padding:10px;margin-bottom:18px;box-shadow:var(--shadow-soft)
+    }
+    .toolbar input,.toolbar select,.toolbar button{
+      width:100%;border-radius:12px;border:1px solid var(--gray-200);padding:11px 12px;background:var(--white);color:var(--navy-900)
+    }
+    .toolbar button{
+      background:linear-gradient(135deg,var(--navy-800),var(--navy-900));color:var(--white);border:none;font-weight:800;cursor:pointer
     }
 
-    .hero-copy p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 1.03rem;
-      max-width: 62ch;
+    .resource-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px
+    }
+    .resource-card{
+      position:relative;display:flex;flex-direction:column;gap:10px;
+      background:var(--white);border:1px solid var(--gray-200);border-radius:20px;
+      padding:18px 16px 14px;box-shadow:var(--shadow-soft);overflow:hidden;min-height:250px
+    }
+    .resource-card:before{
+      content:"";position:absolute;top:0;left:0;right:0;height:4px;
+      background:linear-gradient(90deg,var(--orange-600),#3b82f6,#22c55e)
+    }
+    .resource-top{
+      display:flex;align-items:center;justify-content:space-between;gap:8px
+    }
+    .resource-icon{
+      width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(180deg,#fff3eb,#fffaf5);border:1px solid rgba(249,115,22,0.18);
+      color:var(--orange-600);font-size:1.8rem
+    }
+    .status-pill{
+      display:inline-flex;align-items:center;justify-content:center;
+      border-radius:999px;padding:6px 10px;font-size:0.7rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase
+    }
+    .status-pill.free{background:#dcfce7;color:#166534}
+    .status-pill.premium{background:#dbeafe;color:#1d4ed8}
+    .status-pill.decision{background:#fff1d6;color:#9a5d00}
+    .status-pill.archive{background:#e2e8f0;color:#475569}
+    .resource-file{
+      margin:0;font-size:0.72rem;line-height:1.4;letter-spacing:0.06em;text-transform:uppercase;font-weight:800;color:var(--navy-700);word-break:break-word
+    }
+    .resource-card h3{
+      margin:0;font-size:1.15rem;color:var(--navy-900)
+    }
+    .resource-card p{
+      margin:0;color:var(--gray-700);flex:1;font-size:0.94rem
+    }
+    .resource-meta{
+      display:flex;align-items:center;justify-content:space-between;gap:8px;
+      color:var(--gray-500);font-size:0.74rem;text-transform:uppercase;letter-spacing:0.06em
+    }
+    .resource-actions{
+      display:flex;gap:8px;flex-wrap:wrap;margin-top:4px
+    }
+    .mini-btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:38px;padding:0 12px;border-radius:10px;border:1px solid var(--gray-200);
+      background:var(--white);color:var(--navy-900);font-weight:700
+    }
+    .mini-btn.primary{
+      background:linear-gradient(135deg,var(--navy-800),var(--navy-900));border-color:var(--navy-900);color:var(--white)
+    }
+    .mini-btn.secondary{
+      background:#eef2ff;border-color:#dfe7ff;color:#1f2a44
+    }
+    .mini-btn.warn{
+      background:#fff7ed;border-color:#f5d7a3;color:#7a4d00
     }
 
-    .quick-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 12px;
+    .category-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:14px
+    }
+    .cat-card{
+      background:var(--white);border:1px solid var(--gray-200);border-radius:18px;padding:18px 14px;
+      box-shadow:var(--shadow-soft);display:flex;flex-direction:column;align-items:flex-start;min-height:155px;
+      transition:transform .2s ease
+    }
+    .cat-icon{font-size:2rem;margin-bottom:10px}
+    .cat-card h3{margin:0 0 8px;font-size:1.08rem;color:var(--navy-900)}
+    .cat-card p{margin:0;color:var(--gray-700);font-size:0.9rem}
+    .green{background:linear-gradient(180deg,#f0fdf4,#ffffff)}
+    .blue{background:linear-gradient(180deg,#eff6ff,#ffffff)}
+    .orange{background:linear-gradient(180deg,#fff7ed,#ffffff)}
+    .purple{background:linear-gradient(180deg,#faf5ff,#ffffff)}
+    .red{background:linear-gradient(180deg,#fef2f2,#ffffff)}
+    .teal{background:linear-gradient(180deg,#ecfeff,#ffffff)}
+    .gold{background:linear-gradient(180deg,#fefce8,#ffffff)}
+    .pink{background:linear-gradient(180deg,#fdf2f8,#ffffff)}
+    .indigo{background:linear-gradient(180deg,#eef2ff,#ffffff)}
+    .cyan{background:linear-gradient(180deg,#ecfeff,#ffffff)}
+    .amber{background:linear-gradient(180deg,#fffbeb,#ffffff)}
+    .lime{background:linear-gradient(180deg,#f7fee7,#ffffff)}
+
+    .class-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;margin-top:14px
+    }
+    .class-card{
+      background:linear-gradient(135deg,#ffffff,#fffaf5);border:1px solid var(--gray-200);border-radius:16px;padding:16px 10px;text-align:center;
+      box-shadow:var(--shadow-soft);cursor:pointer;min-height:88px;font-weight:800;color:var(--navy-900);transition:transform .2s ease
+    }
+    .class-card span{display:block;font-size:1.5rem;color:var(--orange-600);margin-bottom:4px}
+    .class-card.is-selected{
+      background:linear-gradient(135deg,#fff1e6,#fffaf7);border-color:rgba(249,115,22,0.35);box-shadow:0 12px 20px rgba(249,115,22,0.08)
+    }
+    .selected-class{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.25);color:var(--orange-600);
+      padding:10px 12px;border-radius:999px;font-weight:800;margin-top:14px
     }
 
-    .cta-primary {
-      background: linear-gradient(135deg, #166534, #16a34a);
-      color: white;
-      box-shadow: 0 12px 24px rgba(22, 101, 52, 0.24);
+    .feature-row{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px
+    }
+    .feature-card{
+      background:var(--white);border:1px solid var(--gray-200);border-radius:20px;padding:18px;box-shadow:var(--shadow-soft)
+    }
+    .feature-card h3{
+      margin:0 0 10px;color:var(--navy-900);font-size:1.12rem
+    }
+    .feature-card p{margin:0;color:var(--gray-700)}
+
+    .cta-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px
+    }
+    .cta-card{
+      background:var(--white);border:1px solid var(--gray-200);border-radius:20px;padding:18px;box-shadow:var(--shadow-soft)
+    }
+    .cta-card h3{margin:0 0 8px;color:var(--navy-900);font-size:1.08rem}
+    .cta-card p{margin:0 0 12px;color:var(--gray-700)}
+    .cta-card a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border-radius:10px;background:var(--orange-100);color:var(--orange-600);font-weight:800}
+
+    .default-links{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px
+    }
+    .link-card{
+      background:var(--white);border:1px solid var(--gray-200);border-radius:14px;padding:14px 12px;
+      text-align:center;font-weight:800;color:var(--navy-900);box-shadow:var(--shadow-soft)
     }
 
-    .cta-secondary {
-      background: #e0f2fe;
-      color: #0f172a;
-      border: 1px solid #bfdbfe;
+    .site-footer{
+      background:linear-gradient(180deg,#06162b,#0c2240);
+      color:var(--white);padding:24px 0 28px;margin-top:26px
     }
-
-    .hero-art {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 260px;
+    .footer-inner{
+      display:grid;grid-template-columns:1.2fr 1fr;gap:16px;align-items:flex-start
     }
-
-    .hero-panel {
-      width: min(100%, 430px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(220,252,231,0.7));
-      border: 1px solid rgba(34, 197, 94, 0.18);
-      border-radius: 24px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
+    .footer-brand{font-weight:900;letter-spacing:0.04em;font-size:1.1rem}
+    .footer-links{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;justify-items:flex-start;align-items:center
     }
+    .footer-links a{color:rgba(255,255,255,0.86);font-weight:700}
+    .footer-note{color:rgba(255,255,255,0.8);margin-top:4px}
 
-    .hero-panel::before, .hero-panel::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(34, 197, 94, 0.08);
-    }
+    .hide{display:none !important}
 
-    .hero-panel::before {
-      width: 180px;
-      height: 180px;
-      top: -40px;
-      right: -20px;
-    }
-
-    .hero-panel::after {
-      width: 130px;
-      height: 130px;
-      left: -20px;
-      bottom: -32px;
-    }
-
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .stat {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
-      text-align: center;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: clamp(1.3rem, 3vw, 2rem);
-      color: var(--green-800);
-    }
-
-    .stat span {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .main {
-      padding: 28px 0 42px;
-    }
-
-    .notice {
-      background: linear-gradient(135deg, #fff7ed, #fef3c7);
-      border: 1px solid #f9d67e;
-      border-left: 6px solid #f59e0b;
-      border-radius: 16px;
-      padding: 14px 16px;
-      color: #7a4d00;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .premium-highlight {
-      margin: 0 0 22px;
-      display: grid;
-      grid-template-columns: 1.2fr auto;
-      gap: 16px;
-      align-items: center;
-      background: linear-gradient(135deg, #eff6ff, #f8fafc);
-      border: 1px solid #c7d2fe;
-      border-radius: 20px;
-      padding: 18px 20px;
-      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.04);
-    }
-
-    .premium-highlight .tag {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #dbeafe;
-      color: #1d4ed8;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 800;
-      width: fit-content;
-    }
-
-    .premium-highlight h3 {
-      margin: 12px 0 8px;
-      font-size: clamp(1.2rem, 2vw, 1.7rem);
-      color: var(--green-900);
-    }
-
-    .premium-highlight p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .premium-link-btn,
-    .premium-link-btn.secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      border-radius: 12px;
-      padding: 0 16px;
-      font-weight: 800;
-      border: 1px solid transparent;
-    }
-
-    .premium-link-btn {
-      background: linear-gradient(135deg, #166534, #16a34a);
-      color: white;
-      box-shadow: 0 12px 24px rgba(22, 101, 52, 0.16);
-    }
-
-    .premium-link-btn.secondary {
-      background: #eef2ff;
-      color: #1f2a44;
-      border-color: #dfe7ff;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 6px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      color: var(--green-900);
-      font-size: clamp(1.45rem, 3vw, 2.1rem);
-    }
-
-    .muted {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .toolbar {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(120px, 0.5fr) auto;
-      gap: 10px;
-      align-items: center;
-      background: rgba(255,255,255,0.85);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 10px;
-      box-shadow: 0 4px 12px rgba(20, 83, 45, 0.04);
-      margin-bottom: 18px;
-    }
-
-    .toolbar input, .toolbar select, .toolbar button {
-      width: 100%;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      padding: 11px 12px;
-      background: white;
-      color: var(--ink);
-    }
-
-    .toolbar button {
-      background: var(--green-800);
-      color: white;
-      border: none;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
-    .resource-card {
-      display: flex;
-      flex-direction: column;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 16px 14px;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.04);
-      min-height: 220px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .resource-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto auto 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #22c55e, #3b82f6, #f59e0b);
-    }
-
-    .icon,
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: fit-content;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      margin-bottom: 12px;
-    }
-
-    .icon {
-      background: #effaf3;
-      color: var(--green-800);
-      font-size: 1.9rem;
-      width: 52px;
-      height: 52px;
-      padding: 0;
-      border-radius: 14px;
-    }
-
-    .tag {
-      background: #e0f2fe;
-      color: #1e40af;
-    }
-
-    .resource-card h3 {
-      font-size: 1.2rem;
-      margin: 0 0 8px;
-      color: var(--ink);
-    }
-
-    .resource-card p {
-      color: var(--muted);
-      margin: 0 0 14px;
-      font-size: 0.94rem;
-      flex: 1;
-    }
-
-    .open-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: auto;
-      font-weight: 800;
-      color: var(--green-800);
-    }
-
-    .default-links {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .link-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 14px 12px;
-      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04);
-      text-align: center;
-      font-weight: 700;
-      color: var(--green-900);
-    }
-
-    .feature-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .feature-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
-    }
-
-    .feature-card h3 {
-      margin: 0 0 10px;
-      color: var(--green-900);
-      font-size: 1.12rem;
-    }
-
-    .feature-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    .cat-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px 14px;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
-      transition: transform 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      min-height: 160px;
-      cursor: pointer;
-      width: 100%;
-      color: inherit;
-      text-align: left;
-    }
-
-    .cat-icon {
-      font-size: 2rem;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .cat-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.08rem;
-      color: var(--ink);
-    }
-
-    .cat-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .green { background: linear-gradient(180deg, #f0fdf4, #ffffff); }
-    .blue { background: linear-gradient(180deg, #eff6ff, #ffffff); }
-    .orange { background: linear-gradient(180deg, #fff7ed, #ffffff); }
-    .purple { background: linear-gradient(180deg, #faf5ff, #ffffff); }
-    .red { background: linear-gradient(180deg, #fef2f2, #ffffff); }
-    .teal { background: linear-gradient(180deg, #ecfeff, #ffffff); }
-    .gold { background: linear-gradient(180deg, #fefce8, #ffffff); }
-    .pink { background: linear-gradient(180deg, #fdf2f8, #ffffff); }
-    .indigo { background: linear-gradient(180deg, #eef2ff, #ffffff); }
-    .cyan { background: linear-gradient(180deg, #ecfeff, #ffffff); }
-    .amber { background: linear-gradient(180deg, #fffbeb, #ffffff); }
-    .lime { background: linear-gradient(180deg, #f7fee7, #ffffff); }
-
-    .class-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .class-card {
-      background: linear-gradient(135deg, #ffffff, #f0fdf4);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 16px 12px;
-      text-align: center;
-      font-weight: 800;
-      color: var(--green-900);
-      box-shadow: 0 6px 16px rgba(20, 83, 45, 0.04);
-      transition: transform 0.2s ease;
-      cursor: pointer;
-      width: 100%;
-      min-height: 90px;
-      appearance: none;
-    }
-
-    .class-card span {
-      display: block;
-      font-size: 1.5rem;
-      margin-bottom: 4px;
-      color: var(--green-700);
-    }
-
-    .class-card.is-selected {
-      background: linear-gradient(135deg, #dcfce7, #f0fdf4);
-      border-color: #86efac;
-      box-shadow: 0 10px 18px rgba(34, 197, 94, 0.12);
-    }
-
-    .selected-class {
-      margin-top: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(22, 163, 74, 0.08);
-      border: 1px solid rgba(22, 163, 74, 0.22);
-      color: var(--green-800);
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-weight: 700;
-    }
-
-    .site-footer {
-      background: linear-gradient(180deg, #062a1c, #0c3d2d);
-      color: white;
-      padding: 24px 0 28px;
-      margin-top: 26px;
-    }
-
-    .footer-inner {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 16px;
-      align-items: start;
-    }
-
-    .footer-brand {
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      font-size: 1.1rem;
-    }
-
-    .footer-links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 18px;
-      justify-items: start;
-      align-items: center;
-    }
-
-    .footer-links a {
-      color: rgba(255,255,255,0.88);
-      font-weight: 600;
-    }
-
-    .hide { display: none !important; }
-
-    @media (max-width: 760px) {
-      .hero-inner,
-      .footer-inner,
-      .premium-highlight {
-        grid-template-columns: 1fr;
-      }
-
-      .premium-highlight {
-        display: grid;
-      }
-
-      .toolbar {
-        grid-template-columns: 1fr;
-      }
-
-      .header-row {
-        align-items: flex-start;
-      }
-
-      .brand {
-        width: 100%;
-      }
-
-      .header-tools {
-        width: 100%;
-      }
-
-      .toggle, .action-btn, .pill {
-        flex: 1;
-      }
+    @media (max-width:760px){
+      .hero-inner,.promo-strip,.footer-inner{grid-template-columns:1fr}
+      .toolbar{grid-template-columns:1fr}
+      .header-row{align-items:flex-start}
+      .header-actions{width:100%}
+      .header-btn,.primary-btn,.secondary-btn,.ghost-btn{flex:1}
+      .promo-strip{display:grid}
     }
   </style>
 </head>
@@ -711,8 +376,8 @@
         </div>
       </div>
 
-      <div class="header-tools">
-        <select id="classSelector" class="toggle" aria-label="Choose class">
+      <div class="header-actions">
+        <select id="classSelector" class="header-btn" aria-label="Choose class">
           <option value="Class 1">Class 1</option>
           <option value="Class 2">Class 2</option>
           <option value="Class 3">Class 3</option>
@@ -724,8 +389,8 @@
           <option value="Class 9">Class 9</option>
           <option value="Class 10">Class 10</option>
         </select>
-        <button class="pill" type="button" id="langToggle" aria-label="Switch interface language" aria-pressed="false">हिन्दी</button>
-        <button class="action-btn" type="button" id="openLearningBtn">Open Learning</button>
+        <button class="header-btn" type="button" id="langToggle" aria-label="Switch interface language" aria-pressed="false">हिन्दी</button>
+        <button class="primary-btn" type="button" id="openLearningBtn">Open Learning</button>
       </div>
     </div>
   </header>
@@ -734,29 +399,32 @@
     <div class="container hero-inner">
       <div class="hero-copy">
         <span class="eyebrow" id="eyebrowText">One Home • All Learning</span>
-        <h1 id="heroTitle">Learn, practise and grow! 🚀</h1>
-        <p id="heroText">Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and classroom revision.</p>
+        <h1 id="heroTitle">Learn, practice and grow with confidence! 🚀</h1>
+        <p id="heroText">
+          Worksheets, question banks, notes, quizzes, and bilingual study resources for students from Classes 1 to 10.
+          Designed to be mobile-friendly, clear, and easy to browse at home or in class.
+        </p>
 
-        <div class="quick-actions">
-          <button class="action-btn cta-primary" type="button" id="startLearningBtn">Start Learning</button>
-          <button class="pill cta-secondary" type="button" id="questionBankBtn">Question Bank</button>
+        <div class="hero-actions">
+          <button class="primary-btn" type="button" id="startLearningBtn">Start Learning</button>
+          <button class="secondary-btn" type="button" id="questionBankBtn">Question Bank</button>
         </div>
       </div>
 
-      <div class="hero-art" aria-label="Learning illustration">
+      <div class="hero-art">
         <div class="hero-panel">
-          <div class="stat-grid">
-            <div class="stat">
+          <div class="hero-stats">
+            <div class="stat-card">
               <strong>10+</strong>
-              <span>Learning pages</span>
+              <span>Study pages</span>
             </div>
-            <div class="stat">
+            <div class="stat-card">
               <strong>🎧</strong>
-              <span>Voice enabled</span>
+              <span>Audio support</span>
             </div>
-            <div class="stat">
+            <div class="stat-card">
               <strong>✅</strong>
-              <span>Practice &amp; quizzes</span>
+              <span>MCQ practice</span>
             </div>
           </div>
         </div>
@@ -764,26 +432,28 @@
     </div>
   </section>
 
-  <main class="main">
+  <main class="section" style="padding-top:12px;">
     <div class="container">
-      <div class="notice" id="noticeText"><b>Important:</b> All resource pages remain available in the project. This homepage is a modernised landing page only.</div>
+      <div class="notice" id="noticeText">
+        <b>Important:</b> All existing resource pages remain available in the project. This homepage is a modern landing page redesign only.
+      </div>
 
-      <div class="premium-highlight">
+      <div class="promo-strip">
         <div>
           <span class="tag">Premium Library</span>
-          <h3>Separate free and premium study resources with UPI payment and manual owner verification.</h3>
-          <p>Public resources stay open. Premium resources remain restricted until a trusted payment confirmation is recorded by the owner.</p>
+          <h3 id="premiumTitle">Separate free and premium study resources with easy access and structured browsing.</h3>
+          <p id="premiumText">Public resources stay open. Premium resources can be gated by owner verification, payment confirmation, or other access rules.</p>
         </div>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <a class="premium-link-btn" href="./premium-library.html">Open Premium Library</a>
-          <a class="premium-link-btn secondary" href="./owner-dashboard.html">Owner controls (prototype)</a>
+        <div class="promo-actions">
+          <a class="compact-btn primary" href="./premium-library.html">Open Premium Library</a>
+          <a class="compact-btn secondary" href="./owner-dashboard.html">Owner Controls</a>
         </div>
       </div>
 
       <div class="section-head">
         <div>
           <h2 id="learningResourcesTitle">Learning Resources</h2>
-          <div class="muted" id="learningResourcesSub">Browse subjects, practice pages and study materials.</div>
+          <div class="muted" id="learningResourcesSub">Browse subjects, practice pages, and study materials.</div>
         </div>
       </div>
 
@@ -801,184 +471,265 @@
         <button type="button" id="reset">Reset</button>
       </div>
 
-      <div class="grid" id="grid">
+      <div class="resource-grid" id="grid">
         <article class="resource-card" data-title="all subjects learning portal all subjects questions" data-category="All Subjects">
-          <div class="icon">📚</div>
-          <div class="tag">All Subjects</div>
+          <div class="resource-top">
+            <div class="resource-icon">📚</div>
+            <span class="status-pill free">Free</span>
+          </div>
+          <div class="resource-file">Science_Centre_Learning_Hub_All_Subjects_Questions.html</div>
+          <div class="resource-meta"><span>All Subjects</span><span>Portal</span></div>
           <h3>All Subjects Learning Portal</h3>
-          <p>Learning resources, practice questions and subject-wise study pages for students.</p>
-          <a class="open-link" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">Open →</a>
+          <p>Learning resources, practice questions, and subject-wise study pages for students.</p>
+          <div class="resource-actions">
+            <a class="mini-btn primary" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">Open</a>
+          </div>
         </article>
 
         <article class="resource-card" data-title="all subjects upgrade all subjects upgraded" data-category="All Subjects">
-          <div class="icon">🚀</div>
-          <div class="tag">All Subjects</div>
+          <div class="resource-top">
+            <div class="resource-icon">🚀</div>
+            <span class="status-pill free">Free</span>
+          </div>
+          <div class="resource-file">Science_Centre_Learning_Hub_All_Subjects_Upgrade.html</div>
+          <div class="resource-meta"><span>All Subjects</span><span>Upgrade</span></div>
           <h3>All Subjects Upgrade</h3>
-          <p>Improved study pages and subject updates for a strong classroom-to-home learning flow.</p>
-          <a class="open-link" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">Open →</a>
+          <p>Improved study pages and subject updates for a stronger classroom-to-home learning flow.</p>
+          <div class="resource-actions">
+            <a class="mini-btn primary" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">Open</a>
+          </div>
         </article>
 
         <article class="resource-card" data-title="premium smart learning portal" data-category="Portal">
-          <div class="icon">✨</div>
-          <div class="tag">Portal</div>
+          <div class="resource-top">
+            <div class="resource-icon">✨</div>
+            <span class="status-pill premium">Premium</span>
+          </div>
+          <div class="resource-file">science_centre_learning_hub_premium.html</div>
+          <div class="resource-meta"><span>Portal</span><span>Premium</span></div>
           <h3>Premium Smart Learning</h3>
           <p>Premium learning experience with polished pages and subject-focused study modules.</p>
-          <a class="open-link" href="science_centre_learning_hub_premium.html">Open →</a>
+          <div class="resource-actions">
+            <a class="mini-btn primary" href="science_centre_learning_hub_premium.html">Open</a>
+          </div>
         </article>
 
         <article class="resource-card" data-title="metals and materials quiz class 5 science" data-category="Science">
-          <div class="icon">🧪</div>
-          <div class="tag">Science</div>
+          <div class="resource-top">
+            <div class="resource-icon">🧪</div>
+            <span class="status-pill free">Free</span>
+          </div>
+          <div class="resource-file">metals_materials_quiz_with_sound-2.html</div>
+          <div class="resource-meta"><span>Science</span><span>Quiz</span></div>
           <h3>Metals and Materials Quiz</h3>
           <p>Class 5 EVS science quiz on materials and their properties with sound-based learning.</p>
-          <a class="open-link" href="metals_materials_quiz_with_sound-2.html">Open →</a>
+          <div class="resource-actions">
+            <a class="mini-btn primary" href="metals_materials_quiz_with_sound-2.html">Open</a>
+          </div>
         </article>
 
         <article class="resource-card" data-title="lkg hindi english voice quiz lkg hindi english motivation" data-category="LKG">
-          <div class="icon">🔊</div>
-          <div class="tag">LKG</div>
+          <div class="resource-top">
+            <div class="resource-icon">🔊</div>
+            <span class="status-pill free">Free</span>
+          </div>
+          <div class="resource-file">LKG_Hindi_English_Voice_Changer_Motivation.html</div>
+          <div class="resource-meta"><span>LKG</span><span>Voice</span></div>
           <h3>LKG Hindi + English Voice Quiz</h3>
-          <p>Motivational feedback, voice controls and LKG-friendly learning with bilingual prompts.</p>
-          <a class="open-link" href="LKG_Hindi_English_Voice_Changer_Motivation.html">Open →</a>
+          <p>Motivational feedback, voice controls, and LKG-friendly learning with bilingual prompts.</p>
+          <div class="resource-actions">
+            <a class="mini-btn primary" href="LKG_Hindi_English_Voice_Changer_Motivation.html">Open</a>
+          </div>
         </article>
 
         <article class="resource-card" data-title="lkg english 100 questions worksheet" data-category="LKG">
-          <div class="icon">✏️</div>
-          <div class="tag">LKG</div>
+          <div class="resource-top">
+            <div class="resource-icon">✏️</div>
+            <span class="status-pill free">Free</span>
+          </div>
+          <div class="resource-file">Science_Centre_LKG_100Q_English_Worksheet_Hindi_Sound.html</div>
+          <div class="resource-meta"><span>LKG</span><span>Worksheet</span></div>
           <h3>LKG English 100 Questions</h3>
           <p>English worksheet and practice pages with Hindi sound support and beginner-friendly layout.</p>
-          <a class="open-link" href="Science_Centre_LKG_100Q_English_Worksheet_Hindi_Sound.html">Open →</a>
+          <div class="resource-actions">
+            <a class="mini-btn primary" href="Science_Centre_LKG_100Q_English_Worksheet_Hindi_Sound.html">Open</a>
+          </div>
         </article>
 
         <article class="resource-card" data-title="english grammar 30 worksheets 900 questions interactive fixed" data-category="English">
-          <div class="icon">📘</div>
-          <div class="tag">English</div>
+          <div class="resource-top">
+            <div class="resource-icon">📘</div>
+            <span class="status-pill decision">Decision</span>
+          </div>
+          <div class="resource-file">Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html</div>
+          <div class="resource-meta"><span>English</span><span>Grammar</span></div>
           <h3>English Grammar 30 Worksheets</h3>
           <p>Interactive grammar practice with 900 practice questions and workbook-style revision.</p>
-          <a class="open-link" href="Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">Open →</a>
+          <div class="resource-actions">
+            <a class="mini-btn secondary" href="Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">Preview</a>
+          </div>
         </article>
 
         <article class="resource-card" data-title="complete english grammar 30 parts 900 questions language option" data-category="English">
-          <div class="icon">📝</div>
-          <div class="tag">English</div>
+          <div class="resource-top">
+            <div class="resource-icon">📝</div>
+            <span class="status-pill decision">Decision</span>
+          </div>
+          <div class="resource-file">Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html</div>
+          <div class="resource-meta"><span>English</span><span>Full Pack</span></div>
           <h3>Complete English Grammar</h3>
           <p>30 parts / 900 question grammar coverage with language and voice options.</p>
-          <a class="open-link" href="Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html">Open →</a>
+          <div class="resource-actions">
+            <a class="mini-btn secondary" href="Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html">Preview</a>
+          </div>
         </article>
 
         <article class="resource-card" data-title="hindi worksheets part 2 nursery to class 1" data-category="Hindi">
-          <div class="icon">🌿</div>
-          <div class="tag">Hindi</div>
+          <div class="resource-top">
+            <div class="resource-icon">🌿</div>
+            <span class="status-pill free">Free</span>
+          </div>
+          <div class="resource-file">30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html</div>
+          <div class="resource-meta"><span>Hindi</span><span>Worksheets</span></div>
           <h3>Hindi Worksheets Part 2</h3>
           <p>Hindi writing and recognition practice worksheets for nursery to class 1.</p>
-          <a class="open-link" href="30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">Open →</a>
+          <div class="resource-actions">
+            <a class="mini-btn primary" href="30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">Open</a>
+          </div>
         </article>
 
         <article class="resource-card" data-title="day 13 interactive english vocabulary" data-category="English">
-          <div class="icon">🧠</div>
-          <div class="tag">English</div>
+          <div class="resource-top">
+            <div class="resource-icon">🧠</div>
+            <span class="status-pill free">Free</span>
+          </div>
+          <div class="resource-file">Day13_Interactive_English_Vocabulary-1.html</div>
+          <div class="resource-meta"><span>English</span><span>Vocabulary</span></div>
           <h3>Day 13 Interactive Vocabulary</h3>
           <p>English vocabulary practice with audio support and interactive learning activities.</p>
-          <a class="open-link" href="Day13_Interactive_English_Vocabulary-1.html">Open →</a>
+          <div class="resource-actions">
+            <a class="mini-btn primary" href="Day13_Interactive_English_Vocabulary-1.html">Open</a>
+          </div>
         </article>
       </div>
 
-      <section class="category-showcase" aria-label="Study categories">
-        <div class="section-head">
-          <div>
-            <h2 id="studyCategories">Study Categories</h2>
-            <div class="muted" id="studyCategoriesSub">Choose the right path for your learning</div>
-          </div>
+      <div class="section-head" style="margin-top:28px;">
+        <div>
+          <h2 id="studyCategories">Study Categories</h2>
+          <div class="muted" id="studyCategoriesSub">Choose the right path for your learning</div>
         </div>
+      </div>
 
-        <div class="category-grid">
-          <a class="cat-card green" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
-            <span class="cat-icon">🏫</span>
-            <h3>Classes 1–10</h3>
-            <p>Class-wise study plans and revision resources.</p>
-          </a>
-          <a class="cat-card blue" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">
-            <span class="cat-icon">📖</span>
-            <h3>Books</h3>
-            <p>Academic books and recommended reading material.</p>
-          </a>
-          <a class="cat-card orange" href="science_centre_learning_hub_premium.html">
-            <span class="cat-icon">🧭</span>
-            <h3>Curriculum</h3>
-            <p>Course-aligned learning goals and syllabus support.</p>
-          </a>
-          <a class="cat-card purple" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
-            <span class="cat-icon">📝</span>
-            <h3>Daily Notes</h3>
-            <p>Short and focused notes for daily revision.</p>
-          </a>
-          <a class="cat-card red" href="30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">
-            <span class="cat-icon">✏️</span>
-            <h3>Worksheets</h3>
-            <p>Practice sheets for learning and homework support.</p>
-          </a>
-          <a class="cat-card teal" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
-            <span class="cat-icon">📄</span>
-            <h3>Sample Papers</h3>
-            <p>Exam-style writing and practiced question formats.</p>
-          </a>
-          <a class="cat-card gold" href="./question-bank.html">
-            <span class="cat-icon">🧠</span>
-            <h3>Question Bank</h3>
-            <p>Ready-to-practice questions across subjects.</p>
-          </a>
-          <a class="cat-card pink" href="metals_materials_quiz_with_sound-2.html">
-            <span class="cat-icon">🎯</span>
-            <h3>Interactive Quizzes</h3>
-            <p>Self-test modules with instant learning checks.</p>
-          </a>
-          <a class="cat-card indigo" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">
-            <span class="cat-icon">🏆</span>
-            <h3>Navodaya / Sainik</h3>
-            <p>Objective-based preparation and aptitude practice.</p>
-          </a>
-          <a class="cat-card cyan" href="metals_materials_quiz_with_sound-2.html">
-            <span class="cat-icon">🔬</span>
-            <h3>GK &amp; Science</h3>
-            <p>General awareness and science learning for all ages.</p>
-          </a>
-          <a class="cat-card amber" href="Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">
-            <span class="cat-icon">📘</span>
-            <h3>English</h3>
-            <p>Grammar, vocabulary, writing and reading support.</p>
-          </a>
-          <a class="cat-card lime" href="science_centre_learning_hub_premium.html">
-            <span class="cat-icon">💻</span>
-            <h3>Computer</h3>
-            <p>Basic computer literacy and digital learning activities.</p>
-          </a>
+      <div class="category-grid">
+        <a class="cat-card green" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
+          <span class="cat-icon">🏫</span>
+          <h3>Classes 1–10</h3>
+          <p>Class-wise study plans and revision resources.</p>
+        </a>
+        <a class="cat-card blue" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">
+          <span class="cat-icon">📖</span>
+          <h3>Books</h3>
+          <p>Academic books and recommended reading material.</p>
+        </a>
+        <a class="cat-card orange" href="science_centre_learning_hub_premium.html">
+          <span class="cat-icon">🧭</span>
+          <h3>Curriculum</h3>
+          <p>Course-aligned learning goals and syllabus support.</p>
+        </a>
+        <a class="cat-card purple" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
+          <span class="cat-icon">📝</span>
+          <h3>Daily Notes</h3>
+          <p>Short and focused notes for daily revision.</p>
+        </a>
+        <a class="cat-card red" href="30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">
+          <span class="cat-icon">✏️</span>
+          <h3>Worksheets</h3>
+          <p>Practice sheets for learning and homework support.</p>
+        </a>
+        <a class="cat-card teal" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html">
+          <span class="cat-icon">📄</span>
+          <h3>Sample Papers</h3>
+          <p>Exam-style writing and practiced question formats.</p>
+        </a>
+        <a class="cat-card gold" href="./question-bank.html">
+          <span class="cat-icon">🧠</span>
+          <h3>Question Bank</h3>
+          <p>Ready-to-practice questions across subjects.</p>
+        </a>
+        <a class="cat-card pink" href="metals_materials_quiz_with_sound-2.html">
+          <span class="cat-icon">🎯</span>
+          <h3>Interactive Quizzes</h3>
+          <p>Self-test modules with instant learning checks.</p>
+        </a>
+        <a class="cat-card indigo" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">
+          <span class="cat-icon">🏆</span>
+          <h3>Navodaya / Sainik</h3>
+          <p>Objective-based preparation and aptitude practice.</p>
+        </a>
+        <a class="cat-card cyan" href="metals_materials_quiz_with_sound-2.html">
+          <span class="cat-icon">🔬</span>
+          <h3>GK &amp; Science</h3>
+          <p>General awareness and science learning for all ages.</p>
+        </a>
+        <a class="cat-card amber" href="Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">
+          <span class="cat-icon">📘</span>
+          <h3>English</h3>
+          <p>Grammar, vocabulary, writing and reading support.</p>
+        </a>
+        <a class="cat-card lime" href="science_centre_learning_hub_premium.html">
+          <span class="cat-icon">💻</span>
+          <h3>Computer</h3>
+          <p>Basic computer literacy and digital learning activities.</p>
+        </a>
+      </div>
+
+      <div class="section-head" style="margin-top:28px;">
+        <div>
+          <h2 id="classesPathTitle">Classes 1 to 10</h2>
+          <div class="muted" id="classesPathSub">Learning tracks for every stage</div>
         </div>
-      </section>
+      </div>
 
-      <section class="class-path" aria-label="Classes 1 to 10">
-        <div class="section-head">
-          <div>
-            <h2 id="classesPathTitle">Classes 1 to 10</h2>
-            <div class="muted" id="classesPathSub">Learning tracks for every stage</div>
-          </div>
+      <div class="class-grid" id="classGrid">
+        <button type="button" class="class-card is-selected" data-class="Class 1" aria-pressed="true"><span>1</span> Class 1</button>
+        <button type="button" class="class-card" data-class="Class 2" aria-pressed="false"><span>2</span> Class 2</button>
+        <button type="button" class="class-card" data-class="Class 3" aria-pressed="false"><span>3</span> Class 3</button>
+        <button type="button" class="class-card" data-class="Class 4" aria-pressed="false"><span>4</span> Class 4</button>
+        <button type="button" class="class-card" data-class="Class 5" aria-pressed="false"><span>5</span> Class 5</button>
+        <button type="button" class="class-card" data-class="Class 6" aria-pressed="false"><span>6</span> Class 6</button>
+        <button type="button" class="class-card" data-class="Class 7" aria-pressed="false"><span>7</span> Class 7</button>
+        <button type="button" class="class-card" data-class="Class 8" aria-pressed="false"><span>8</span> Class 8</button>
+        <button type="button" class="class-card" data-class="Class 9" aria-pressed="false"><span>9</span> Class 9</button>
+        <button type="button" class="class-card" data-class="Class 10" aria-pressed="false"><span>10</span> Class 10</button>
+      </div>
+      <div class="selected-class" id="selectedClassDisplay" aria-live="polite">Selected class: Class 1</div>
+
+      <div class="section-head" style="margin-top:28px;">
+        <div>
+          <h2 id="practiceTitle">MCQ Practice &amp; Test Hub</h2>
+          <div class="muted" id="practiceSub">Practice smart, revise daily, and build confidence.</div>
         </div>
+      </div>
 
-        <div class="class-grid" id="classGrid">
-          <button type="button" class="class-card is-selected" data-class="Class 1" aria-pressed="true"><span>1</span> Class 1</button>
-          <button type="button" class="class-card" data-class="Class 2" aria-pressed="false"><span>2</span> Class 2</button>
-          <button type="button" class="class-card" data-class="Class 3" aria-pressed="false"><span>3</span> Class 3</button>
-          <button type="button" class="class-card" data-class="Class 4" aria-pressed="false"><span>4</span> Class 4</button>
-          <button type="button" class="class-card" data-class="Class 5" aria-pressed="false"><span>5</span> Class 5</button>
-          <button type="button" class="class-card" data-class="Class 6" aria-pressed="false"><span>6</span> Class 6</button>
-          <button type="button" class="class-card" data-class="Class 7" aria-pressed="false"><span>7</span> Class 7</button>
-          <button type="button" class="class-card" data-class="Class 8" aria-pressed="false"><span>8</span> Class 8</button>
-          <button type="button" class="class-card" data-class="Class 9" aria-pressed="false"><span>9</span> Class 9</button>
-          <button type="button" class="class-card" data-class="Class 10" aria-pressed="false"><span>10</span> Class 10</button>
+      <div class="cta-grid">
+        <div class="cta-card">
+          <h3>Subject-wise MCQ Tests</h3>
+          <p>Practice English, Hindi, Maths, Science, and General Knowledge tests for all classes.</p>
+          <a href="./question-bank.html">Explore Tests</a>
         </div>
-        <div class="selected-class" id="selectedClassDisplay" aria-live="polite">Selected class: Class 1</div>
-      </section>
+        <div class="cta-card">
+          <h3>Student Login</h3>
+          <p>Secure student access area for test tracking, progress, and score monitoring.</p>
+          <a href="./owner-dashboard.html">Open Dashboard</a>
+        </div>
+        <div class="cta-card">
+          <h3>Test Store</h3>
+          <p>Browse premium packages, practice sets, and exam-focused bundles.</p>
+          <a href="./premium-library.html">Visit Store</a>
+        </div>
+      </div>
 
-      <div class="section-head" style="margin-top: 30px;">
+      <div class="section-head" style="margin-top:28px;">
         <div>
           <h2>Quick Access</h2>
           <div class="muted">Useful links already present in the project.</div>
@@ -995,18 +746,25 @@
         <a class="link-card" href="mailto:sciencecentrelearninghub@gmail.com">Contact</a>
       </div>
 
+      <div class="section-head" style="margin-top:28px;">
+        <div>
+          <h2 id="contactTitle">Contact &amp; Connect</h2>
+          <div class="muted" id="contactSub">Reach our learning support team and get quick guidance.</div>
+        </div>
+      </div>
+
       <div class="feature-row">
         <div class="feature-card">
-          <h3>Books &amp; Curriculum</h3>
-          <p>From class-wise books to revision notes, the site keeps each stage of learning accessible in one place.</p>
+          <h3>📞 Contact Us</h3>
+          <p>Email: sciencecentrelearninghub@gmail.com</p>
         </div>
         <div class="feature-card">
-          <h3>Daily Practice</h3>
-          <p>Use worksheets, quizzes and short exercises to reinforce classroom concepts at home.</p>
+          <h3>💬 WhatsApp Support</h3>
+          <p>Open the linked WhatsApp group or channel for updates, study help, and announcements.</p>
         </div>
         <div class="feature-card">
-          <h3>Smart Learning</h3>
-          <p>Move from concept to confidence through an easy-to-navigate layout and targeted study flows.</p>
+          <h3>🏆 Exam Champion Goal</h3>
+          <p>Focus on concept clarity, revision, subject mastery, and boosted confidence for board and scholarship exams.</p>
         </div>
       </div>
     </div>
@@ -1016,148 +774,147 @@
     <div class="container footer-inner">
       <div>
         <div class="footer-brand">SCIENCE CENTRE LEARNING HUB</div>
-        <p style="margin: 10px 0 0; opacity: 0.9;">Guided learning for students, parents and classrooms with practice, worksheets and revision support.</p>
+        <div class="footer-note">Guided by Vishwendra Sir</div>
       </div>
       <div class="footer-links">
-        <a href="#resources">Resources</a>
-        <a href="./question-bank.html">Question Bank</a>
+        <a href="./index.html">Home</a>
         <a href="./premium-library.html">Premium Library</a>
+        <a href="./question-bank.html">Question Bank</a>
         <a href="./owner-dashboard.html">Owner Dashboard</a>
+        <a href="https://chat.whatsapp.com/BrVYqaZMnHDQH4LDSR4uV0q" target="_blank" rel="noreferrer">WhatsApp Group</a>
+        <a href="mailto:sciencecentrelearninghub@gmail.com">Contact</a>
       </div>
     </div>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const classSelector = document.getElementById('classSelector');
-      const selectedClassDisplay = document.getElementById('selectedClassDisplay');
-      const classButtons = document.querySelectorAll('.class-card');
-      const searchInput = document.getElementById('search');
-      const categorySelect = document.getElementById('category');
-      const resetButton = document.getElementById('reset');
-      const cardNodes = document.querySelectorAll('.resource-card');
-      const langToggle = document.getElementById('langToggle');
-      const openLearningBtn = document.getElementById('openLearningBtn');
-      const startLearningBtn = document.getElementById('startLearningBtn');
-      const questionBankBtn = document.getElementById('questionBankBtn');
+    const classSelector = document.getElementById('classSelector');
+    const selectedClassDisplay = document.getElementById('selectedClassDisplay');
+    const classCards = [...document.querySelectorAll('.class-card')];
+    const searchInput = document.getElementById('search');
+    const categorySelect = document.getElementById('category');
+    const resetBtn = document.getElementById('reset');
+    const cards = [...document.querySelectorAll('.resource-card')];
+    const langToggle = document.getElementById('langToggle');
 
-      function updateSelectedClass(className) {
-        if (!className) return;
-        const formatted = className.trim();
-        if (selectedClassDisplay) {
-          selectedClassDisplay.textContent = 'Selected class: ' + formatted;
-        }
-        if (classSelector) {
-          classSelector.value = formatted;
-        }
-        classButtons.forEach((button) => {
-          const isSelected = button.dataset.class === formatted;
-          button.classList.toggle('is-selected', isSelected);
-          button.setAttribute('aria-pressed', String(isSelected));
-        });
-      }
+    const englishTexts = {
+      eyebrow:'One Home • All Learning',
+      heroTitle:'Learn, practice and grow with confidence! 🚀',
+      heroText:'Worksheets, question banks, notes, quizzes, and bilingual study resources for students from Classes 1 to 10. Designed to be mobile-friendly, clear, and easy to browse at home or in class.',
+      notice:'<b>Important:</b> All existing resource pages remain available in the project. This homepage is a modern landing page redesign only.',
+      premiumTitle:'Separate free and premium study resources with easy access and structured browsing.',
+      premiumText:'Public resources stay open. Premium resources can be gated by owner verification, payment confirmation, or other access rules.',
+      learningResourcesTitle:'Learning Resources',
+      learningResourcesSub:'Browse subjects, practice pages, and study materials.',
+      studyCategories:'Study Categories',
+      studyCategoriesSub:'Choose the right path for your learning',
+      classesPathTitle:'Classes 1 to 10',
+      classesPathSub:'Learning tracks for every stage',
+      practiceTitle:'MCQ Practice & Test Hub',
+      practiceSub:'Practice smart, revise daily, and build confidence.',
+      contactTitle:'Contact & Connect',
+      contactSub:'Reach our learning support team and get quick guidance.',
+      selected:'Selected class: '
+    };
 
-      classSelector && classSelector.addEventListener('change', function (event) {
-        updateSelectedClass(event.target.value);
-      });
+    const hindiTexts = {
+      eyebrow:'एक घर • सभी सीखें',
+      heroTitle:'सीखें, अभ्यास करें और आत्मविश्वास के साथ आगे बढ़ें! 🚀',
+      heroText:'कक्षा 1 से 10 तक के छात्रों के लिए वर्कशीट, क्वेश्चन बैंक, नोट्स, क्विज़ और द्विभाषी स्टडी संसाधन। घर पर या कक्षा में मोबाइल-फ्रेंडली और आसान ब्राउज़िंग के लिए तैयार।',
+      notice:'<b>महत्वपूर्ण:</b> सभी मौजूदा रिसोर्स पेज़ प्रोजेक्ट में उपलब्ध हैं। यह होमपेज केवल आधुनिक लैडिंग पेज का री-डिज़ाइन है।',
+      premiumTitle:'मुफ़्त और प्रीमियम स्टडी रिसोर्स को आसान पहुँच और संरचित ब्राउज़िंग के साथ अलग करें।',
+      premiumText:'पब्लिक रिसोर्स खुला रहता है। प्रीमियम रिसोर्स को मालिक की पुष्टि, भुगतान सत्यापन या अन्य एसेस नियमों के तहत बंद किया जा सकता है।',
+      learningResourcesTitle:'लर्निंग रिसोर्सेज़',
+      learningResourcesSub:'विषय, प्रैक्टिस पेज़ और स्टडी मटेरियल देखें।',
+      studyCategories:'स्टडी श्रेणियाँ',
+      studyCategoriesSub:'अपनी सीख के लिए सही रास्ता चुनें',
+      classesPathTitle:'कक्षा 1 से 10',
+      classesPathSub:'हर स्तर के लिए सीखने का ट्रैक',
+      practiceTitle:'एमसीक्यू प्रैक्टिस और टेस्ट हब',
+      practiceSub:'स्मार्ट प्रैक्टिस करें, रोज़ रिवीजन करें और आत्मविश्वास बनाएं।',
+      contactTitle:'संपर्क करें',
+      contactSub:'अपने लर्निंग सपोर्ट टीम से तुरंत संपर्क करें।',
+      selected:'चयनित कक्षा: '
+    };
 
-      classButtons.forEach((button) => {
-        button.addEventListener('click', function () {
-          updateSelectedClass(button.dataset.class);
-        });
-      });
+    let isHindi = false;
 
-      function filterCards() {
-        const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
-        const category = categorySelect ? categorySelect.value : 'all';
+    function updateLanguage() {
+      const texts = isHindi ? hindiTexts : englishTexts;
+      document.getElementById('eyebrowText').textContent = texts.eyebrow;
+      document.getElementById('heroTitle').textContent = texts.heroTitle;
+      document.getElementById('heroText').textContent = texts.heroText;
+      document.getElementById('noticeText').innerHTML = texts.notice;
+      document.getElementById('premiumTitle').textContent = texts.premiumTitle;
+      document.getElementById('premiumText').textContent = texts.premiumText;
+      document.getElementById('learningResourcesTitle').textContent = texts.learningResourcesTitle;
+      document.getElementById('learningResourcesSub').textContent = texts.learningResourcesSub;
+      document.getElementById('studyCategories').textContent = texts.studyCategories;
+      document.getElementById('studyCategoriesSub').textContent = texts.studyCategoriesSub;
+      document.getElementById('classesPathTitle').textContent = texts.classesPathTitle;
+      document.getElementById('classesPathSub').textContent = texts.classesPathSub;
+      document.getElementById('practiceTitle').textContent = texts.practiceTitle;
+      document.getElementById('practiceSub').textContent = texts.practiceSub;
+      document.getElementById('contactTitle').textContent = texts.contactTitle;
+      document.getElementById('contactSub').textContent = texts.contactSub;
+      selectedClassDisplay.textContent = texts.selected + classSelector.value;
 
-        cardNodes.forEach((card) => {
-          const title = (card.dataset.title || '').toLowerCase();
-          const cardCategory = card.dataset.category || '';
-          const matchesSearch = !query || title.includes(query);
-          const matchesCategory = category === 'all' || cardCategory === category;
-          card.classList.toggle('hide', !(matchesSearch && matchesCategory));
-        });
-      }
+      langToggle.textContent = isHindi ? 'English' : 'हिन्दी';
+      langToggle.setAttribute('aria-pressed', String(isHindi));
+    }
 
-      searchInput && searchInput.addEventListener('input', filterCards);
-      categorySelect && categorySelect.addEventListener('change', filterCards);
-      resetButton && resetButton.addEventListener('click', function () {
-        if (searchInput) searchInput.value = '';
-        if (categorySelect) categorySelect.value = 'all';
-        filterCards();
-      });
-
-      const englishLabels = {
-        eyebrow: 'One Home • All Learning',
-        title: 'Learn, practise and grow! 🚀',
-        description: 'Worksheets, notes, quizzes, question banks, sample papers and bilingual academic resources for students from classes 1 to 10. Easy, mobile-friendly learning for home and classroom revision.',
-        startBtn: 'Start Learning',
-        bankBtn: 'Question Bank',
-        notice: 'Important: All resource pages remain available in the project. This homepage is a modernised landing page only.',
-        resourcesTitle: 'Learning Resources',
-        resourcesSub: 'Browse subjects, practice pages and study materials.'
-      };
-
-      const hindiLabels = {
-        eyebrow: 'एक घर • सभी सीखें',
-        title: 'सीखें, अभ्यास करें और आगे बढ़ें! 🚀',
-        description: 'कक्षा 1 से 10 तक के छात्रों के लिए पत्रक, नोट्स, क्विज़, प्रश्न बैंक, नमूने पेपर और द्विभाषिक शैक्षिक संसाधन। घर और कक्षा पुनरावृत्ति के लिए आसान, मोबाइल-फ्रेंडली सीखना।',
-        startBtn: 'सीखना शुरू करें',
-        bankBtn: 'प्रश्न बैंक',
-        notice: 'महत्वपूर्ण: सभी संसाधन पेज परियोजना में उपलब्ध हैं। यह होमपेज केवल एक आधुनिक लैंडिंग पेज है।',
-        resourcesTitle: 'शैक्षिक संसाधन',
-        resourcesSub: 'विषय, अभ्यास पेज और अध्ययन सामग्री देखें।'
-      };
-
-      let isHindi = false;
-
-      function applyLanguageState() {
-        const labels = isHindi ? hindiLabels : englishLabels;
-        const eyebrow = document.getElementById('eyebrowText');
-        const heroTitle = document.getElementById('heroTitle');
-        const heroText = document.getElementById('heroText');
-        const startButton = document.getElementById('startLearningBtn');
-        const bankButton = document.getElementById('questionBankBtn');
-        const noticeText = document.getElementById('noticeText');
-        const resourcesTitle = document.getElementById('learningResourcesTitle');
-        const resourcesSub = document.getElementById('learningResourcesSub');
-
-        if (eyebrow) eyebrow.textContent = labels.eyebrow;
-        if (heroTitle) heroTitle.textContent = labels.title;
-        if (heroText) heroText.textContent = labels.description;
-        if (startButton) startButton.textContent = labels.startBtn;
-        if (bankButton) bankButton.textContent = labels.bankBtn;
-        if (noticeText) noticeText.innerHTML = '<b>' + (isHindi ? 'महत्वपूर्ण:' : 'Important:') + '</b> ' + (isHindi ? 'सभी संसाधन पेज परियोजना में उपलब्ध हैं। यह होमपेज केवल एक आधुनिक लैंडिंग पेज है।' : 'All resource pages remain available in the project. This homepage is a modernised landing page only.');
-        if (resourcesTitle) resourcesTitle.textContent = labels.resourcesTitle;
-        if (resourcesSub) resourcesSub.textContent = labels.resourcesSub;
-        if (langToggle) {
-          langToggle.textContent = isHindi ? 'English' : 'हिन्दी';
-          langToggle.setAttribute('aria-pressed', String(isHindi));
-        }
-      }
-
-      langToggle && langToggle.addEventListener('click', function () {
-        isHindi = !isHindi;
-        applyLanguageState();
-      });
-
-      openLearningBtn && openLearningBtn.addEventListener('click', function () {
-        document.getElementById('resources')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-
-      startLearningBtn && startLearningBtn.addEventListener('click', function () {
-        document.getElementById('resources')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-
-      questionBankBtn && questionBankBtn.addEventListener('click', function () {
-        window.location.href = './question-bank.html';
-      });
-
-      updateSelectedClass('Class 1');
-      filterCards();
-      applyLanguageState();
+    classSelector.addEventListener('change', () => {
+      selectedClassDisplay.textContent = (isHindi ? hindiTexts.selected : englishTexts.selected) + classSelector.value;
     });
+
+    classCards.forEach(card => {
+      card.addEventListener('click', () => {
+        classCards.forEach(item => {
+          item.classList.toggle('is-selected', item === card);
+          item.setAttribute('aria-pressed', String(item === card));
+        });
+        classSelector.value = card.dataset.class;
+        selectedClassDisplay.textContent = (isHindi ? hindiTexts.selected : englishTexts.selected) + classSelector.value;
+      });
+    });
+
+    langToggle.addEventListener('click', () => {
+      isHindi = !isHindi;
+      updateLanguage();
+    });
+
+    function filterCards() {
+      const query = (searchInput.value || '').trim().toLowerCase();
+      const selected = categorySelect.value;
+
+      cards.forEach(card => {
+        const title = (card.dataset.title || '').toLowerCase();
+        const category = (card.dataset.category || '').toLowerCase();
+        const matchesQuery = !query || title.includes(query) || category.includes(query);
+        const matchesCategory = selected === 'all' || category.includes(selected.toLowerCase()) || selected.toLowerCase() === 'all subjects';
+        card.classList.toggle('hide', !(matchesQuery && matchesCategory));
+      });
+    }
+
+    searchInput.addEventListener('input', filterCards);
+    categorySelect.addEventListener('change', filterCards);
+    resetBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      categorySelect.value = 'all';
+      filterCards();
+    });
+
+    document.getElementById('startLearningBtn').addEventListener('click', () => {
+      document.getElementById('grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    document.getElementById('openLearningBtn').addEventListener('click', () => {
+      document.getElementById('grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    document.getElementById('questionBankBtn').addEventListener('click', () => {
+      window.location.href = './question-bank.html';
+    });
+
+    updateLanguage();
   </script>
 </body>
 </html>
