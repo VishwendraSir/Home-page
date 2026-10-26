@@ -1,0 +1,57 @@
+MASTER PROMPT — SCIENCE CENTRE LEARNING HUB HOMEPAGE REBUILD
+
+Project: Rebuild the root homepage for SCIENCE CENTRE LEARNING HUB — Guided by Vishwendra Sir.
+Repository: https://github.com/VishwendraSir/Home-page
+Branch: main
+Production URL: https://vishwendrasir.github.io/Home-page/
+
+IMPORTANT SAFETY / PRESERVATION RULES
+1. First inspect the complete GitHub repository tree and read all relevant installed HTML pages, READMEs, CSV/ZIP manifests and update instructions before changing anything.
+2. Do not assume filenames or features from memory. Build links only for files that actually exist in the current main branch. Identify duplicate filenames with “(1)” as separate versions and do not overwrite/delete them without explicit approval.
+3. Preserve a verified backup of the current root index.html before replacing it. Do not use a Rajasthan Dig-Darshan page as the root homepage. Root index.html must be the Science Centre Learning Hub portal.
+4. Keep Rajasthan-Dig-Darshan as its own subfolder. Its page must be at Rajasthan-Dig-Darshan/index.html and its linked files must be inside that folder, with correct relative paths.
+5. Preserve existing installed learning pages. Do not silently remove, rename, replace, or rewrite the contents of installed learning materials.
+6. Do not claim a GitHub update or deployment is complete unless the commit is successful and the changed paths are re-read from main and the production URLs are tested. If GitHub write access returns 403, stop write attempts and provide a safe downloadable patch plus exact steps.
+
+HOMEPAGE REQUIREMENTS
+- Responsive mobile-first design, suitable for Android and desktop.
+- Branding at the top: “SCIENCE CENTRE LEARNING HUB” and “Guided by Vishwendra Sir”.
+- At the very start of the page, show a dropdown-arrow / hamburger control “शुरू करें ▾”. It opens navigation to all homepage sections.
+- Every learning page linked from the homepage should consistently provide the three global destinations: Free Study Material, Paid Study Material, Daily Practice. If editing individual installed pages is too risky, implement these as a shared header/footer snippet and provide a list of pages where it needs to be inserted.
+- Main homepage should focus on only these primary top-level choices:
+  1. Free Study Material
+  2. Paid Study Material
+  3. Daily Practice
+- Also include sections/cards for:
+  - Subject-wise study material: Science, Mathematics, English/Grammar, Hindi, GK/GS, Computer, Rajasthan GK and other subjects only where installed content exists.
+  - Class-wise study material: Nursery, LKG, UKG, Classes 1–10 and Competitive Exams. Mark unavailable class/subject material as “Coming soon”; do not fabricate files.
+  - Word Bank: English word, Hindi meaning, pronunciation, part of speech, example sentence, and class/level filter. Link to installed vocabulary pages. Do not pretend a complete word bank exists unless the content has been built.
+  - Installed pages/resources: include all useful verified HTML resources, grouped by subject/class/type.
+- Search box and class filter must work locally in the browser without external libraries.
+- Each card must have a real relative href to an existing file. Test every link against the repository tree.
+- Add clear resource labels: Free, Premium Catalogue, Daily Practice, Prototype, or Coming Soon. Do not claim HTML-only paywalls are secure.
+- Paid section must explain that real payment and access control require secure authentication/server-side validation; an HTML label alone is not security.
+- Mobile sticky bottom navigation with Free, Paid, Daily Practice links.
+- Accessibility: keyboard-friendly dropdown, visible focus states, semantic headings, sufficient contrast, accessible input labels.
+- No external CDN, framework, remote fonts, trackers, or dependencies; should work offline except that navigation to hosted pages requires internet.
+- Use clean colorful but professional student-friendly design; fast loading and no autoplay audio.
+
+REQUIRED WORKFLOW
+A. Inspect main branch tree and fetch contents of root index.html, backup index files, Complete Workspace, All Subjects pages, question-bank.html, premium-library.html, owner-dashboard.html, vocabulary/grammar files, and README/update instructions.
+B. Make a verified inventory table: file path, title, subject, class/level, type, current link, status, duplicate relationship.
+C. Create a new homepage draft without modifying installed content files. Run a link check against the tree and check mobile responsive layout.
+D. Check the existing homepage backup. Preserve it and never replace the root with a district landing page.
+E. If authorized, commit to a new branch first and open a pull request; do not directly overwrite main until reviewed. If write permissions are unavailable, output index.html and a patch/ZIP instead.
+F. After commit, fetch main/index.html and all linked paths again. Test:
+   - https://vishwendrasir.github.io/Home-page/
+   - https://vishwendrasir.github.io/Home-page/question-bank.html
+   - https://vishwendrasir.github.io/Home-page/premium-library.html
+   - https://vishwendrasir.github.io/Home-page/Rajasthan-Dig-Darshan/
+G. Report exactly what changed, what is verified, what is still pending, and whether GitHub Pages deployment is confirmed.
+
+DELIVERABLES
+1. Root index.html draft.
+2. Installed resource inventory.
+3. This master prompt for future regeneration.
+4. If needed, a ZIP with a safe folder structure and deployment notes.
+5. Do not claim automatic GitHub deployment unless the GitHub commit and live verification actually succeed.

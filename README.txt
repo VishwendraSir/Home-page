@@ -1,12 +1,14 @@
-RAJASTHAN DISTRICT DIG-DARSHAN
+SCIENCE CENTRE LEARNING HUB — Homepage Rebuild Draft
 
-Recommended repository structure:
-- index.html                         Main website home page
-- Rajasthan-Dig-Darshan/index.html   Separate home page for Rajasthan district series
-- Rajasthan-Dig-Darshan/*.html      District notes, MCQ sets, and reusable template
+Files:
+- index.html: new responsive homepage draft. It is intended for repository root only after review.
+- MASTER_PROMPT_Homepage_Rebuild_HI.txt: master prompt for future inspection, regeneration, and safe GitHub update.
 
-GitHub Pages URLs:
-- Main home page: https://vishwendrasir.github.io/Home-page/
-- Rajasthan Dig-Darshan home page: https://vishwendrasir.github.io/Home-page/Rajasthan-Dig-Darshan/
+Before uploading:
+1. Download the current root index.html and preserve a backup.
+2. Confirm every relative link in index.html exists in the repository root.
+3. Keep Rajasthan-Dig-Darshan in its own folder.
+4. Upload index.html to the repository root only when ready to replace the current homepage.
+5. Verify GitHub Pages after commit.
 
-When adding a new district, place its HTML file inside Rajasthan-Dig-Darshan/ and add a card/link to Rajasthan-Dig-Darshan/index.html.
+The homepage draft is built using filenames found in the repository tree, but it has not been committed or live-tested. Some repository files have duplicate "(1)" variants; those are not overwritten.
