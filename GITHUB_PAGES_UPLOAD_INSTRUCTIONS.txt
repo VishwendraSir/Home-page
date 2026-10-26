@@ -1,0 +1,20 @@
+SCIENCE CENTRE LEARNING HUB — Champion Home Page
+=================================================
+
+Main file: index.html
+
+Upload to GitHub Pages from Android:
+1. Open https://github.com/VishwendraSir/Bhakti-pannel-
+2. Tap Code -> Add file -> Upload files.
+3. Upload this index.html to the repository root.
+4. If prompted, replace the existing index.html.
+5. Enter a commit message and tap Commit changes.
+6. Open Settings -> Pages. Set Source to "Deploy from a branch", Branch to "main", folder to "/ (root)", then Save.
+7. After GitHub Pages builds, open the live URL shown under Settings -> Pages.
+
+Important:
+- The file is prepared, not automatically uploaded/committed to GitHub from this chat.
+- YouTube and WhatsApp buttons currently open their official home pages. Replace their URLs with your real channel/group invite URLs when available.
+- Study material buttons are placeholders until verified PDF/notes links are supplied.
+- Includes a working sample 5-question MCQ quiz, auto-score, flashcards, maths practice, science explorer, voice test, mobile navigation and local progress storage.
+- Progress is stored only in the same browser/device. This is a static website; no user accounts or cloud sync.
