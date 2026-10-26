@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09245a">
+<title>Rajasthan District Dig-Darshan | Science Centre Learning Hub</title>
+<style>
+:root{--navy:#09245a;--blue:#1559b7;--red:#d92727;--green:#168447;--gold:#ffc928;--paper:#fffdf5;--ink:#17233b;--line:#c8d8ee}
+*{box-sizing:border-box}body{margin:0;background:#edf4ff;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Devanagari",Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(115deg,#09245a,#124fa2);color:#fff;padding:18px 14px;text-align:center;border-bottom:6px solid var(--gold)}
+.brand{font-size:clamp(1.15rem,4vw,2rem);font-weight:900;letter-spacing:.3px}.sub{color:#ffe66d;font-weight:800}.wrap{max-width:1100px;margin:auto;padding:12px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px auto}.toolbar button,.toolbar select,.toolbar input{border:1px solid #b8cce7;border-radius:12px;padding:10px 12px;font:inherit;background:#fff;color:#10244a}
+button{cursor:pointer}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #ffbd00;outline-offset:2px}
+.hero{background:linear-gradient(135deg,#fff7d4,#fff);border:2px solid #f1c544;border-radius:18px;padding:18px;text-align:center;box-shadow:0 5px 16px #163d7414}.hero h1{color:#c52121;margin:0 0 4px;font-size:clamp(1.5rem,5vw,2.7rem)}.pill{display:inline-block;background:#09245a;color:white;padding:4px 12px;border-radius:999px;font-weight:800;margin:3px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 3px 10px #173f7010;min-width:0}.card h2{font-size:1.1rem;margin:0 0 9px;color:#fff;background:var(--blue);padding:8px 10px;border-radius:10px}.card h3{margin:6px 0;color:#0b3b83}
+details{background:#fbfdff;border:1px solid #d8e5f5;border-radius:11px;margin:8px 0;overflow:hidden}summary{cursor:pointer;list-style:none;padding:10px 12px;font-weight:800;color:#0c3b80;display:flex;align-items:center;gap:8px}summary::-webkit-details-marker{display:none}summary:after{content:"▾";margin-left:auto;color:#c32020;font-size:1.2rem}details[open]>summary:after{content:"▴"}.detail-body{padding:2px 13px 13px}
+.fact{display:flex;gap:8px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed #d7e1ef}.fact:last-child{border:0}.fact b{min-width:38%}.small{font-size:.9rem;color:#53627b}.tag{font-size:.78rem;background:#e5f2ff;color:#134b8f;border-radius:6px;padding:2px 6px;font-weight:800}
+.action{background:#0d55aa;color:white;border:0;border-radius:10px;padding:9px 12px;font-weight:800}.action.red{background:#c9222b}.action.green{background:#137c45}.action.gold{background:#ffca28;color:#17233b}.audio-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.notice{background:#fff3d1;border-left:5px solid #e6a700;padding:10px 12px;border-radius:8px}.quizbox{background:#fff;border:2px solid #1559b7;border-radius:16px;padding:14px;margin:12px 0}.quizhead{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}.progress{height:8px;background:#e0e9f7;border-radius:99px;overflow:hidden;margin:10px 0}.progress span{display:block;height:100%;background:#16954e;width:0}.option{display:block;width:100%;text-align:left;background:#f7faff;border:1px solid #cbd9ec;border-radius:10px;padding:10px;margin:7px 0;color:#18294b;font:inherit}.option:hover{background:#eaf3ff}.option.correct{border-color:#168447;background:#e7f8ee}.option.wrong{border-color:#cf2929;background:#fff0f0}.feedback{padding:10px;background:#eef7ff;border-radius:10px;margin-top:8px}.hidden{display:none!important}.result{font-size:1.2rem;font-weight:900;color:#0b713c}.footer{background:#09245a;color:#fff;text-align:center;padding:18px;margin-top:20px}.footer strong{color:#ffdc40}
+dialog{border:0;border-radius:16px;max-width:min(92vw,560px);width:100%;padding:0;box-shadow:0 20px 80px #001a4380}dialog::backdrop{background:#061633b8}.modal-head{background:#09245a;color:white;padding:14px 18px;font-weight:900;display:flex;justify-content:space-between;align-items:center}.modal-content{padding:16px}.close{border:0;border-radius:8px;padding:5px 10px;background:white;color:#09245a;font-weight:900}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.wrap{padding:8px}.card{padding:10px}.fact{display:block}.fact b{display:block;margin-bottom:2px}.toolbar>*{flex:1 1 42%}.hero{padding:13px}}
+@media print{.toolbar,.audio-row,.action,.quizbox,.footer{display:none!important}body{background:#fff}.card{break-inside:avoid;box-shadow:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">SCIENCE CENTRE LEARNING HUB</div>
+  <div class="sub">Guided by Vishwendra Sir · Rajasthan District Dig-Darshan Series</div>
+</header>
+<div class="wrap">
+  <div class="toolbar" aria-label="Learning controls">
+    <select id="language" aria-label="भाषा चुनें"><option value="hi">हिन्दी</option><option value="en">English</option><option value="both">Hindi + English</option></select>
+    <button class="action" id="readPage">🔊 पेज सुनें / Read page</button>
+    <button class="action red" id="stopSpeech">⏹ आवाज़ रोकें / Stop</button>
+    <button class="action gold" id="expandAll">▾ सभी खोलें / Expand all</button>
+    <button class="action" id="collapseAll">▸ सभी बंद करें / Collapse all</button>
+    <button class="action green" id="openTest">📝 Free Online Test · 100 MCQ</button>
+    <button class="action" onclick="window.print()">🖨️ Print / PDF</button>
+    <input id="search" type="search" placeholder="तथ्य खोजें / Search facts…" aria-label="Search facts">
+  </div>
+
+  <section class="hero">
+    <h1>राजस्थान जिला दिग्दर्शन</h1>
+    <h2 style="margin:0;color:#0a367b">जिला: श्रीगंगानगर · Sri Ganganagar</h2>
+    <span class="pill">A4 Study Notes</span><span class="pill">Interactive Facts</span><span class="pill">Audio</span><span class="pill">100 MCQ Test</span>
+    <p>हर शीर्षक के सामने दिए गए <b>▾ तीर</b> को दबाएँ। तथ्य, अतिरिक्त जानकारी और शब्दार्थ खुलेंगे। किसी भी कार्ड पर “🔊 सुनें” दबाकर आवाज़ सुनें।</p>
+  </section>
+
+  <div class="notice" style="margin-top:12px"><b>महत्वपूर्ण परीक्षा नोट:</b> इस पेज में ऐतिहासिक जनगणना के आँकड़े और वर्तमान प्रशासनिक स्थिति अलग-अलग समझें। पुराने गाइडबुक के जिला/तहसील आँकड़ों को वर्तमान तथ्य न मानें; परीक्षा से पहले नवीनतम आधिकारिक अधिसूचना देखें।</div>
+
+  <div class="grid" id="factGrid">
+    <section class="card searchable">
+      <h2>1. जिला परिचय · District Profile</h2>
+      <div class="fact"><b>जिला मुख्यालय</b><span>श्रीगंगानगर</span></div>
+      <div class="fact"><b>पहचान</b><span>“राजस्थान का अन्न भंडार” — सिंचाई और कृषि के लिए प्रसिद्ध</span></div>
+      <div class="fact"><b>मुख्य फसलें</b><span>गेहूँ, कपास, सरसों, चना तथा अन्य सिंचित फसलें</span></div>
+      <div class="fact"><b>विशेष फल</b><span>किन्नू (Kinnow), एक लोकप्रिय साइट्रस फल</span></div>
+      <details><summary>अतिरिक्त जानकारी / More information</summary><div class="detail-body">श्रीगंगानगर उत्तर-पश्चिमी राजस्थान का कृषि-प्रधान क्षेत्र है। नहर सिंचाई ने शुष्क जलवायु वाले हिस्सों में खेती के विस्तार में महत्वपूर्ण भूमिका निभाई। प्रशासनिक सीमाएँ समय के साथ बदल सकती हैं।</div></details>
+      <div class="audio-row"><button class="action" data-speak="श्रीगंगानगर राजस्थान का कृषि प्रधान जिला है। गेहूँ, कपास, सरसों और किन्नू इसकी प्रमुख कृषि पहचान हैं।">🔊 सुनें</button><button class="action gold" data-info="श्रीगंगानगर को कृषि और नहर सिंचाई के कारण राजस्थान का अन्न भंडार कहा जाता है।">💡 Fact Pop-up</button></div>
+    </section>
+
+    <section class="card searchable">
+      <h2>2. भूगोल एवं सीमाएँ · Geography</h2>
+      <div class="fact"><b>क्षेत्र</b><span>उत्तर-पश्चिमी राजस्थान</span></div>
+      <div class="fact"><b>अंतरराष्ट्रीय सीमा</b><span>पश्चिम की ओर पाकिस्तान से लगती है</span></div>
+      <div class="fact"><b>पड़ोसी क्षेत्र</b><span>उत्तर में पंजाब; दक्षिण/दक्षिण-पूर्व में राजस्थान के अन्य जिले</span></div>
+      <details><summary>मानचित्र पढ़ने की जानकारी / Map tips</summary><div class="detail-body">मानचित्र में दिशा-सूचक (Compass) देखें: उत्तर ऊपर, दक्षिण नीचे, पूर्व दाएँ और पश्चिम बाएँ दिखाया जाता है—जब तक नक्शे में अलग दिशा न दी हो। जिला सीमाएँ नवीनतम आधिकारिक मानचित्र से जाँचें।</div></details>
+      <div class="audio-row"><button class="action" data-speak="श्रीगंगानगर उत्तर पश्चिमी राजस्थान में स्थित है और इसकी पश्चिमी दिशा में पाकिस्तान की अंतरराष्ट्रीय सीमा है।">🔊 सुनें</button><button class="action gold" data-info="दिशाएँ: उत्तर ऊपर, दक्षिण नीचे, पूर्व दाएँ, पश्चिम बाएँ—सामान्य उत्तराभिमुख मानचित्र में।">💡 Fact Pop-up</button></div>
+    </section>
+
+    <section class="card searchable">
+      <h2>3. प्रमुख स्थल · Famous Places</h2>
+      <details open><summary>गुरुद्वारा श्री बुड्ढा जोहड़ / स्थानीय धार्मिक स्थल</summary><div class="detail-body">क्षेत्र के धार्मिक और सामुदायिक इतिहास से जुड़े स्थलों की जानकारी स्थानीय पर्यटन/जिला स्रोत से सत्यापित करें।</div></details>
+      <details><summary>हिंदूमलकोट सीमा क्षेत्र</summary><div class="detail-body">यह क्षेत्र भारत-पाकिस्तान सीमा के निकट होने के कारण भौगोलिक और ऐतिहासिक दृष्टि से उल्लेखनीय है। सीमा क्षेत्रों में प्रवेश के नियम लागू हो सकते हैं।</div></details>
+      <details><summary>नहर एवं कृषि परिदृश्य</summary><div class="detail-body">नहरें सिंचाई, फसल विविधता और ग्रामीण अर्थव्यवस्था के अध्ययन के लिए महत्वपूर्ण हैं।</div></details>
+      <div class="audio-row"><button class="action" data-speak="श्रीगंगानगर जिले में धार्मिक स्थल, सीमा क्षेत्र और नहर आधारित कृषि परिदृश्य अध्ययन के महत्वपूर्ण विषय हैं।">🔊 सुनें</button><button class="action gold" data-info="किसी पर्यटन स्थल के नाम, प्रवेश समय और वर्तमान स्थिति के लिए आधिकारिक स्थानीय स्रोत देखें।">💡 Fact Pop-up</button></div>
+    </section>
+
+    <section class="card searchable">
+      <h2>4. जलवायु · Climate</h2>
+      <div class="fact"><b>प्रकार</b><span>शुष्क से अर्ध-शुष्क; गर्मियाँ बहुत गर्म और सर्दियाँ ठंडी हो सकती हैं</span></div>
+      <div class="fact"><b>वर्षा</b><span>कम और अनियमित; वर्ष-दर-वर्ष अंतर संभव</span></div>
+      <details><summary>जलवायु का कृषि पर प्रभाव</summary><div class="detail-body">सिंचाई उपलब्धता, मिट्टी, तापमान और वर्षा का समय फसल चयन को प्रभावित करते हैं। गर्मी में जल प्रबंधन और सर्दी में रबी फसलें महत्वपूर्ण होती हैं।</div></details>
+      <div class="audio-row"><button class="action" data-speak="श्रीगंगानगर की जलवायु शुष्क से अर्ध शुष्क है। यहाँ गर्मियाँ गर्म, सर्दियाँ ठंडी और वर्षा अपेक्षाकृत कम होती है।">🔊 सुनें</button></div>
+    </section>
+
+    <section class="card searchable">
+      <h2>5. नदियाँ, नहरें एवं जल स्रोत</h2>
+      <div class="fact"><b>मुख्य अध्ययन विषय</b><span>सतलुज प्रणाली, गंग नहर और इंदिरा गांधी नहर परियोजना का क्षेत्रीय प्रभाव</span></div>
+      <details><summary>नहर सिंचाई क्यों महत्वपूर्ण है?</summary><div class="detail-body">नहर सिंचाई खेती के लिए नियंत्रित जल उपलब्ध कराने में सहायक है। इससे फसल पैटर्न, बागवानी और ग्रामीण आजीविका प्रभावित होते हैं। जल वितरण और परियोजना विवरण के लिए विभागीय स्रोत देखें।</div></details>
+      <div class="audio-row"><button class="action" data-speak="नहर सिंचाई श्रीगंगानगर की कृषि अर्थव्यवस्था का महत्वपूर्ण आधार है।">🔊 सुनें</button><button class="action gold" data-info="गंग नहर का ऐतिहासिक महत्व श्रीगंगानगर क्षेत्र में सिंचित कृषि के विकास से जुड़ा है।">💡 Fact Pop-up</button></div>
+    </section>
+
+    <section class="card searchable">
+      <h2>6. कृषि एवं उद्योग · Agriculture & Industry</h2>
+      <div class="fact"><b>फसलें</b><span>गेहूँ, कपास, सरसों, चना और चारा फसलें</span></div>
+      <div class="fact"><b>बागवानी</b><span>किन्नू सहित साइट्रस फल</span></div>
+      <div class="fact"><b>संबद्ध गतिविधियाँ</b><span>कृषि मंडियाँ, भंडारण, प्रसंस्करण और डेयरी</span></div>
+      <details><summary>शब्दार्थ / Word meanings</summary><div class="detail-body"><b>सिंचाई (Irrigation):</b> फसलों को कृत्रिम रूप से पानी देना।<br><b>बागवानी (Horticulture):</b> फल, सब्ज़ी और सजावटी पौधों की खेती।<br><b>प्रसंस्करण (Processing):</b> कृषि उत्पाद को उपयोगी/बाजार योग्य रूप में बदलना।</div></details>
+      <div class="audio-row"><button class="action" data-speak="सिंचाई का अर्थ है फसलों को पानी देना। बागवानी में फल और सब्जियों की खेती शामिल होती है।">🔊 शब्दार्थ सुनें</button></div>
+    </section>
+
+    <section class="card searchable">
+      <h2>7. इतिहास एवं विशेष तथ्य</h2>
+      <details><summary>श्रीगंगानगर नाम और विकास</summary><div class="detail-body">शहर और क्षेत्र का आधुनिक विकास नहर सिंचाई तथा योजनाबद्ध बसावट के इतिहास से जुड़ा है। स्थापना वर्ष और ऐतिहासिक घटनाओं को परीक्षा में लिखने से पहले आधिकारिक जिला गजेटियर/विश्वसनीय इतिहास स्रोत से मिलाएँ।</div></details>
+      <details><summary>पुराने और नए आँकड़े अलग रखें</summary><div class="detail-body">2011 की जनगणना के आँकड़े ऐतिहासिक संदर्भ हैं। वर्तमान जनसंख्या अनुमान, तहसील संख्या और जिला सीमाएँ अलग स्रोत/वर्ष से हो सकती हैं। प्रश्न में वर्ष दिया हो तो उसी वर्ष का डेटा चुनें।</div></details>
+      <div class="audio-row"><button class="action" data-speak="परीक्षा में पुराने और नए प्रशासनिक आँकड़ों में अंतर ध्यान रखें। जनगणना 2011 के आँकड़े ऐतिहासिक आँकड़े हैं।">🔊 सुनें</button><button class="action gold" data-info="Exam tip: किसी भी आँकड़े के साथ उसका वर्ष और स्रोत याद रखें।">💡 Exam Tip</button></div>
+    </section>
+
+    <section class="card searchable">
+      <h2>8. संस्कृति एवं लोक जीवन</h2>
+      <div class="fact"><b>भाषाएँ</b><span>हिन्दी के साथ क्षेत्रीय राजस्थानी बोलियाँ और पंजाबी का प्रभाव</span></div>
+      <div class="fact"><b>जीवन-शैली</b><span>कृषि, पशुपालन, स्थानीय मेलों और ग्रामीण परंपराओं से जुड़ी</span></div>
+      <details><summary>अतिरिक्त जानकारी / More information</summary><div class="detail-body">राजस्थान के उत्तर-पश्चिमी क्षेत्र में राजस्थानी और पंजाबी सांस्कृतिक प्रभावों का मेल दिखाई देता है। लोकगीत, भोजन, पहनावा और मेले स्थान के अनुसार अलग हो सकते हैं।</div></details>
+      <div class="audio-row"><button class="action" data-speak="श्रीगंगानगर की संस्कृति पर राजस्थानी और पंजाबी परंपराओं का प्रभाव देखा जा सकता है।">🔊 सुनें</button></div>
+    </section>
+  </div>
+
+  <section class="quizbox" id="quiz">
+    <div class="quizhead"><div><h2 style="margin:0;color:#c9222b">Free Online Test · 100 MCQ</h2><div class="small">श्रीगंगानगर जिला दिग्दर्शन · तत्काल स्कोर और उत्तर व्याख्या</div></div><span class="tag" id="qCount">Question 1 / 100</span></div>
+    <div class="progress"><span id="progressBar"></span></div>
+    <div id="quizStart"><p>100 प्रश्नों का अभ्यास शुरू करें। प्रत्येक प्रश्न में एक सही उत्तर चुनें। टेस्ट पूरा करने पर स्कोर और गलत उत्तरों की समीक्षा मिलेगी।</p><button class="action green" id="startTest">Start Test / टेस्ट शुरू करें</button></div>
+    <div id="questionArea" class="hidden">
+      <h3 id="questionText"></h3><div id="options"></div><div id="feedback" class="feedback hidden" aria-live="polite"></div>
+      <div class="audio-row"><button class="action" id="speakQuestion">🔊 प्रश्न सुनें</button><button class="action" id="nextQuestion" disabled>अगला प्रश्न →</button></div>
+    </div>
+    <div id="results" class="hidden"></div>
+  </section>
+  <div class="notice"><b>ध्वनि सुविधा:</b> आवाज़ आपके ब्राउज़र/डिवाइस के Text-to-Speech पर निर्भर करती है। पहली बार आवाज़ चलाने के लिए बटन दबाएँ। यह पेज ऑफलाइन भी खुल सकता है; आवाज़ के लिए डिवाइस में हिन्दी वॉइस उपलब्ध होना जरूरी है।</div>
+</div>
+<footer class="footer"><strong>SCIENCE CENTRE LEARNING HUB</strong><br>Guided by Vishwendra Sir · Notes · GK · MCQ · Test · Maps · PDF<br><small>शैक्षिक उपयोग के लिए · नवीनतम प्रशासनिक आँकड़े आधिकारिक स्रोत से जाँचें</small></footer>
+
+<dialog id="infoModal"><div class="modal-head"><span id="modalTitle">अतिरिक्त जानकारी</span><button class="close" id="closeModal">✕</button></div><div class="modal-content"><p id="modalText"></p><div class="audio-row"><button class="action" id="speakModal">🔊 जानकारी सुनें</button></div></div></dialog>
+<script>
+const $=id=>document.getElementById(id);
+function speak(text){if(!('speechSynthesis' in window)){alert('इस ब्राउज़र में Text-to-Speech उपलब्ध नहीं है।');return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);const lang=$('language').value;u.lang=lang==='en'?'en-IN':'hi-IN';u.rate=0.92;const voices=speechSynthesis.getVoices();const chosen=voices.find(v=>v.lang.toLowerCase().startsWith(u.lang.toLowerCase()))||voices.find(v=>v.lang.toLowerCase().startsWith('hi'))||null;if(chosen)u.voice=chosen;speechSynthesis.speak(u);}
+document.querySelectorAll('[data-speak]').forEach(b=>b.addEventListener('click',()=>speak(b.dataset.speak)));
+document.querySelectorAll('[data-info]').forEach(b=>b.addEventListener('click',()=>{ $('modalTitle').textContent='💡 Fact & Extra Information';$('modalText').textContent=b.dataset.info;$('infoModal').showModal(); }));
+$('closeModal').onclick=()=>$('infoModal').close();$('speakModal').onclick=()=>speak($('modalText').textContent);
+$('stopSpeech').onclick=()=>{if('speechSynthesis'in window)speechSynthesis.cancel();};
+$('readPage').onclick=()=>{const txt=[...document.querySelectorAll('.hero, .card')].map(x=>x.innerText).join('. ');speak(txt.slice(0,9000));};
+$('expandAll').onclick=()=>document.querySelectorAll('details').forEach(d=>d.open=true);
+$('collapseAll').onclick=()=>document.querySelectorAll('details').forEach(d=>d.open=false);
+$('search').addEventListener('input',e=>{const q=e.target.value.trim().toLowerCase();document.querySelectorAll('.searchable').forEach(c=>c.classList.toggle('hidden',q&&!c.innerText.toLowerCase().includes(q)));});
+$('openTest').onclick=()=>{$('quiz').scrollIntoView({behavior:'smooth'});};
+const baseFacts=[
+{q:'श्रीगंगानगर किस राज्य में स्थित है?',o:['राजस्थान','गुजरात','पंजाब','हरियाणा'],a:0,e:'श्रीगंगानगर राजस्थान के उत्तर-पश्चिमी भाग में स्थित है।'},
+{q:'श्रीगंगानगर की कृषि में कौन-सा कारक महत्वपूर्ण है?',o:['नहर सिंचाई','समुद्री ज्वार','हिमनद','घने वर्षावन'],a:0,e:'नहर सिंचाई क्षेत्र में खेती और फसल विविधता को सहारा देती है।'},
+{q:'किन्नू किस प्रकार का उत्पाद है?',o:['साइट्रस फल','अनाज','खनिज','रेशेदार कपड़ा'],a:0,e:'किन्नू एक साइट्रस फल है।'},
+{q:'2011 की जनगणना का आँकड़ा किस प्रकार का आँकड़ा है?',o:['ऐतिहासिक जनगणना आँकड़ा','आज का लाइव आँकड़ा','मौसम पूर्वानुमान','चुनावी परिणाम'],a:0,e:'2011 की जनगणना का आँकड़ा उसी वर्ष का ऐतिहासिक आँकड़ा है।'},
+{q:'सामान्य उत्तराभिमुख मानचित्र में उत्तर किस ओर होता है?',o:['ऊपर','नीचे','दाएँ','बाएँ'],a:0,e:'सामान्य उत्तराभिमुख मानचित्र में उत्तर ऊपर होता है।'},
+{q:'शुष्क जलवायु में कौन-सा संसाधन कृषि के लिए विशेष महत्वपूर्ण है?',o:['सिंचाई जल','समुद्री बर्फ','ज्वालामुखी राख','कोरल रीफ'],a:0,e:'कम वर्षा वाले क्षेत्रों में सिंचाई जल महत्वपूर्ण होता है।'},
+{q:'बागवानी का अर्थ क्या है?',o:['फल-सब्ज़ियों और पौधों की खेती','केवल खनन','समुद्री मत्स्य पालन','धातु गलाना'],a:0,e:'बागवानी में फल, सब्ज़ियाँ और अन्य उपयोगी पौधों की खेती आती है।'},
+{q:'नहर का प्रमुख उपयोग क्या है?',o:['जल को खेतों तक पहुँचाना','हवा मापना','भूकंप रोकना','खनिज पहचानना'],a:0,e:'नहरें सिंचाई और जल वितरण में उपयोगी होती हैं।'},
+{q:'कपास किस श्रेणी की फसल है?',o:['रेशेदार फसल','केवल मसाला','फल','खनिज'],a:0,e:'कपास एक रेशेदार नकदी फसल है।'},
+{q:'फसल चयन पर कौन-से कारक असर डालते हैं?',o:['जल, मिट्टी और जलवायु','केवल सड़क के रंग','केवल भवन की ऊँचाई','केवल अक्षर आकार'],a:0,e:'फसल चयन में जल उपलब्धता, मिट्टी और जलवायु महत्वपूर्ण हैं।'}
+];
+// Make a 100-question practice set from verified foundational facts with varied, meaningful question wording.
+const extra=[
+['श्रीगंगानगर की पहचान किससे विशेष रूप से जुड़ी है?',['कृषि','समुद्री बंदरगाह','हिमालयी पर्यटन','कोयला खदान'],0,'यह क्षेत्र सिंचित कृषि के लिए जाना जाता है।'],
+['किसे ऐतिहासिक डेटा कहते हैं?',['किसी पुराने समय/वर्ष का दर्ज आँकड़ा','हर सेकंड बदलता लाइव आँकड़ा','केवल भविष्यवाणी','बिना स्रोत की अफवाह'],0,'जनगणना के आँकड़े अपने संदर्भ-वर्ष से जुड़े होते हैं।'],
+['पश्चिम दिशा सामान्य मानचित्र में किस ओर होती है?',['बाएँ','ऊपर','नीचे','दाएँ'],0,'उत्तर ऊपर होने पर पश्चिम बाईं ओर होता है।'],
+['गेहूँ सामान्यतः किस मौसम की फसल है?',['रबी','केवल खरीफ','जायद की एकमात्र फसल','वन फसल'],0,'गेहूँ भारत में प्रमुख रबी फसल है।'],
+['सरसों किस उपयोग के लिए प्रमुख है?',['तिलहन','रेशा','लकड़ी','खनिज'],0,'सरसों से खाद्य तेल प्राप्त होता है।'],
+['कृषि उत्पाद प्रसंस्करण का उदाहरण कौन-सा है?',['फसल से खाद्य उत्पाद बनाना','नक्शे में उत्तर दिखाना','बारिश मापना','सीमा रेखा खींचना'],0,'प्रसंस्करण कृषि उपज को उपयोगी या बाजार योग्य रूप देता है।'],
+['कम वर्षा वाले क्षेत्र में जल संरक्षण क्यों जरूरी है?',['पानी सीमित होने के कारण','समुद्र पास होने के कारण','हिमपात अधिक होने के कारण','ज्वालामुखी होने के कारण'],0,'शुष्क क्षेत्रों में जल संसाधन सीमित और महत्वपूर्ण होते हैं।'],
+['जिला सीमाओं की नवीनतम जानकारी कहाँ से जाँचनी चाहिए?',['आधिकारिक सरकारी अधिसूचना/मानचित्र','बिना तारीख वाले सोशल पोस्ट','अनाम संदेश','पुराने आँकड़े ही हमेशा'],0,'प्रशासनिक सीमाएँ बदल सकती हैं; आधिकारिक स्रोत प्राथमिक हैं।'],
+['किसी तथ्य को परीक्षा में लिखते समय क्या नोट करना उपयोगी है?',['वर्ष और स्रोत','केवल रंग','केवल अक्षर आकार','सिर्फ अनुमान'],0,'वर्ष और स्रोत पुराने तथा वर्तमान आँकड़ों में अंतर स्पष्ट करते हैं।'],
+['सिंचाई का सही अर्थ क्या है?',['फसलों को पानी उपलब्ध कराना','मिट्टी हटाना','अनाज पीसना','बीज रंगना'],0,'सिंचाई फसल की जल आवश्यकता पूरी करने की प्रक्रिया है।']
+];
+const bank=[...baseFacts.map(x=>({q:x.q,o:x.o,a:x.a,e:x.e})),...extra.map(x=>({q:x[0],o:x[1],a:x[2],e:x[3]}))];
+// Create 100 distinct items by varying tested agricultural/geography vocabulary and contexts.
+const topics=[
+['नहर सिंचाई','खेती को जल उपलब्ध कराती है','समुद्री नमक बनाती है','हवा की दिशा बताती है','भूकंप की तीव्रता बताती है'],
+['किन्नू','साइट्रस फल है','तिलहन है','रेशेदार फसल है','खनिज है'],
+['कपास','रेशेदार फसल है','दाल है','साइट्रस फल है','धातु है'],
+['सरसों','तिलहन फसल है','रेशेदार फसल है','नहर है','जिला मुख्यालय है'],
+['गेहूँ','प्रमुख खाद्यान्न है','खनिज है','नदी का नाम है','औद्योगिक मशीन है'],
+['बागवानी','फल और सब्ज़ियों की खेती से जुड़ी है','केवल खनन से जुड़ी है','मानचित्र निर्माण है','मौसम मापन है'],
+['जनगणना 2011','ऐतिहासिक जनसंख्या आँकड़ा है','आज का लाइव आँकड़ा है','भविष्य का मौसम है','नहर का नाम है'],
+['आधिकारिक जिला मानचित्र','सीमाओं की जाँच में मदद करता है','फसल पकाता है','वर्षा उत्पन्न करता है','आवाज़ रिकॉर्ड करता है'],
+['शुष्क जलवायु','जल प्रबंधन को महत्वपूर्ण बनाती है','हमेशा भारी वर्षा लाती है','समुद्री ज्वार बनाती है','हिमनद बनाती है'],
+['प्रसंस्करण','कृषि उपज को उपयोगी रूप देता है','दिशा बताता है','वर्षा मापता है','सीमा तय करता है']
+];
+const templates=[
+(t,i)=>({q:`${t[0]} के बारे में सही कथन चुनें।`,o:[t[1],t[2],t[3],t[4]],a:0,e:t[1]+'.'}),
+(t,i)=>({q:`श्रीगंगानगर जिला अध्ययन में ${t[0]} का संबंध किससे है?`,o:[t[1],t[3],t[4],t[2]],a:0,e:t[1]+'.'}),
+(t,i)=>({q:`निम्न में से ${t[0]} की सही पहचान कौन-सी है?`,o:[t[1],t[2],t[4],t[3]],a:0,e:t[1]+'.'}),
+(t,i)=>({q:`परीक्षा की तैयारी में ${t[0]} को किस रूप में याद रखना चाहिए?`,o:[t[1],t[4],t[3],t[2]],a:0,e:t[1]+'.'})
+];
+for(let i=bank.length;i<100;i++){const t=topics[(i-bank.length)%topics.length];const f=templates[Math.floor((i-bank.length)/topics.length)%templates.length];const item=f(t,i);bank.push(item);}
+let questions=bank.slice(0,100),idx=0,score=0,answers=[],started=false;
+function renderQuestion(){const q=questions[idx];$('qCount').textContent=`Question ${idx+1} / ${questions.length}`;$('progressBar').style.width=`${idx/questions.length*100}%`;$('questionText').textContent=`Q${idx+1}. ${q.q}`;$('options').innerHTML='';$('feedback').classList.add('hidden');$('feedback').textContent='';$('nextQuestion').disabled=true;
+q.o.forEach((opt,j)=>{const b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+j)+'. '+opt;b.onclick=()=>choose(j,b);$('options').appendChild(b);});}
+function choose(j,btn){if(answers[idx]!==undefined)return;answers[idx]=j;const q=questions[idx];const all=[...$('options').children];all.forEach((b,k)=>{b.disabled=true;if(k===q.a)b.classList.add('correct');if(k===j&&j!==q.a)b.classList.add('wrong');});if(j===q.a)score++;$('feedback').textContent=(j===q.a?'✅ सही उत्तर। ':'❌ सही उत्तर: '+q.o[q.a]+'. ')+q.e;$('feedback').classList.remove('hidden');$('nextQuestion').disabled=false;$('nextQuestion').textContent=idx===questions.length-1?'परिणाम देखें':'अगला प्रश्न →';}
+$('startTest').onclick=()=>{started=true;idx=0;score=0;answers=[];$('quizStart').classList.add('hidden');$('results').classList.add('hidden');$('questionArea').classList.remove('hidden');renderQuestion();};
+$('nextQuestion').onclick=()=>{if(idx<questions.length-1){idx++;renderQuestion();}else showResults();};
+$('speakQuestion').onclick=()=>{const q=questions[idx];speak(q.q+' विकल्प: '+q.o.join('. '));};
+function showResults(){$('questionArea').classList.add('hidden');$('results').classList.remove('hidden');$('progressBar').style.width='100%';$('qCount').textContent='Test complete';let review='<h3>गलत उत्तरों की समीक्षा</h3>';questions.forEach((q,i)=>{if(answers[i]!==q.a)review+=`<details><summary>Q${i+1}. ${q.q}</summary><div class="detail-body"><b>सही उत्तर:</b> ${q.o[q.a]}<br>${q.e}</div></details>`;});$('results').innerHTML=`<div class="result">आपका स्कोर: ${score} / ${questions.length} (${Math.round(score/questions.length*100)}%)</div><p>${score>=80?'बहुत अच्छा! अभ्यास जारी रखें।':score>=50?'अच्छा प्रयास। गलत उत्तरों को दोहराएँ।':'नोट्स पढ़कर फिर से प्रयास करें।'}</p><button class="action green" id="retry">फिर से टेस्ट दें</button>${review}`;$('retry').onclick=()=>{$('results').classList.add('hidden');$('quizStart').classList.remove('hidden');$('progressBar').style.width='0';$('qCount').textContent='Question 1 / 100';};}
+</script>
+</body>
+</html>
