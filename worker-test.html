@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Science Centre AI Tutor — Worker Test</title>
+<style>
+  :root { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  * { box-sizing: border-box; }
+  body { margin: 0 auto; padding: 16px; max-width: 720px; line-height: 1.5; }
+  h1 { font-size: 1.25rem; }
+  label { display: block; margin: 12px 0 5px; font-weight: 650; }
+  input, textarea { width: 100%; padding: 11px; border: 1px solid #888; border-radius: 8px; font: inherit; }
+  textarea { min-height: 100px; resize: vertical; }
+  button { width: 100%; margin-top: 14px; padding: 13px; border: 0; border-radius: 10px; background: #f6821f; color: white; font: inherit; font-weight: 700; }
+  button:disabled { opacity: .6; }
+  .note { font-size: .9rem; opacity: .8; }
+  .status { display: none; padding: 12px; margin-top: 14px; border-radius: 8px; font-weight: 700; overflow-wrap: anywhere; }
+  .ok { background: #d9f8df; color: #125c20; }
+  .bad { background: #ffe0e0; color: #861b1b; }
+  pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 12px; border-radius: 8px; background: #eee; color: #111; min-height: 80px; }
+  .proxyrow { display: flex; align-items: flex-start; gap: 10px; margin-top: 12px; }
+  .proxyrow input { width: auto; margin-top: 5px; }
+  .proxyrow label { margin: 0; font-weight: 400; }
+</style>
+</head>
+<body>
+  <h1>SCIENCE CENTRE LEARNING HUB</h1>
+  <p>AI Tutor Worker diagnostic test</p>
+  <p class="note">No API key is included or required in this page. The key should remain configured as a Cloudflare Worker secret.</p>
+
+  <label for="url">Endpoint URL</label>
+  <input id="url" value="https://science-centre-ai-tutor.realclassesguruji.workers.dev/api/chat" autocomplete="off">
+
+  <label for="body">Request body (JSON)</label>
+  <textarea id="body">{"question":"What is 2+2? Explain in Hindi and English."}</textarea>
+
+  <div class="proxyrow">
+    <input type="checkbox" id="proxy">
+    <label for="proxy">Route via public CORS proxy (optional; use only if direct request is blocked by CORS). A third-party proxy will see the question and response. Never send secrets through it.</label>
+  </div>
+
+  <button id="send" type="button">Send request</button>
+
+  <div id="status" class="status" role="status"></div>
+  <label for="resp">Response body</label>
+  <pre id="resp">(No response yet)</pre>
+  <p id="meta" class="note"></p>
+
+<script>
+(() => {
+  const byId = (id) => document.getElementById(id);
+  byId("send").addEventListener("click", async () => {
+    const button = byId("send");
+    const status = byId("status");
+    const response = byId("resp");
+    const meta = byId("meta");
+    button.disabled = true;
+    status.style.display = "none";
+    response.textContent = "Sending request…";
+    meta.textContent = "";
+
+    let endpoint = byId("url").value.trim();
+    if (!endpoint) {
+      status.style.display = "block";
+      status.className = "status bad";
+      status.textContent = "Please enter an endpoint URL.";
+      response.textContent = "";
+      button.disabled = false;
+      return;
+    }
+
+    if (byId("proxy").checked) {
+      endpoint = "https://corsproxy.io/?url=" + encodeURIComponent(endpoint);
+    }
+
+    const started = performance.now();
+    try {
+      const result = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: byId("body").value
+      });
+      const elapsed = Math.round(performance.now() - started);
+      const raw = await result.text();
+      let formatted = raw;
+      try { formatted = JSON.stringify(JSON.parse(raw), null, 2); } catch (_) {}
+
+      status.style.display = "block";
+      status.className = "status " + (result.ok ? "ok" : "bad");
+      status.textContent = "HTTP " + result.status + " " + result.statusText;
+      response.textContent = formatted || "(Empty response body)";
+      meta.textContent = "Elapsed: " + elapsed + " ms · Content-Type: " + (result.headers.get("Content-Type") || "(not provided)");
+    } catch (error) {
+      status.style.display = "block";
+      status.className = "status bad";
+      status.textContent = "Network/CORS error — browser could not read the response";
+      response.textContent = String(error && error.message ? error.message : error);
+      meta.textContent = "If opened as a local file or from another origin, CORS may block access. Prefer opening this page from https://vishwendrasir.github.io. Optional public proxy may be unreliable and can see the question/response.";
+    } finally {
+      button.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
