@@ -1,0 +1,29 @@
+SCIENCE CENTRE LEARNING HUB — GitHub Home Page Update (Hindi)
+===============================================================
+
+Status checked on 26 Oct 2026:
+- Repository: https://github.com/VishwendraSir/Home-page
+- Branch: main
+- Visibility: public
+- Homepage source: index.html
+- The current homepage has linked learning pages, Question Bank, Owner Dashboard, Premium Library and other tools.
+- The GitHub connector can read files but all write attempts returned HTTP 403: Resource not accessible by integration. Therefore no change has been committed from this session.
+- I prepared a local homepage replacement that includes a card linking to:
+  ./Science_Centre_Learning_Hub_Complete_Workspace.html
+
+To publish safely:
+1. Download Science_Centre_Learning_Hub_Homepage_Updated.html and rename it to index.html.
+2. Upload the workspace HTML file named Science_Centre_Learning_Hub_Complete_Workspace.html to the repository root as well.
+3. Open https://github.com/VishwendraSir/Home-page
+4. Select Add file -> Upload files.
+5. Upload both index.html and Science_Centre_Learning_Hub_Complete_Workspace.html. For index.html, GitHub will ask to replace the current file.
+6. Commit message: "Add syllabus learning system to homepage".
+7. In Settings -> Pages, make sure Deploy from branch is selected, Branch main and folder /(root).
+8. After the deployment finishes, open the Pages URL shown in Settings -> Pages.
+9. Test the new homepage card and the learning system link on a phone.
+
+Note:
+- If you only upload index.html, the new card will link to a missing file.
+- If you only upload the workspace HTML, it will exist but will not be discoverable from the homepage.
+- The app's local syllabus records stay on that browser/device until CSV export.
+- The workspace currently includes 2,444 question records, not the 50,000 target. Syllabus coverage and answer review remain in progress.

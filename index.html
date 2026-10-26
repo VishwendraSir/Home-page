@@ -26,10 +26,7 @@
     a { color:inherit; text-decoration:none; }
     button, input, select { font:inherit; }
     .wrap { width:min(1180px, calc(100% - 22px)); margin:0 auto; }
-    .topbar {
-      background:#061730; color:#edf4ff; font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
+    .topbar { background:#061730; color:#edf4ff; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; border-bottom:1px solid rgba(255,255,255,0.08); }
     .topinner { display:flex; gap:12px; justify-content:space-between; align-items:center; flex-wrap:wrap; padding:9px 0; }
     .nav { position:sticky; top:0; z-index:20; background:rgba(11,27,58,0.96); backdrop-filter:blur(10px); border-bottom:1px solid rgba(255,255,255,0.08); }
     .navinner { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:72px; }
@@ -38,54 +35,30 @@
     .brandname{ font-size:14px; font-weight:950; letter-spacing:0.08em; line-height:1.1; }
     .brandname small{ display:block; margin-top:4px; font-size:10px; letter-spacing:0.18em; color:#bfd4ff; }
     .nav-links { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-    .nav-links a {
-      color:#ebf4ff; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1); padding:9px 12px; border-radius:12px;
-      font-size:13px; font-weight:800; transition:transform 0.15s ease;
-    }
+    .nav-links a { color:#ebf4ff; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1); padding:9px 12px; border-radius:12px; font-size:13px; font-weight:800; transition:transform 0.15s ease; }
     .nav-links a:hover { transform:translateY(-1px); color:var(--gold); }
     .menu-btn { display:none; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1); color:#fff; border-radius:10px; padding:9px 12px; font-weight:800; }
     .theme-picker { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-    .theme-btn {
-      width:18px; height:18px; border-radius:50%; border:2px solid rgba(255,255,255,0.72); cursor:pointer; padding:0; box-shadow:0 0 0 1px rgba(0,0,0,0.08);
-    }
+    .theme-btn { width:18px; height:18px; border-radius:50%; border:2px solid rgba(255,255,255,0.72); cursor:pointer; padding:0; box-shadow:0 0 0 1px rgba(0,0,0,0.08); }
     .theme-btn[aria-pressed="true"] { outline:2px solid #fff; outline-offset:2px; }
-    .hero {
-      position:relative; overflow:hidden; background:linear-gradient(140deg,var(--navy) 0%, var(--navy-2) 52%, #1a5ec7 100%); color:#fff;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-    .hero:after {
-      content:""; position:absolute; right:-90px; bottom:-120px; width:360px; height:360px; border-radius:50%; border:1px solid rgba(255,255,255,0.18);
-      box-shadow:0 0 0 36px rgba(255,255,255,0.04),0 0 0 82px rgba(255,255,255,0.025);
-    }
+    .hero { position:relative; overflow:hidden; background:linear-gradient(140deg,var(--navy) 0%, var(--navy-2) 52%, #1a5ec7 100%); color:#fff; border-bottom:1px solid rgba(255,255,255,0.08); }
+    .hero:after { content:""; position:absolute; right:-90px; bottom:-120px; width:360px; height:360px; border-radius:50%; border:1px solid rgba(255,255,255,0.18); box-shadow:0 0 0 36px rgba(255,255,255,0.04),0 0 0 82px rgba(255,255,255,0.025); }
     .hero-grid { display:grid; grid-template-columns:1.2fr 0.8fr; gap:26px; align-items:center; padding:42px 0 48px; position:relative; z-index:1; }
-    .eyebrow {
-      display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.22);
-      color:#fbe7a4; letter-spacing:0.1em; text-transform:uppercase; font-size:11px; font-weight:900;
-    }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.22); color:#fbe7a4; letter-spacing:0.1em; text-transform:uppercase; font-size:11px; font-weight:900; }
     h1 { margin:18px 0 14px; font-size:clamp(2.2rem, 5vw, 4rem); line-height:1.08; letter-spacing:-0.06em; }
     h1 .accent { color:var(--gold); }
     .hero-copy p { margin:0; max-width:62ch; color:#dce9ff; font-size:16px; line-height:1.7; }
     .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:22px; }
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; border-radius:12px; padding:12px 16px; border:0; cursor:pointer;
-      font-weight:900; transition:transform 0.15s ease, filter 0.15s ease;
-    }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:46px; border-radius:12px; padding:12px 16px; border:0; cursor:pointer; font-weight:900; transition:transform 0.15s ease, filter 0.15s ease; }
     .btn:hover { transform:translateY(-2px); filter:brightness(1.03); }
     .btn-primary { background:var(--gold); color:#18213a; box-shadow:0 12px 26px rgba(255,191,47,0.25); }
     .btn-secondary { background:rgba(255,255,255,0.08); color:#fff; border:1px solid rgba(255,255,255,0.18); }
     .btn-ghost { background:var(--card); color:var(--ink); border:1px solid var(--line); }
     .hero-art { display:grid; place-items:center; min-height:320px; }
-    .orbit {
-      width:min(340px, 78vw); aspect-ratio:1; border-radius:50%; border:1px solid rgba(255,255,255,0.28); position:relative; display:grid; place-items:center;
-      background:radial-gradient(circle, rgba(255,255,255,0.12), rgba(255,255,255,0.02) 68%, transparent 70%);
-      box-shadow:0 0 60px rgba(76,121,255,0.12);
-    }
+    .orbit { width:min(340px, 78vw); aspect-ratio:1; border-radius:50%; border:1px solid rgba(255,255,255,0.28); position:relative; display:grid; place-items:center; background:radial-gradient(circle, rgba(255,255,255,0.12), rgba(255,255,255,0.02) 68%, transparent 70%); box-shadow:0 0 60px rgba(76,121,255,0.12); }
     .orbit:before, .orbit:after { content:""; position:absolute; inset:18px; border-radius:50%; border:1px dashed rgba(255,255,255,0.3); transform:rotate(28deg) scaleX(0.58); }
     .orbit:after { transform:rotate(-36deg) scaleX(0.58); }
-    .book {
-      width:150px; height:170px; border-radius:18px 24px 24px 18px; border-left:8px solid #f29b1f; background:linear-gradient(140deg,#ffd45c,#ff9f2d);
-      display:grid; place-items:center; text-align:center; color:#11214a; transform:rotate(-7deg); box-shadow:12px 18px 0 rgba(6,23,48,0.22), 0 22px 42px rgba(0,0,0,0.18);
-    }
+    .book { width:150px; height:170px; border-radius:18px 24px 24px 18px; border-left:8px solid #f29b1f; background:linear-gradient(140deg,#ffd45c,#ff9f2d); display:grid; place-items:center; text-align:center; color:#11214a; transform:rotate(-7deg); box-shadow:12px 18px 0 rgba(6,23,48,0.22), 0 22px 42px rgba(0,0,0,0.18); }
     .book .atom { font-size:50px; line-height:1; }
     .book b { font-size:16px; line-height:1.1; }
     .float { position:absolute; display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.9); color:#11254f; border:1px solid rgba(18,38,82,0.08); border-radius:12px; padding:9px 12px; font-size:12px; font-weight:900; box-shadow:var(--shadow); }
@@ -96,7 +69,6 @@
     .stat { background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); padding:18px 16px; text-align:center; }
     .stat strong { display:block; font-size:1.65rem; color:var(--blue); }
     .stat span { display:block; color:var(--muted); font-size:12px; font-weight:800; margin-top:6px; }
-
     main { padding:36px 0 44px; }
     .section-head { display:flex; align-items:end; justify-content:space-between; gap:18px; flex-wrap:wrap; margin-bottom:18px; }
     .kicker { display:inline-block; padding:7px 12px; border-radius:999px; background:rgba(35,100,245,0.08); border:1px solid rgba(35,100,245,0.18); color:var(--blue); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-weight:900; }
@@ -108,17 +80,11 @@
     .chip { border:1px solid var(--line); background:var(--card); color:var(--ink); padding:9px 12px; border-radius:999px; font-weight:800; cursor:pointer; }
     .chip.active { background:var(--navy); color:#fff; border-color:var(--navy); }
     .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:16px; }
-    .tool-card {
-      display:flex; flex-direction:column; min-width:0; background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow);
-      padding:18px 16px 14px; transition:transform 0.15s ease, border-color 0.15s ease;
-    }
+    .tool-card { display:flex; flex-direction:column; min-width:0; background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); padding:18px 16px 14px; transition:transform 0.15s ease, border-color 0.15s ease; }
     .tool-card:hover { transform:translateY(-2px); border-color:rgba(35,100,245,0.28); }
     .tool-head { display:flex; align-items:center; justify-content:space-between; gap:10px; }
     .tool-icon { width:52px; height:52px; border-radius:16px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(35,100,245,0.12), rgba(33,201,154,0.12)); font-size:28px; }
-    .tag {
-      display:inline-flex; align-items:center; justify-content:center; border-radius:999px; padding:6px 10px; font-size:10px; font-weight:900; letter-spacing:0.08em; text-transform:uppercase;
-      background:rgba(35,100,245,0.08); color:var(--blue); border:1px solid rgba(35,100,245,0.14);
-    }
+    .tag { display:inline-flex; align-items:center; justify-content:center; border-radius:999px; padding:6px 10px; font-size:10px; font-weight:900; letter-spacing:0.08em; text-transform:uppercase; background:rgba(35,100,245,0.08); color:var(--blue); border:1px solid rgba(35,100,245,0.14); }
     .tool-card h3 { margin:12px 0 8px; font-size:1.14rem; line-height:1.35; }
     .tool-card p { margin:0 0 12px; color:var(--muted); font-size:0.92rem; }
     .meta { font-size:11px; color:var(--muted); margin-top:auto; padding:10px 0 12px; overflow-wrap:anywhere; }
@@ -152,340 +118,120 @@
   </style>
 </head>
 <body class="theme-ocean">
-  <div class="topbar">
-    <div class="wrap topinner">
-      <span>📚 Free learning • Class 1–10</span>
-      <span>⭐ Guided by Vishwendra Sir</span>
+  <div class="topbar"><div class="wrap topinner"><span>📚 Free learning • Class 1–10</span><span>⭐ Guided by Vishwendra Sir</span></div></div>
+  <header class="nav"><div class="wrap navinner">
+    <a class="brand" href="#home" aria-label="Home"><div class="logo">SC</div><div class="brandname">SCIENCE CENTRE<small>LEARNING HUB</small></div></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰ Menu</button>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation"><a href="#home">Home</a><a href="#tools">Tools</a><a href="./question-bank.html">Question Bank</a><a href="./owner-dashboard.html">Owner Dashboard</a><a href="./premium-library.html">Premium Library</a></nav>
+    <div class="theme-picker" aria-label="Theme switcher">
+      <button class="theme-btn" type="button" data-theme="ocean" aria-label="Ocean Blue theme" style="background:#1d4ed8" aria-pressed="true"></button>
+      <button class="theme-btn" type="button" data-theme="emerald" aria-label="Emerald Green theme" style="background:#0f766e" aria-pressed="false"></button>
+      <button class="theme-btn" type="button" data-theme="purple" aria-label="Royal Purple theme" style="background:#7c3aed" aria-pressed="false"></button>
+      <button class="theme-btn" type="button" data-theme="sunset" aria-label="Sunset Orange theme" style="background:#f97316" aria-pressed="false"></button>
+      <button class="theme-btn" type="button" data-theme="neon" aria-label="Dark Neon theme" style="background:#00d7ff" aria-pressed="false"></button>
     </div>
-  </div>
-
-  <header class="nav">
-    <div class="wrap navinner">
-      <a class="brand" href="#home" aria-label="Home">
-        <div class="logo">SC</div>
-        <div class="brandname">SCIENCE CENTRE<small>LEARNING HUB</small></div>
-      </a>
-
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰ Menu</button>
-
-      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#tools">Tools</a>
-        <a href="./question-bank.html">Question Bank</a>
-        <a href="./owner-dashboard.html">Owner Dashboard</a>
-        <a href="./premium-library.html">Premium Library</a>
-      </nav>
-
-      <div class="theme-picker" aria-label="Theme switcher">
-        <button class="theme-btn" type="button" data-theme="ocean" aria-label="Ocean Blue theme" style="background:#1d4ed8" aria-pressed="true"></button>
-        <button class="theme-btn" type="button" data-theme="emerald" aria-label="Emerald Green theme" style="background:#0f766e" aria-pressed="false"></button>
-        <button class="theme-btn" type="button" data-theme="purple" aria-label="Royal Purple theme" style="background:#7c3aed" aria-pressed="false"></button>
-        <button class="theme-btn" type="button" data-theme="sunset" aria-label="Sunset Orange theme" style="background:#f97316" aria-pressed="false"></button>
-        <button class="theme-btn" type="button" data-theme="neon" aria-label="Dark Neon theme" style="background:#00d7ff" aria-pressed="false"></button>
-      </div>
+  </div></header>
+  <section class="hero" id="home"><div class="wrap hero-grid">
+    <div class="hero-copy"><span class="eyebrow">🏆 Champion Learning Portal</span><h1>Learn smarter.<br><span class="accent">Practice daily.</span><br>Grow with confidence.</h1>
+      <p>All available learning tools, practice pages, worksheets, quizzes, question banks and studio resources are gathered here in one mobile-friendly homepage. Original files remain in the repository; this homepage makes them easier to discover and open.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="#tools">🚀 Explore tools</a><a class="btn btn-secondary" href="./question-bank.html">🧠 Open question bank</a></div>
     </div>
-  </header>
+    <div class="hero-art" aria-label="Learning illustration"><div class="orbit"><div class="float f1">📚 Notes</div><div class="float f2">🧪 Quiz</div><div class="book"><div><div class="atom">⚛</div><b>LEARN<br>GROW<br>SHINE</b></div></div></div></div>
+  </div><div class="wrap stats"><div class="stat-grid"><div class="stat"><strong>10</strong><span>Classes</span></div><div class="stat"><strong>12+</strong><span>Study tools</span></div><div class="stat"><strong>5</strong><span>Theme modes</span></div><div class="stat"><strong>100%</strong><span>Mobile friendly</span></div></div></div></section>
+  <main><div class="wrap">
+    <div class="section-head"><div><div class="kicker">Integrated library</div><h2>Open the available learning tools</h2></div></div>
+    <div class="filters-bar"><input id="searchInput" class="search" type="search" placeholder="Search tool, subject, class, quiz or file name..." aria-label="Search learning tools"><select id="categoryFilter" class="category" aria-label="Filter category"><option value="all">All categories</option><option value="Student Learning">Student Learning</option><option value="Question Bank">Question Bank</option><option value="Daily Practice">Daily Practice</option><option value="Classroom Activities">Classroom Activities</option><option value="Content Studio">Content Studio</option><option value="Special Learning">Special Learning</option></select></div>
+    <div class="chip-row" aria-label="Quick filters"><button class="chip active" type="button" data-filter="all">All</button><button class="chip" type="button" data-filter="Student Learning">Student Learning</button><button class="chip" type="button" data-filter="Question Bank">Question Bank</button><button class="chip" type="button" data-filter="Daily Practice">Daily Practice</button><button class="chip" type="button" data-filter="Classroom Activities">Classroom Activities</button><button class="chip" type="button" data-filter="Content Studio">Content Studio</button><button class="chip" type="button" data-filter="Special Learning">Special Learning</button></div>
+    <div id="tools" class="cards">
+      <article class="tool-card" data-category="Student Learning" data-search="all subjects questions student learning all subjects questions, class 1–10 learning portal, worksheets and revision. science_centre_learning_hub_all_subjects_questions.html">
+        <div class="tool-head"><div class="tool-icon">📚</div><span class="tag">Student Learning</span></div>
+        <h3>All Subjects Questions</h3><p>All subjects questions, Class 1–10 learning portal, worksheets and revision.</p><div class="meta">./Science_Centre_Learning_Hub_All_Subjects_Questions.html</div>
+        <a class="tool-link secondary" href="./Science_Centre_Learning_Hub_All_Subjects_Questions.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Student Learning" data-search="all subjects upgrade student learning improved subject pages and classroom-to-home revision flow. science_centre_learning_hub_all_subjects_upgrade.html">
+        <div class="tool-head"><div class="tool-icon">🚀</div><span class="tag">Student Learning</span></div>
+        <h3>All Subjects Upgrade</h3><p>Improved subject pages and classroom-to-home revision flow.</p><div class="meta">./Science_Centre_Learning_Hub_All_Subjects_Upgrade.html</div>
+        <a class="tool-link secondary" href="./Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Question Bank" data-search="question bank question bank browse and search class-wise questions. question-bank.html">
+        <div class="tool-head"><div class="tool-icon">🧠</div><span class="tag">Question Bank</span></div>
+        <h3>Question Bank</h3><p>Browse and search class-wise questions.</p><div class="meta">./question-bank.html</div>
+        <a class="tool-link secondary" href="./question-bank.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Student Learning" data-search="syllabus-based learning system student learning bilingual class 1–10 workspace with daily quiz, question bank filters and syllabus mapping control. official board-wise chapter verification is still in progress. science_centre_learning_hub_complete_workspace.html">
+        <div class="tool-head"><div class="tool-icon">🎓</div><span class="tag">Student Learning</span></div>
+        <h3>Syllabus-Based Learning System</h3><p>Bilingual Class 1–10 workspace with daily quiz, question bank filters and syllabus mapping control. Official board-wise chapter verification is still in progress.</p><div class="meta">./Science_Centre_Learning_Hub_Complete_Workspace.html</div>
+        <a class="tool-link secondary" href="./Science_Centre_Learning_Hub_Complete_Workspace.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Content Studio" data-search="owner dashboard content studio preview resource states and manage the resource catalogue. owner-dashboard.html">
+        <div class="tool-head"><div class="tool-icon">🛠️</div><span class="tag">Content Studio</span></div>
+        <h3>Owner Dashboard</h3><p>Preview resource states and manage the resource catalogue.</p><div class="meta">./owner-dashboard.html</div>
+        <a class="tool-link secondary" href="./owner-dashboard.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Content Studio" data-search="premium library content studio browse the curated resource catalogue. premium-library.html">
+        <div class="tool-head"><div class="tool-icon">✨</div><span class="tag">Content Studio</span></div>
+        <h3>Premium Library</h3><p>Browse the curated resource catalogue.</p><div class="meta">./premium-library.html</div>
+        <a class="tool-link secondary" href="./premium-library.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Special Learning" data-search="premium smart learning special learning premium-style topic learning pathway. science_centre_learning_hub_premium.html">
+        <div class="tool-head"><div class="tool-icon">🌟</div><span class="tag">Special Learning</span></div>
+        <h3>Premium Smart Learning</h3><p>Premium-style topic learning pathway.</p><div class="meta">./science_centre_learning_hub_premium.html</div>
+        <a class="tool-link secondary" href="./science_centre_learning_hub_premium.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Daily Practice" data-search="metals & materials quiz daily practice science quiz resource with audio prompts. metals_materials_quiz_with_sound-2.html">
+        <div class="tool-head"><div class="tool-icon">🧪</div><span class="tag">Daily Practice</span></div>
+        <h3>Metals & Materials Quiz</h3><p>Science quiz resource with audio prompts.</p><div class="meta">./metals_materials_quiz_with_sound-2.html</div>
+        <a class="tool-link secondary" href="./metals_materials_quiz_with_sound-2.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Daily Practice" data-search="interactive vocabulary daily practice english vocabulary practice. day13_interactive_english_vocabulary-1.html">
+        <div class="tool-head"><div class="tool-icon">📖</div><span class="tag">Daily Practice</span></div>
+        <h3>Interactive Vocabulary</h3><p>English vocabulary practice.</p><div class="meta">./Day13_Interactive_English_Vocabulary-1.html</div>
+        <a class="tool-link secondary" href="./Day13_Interactive_English_Vocabulary-1.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Classroom Activities" data-search="lkg hindi + english voice classroom activities early learners bilingual voice prompts. lkg_hindi_english_voice_changer_motivation.html">
+        <div class="tool-head"><div class="tool-icon">🔊</div><span class="tag">Classroom Activities</span></div>
+        <h3>LKG Hindi + English Voice</h3><p>Early learners bilingual voice prompts.</p><div class="meta">./LKG_Hindi_English_Voice_Changer_Motivation.html</div>
+        <a class="tool-link secondary" href="./LKG_Hindi_English_Voice_Changer_Motivation.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Classroom Activities" data-search="lkg english worksheet classroom activities english activity sheet with hindi sound support. science_centre_lkg_100q_english_worksheet_hindi_sound.html">
+        <div class="tool-head"><div class="tool-icon">🎧</div><span class="tag">Classroom Activities</span></div>
+        <h3>LKG English Worksheet</h3><p>English activity sheet with Hindi sound support.</p><div class="meta">./Science_Centre_LKG_100Q_English_Worksheet_Hindi_Sound.html</div>
+        <a class="tool-link secondary" href="./Science_Centre_LKG_100Q_English_Worksheet_Hindi_Sound.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Special Learning" data-search="english grammar 30 worksheets special learning interactive grammar workbook resource. science_centre_english_grammar_30_worksheets_900q_interactive_fixed.html">
+        <div class="tool-head"><div class="tool-icon">📘</div><span class="tag">Special Learning</span></div>
+        <h3>English Grammar 30 Worksheets</h3><p>Interactive grammar workbook resource.</p><div class="meta">./Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html</div>
+        <a class="tool-link secondary" href="./Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Special Learning" data-search="complete english grammar special learning grammar pack with part-by-part practice. science_centre_complete_english_grammar_30_parts_900q_language_option-3.html">
+        <div class="tool-head"><div class="tool-icon">📝</div><span class="tag">Special Learning</span></div>
+        <h3>Complete English Grammar</h3><p>Grammar pack with part-by-part practice.</p><div class="meta">./Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html</div>
+        <a class="tool-link secondary" href="./Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html">Open tool <span>↗</span></a>
+      </article>
+      <article class="tool-card" data-category="Classroom Activities" data-search="hindi worksheets part 2 classroom activities hindi practice sheets for nursery to early class. 30_hindi_worksheets_part_2_nursery_to_class_1-1.html">
+        <div class="tool-head"><div class="tool-icon">✏️</div><span class="tag">Classroom Activities</span></div>
+        <h3>Hindi Worksheets Part 2</h3><p>Hindi practice sheets for nursery to early class.</p><div class="meta">./30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html</div>
+        <a class="tool-link secondary" href="./30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">Open tool <span>↗</span></a>
+      </article>
 
-  <section class="hero" id="home">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">🏆 Champion Learning Portal</span>
-        <h1>Learn smarter.<br><span class="accent">Practice daily.</span><br>Grow with confidence.</h1>
-        <p>All available learning tools, practice pages, worksheets, quizzes, question banks and studio resources are gathered here in one mobile-friendly homepage. Original files remain in the repository; this homepage makes them easier to discover and open.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#tools">🚀 Explore tools</a>
-          <a class="btn btn-secondary" href="./question-bank.html">🧠 Open question bank</a>
-        </div>
-      </div>
-
-      <div class="hero-art" aria-label="Learning illustration">
-        <div class="orbit">
-          <div class="float f1">📚 Notes</div>
-          <div class="float f2">🧪 Quiz</div>
-          <div class="book"><div><div class="atom">⚛</div><b>LEARN<br>GROW<br>SHINE</b></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="wrap stats">
-      <div class="stat-grid">
-        <div class="stat"><strong>10</strong><span>Classes</span></div>
-        <div class="stat"><strong>12+</strong><span>Study tools</span></div>
-        <div class="stat"><strong>5</strong><span>Theme modes</span></div>
-        <div class="stat"><strong>100%</strong><span>Mobile friendly</span></div>
-      </div>
-    </div>
-  </section>
-
-  <main>
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="kicker">Integrated library</div>
-          <h2>Open the available learning tools</h2>
-        </div>
-      </div>
-
-      <div class="filters-bar">
-        <input id="searchInput" class="search" type="search" placeholder="Search tool, subject, class, quiz or file name..." aria-label="Search learning tools">
-        <select id="categoryFilter" class="category" aria-label="Filter category">
-          <option value="all">All categories</option>
-          <option value="Student Learning">Student Learning</option>
-          <option value="Question Bank">Question Bank</option>
-          <option value="Daily Practice">Daily Practice</option>
-          <option value="Classroom Activities">Classroom Activities</option>
-          <option value="Content Studio">Content Studio</option>
-          <option value="Special Learning">Special Learning</option>
-        </select>
-      </div>
-
-      <div class="chip-row" aria-label="Quick filters">
-        <button class="chip active" type="button" data-filter="all">All</button>
-        <button class="chip" type="button" data-filter="Student Learning">Student Learning</button>
-        <button class="chip" type="button" data-filter="Question Bank">Question Bank</button>
-        <button class="chip" type="button" data-filter="Daily Practice">Daily Practice</button>
-        <button class="chip" type="button" data-filter="Classroom Activities">Classroom Activities</button>
-        <button class="chip" type="button" data-filter="Content Studio">Content Studio</button>
-        <button class="chip" type="button" data-filter="Special Learning">Special Learning</button>
-      </div>
-
-      <div id="tools" class="cards">
-        <article class="tool-card" data-category="Student Learning" data-search="all subjects questions class 1 to 10 learning portal worksheets revision study material">
-          <div class="tool-head">
-            <div class="tool-icon">📚</div>
-            <span class="tag">Student</span>
-          </div>
-          <h3>All Subjects Questions</h3>
-          <p>Open the main class-wise learning and revision portal with all-subject study pages.</p>
-          <div class="meta">./Science_Centre_Learning_Hub_All_Subjects_Questions.html</div>
-          <a class="tool-link" href="./Science_Centre_Learning_Hub_All_Subjects_Questions.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Student Learning" data-search="all subjects upgrade improved study flow classroom home learning"> 
-          <div class="tool-head">
-            <div class="tool-icon">🚀</div>
-            <span class="tag">Student</span>
-          </div>
-          <h3>All Subjects Upgrade</h3>
-          <p>Improved subject pages and classroom-to-home revision flow for broader student coverage.</p>
-          <div class="meta">./Science_Centre_Learning_Hub_All_Subjects_Upgrade.html</div>
-          <a class="tool-link" href="./Science_Centre_Learning_Hub_All_Subjects_Upgrade.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Question Bank" data-search="question bank practice questions mcq revision english grammar search filter">
-          <div class="tool-head">
-            <div class="tool-icon">🧠</div>
-            <span class="tag">Question Bank</span>
-          </div>
-          <h3>Question Bank</h3>
-          <p>Browse and search a repository question bank page built for learning and practice.</p>
-          <div class="meta">./question-bank.html</div>
-          <a class="tool-link" href="./question-bank.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Content Studio" data-search="owner dashboard control resource status prototype management preview">
-          <div class="tool-head">
-            <div class="tool-icon">🛠️</div>
-            <span class="tag">Studio</span>
-          </div>
-          <h3>Owner Dashboard</h3>
-          <p>Preview resource states and manage the public/premium/archive model in the browser.</p>
-          <div class="meta">./owner-dashboard.html</div>
-          <a class="tool-link" href="./owner-dashboard.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Content Studio" data-search="premium library verified resource catalogue open files owner approved">
-          <div class="tool-head">
-            <div class="tool-icon">✨</div>
-            <span class="tag">Studio</span>
-          </div>
-          <h3>Premium Library</h3>
-          <p>Catalog the verified resource list and preview premium-style files without claiming access by default.</p>
-          <div class="meta">./premium-library.html</div>
-          <a class="tool-link" href="./premium-library.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Special Learning" data-search="premium smart learning polished portal selected study pathway">
-          <div class="tool-head">
-            <div class="tool-icon">🌟</div>
-            <span class="tag">Special</span>
-          </div>
-          <h3>Premium Smart Learning</h3>
-          <p>Premium-style learning landing page with stronger presentation for selected topic pathways.</p>
-          <div class="meta">./science_centre_learning_hub_premium.html</div>
-          <a class="tool-link" href="./science_centre_learning_hub_premium.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Daily Practice" data-search="metals and materials quiz science sound audio practice class 5 evs">
-          <div class="tool-head">
-            <div class="tool-icon">🧪</div>
-            <span class="tag">Practice</span>
-          </div>
-          <h3>Metals & Materials Quiz</h3>
-          <p>Science quiz resource with audio prompts and quick revision activity.</p>
-          <div class="meta">./metals_materials_quiz_with_sound-2.html</div>
-          <a class="tool-link" href="./metals_materials_quiz_with_sound-2.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Daily Practice" data-search="interactive vocabulary english words revision class practice">
-          <div class="tool-head">
-            <div class="tool-icon">📖</div>
-            <span class="tag">Practice</span>
-          </div>
-          <h3>Interactive Vocabulary</h3>
-          <p>Vocabulary practice page for English revision with repeated question flow.</p>
-          <div class="meta">./Day13_Interactive_English_Vocabulary-1.html</div>
-          <a class="tool-link" href="./Day13_Interactive_English_Vocabulary-1.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Classroom Activities" data-search="lkg hindi english voice motivation early learners bilingual sound support">
-          <div class="tool-head">
-            <div class="tool-icon">🔊</div>
-            <span class="tag">Activity</span>
-          </div>
-          <h3>LKG Hindi + English Voice</h3>
-          <p>Early learners practice page with bilingual voice prompts and motivation.</p>
-          <div class="meta">./LKG_Hindi_English_Voice_Changer_Motivation.html</div>
-          <a class="tool-link" href="./LKG_Hindi_English_Voice_Changer_Motivation.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Classroom Activities" data-search="lkg english worksheet with hindi sound learning beginner practice">
-          <div class="tool-head">
-            <div class="tool-icon">🎧</div>
-            <span class="tag">Activity</span>
-          </div>
-          <h3>LKG English Worksheet</h3>
-          <p>English activity sheet with Hindi sound support and beginner-level classroom flow.</p>
-          <div class="meta">./Science_Centre_LKG_100Q_English_Worksheet_Hindi_Sound.html</div>
-          <a class="tool-link" href="./Science_Centre_LKG_100Q_English_Worksheet_Hindi_Sound.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Special Learning" data-search="english grammar 30 worksheets 900 questions interactive workbook">
-          <div class="tool-head">
-            <div class="tool-icon">📘</div>
-            <span class="tag">Special</span>
-          </div>
-          <h3>English Grammar 30 Worksheets</h3>
-          <p>Large grammar workbook resource with interactive question format and revision structure.</p>
-          <div class="meta">./Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html</div>
-          <a class="tool-link secondary" href="./Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Special Learning" data-search="complete english grammar 30 parts 900 questions language option">
-          <div class="tool-head">
-            <div class="tool-icon">📝</div>
-            <span class="tag">Special</span>
-          </div>
-          <h3>Complete English Grammar</h3>
-          <p>Expanded grammar pack with part-by-part language options and full practice content.</p>
-          <div class="meta">./Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html</div>
-          <a class="tool-link secondary" href="./Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html">Open tool <span>↗</span></a>
-        </article>
-
-        <article class="tool-card" data-category="Classroom Activities" data-search="hindi worksheets nursery to class 1 writing practice homework">
-          <div class="tool-head">
-            <div class="tool-icon">✏️</div>
-            <span class="tag">Activity</span>
-          </div>
-          <h3>Hindi Worksheets Part 2</h3>
-          <p>Hindi practice sheets covering nursery to early class writing and recognition tasks.</p>
-          <div class="meta">./30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html</div>
-          <a class="tool-link" href="./30_Hindi_Worksheets_Part_2_Nursery_to_Class_1-1.html">Open tool <span>↗</span></a>
-        </article>
-      </div>
-
-      <div id="emptyState" class="empty" aria-live="polite">No matching tool found. Try another search term or choose another category.</div>
-
-      <div class="notice">
-        Important: this homepage is a curated hub for the existing repository files. It does not delete or overwrite the original HTML pages. The repository keeps a backup before any source changes. Question counts are only shown when they are directly verified from the actual source data; no assumption such as 14,000 is used here.
-      </div>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <div>
-        <div class="footer-brand">SCIENCE CENTRE LEARNING HUB</div>
-        <p style="margin:8px 0 0; color:#dfeaff;">Guided by Vishwendra Sir</p>
-      </div>
-      <div class="footer-links">
-        <a href="./index.html">Home</a>
-        <a href="./question-bank.html">Question Bank</a>
-        <a href="./owner-dashboard.html">Owner Dashboard</a>
-        <a href="./premium-library.html">Premium Library</a>
-      </div>
-    </div>
-  </footer>
-
+    <div id="emptyState" class="empty" aria-live="polite">No matching tool found. Try another search term or choose another category.</div>
+    <div class="notice">Important: The homepage links to files present in this repository. The learning system is a working foundation; 2,444 questions are currently embedded and syllabus mapping remains pending official verification. Browser-local mapping data must be exported as CSV to back it up.</div>
+  </div></main>
+  <footer class="footer"><div class="wrap footer-inner"><div><div class="footer-brand">SCIENCE CENTRE LEARNING HUB</div><p style="margin:8px 0 0;color:#dfeaff;">Guided by Vishwendra Sir</p></div><div class="footer-links"><a href="./index.html">Home</a><a href="./question-bank.html">Question Bank</a><a href="./owner-dashboard.html">Owner Dashboard</a><a href="./premium-library.html">Premium Library</a></div></div></footer>
   <script>
-    (function () {
-      const body = document.body;
-      const searchInput = document.getElementById('searchInput');
-      const categoryFilter = document.getElementById('categoryFilter');
-      const chipButtons = [...document.querySelectorAll('.chip')];
-      const themeButtons = [...document.querySelectorAll('.theme-btn')];
-      const cards = [...document.querySelectorAll('.tool-card')];
-      const emptyState = document.getElementById('emptyState');
-      const menuBtn = document.getElementById('menuBtn');
-      const navLinks = document.getElementById('navLinks');
-
-      function applyTheme(theme) {
-        const themeName = theme || 'ocean';
-        body.classList.remove('theme-ocean', 'theme-emerald', 'theme-purple', 'theme-sunset', 'theme-neon');
-        body.classList.add('theme-' + themeName);
-        themeButtons.forEach((btn) => {
-          btn.setAttribute('aria-pressed', String(btn.dataset.theme === themeName));
-        });
-        try { localStorage.setItem('science-centre-theme', themeName); } catch (e) {}
-      }
-
-      function filterTools() {
-        const query = (searchInput.value || '').trim().toLowerCase();
-        const selected = categoryFilter.value;
-        let visible = 0;
-
-        cards.forEach((card) => {
-          const text = (card.dataset.search || '').toLowerCase();
-          const category = (card.dataset.category || '').toLowerCase();
-          const matchesQuery = !query || text.includes(query) || category.includes(query);
-          const matchesCategory = selected === 'all' || card.dataset.category === selected;
-          const shouldShow = matchesQuery && matchesCategory;
-          card.classList.toggle('hide', !shouldShow);
-          if (shouldShow) visible += 1;
-        });
-
-        emptyState.style.display = visible ? 'none' : 'block';
-      }
-
-      searchInput.addEventListener('input', filterTools);
-      categoryFilter.addEventListener('change', filterTools);
-
-      chipButtons.forEach((chip) => {
-        chip.addEventListener('click', () => {
-          categoryFilter.value = chip.dataset.filter;
-          chipButtons.forEach((c) => c.classList.toggle('active', c === chip));
-          filterTools();
-        });
-      });
-
-      themeButtons.forEach((btn) => {
-        btn.addEventListener('click', () => applyTheme(btn.dataset.theme));
-      });
-
-      menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-      });
-      navLinks.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => navLinks.classList.remove('open'));
-      });
-
-      const savedTheme = (() => {
-        try { return localStorage.getItem('science-centre-theme') || 'ocean'; }
-        catch (e) { return 'ocean'; }
-      })();
-      applyTheme(savedTheme);
-      filterTools();
-    })();
+  (function(){
+    const body=document.body, search=document.getElementById('searchInput'), cat=document.getElementById('categoryFilter');
+    const cards=[...document.querySelectorAll('.tool-card')], empty=document.getElementById('emptyState');
+    const chips=[...document.querySelectorAll('.chip')], themes=[...document.querySelectorAll('.theme-btn')];
+    const menu=document.getElementById('menuBtn'), links=document.getElementById('navLinks');
+    function filter(){const q=(search.value||'').trim().toLowerCase(), c=cat.value;let n=0;
+      cards.forEach(el=>{const ok=(!q||(el.dataset.search||'').toLowerCase().includes(q))&&(c==='all'||el.dataset.category===c);el.classList.toggle('hide',!ok);if(ok)n++;});empty.style.display=n?'none':'block';}
+    search.addEventListener('input',filter);cat.addEventListener('change',()=>{chips.forEach(ch=>ch.classList.toggle('active',ch.dataset.filter===cat.value));filter();});
+    chips.forEach(ch=>ch.addEventListener('click',()=>{cat.value=ch.dataset.filter;chips.forEach(x=>x.classList.toggle('active',x===ch));filter();}));
+    function applyTheme(t){t=t||'ocean';body.classList.remove('theme-ocean','theme-emerald','theme-purple','theme-sunset','theme-neon');body.classList.add('theme-'+t);themes.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.theme===t)));try{localStorage.setItem('science-centre-theme',t)}catch(e){}}
+    themes.forEach(b=>b.addEventListener('click',()=>applyTheme(b.dataset.theme)));
+    menu.addEventListener('click',()=>links.classList.toggle('open'));links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+    let saved='ocean';try{saved=localStorage.getItem('science-centre-theme')||'ocean'}catch(e){}applyTheme(saved);filter();
+  })();
   </script>
-</body>
-</html>
+</body></html>
