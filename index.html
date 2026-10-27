@@ -8,6 +8,148 @@
 <style>
 :root{--navy:#10285f;--blue:#1e63c5;--gold:#ffd447;--green:#14804a;--ink:#18233e;--muted:#61708c;--bg:#f4f7fd;--card:#fff;--line:#dbe4f2;--purple:#6c45bf}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Devanagari",Arial,sans-serif}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #ffb703;outline-offset:3px}
+header{background:linear-gradient(130deg,#0b1b45,#1b5db2);color:#fff;padding:16px 14px 24px;border-bottom:5px solid var(--gold)}
+.top{max-width:1150px;margin:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.dropdown{position:relative}.dropbtn{border:1px solid #ffffff55;background:#ffffff18;color:#fff;border-radius:12px;padding:10px 13px;font-weight:800;cursor:pointer}.dropmenu{display:none;position:absolute;z-index:10;top:calc(100% + 7px);left:0;background:#fff;color:var(--ink);min-width:230px;border-radius:12px;box-shadow:0 12px 35px #071a4933;overflow:hidden}.dropmenu a{display:block;padding:12px 14px;border-bottom:1px solid var(--line)}.dropmenu a:hover{background:#eef4ff}.dropdown.open .dropmenu{display:block}
+.brand{flex:1;min-width:220px}.brand strong{display:block;font-size:clamp(1.15rem,3vw,1.8rem);letter-spacing:.02em}.brand span{color:#ffe58a;font-weight:750}
+.hero{max-width:1150px;margin:24px auto 0;text-align:center}.hero h1{font-size:clamp(1.7rem,5vw,3rem);line-height:1.13;margin:0 0 10px}.hero p{max-width:780px;margin:0 auto 18px;color:#e3edff;line-height:1.6}
+.quick{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.quick a{display:inline-flex;align-items:center;gap:8px;padding:12px 17px;border-radius:12px;font-weight:900;box-shadow:0 5px 14px #071a4930}.free{background:#fff;color:#1555a8}.paid{background:var(--gold);color:#352700}.daily{background:#20a565;color:#fff}
+main{max-width:1150px;margin:0 auto;padding:18px 14px 100px}.section{margin:24px 0}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}.sectionhead h2{margin:0;font-size:clamp(1.25rem,3vw,1.8rem)}.sectionhead p{margin:4px 0 0;color:var(--muted)}
+.searchrow{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.searchrow input,.searchrow select{border:1px solid #cbd8eb;border-radius:12px;background:#fff;padding:12px;min-width:0}.searchrow input{flex:1;min-width:180px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 4px 14px #16335f0a;display:flex;flex-direction:column;gap:9px;min-height:155px}.card:hover{border-color:#8fb6f0;transform:translateY(-1px)}.icon{font-size:1.7rem}.card h3{margin:0;font-size:1.08rem}.card p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.45;flex:1}.tag{font-size:.75rem;font-weight:800;background:#edf3ff;color:#1a55a2;border-radius:99px;padding:4px 8px;display:inline-block;width:max-content}.go{font-weight:850;color:#1559b0;margin-top:2px}.note{border-left:5px solid var(--gold);background:#fff8dc;padding:12px 14px;border-radius:10px;color:#594600;line-height:1.55}
+footer{background:#0b1b45;color:#fff;text-align:center;padding:22px 14px}footer strong{color:var(--gold)}
+.sticky{position:fixed;z-index:9;left:50%;transform:translateX(-50%);bottom:10px;display:flex;gap:6px;padding:7px;background:#0c204eeb;border:1px solid #ffffff2b;border-radius:16px;box-shadow:0 8px 25px #06153844;width:min(580px,calc(100% - 18px))}.sticky a{flex:1;text-align:center;border-radius:10px;padding:10px 6px;font-size:.86rem;font-weight:900;color:#fff}.sticky .sfree{background:#fff;color:#1555a8}.sticky .spaid{background:var(--gold);color:#352700}.sticky .sdaily{background:#20a565}
+.hidden{display:none!important}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{margin-top:18px}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.card{min-height:130px}.brand{min-width:180px}.top{align-items:flex-start}.dropbtn{padding:9px 10px}.sticky a{font-size:.78rem;padding:10px 3px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div class="dropdown" id="startDropdown">
+      <button class="dropbtn" id="dropButton" aria-expanded="false">☰ शुरू करें ▾</button>
+      <nav class="dropmenu" aria-label="मुख्य मेनू">
+        <a href="#free">📚 Free Study Material</a>
+        <a href="#paid">🔐 Paid Study Material</a>
+        <a href="#daily">📝 Daily Practice</a>
+        <a href="#competitive">🏆 Competitive Exams</a>
+        <a href="#exam-portal">🧾 Exam Portal</a>
+        <a href="#senior-secondary">🎓 Class 11–12</a>
+        <a href="#subjects">📘 Subject-wise Material</a>
+        <a href="#classes">🎒 Class-wise Material</a>
+        <a href="#wordbank">🔤 Word Bank</a>
+        <a href="#installed">📂 Installed Learning Pages</a>
+      </nav>
+    </div>
+    <div class="brand"><strong>SCIENCE CENTRE LEARNING HUB</strong><span>Guided by Vishwendra Sir</span></div>
+  </div>
+  <div class="hero">
+    <h1>सीखें • अभ्यास करें • आगे बढ़ें</h1>
+    <p>Nursery से Class 10 तक school learning, Class 11–12 के लिए course planning, और 4th Class/Peon से लेकर SSC, Railway, Police, Teaching, Banking तथा UPSC/IAS तक exam preparation — एक ही जगह।</p>
+    <div class="quick">
+      <a class="free" href="#free">📚 Free Study Material</a>
+      <a class="paid" href="#paid">🔐 Paid Study Material</a>
+      <a class="daily" href="#daily">📝 Daily Practice</a>
+      <a class="free" href="#competitive">🏆 Competitive Exams</a>
+      <a class="paid" href="#exam-portal">🧾 Exam Portal</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="searchrow" role="search">
+    <input id="search" type="search" placeholder="सामग्री खोजें: Science, Class 6, Grammar, Word Bank…" aria-label="सामग्री खोजें">
+    <select id="classFilter" aria-label="कक्षा चुनें">
+      <option value="">सभी कक्षाएँ</option><option>Nursery</option><option>LKG</option><option>UKG</option>
+      <option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option><option>Class 5</option>
+      <option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option><option>Competitive Exams</option>
+    </select>
+  </div>
+
+  <section class="section" id="free">
+    <div class="sectionhead"><div><h2>📚 Free Study Material</h2><p>मुफ़्त अध्ययन और अभ्यास के लिए उपलब्ध pages</p></div></div>
+    <div class="grid">
+      <a class="card searchable" data-class="Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10 Competitive Exams" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html"><span class="icon">📘</span><h3>All Subjects Question Bank</h3><p>विभिन्न विषयों के प्रश्न और अभ्यास सामग्री।</p><span class="tag">Free · All Subjects</span><span class="go">खोलें →</span></a>
+      <a class="card searchable" data-class="Nursery LKG UKG Class 1" href="Science_Centre_LKG_100Q_English_Worksheet_Hindi_Sound.html"><span class="icon">🔤</span><h3>LKG English Worksheet + Hindi Sound</h3><p>छोटे बच्चों के लिए English practice और pronunciation support.</p><span class="tag">Early Learning</span><span class="go">खोलें →</span></a>
+      <a class="card searchable" data-class="Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10" href="metals_materials_quiz_with_sound-2.html"><span class="icon">🧪</span><h3>Metals & Materials Quiz</h3><p>आवाज़ सहित interactive Science quiz.</p><span class="tag">Science · Quiz</span><span class="go">खोलें →</span></a>
+      <a class="card searchable" data-class="Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10" href="Science_Centre_English_Grammar_30_Worksheets_900Q_Interactive_Fixed.html"><span class="icon">✍️</span><h3>English Grammar Worksheets</h3><p>30 worksheets और interactive grammar practice.</p><span class="tag">English · Worksheets</span><span class="go">खोलें →</span></a>
+      <a class="card searchable" data-class="Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10" href="Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html"><span class="icon">📖</span><h3>Complete English Grammar</h3><p>Grammar lessons, practice questions और language options.</p><span class="tag">English · 30 Parts</span><span class="go">खोलें →</span></a>
+      <a class="card searchable" data-class="Competitive Exams Class 6 Class 7 Class 8 Class 9 Class 10" href="Sri_Ganganagar_100_MCQ_Slide_Player.html"><span class="icon">🗺️</span><h3>Sri Ganganagar — 100 MCQ</h3><p>Fullscreen slide player, answer checking और voice controls.</p><span class="tag">Rajasthan GK</span><span class="go">खोलें →</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="paid">
+    <div class="sectionhead"><div><h2>🔐 Paid Study Material</h2><p>Premium catalogue और owner tools — access वास्तविक रूप से configured होने पर ही लागू होगा</p></div></div>
+    <div class="grid">
+      <a class="card searchable" data-class="Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10" href="premium-library.html"><span class="icon">📚</span><h3>Premium Library</h3><p>Premium resources catalogue और resource listing.</p><span class="tag">Premium Catalogue</span><span class="go">खोलें →</span></a>
+      <a class="card searchable" data-class="Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10" href="science_centre_learning_hub_premium.html"><span class="icon">⭐</span><h3>Premium Learning Page</h3><p>Premium learning page. Payment gateway या server-side access control जुड़ा है या नहीं, अलग से verify करें।</p><span class="tag">Premium Page</span><span class="go">खोलें →</span></a>
+      <a class="card searchable" data-class="Competitive Exams Class 6 Class 7 Class 8 Class 9 Class 10" href="owner-dashboard.html"><span class="icon">🛠️</span><h3>Owner Dashboard</h3><p>Resource management prototype; इसे सुरक्षित admin login का विकल्प न मानें।</p><span class="tag">Owner Tool · Prototype</span><span class="go">खोलें →</span></a>
+    </div>
+    <div class="note">महत्वपूर्ण: केवल HTML में “Paid” या “Locked” लिखने से सामग्री सुरक्षित नहीं होती। वास्तविक भुगतान और premium access के लिए सुरक्षित authentication तथा server-side verification चाहिए।</div>
+  </section>
+
+  <section class="section" id="daily">
+    <div class="sectionhead"><div><h2>📝 Daily Practice</h2><p>हर दिन MCQ, grammar और topic practice</p></div></div>
+    <div class="grid">
+      <a class="card searchable" data-class="Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10 Competitive Exams" href="question-bank.html"><span class="icon">🎯</span><h3>Daily Practice & Question Bank</h3><p>रोज़ अभ्यास के लिए question-bank page.</p><span class="tag">Practice</span><span class="go">अभ्यास शुरू करें →</span></a>
+      <a class="card searchable" data-class="Class 6 Class 7 Class 8 Class 9 Class 10 Competitive Exams" href="Sri_Ganganagar_Master_290_MCQ_Topics_1_to_6.html"><span class="icon">🧠</span><h3>Sri Ganganagar — Topic MCQs</h3><p>टॉपिक-वार MCQ अभ्यास; प्रश्नों और facts को exam use से पहले जाँचें।</p><span class="tag">Topic-wise Practice</span><span class="go">अभ्यास शुरू करें →</span></a>
+      <a class="card searchable" data-class="Class 6 Class 7 Class 8 Class 9 Class 10 Competitive Exams" href="Sri_Ganganagar_Topic_01_40_MCQs.html"><span class="icon">📍</span><h3>Sri Ganganagar — Topic 01</h3><p>एक विषय पर 40 MCQ का practice page.</p><span class="tag">40 MCQs</span><span class="go">अभ्यास शुरू करें →</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="competitive">
+    <div class="sectionhead"><div><h2>🏆 Competitive Exams — 4th Class / Peon से IAS तक</h2><p>परीक्षा चुनें और उपलब्ध संसाधनों से तैयारी शुरू करें। प्रत्येक भर्ती की योग्यता, आयु-सीमा, syllabus और pattern latest official notification से जाँचें।</p></div></div>
+    <div class="grid">
+      <a class="card searchable" data-class="Competitive Exams Class 4" href="question-bank.html"><span class="icon">🧹</span><h3>4th Class / Peon / Group D</h3><p>बुनियादी गणित, भाषा, reasoning, सामान्य ज्ञान और उपलब्ध प्रश्न-अभ्यास से शुरुआत करें।</p><span class="tag">Competitive Practice</span><span class="go">अभ्यास खोलें →</span></a>
+      <a class="card searchable" data-class="Competitive Exams" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html"><span class="icon">🚆</span><h3>Railway & SSC</h3><p>Maths, reasoning, General Science, GK और language practice के उपलब्ध प्रश्न-संग्रह।</p><span class="tag">Question Bank</span><span class="go">प्रश्न खोलें →</span></a>
+      <a class="card searchable" data-class="Competitive Exams" href="Sri_Ganganagar_100_MCQ_Slide_Player.html"><span class="icon">🗺️</span><h3>State GK & MCQ</h3><p>उपलब्ध Rajasthan GK/जिला आधारित MCQ संसाधन से अभ्यास करें।</p><span class="tag">GK · MCQ</span><span class="go">MCQ शुरू करें →</span></a>
+      <a class="card searchable" data-class="Competitive Exams" href="Rajasthan_District_Dig_Darshan_Interactive.html"><span class="icon">📍</span><h3>Police & State Recruitment GK</h3><p>राज्य-स्तरीय तैयारी के लिए उपलब्ध Rajasthan district learning page। अन्य राज्यों के लिए सामग्री जोड़ना बाकी है।</p><span class="tag">State GK</span><span class="go">GK खोलें →</span></a>
+      <a class="card searchable" data-class="Competitive Exams" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html"><span class="icon">🧠</span><h3>Teaching / Banking / Defence Foundation</h3><p>उपलब्ध multi-subject material से सामान्य विषयों की नींव मजबूत करें। यह प्रत्येक exam का पूर्ण syllabus या mock test नहीं है।</p><span class="tag">Foundation · Available Material</span><span class="go">Learning Hub खोलें →</span></a>
+      <a class="card searchable" data-class="Competitive Exams" href="question-bank.html"><span class="icon">🏛️</span><h3>UPSC / IAS / State PCS Foundation</h3><p>शुरुआती अभ्यास और general question bank। NCERT mapping, current affairs, CSAT और mains answer writing का पूरा course अभी अलग से बनना है।</p><span class="tag">Foundation · Build in Progress</span><span class="go">Question Bank खोलें →</span></a>
+    </div>
+    <div class="note">नोट: “4th Class/Peon से IAS तक” एक संयुक्त preparation hub है, एक ही परीक्षा या समान eligibility नहीं। प्रत्येक भर्ती के आधिकारिक नियम अलग होते हैं। उपलब्ध links केवल मौजूदा repository में मौजूद study pages खोलते हैं।</div>
+  </section>
+
+  <section class="section" id="exam-portal">
+    <div class="sectionhead"><div><h2>🧾 Exam Portal | परीक्षा पोर्टल</h2><p>School practice, MCQ bank और उपलब्ध GK tests के लिए एक central entry point.</p></div></div>
+    <div class="grid">
+      <a class="card searchable" data-class="Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10 Class 11 Class 12 Competitive Exams" href="question-bank.html"><span class="icon">📝</span><h3>Online Practice & Question Bank</h3><p>दैनिक अभ्यास के लिए उपलब्ध question-bank page.</p><span class="tag">Practice</span><span class="go">खोलें →</span></a>
+      <a class="card searchable" data-class="Class 6 Class 7 Class 8 Class 9 Class 10 Competitive Exams" href="Sri_Ganganagar_100_MCQ_Slide_Player.html"><span class="icon">🎯</span><h3>Fullscreen MCQ Practice</h3><p>उपलब्ध 100-MCQ slide player में प्रश्न अभ्यास करें।</p><span class="tag">Interactive MCQ</span><span class="go">Test खोलें →</span></a>
+      <a class="card searchable" data-class="Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10 Competitive Exams" href="Science_Centre_Learning_Hub_All_Subjects_Questions.html"><span class="icon">📚</span><h3>All-Subject Question Bank</h3><p>विज्ञान, गणित, GK और अन्य उपलब्ध विषयों का अभ्यास।</p><span class="tag">Question Bank</span><span class="go">पोर्टल खोलें →</span></a>
+      <a class="card searchable" data-class="Competitive Exams Class 6 Class 7 Class 8 Class 9 Class 10" href="Sri_Ganganagar_Master_290_MCQ_Topics_1_to_6.html"><span class="icon">🧩</span><h3>Topic-wise GK Tests</h3><p>उपलब्ध श्रीगंगानगर GK के topic-wise MCQ sets.</p><span class="tag">Topic MCQs</span><span class="go">अभ्यास खोलें →</span></a>
+      <a class="card searchable" data-class="Competitive Exams Class 6 Class 7 Class 8 Class 9 Class 10" href="Rajasthan_District_Dig_Darshan_Interactive.html"><span class="icon">🗺️</span><h3>GK / State Exam Practice</h3><p>Rajasthan district learning resource और राज्य GK अभ्यास।</p><span class="tag">State GK</span><span class="go">खोलें →</span></a>
+      <a class="card searchable" data-class="Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10 Class 11 Class 12 Competitive Exams" href="Science_Centre_Learning_Hub_All_Subjects_Upgrade.html"><span class="icon">🚀</span><h3>Learning Workspace</h3><p>उपलब्ध multi-subject learning portal खोलें। इसमें हर परीक्षा के timed test/results उपलब्ध होने का दावा नहीं है।</p><span class="tag">Learning Portal</span><span class="go">पोर्टल खोलें →</span></a>
+    </div>
+    <div class="note">परीक्षा चुनें → उपलब्ध प्रश्न-पेज खोलें → प्रश्न हल करें → उस पेज में उपलब्ध answer-checking/score features इस्तेमाल करें। सभी exam के लिए combined login, centralized result tracking या timed mock test अभी verified रूप से उपलब्ध नहीं हैं।</div>
+  </section>
+
+  <section class="section" id="senior-secondary">
+    <div class="sectionhead"><div><h2>🎓 Class 11–12 | All Boards · All Streams</h2><p>Science, Commerce और Arts/Humanities के लिए अलग course structure; पूरी chapter-wise सामग्री चरणबद्ध तरीके से जोड़नी है।</p></div></div>
+    <div class="grid">
+      <article class="card searchable" data-class="Class 11 Class 12"><span class="icon">🔬</span><h3>Science Stream</h3><p>Physics, Chemistry, Mathematics/Biology — official board syllabus mapping और chapter-wise material जोड़ा जाना बाकी है।</p><span class="tag">Coming Soon</span></article>
+      <article class="card searchable" data-class="Class 11 Class 12"><span class="icon">📊</span><h3>Commerce Stream</h3><p>Accountancy, Business Studies और Economics — chapter lists तथा practice content चरणबद्ध रूप से जोड़े जाएँगे।</p><span class="tag">Coming Soon</span></article>
+      <article class="card searchable" data-class="Class 11 Class 12"><span class="icon">🌏</span><h3>Arts / Humanities</h3><p>History, Geography, Political Science और अन्य लागू subjects के लिए board-wise mapping तैयार की जानी है।</p><span class="tag">Coming Soon</span></article>
+    </div>
+    <div class="note">Class 11–12 portal file अभी repository root में नहीं मिली; इसलिए यहाँ गलत/broken link देने के बजाय इसे “Coming Soon” दिखाया गया है।</div>
+  </section>
+
+  <section class="section" id="subjects">
+    <div class="sectionhead"><div><h2>📘 Subject-wise Study Material</h2><p>उपलब्ध repository files के आधार पर</p></div></div>
+    <div class="grid">
+      <a class="card searchable" data-class="Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10" href="metals_materials_quiz_with_sound-2.html"><span class="icon">🧪</span><h3>Science</h3><p>Metals & Materials interactive quiz.</p><span class="go">Science material →</span></a>
+      <a class="card searchable" data-class="Nursery LKG UKG Class 1 Class 2 Class 3 Class 4 Class 5 Class 6 Class 7 Class 8 Class 9 Class 10" href="Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html"><span class="icon">🔠</span><h3>English & Grammar</h3><p>Grammar lessons, worksheets और interactive practice.</p><span class="go">English material →</span></a>
+      <a class="card searchable" data-class="Competitive Exams Cl<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10285f">
+<title>SCIENCE CENTRE LEARNING HUB — Home</title>
+<style>
+:root{--navy:#10285f;--blue:#1e63c5;--gold:#ffd447;--green:#14804a;--ink:#18233e;--muted:#61708c;--bg:#f4f7fd;--card:#fff;--line:#dbe4f2;--purple:#6c45bf}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Devanagari",Arial,sans-serif}
 a{color:inherit;text-decoration:none}button,input,select{font:inherit}
 header{background:linear-gradient(130deg,#0b1b45,#1b5db2);color:#fff;padding:16px 14px 24px;border-bottom:5px solid var(--gold)}
 .top{max-width:1150px;margin:auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
