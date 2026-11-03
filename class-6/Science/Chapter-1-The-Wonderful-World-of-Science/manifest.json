@@ -1,0 +1,18 @@
+{
+  "name": "Science Centre Learning Hub — Class 6 Science Chapter 1",
+  "short_name": "Science Ch 1",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fc",
+  "theme_color": "#173b8f",
+  "description": "Bilingual interactive Class 6 Science learning book",
+  "icons": [
+    {
+      "src": "./assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
