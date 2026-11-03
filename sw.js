@@ -1,5 +1,5 @@
 const VERSION='sch-pwa-v1';
-const SHELL=[ './', './index.html', './offline.html', './manifest.webmanifest', './icon.svg' ];
+const SHELL=[ './', './index.html', './offline.html', './manifest.webmanifest', './icon.svg', './voice-studio.html' ];
 self.addEventListener('install',event=>event.waitUntil((async()=>{const c=await caches.open(VERSION);await c.addAll(SHELL);await self.skipWaiting();})()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith('sch-pwa-')&&k!==VERSION).map(k=>caches.delete(k)));await self.clients.claim();})()));
 self.addEventListener('message',event=>{if(event.data==='SKIP_WAITING')self.skipWaiting();});
