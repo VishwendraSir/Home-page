@@ -120,8 +120,9 @@ document.addEventListener('click',function(event){
   speakTextBlock(text);
 });
 
+const SHORT_SHARE_URL='https://vishwendrasir.github.io/Home-page/c1/';
 async function shareLearningBook(){
- const shareData={title:'Class 6 Science Chapter 1 — SCIENCE CENTRE LEARNING HUB',text:'Learn Chapter 1: The Wonderful World of Science with Hindi + English interactive lessons. FOLLOW FOR MORE on WhatsApp.',url:location.href};
+ const shareData={title:'Class 6 Science Chapter 1 — SCIENCE CENTRE LEARNING HUB',text:'Learn Chapter 1: The Wonderful World of Science with Hindi + English interactive lessons. FOLLOW FOR MORE on WhatsApp.',url:SHORT_SHARE_URL};
  try{
   if(navigator.share){await navigator.share(shareData);}
   else if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(shareData.url);alert('Learning Book link copied. Share it with your students!');}
