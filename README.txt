@@ -14,6 +14,7 @@ MAIN FEATURES
 - Question Bank, Premium Library catalogue and topic-wise learning pages.
 - Shared Hindi + English Voice Studio: browser/device text-to-speech, voice selection, speed, pitch, pause, resume and stop.
 - Main SCH Quiz Engine now includes question-and-options audio, Hindi/English voice selection, speed, pause, resume and stop controls.
+- Daily Current Affairs slide archive includes slide narration in Hindi, English or both, voice selection, speech speed and stop-on-navigation.
 - Installable PWA foundation: web manifest, app icon, service worker and offline fallback.
 - Previously opened same-origin pages may be cached by the service worker for later offline use.
 
