@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#10285f">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>SCIENCE CENTRE LEARNING HUB — Home</title>
 <style>
 :root{--navy:#10285f;--blue:#1e63c5;--gold:#ffd447;--green:#14804a;--ink:#18233e;--muted:#61708c;--bg:#f4f7fd;--card:#fff;--line:#dbe4f2;--purple:#6c45bf}
@@ -14,7 +18,7 @@ header{background:linear-gradient(130deg,#0b1b45,#1b5db2);color:#fff;padding:16p
 .dropdown{position:relative}.dropbtn{border:1px solid #ffffff55;background:#ffffff18;color:#fff;border-radius:12px;padding:10px 13px;font-weight:800;cursor:pointer}.dropmenu{display:none;position:absolute;z-index:10;top:calc(100% + 7px);left:0;background:#fff;color:var(--ink);min-width:230px;border-radius:12px;box-shadow:0 12px 35px #071a4933;overflow:hidden}.dropmenu a{display:block;padding:12px 14px;border-bottom:1px solid var(--line)}.dropmenu a:hover{background:#eef4ff}.dropdown.open .dropmenu{display:block}
 .brand{flex:1;min-width:220px}.brand strong{display:block;font-size:clamp(1.15rem,3vw,1.8rem);letter-spacing:.02em}.brand span{color:#ffe58a;font-weight:750}
 .hero{max-width:1150px;margin:24px auto 0;text-align:center}.hero h1{font-size:clamp(1.7rem,5vw,3rem);line-height:1.13;margin:0 0 10px}.hero p{max-width:780px;margin:0 auto 18px;color:#e3edff;line-height:1.6}
-.quick{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.quick a{display:inline-flex;align-items:center;gap:8px;padding:12px 17px;border-radius:12px;font-weight:900;box-shadow:0 5px 14px #071a4930}.free{background:#fff;color:#1555a8}.paid{background:var(--gold);color:#352700}.daily{background:#20a565;color:#fff}
+.quick{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.quick a{display:inline-flex;align-items:center;gap:8px;padding:12px 17px;border-radius:12px;font-weight:900;box-shadow:0 5px 14px #071a4930}.free{background:#fff;color:#1555a8}.paid{background:var(--gold);color:#352700}.daily{background:#20a565;color:#fff}.install-app{display:inline-flex;align-items:center;gap:8px;padding:12px 17px;border:0;border-radius:12px;background:#fff;color:#17366f;font-weight:900;box-shadow:0 5px 14px #071a4930;cursor:pointer}.install-app[hidden]{display:none}
 main{max-width:1150px;margin:0 auto;padding:18px 14px 100px}.section{margin:24px 0}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}.sectionhead h2{margin:0;font-size:clamp(1.25rem,3vw,1.8rem)}.sectionhead p{margin:4px 0 0;color:var(--muted)}
 .searchrow{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.searchrow input,.searchrow select{border:1px solid #cbd8eb;border-radius:12px;background:#fff;padding:12px;min-width:0}.searchrow input{flex:1;min-width:180px}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 4px 14px #16335f0a;display:flex;flex-direction:column;gap:9px;min-height:155px}.card:hover{border-color:#8fb6f0;transform:translateY(-1px)}.icon{font-size:1.7rem}.card h3{margin:0;font-size:1.08rem}.card p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.45;flex:1}.tag{font-size:.75rem;font-weight:800;background:#edf3ff;color:#1a55a2;border-radius:99px;padding:4px 8px;display:inline-block;width:max-content}.go{font-weight:850;color:#1559b0;margin-top:2px}.note{border-left:5px solid var(--gold);background:#fff8dc;padding:12px 14px;border-radius:10px;color:#594600;line-height:1.55}
@@ -49,6 +53,7 @@ footer{background:#0b1b45;color:#fff;text-align:center;padding:22px 14px}footer 
       <a class="free" href="#free">📚 Free Study Material</a>
       <a class="paid" href="#paid">🔐 Paid Study Material</a>
       <a class="daily" href="#daily">📝 Daily Practice</a>
+      <button class="install-app" id="installApp" type="button" hidden>📲 Install App</button>
     </div>
   </div>
 </header>
@@ -144,6 +149,11 @@ document.addEventListener('click',e=>{if(!dropdown.contains(e.target)){dropdown.
 const search=document.getElementById('search'),classFilter=document.getElementById('classFilter'),cards=[...document.querySelectorAll('.searchable')];
 function filterCards(){const q=search.value.trim().toLowerCase(),cls=classFilter.value.toLowerCase();cards.forEach(c=>{const hay=(c.innerText+' '+c.getAttribute('href')+' '+(c.dataset.class||'')).toLowerCase();const classText=(c.dataset.class||'').toLowerCase();const show=(!q||hay.includes(q))&&(!cls||classText.includes(cls));c.classList.toggle('hidden',!show);});}
 search.addEventListener('input',filterCards);classFilter.addEventListener('change',filterCards);
+let installPrompt=null;const installButton=document.getElementById('installApp');
+window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;installButton.hidden=false;});
+installButton.addEventListener('click',async()=>{if(!installPrompt){installButton.textContent='📲 Browser menu → Install app';return;}installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;installButton.hidden=true;});
+window.addEventListener('appinstalled',()=>{installButton.hidden=true;installButton.textContent='✓ App installed';});
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(err=>console.warn('Offline support registration failed:',err)));}
 </script>
 </body>
 </html>
