@@ -24,7 +24,7 @@ IMPORTANT LIMITATIONS
 - Owner Dashboard is a local UI prototype. It is NOT secure owner authentication or server-side resource access control.
 - Premium labels/catalogue do not enforce paid access. No verified payment gateway or secure entitlement backend is configured in this static GitHub Pages repository.
 - No Firebase configuration or Firebase integration was found in the repository code search. Do not assume student accounts or cloud sync are active.
-- worker-test.html is only a client-side diagnostic page for the Cloudflare Worker endpoint. The Worker source/configuration is not stored in this repository, so API security, rate limits, CORS policy and secret configuration must be reviewed in the Cloudflare account. Keep provider API keys in Worker secrets, never in HTML.
+- worker-test.html is a client-side diagnostic page locked to the official Cloudflare Worker endpoint. It does not use a public CORS proxy. The Worker source/configuration is not stored in this repository, so API security, rate limits, CORS policy and secret configuration must be reviewed in the Cloudflare account. Keep provider API keys in Worker secrets, never in HTML.
 - Large HTML pages and question banks need separate runtime, answer-key, content-quality and mobile-device testing. A successful GitHub Pages deployment confirms publishing, not that every quiz/audio feature works on every phone.
 
 PWA INSTALLATION
