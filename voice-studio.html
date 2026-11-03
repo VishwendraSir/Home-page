@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10285f"><title>Voice Studio | Science Centre Learning Hub</title>
+<style>
+:root{--navy:#10285f;--blue:#1e63c5;--gold:#ffd447;--bg:#f3f6fc;--ink:#17233d;--muted:#63708a;--line:#dce5f2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,"Noto Sans Devanagari",Arial,sans-serif}
+header{background:linear-gradient(130deg,#0b1b45,#1b5db2);color:#fff;padding:22px 16px;border-bottom:5px solid var(--gold)}
+.wrap{width:min(900px,calc(100% - 24px));margin:auto}header h1{margin:0;font-size:clamp(1.4rem,4vw,2rem)}header p{margin:4px 0 0;color:#e5edff}
+main{padding:20px 0 40px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 8px 24px #10285f0c}
+label{display:block;font-weight:750;margin:12px 0 6px}textarea,select,input{width:100%;font:inherit;border:1px solid #cbd7e8;border-radius:11px;padding:11px;background:#fff;color:var(--ink)}
+textarea{min-height:115px;resize:vertical}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.range-row{display:flex;align-items:center;gap:10px}.range-row input{padding:0}.range-row output{min-width:40px;font-weight:800;text-align:right}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}button,.home{border:0;border-radius:11px;padding:12px 16px;font:inherit;font-weight:800;cursor:pointer;background:var(--blue);color:#fff;text-decoration:none}.secondary{background:#eaf0fa;color:#17366f}.stop{background:#9f2635}.status{padding:12px;border-radius:10px;background:#edf4ff;color:#17366f;margin-top:14px;overflow-wrap:anywhere}.hint{font-size:.9rem;color:var(--muted)}button:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.panel{padding:14px}.actions button{flex:1}}
+</style></head>
+<body>
+<header><div class="wrap"><h1>🔊 SCIENCE CENTRE LEARNING HUB — Voice Studio</h1><p>Guided by Vishwendra Sir · Hindi + English Speech Controller</p></div></header>
+<main class="wrap">
+<section class="panel">
+<h2>अपना पाठ सुनें / Listen to your lesson</h2>
+<p class="hint">अपना Hindi और English text लिखें। Play दबाने पर ही आवाज़ चलेगी—कोई autoplay नहीं।</p>
+<label for="hindiText">हिंदी पाठ / Hindi text</label>
+<textarea id="hindiText" placeholder="यहाँ हिंदी में लिखें या paste करें…"></textarea>
+<label for="englishText">English text</label>
+<textarea id="englishText" placeholder="Type or paste English text here…"></textarea>
+<div class="grid">
+<div><label for="mode">Language mode / भाषा</label><select id="mode"><option value="both">Both — पहले Hindi, फिर English</option><option value="hi">Hindi only</option><option value="en">English only</option></select></div>
+<div><label for="voice">Voice / आवाज़</label><select id="voice"><option value="">Loading voices…</option></select></div>
+</div>
+<div class="grid">
+<div><label for="rate">Speed / गति</label><div class="range-row"><input id="rate" type="range" min="0.6" max="1.5" step="0.1" value="1"><output id="rateValue">1.0×</output></div></div>
+<div><label for="pitch">Pitch / आवाज़ का उतार-चढ़ाव</label><div class="range-row"><input id="pitch" type="range" min="0.7" max="1.4" step="0.1" value="1"><output id="pitchValue">1.0</output></div></div>
+</div>
+<div class="actions"><button id="play">▶ Play / सुनें</button><button class="secondary" id="pause">Ⅱ Pause</button><button class="secondary" id="resume">▶ Resume</button><button class="stop" id="stop">■ Stop</button><button class="secondary" id="test">🔉 Test voice</button></div>
+<div class="status" id="status" role="status" aria-live="polite">Voice engine जाँच रहा है…</div>
+</section>
+<section class="panel">
+<h3>महत्वपूर्ण जानकारी</h3>
+<ul><li>आवाज़ आपके Android/browser में उपलब्ध Text-to-Speech voices पर निर्भर करती है।</li><li>यदि Hindi voice नहीं दिखती, तो Android Settings → Text-to-speech output में Hindi voice install करें।</li><li>इंटरनेट बंद होने पर भी speech चल सकती है यदि चुनी हुई device voice offline उपलब्ध हो।</li><li>यह tool text को device की speech service से पढ़ता है; कोई recording या autoplay नहीं करता।</li></ul>
+<a class="home" href="./index.html">← Home Page</a>
+</section>
+</main>
+<script>
+(()=> {
+ const $=id=>document.getElementById(id), synth=window.speechSynthesis;
+ const status=$('status'),voiceSelect=$('voice');let voices=[];
+ const setStatus=t=>status.textContent=t;
+ function loadVoices(){
+  if(!synth){setStatus('इस browser में Speech Synthesis उपलब्ध नहीं है। Chrome/Android browser में खोलें।');voiceSelect.innerHTML='<option value="">Not supported</option>';return;}
+  voices=synth.getVoices()||[];const old=voiceSelect.value;
+  voiceSelect.innerHTML='';
+  const preferred=voices.filter(v=>/^hi|^en/i.test(v.lang));
+  const list=preferred.length?preferred:voices;
+  if(!list.length){voiceSelect.innerHTML='<option value="">System default voice</option>';setStatus('Voices load हो रही हैं। कुछ क्षण बाद फिर कोशिश करें या Test voice दबाएँ।');return;}
+  list.forEach(v=>{const o=document.createElement('option');o.value=v.voiceURI;o.textContent=v.name+' ('+v.lang+')'+(v.default?' · Default':'');voiceSelect.appendChild(o);});
+  if(old&&[...voiceSelect.options].some(o=>o.value===old))voiceSelect.value=old;
+  else {const hi=list.find(v=>/^hi/i.test(v.lang));const en=list.find(v=>/^en-IN/i.test(v.lang))||list.find(v=>/^en/i.test(v.lang));voiceSelect.value=(hi||en||list[0]).voiceURI;}
+  setStatus('Ready · '+list.length+' Hindi/English voice options found. Play दबाकर सुनें।');
+ }
+ if(synth){loadVoices();synth.addEventListener?.('voiceschanged',loadVoices);setTimeout(loadVoices,800);}
+ $('rate').addEventListener('input',e=>$('rateValue').textContent=Number(e.target.value).toFixed(1)+'×');
+ $('pitch').addEventListener('input',e=>$('pitchValue').textContent=Number(e.target.value).toFixed(1));
+ function speak(text,lang,voice){
+  return new Promise(resolve=>{
+   const u=new SpeechSynthesisUtterance(text);u.lang=lang;u.rate=Number($('rate').value);u.pitch=Number($('pitch').value);
+   if(voice)u.voice=voice;u.onend=resolve;u.onerror=e=>{setStatus('Speech error: '+(e.error||'unknown'));resolve();};synth.speak(u);
+  });
+ }
+ function chooseVoice(lang){
+  const selected=voices.find(v=>v.voiceURI===voiceSelect.value);
+  if(selected&&selected.lang.toLowerCase().startsWith(lang.slice(0,2)))return selected;
+  return voices.find(v=>v.lang.toLowerCase()===lang.toLowerCase())||voices.find(v=>v.lang.toLowerCase().startsWith(lang.slice(0,2)))||null;
+ }
+ async function run(items){
+  if(!synth){setStatus('Speech Synthesis समर्थित नहीं है।');return;}
+  synth.cancel();const btn=$('play');btn.disabled=true;
+  try{for(const item of items){if(!item.text.trim())continue;setStatus('Playing · '+item.label);await speak(item.text,item.lang,chooseVoice(item.lang));}}
+  finally{btn.disabled=false;if(!synth.speaking)setStatus('Playback complete / सुनना पूरा हुआ।');}
+ }
+ $('play').addEventListener('click',()=>{
+  const mode=$('mode').value,h=$('hindiText').value.trim(),e=$('englishText').value.trim();let items=[];
+  if(mode==='hi')items=[{text:h,lang:'hi-IN',label:'Hindi'}];
+  else if(mode==='en')items=[{text:e,lang:'en-IN',label:'English'}];
+  else items=[{text:h,lang:'hi-IN',label:'Hindi'},{text:e,lang:'en-IN',label:'English'}];
+  if(!items.some(x=>x.text)){setStatus('पहले चुनी हुई भाषा में text लिखें।');return;}
+  run(items);
+ });
+ $('pause').addEventListener('click',()=>{if(synth?.speaking){synth.pause();setStatus('Paused / रोका गया।');}});
+ $('resume').addEventListener('click',()=>{if(synth?.paused){synth.resume();setStatus('Resumed / फिर शुरू।');}});
+ $('stop').addEventListener('click',()=>{synth?.cancel();$('play').disabled=false;setStatus('Stopped / आवाज़ बंद।');});
+ $('test').addEventListener('click',()=>{const mode=$('mode').value;const hi='नमस्ते! विज्ञान केंद्र लर्निंग हब में आपका स्वागत है।';const en='Hello! Welcome to Science Centre Learning Hub.';const items=mode==='hi'?[{text:hi,lang:'hi-IN',label:'Hindi test'}]:mode==='en'?[{text:en,lang:'en-IN',label:'English test'}]:[{text:hi,lang:'hi-IN',label:'Hindi test'},{text:en,lang:'en-IN',label:'English test'}];run(items);});
+})();
+</script>
+</body></html>
