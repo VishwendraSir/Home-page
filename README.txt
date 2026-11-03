@@ -36,6 +36,7 @@ PWA INSTALLATION
 
 KEY FILES
 - index.html — main learning hub homepage.
+- TECHNICAL_AUDIT_2026-11-03.md — latest verified checks, limitations, and remaining external dependencies.
 - manifest.webmanifest — PWA metadata.
 - sw.js — offline cache and navigation fallback.
 - offline.html — offline fallback screen.
