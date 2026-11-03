@@ -53,6 +53,15 @@ details summary{cursor:pointer;font-weight:750;color:#263d82}.muted{color:var(--
     <div class="question-top"><span id="qCounter">Question 1</span><span id="timer">No timer</span><span id="scoreLive">Answered: 0</span></div>
     <div class="progress"><span id="progressBar"></span></div>
     <div id="questionText" class="question"></div>
+    <div class="actions no-print" id="questionAudioTools" style="align-items:center;flex-wrap:wrap">
+      <button class="ghost" type="button" id="qSpeak">🔊 Listen / सुनें</button>
+      <button class="secondary" type="button" id="qPause">Ⅱ Pause</button>
+      <button class="secondary" type="button" id="qResume">▶ Resume</button>
+      <button class="secondary" type="button" id="qStop">■ Stop</button>
+      <label style="display:flex;align-items:center;gap:6px">Voice <select id="qVoice" style="max-width:220px"><option value="">Auto device voice</option></select></label>
+      <label style="display:flex;align-items:center;gap:6px">Speed <input id="qRate" type="range" min="0.6" max="1.5" step="0.1" value="1" style="width:110px"></label>
+      <span id="qAudioStatus" class="muted" role="status" aria-live="polite">Voice ready when available</span>
+    </div>
     <div id="options" class="options"></div>
     <div id="feedback" class="feedback hidden"></div>
     <div class="qnav" id="qnav"></div>
@@ -143,6 +152,7 @@ function startQuiz(){
 }
 function updateTimer(){const m=Math.floor(state.secondsLeft/60),s=state.secondsLeft%60;$("timer").textContent="⏱ "+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0")}
 function renderQuestion(){
+ stopQuizSpeech();
  const q=state.quiz[state.index];if(!q)return;
  $("qCounter").textContent=`Question ${state.index+1} / ${state.quiz.length}`;
  $("progressBar").style.width=((state.index+1)/state.quiz.length*100)+"%";
@@ -158,6 +168,37 @@ function renderQuestion(){
  renderNavigator();
 }
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function stopQuizSpeech(){if(window.speechSynthesis)window.speechSynthesis.cancel();const s=$("qAudioStatus");if(s)s.textContent="Stopped / आवाज़ बंद";}
+function loadQuizVoices(){
+ const el=$("qVoice");if(!el||!window.speechSynthesis)return;
+ const old=el.value;const all=window.speechSynthesis.getVoices()||[];
+ const list=all.filter(v=>/^(hi|en)/i.test(v.lang));
+ el.innerHTML='<option value="">Auto device voice</option>';
+ list.forEach(v=>{const o=document.createElement("option");o.value=v.voiceURI;o.textContent=v.name+" ("+v.lang+")";el.appendChild(o)});
+ if(old&&[...el.options].some(o=>o.value===old))el.value=old;
+}
+function quizVoiceFor(lang){
+ const all=window.speechSynthesis?.getVoices?.()||[];
+ const chosen=all.find(v=>v.voiceURI===$("qVoice").value);
+ if(chosen&&chosen.lang.toLowerCase().startsWith(lang.slice(0,2)))return chosen;
+ return all.find(v=>v.lang.toLowerCase()===lang.toLowerCase())||all.find(v=>v.lang.toLowerCase().startsWith(lang.slice(0,2)))||null;
+}
+function speakQuizCurrentQuestion(){
+ if(!("speechSynthesis" in window)){ $("qAudioStatus").textContent="Speech is not supported in this browser.";return; }
+ const q=state.quiz[state.index];if(!q){$("qAudioStatus").textContent="Start a quiz first.";return;}
+ const lang=LANG(),h=q.question?.hi||"",e=q.question?.en||"",chunks=[];
+ const add=(text,voiceLang)=>{if(String(text||"").trim())chunks.push({text:String(text),lang:voiceLang})};
+ if(lang==="hi"){add(h||e,"hi-IN");add((q.options||[]).map((o,i)=>"विकल्प "+("ABCD"[i]||i+1)+": "+optionText(o,"hi")).join(". "),"hi-IN");}
+ else if(lang==="en"){add(e||h,"en-IN");add((q.options||[]).map((o,i)=>"Option "+("ABCD"[i]||i+1)+": "+optionText(o,"en")).join(". "),"en-IN");}
+ else{
+  add(h,"hi-IN");add(e,"en-IN");
+  (q.options||[]).forEach((o,i)=>{const label="Option "+("ABCD"[i]||i+1)+": ";if(typeof o==="object"){add("विकल्प "+("ABCD"[i]||i+1)+": "+optionText(o,"hi"),"hi-IN");add(label+optionText(o,"en"),"en-IN");}else add(label+optionText(o,"both"),"en-IN");});
+ }
+ if(!chunks.length){$("qAudioStatus").textContent="No question text available.";return;}
+ window.speechSynthesis.cancel();let remaining=chunks.length;
+ $("qAudioStatus").textContent="Playing / आवाज़ चल रही है…";
+ chunks.forEach(chunk=>{const u=new SpeechSynthesisUtterance(chunk.text);u.lang=chunk.lang;u.rate=Number($("qRate").value)||1;const v=quizVoiceFor(chunk.lang);if(v)u.voice=v;u.onend=()=>{remaining--;if(remaining===0)$("qAudioStatus").textContent="Finished / सुनना पूरा हुआ";};u.onerror=ev=>{$("qAudioStatus").textContent="Speech error: "+(ev.error||"unknown");remaining--;};window.speechSynthesis.speak(u);});
+}
 function choose(i){if(state.submitted)return;if(state.mode==="practice"&&state.answers[state.index]!==null)return;state.answers[state.index]=i;renderQuestion();if(state.mode==="practice")showPracticeFeedback(state.quiz[state.index],i)}
 function showPracticeFeedback(q,choice){
  const correct=choice===q.correctIndex,fb=$("feedback");fb.classList.remove("hidden");
@@ -211,6 +252,11 @@ function approveQuestion(id, selectedIndex){
  const savedCorrections=safeLoad("schQuizCorrections",{});savedCorrections[id]=q.correctIndex;safeSave("schQuizCorrections",savedCorrections);
  state.approved.add(id);safeSave("schQuizApproved",[...state.approved]);$("teacherStatus").textContent="Approved locally. Teacher has selected the answer; confirm source and explanation before classroom use.";renderTeacher();refreshStats();
 }
+$("qSpeak").addEventListener("click",speakQuizCurrentQuestion);
+$("qPause").addEventListener("click",()=>{if(window.speechSynthesis?.speaking){window.speechSynthesis.pause();$("qAudioStatus").textContent="Paused";}});
+$("qResume").addEventListener("click",()=>{if(window.speechSynthesis?.paused){window.speechSynthesis.resume();$("qAudioStatus").textContent="Playing";}});
+$("qStop").addEventListener("click",stopQuizSpeech);
+if(window.speechSynthesis){loadQuizVoices();window.speechSynthesis.addEventListener?.("voiceschanged",loadQuizVoices);setTimeout(loadQuizVoices,600);}
 $("startBtn").addEventListener("click",startQuiz);
 $("language").addEventListener("change",()=>{if(!$("quizPanel").classList.contains("hidden"))renderQuestion();if(!$("resultPanel").classList.contains("hidden"))buildReview()});
 $("classFilter").addEventListener("change",refreshStats);$("subjectFilter").addEventListener("change",refreshStats);$("difficultyFilter").addEventListener("change",refreshStats);
