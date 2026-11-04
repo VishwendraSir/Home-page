@@ -199,5 +199,6 @@ $('nextQuestion').onclick=()=>{if(idx<questions.length-1){idx++;renderQuestion()
 $('speakQuestion').onclick=()=>{const q=questions[idx];speak(q.q+' विकल्प: '+q.o.join('. '));};
 function showResults(){$('questionArea').classList.add('hidden');$('results').classList.remove('hidden');$('progressBar').style.width='100%';$('qCount').textContent='Test complete';let review='<h3>गलत उत्तरों की समीक्षा</h3>';questions.forEach((q,i)=>{if(answers[i]!==q.a)review+=`<details><summary>Q${i+1}. ${q.q}</summary><div class="detail-body"><b>सही उत्तर:</b> ${q.o[q.a]}<br>${q.e}</div></details>`;});$('results').innerHTML=`<div class="result">आपका स्कोर: ${score} / ${questions.length} (${Math.round(score/questions.length*100)}%)</div><p>${score>=80?'बहुत अच्छा! अभ्यास जारी रखें।':score>=50?'अच्छा प्रयास। गलत उत्तरों को दोहराएँ।':'नोट्स पढ़कर फिर से प्रयास करें।'}</p><button class="action green" id="retry">फिर से टेस्ट दें</button>${review}`;$('retry').onclick=()=>{$('results').classList.add('hidden');$('quizStart').classList.remove('hidden');$('progressBar').style.width='0';$('qCount').textContent='Question 1 / 100';};}
 </script>
+<script src="https://vishwendrasir.github.io/Home-page/facebook-follow.js" defer></script>
 </body>
 </html>
