@@ -209,5 +209,6 @@ async function shareQuiz(){let title="Class 5 EVS — Metals and Materials MCQ Q
 async function copyPageLink(){let status=document.getElementById("shareStatus");let url=location.href;if(url.startsWith("file:")||url.startsWith("content:")||url==="about:blank"){status.textContent="यह फ़ाइल आपके मोबाइल पर स्थानीय रूप से खुली है, इसलिए इसका सार्वजनिक लिंक नहीं है। HTML फ़ाइल को WhatsApp पर दस्तावेज़ के रूप में भेजें या इसे वेब होस्टिंग पर अपलोड करें। / No public URL exists for this local file. Share the HTML file itself or host it online.";try{await navigator.clipboard.writeText("Class 5 EVS — Metals and Materials MCQ Quiz | Science Centre Learning Hub")}catch(e){}return}try{await navigator.clipboard.writeText(url);status.textContent="Link copied! / लिंक कॉपी हो गया!"}catch(e){status.textContent=url}}
 render();
 </script>
+<script src="https://vishwendrasir.github.io/Home-page/facebook-follow.js" defer></script>
 </body>
 </html>
