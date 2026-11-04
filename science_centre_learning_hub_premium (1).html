@@ -211,5 +211,6 @@ function loadVideo(){let v=$('videoUrl').value.trim();let id='';try{if(/^[\w-]{1
 $('language').addEventListener('change',e=>{lang=e.target.value;document.documentElement.lang=lang;document.querySelectorAll('[data-en][data-hi]').forEach(el=>el.textContent=el.dataset[lang]);updateStats();renderRecent();if(!$('topicPanel').classList.contains('hidden'))openTopic(currentTopic);if(!$('quizPanel').classList.contains('hidden')){const wasAnswered=answered;renderQuestion();if(wasAnswered){/* language switch resets current question for a fair, clear view */}}if(!$('progressPanel').classList.contains('hidden'))renderProgress()});
 updateStats();renderRecent();
 </script>
+<script src="https://vishwendrasir.github.io/Home-page/facebook-follow.js" defer></script>
 </body>
 </html>
