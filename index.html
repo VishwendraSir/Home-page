@@ -27,6 +27,13 @@ footer{background:#0b1b45;color:#fff;text-align:center;padding:22px 14px}footer 
 .hidden{display:none!important}
 @media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{margin-top:18px}}
 @media(max-width:520px){.grid{grid-template-columns:1fr}.card{min-height:130px}.brand{min-width:180px}.top{align-items:flex-start}.dropbtn{padding:9px 10px}.sticky a{font-size:.78rem;padding:10px 3px}}
+
+.social-header{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.social-header a{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 11px;border-radius:10px;font-size:.82rem;font-weight:850;white-space:nowrap}
+.social-header .fb{background:#1877f2;color:#fff}
+.social-header .wa{background:#128c7e;color:#fff}
+@media(max-width:600px){.social-header{width:100%;justify-content:flex-start;margin-top:4px}.social-header a{font-size:.78rem;padding:7px 9px}}
+
 </style>
 </head>
 <body>
@@ -46,6 +53,11 @@ footer{background:#0b1b45;color:#fff;text-align:center;padding:22px 14px}footer 
       </nav>
     </div>
     <div class="brand"><strong>SCIENCE CENTRE LEARNING HUB</strong><span>Guided by Vishwendra Sir</span></div>
+
+    <div class="social-header" aria-label="Social media links">
+      <a class="wa" href="https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q" target="_blank" rel="noopener noreferrer">💬 WhatsApp Channel</a>
+      <a class="fb" href="https://www.facebook.com/share/1CHHjYQtqe/" target="_blank" rel="noopener noreferrer">📘 Facebook Page</a>
+    </div>
   </div>
   <div class="hero">
     <h1>सीखें • अभ्यास करें • आगे बढ़ें</h1>
@@ -212,12 +224,5 @@ if('serviceWorker' in navigator && location.protocol.startsWith('http')){window.
   <iframe id="voiceStudioFrame" title="voiceStudioFrame" loading="lazy" style="width:100%;height:75vh;border:1px solid #dbe3f0;border-radius:14px;background:white" src="./voice-studio.html"></iframe>
 </section>
 
-<section class="section" id="embedded-offline"><h2>📴 Offline सहायता</h2><iframe title="Offline fallback" loading="lazy" style="width:100%;height:300px;border:1px solid #dbe3f0;border-radius:12px;background:white" src="./offline.html"></iframe></section><section class="section" id="embedded-vishwa-tech-html"><h2>🛠️ Vishwa Tech</h2><iframe title="Vishwa Tech" loading="lazy" style="width:100%;height:420px;border:1px solid #dbe3f0;border-radius:12px;background:white" src="./vishwa-tech.html"></iframe></section><section class="section" id="student-registration"><h2>📝 Student Registration</h2><iframe title="Student Registration" loading="lazy" style="width:100%;height:900px;border:1px solid #dbe3f0;border-radius:12px;background:white" src="./student-registration.html"></iframe></section><section class="section" id="community-links" style="text-align:center">
-  <h2>🌐 हमारे साथ जुड़ें</h2>
-  <p>SCIENCE CENTRE LEARNING HUB — Guided by Vishwendra Sir</p>
-  <a href="https://www.facebook.com/share/1CHHjYQtqe/" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin:8px;padding:12px 20px;border-radius:10px;background:#1877f2;color:#fff;text-decoration:none;font-weight:700">📘 Follow on Facebook</a>
-  <a href="https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin:8px;padding:12px 20px;border-radius:10px;background:#128c7e;color:#fff;text-decoration:none;font-weight:700">💬 Join WhatsApp Channel</a>
-</section>
-
-</body>
+<section class="section" id="embedded-offline"><h2>📴 Offline सहायता</h2><iframe title="Offline fallback" loading="lazy" style="width:100%;height:300px;border:1px solid #dbe3f0;border-radius:12px;background:white" src="./offline.html"></iframe></section><section class="section" id="embedded-vishwa-tech-html"><h2>🛠️ Vishwa Tech</h2><iframe title="Vishwa Tech" loading="lazy" style="width:100%;height:420px;border:1px solid #dbe3f0;border-radius:12px;background:white" src="./vishwa-tech.html"></iframe></section><section class="section" id="student-registration"><h2>📝 Student Registration</h2><iframe title="Student Registration" loading="lazy" style="width:100%;height:900px;border:1px solid #dbe3f0;border-radius:12px;background:white" src="./student-registration.html"></iframe></section></body>
 </html>
