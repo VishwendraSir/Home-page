@@ -137,4 +137,5 @@ function buildDeepExplanation(x){
 $('popup').onclick=()=>{if(!current)return;$('modalbody').innerHTML=buildDeepExplanation(current);$('modal').classList.add('open')};
 $('close').onclick=()=>$('modal').classList.remove('open');$('modal').onclick=e=>{if(e.target===$('modal'))$('modal').classList.remove('open')};
 function filter(){let t=$('topic').value,s=$('search').value.toLowerCase();list=Q.filter(x=>(!t||x.topic===t)&&(!s||(x.q+x.topic+x.ex).toLowerCase().includes(s)));pos=0;render()}$('topic').onchange=filter;$('search').oninput=filter;
-$('shuffle').onclick=()=>{list=[...list].sort(()=>Math.random()-.5);pos=0;render()};$('reset').onclick=()=>{answered.clear();list=[...Q];$('topic').value='';$('search').value='';pos=0;render()};render();</script></body></html>
+$('shuffle').onclick=()=>{list=[...list].sort(()=>Math.random()-.5);pos=0;render()};$('reset').onclick=()=>{answered.clear();list=[...Q];$('topic').value='';$('search').value='';pos=0;render()};render();</script><script src="https://vishwendrasir.github.io/Home-page/facebook-follow.js" defer></script>
+</body></html>
