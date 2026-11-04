@@ -19,11 +19,11 @@ header{background:linear-gradient(130deg,#0b1b45,#1b5db2);color:#fff;padding:16p
 .brand{flex:1;min-width:220px}.brand strong{display:block;font-size:clamp(1.15rem,3vw,1.8rem);letter-spacing:.02em}.brand span{color:#ffe58a;font-weight:750}
 .hero{max-width:1150px;margin:24px auto 0;text-align:center}.hero h1{font-size:clamp(1.7rem,5vw,3rem);line-height:1.13;margin:0 0 10px}.hero p{max-width:780px;margin:0 auto 18px;color:#e3edff;line-height:1.6}
 .quick{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.quick a{display:inline-flex;align-items:center;gap:8px;padding:12px 17px;border-radius:12px;font-weight:900;box-shadow:0 5px 14px #071a4930}.free{background:#fff;color:#1555a8}.paid{background:var(--gold);color:#352700}.daily{background:#20a565;color:#fff}.install-app{display:inline-flex;align-items:center;gap:8px;padding:12px 17px;border:0;border-radius:12px;background:#fff;color:#17366f;font-weight:900;box-shadow:0 5px 14px #071a4930;cursor:pointer}.install-app[hidden]{display:none}
-main{max-width:1150px;margin:0 auto;padding:18px 14px 100px}.section{margin:24px 0}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}.sectionhead h2{margin:0;font-size:clamp(1.25rem,3vw,1.8rem)}.sectionhead p{margin:4px 0 0;color:var(--muted)}
+main{max-width:1150px;margin:0 auto;padding:18px 14px 28px}.section{margin:24px 0}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}.sectionhead h2{margin:0;font-size:clamp(1.25rem,3vw,1.8rem)}.sectionhead p{margin:4px 0 0;color:var(--muted)}
 .searchrow{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}.searchrow input,.searchrow select{border:1px solid #cbd8eb;border-radius:12px;background:#fff;padding:12px;min-width:0}.searchrow input{flex:1;min-width:180px}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 4px 14px #16335f0a;display:flex;flex-direction:column;gap:9px;min-height:155px}.card:hover{border-color:#8fb6f0;transform:translateY(-1px)}.icon{font-size:1.7rem}.card h3{margin:0;font-size:1.08rem}.card p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.45;flex:1}.tag{font-size:.75rem;font-weight:800;background:#edf3ff;color:#1a55a2;border-radius:99px;padding:4px 8px;display:inline-block;width:max-content}.go{font-weight:850;color:#1559b0;margin-top:2px}.note{border-left:5px solid var(--gold);background:#fff8dc;padding:12px 14px;border-radius:10px;color:#594600;line-height:1.55}
 footer{background:#0b1b45;color:#fff;text-align:center;padding:22px 14px}footer strong{color:var(--gold)}
-.sticky{position:fixed;z-index:9;left:50%;transform:translateX(-50%);bottom:10px;display:flex;gap:6px;padding:7px;background:#0c204eeb;border:1px solid #ffffff2b;border-radius:16px;box-shadow:0 8px 25px #06153844;width:min(580px,calc(100% - 18px))}.sticky a{flex:1;text-align:center;border-radius:10px;padding:10px 6px;font-size:.86rem;font-weight:900;color:#fff}.sticky .sfree{background:#fff;color:#1555a8}.sticky .spaid{background:var(--gold);color:#352700}.sticky .sdaily{background:#20a565}
+
 .hidden{display:none!important}
 @media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{margin-top:18px}}
 @media(max-width:520px){.grid{grid-template-columns:1fr}.card{min-height:130px}.brand{min-width:180px}.top{align-items:flex-start}.dropbtn{padding:9px 10px}.sticky a{font-size:.78rem;padding:10px 3px}}
@@ -191,7 +191,6 @@ footer{background:#0b1b45;color:#fff;text-align:center;padding:22px 14px}footer 
 
 </main>
 <footer><strong>SCIENCE CENTRE LEARNING HUB</strong><br>Guided by Vishwendra Sir<br><small>Mobile-friendly learning hub · Free resources · Premium catalogue · Daily practice</small></footer>
-<nav class="sticky" aria-label="Quick study navigation"><a class="sfree" href="#free">📚 Free</a><a class="spaid" href="#paid">🔐 Paid</a><a class="sdaily" href="#daily">📝 Daily Practice</a></nav>
 <script>
 const dropdown=document.getElementById('startDropdown'), dropButton=document.getElementById('dropButton');
 dropButton.addEventListener('click',()=>{const open=dropdown.classList.toggle('open');dropButton.setAttribute('aria-expanded',String(open));});
