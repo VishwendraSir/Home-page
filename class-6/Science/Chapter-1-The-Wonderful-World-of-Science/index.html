@@ -141,4 +141,5 @@ window.openTopic=openTopic;window.markDone=markDone;window.loadVideo=loadVideo;w
 let deferredPrompt;$('install').classList.add('hide');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;$('install').classList.remove('hide');});$('install').onclick=async()=>{if(deferredPrompt){deferredPrompt.prompt();deferredPrompt=null;}};
 if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
 renderList();openTopic(0);
-</script></body></html>
+</script><script src="https://vishwendrasir.github.io/Home-page/facebook-follow.js" defer></script>
+</body></html>
