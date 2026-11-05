@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101735"><title>Science Centre AI Creative Studio</title>
+<style>
+:root{--bg:#0b1024;--panel:#151e3d;--panel2:#1b2850;--ink:#f5f7ff;--muted:#b7c2e2;--blue:#6ea8ff;--gold:#ffd36b;--line:#34436e}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#253b75 0,transparent 35%),var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header{padding:28px 18px 22px;text-align:center;background:linear-gradient(135deg,#14234b,#25184c);border-bottom:1px solid var(--line)}
+.logo{display:inline-grid;place-items:center;width:58px;height:58px;border-radius:18px;background:linear-gradient(135deg,#ffd36b,#ff9e57);color:#172044;font-size:28px;font-weight:900}
+h1{font-size:clamp(25px,5vw,42px);margin:12px 0 3px;letter-spacing:.4px}.sub{color:#d1dcff}.tag{display:inline-block;margin-top:12px;padding:5px 12px;border:1px solid #5874b2;border-radius:99px;color:#dbe7ff;font-size:12px}
+main{max-width:1050px;margin:auto;padding:18px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 18px}.tab,button,a.btn{border:1px solid var(--line);background:var(--panel2);color:var(--ink);padding:11px 15px;border-radius:12px;font-weight:700;text-decoration:none;cursor:pointer}.tab.active,button.primary{background:linear-gradient(110deg,#3479dc,#7952d8);border-color:transparent}
+.panel{background:linear-gradient(160deg,#172344,#111a35);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 12px 30px #0003}
+h2{font-size:21px;margin:0 0 12px}label{display:block;color:#dce5ff;font-size:14px;font-weight:650;margin:12px 0 6px}
+input,select,textarea{width:100%;border:1px solid #43547f;border-radius:11px;padding:12px;background:#0c1530;color:white;font:inherit}textarea{min-height:130px;resize:vertical}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}.tool{background:#101a36;border:1px solid var(--line);border-radius:14px;padding:14px}.tool p{margin:5px 0 12px;color:var(--muted);font-size:13px}.tool a{color:#9ec5ff;font-weight:700}.hint{font-size:13px;color:var(--muted)}.notice{border-left:4px solid var(--gold);padding:10px 13px;background:#332b1d;border-radius:8px;color:#ffe9b2;font-size:13px;margin-top:12px}
+footer{text-align:center;padding:25px;color:#aebcdd;font-size:13px}
+.hidden{display:none}
+</style></head>
+<body>
+<header><div class="logo">✦</div><h1>SCIENCE CENTRE AI CREATIVE STUDIO</h1><div class="sub">Guided by Vishwendra Sir</div><div class="tag">IMAGE • VIDEO • VIRAL CONTENT • PROMPT LAB</div></header>
+<main>
+<div class="tabs"><button class="tab active" data-tab="image">🖼️ AI Image Studio</button><button class="tab" data-tab="video">🎬 AI Video Studio</button><button class="tab" data-tab="caption">📣 Viral Caption Studio</button><button class="tab" data-tab="tools">🌐 Free Tools</button></div>
+<section id="image" class="section">
+<div class="panel"><h2>🖼️ अपना Image Prompt तैयार करें</h2><div class="grid">
+<div><label>Theme / विषय</label><select id="theme"><option>Lord Ram – divine devotional portrait</option><option>Lord Krishna – Vrindavan flute scene</option><option>Lord Shiva – Kailash meditation</option><option>Hanuman Ji – powerful devotional portrait</option><option>Indian festival – Diwali celebration</option><option>Indian royal historical portrait</option><option>Emotional Indian family moment</option><option>Magical nature and wildlife</option><option>Miniature 3D fantasy world</option><option>Photorealistic village life</option><option>Space and science wonder</option><option>Custom subject</option></select></div>
+<div><label>Visual style</label><select id="style"><option>Ultra photorealistic, natural camera photography</option><option>Cinematic realistic, dramatic lighting</option><option>Traditional Indian devotional calendar art</option><option>Macro miniature photography</option><option>Luxury editorial portrait photography</option><option>Dreamlike fantasy realism</option></select></div>
+<div><label>Image ratio</label><select id="ratio"><option>4:5 – Facebook/Instagram portrait</option><option>1:1 – Square post</option><option>9:16 – Story/Reel cover</option><option>16:9 – Landscape</option><option>3:2 – Photography</option></select></div>
+<div><label>Language</label><select id="lang"><option>English prompt</option><option>Hindi prompt</option></select></div>
+</div><label>Extra details (optional)</label><input id="extra" placeholder="जैसे: अयोध्या मंदिर, सूर्योदय, धनुष, फूलों की सजावट...">
+<div class="actions"><button class="primary" id="makeImage">✨ Generate Prompt</button><button id="openImage">Open Image Generator ↗</button></div>
+<label>Generated prompt</label><textarea id="imagePrompt" placeholder="आपका तैयार prompt यहाँ दिखाई देगा..."></textarea><div class="actions"><button id="copyImage">Copy Prompt</button><button id="clearImage">Clear</button></div>
+<p class="hint">यह पोर्टल prompt तैयार करता है। वास्तविक इमेज चुनी हुई बाहरी AI सेवा पर बनेगी; सेवा की मुफ्त सीमा और नियम बदल सकते हैं।</p></div>
+</section>
+<section id="video" class="section hidden">
+<div class="panel"><h2>🎬 AI Video Prompt Studio</h2><div class="grid">
+<div><label>Video concept</label><select id="vtheme"><option>Lord Ram walking through a beautifully lit Ayodhya</option><option>Lord Krishna playing flute in Vrindavan</option><option>Diwali diyas glowing in a festive Indian home</option><option>Majestic Indian royal fort at sunrise</option><option>Beautiful waterfall and flying birds</option><option>Emotional family reunion</option><option>Miniature people building a tiny world</option><option>Science and space cinematic sequence</option></select></div>
+<div><label>Duration / format</label><select id="duration"><option>5–8 second vertical reel</option><option>10 second cinematic clip</option><option>15 second social media video</option></select></div>
+<div><label>Camera movement</label><select id="camera"><option>Slow cinematic dolly-in</option><option>Gentle orbit camera movement</option><option>Wide establishing shot with slow pan</option><option>Natural handheld documentary movement</option><option>Macro close-up with shallow depth of field</option></select></div>
+<div><label>Aspect ratio</label><select id="vratio"><option>9:16 vertical</option><option>16:9 landscape</option><option>1:1 square</option></select></div>
+</div><label>Extra action / details</label><input id="vextra" placeholder="जैसे: दीपक की लौ हिलती हुई, फूलों की पंखुड़ियाँ उड़ती हुई...">
+<div class="actions"><button class="primary" id="makeVideo">🎥 Generate Video Prompt</button><button id="openVideo">Open Video Tools ↗</button></div>
+<label>Generated video prompt</label><textarea id="videoPrompt" placeholder="आपका वीडियो prompt यहाँ दिखाई देगा..."></textarea><div class="actions"><button id="copyVideo">Copy Prompt</button><button id="clearVideo">Clear</button></div>
+<p class="hint">Text-to-video और image-to-video की उपलब्धता, मुफ्त credits, watermark और export limits हर provider पर अलग हैं।</p></div>
+</section>
+<section id="caption" class="section hidden"><div class="panel"><h2>📣 Facebook Caption & Hashtag Maker</h2><label>Post topic</label><input id="topic" placeholder="जैसे: श्रीराम की दिव्य छवि"><label>Post mood</label><select id="mood"><option>भक्ति और श्रद्धा</option><option>प्रेरणादायक</option><option>भावनात्मक</option><option>रोचक और जिज्ञासा जगाने वाला</option></select><div class="actions"><button class="primary" id="makeCaption">Create Caption</button></div><label>Caption</label><textarea id="captionOut"></textarea><div class="actions"><button id="copyCaption">Copy Caption</button></div></div></section>
+<section id="tools" class="section hidden"><div class="panel"><h2>🌐 Image & Video tools</h2><p class="hint">ये बाहरी सेवाएँ हैं। किसी को भी स्थायी unlimited-free सेवा मानकर न चलें; मुफ्त credits, login, watermark और commercial-use terms जाँचें।</p><div class="links">
+<div class="tool"><b>Microsoft Bing Image Creator</b><p>Image generation; free usage subject to Microsoft limits and terms.</p><a href="https://www.bing.com/images/create" target="_blank" rel="noopener">Open Bing ↗</a></div>
+<div class="tool"><b>Microsoft Designer</b><p>AI-assisted design and image tools; free features/limits may change.</p><a href="https://designer.microsoft.com/" target="_blank" rel="noopener">Open Designer ↗</a></div>
+<div class="tool"><b>Canva AI</b><p>Design, image and social post tools with plan-based usage limits.</p><a href="https://www.canva.com/ai-image-generator/" target="_blank" rel="noopener">Open Canva ↗</a></div>
+<div class="tool"><b>FreeImgGen</b><p>Third-party image generator. Check current free limits and privacy terms.</p><a href="https://freeimggen.com/" target="_blank" rel="noopener">Open FreeImgGen ↗</a></div>
+<div class="tool"><b>Pika</b><p>AI video creation; free credits and feature limits may apply.</p><a href="https://pika.art/" target="_blank" rel="noopener">Open Pika ↗</a></div>
+<div class="tool"><b>Runway</b><p>AI video and image tools; free plan availability and credits vary.</p><a href="https://runwayml.com/" target="_blank" rel="noopener">Open Runway ↗</a></div>
+<div class="tool"><b>Luma Dream Machine</b><p>AI video generation; check current plan and usage restrictions.</p><a href="https://lumalabs.ai/dream-machine" target="_blank" rel="noopener">Open Luma ↗</a></div>
+<div class="tool"><b>ComfyUI (Local)</b><p>Open-source local workflow. Requires compatible computer hardware and model setup.</p><a href="https://www.comfy.org/" target="_blank" rel="noopener">Open ComfyUI ↗</a></div>
+</div><div class="notice">Privacy tip: किसी भी AI वेबसाइट पर निजी फोटो या बच्चों की तस्वीर अपलोड करने से पहले उसकी privacy policy पढ़ें।</div></div></section>
+</main><footer>SCIENCE CENTRE LEARNING HUB • Guided by Vishwendra Sir<br>Independent tool directory and prompt assistant. Not affiliated with listed providers.</footer>
+<script>
+const $=id=>document.getElementById(id);
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.section').forEach(s=>s.classList.add('hidden'));$(b.dataset.tab).classList.remove('hidden')}));
+const copy=async id=>{const t=$(id).value;if(!t.trim())return alert('पहले prompt तैयार करें।');try{await navigator.clipboard.writeText(t);alert('Copied!')}catch(e){$(id).select();document.execCommand('copy');alert('Copied!')}};
+$('makeImage').onclick=()=>{const subject=$('theme').value,style=$('style').value,ratio=$('ratio').value,extra=$('extra').value;const en='Create an original '+style+' image of '+subject+'. Rich authentic details, natural anatomy, realistic materials and textures, balanced composition, beautiful lighting, sharp focal subject, professional high-end photography, no watermark, no logos, no unwanted text. Aspect ratio: '+ratio+'. Additional details: '+extra+'.';const hi='एक मौलिक '+style+' दृश्य बनाएँ: '+subject+'। वास्तविक चेहरे और शारीरिक बनावट, प्राकृतिक रोशनी, प्रामाणिक भारतीय विवरण, सुंदर संतुलित संरचना, उच्च गुणवत्ता वाली फोटोग्राफी। कोई वॉटरमार्क, लोगो या अनचाहा टेक्स्ट नहीं। अनुपात: '+ratio+'। अतिरिक्त विवरण: '+extra+'।';$('imagePrompt').value=$('lang').value==='Hindi prompt'?hi:en;};
+$('openImage').onclick=()=>window.open('https://www.bing.com/images/create','_blank','noopener');
+$('copyImage').onclick=()=>copy('imagePrompt');$('clearImage').onclick=()=> $('imagePrompt').value='';
+$('makeVideo').onclick=()=>{$('videoPrompt').value='Create a '+$('duration').value+' '+$('vratio').value+' cinematic video: '+$('vtheme').value+'. Camera: '+$('camera').value+'. Motion should be smooth, physically believable and consistent. Preserve subject identity and scene continuity. Detailed realistic lighting, natural movement, cinematic depth, no flicker, no morphing, no text, no watermark. Additional action: '+$('vextra').value+'.';};
+$('openVideo').onclick=()=>window.open('https://pika.art/','_blank','noopener');$('copyVideo').onclick=()=>copy('videoPrompt');$('clearVideo').onclick=()=> $('videoPrompt').value='';
+$('makeCaption').onclick=()=>{$('captionOut').value=$('topic').value+' ✨\n\n'+$('mood').value+' के इस खूबसूरत पल को महसूस कीजिए। आपको यह तस्वीर कैसी लगी? अपनी राय कमेंट में जरूर बताइए और अपनों के साथ साझा कीजिए। ❤️\n\n#ScienceCentreLearningHub #VishwendraSir #AIArt #IndianCulture #CreativeIndia';};$('copyCaption').onclick=()=>copy('captionOut');
+</script></body></html>
