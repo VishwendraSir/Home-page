@@ -21,4 +21,21 @@ const L=[
 ["Word Blending","🗣️","/c/ + /a/ + /t/ = cat • /s/ + /u/ + /n/ = sun","/d/ + /o/ + /g/ से?",["dig","dog","dug"],1,"Sounds को धीरे बोलें, फिर जोड़कर शब्द पढ़ें।"],
 ["Quick Quiz","🎯","ध्यान से sound सुनें और spelling देखें।","tree में कौन-सा vowel team है?",["ee","ai","ou"],0,"अभ्यास करते रहें — Learn • Listen • Practice."]
 ];let n=0;function openSlide(i){n=i;show();document.getElementById('slide').classList.add('show')}function closeSlide(){document.getElementById('slide').classList.remove('show')}function show(){let x=L[n];document.getElementById('content').innerHTML='<div class="big">'+x[1]+'</div><h2>'+x[0]+'</h2><p>'+x[6]+'</p><div class="example"><b>Examples / उदाहरण:</b><br>'+x[2]+'</div><div class="practice"><h3>📝 अभ्यास</h3><p>'+x[3]+'</p>'+x[4].map((v,i)=>'<button onclick="check('+i+')">'+v+'</button>').join('')+'<div class="feedback" id="fb" aria-live="polite"></div></div>'}function check(i){document.getElementById('fb').textContent=i===L[n][5]?'✅ बिल्कुल सही! Well done.':'फिर कोशिश करें — sound ध्यान से सुनें।'}function move(d){n=(n+d+L.length)%L.length;show()}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSlide();if(e.key==='ArrowRight')move(1);if(e.key==='ArrowLeft')move(-1)});
+/* Tap-to-read: speak only the text area the learner touches */
+let touchReadEnabled=true;
+function speakTouchedArea(target){
+ if(!touchReadEnabled || !('speechSynthesis' in window)) return;
+ if(target.closest('button,a,input,select,textarea,[contenteditable="true"]')) return;
+ const area=target.closest('.panel,.title,.tag,.tile,.example,#content h2,#content p,#content,.guided,.brand,footer');
+ if(!area) return;
+ const text=(area.innerText||area.textContent||'').replace(/\\s+/g,' ').trim();
+ if(!text) return;
+ window.speechSynthesis.cancel();
+ const utterance=new SpeechSynthesisUtterance(text);
+ utterance.lang=/[\\u0900-\\u097F]/.test(text)?'hi-IN':'en-IN';
+ utterance.rate=0.9;
+ window.speechSynthesis.speak(utterance);
+}
+document.addEventListener('click',e=>speakTouchedArea(e.target));
+
 </script></body></html>
