@@ -67,6 +67,13 @@
 - Facebook पर automatic posting शामिल नहीं है; Facebook Share dialog खुलता है।
 - Product price/availability manually update करनी होगी; कोई unauthorized scraping नहीं की जाती।
 
+## Free multi-source import — क्या automatic होगा?
+- एक ही CSV में Amazon, Flipkart, Meesho, Myntra, AJIO, Croma, FirstCry और अन्य networks के products रख सकते हैं। हर row में उसी network का exact affiliateUrl डालें।
+- Admin Panel में Download CSV Template से template लें, भरें और Import CSV से upload करें।
+- Facebook Page मुख्यतः traffic/share source है; Facebook post URL को affiliate purchase URL न मानें। Facebook से posts/products को बिना authorized API/permission के auto-scrape नहीं किया जाता।
+- Amazon/Flipkart तथा दूसरे marketplaces से price, stock, image और affiliate link का पूरी तरह automatic sync तभी संभव है जब उस network का approved API/feed और access मिले। केवल free HTML/JavaScript से सभी sites का भरोसेमंद auto-import संभव नहीं है।
+- CSV import product details और affiliate links को database में डालता है; यह marketplace से खुद product खोजकर affiliate link नहीं बनाता।
+
 ## CSV format
 Header:
 `name,description,category,platform,price,originalPrice,image,affiliateUrl,featured,active`
