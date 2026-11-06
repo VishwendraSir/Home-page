@@ -91,6 +91,7 @@ function renderProducts(){
  const root=$("products");
  if(!list.length){root.innerHTML='<div class="empty"><div style="font-size:2rem">🛍️</div><b>No products added yet</b><br><span>Products added by the shop owner will appear here. Please check back soon.</span></div>';return}
  root.innerHTML=list.map(p=>{let d=discount(p),img=p.image?'<img src="'+esc(p.image)+'" alt="'+esc(p.name)+'" loading="lazy" onerror="this.style.display=\'none\'">':'<span style="font-size:3rem">🛍️</span>';return '<article class="product"><div class="photo">'+img+(d?'<span class="discount">'+d+'% OFF</span>':'')+'</div><div class="pbody"><span class="platform">'+esc(p.category||"Product")+' · '+esc(p.platform||"Affiliate")+'</span><h3>'+esc(p.name)+'</h3><div class="desc">'+esc(p.description||"Recommended product from our affiliate store.")+'</div><div class="price"><span class="offer">'+(p.price!==""&&p.price!=null?money(p.price):"Check price")+'</span>'+(p.originalPrice?'<span class="old">'+money(p.originalPrice)+'</span>':'')+'</div><div class="actions"><button class="btn primary" data-buy="'+esc(p.id)+'">BUY NOW ↗</button><button class="btn" data-view="'+esc(p.id)+'">Details</button><button class="btn" data-wish="'+esc(p.id)+'" aria-label="Wishlist">'+(wishlist.includes(p.id)?"♥":"♡")+'</button></div></div></article>'}).join("");
+ if(currentUser&&currentUser.uid===OWNER_UID)renderAdminActions();
  root.querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>buyProduct(b.dataset.buy));
  root.querySelectorAll("[data-view]").forEach(b=>b.onclick=()=>showProduct(b.dataset.view));
  root.querySelectorAll("[data-wish]").forEach(b=>b.onclick=()=>toggleWish(b.dataset.wish));
@@ -120,5 +121,6 @@ $("csvFile").onchange=async e=>{let f=e.target.files[0];if(!f||!db||!currentUser
 $("search").oninput=renderProducts;$("categoryFilter").onchange=()=>{selectedCategory=$("categoryFilter").value;renderProducts()};$("sort").onchange=renderProducts;
 setupCategoryUI();let savedBanner=JSON.parse(localStorage.getItem("scShopBanner")||"null");if(savedBanner){$("bannerTitle").textContent=savedBanner.t;$("bannerText").textContent=savedBanner.x}
 if(configured){try{app=initializeApp(firebaseConfig);auth=getAuth(app);db=getFirestore(app);onAuthStateChanged(auth,u=>{setAdmin(u);loadProducts().then(renderAdminActions())});}catch(e){console.error(e);toast("Firebase initialization error")}}else{loadProducts();$("products").innerHTML='<div class="empty"><div style="font-size:2rem">🛍️</div><b>Your shop is ready for product setup</b><br>Firebase project configuration is the next step. No sample or fake products are displayed.</div>'}
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(err=>console.warn("Offline support unavailable",err)));}
 </script>
 </body></html>
