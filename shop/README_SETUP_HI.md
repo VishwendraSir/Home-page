@@ -8,7 +8,9 @@
 - Facebook और WhatsApp share
 - Wishlist (इस browser/device में localStorage)
 - Owner login via Firebase Authentication
-- Product add/edit/delete, CSV import/export
+- Product add/edit/delete, improved CSV import/export, downloadable CSV template
+- CSV import में quoted commas/line breaks support, duplicate affiliate URL skip, invalid rows skip, 500 rows per upload and 2 MB file limit
+- Affiliate platform labels: Amazon, Flipkart, Meesho, Myntra, AJIO, Croma, FirstCry and Other
 - Outbound affiliate click event analytics (sales/conversions नहीं)
 - Affiliate disclosure
 - Exact affiliate URL preserve करके new tab में खोलना
