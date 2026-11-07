@@ -65,7 +65,7 @@ const firebaseConfig = {
  appId: "PASTE_APP_ID"
 };
 const OWNER_UID = "PASTE_OWNER_UID";
-const CATEGORIES = ["Educational Products","Books & Study Material","Science Kits & Experiments","Mathematics Tools","Computers & Accessories","Electronics","Stationery","School Supplies","Toys & Learning Games","Home & Lifestyle","Trending Products","Best Deals"];
+const CATEGORIES = ["Microscope & Science Kits","Telescope","Educational Books","Abacus & Learning Toys","Educational Electronics"];
 const configured = firebaseConfig.apiKey !== "PASTE_FIREBASE_API_KEY" && firebaseConfig.projectId !== "PASTE_PROJECT_ID";
 let app=null,auth=null,db=null,currentUser=null,products=[],selectedCategory="",wishlist=JSON.parse(localStorage.getItem("scShopWishlist")||"[]");
 const $=id=>document.getElementById(id);
