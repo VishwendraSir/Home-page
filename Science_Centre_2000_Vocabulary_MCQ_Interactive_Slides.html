@@ -24,8 +24,14 @@ button.primary{background:#2563eb;color:white}button.dark{background:#172554;col
 .bottom{margin-top:13px;padding:13px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px}
 .small{font-size:12px;color:var(--muted);line-height:1.5}.score{font-weight:800;color:#1e40af}
 @media(max-width:560px){.filters{grid-template-columns:1fr}.options{grid-template-columns:1fr}.quiz{min-height:520px}.option{min-height:57px}.actions button{flex:1 1 40%}.bottom{justify-content:center;text-align:center}}
+
+.social-links{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:12px}
+.social-links a{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 13px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:800}
+.social-links .fb{background:#1877f2;color:#fff}
+.social-links .wa{background:#128c7e;color:#fff}
+@media(max-width:480px){.social-links a{font-size:12px;padding:8px 10px}}
 </style></head>
-<body><header><h1>SCIENCE CENTRE LEARNING HUB</h1><p>GUIDED BY VISHWENDRA SIR · ENGLISH–HINDI VOCABULARY MCQ CHALLENGE</p></header>
+<body><header><h1>SCIENCE CENTRE LEARNING HUB</h1><p>GUIDED BY VISHWENDRA SIR · ENGLISH–HINDI VOCABULARY MCQ CHALLENGE</p><nav class="social-links" aria-label="Social media links"><a class="fb" href="https://www.facebook.com/share/1CHHjYQtqe/" target="_blank" rel="noopener noreferrer">📘 Follow on Facebook</a><a class="wa" href="https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q" target="_blank" rel="noopener noreferrer">💬 Join WhatsApp Channel</a></nav></header>
 <main>
 <section class="filters">
 <div><label for="classPick">Choose Class / कक्षा चुनें</label><select id="classPick"></select></div>
