@@ -1,0 +1,41 @@
+[
+  {
+    "id": "stemvolt-solar-robot-13in1",
+    "name": "13 in 1 Solar Robot Kit for Kids Age 8+",
+    "description": "Build 13 different solar-powered robot models. Includes 190 parts; suitable for ages 8+.",
+    "category": "Microscope & Science Kits",
+    "platform": "StemVolt",
+    "price": 799,
+    "originalPrice": 999,
+    "image": "https://stemvolt.in/wp-content/uploads/2025/12/13-in-1-Solar-Robot-Kit-for-Kids-Age-8-DIY-STEM-Educational-Learning-Kit.jpg",
+    "affiliateUrl": "https://stemvolt.in/product/13-in-1-solar-robot-kit-for-kids-age-8/",
+    "active": true,
+    "featured": true
+  },
+  {
+    "id": "stemvolt-earthquake-alarm",
+    "name": "DIY Earthquake Alarm Kit | Project for Students",
+    "description": "Build a vibration-triggered alarm and learn basic detection circuits. In-stock listing at the time checked.",
+    "category": "Microscope & Science Kits",
+    "platform": "StemVolt",
+    "price": 199,
+    "originalPrice": 231,
+    "image": "https://stemvolt.in/wp-content/uploads/2025/07/diy-earthquake-alarm-kit-front-view.jpg.jpg",
+    "affiliateUrl": "https://stemvolt.in/product/diy-earthquake-alarm-kit-vibration-sensor-project-for-students/",
+    "active": true,
+    "featured": true
+  },
+  {
+    "id": "stemvolt-solar-moon-rover",
+    "name": "DIY Solar Moon Rover Model Kit",
+    "description": "Assemble a solar-powered rover to explore renewable energy, motors and gear-driven movement.",
+    "category": "Microscope & Science Kits",
+    "platform": "StemVolt",
+    "price": 309,
+    "originalPrice": 413,
+    "image": "https://stemvolt.in/wp-content/uploads/2025/12/Untitled-design-2025-12-04T125736.043-150x150.jpg",
+    "affiliateUrl": "https://stemvolt.in/product/diy-solar-moon-rover-model-kit-for-stem-learning/",
+    "active": true,
+    "featured": true
+  }
+]
