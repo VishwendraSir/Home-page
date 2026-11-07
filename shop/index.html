@@ -42,7 +42,7 @@
 <div class="field"><label>Offer price (₹)</label><input id="pPrice" type="number" min="0" step=".01"></div>
 <div class="field"><label>Original price (₹)</label><input id="pOriginal" type="number" min="0" step=".01"></div>
 <div class="field full"><label>Product image URL (https://…)</label><input id="pImage" type="url" placeholder="Paste a direct image URL"></div>
-<div class="field full"><label>Exact affiliate purchase URL *</label><input id="pUrl" type="url" required placeholder="https://…"></div>
+<div class="field full"><label>Product / Store Link *</label><input id="pUrl" type="url" required placeholder="Paste Amazon / Flipkart / any product URL"><button class="btn outline" type="button" id="fetchProductLink" style="margin-top:8px">↗ Get product details automatically</button><small class="muted" id="linkFetchStatus">Paste a product URL, then tap Get product details. Some stores block automatic details.</small></div>
 <div class="field"><label><input id="pFeatured" type="checkbox"> Feature on homepage</label></div>
 <div class="field"><label><input id="pActive" type="checkbox" checked> Visible in shop</label></div>
 </div><button class="btn primary" type="submit">Save Product</button> <button class="btn outline" type="button" data-close>Cancel</button><p id="productMessage" class="muted"></p></form></div></div>
@@ -106,6 +106,29 @@ function setAdmin(user){currentUser=user;let ok=!!user&&user.uid===OWNER_UID&&OW
 $("adminOpen").onclick=()=>{if(currentUser&&currentUser.uid===OWNER_UID){$("adminBar").scrollIntoView({behavior:"smooth"})}else showModal("loginModal")};
 $("loginForm").onsubmit=async e=>{e.preventDefault();if(!auth){$("loginMessage").textContent="Firebase is not configured yet. Follow shop/README_SETUP_HI.md.";return}try{await signInWithEmailAndPassword(auth,$("loginEmail").value,$("loginPassword").value);closeModals();toast("Login successful")}catch(err){$("loginMessage").textContent=err.message}};
 $("logout").onclick=async()=>{if(auth)await signOut(auth);$("adminBar").classList.remove("show");toast("Logged out")};
+async function fetchProductMetadata(){
+ const raw=$("pUrl").value.trim(),status=$("linkFetchStatus"),btn=$("fetchProductLink");
+ if(!/^https?:\\/\\//i.test(raw)){status.textContent="Please paste a valid https:// product link.";return}
+ let u;try{u=new URL(raw)}catch(e){status.textContent="This link is not valid.";return}
+ btn.disabled=true;status.textContent="Trying to read product title and image…";
+ const host=u.hostname.replace(/^www\\./,"").toLowerCase();
+ const platform=host.includes("amazon")?"Amazon":host.includes("flipkart")?"Flipkart":host.includes("meesho")?"Meesho":host.includes("myntra")?"Myntra":host.includes("ajio")?"AJIO":host.includes("croma")?"Croma":host.includes("firstcry")?"FirstCry":"Other";
+ $("pPlatform").value=platform;
+ try{
+  const endpoint="https://api.microlink.io/?url="+encodeURIComponent(raw)+"&screenshot=false";
+  const response=await fetch(endpoint,{headers:{Accept:"application/json"}});
+  if(!response.ok)throw new Error("Preview service unavailable");
+  const json=await response.json(),d=json.data||{};
+  const title=(d.title||"").replace(/\\s*[|–-]\\s*(Amazon\\.in|Flipkart|Meesho|Myntra).*$/i,"").trim();
+  if(title&&!$("pName").value)$("pName").value=title.slice(0,120);
+  if(d.description&&!$("pDesc").value)$("pDesc").value=d.description.slice(0,300);
+  if(d.image?.url&&!$("pImage").value)$("pImage").value=d.image.url;
+  status.textContent=title?"Details found. Check the name and image; enter/verify current prices manually.":"Link detected, but product details were not provided by the store.";
+ }catch(err){status.textContent="Link saved. This store blocked automatic preview; enter name, image and verified prices manually."}
+ finally{btn.disabled=false}
+}
+$("fetchProductLink").onclick=fetchProductMetadata;
+$("pUrl").addEventListener("change",()=>{if($("pUrl").value.trim())fetchProductMetadata()});
 function clearProductForm(){$("productForm").reset();$("editId").value="";$("pActive").checked=true;$("productFormTitle").textContent="Add Product"}
 $("addProduct").onclick=()=>{clearProductForm();showModal("productModal")};
 $("productForm").onsubmit=async e=>{e.preventDefault();if(!db||!currentUser||currentUser.uid!==OWNER_UID){toast("Owner login and Firebase setup required");return}let id=$("editId").value;let data={name:$("pName").value.trim(),description:$("pDesc").value.trim(),category:$("pCategory").value,platform:$("pPlatform").value,price:$("pPrice").value?Number($("pPrice").value):null,originalPrice:$("pOriginal").value?Number($("pOriginal").value):null,image:$("pImage").value.trim(),affiliateUrl:$("pUrl").value.trim(),featured:$("pFeatured").checked,active:$("pActive").checked,updatedAt:serverTimestamp()};if(!/^https?:\/\//i.test(data.affiliateUrl)){toast("Enter a valid affiliate URL");return}try{if(id)await setDoc(doc(db,"products",id),data,{merge:true});else await addDoc(collection(db,"products"),{...data,createdAt:serverTimestamp()});closeModals();await loadProducts();toast("Product saved")}catch(err){$("productMessage").textContent=err.message}};
