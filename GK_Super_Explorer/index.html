@@ -621,4 +621,79 @@ function showSlideResult(){
 }
 function restartSlideDeck(){window.gkSlideFinished=false;window.gkSlideAnswers={};window.gkSlideScore=0;slideIndex=0;const stage=document.querySelector("#slideShow .slide-stage");stage.innerHTML=window.gkSlideStageTemplate;document.getElementById("slideNext").onclick=()=>moveSlide(1);renderSlide();}
 </script>
+
+<style id="GK_OPTION_SLIDE_ROUTER_V3">
+/* Mobile-first option detail slides */
+#gkOptionSlide{position:fixed;inset:0;z-index:10001;display:none;background:linear-gradient(145deg,#101944,#263f9b 60%,#6b49c8);padding:clamp(8px,2.5vw,18px);color:#fff;overflow:auto;overscroll-behavior:contain}
+#gkOptionSlide.open{display:flex;align-items:center;justify-content:center}
+#gkOptionSlide .gk-option-card{width:min(100%,760px);max-height:96dvh;overflow:auto;background:#fff;color:#172044;border-radius:22px;padding:clamp(16px,4vw,30px);box-shadow:0 20px 60px #0005}
+#gkOptionSlide .gk-option-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+#gkOptionSlide .gk-option-title{font-size:clamp(23px,6vw,36px);line-height:1.2;font-weight:900;margin:8px 0}
+#gkOptionSlide .gk-option-sub{font-size:clamp(15px,3.8vw,19px);line-height:1.55;color:#5e6884}
+#gkOptionSlide .gk-option-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+#gkOptionSlide button{min-height:48px;border:0;border-radius:13px;padding:12px 14px;font-weight:850;font-size:15px;cursor:pointer}
+#gkOptionSlide .gk-option-primary{background:#2756c7;color:white}
+#gkOptionSlide .gk-option-secondary{background:#edf1ff;color:#213a85}
+#gkOptionSlide .gk-option-close{background:#eef1f7;color:#25304e}
+@media(max-width:520px){
+ #gkOptionSlide{padding:7px}
+ #gkOptionSlide .gk-option-card{width:100%;max-height:98dvh;border-radius:17px;padding:17px}
+ #gkOptionSlide .gk-option-actions{grid-template-columns:1fr}
+ #gkOptionSlide button{width:100%;min-height:50px}
+}
+#slideShow{padding:clamp(6px,2vw,14px);height:100dvh;box-sizing:border-box;overflow:hidden}
+#slideShow .slide-shell{height:100%;max-height:100dvh;min-height:0;width:min(100%,900px)}
+#slideShow .slide-stage{min-height:0;overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:520px){
+ #slideShow .slide-shell{height:100%;gap:7px}
+ #slideShow .slide-top{flex-wrap:nowrap}
+ #slideShow .slide-brand{max-width:54%;font-size:9px}
+ #slideShow .slide-controls{gap:6px;flex-wrap:nowrap}
+ #slideShow .slide-controls .group{flex:1}
+ #slideShow .slide-controls .group:last-child{justify-content:flex-end}
+ #slideShow .slide-btn{white-space:nowrap;padding:8px 9px;font-size:11px}
+ #slideShow .slide-stage{padding:13px}
+}
+</style>
+<div id="gkOptionSlide" aria-modal="true" role="dialog" aria-label="Selected option details">
+ <div class="gk-option-card">
+  <div class="gk-option-head"><div class="slide-brand" style="color:#354a9b">🌍 SCIENCE CENTRE LEARNING HUB<br>GUIDED BY VISHWENDRA SIR</div><button class="gk-option-close" onclick="gkCloseOptionSlide()">✕ Close</button></div>
+  <div id="gkOptionIcon" style="font-size:44px"></div>
+  <div class="gk-option-title" id="gkOptionTitle"></div>
+  <div class="gk-option-sub" id="gkOptionDescription"></div>
+  <div class="gk-option-actions" id="gkOptionActions"></div>
+ </div>
+</div>
+<script id="GK_OPTION_SLIDE_ROUTER_V3">
+function gkOpenOptionSlide(data){
+ const d=data||{},box=document.getElementById("gkOptionSlide");
+ document.getElementById("gkOptionIcon").textContent=d.icon||"📘";
+ document.getElementById("gkOptionTitle").textContent=d.title||"Learning Option";
+ document.getElementById("gkOptionDescription").textContent=d.description||"अपनी सीखने की गतिविधि चुनें।";
+ const actions=document.getElementById("gkOptionActions");actions.innerHTML="";
+ (d.actions||[]).forEach((a,i)=>{const b=document.createElement("button");b.className=i===0?"gk-option-primary":"gk-option-secondary";b.textContent=a.label;b.onclick=()=>{gkCloseOptionSlide();a.run&&a.run()};actions.appendChild(b)});
+ box.classList.add("open");document.body.style.overflow="hidden";
+}
+function gkCloseOptionSlide(){document.getElementById("gkOptionSlide").classList.remove("open");document.body.style.overflow="";}
+function gkOpenClassSlide(n){
+ cls=n;document.querySelectorAll(".level").forEach((b,i)=>b.classList.toggle("active",i===n-1));
+ document.getElementById("heading").textContent="Class "+n+" · GK Universe";
+ gkOpenOptionSlide({icon:"🎓",title:"Class "+n+" · Learning Slides",description:"कक्षा "+n+" के उपलब्ध GK प्रश्न अब एक-एक करके नई स्लाइड में खुलेंगे। Hindi + English, Voice, Answer feedback और score सहित।",actions:[{label:"📽️ Open Class Slides",run:()=>openSlideShow("all")},{label:"📝 Open MCQ Quiz",run:()=>startQuiz("all")}]});
+}
+function gkOpenTopicSlide(id){
+ const t=T.find(x=>x[0]===id);if(!t)return;
+ topic=id;document.querySelectorAll(".topicbtn").forEach(b=>b.classList.toggle("active",b.getAttribute("onclick")?.includes("'"+id+"'")));
+ gkOpenOptionSlide({icon:t[1],title:t[2]+" · "+t[3],description:t[4]+"\nClass "+cls+" · इस विषय के प्रश्न नई स्लाइड में खुलेंगे।",actions:[{label:"📽️ Open Topic Slides",run:()=>openSlideShow(id)},{label:"📝 Start Topic Quiz",run:()=>startQuiz(id)},{label:"🔊 Listen",run:()=>speak(t[2]+". "+t[3]+". "+t[4])}]});
+}
+function gkOpenStateSlide(i){
+ const x=INDIA_PLACES[i];if(!x)return;
+ gkOpenOptionSlide({icon:"🗺️",title:x[1]+" · "+x[0],description:"राजधानी / Capital: "+x[2]+"\n"+(i<28?"राज्य · State":"केंद्र शासित प्रदेश · Union Territory")+"\nइस स्थान का विवरण और अभ्यास अलग स्लाइड में देखें।",actions:[{label:"📝 Start State MCQ",run:()=>startStateQuiz(i)},{label:"🔊 Listen",run:()=>speak(x[1]+"। राजधानी "+x[2])}]});
+}
+/* Every class/topic/state choice opens its own full-screen detail slide. */
+document.querySelectorAll("#levels .level").forEach((b,i)=>{b.onclick=()=>gkOpenClassSlide(i+1)});
+document.querySelectorAll("#topiclist .topicbtn").forEach(b=>{const m=b.getAttribute("onclick")?.match(/setTopic\('([^']+)'/);const id=m?m[1]:"all";b.onclick=()=>id==="all"?gkOpenOptionSlide({icon:"🌍",title:"All GK Topics",description:"सभी उपलब्ध विषयों के प्रश्न स्लाइड में अभ्यास करें।",actions:[{label:"📽️ Open All Slides",run:()=>openSlideShow("all")},{label:"📝 Start All Quiz",run:()=>startQuiz("all")}] }):gkOpenTopicSlide(id)});
+document.getElementById("cards")?.addEventListener("click",e=>{const card=e.target.closest(".topic");if(!card)return;const btn=card.querySelector("button[onclick*='startQuiz']");const m=btn?.getAttribute("onclick")?.match(/startQuiz\('([^']+)'\)/);if(m){e.preventDefault();e.stopPropagation();gkOpenTopicSlide(m[1]);}});
+document.getElementById("stateGrid")?.addEventListener("click",e=>{const b=e.target.closest("[data-state]");if(b){e.preventDefault();gkOpenStateSlide(+b.dataset.state);}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&document.getElementById("gkOptionSlide")?.classList.contains("open"))gkCloseOptionSlide();});
+</script>
 </body></html>
