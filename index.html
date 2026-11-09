@@ -35,6 +35,15 @@ footer{background:#0b1b45;color:#fff;text-align:center;padding:22px 14px}footer 
 @media(max-width:600px){.social-header{width:100%;justify-content:center;margin-top:10px}.social-header a{font-size:.78rem;padding:7px 9px}}
 
 </style>
+<style id="SOCIAL_LINKS_FOOTER_V1">
+.social-footer{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px;margin:16px auto 0;padding:0 12px}
+.social-footer a{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:11px 18px;border-radius:13px;color:#fff;text-decoration:none;font-weight:850;box-shadow:0 5px 14px #172b4d20}
+.social-footer .wa{background:#128c7e}
+.social-footer .fb{background:#1877f2}
+.social-footer a:focus-visible{outline:3px solid #facc15;outline-offset:3px}
+.social-footer a:active{transform:scale(.98)}
+@media(max-width:520px){.social-footer{display:grid;grid-template-columns:1fr;width:min(100%,420px);box-sizing:border-box}.social-footer a{width:100%;box-sizing:border-box}}
+</style>
 </head>
 <body>
 <header>
@@ -214,7 +223,10 @@ footer{background:#0b1b45;color:#fff;text-align:center;padding:22px 14px}footer 
 </section>
 
 </main>
-<footer><strong>SCIENCE CENTRE LEARNING HUB</strong><br>Guided by Vishwendra Sir<br><small>Mobile-friendly learning hub · Free resources · Premium catalogue · Daily practice</small></footer>
+<footer><strong>SCIENCE CENTRE LEARNING HUB</strong><br>Guided by Vishwendra Sir<br><small>Mobile-friendly learning hub · Free resources · Premium catalogue · Daily practice</small><div class="social-footer" aria-label="Follow Science Centre Learning Hub on social media">
+ <a class="wa" href="https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q" target="_blank" rel="noopener noreferrer" aria-label="Join WhatsApp Channel">💬 Join WhatsApp Channel ↗</a>
+ <a class="fb" href="https://www.facebook.com/share/1CHHjYQtqe/" target="_blank" rel="noopener noreferrer" aria-label="Follow Facebook Page">📘 Follow Facebook Page ↗</a>
+</div></footer>
 <script>
 const dropdown=document.getElementById('startDropdown'), dropButton=document.getElementById('dropButton');
 dropButton.addEventListener('click',()=>{const open=dropdown.classList.toggle('open');dropButton.setAttribute('aria-expanded',String(open));});
