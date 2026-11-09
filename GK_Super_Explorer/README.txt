@@ -18,3 +18,10 @@ Update v3 — Option-by-option mobile slide navigation
 - Selecting a class, topic, topic card, or India state/UT opens a dedicated full-screen option slide.
 - Each option slide provides clear actions to open its slide deck, start a quiz, or listen where available.
 - Mobile layout uses viewport-height sizing, scroll-safe cards, large touch targets, and responsive action buttons.
+
+
+Update v4 — Tutor repair
+- Repaired the Tutor search: it now searches the embedded question bank directly instead of trying to parse the page HTML as JSON.
+- Returns up to five relevant question-bank matches with bilingual question, answer, explanation, topic and class.
+- Enter key submits the query; result cards are mobile responsive.
+- This is an offline question-bank explanation helper, not a live generative AI chat. A secure AI backend is still required for open-ended AI conversations.
