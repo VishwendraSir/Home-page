@@ -493,4 +493,131 @@ if('serviceWorker' in navigator && location.protocol.startsWith('http')){
  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 }
 </script>
+
+<style id="GK_SLIDE_ENGINE_V2">
+#slideShow .slide-shell{max-width:900px}
+#slideShow .slide-top{align-items:center}
+#slideShow .slide-counter{background:#ffffff20;padding:8px 11px;border-radius:999px}
+#slideShow .slide-stage{box-sizing:border-box}
+#slideShow .slide-options{grid-template-columns:1fr 1fr}
+#slideShow .slide-option{display:flex;align-items:center;gap:12px;min-height:64px;width:100%;cursor:pointer;transition:transform .12s,border-color .12s,background .12s}
+#slideShow .slide-option:active{transform:scale(.985)}
+#slideShow .slide-option .opt-letter{display:grid;place-items:center;flex:0 0 34px;height:34px;border-radius:11px;background:#e6ebff;color:#3047a8;font-weight:900}
+#slideShow .slide-option.correct{background:#e7faee;border-color:#22a35a;color:#126b37}
+#slideShow .slide-option.wrong{background:#fff0f0;border-color:#dc4b58;color:#a12c36}
+#slideShow .slide-option:disabled{opacity:1;cursor:default}
+#slideShow .slide-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#e7ebff;font-size:13px;font-weight:800}
+#slideShow .slide-feedback{margin-top:14px;padding:13px 15px;border-radius:14px;line-height:1.5;font-weight:750;display:none}
+#slideShow .slide-feedback.show{display:block}
+#slideShow .slide-feedback.good{background:#e7faee;color:#126b37}
+#slideShow .slide-feedback.bad{background:#fff0f0;color:#a12c36}
+#slideShow .slide-answer{white-space:pre-wrap}
+#slideShow .slide-language{border:1px solid #ffffff55;background:#ffffff18;color:#fff;border-radius:10px;padding:8px;font-weight:700}
+#slideShow .slide-language option{color:#18264b}
+#slideShow .slide-controls{padding-top:2px}
+#slideShow .slide-btn{min-height:44px}
+#slideShow .slide-result{text-align:center;color:#172044}
+#slideShow .slide-result .big-score{font-size:clamp(40px,9vw,76px);font-weight:950;color:#3858c8}
+@media(max-width:600px){
+ #slideShow{padding:8px}
+ #slideShow .slide-shell{height:96dvh;gap:8px}
+ #slideShow .slide-brand{font-size:10px}
+ #slideShow .slide-options{grid-template-columns:1fr;gap:8px;margin-top:16px}
+ #slideShow .slide-option{min-height:54px;padding:10px 12px;font-size:15px}
+ #slideShow .slide-question{margin:13px 0 7px;font-size:clamp(21px,6vw,30px)}
+ #slideShow .slide-stage{padding:16px;overflow:auto}
+ #slideShow .slide-controls{justify-content:space-between}
+ #slideShow .slide-controls .group{gap:6px}
+ #slideShow .slide-btn{padding:9px 10px;font-size:12px;min-height:42px}
+}
+</style>
+<script id="GK_SLIDE_ENGINE_V2">
+window.gkSlideAnswers = {};
+window.gkSlideScore = 0;
+window.gkSlideLanguage = "both";
+window.gkSlideFinished = false;
+function gkSlideEscape(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function gkSlideStats(){const vals=Object.values(window.gkSlideAnswers);return {answered:vals.filter(x=>x.choice!==null||x.revealed).length,correct:vals.filter(x=>x.choice!==null&&x.correct).length};}
+function openSlideShow(topicId){
+ const chosen=(topicId&&topicId!=="all")?topicId:(typeof topic!=="undefined"?topic:"all");
+ slideDeck=classQuestionPool(chosen);
+ if(!slideDeck.length){alert("इस कक्षा/विषय के लिए प्रश्न उपलब्ध नहीं हैं।");return;}
+ slideIndex=0;slideRevealed=false;window.gkSlideAnswers={};window.gkSlideScore=0;window.gkSlideFinished=false;
+ window.gkSlideLanguage="both";
+ document.getElementById("slideShow").classList.add("open");
+ document.body.style.overflow="hidden";
+ const stage=document.querySelector("#slideShow .slide-stage");
+ if(!document.getElementById("gkSlideFeedback")){const f=document.createElement("div");f.id="gkSlideFeedback";f.className="slide-feedback";stage.appendChild(f);}
+ let meta=document.getElementById("gkSlideMeta");
+ if(!meta){meta=document.createElement("div");meta.id="gkSlideMeta";meta.className="slide-meta";document.querySelector("#slideShow .slide-progress").insertAdjacentElement("afterend",meta);}
+ meta.innerHTML='<span id="gkSlideScore">⭐ Score: 0</span><span id="gkSlideAnswered">Answered: 0 / '+slideDeck.length+'</span>';
+ const top=document.querySelector("#slideShow .slide-top");
+ let lang=document.getElementById("gkSlideLanguage");
+ if(!lang){lang=document.createElement("select");lang.id="gkSlideLanguage";lang.className="slide-language";lang.setAttribute("aria-label","Slide language");lang.innerHTML='<option value="both">हिन्दी + English</option><option value="hi">केवल हिन्दी</option><option value="en">English only</option>';lang.addEventListener("change",()=>{window.gkSlideLanguage=lang.value;renderSlide();});top.insertBefore(lang,top.lastElementChild);}
+ renderSlide();
+}
+function closeSlideShow(){document.getElementById("slideShow").classList.remove("open");document.body.style.overflow="";if(window.speechSynthesis)speechSynthesis.cancel();}
+function renderSlide(){
+ if(window.gkSlideFinished){showSlideResult();return;}
+ const q=slideDeck[slideIndex];if(!q)return;
+ const topicData=T.find(t=>t[0]===q[0]);
+ document.getElementById("slideTopic").textContent=(topicData?topicData[1]+" "+topicData[2]:"GK")+" · CLASS "+cls;
+ const lang=window.gkSlideLanguage||"both";
+ document.getElementById("slideHindi").textContent=lang==="en"?"":q[1];
+ document.getElementById("slideEnglish").textContent=lang==="hi"?"":q[2];
+ document.getElementById("slideOptions").innerHTML=q[3].map((o,i)=>'<button type="button" class="slide-option" id="slideOpt'+i+'" onclick="chooseSlideOption('+i+')"><span class="opt-letter">'+("ABCD"[i])+'</span><span>'+gkSlideEscape(o)+'</span></button>').join("");
+ const state=window.gkSlideAnswers[slideIndex]||{choice:null,correct:false,revealed:false};
+ const feedback=document.getElementById("gkSlideFeedback");feedback.className="slide-feedback";feedback.textContent="";
+ document.getElementById("slideAnswer").classList.remove("show");document.getElementById("slideAnswer").textContent="";
+ if(state.choice!==null||state.revealed){q[3].forEach((_,i)=>{const b=document.getElementById("slideOpt"+i);b.disabled=true;if(i===q[4])b.classList.add("correct");if(state.choice===i&&i!==q[4])b.classList.add("wrong");});showSlideExplanation(state);}
+ document.getElementById("slideCounter").textContent=(slideIndex+1)+" / "+slideDeck.length;
+ document.getElementById("slideProgress").style.width=((slideIndex+1)/slideDeck.length*100)+"%";
+ document.getElementById("slidePrev").disabled=slideIndex===0;
+ document.getElementById("slideNext").textContent=slideIndex===slideDeck.length-1?"Finish ✓":"Next →";
+ document.getElementById("gkSlideScore").textContent="⭐ Score: "+gkSlideStats().correct;
+ document.getElementById("gkSlideAnswered").textContent="Answered: "+gkSlideStats().answered+" / "+slideDeck.length;
+}
+function showSlideExplanation(state){
+ const q=slideDeck[slideIndex],lang=window.gkSlideLanguage||"both";
+ const exp=lang==="en"?q[6]:lang==="hi"?q[5]:q[5]+" "+q[6];
+ const box=document.getElementById("slideAnswer");
+ box.textContent=(lang==="en"?"Correct answer: ":"सही उत्तर: ")+q[3][q[4]]+"\n"+exp;box.classList.add("show");
+ const feedback=document.getElementById("gkSlideFeedback");
+ feedback.className="slide-feedback show "+(state.choice===null?"good":state.correct?"good":"bad");
+ feedback.textContent=state.choice===null?"💡 Answer revealed.":state.correct?"🎉 सही जवाब! Great job!":"💡 सही उत्तर: "+q[3][q[4]];
+}
+function chooseSlideOption(n){
+ const old=window.gkSlideAnswers[slideIndex];if(old&&(old.choice!==null||old.revealed))return;
+ const q=slideDeck[slideIndex],ok=n===q[4];
+ window.gkSlideAnswers[slideIndex]={choice:n,correct:ok,revealed:false};
+ if(ok){window.gkSlideScore++;try{let s=JSON.parse(localStorage.getItem("gkExplorerState")||"{}");s.xp=(s.xp||0)+10;s.correct=(s.correct||0)+1;localStorage.setItem("gkExplorerState",JSON.stringify(s));}catch(e){}}
+ else{try{let s=JSON.parse(localStorage.getItem("gkExplorerState")||"{}");s.wrong=(s.wrong||0)+1;localStorage.setItem("gkExplorerState",JSON.stringify(s));}catch(e){}}
+ renderSlide();playTouchTone(ok?"success":"tap");
+}
+function slideReveal(){
+ const old=window.gkSlideAnswers[slideIndex];if(old&&(old.choice!==null||old.revealed))return;
+ window.gkSlideAnswers[slideIndex]={choice:null,correct:false,revealed:true};renderSlide();
+}
+function slideSpeak(){
+ const q=slideDeck[slideIndex];if(!q)return;const lang=window.gkSlideLanguage||"both";
+ const parts=[];if(lang!=="en")parts.push(q[1]);if(lang!=="hi")parts.push(q[2]);
+ parts.push(q[3].map((o,i)=>"Option "+("ABCD"[i])+". "+o).join(". "));
+ const st=window.gkSlideAnswers[slideIndex];if(st&&(st.choice!==null||st.revealed))parts.push(q[5],q[6]);
+ speak(parts.join(". "));
+}
+function moveSlide(delta){
+ const next=slideIndex+delta;if(next<0)return;
+ if(next>=slideDeck.length){window.gkSlideFinished=true;showSlideResult();return;}
+ slideIndex=next;renderSlide();
+}
+function showSlideResult(){
+ const st=gkSlideStats(),pct=Math.round(st.correct/Math.max(1,slideDeck.length)*100);
+ document.querySelector("#slideShow .slide-stage").innerHTML='<div class="slide-result"><div style="font-size:54px">🏆</div><h2>Slide Practice Completed!</h2><div class="big-score">'+st.correct+' / '+slideDeck.length+'</div><p><b>'+pct+'% Accuracy</b></p><p>Attempted: '+st.answered+' · Correct: '+st.correct+'</p><p>'+(pct>=80?"शानदार! Excellent work!":pct>=50?"अच्छा प्रयास! Keep practising.":"अभ्यास जारी रखें—आप बेहतर कर सकते हैं!")+'</p><button class="slide-btn primary" onclick="restartSlideDeck()">↻ Restart Slides</button></div>';
+ document.getElementById("slideNext").textContent="Close ✓";document.getElementById("slideNext").onclick=closeSlideShow;
+ document.getElementById("slidePrev").disabled=true;
+ document.getElementById("gkSlideScore").textContent="⭐ Final Score: "+st.correct;
+ document.getElementById("gkSlideAnswered").textContent="Completed · "+st.answered+" / "+slideDeck.length;
+}
+function restartSlideDeck(){window.gkSlideFinished=false;window.gkSlideAnswers={};window.gkSlideScore=0;slideIndex=0;document.getElementById("slideNext").onclick=()=>moveSlide(1);renderSlide();}
+</script>
 </body></html>
