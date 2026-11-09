@@ -12,3 +12,9 @@ Update v2 — Interactive Slide Learning
 - Hindi, English, or bilingual slide display; touch-friendly Previous/Next and swipe navigation.
 - Slide score, answer progress, restart and voice read-aloud.
 - Existing embedded question bank is retained; slide answers and progress are stored locally on the device.
+
+
+Update v3 — Option-by-option mobile slide navigation
+- Selecting a class, topic, topic card, or India state/UT opens a dedicated full-screen option slide.
+- Each option slide provides clear actions to open its slide deck, start a quiz, or listen where available.
+- Mobile layout uses viewport-height sizing, scroll-safe cards, large touch targets, and responsive action buttons.
