@@ -484,7 +484,36 @@ function hybridReadState(){try{return JSON.parse(localStorage.getItem('gkExplore
 function hybridRefresh(){let s=hybridReadState(),a=s.attempted||{},done=Object.values(a).reduce((n,x)=>n+(x.count||0),0),c=s.correct||0,w=s.wrong||0;let ids=['hybridAttempts','hybridXP','hybridAccuracy'];document.getElementById(ids[0]).textContent=done;document.getElementById(ids[1]).textContent=s.xp||0;document.getElementById(ids[2]).textContent=(c+w?Math.round(c/(c+w)*100):0)+'%';document.getElementById('hybridRewards').textContent=done>=100?'🏆 Century Explorer unlocked!':done>=1?'🌱 First Steps badge unlocked. Keep going!':'Practice to unlock your first learning badge.'}
 function hybridBackup(){let data=localStorage.getItem('gkExplorerState')||'{}',a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type:'application/json'}));a.download='GK_Explorer_Progress_Backup.json';a.click();URL.revokeObjectURL(a.href)}
 function hybridQuestionExport(){let text=document.documentElement.innerHTML.match(/const Q=(\\[.*?\\]);\\s*let /s);if(!text){alert('Question export is unavailable in this browser view.');return}let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text[1]],{type:'application/json'}));a.download='GK_Super_Explorer_1000_Questions.json';a.click();URL.revokeObjectURL(a.href)}
-function hybridTutor(){let word=(document.getElementById('hybridTutorSearch').value||'').toLowerCase().trim(),box=document.getElementById('hybridTutorResult');let m=document.documentElement.innerHTML.match(/const Q=(\\[.*?\\]);\\s*let /s);if(!m||!word){box.style.display='block';box.textContent='कृपया कोई keyword लिखें।';return}try{let qs=JSON.parse(m[1]),q=qs.find(x=>(x[1]+' '+x[2]).toLowerCase().includes(word));box.style.display='block';box.textContent=q?(q[1]+'\\n'+q[2]+'\\nसही उत्तर: '+q[3][q[4]]+'\\nसमझिए: '+q[5]+'\\n'+q[6]):'इस keyword पर प्रश्न नहीं मिला।'}catch(e){box.style.display='block';box.textContent='Tutor content load नहीं हो पाया।'}}
+
+function hybridTutor(){
+ const input=document.getElementById('hybridTutorSearch');
+ const box=document.getElementById('hybridTutorResult');
+ const query=(input?.value||'').trim().toLocaleLowerCase();
+ box.style.display='block';box.innerHTML='';
+ if(!query){box.textContent='अपना प्रश्न या विषय लिखें। उदाहरण: भारत की राजधानी, पौधे, सौरमंडल, मानव शरीर।';input?.focus();return;}
+ if(typeof Q==='undefined'||!Array.isArray(Q)){box.textContent='Question bank अभी लोड नहीं हुआ। पेज Refresh करके फिर कोशिश करें।';return;}
+ const words=query.split(/\s+/).filter(w=>w.length>1);
+ const ranked=Q.map((q,index)=>{
+  const topicData=Array.isArray(T)?T.find(t=>t[0]===q[0]):null;
+  const hay=[q[1],q[2],...(q[3]||[]),q[5],q[6],topicData?.[2],topicData?.[3]].join(' ').toLocaleLowerCase();
+  let score=hay.includes(query)?12:0;
+  words.forEach(w=>{if(hay.includes(w))score+=2;if((q[1]+' '+q[2]).toLocaleLowerCase().includes(w))score+=2;});
+  return {q,index,score,topicData};
+ }).filter(x=>x.score>0).sort((x,y)=>y.score-x.score).slice(0,5);
+ if(!ranked.length){box.textContent='इस प्रश्न का सीधा मिलान Question Bank में नहीं मिला। छोटा keyword लिखकर देखें, जैसे “जल”, “पृथ्वी”, “भारत” या “पौधे”।';return;}
+ const heading=document.createElement('div');heading.style.cssText='font-weight:900;margin-bottom:10px';heading.textContent='📚 Question Bank से मिले उत्तर';box.appendChild(heading);
+ ranked.forEach((item,i)=>{
+  const q=item.q,card=document.createElement('article');
+  card.style.cssText='background:var(--card,#fff);border:1px solid var(--line,#dce3f4);border-radius:14px;padding:13px;margin:10px 0;color:var(--text,#182342);';
+  const title=document.createElement('b');title.textContent=(i+1)+'. '+q[1];card.appendChild(title);
+  const en=document.createElement('p');en.style.cssText='margin:6px 0;color:var(--muted,#65708a)';en.textContent=q[2];card.appendChild(en);
+  const answer=document.createElement('p');answer.style.cssText='margin:8px 0;color:#16834b;font-weight:850';answer.textContent='सही उत्तर: '+(q[3]?.[q[4]]??'');card.appendChild(answer);
+  const exp=document.createElement('p');exp.style.cssText='margin:6px 0;line-height:1.55;white-space:pre-wrap';exp.textContent='समझिए: '+(q[5]||'')+' '+(q[6]||'');card.appendChild(exp);
+  if(item.topicData){const tag=document.createElement('small');tag.style.color='var(--muted,#65708a)';tag.textContent=item.topicData[2]+' · Class '+(q[7]??'');card.appendChild(tag);}
+  box.appendChild(card);
+ });
+}
+document.getElementById('hybridTutorSearch')?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();hybridTutor();}});
 window.addEventListener('load',hybridRefresh);
 </script>
 
@@ -696,4 +725,14 @@ document.getElementById("cards")?.addEventListener("click",e=>{const card=e.targ
 document.getElementById("stateGrid")?.addEventListener("click",e=>{const b=e.target.closest("[data-state]");if(b){e.preventDefault();gkOpenStateSlide(+b.dataset.state);}});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&document.getElementById("gkOptionSlide")?.classList.contains("open"))gkCloseOptionSlide();});
 </script>
+
+<style id="GK_TUTOR_FIX_V1">
+#tutorWorkspace{scroll-margin-top:14px}
+#tutorWorkspace #hybridTutorSearch{box-sizing:border-box;display:block;max-width:100%;min-height:50px;border-radius:13px;padding:12px;font-size:16px;margin:10px 0}
+#tutorWorkspace .btn{min-height:48px;max-width:100%;white-space:normal}
+#tutorWorkspace #hybridTutorResult{box-sizing:border-box;width:100%;max-width:100%;overflow-wrap:anywhere;line-height:1.55}
+#tutorWorkspace #hybridTutorResult article{width:100%;box-sizing:border-box}
+@media(max-width:600px){#tutorWorkspace{padding:14px}#tutorWorkspace .actions{display:grid;grid-template-columns:1fr}#tutorWorkspace .btn{width:100%}}
+</style>
+
 </body></html>
