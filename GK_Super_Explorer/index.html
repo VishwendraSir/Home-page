@@ -547,6 +547,7 @@ function openSlideShow(topicId){
  document.getElementById("slideShow").classList.add("open");
  document.body.style.overflow="hidden";
  const stage=document.querySelector("#slideShow .slide-stage");
+ if(!window.gkSlideStageTemplate)window.gkSlideStageTemplate=stage.innerHTML;
  if(!document.getElementById("gkSlideFeedback")){const f=document.createElement("div");f.id="gkSlideFeedback";f.className="slide-feedback";stage.appendChild(f);}
  let meta=document.getElementById("gkSlideMeta");
  if(!meta){meta=document.createElement("div");meta.id="gkSlideMeta";meta.className="slide-meta";document.querySelector("#slideShow .slide-progress").insertAdjacentElement("afterend",meta);}
@@ -618,6 +619,6 @@ function showSlideResult(){
  document.getElementById("gkSlideScore").textContent="⭐ Final Score: "+st.correct;
  document.getElementById("gkSlideAnswered").textContent="Completed · "+st.answered+" / "+slideDeck.length;
 }
-function restartSlideDeck(){window.gkSlideFinished=false;window.gkSlideAnswers={};window.gkSlideScore=0;slideIndex=0;document.getElementById("slideNext").onclick=()=>moveSlide(1);renderSlide();}
+function restartSlideDeck(){window.gkSlideFinished=false;window.gkSlideAnswers={};window.gkSlideScore=0;slideIndex=0;const stage=document.querySelector("#slideShow .slide-stage");stage.innerHTML=window.gkSlideStageTemplate;document.getElementById("slideNext").onclick=()=>moveSlide(1);renderSlide();}
 </script>
 </body></html>
