@@ -1,0 +1,18 @@
+{
+  "name": "GK Super Explorer",
+  "short_name": "GK Explorer",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f3f6ff",
+  "theme_color": "#172554",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
