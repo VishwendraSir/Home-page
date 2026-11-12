@@ -1,0 +1,47 @@
+{
+  "project": "SCIENCE CENTRE LEARNING HUB — 2,000 BASIC SCIENCE QUESTION BANK",
+  "updated": "2026-11-13",
+  "scope": "Basic/foundational science only: Physics 500, Chemistry 500, Biology 500, Environment & Ecology 500.",
+  "source_policy": "Only mark VERIFIED_PYQ when original exam paper/response sheet and answer-key evidence can be traced to an official exam authority. Never infer missing year, shift, question number or answer key. Unverified concepts must be separately labelled as PYQ_VARIANT or IMPORTANT_PRACTICE_MCQ.",
+  "sources": [
+    {
+      "id": "MPESB-ARCHIVE",
+      "authority": "Madhya Pradesh Employees Selection Board",
+      "type": "Official old question paper archive",
+      "url": "https://esb.mp.gov.in/Old_Question_Papers/old_question_papers.htm",
+      "coverage": "Police Constable and other recruitment tests; archive lists multiple years",
+      "status": "Official archive confirmed; individual papers require item-level inspection."
+    },
+    {
+      "id": "MPESB-PCRT-2023",
+      "authority": "Madhya Pradesh Employees Selection Board",
+      "type": "Official Police Constable Recruitment Test 2023 question bank PDF",
+      "url": "https://esb.mp.gov.in/Old_Question_Papers/QB_2023/PCRT_2023_QB.pdf",
+      "coverage": "General Science items including taxonomy and basic biology",
+      "status": "Search-indexed official PDF exposes question text and Correct Ans; inspect individual items before inclusion."
+    },
+    {
+      "id": "MPESB-GROUP1-2023",
+      "authority": "Madhya Pradesh Employees Selection Board",
+      "type": "Official Group-1 Sub Group-1 & Group-2 Sub Group-1 Combined Recruitment Test 2023 question bank PDF",
+      "url": "https://esb.mp.gov.in/Old_Question_Papers/QB_2023/Group1_2023_QB.pdf",
+      "coverage": "General Science items including vitamin C and basic heredity/ecology",
+      "status": "Search-indexed official PDF exposes question text and Correct Ans; screen out advanced/specialist items."
+    },
+    {
+      "id": "SSC-ANSWER-KEY",
+      "authority": "Staff Selection Commission, Government of India",
+      "type": "Official answer-key and response-sheet archive",
+      "url": "https://ssc.nic.in/Portal/AnswerKey",
+      "coverage": "CGL, CHSL, MTS, Delhi Police and other exams",
+      "status": "Official portal confirmed; each relevant question paper/response sheet must be opened and checked."
+    }
+  ],
+  "current_progress_note": "The scope/topic matrix has been locked in the staging branch. No new question count is claimed by this source-register update. Earlier staging records remain subject to the strict basic-science scope and individual evidence review.",
+  "citations": [
+    "turn908561search0",
+    "turn908561search24",
+    "turn908561search25",
+    "turn908561search1"
+  ]
+}
