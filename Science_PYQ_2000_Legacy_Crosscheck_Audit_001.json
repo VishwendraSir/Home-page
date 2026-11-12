@@ -1,0 +1,67 @@
+{
+  "project": "SCIENCE CENTRE LEARNING HUB — 2,000 BASIC SCIENCE QUESTION BANK",
+  "audit_id": "LEGACY-CROSSCHECK-001",
+  "date": "2026-11-13",
+  "scope_checked": {
+    "legacy_master_file": "Science_Centre_Learning_Hub_Master_Question_Bank_3432.json",
+    "legacy_master_records": 3432,
+    "science_and_evs_records": 490,
+    "legacy_pyq_verified_count": 0,
+    "source_audit": "The legacy science/EVS records are marked unverified practice/draft/pending review; they are not accepted as verified competitive PYQs."
+  },
+  "new_batch": "Science_PYQ_2000_Basic_Science_Practice_Addition_001.json",
+  "batch_questions": 12,
+  "decision": {
+    "accepted_for_further_master_review": 7,
+    "quarantined_due_to_existing_bank_overlap": 5,
+    "verified_pyq": 0,
+    "practice_questions_only": true
+  },
+  "quarantined": [
+    {
+      "id": "PHY-045",
+      "reason": "Same tested concept and substantially same stem as legacy items sc-qb-002010 etc.: sound cannot travel in vacuum.",
+      "action": "Do not count as unique; replace with a different sound concept."
+    },
+    {
+      "id": "PHY-046",
+      "reason": "Same tested fact as legacy item new10-0175: SI unit of electrical resistance.",
+      "action": "Do not count as unique; replace with a different electricity concept."
+    },
+    {
+      "id": "CHE-044",
+      "reason": "Same tested fact as legacy items sch-final-002420 and new7-0117: acid turns blue litmus red.",
+      "action": "Do not count as unique; replace with a different acid/base concept."
+    },
+    {
+      "id": "BIO-046",
+      "reason": "Same tested fact as legacy items sc6-वि-00089 through sc10-वि-00149 and sc-qb-002005 etc.: heart pumps blood.",
+      "action": "Do not count as unique; replace with a different human-body concept."
+    },
+    {
+      "id": "ENV-044",
+      "reason": "Same core concept as legacy items sc6-वि-00090 etc.: green plants are producers in a food chain/ecosystem.",
+      "action": "Do not count as unique; replace with a different ecosystem concept."
+    }
+  ],
+  "accepted_pending_full_answer_and_source_validation": [
+    "PHY-044",
+    "CHE-045",
+    "CHE-046",
+    "BIO-044",
+    "BIO-045",
+    "ENV-045",
+    "ENV-046"
+  ],
+  "limitations": [
+    "This cross-check used the accessible 3,432-record legacy master file and its 490 science/EVS records, not the full claimed 7,707-question corpus.",
+    "The 7 accepted items passed the initial duplicate screen only; they are not yet counted as final master-bank records until answer, curriculum, source classification and full-bank semantic checks are completed.",
+    "No item in this batch has official PYQ evidence; all are IMPORTANT_PRACTICE_MCQ."
+  ],
+  "next_actions": [
+    "Obtain and audit the complete 7,707-question corpus if it is a separate file/source.",
+    "Run semantic and translated-duplicate review across all source banks.",
+    "Replace the 5 quarantined concepts with distinct Basic Science concepts.",
+    "Integrate only accepted, fully validated records into the consolidated master JSON."
+  ]
+}
