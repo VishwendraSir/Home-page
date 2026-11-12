@@ -1,0 +1,32 @@
+name: Science PYQ 2000 Quality Gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'Science_PYQ_2000_Master_Question_Bank.json'
+      - 'tools/validate_science_pyq.py'
+      - '.github/workflows/science-pyq-quality-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-question-bank:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate 2,000-question bank
+        run: python tools/validate_science_pyq.py
+      - name: Upload QA report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: science-pyq-qa-report
+          path: science-pyq-qa-report.json
+          if-no-files-found: ignore
