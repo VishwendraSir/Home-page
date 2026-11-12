@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111b4e">
+<title>EXAM POWER HUB — Guided by Vishwendra Sir</title>
+<style>
+:root{--navy:#101a49;--blue:#245fe0;--violet:#7045c6;--gold:#ffd45a;--bg:#f3f6ff;--ink:#182344;--muted:#64708d}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,"Noto Sans Devanagari",Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{padding:26px 16px 30px;color:#fff;background:radial-gradient(circle at 80% 15%,#7658d9 0,transparent 32%),linear-gradient(130deg,#0d1742,#174fae);border-bottom:5px solid var(--gold)}
+.wrap{width:min(1100px,100% - 28px);margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.brand{font-size:clamp(1.25rem,4vw,2rem);font-weight:950;letter-spacing:.04em}.guided{color:#ffe58a;font-weight:750}.back{color:#fff;border:1px solid #ffffff66;border-radius:12px;padding:9px 13px;font-weight:800}
+.hero{text-align:center;padding:34px 0 10px}.hero h1{font-size:clamp(2rem,7vw,3.6rem);line-height:1.05;margin:0 0 12px}.hero p{color:#e5edff;max-width:720px;margin:0 auto 20px;line-height:1.65}.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.chips span{background:#ffffff19;border:1px solid #ffffff35;border-radius:99px;padding:7px 12px;font-size:.9rem;font-weight:750}
+main{padding:24px 0 42px}.intro{background:#fff;border:1px solid #dce4f4;border-radius:18px;padding:18px;margin-bottom:22px;box-shadow:0 8px 25px #172b4d0a}.intro h2{margin:0 0 6px}.intro p{margin:0;color:var(--muted);line-height:1.55}
+h2.section-title{font-size:1.35rem;margin:26px 0 12px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{display:flex;flex-direction:column;gap:9px;background:#fff;border:1px solid #dce4f4;border-radius:17px;padding:17px;min-height:175px;box-shadow:0 6px 20px #172b4d0b}.ico{font-size:1.8rem}.card h3{margin:0;font-size:1.08rem}.card p{margin:0;color:var(--muted);line-height:1.5;font-size:.93rem;flex:1}.tag{font-size:.75rem;font-weight:850;color:#254fa6;background:#edf2ff;border-radius:99px;padding:5px 9px;width:max-content}.link{font-weight:900;color:#2456c2}.soon{opacity:.78}.filters{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.filters input,.filters select{border:1px solid #cbd6ea;border-radius:12px;padding:12px;background:#fff;font:inherit}.filters input{flex:1;min-width:190px}
+footer{text-align:center;background:#0d1742;color:#fff;padding:20px 12px}footer strong{color:var(--gold)}.hide{display:none!important}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.grid{grid-template-columns:1fr}.card{min-height:145px}.hero{padding-top:26px}}
+</style></head>
+<body>
+<header><div class="wrap">
+<div class="top"><div><div class="brand">⚡ EXAM POWER HUB</div><div class="guided">Guided by Vishwendra Sir</div></div><a class="back" href="./index.html">← Main Website</a></div>
+<div class="hero"><h1>तैयारी अब होगी POWERFUL!</h1><p>UP Police, MP Police और अन्य प्रतियोगी परीक्षाओं के लिए PYQ, महत्वपूर्ण MCQ और अभ्यास टेस्ट — एक ही जगह। नए विषय और परीक्षा-सीरीज़ समय के साथ जोड़ी जा सकेंगी।</p><div class="chips"><span>PYQ</span><span>Important MCQ</span><span>Practice Tests</span><span>Hindi + English</span></div></div>
+</div></header>
+<main class="wrap">
+<div class="intro"><h2>🎯 आपका Exam Preparation Campus</h2><p>यह EXAM POWER HUB का मुख्य प्रवेश पृष्ठ है। उपलब्ध सामग्री के लिंक सक्रिय हैं; नई प्रश्न-सीरीज़ तैयार और जाँचे जाने के बाद यहाँ जोड़ी जाएगी।</p></div>
+<div class="filters"><input id="find" type="search" placeholder="विषय या परीक्षा खोजें…"><select id="kind"><option value="">सभी श्रेणियाँ</option><option value="exam">परीक्षा</option><option value="subject">विषय</option><option value="series">प्रश्न-सीरीज़</option></select></div>
+<h2 class="section-title">🏆 परीक्षा-वार तैयारी</h2>
+<div class="grid" id="cards">
+<a class="card" data-kind="exam" href="./question-bank.html"><span class="ico">👮</span><h3>UP Police</h3><p>सामान्य विज्ञान सहित उपलब्ध MCQ अभ्यास सामग्री खोलें।</p><span class="tag">Police Exam</span><span class="link">अभ्यास शुरू करें →</span></a>
+<a class="card" data-kind="exam" href="./question-bank.html"><span class="ico">🚔</span><h3>MP Police</h3><p>पुलिस भर्ती परीक्षा की तैयारी के लिए उपलब्ध प्रश्न बैंक।</p><span class="tag">Police Exam</span><span class="link">अभ्यास शुरू करें →</span></a>
+<a class="card soon" data-kind="exam"><span class="ico">🚆</span><h3>SSC • Railway • Army</h3><p>इन परीक्षाओं के लिए अलग-अलग सेक्शन आगे जोड़े जा सकेंगे।</p><span class="tag">आगामी सेक्शन</span></a>
+<a class="card soon" data-kind="exam"><span class="ico">🎖️</span><h3>Sainik • Navodaya</h3><p>प्रवेश परीक्षाओं के लिए विषयवार अभ्यास सेक्शन की जगह।</p><span class="tag">आगामी सेक्शन</span></a>
+</div>
+<h2 class="section-title">📚 विषय-वार अभ्यास</h2>
+<div class="grid">
+<a class="card" data-kind="subject" href="./question-bank.html"><span class="ico">🔬</span><h3>General Science</h3><p>Physics, Chemistry और Biology के उपलब्ध प्रश्नों का अभ्यास करें।</p><span class="tag">Science MCQ</span><span class="link">Question Bank खोलें →</span></a>
+<a class="card soon" data-kind="subject"><span class="ico">🌍</span><h3>General Knowledge</h3><p>Static GK और Current Affairs के लिए अलग सेक्शन जोड़ा जाएगा।</p><span class="tag">आगामी सेक्शन</span></a>
+<a class="card soon" data-kind="subject"><span class="ico">➗</span><h3>Mathematics • Reasoning</h3><p>गणित और रीजनिंग के topic-wise अभ्यास सेक्शन।</p><span class="tag">आगामी सेक्शन</span></a>
+<a class="card soon" data-kind="subject"><span class="ico">🔤</span><h3>Hindi • English</h3><p>भाषा और व्याकरण आधारित प्रश्न-सीरीज़।</p><span class="tag">आगामी सेक्शन</span></a>
+</div>
+<h2 class="section-title">📖 प्रश्न-सीरीज़</h2>
+<div class="grid">
+<a class="card" data-kind="series" href="./question-bank.html"><span class="ico">🧠</span><h3>Available Question Bank</h3><p>मौजूदा repository में उपलब्ध question bank खोलें।</p><span class="tag">Available Now</span><span class="link">खोलें →</span></a>
+<div class="card soon" data-kind="series"><span class="ico">📘</span><h3>500 Questions — Set 1</h3><p>पहली 500 प्रश्नों की स्लाइड-सीरीज़ जाँच के बाद यहाँ जोड़ी जाएगी।</p><span class="tag">आगामी सीरीज़</span></div>
+<div class="card soon" data-kind="series"><span class="ico">📗</span><h3>500 Questions — Set 2</h3><p>अगली 500 प्रश्नों की स्लाइड-सीरीज़ जाँच के बाद यहाँ जोड़ी जाएगी।</p><span class="tag">आगामी सीरीज़</span></div>
+</div>
+</main><footer><strong>EXAM POWER HUB</strong><br>Guided by Vishwendra Sir<br><small>PYQ • Important MCQ • Practice Tests</small></footer>
+<script>
+const q=document.getElementById('find'),k=document.getElementById('kind'),cards=[...document.querySelectorAll('.card')];
+function filter(){const s=q.value.trim().toLowerCase(),t=k.value;cards.forEach(c=>{c.classList.toggle('hide',!!s&&!c.innerText.toLowerCase().includes(s));c.classList.toggle('hide',c.classList.contains('hide')||(!!t&&c.dataset.kind!==t));});}
+q.addEventListener('input',filter);k.addEventListener('change',filter);
+</script></body></html>
