@@ -1,0 +1,489 @@
+{
+  "project": "SCIENCE CENTRE LEARNING HUB — 2000 BASIC SCIENCE QUESTION BANK",
+  "batch_id": "BASIC-PRACTICE-001",
+  "classification": "IMPORTANT_PRACTICE_MCQ",
+  "verified_pyq_count": 0,
+  "note": "These are newly authored foundational practice questions, not claimed as verbatim previous-year questions.",
+  "questions": [
+    {
+      "id": "PHY-044",
+      "subject": "Physics",
+      "topic": "Heat & Temperature",
+      "subtopic": "Heat transfer",
+      "concept_key": "heat-transfer-vacuum-radiation",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "सूर्य से पृथ्वी तक ऊष्मा मुख्यतः किस विधि से पहुँचती है?",
+        "en": "By which mode does heat travel mainly from the Sun to Earth?"
+      },
+      "options": [
+        {
+          "hi": "चालन",
+          "en": "Conduction"
+        },
+        {
+          "hi": "संवहन",
+          "en": "Convection"
+        },
+        {
+          "hi": "विकिरण",
+          "en": "Radiation"
+        },
+        {
+          "hi": "वाष्पीकरण",
+          "en": "Evaporation"
+        }
+      ],
+      "correct_answer_index": 2,
+      "correct_answer": {
+        "hi": "विकिरण",
+        "en": "Radiation"
+      },
+      "explanation": {
+        "hi": "सूर्य और पृथ्वी के बीच लगभग निर्वात है। विकिरण को माध्यम की आवश्यकता नहीं होती, इसलिए ऊष्मा विकिरण द्वारा पहुँचती है।",
+        "en": "There is nearly a vacuum between the Sun and Earth. Radiation does not require a material medium, so the heat travels by radiation."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    },
+    {
+      "id": "PHY-045",
+      "subject": "Physics",
+      "topic": "Sound & Waves",
+      "subtopic": "Sound propagation",
+      "concept_key": "sound-needs-medium",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "ध्वनि किस माध्यम में संचरित नहीं हो सकती?",
+        "en": "In which medium can sound not travel?"
+      },
+      "options": [
+        {
+          "hi": "वायु",
+          "en": "Air"
+        },
+        {
+          "hi": "जल",
+          "en": "Water"
+        },
+        {
+          "hi": "इस्पात",
+          "en": "Steel"
+        },
+        {
+          "hi": "निर्वात",
+          "en": "Vacuum"
+        }
+      ],
+      "correct_answer_index": 3,
+      "correct_answer": {
+        "hi": "निर्वात",
+        "en": "Vacuum"
+      },
+      "explanation": {
+        "hi": "ध्वनि यांत्रिक तरंग है और उसे संचरण के लिए कणों वाला माध्यम चाहिए। निर्वात में कण नहीं होते।",
+        "en": "Sound is a mechanical wave and needs particles in a medium to propagate. A vacuum has no particles."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    },
+    {
+      "id": "PHY-046",
+      "subject": "Physics",
+      "topic": "Electricity & Circuits",
+      "subtopic": "Electrical resistance",
+      "concept_key": "resistance-unit-ohm",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "विद्युत प्रतिरोध की SI इकाई क्या है?",
+        "en": "What is the SI unit of electrical resistance?"
+      },
+      "options": [
+        {
+          "hi": "वोल्ट",
+          "en": "Volt"
+        },
+        {
+          "hi": "ओम",
+          "en": "Ohm"
+        },
+        {
+          "hi": "एम्पियर",
+          "en": "Ampere"
+        },
+        {
+          "hi": "वाट",
+          "en": "Watt"
+        }
+      ],
+      "correct_answer_index": 1,
+      "correct_answer": {
+        "hi": "ओम",
+        "en": "Ohm"
+      },
+      "explanation": {
+        "hi": "विद्युत प्रतिरोध की SI इकाई ओम (Ω) है। वोल्ट विभवांतर, एम्पियर धारा और वाट शक्ति की इकाई है।",
+        "en": "The SI unit of electrical resistance is the ohm (Ω). Volt measures potential difference, ampere current, and watt power."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    },
+    {
+      "id": "CHE-044",
+      "subject": "Chemistry",
+      "topic": "Acids, Bases, Salts & pH",
+      "subtopic": "Acid-base indicators",
+      "concept_key": "litmus-acid-red",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "अम्लीय विलयन नीले लिटमस पत्र को किस रंग में बदलता है?",
+        "en": "What colour does an acidic solution turn blue litmus paper?"
+      },
+      "options": [
+        {
+          "hi": "लाल",
+          "en": "Red"
+        },
+        {
+          "hi": "हरा",
+          "en": "Green"
+        },
+        {
+          "hi": "नीला",
+          "en": "Blue"
+        },
+        {
+          "hi": "पीला",
+          "en": "Yellow"
+        }
+      ],
+      "correct_answer_index": 0,
+      "correct_answer": {
+        "hi": "लाल",
+        "en": "Red"
+      },
+      "explanation": {
+        "hi": "अम्ल नीले लिटमस को लाल कर देते हैं। यह अम्ल की पहचान के लिए सामान्य सूचक परीक्षण है।",
+        "en": "Acids turn blue litmus red. This is a common indicator test for acidic substances."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    },
+    {
+      "id": "CHE-045",
+      "subject": "Chemistry",
+      "topic": "Elements, Compounds & Periodic Table",
+      "subtopic": "Chemical symbols",
+      "concept_key": "sodium-symbol-na",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "सोडियम का रासायनिक प्रतीक क्या है?",
+        "en": "What is the chemical symbol for sodium?"
+      },
+      "options": [
+        {
+          "hi": "S",
+          "en": "S"
+        },
+        {
+          "hi": "So",
+          "en": "So"
+        },
+        {
+          "hi": "Na",
+          "en": "Na"
+        },
+        {
+          "hi": "N",
+          "en": "N"
+        }
+      ],
+      "correct_answer_index": 2,
+      "correct_answer": {
+        "hi": "Na",
+        "en": "Na"
+      },
+      "explanation": {
+        "hi": "सोडियम का प्रतीक Na है, जो इसके लैटिन नाम Natrium से लिया गया है।",
+        "en": "The symbol for sodium is Na, derived from its Latin name, Natrium."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    },
+    {
+      "id": "CHE-046",
+      "subject": "Chemistry",
+      "topic": "Atoms, Molecules & Atomic Structure",
+      "subtopic": "Subatomic particles",
+      "concept_key": "electron-negative-charge",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "इलेक्ट्रॉन पर किस प्रकार का विद्युत आवेश होता है?",
+        "en": "What type of electric charge does an electron carry?"
+      },
+      "options": [
+        {
+          "hi": "धनात्मक",
+          "en": "Positive"
+        },
+        {
+          "hi": "ऋणात्मक",
+          "en": "Negative"
+        },
+        {
+          "hi": "उदासीन",
+          "en": "Neutral"
+        },
+        {
+          "hi": "परिवर्ती",
+          "en": "Variable"
+        }
+      ],
+      "correct_answer_index": 1,
+      "correct_answer": {
+        "hi": "ऋणात्मक",
+        "en": "Negative"
+      },
+      "explanation": {
+        "hi": "इलेक्ट्रॉन पर एक इकाई ऋणात्मक आवेश होता है। प्रोटॉन धनात्मक और न्यूट्रॉन उदासीन होता है।",
+        "en": "An electron carries one unit of negative charge. A proton is positive and a neutron is neutral."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    },
+    {
+      "id": "BIO-044",
+      "subject": "Biology",
+      "topic": "Cell: Structure & Function",
+      "subtopic": "Cell organelles",
+      "concept_key": "mitochondria-energy-release",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "कोशिका में ऊर्जा मुक्त करने की प्रक्रिया में प्रमुख भूमिका किस कोशिकांग की होती है?",
+        "en": "Which cell organelle plays a major role in releasing energy in the cell?"
+      },
+      "options": [
+        {
+          "hi": "केंद्रक",
+          "en": "Nucleus"
+        },
+        {
+          "hi": "माइटोकॉन्ड्रिया",
+          "en": "Mitochondrion"
+        },
+        {
+          "hi": "रिक्तिका",
+          "en": "Vacuole"
+        },
+        {
+          "hi": "कोशिका भित्ति",
+          "en": "Cell wall"
+        }
+      ],
+      "correct_answer_index": 1,
+      "correct_answer": {
+        "hi": "माइटोकॉन्ड्रिया",
+        "en": "Mitochondrion"
+      },
+      "explanation": {
+        "hi": "माइटोकॉन्ड्रिया में कोशिकीय श्वसन की प्रमुख अवस्थाएँ होती हैं और ATP के रूप में उपयोगी ऊर्जा उपलब्ध होती है।",
+        "en": "Major stages of cellular respiration occur in mitochondria, making usable energy available in the form of ATP."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    },
+    {
+      "id": "BIO-045",
+      "subject": "Biology",
+      "topic": "Nutrition in Plants & Animals",
+      "subtopic": "Photosynthesis",
+      "concept_key": "photosynthesis-chlorophyll-light",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "पौधों में प्रकाश संश्लेषण के लिए प्रकाश ऊर्जा को अवशोषित करने वाला हरा वर्णक कौन-सा है?",
+        "en": "Which green pigment absorbs light energy for photosynthesis in plants?"
+      },
+      "options": [
+        {
+          "hi": "हीमोग्लोबिन",
+          "en": "Haemoglobin"
+        },
+        {
+          "hi": "क्लोरोफिल",
+          "en": "Chlorophyll"
+        },
+        {
+          "hi": "मेलानिन",
+          "en": "Melanin"
+        },
+        {
+          "hi": "केराटिन",
+          "en": "Keratin"
+        }
+      ],
+      "correct_answer_index": 1,
+      "correct_answer": {
+        "hi": "क्लोरोफिल",
+        "en": "Chlorophyll"
+      },
+      "explanation": {
+        "hi": "क्लोरोफिल क्लोरोप्लास्ट में पाया जाने वाला हरा वर्णक है, जो प्रकाश ऊर्जा अवशोषित करता है।",
+        "en": "Chlorophyll is the green pigment found in chloroplasts that absorbs light energy."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    },
+    {
+      "id": "BIO-046",
+      "subject": "Biology",
+      "topic": "Human Body Systems",
+      "subtopic": "Blood circulation",
+      "concept_key": "heart-pumps-blood",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "मानव शरीर में रक्त को पंप करने वाला अंग कौन-सा है?",
+        "en": "Which organ pumps blood through the human body?"
+      },
+      "options": [
+        {
+          "hi": "फेफड़े",
+          "en": "Lungs"
+        },
+        {
+          "hi": "यकृत",
+          "en": "Liver"
+        },
+        {
+          "hi": "हृदय",
+          "en": "Heart"
+        },
+        {
+          "hi": "गुर्दे",
+          "en": "Kidneys"
+        }
+      ],
+      "correct_answer_index": 2,
+      "correct_answer": {
+        "hi": "हृदय",
+        "en": "Heart"
+      },
+      "explanation": {
+        "hi": "हृदय एक पेशीय अंग है, जो संकुचन और शिथिलन द्वारा रक्त को परिसंचरण तंत्र में पंप करता है।",
+        "en": "The heart is a muscular organ that pumps blood through the circulatory system by contracting and relaxing."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    },
+    {
+      "id": "ENV-044",
+      "subject": "Environment & Ecology",
+      "topic": "Ecosystem & Components",
+      "subtopic": "Producers",
+      "concept_key": "green-plants-producers",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "पारिस्थितिकी तंत्र में हरे पौधों को उत्पादक क्यों कहा जाता है?",
+        "en": "Why are green plants called producers in an ecosystem?"
+      },
+      "options": [
+        {
+          "hi": "वे अपना भोजन प्रकाश संश्लेषण से बनाते हैं",
+          "en": "They make their own food by photosynthesis"
+        },
+        {
+          "hi": "वे केवल मृत जीव खाते हैं",
+          "en": "They feed only on dead organisms"
+        },
+        {
+          "hi": "वे सभी जीवों का शिकार करते हैं",
+          "en": "They prey on all organisms"
+        },
+        {
+          "hi": "वे मिट्टी को समाप्त करते हैं",
+          "en": "They deplete the soil"
+        }
+      ],
+      "correct_answer_index": 0,
+      "correct_answer": {
+        "hi": "वे अपना भोजन प्रकाश संश्लेषण से बनाते हैं",
+        "en": "They make their own food by photosynthesis"
+      },
+      "explanation": {
+        "hi": "हरे पौधे सूर्य के प्रकाश की ऊर्जा का उपयोग करके कार्बन डाइऑक्साइड और जल से कार्बनिक भोजन बनाते हैं।",
+        "en": "Green plants use energy from sunlight to make organic food from carbon dioxide and water."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    },
+    {
+      "id": "ENV-045",
+      "subject": "Environment & Ecology",
+      "topic": "Waste Management & 3R Principles",
+      "subtopic": "Reduce reuse recycle",
+      "concept_key": "3r-reduce-reuse-recycle",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "कचरा कम करने के 3R सिद्धांत में कौन-सा समूह सही है?",
+        "en": "Which group correctly names the 3R principles of waste management?"
+      },
+      "options": [
+        {
+          "hi": "Reduce, Reuse, Recycle",
+          "en": "Reduce, Reuse, Recycle"
+        },
+        {
+          "hi": "Remove, Return, Repair",
+          "en": "Remove, Return, Repair"
+        },
+        {
+          "hi": "React, Recover, Replace",
+          "en": "React, Recover, Replace"
+        },
+        {
+          "hi": "Reuse, Reject, Refuse",
+          "en": "Reuse, Reject, Refuse"
+        }
+      ],
+      "correct_answer_index": 0,
+      "correct_answer": {
+        "hi": "कम करना, पुनः उपयोग, पुनर्चक्रण",
+        "en": "Reduce, Reuse, Recycle"
+      },
+      "explanation": {
+        "hi": "3R का अर्थ है कचरे का उत्पादन कम करना, वस्तुओं का दोबारा उपयोग करना और सामग्री का पुनर्चक्रण करना।",
+        "en": "The 3Rs mean reducing waste generation, reusing items, and recycling materials."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    },
+    {
+      "id": "ENV-046",
+      "subject": "Environment & Ecology",
+      "topic": "Air, Water, Soil & Noise Pollution",
+      "subtopic": "Air pollution",
+      "concept_key": "carbon-monoxide-incomplete-combustion",
+      "difficulty": "Easy",
+      "question": {
+        "hi": "ईंधन के अपूर्ण दहन से बनने वाली कौन-सी विषैली गैस वायु प्रदूषण का कारण बनती है?",
+        "en": "Which poisonous gas formed by incomplete fuel combustion contributes to air pollution?"
+      },
+      "options": [
+        {
+          "hi": "ऑक्सीजन",
+          "en": "Oxygen"
+        },
+        {
+          "hi": "कार्बन मोनोऑक्साइड",
+          "en": "Carbon monoxide"
+        },
+        {
+          "hi": "नाइट्रोजन",
+          "en": "Nitrogen"
+        },
+        {
+          "hi": "हीलियम",
+          "en": "Helium"
+        }
+      ],
+      "correct_answer_index": 1,
+      "correct_answer": {
+        "hi": "कार्बन मोनोऑक्साइड",
+        "en": "Carbon monoxide"
+      },
+      "explanation": {
+        "hi": "ऑक्सीजन की कमी में ईंधन के अपूर्ण दहन से कार्बन मोनोऑक्साइड बन सकती है। यह रंगहीन, गंधहीन और विषैली गैस है।",
+        "en": "When oxygen is insufficient, incomplete combustion of fuel can produce carbon monoxide, a colourless, odourless, poisonous gas."
+      },
+      "classification": "IMPORTANT_PRACTICE_MCQ"
+    }
+  ]
+}
