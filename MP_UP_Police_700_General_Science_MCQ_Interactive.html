@@ -18,8 +18,17 @@ main{width:min(780px,100%);margin:auto;padding:15px 13px 28px}.stats{display:fle
 .tools{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:15px;font-size:13px;color:#475569;font-weight:700}input[type=range]{width:min(190px,42vw);accent-color:#4f46e5}
 .result{margin-top:12px;text-align:center;font-size:13px;color:#475569}.audioHint{font-size:12px;color:#64748b;margin-top:8px;text-align:center}footer{text-align:center;color:#64748b;font-size:12px;padding:18px}
 @media(max-width:420px){main{padding:12px 10px 24px}.card{border-radius:16px}.option{font-size:15px}.controls button{font-size:14px}}
+
+.social-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:12px 10px;background:#fff}
+.social-links a{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 15px;border-radius:11px;color:#fff;text-decoration:none;font-weight:800;font-size:13px}
+.social-links .wa{background:#128c7e}.social-links .fb{background:#1877f2}
+@media(max-width:420px){.social-links a{flex:1;min-width:145px}}
 </style></head><body>
 <header><div class="brand">SCIENCE CENTRE LEARNING HUB</div><h1>MP Police &amp; UP Police</h1><p>GENERAL SCIENCE • 700 BILINGUAL MCQs</p><p style="margin-top:7px;font-size:11px">Guided by Vishwendra Sir</p></header>
+<nav class="social-links" aria-label="Science Centre Learning Hub social links">
+<a class="wa" href="https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q" target="_blank" rel="noopener noreferrer">💬 Join WhatsApp Channel ↗</a>
+<a class="fb" href="https://www.facebook.com/share/1CHHjYQtqe/" target="_blank" rel="noopener noreferrer">📘 Follow Facebook Page ↗</a>
+</nav>
 <main>
 <div class="stats"><span id="count">Question 1 / 700</span><span id="score">Score: 0</span></div><div class="track"><div class="fill" id="fill"></div></div>
 <section class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><div class="tag" id="tag">QUESTION 001</div><button class="secondary" id="listenBtn" type="button" style="padding:9px 12px">🔊 Listen / सुनें</button></div><div class="question" id="question"></div><div class="options" id="options"></div><div id="feedback"></div></section>
