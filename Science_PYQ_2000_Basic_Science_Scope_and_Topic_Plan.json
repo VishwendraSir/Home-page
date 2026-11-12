@@ -1,0 +1,202 @@
+{
+  "project": "SCIENCE CENTRE LEARNING HUB — 2000 BASIC SCIENCE QUESTION BANK",
+  "scope_rule": "All questions must test foundational/general science concepts suitable for school-level science and common competitive examinations. Exclude non-science GK and specialist professional/technical content.",
+  "targets": {
+    "Physics": 500,
+    "Chemistry": 500,
+    "Biology": 500,
+    "Environment & Ecology": 500,
+    "total": 2000
+  },
+  "topic_allocation": {
+    "Physics": [
+      {
+        "topic": "Units, Measurement & Motion",
+        "target": 50
+      },
+      {
+        "topic": "Force, Laws of Motion & Gravitation",
+        "target": 50
+      },
+      {
+        "topic": "Work, Energy & Power",
+        "target": 50
+      },
+      {
+        "topic": "Heat & Temperature",
+        "target": 50
+      },
+      {
+        "topic": "Light & Optical Phenomena",
+        "target": 50
+      },
+      {
+        "topic": "Sound & Waves",
+        "target": 50
+      },
+      {
+        "topic": "Electricity & Circuits",
+        "target": 50
+      },
+      {
+        "topic": "Magnetism & Electromagnetism",
+        "target": 50
+      },
+      {
+        "topic": "Pressure, Fluids & Everyday Mechanics",
+        "target": 50
+      },
+      {
+        "topic": "Sources of Energy & Basic Modern Physics",
+        "target": 50
+      }
+    ],
+    "Chemistry": [
+      {
+        "topic": "Matter, States & Separation",
+        "target": 50
+      },
+      {
+        "topic": "Atoms, Molecules & Atomic Structure",
+        "target": 50
+      },
+      {
+        "topic": "Elements, Compounds & Periodic Table",
+        "target": 50
+      },
+      {
+        "topic": "Chemical Reactions & Equations",
+        "target": 50
+      },
+      {
+        "topic": "Acids, Bases, Salts & pH",
+        "target": 50
+      },
+      {
+        "topic": "Metals, Non-metals & Alloys",
+        "target": 50
+      },
+      {
+        "topic": "Carbon & Its Common Compounds",
+        "target": 50
+      },
+      {
+        "topic": "Air, Water & Common Gases",
+        "target": 50
+      },
+      {
+        "topic": "Solutions, Mixtures & Everyday Chemistry",
+        "target": 50
+      },
+      {
+        "topic": "Fuels, Combustion & Basic Industrial Chemistry",
+        "target": 50
+      }
+    ],
+    "Biology": [
+      {
+        "topic": "Cell: Structure & Function",
+        "target": 50
+      },
+      {
+        "topic": "Tissues & Levels of Organization",
+        "target": 50
+      },
+      {
+        "topic": "Nutrition in Plants & Animals",
+        "target": 50
+      },
+      {
+        "topic": "Respiration, Transport & Excretion",
+        "target": 50
+      },
+      {
+        "topic": "Human Body Systems",
+        "target": 50
+      },
+      {
+        "topic": "Reproduction & Development",
+        "target": 50
+      },
+      {
+        "topic": "Heredity, Variation & Evolution Basics",
+        "target": 50
+      },
+      {
+        "topic": "Health, Diseases & Immunity",
+        "target": 50
+      },
+      {
+        "topic": "Plant Physiology & Life Processes",
+        "target": 50
+      },
+      {
+        "topic": "Microorganisms & Useful Biology",
+        "target": 50
+      }
+    ],
+    "Environment & Ecology": [
+      {
+        "topic": "Ecosystem & Components",
+        "target": 50
+      },
+      {
+        "topic": "Food Chain, Food Web & Energy Flow",
+        "target": 50
+      },
+      {
+        "topic": "Biodiversity & Conservation",
+        "target": 50
+      },
+      {
+        "topic": "Natural Resources & Their Management",
+        "target": 50
+      },
+      {
+        "topic": "Air, Water, Soil & Noise Pollution",
+        "target": 50
+      },
+      {
+        "topic": "Climate, Weather & Greenhouse Effect",
+        "target": 50
+      },
+      {
+        "topic": "Ozone Layer, Global Warming & Climate Change",
+        "target": 50
+      },
+      {
+        "topic": "Waste Management & 3R Principles",
+        "target": 50
+      },
+      {
+        "topic": "Biogeochemical Cycles",
+        "target": 50
+      },
+      {
+        "topic": "Environmental Health & Sustainable Living",
+        "target": 50
+      }
+    ]
+  },
+  "quality_rules": [
+    "One subject and one topic per question.",
+    "Prioritize class 6–10 foundational science and everyday applications.",
+    "Exclude postgraduate/specialist engineering, medical entrance, veterinary, agriculture-extension and obscure advanced content.",
+    "VERIFIED_PYQ requires inspectable official paper/response sheet and answer-key evidence; otherwise classify as PYQ_VARIANT or IMPORTANT_PRACTICE_MCQ.",
+    "No exact, near-duplicate, translation duplicate, or same-fact rewording.",
+    "Every item requires bilingual question/options, four plausible options, one defensible answer and bilingual explanation.",
+    "Ambiguous or answer-conflicted items are quarantined."
+  ],
+  "exclusions": [
+    "Non-science GK",
+    "Current affairs",
+    "History",
+    "Polity",
+    "Computer awareness",
+    "Specialist engineering",
+    "Medical diagnosis/treatment",
+    "Agriculture extension technical syllabus",
+    "Advanced university-level science"
+  ],
+  "status": "scope_locked; question bank in progress"
+}
