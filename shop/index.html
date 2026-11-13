@@ -162,4 +162,4 @@ setupCategoryUI();let savedBanner=JSON.parse(localStorage.getItem("scShopBanner"
 if(configured){try{app=initializeApp(firebaseConfig);auth=getAuth(app);db=getFirestore(app);onAuthStateChanged(auth,u=>{setAdmin(u);loadProducts().then(()=>renderAdminActions())});}catch(e){console.error(e);loadProducts();toast("Firebase unavailable; showing catalogue products")}}else{loadProducts()}
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(err=>console.warn("Offline support unavailable",err)));}
 </script>
-</body></html>
+<script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=1"></script></body></html>
