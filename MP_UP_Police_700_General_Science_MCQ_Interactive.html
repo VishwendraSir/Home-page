@@ -141,4 +141,4 @@ function norm(s){return String(s||'').normalize('NFKC').replace(/\s/g,'').toLowe
 function choose(i){const q=filtered[index],id=q.legacy_question_id;if(revealed.has(id))return;selected[id]=i;answered.add(id);if(norm(q.options[i])===norm(q.answer))score++;else score--;revealed.add(id);render();}
 $('prev').onclick=()=>{index--;render()};$('next').onclick=()=>{index++;render()};$('check').onclick=()=>{const q=filtered[index];if(q)revealed.add(q.legacy_question_id);render()};$('random').onclick=()=>{if(filtered.length){index=Math.floor(Math.random()*filtered.length);render()}};$('reset').onclick=()=>{score=0;answered.clear();revealed.clear();selected={};render()};$('shuffle').onclick=()=>{filtered.sort(()=>Math.random()-.5);index=0;render()};$('search').oninput=filter;$('subject').onchange=filter;$('cls').onchange=filter;$('mode').onchange=()=>{applyLanguageUI();render()};
 init();
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=1"></script></body></html>
