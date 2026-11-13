@@ -57,8 +57,25 @@ input[type=range]{accent-color:#7c3aed}
 .tap-speak:active{background:#e0e7ff;outline:2px solid #818cf8;outline-offset:3px}
 .tap-audio{display:inline-block;margin-inline-start:6px;font-size:.85em;opacity:.8;user-select:none}
 .option{touch-action:manipulation}
+
+/* SCIENCE CENTRE SOCIAL LINKS */
+#scienceCentreSocialLinks{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px;padding:12px 14px 16px;margin:0 auto;max-width:1100px}
+#scienceCentreSocialLinks a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:10px 16px;border-radius:12px;color:#fff;text-decoration:none;font-weight:800;font-size:.92rem;box-shadow:0 4px 12px #17255422;transition:transform .15s,filter .15s}
+#scienceCentreSocialLinks a:active{transform:scale(.97)}
+#scienceCentreSocialLinks a:focus-visible{outline:3px solid #facc15;outline-offset:3px}
+#scienceCentreSocialLinks .sc-wa{background:#128c7e}
+#scienceCentreSocialLinks .sc-fb{background:#1877f2}
+#scienceCentreSocialLinks .sc-ig{background:linear-gradient(120deg,#833ab4,#fd1d1d,#fcb045)}
+#scienceCentreSocialLinks .sc-yt{background:#ff0033}
+@media(max-width:560px){#scienceCentreSocialLinks{display:grid;grid-template-columns:1fr 1fr;padding:10px 14px 14px;gap:8px}#scienceCentreSocialLinks a{font-size:.82rem;padding:9px 7px;min-height:40px}}
 </style></head><body>
-<header class="top"><div class="wrap"><div class="brand">SCIENCE CENTRE LEARNING HUB</div><h1 id="pageTitle">MP & UP Police — General Science MCQ</h1><p id="pageSubtitle">Guided by Vishwendra Sir · Interactive Practice Bank</p><p id="instructionHi">प्रश्न पढ़ें और सही उत्तर चुनें।</p><p id="instructionEn" class="hide">Read the question and select the correct answer.</p></div></header>
+<header class="top"><div class="wrap"><div class="brand">SCIENCE CENTRE LEARNING HUB</div><h1 id="pageTitle">MP & UP Police — General Science MCQ</h1><p id="pageSubtitle">Guided by Vishwendra Sir · Interactive Practice Bank</p><p id="instructionHi">प्रश्न पढ़ें और सही उत्तर चुनें।</p><p id="instructionEn" class="hide">Read the question and select the correct answer.</p></div>
+<nav id="scienceCentreSocialLinks" aria-label="Science Centre Learning Hub social media links">
+<a class="sc-wa" href="https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+<a class="sc-fb" href="https://www.facebook.com/share/1CHHjYQtqe/" target="_blank" rel="noopener noreferrer">📘 Facebook</a>
+<a class="sc-ig" href="https://www.instagram.com/sciencecentre_learninghub/" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+<a class="sc-yt" href="https://youtube.com/@learningcomplexagra" target="_blank" rel="noopener noreferrer">▶️ YouTube</a>
+</nav></header>
 <main class="wrap">
 <section class="panel"><div class="controls"><input id="search" placeholder="प्रश्न / Topic खोजें…"><select id="subject"><option value="">सभी विषय</option></select><select id="cls"><option value="">सभी कक्षाएँ</option></select><select id="mode" aria-label="Language"><option value="hi">हिंदी</option><option value="en">English</option><option value="both">Both / दोनों</option></select></div><div class="stats"><span class="pill" id="total">प्रश्न: —</span><span class="pill" id="count">दिखाए गए: —</span><span class="pill" id="score">स्कोर: 0</span><span class="pill" id="done">हल किए: 0</span></div><div class="progress"><i id="bar"></i></div></section>
 <section class="panel" id="quiz"><h2 id="quizHeading">प्रश्न अभ्यास</h2><div class="qhead"><span id="position">प्रश्न</span><span id="topic"></span></div><div class="qtext" id="question">लोड हो रहा है…</div><div class="voicebar" id="questionVoice"></div><div class="options" id="options"></div><div class="explain" id="explain"></div><div class="voicebar" id="explainVoice"></div><div class="actions"><button class="btn" id="prev">← पिछला</button><button class="btn dark" id="check">उत्तर देखें</button><button class="btn primary" id="next">अगला →</button><button class="btn" id="random">Random प्रश्न</button></div></section>
