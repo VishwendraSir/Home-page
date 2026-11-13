@@ -48,4 +48,4 @@ footer{text-align:center;background:#0d1742;color:#fff;padding:20px 12px}footer 
 const q=document.getElementById('find'),k=document.getElementById('kind'),cards=[...document.querySelectorAll('.card')];
 function filter(){const s=q.value.trim().toLowerCase(),t=k.value;cards.forEach(c=>{c.classList.toggle('hide',!!s&&!c.innerText.toLowerCase().includes(s));c.classList.toggle('hide',c.classList.contains('hide')||(!!t&&c.dataset.kind!==t));});}
 q.addEventListener('input',filter);k.addEventListener('change',filter);
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=1"></script></body></html>
