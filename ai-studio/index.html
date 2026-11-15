@@ -69,6 +69,14 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <div><label>Language</label><select id="reelLanguage"><option value="Hindi">Hindi</option><option value="English">English</option><option value="Hindi + English">Hindi + English</option></select></div>
 <div><label>Reel Style</label><select id="reelStyle"><option value="Educational">Educational</option><option value="Motivational">Motivational</option><option value="Quiz">Quiz</option><option value="Announcement">School Announcement</option><option value="Festival">Festival / Greeting</option></select></div>
 </div>
+<div class="panel" style="margin-top:14px">
+<b>🎵 Reel Background Music — Local Preview</b>
+<p class="note">अपने फोन/कंप्यूटर से MP3 या WAV चुनकर Reel के लिए background music सुनें। यह केवल preview है; अभी यह आपके AI video में merge/export नहीं होता।</p>
+<label for="reelMusicFile">Music file</label><input id="reelMusicFile" type="file" accept="audio/*" onchange="loadReelMusic(event)">
+<div class="grid"><div><label>Music volume</label><input id="reelMusicVolume" type="range" min="0" max="1" step="0.05" value="0.25" oninput="setReelMusicVolume(this.value)"></div><div><label>Playback</label><label style="display:flex;align-items:center;gap:8px"><input id="reelMusicLoop" type="checkbox" checked style="width:auto"> Loop music</label></div></div>
+<div class="actions"><button class="secondary" onclick="playReelMusic()">▶ Play Music</button><button class="secondary" onclick="pauseReelMusic()">⏸ Pause</button><button class="secondary" onclick="stopReelMusic()">⏹ Stop</button></div>
+<div id="reelMusicStatus" class="status" role="status">कोई music file चुनी नहीं गई।</div><audio id="reelMusicAudio" preload="metadata"></audio>
+</div>
 <div class="actions"><button onclick="createReelPlan()">✨ Create Reel Plan</button><button class="secondary" onclick="clearReelPlan()">Clear</button></div>
 <div id="reelStatus" class="status" role="status"></div>
 <label for="reelOutput">Storyboard + Voice-over Script (editable)</label>
@@ -214,6 +222,19 @@ function createReelPlan(){
  lines.push('EDITING NOTES','• Canvas: 9:16 vertical','• Use clear large subtitles and high contrast.','• Keep background music low under narration.','• Verify all facts and spellings before publishing.','• Add Science Centre Learning Hub branding.');
  $('reelOutput').value=lines.join('\n');$('reelStatus').textContent='Reel plan तैयार है। इसे edit करें, Voice Studio में भेजें या .txt डाउनलोड करें।';
 }
+let reelMusicUrl='';
+function loadReelMusic(event){
+ const file=event.target.files&&event.target.files[0];if(!file)return;
+ if(reelMusicUrl)URL.revokeObjectURL(reelMusicUrl);
+ reelMusicUrl=URL.createObjectURL(file);
+ const audio=$('reelMusicAudio');audio.src=reelMusicUrl;audio.loop=$('reelMusicLoop').checked;audio.volume=Number($('reelMusicVolume').value);
+ $('reelMusicStatus').textContent='Loaded: '+file.name+' · '+Math.round(file.size/1024)+' KB';
+ audio.onended=()=>{$('reelMusicStatus').textContent='Music preview पूरा हुआ।';};
+}
+function playReelMusic(){const audio=$('reelMusicAudio');if(!audio.src){$('reelMusicStatus').textContent='पहले music file चुनें।';return;}audio.loop=$('reelMusicLoop').checked;audio.play().then(()=>$('reelMusicStatus').textContent='Music preview चल रहा है।').catch(e=>$('reelMusicStatus').textContent='Playback नहीं हो पाया: '+errorText(e));}
+function pauseReelMusic(){const audio=$('reelMusicAudio');audio.pause();$('reelMusicStatus').textContent='Music paused.';}
+function stopReelMusic(){const audio=$('reelMusicAudio');audio.pause();audio.currentTime=0;$('reelMusicStatus').textContent='Music stopped.';}
+function setReelMusicVolume(value){$('reelMusicAudio').volume=Number(value);}
 function clearReelPlan(){$('reelTopic').value='';$('reelOutput').value='';$('reelStatus').textContent='';}
 function sendReelToVoice(){const value=$('reelOutput').value.trim();if(!value){$('reelStatus').textContent='पहले Reel Plan बनाएँ।';return;}const narration=value.split('\n').filter(line=>line.startsWith('Voice-over: ')).map(line=>line.replace('Voice-over: ','')).join(' ');$('voiceText').value=narration;showTab('voice');$('voiceStatus').textContent='Reel voice-over script तैयार। Speak दबाएँ।';}
 function downloadReelPlan(){const value=$('reelOutput').value.trim();if(!value){$('reelStatus').textContent='पहले Reel Plan बनाएँ।';return;}const blob=new Blob([value],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='science-centre-reel-plan.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
