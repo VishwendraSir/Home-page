@@ -61,7 +61,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 </section>
 <section id="galleryPanel" class="panel hidden">
 <h2>🗂️ My Gallery — Recent Creations</h2>
-<p class="note">इस पेज के खुले रहने तक बनाई गई Images और Videos यहाँ दिखाई देंगी। यह Session Gallery है; पेज refresh/बंद करने पर सूची साफ हो जाएगी। फाइलें आपके डिवाइस पर अपने आप अपलोड नहीं होतीं।</p>
+<p class="note">आपकी बनाई Images और Videos इस ब्राउज़र के IndexedDB में सेव होंगी, ताकि पेज बंद करने या Refresh करने के बाद भी रहें। डेटा इसी डिवाइस और ब्राउज़र में रहेगा; Browser data clear करने पर हट सकता है।</p>
 <div class="actions"><button class="secondary" onclick="refreshGallery()">↻ Refresh Gallery</button><button class="secondary" onclick="clearGallery()">Clear Gallery</button></div>
 <div id="galleryCount" class="status">अभी कोई creation नहीं।</div>
 <div id="galleryItems" class="grid"></div>
@@ -172,33 +172,82 @@ async function makeCaption(){
  const r=await puter.ai.chat(prompt);$('captionOutput').value=typeof r==='string'?r:(r.message?.content||r.text||JSON.stringify(r));}
  catch(e){$('captionOutput').value='Caption नहीं बन सका: '+errorText(e);}
 }
-const galleryEntries=[];
-function addToGallery(type,src,prompt){
- if(!src)return;
- galleryEntries.unshift({type,src,prompt:prompt||'',createdAt:new Date().toLocaleTimeString()});
- renderGallery();
+let galleryEntries=[];
+let galleryDbPromise=null;
+function openGalleryDB(){
+ if(!('indexedDB' in window))return Promise.reject(new Error('इस browser में IndexedDB उपलब्ध नहीं है।'));
+ if(galleryDbPromise)return galleryDbPromise;
+ galleryDbPromise=new Promise((resolve,reject)=>{
+  const req=indexedDB.open('ScienceCentreAIGallery',1);
+  req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains('creations'))db.createObjectStore('creations',{keyPath:'id',autoIncrement:true});};
+  req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||new Error('Gallery database नहीं खुला।'));
+ });
+ return galleryDbPromise;
 }
-function renderGallery(){
- const box=$('galleryItems');if(!box)return;box.innerHTML='';
- $('galleryCount').textContent=galleryEntries.length+' creation(s) in this session';
- if(!galleryEntries.length){box.textContent='अभी कोई creation नहीं। पहले Image या Video generate करें।';return;}
- galleryEntries.forEach((item,index)=>{
-  const card=document.createElement('div');card.className='panel';card.style.margin='0';
-  const heading=document.createElement('b');heading.textContent=item.type+' · '+item.createdAt;card.appendChild(heading);
-  let media;
-  if(item.type==='Image'){media=document.createElement('img');media.src=item.src;media.alt='Generated image';}
-  else{media=document.createElement('video');media.src=item.src;media.controls=true;media.playsInline=true;}
-  media.style.width='100%';media.style.maxHeight='260px';media.style.objectFit='contain';card.appendChild(media);
-  if(item.prompt){const p=document.createElement('p');p.className='note';p.textContent=item.prompt;card.appendChild(p);}
-  const actions=document.createElement('div');actions.className='actions';
-  const open=document.createElement('a');open.href=item.src;open.target='_blank';open.rel='noopener';open.className='dl';open.textContent='Open';actions.appendChild(open);
-  const copy=document.createElement('button');copy.className='secondary';copy.textContent='Copy Prompt';copy.onclick=()=>navigator.clipboard?.writeText(item.prompt||'');actions.appendChild(copy);
-  const remove=document.createElement('button');remove.className='secondary';remove.textContent='Remove';remove.onclick=()=>{galleryEntries.splice(index,1);renderGallery();};actions.appendChild(remove);
-  card.appendChild(actions);box.appendChild(card);
+async function saveGalleryRecord(record){
+ const db=await openGalleryDB();
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction('creations','readwrite');const req=tx.objectStore('creations').add(record);
+  req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||new Error('Gallery save failed'));
  });
 }
-function refreshGallery(){renderGallery();}
-function clearGallery(){galleryEntries.splice(0,galleryEntries.length);renderGallery();}
+async function readGalleryRecords(){
+ const db=await openGalleryDB();
+ return new Promise((resolve,reject)=>{
+  const req=db.transaction('creations','readonly').objectStore('creations').getAll();
+  req.onsuccess=()=>resolve(req.result||[]);req.onerror=()=>reject(req.error||new Error('Gallery read failed'));
+ });
+}
+async function deleteGalleryRecord(id){
+ const db=await openGalleryDB();
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction('creations','readwrite');tx.objectStore('creations').delete(id);
+  tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);
+ });
+}
+async function addToGallery(type,src,prompt){
+ if(!src)return;
+ try{
+  $('galleryCount').textContent='Creation को इस डिवाइस में सेव किया जा रहा है…';
+  const response=await fetch(src);if(!response.ok)throw new Error('Media file fetch नहीं हो पाई ('+response.status+').');
+  const blob=await response.blob();
+  if(!blob.size)throw new Error('Media file खाली है।');
+  await saveGalleryRecord({type,blob,mime:blob.type||'',prompt:prompt||'',createdAt:new Date().toISOString(),fileName:'science-centre-'+type.toLowerCase()+'-'+Date.now()});
+  await renderGallery();
+  $('galleryCount').textContent='Saved permanently in this browser · '+galleryEntries.length+' creation(s)';
+ }catch(e){
+  $('galleryCount').textContent='Gallery save नहीं हुआ: '+errorText(e)+' आप media को अलग से Download करें।';
+ }
+}
+async function renderGallery(){
+ const box=$('galleryItems');if(!box)return;box.innerHTML='';
+ try{
+  const records=await readGalleryRecords();
+  galleryEntries.forEach(x=>{if(x.objectUrl)URL.revokeObjectURL(x.objectUrl);});
+  galleryEntries=records.map(item=>({...item,objectUrl:URL.createObjectURL(item.blob)}));
+  $('galleryCount').textContent=galleryEntries.length+' saved creation(s) · This browser';
+  if(!galleryEntries.length){box.textContent='अभी कोई creation सेव नहीं है। पहले Image या Video generate करें।';return;}
+  galleryEntries.slice().reverse().forEach(item=>{
+   const card=document.createElement('div');card.className='panel';card.style.margin='0';
+   const heading=document.createElement('b');heading.textContent=item.type+' · '+new Date(item.createdAt).toLocaleString();card.appendChild(heading);
+   let media;
+   if(item.type==='Image'){media=document.createElement('img');media.src=item.objectUrl;media.alt='Generated image';}
+   else{media=document.createElement('video');media.src=item.objectUrl;media.controls=true;media.playsInline=true;}
+   media.style.width='100%';media.style.maxHeight='260px';media.style.objectFit='contain';card.appendChild(media);
+   if(item.prompt){const p=document.createElement('p');p.className='note';p.textContent=item.prompt;card.appendChild(p);}
+   const actions=document.createElement('div');actions.className='actions';
+   const download=document.createElement('a');download.href=item.objectUrl;download.download=(item.fileName||'science-centre-creation')+(item.type==='Image'?'.png':'.mp4');download.className='dl';download.textContent='⬇ Download';actions.appendChild(download);
+   const copy=document.createElement('button');copy.className='secondary';copy.textContent='Copy Prompt';copy.onclick=()=>navigator.clipboard?.writeText(item.prompt||'');actions.appendChild(copy);
+   const remove=document.createElement('button');remove.className='secondary';remove.textContent='Remove';remove.onclick=async()=>{await deleteGalleryRecord(item.id);await renderGallery();};actions.appendChild(remove);
+   card.appendChild(actions);box.appendChild(card);
+  });
+ }catch(e){$('galleryCount').textContent='Gallery error: '+errorText(e);box.textContent='इस browser में local gallery उपलब्ध नहीं है।';}
+}
+async function refreshGallery(){await renderGallery();}
+async function clearGallery(){
+ try{const db=await openGalleryDB();await new Promise((resolve,reject)=>{const tx=db.transaction('creations','readwrite');tx.objectStore('creations').clear();tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);});await renderGallery();}
+ catch(e){$('galleryCount').textContent='Clear नहीं हुआ: '+errorText(e);}
+}
 async function copyText(id){try{await navigator.clipboard.writeText($(id).value);if(id==='captionOutput')$('captionOutput').value+='';alert('Copied!');}catch(e){$(id).select();document.execCommand('copy');}}
 let availableVoices=[];
 function loadVoices(){
