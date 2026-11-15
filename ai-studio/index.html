@@ -283,7 +283,7 @@ let reelExportCancel=false;
 let reelMusicSourceNode=null;
 let reelAudioContext=null;
 let reelMusicGainNode=null;
-function cancelReelExport(){reelExportCancel=true;$('reelExportStatus').textContent='Export cancel किया जा रहा है…';}
+let reelExportRunning=false,reelExportObjectUrl='',reelExportMedia=null,reelExportMusicTimer=0;function cancelReelExport(){if(!reelExportRunning)return;reelExportCancel=true;if(reelExportMedia){try{reelExportMedia.pause();}catch(e){}}if(reelExportMusicTimer){clearTimeout(reelExportMusicTimer);reelExportMusicTimer=0;}const s=$('reelExportStatus');if(s)s.textContent='Export cancel किया जा रहा है…';}
 function drawReelTransition(ctx,canvas,clip,time){
  const type=clip.transition||'none',duration=Math.max(0.1,Math.min(2,Number(clip.transitionDuration??0.6)));
  if(type==='none'||time>=duration)return;
@@ -293,7 +293,7 @@ function drawReelTransition(ctx,canvas,clip,time){
  else if(type==='wipe'){ctx.fillStyle='#080b18';ctx.fillRect(0,0,w*(1-p),h);}
  else if(type==='slide'){ctx.fillStyle='#080b18';ctx.fillRect(0,0,w*(1-p),h);ctx.fillStyle='rgba(255,255,255,'+(0.22*(1-p))+')';ctx.fillRect(w*(1-p)-Math.max(3,w*0.012),0,Math.max(3,w*0.012),h);}
  else if(type==='zoom'){
-  const snap=document.createElement('canvas');snap.width=w;snap.height=h;const sctx=snap.getContext('2d');sctx.drawImage(canvas,0,0);
+  const snap=canvas.__transitionBuffer||(canvas.__transitionBuffer=document.createElement('canvas'));if(snap.width!==w||snap.height!==h){snap.width=w;snap.height=h;}const sctx=snap.getContext('2d');sctx.drawImage(canvas,0,0);
   const scale=1.18-0.18*p;ctx.fillStyle='#080b18';ctx.fillRect(0,0,w,h);ctx.globalAlpha=0.45+0.55*p;
   ctx.drawImage(snap,(w-w*scale)/2,(h-h*scale)/2,w*scale,h*scale);
  }
@@ -304,11 +304,11 @@ function drawReelTransition(ctx,canvas,clip,time){
  else if(type==='diagonal'){ctx.fillStyle='#080b18';ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(w*(1-p),0);ctx.lineTo(0,h*(1-p));ctx.closePath();ctx.fill();}
  else if(type==='split'){ctx.fillStyle='#080b18';ctx.fillRect(0,0,w*(1-p)/2,h);ctx.fillRect(w-w*(1-p)/2,0,w*(1-p)/2,h);}
  else if(type==='blur'){
-  const snap=document.createElement('canvas');snap.width=w;snap.height=h;const sctx=snap.getContext('2d');sctx.drawImage(canvas,0,0);
+  const snap=canvas.__transitionBuffer||(canvas.__transitionBuffer=document.createElement('canvas'));if(snap.width!==w||snap.height!==h){snap.width=w;snap.height=h;}const sctx=snap.getContext('2d');sctx.drawImage(canvas,0,0);
   ctx.filter='blur('+(18*(1-p))+'px)';ctx.globalAlpha=1-p;ctx.drawImage(snap,0,0);ctx.filter='none';
  }
  else if(type==='spin'){
-  const snap=document.createElement('canvas');snap.width=w;snap.height=h;const sctx=snap.getContext('2d');sctx.drawImage(canvas,0,0);
+  const snap=canvas.__transitionBuffer||(canvas.__transitionBuffer=document.createElement('canvas'));if(snap.width!==w||snap.height!==h){snap.width=w;snap.height=h;}const sctx=snap.getContext('2d');sctx.drawImage(canvas,0,0);
   const scale=0.72+0.28*p;ctx.fillStyle='#080b18';ctx.fillRect(0,0,w,h);ctx.translate(w/2,h/2);ctx.rotate((1-p)*Math.PI*0.45);ctx.scale(scale,scale);ctx.globalAlpha=0.25+0.75*p;ctx.drawImage(snap,-w/2,-h/2);
  }
  else if(type==='flash'){ctx.fillStyle='rgba(255,255,255,'+(1-p)+')';ctx.fillRect(0,0,w,h);}
@@ -356,8 +356,9 @@ function drawReelFrame(ctx,canvas,media){
   if(subtitle){const sy=Math.round(h*0.77),fs=Math.max(17,Math.round(w*0.032));ctx.font='700 '+fs+'px Arial, sans-serif';ctx.lineWidth=Math.max(3,Math.round(fs*0.16));ctx.strokeStyle='rgba(0,0,0,0.82)';ctx.fillStyle=theme.accent;ctx.strokeText(subtitle,w/2,sy,w*0.88);ctx.fillText(subtitle,w/2,sy,w*0.88);}
  }
 }
-function waitMediaEvent(media,eventName){return new Promise((resolve,reject)=>{const done=()=>{cleanup();resolve();};const fail=()=>{cleanup();reject(new Error('Media load/playback error'));};const cleanup=()=>{media.removeEventListener(eventName,done);media.removeEventListener('error',fail);};media.addEventListener(eventName,done,{once:true});media.addEventListener('error',fail,{once:true});});}
+function waitMediaEvent(media,eventName,timeoutMs=20000){return new Promise((resolve,reject)=>{let timer=null,poll=null;const cleanup=()=>{media.removeEventListener(eventName,done);media.removeEventListener('error',fail);if(timer)clearTimeout(timer);if(poll)clearInterval(poll);};const done=()=>{cleanup();resolve();};const fail=()=>{cleanup();reject(new Error('Media load/playback error'));};media.addEventListener(eventName,done,{once:true});media.addEventListener('error',fail,{once:true});timer=setTimeout(()=>{cleanup();reject(new Error('Media load timed out'));},timeoutMs);poll=setInterval(()=>{if(typeof reelExportCancel!=='undefined'&&reelExportCancel){cleanup();reject(new Error('Export cancelled'));}},250);});}
 async function exportReelWebM(){
+ if(reelExportRunning){$('reelExportStatus').textContent='एक export पहले से चल रहा है। पहले उसके पूरा होने या Cancel होने दें।';return;}reelExportRunning=true;reelExportCancel=false;
  const status=$('reelExportStatus'),link=$('reelExportDownload');
  link.classList.add('hidden');link.removeAttribute('href');
  if(!reelClips.length){status.textContent='पहले Photos या Videos जोड़ें।';return;}
@@ -386,11 +387,11 @@ async function exportReelWebM(){
     if(duckEnabled&&hasSceneVoice)reelMusicGainNode.gain.setValueAtTime(duckLevel,audioContext.currentTime);
    }
    audioDestination.stream.getAudioTracks().forEach(t=>videoStream.addTrack(t));
-  }catch(e){status.textContent='Audio setup समस्या: '+errorText(e);return;}
+  }catch(e){status.textContent='Audio setup समस्या: '+errorText(e);videoStream.getTracks().forEach(t=>t.stop());reelExportRunning=false;return;}
  }
  const mimeTypes=['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'];
  const mimeType=mimeTypes.find(type=>MediaRecorder.isTypeSupported(type));
- if(!mimeType){status.textContent='इस browser में supported WebM codec नहीं मिला।';return;}
+ if(!mimeType){status.textContent='इस browser में supported WebM codec नहीं मिला।';videoStream.getTracks().forEach(t=>t.stop());if(audioDestination)audioDestination.stream.getTracks().forEach(t=>t.stop());reelExportRunning=false;return;}
  let recorder,chunks=[];
  try{
   if(audioContext&&audioContext.state==='suspended')await audioContext.resume();
@@ -398,7 +399,7 @@ async function exportReelWebM(){
   recorder.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data);};
   const stopped=new Promise((resolve,reject)=>{recorder.onstop=resolve;recorder.onerror=e=>reject(e.error||new Error('Recorder failed'));});
   reelExportCancel=false;recorder.start(500);
-  if(music&&music.src){const offset=Math.max(0,Number($('reelMusicOffset')?.value||0)),delay=Math.max(0,Number($('reelMusicDelay')?.value||0)),fadeIn=Math.max(0,Number($('reelMusicFadeIn')?.value||0)),fadeOut=Math.max(0,Number($('reelMusicFadeOut')?.value||0));music.currentTime=Math.min(offset,Math.max(0,(music.duration||offset)-0.05));music.loop=$('reelMusicLoop').checked;music.volume=1;const base=Number($('reelMusicVolume').value),startAt=audioContext?audioContext.currentTime+delay:0;if(reelMusicGainNode&&audioContext){reelMusicGainNode.gain.cancelScheduledValues(startAt);reelMusicGainNode.gain.setValueAtTime(fadeIn?0:base,startAt);if(fadeIn)reelMusicGainNode.gain.linearRampToValueAtTime(base,startAt+fadeIn);const total=reelClips.reduce((sum,x)=>sum+(x.type==='Image'?Number(x.duration):(Number(x.timelineDuration)||0)),0);if(fadeOut>0&&total>0){reelMusicGainNode.gain.setValueAtTime(base,Math.max(startAt+fadeIn,startAt+total-fadeOut));reelMusicGainNode.gain.linearRampToValueAtTime(0,startAt+total);}}setTimeout(()=>{if(!reelExportCancel)music.play().catch(()=>{});},delay*1000);}
+  if(music&&music.src){const offset=Math.max(0,Number($('reelMusicOffset')?.value||0)),delay=Math.max(0,Number($('reelMusicDelay')?.value||0)),fadeIn=Math.max(0,Number($('reelMusicFadeIn')?.value||0)),fadeOut=Math.max(0,Number($('reelMusicFadeOut')?.value||0));music.currentTime=Math.min(offset,Math.max(0,(music.duration||offset)-0.05));music.loop=$('reelMusicLoop').checked;music.volume=1;const base=Number($('reelMusicVolume').value),startAt=audioContext?audioContext.currentTime+delay:0;if(reelMusicGainNode&&audioContext){reelMusicGainNode.gain.cancelScheduledValues(startAt);reelMusicGainNode.gain.setValueAtTime(fadeIn?0:base,startAt);if(fadeIn)reelMusicGainNode.gain.linearRampToValueAtTime(base,startAt+fadeIn);const total=reelClips.reduce((sum,x)=>sum+(x.type==='Image'?Number(x.duration):(Number(x.timelineDuration)||0)),0);if(fadeOut>0&&total>0){reelMusicGainNode.gain.setValueAtTime(base,Math.max(startAt+fadeIn,startAt+total-fadeOut));reelMusicGainNode.gain.linearRampToValueAtTime(0,startAt+total);}}reelExportMusicTimer=setTimeout(()=>{reelExportMusicTimer=0;if(!reelExportCancel)music.play().catch(()=>{});},delay*1000);}
   for(let i=0;i<reelClips.length;i++){
    if(reelExportCancel)break;
    const clip=reelClips[i];status.textContent='Exporting clip '+(i+1)+' / '+reelClips.length+'…';
@@ -422,7 +423,7 @@ async function exportReelWebM(){
     const imageStart=Date.now(),finish=imageStart+Number(clip.duration)*1000;activeReelClip=clip;
     while(Date.now()<finish&&!reelExportCancel){activeReelClipTime=(Date.now()-imageStart)/1000;drawReelFrame(ctx,canvas,media);drawReelTransition(ctx,canvas,clip,activeReelClipTime);await new Promise(r=>requestAnimationFrame(r));}
    }else{
-    media=document.createElement('video');media.src=clip.url;media.muted=false;media.volume=1;media.playsInline=true;media.preload='auto';
+    media=document.createElement('video');reelExportMedia=media;media.src=clip.url;media.muted=false;media.volume=1;media.playsInline=true;media.preload='auto';
     await waitMediaEvent(media,'loadedmetadata');media.currentTime=Math.min(Number(clip.videoStartOffset||0),Math.max(0,media.duration-0.05));
     let clipSource=null,clipGain=null;
     if(includeClipAudio&&audioContext&&audioDestination){
@@ -431,7 +432,7 @@ async function exportReelWebM(){
     await media.play();
     activeReelClip=clip;canvas.__clipDuration=Number.isFinite(media.duration)?media.duration:0;
     while(!media.ended&&!reelExportCancel&&(!Number(clip.timelineDuration)||media.currentTime<Number(clip.videoStartOffset||0)+Number(clip.timelineDuration))){activeReelClipTime=media.currentTime||0;drawReelFrame(ctx,canvas,media);drawReelTransition(ctx,canvas,clip,activeReelClipTime);await new Promise(r=>requestAnimationFrame(r));}
-    media.pause();if(clipSource)clipSource.disconnect();if(clipGain)clipGain.disconnect();media.removeAttribute('src');media.load();
+    media.pause();reelExportMedia=null;if(clipSource)clipSource.disconnect();if(clipGain)clipGain.disconnect();media.removeAttribute('src');media.load();
    }
    if(sceneVoiceTimer)clearTimeout(sceneVoiceTimer);if(transitionSoundTimer)clearTimeout(transitionSoundTimer);if(sceneVoice){sceneVoice.pause();sceneVoice.currentTime=0;}if(sceneVoiceSource)sceneVoiceSource.disconnect();if(sceneVoiceGain)sceneVoiceGain.disconnect();if(transitionSound){transitionSound.pause();transitionSound.currentTime=0;}if(transitionSoundSource)transitionSoundSource.disconnect();if(transitionSoundGain)transitionSoundGain.disconnect();
   }
@@ -439,10 +440,10 @@ async function exportReelWebM(){
   if(music){music.pause();music.currentTime=0;}
   if(reelExportCancel){status.textContent='Export cancel कर दिया गया।';return;}
   const blob=new Blob(chunks,{type:mimeType});if(!blob.size)throw new Error('Export file खाली है।');
-  const url=URL.createObjectURL(blob);link.href=url;link.download='science-centre-reel-'+Date.now()+'.webm';link.classList.remove('hidden');
+  if(reelExportObjectUrl)URL.revokeObjectURL(reelExportObjectUrl);const url=URL.createObjectURL(blob);reelExportObjectUrl=url;link.href=url;link.download='science-centre-reel-'+Date.now()+'.webm';link.classList.remove('hidden');
   status.textContent='Export पूरा हुआ · '+(blob.size/1024/1024).toFixed(1)+' MB · WebM format';
  }catch(e){if(recorder&&recorder.state!=='inactive')recorder.stop();status.textContent='Export नहीं हो पाया: '+errorText(e);}
- finally{activeReelClip=null;activeReelClipTime=0;videoStream.getTracks().forEach(t=>t.stop());if(audioDestination)audioDestination.stream.getTracks().forEach(t=>t.stop());}
+ finally{if(reelExportMusicTimer){clearTimeout(reelExportMusicTimer);reelExportMusicTimer=0;}if(reelExportMedia){try{reelExportMedia.pause();reelExportMedia.removeAttribute('src');reelExportMedia.load();}catch(e){}reelExportMedia=null;}if(music){try{music.pause();}catch(e){}}activeReelClip=null;activeReelClipTime=0;videoStream.getTracks().forEach(t=>t.stop());if(audioDestination)audioDestination.stream.getTracks().forEach(t=>t.stop());reelExportRunning=false;}
 }
 let reelPreviewRun=0,reelPreviewSound=null;
 function applyReelPreviewTransition(media,clip){
@@ -750,7 +751,7 @@ if('speechSynthesis' in window){window.speechSynthesis.onvoiceschanged=loadVoice
 window.addEventListener('load',()=>{setTimeout(refreshAuth,1200);setTimeout(loadVoices,500);});
 </script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=1">
 let audioMixPreviewItems=[],audioMixPreviewTimers=[],audioMixPreviewPaused=false,audioMixPreviewContext=null,audioMixPreviewAnalyser=null,audioMixPreviewFrame=0,audioMixPreviewSources=[],audioMixMusicGain=null;
-function clearAudioMixPreview(){audioMixPreviewTimers.forEach(t=>clearTimeout(t));audioMixPreviewTimers=[];audioMixPreviewItems.forEach(x=>{try{x.audio.pause();}catch(e){}});audioMixPreviewSources.forEach(x=>{try{x.disconnect();}catch(e){}});audioMixPreviewSources=[];audioMixPreviewItems=[];if(audioMixPreviewFrame)cancelAnimationFrame(audioMixPreviewFrame);audioMixPreviewFrame=0;if(audioMixPreviewContext){audioMixPreviewContext.close().catch(()=>{});audioMixPreviewContext=null;}audioMixPreviewAnalyser=null;audioMixMusicGain=null;const cv=$('audioMixMeter');if(cv){const x=cv.getContext('2d');x.clearRect(0,0,cv.width,cv.height);x.fillStyle='#0b1730';x.fillRect(0,0,cv.width,cv.height);}}
+function clearAudioMixPreview(){audioMixPreviewTimers.forEach(t=>clearTimeout(t));audioMixPreviewTimers=[];audioMixPreviewItems.forEach(x=>{try{x.audio.pause();x.audio.removeAttribute('src');x.audio.load();}catch(e){}});audioMixPreviewSources.forEach(x=>{try{x.disconnect();}catch(e){}});audioMixPreviewSources=[];audioMixPreviewItems=[];if(audioMixPreviewFrame)cancelAnimationFrame(audioMixPreviewFrame);audioMixPreviewFrame=0;if(audioMixPreviewContext){audioMixPreviewContext.close().catch(()=>{});audioMixPreviewContext=null;}audioMixPreviewAnalyser=null;audioMixMusicGain=null;const cv=$('audioMixMeter');if(cv){const x=cv.getContext('2d');x.clearRect(0,0,cv.width,cv.height);x.fillStyle='#0b1730';x.fillRect(0,0,cv.width,cv.height);}}
 function drawAudioMixMeter(){if(!audioMixPreviewAnalyser)return;const cv=$('audioMixMeter'),ctx=cv.getContext('2d'),data=new Uint8Array(audioMixPreviewAnalyser.fftSize);audioMixPreviewAnalyser.getByteTimeDomainData(data);let peak=0;for(let i=0;i<data.length;i++)peak=Math.max(peak,Math.abs(data[i]-128)/128);ctx.clearRect(0,0,cv.width,cv.height);ctx.fillStyle='#0b1730';ctx.fillRect(0,0,cv.width,cv.height);ctx.fillStyle=peak>.88?'#ef4444':peak>.58?'#f59e0b':'#22c55e';ctx.fillRect(0,0,Math.max(3,peak*cv.width),cv.height);ctx.fillStyle='#e2e8f0';ctx.font='12px sans-serif';ctx.fillText('Peak '+Math.round(peak*100)+'%',8,29);audioMixPreviewFrame=requestAnimationFrame(drawAudioMixMeter);}
 function stopAudioMixPreview(){clearAudioMixPreview();audioMixPreviewPaused=false;const s=$('audioMixStatus');if(s)s.textContent='Preview stopped.';}
 function pauseAudioMixPreview(){audioMixPreviewPaused=true;audioMixPreviewTimers.forEach(t=>clearTimeout(t));audioMixPreviewTimers=[];audioMixPreviewItems.forEach(x=>x.audio.pause());const s=$('audioMixStatus');if(s)s.textContent='Preview paused. Play दबाने पर शुरुआत से चलेगा।';}
