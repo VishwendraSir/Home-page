@@ -225,6 +225,8 @@ function createReelPlan(){
 let reelClips=[];
 let reelExportCancel=false;
 let reelMusicSourceNode=null;
+let reelAudioContext=null;
+let reelMusicGainNode=null;
 function cancelReelExport(){reelExportCancel=true;$('reelExportStatus').textContent='Export cancel किया जा रहा है…';}
 function drawReelFrame(ctx,canvas,media){
  const w=canvas.width,h=canvas.height;ctx.fillStyle='#080b18';ctx.fillRect(0,0,w,h);
@@ -245,7 +247,7 @@ async function exportReelWebM(){
  let audioContext=null,audioDestination=null,stream=videoStream;
  const music=$('reelMusicAudio');
  if(music&&music.src&&window.AudioContext){
-  try{audioContext=new AudioContext();audioDestination=audioContext.createMediaStreamDestination();if(!reelMusicSourceNode)reelMusicSourceNode=audioContext.createMediaElementSource(music);const gain=audioContext.createGain();gain.gain.value=Number($('reelMusicVolume').value);reelMusicSourceNode.connect(gain);gain.connect(audioDestination);const tracks=audioDestination.stream.getAudioTracks();tracks.forEach(t=>videoStream.addTrack(t));}catch(e){status.textContent='Music audio जोड़ने में समस्या: '+errorText(e)+' · बिना music export जारी रहेगा।';}
+  try{if(!reelAudioContext)reelAudioContext=new AudioContext();audioContext=reelAudioContext;audioDestination=audioContext.createMediaStreamDestination();if(!reelMusicSourceNode)reelMusicSourceNode=audioContext.createMediaElementSource(music);if(reelMusicGainNode)reelMusicGainNode.disconnect();reelMusicGainNode=audioContext.createGain();reelMusicGainNode.gain.value=Number($('reelMusicVolume').value);reelMusicSourceNode.connect(reelMusicGainNode);reelMusicGainNode.connect(audioDestination);const tracks=audioDestination.stream.getAudioTracks();tracks.forEach(t=>videoStream.addTrack(t));}catch(e){status.textContent='Music audio जोड़ने में समस्या: '+errorText(e)+' · बिना music export जारी रहेगा।';}
  }
  const mimeTypes=['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'];
  const mimeType=mimeTypes.find(type=>MediaRecorder.isTypeSupported(type));
@@ -279,7 +281,7 @@ async function exportReelWebM(){
   const url=URL.createObjectURL(blob);link.href=url;link.download='science-centre-reel-'+Date.now()+'.webm';link.classList.remove('hidden');
   status.textContent='Export पूरा हुआ · '+(blob.size/1024/1024).toFixed(1)+' MB · WebM format';
  }catch(e){if(recorder&&recorder.state!=='inactive')recorder.stop();status.textContent='Export नहीं हो पाया: '+errorText(e);}
- finally{videoStream.getTracks().forEach(t=>t.stop());if(audioContext)audioContext.close().catch(()=>{});}
+ finally{videoStream.getTracks().forEach(t=>t.stop());if(audioDestination)audioDestination.stream.getTracks().forEach(t=>t.stop());}
 }
 let reelPreviewRun=0;
 function stopReelPreview(){
