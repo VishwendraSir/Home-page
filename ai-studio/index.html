@@ -269,7 +269,7 @@ function drawReelFrame(ctx,canvas,media){
  ctx.fillStyle=theme.accent;ctx.font='600 '+Math.max(10,Math.round(w*0.016))+'px Arial, sans-serif';ctx.fillText('GUIDED BY VISHWENDRA SIR',Math.round(w*0.037),y+bandH*0.76,w*0.9);
  ctx.fillStyle=theme.text;ctx.textAlign='center';ctx.textBaseline='middle';
  if(activeReelClip&&activeReelClip.caption&&activeReelClipTime>=Number(activeReelClip.captionStart||0)&&(Number(activeReelClip.captionEnd||0)<=0||activeReelClipTime<=Number(activeReelClip.captionEnd))){
-  const cap=String(activeReelClip.caption).trim();if(cap){const cy=Math.round(h*0.57),fs=Math.max(19,Math.round(w*0.039));ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='700 '+fs+'px Arial, sans-serif';ctx.lineWidth=Math.max(3,Math.round(fs*0.16));ctx.strokeStyle='rgba(0,0,0,0.86)';ctx.fillStyle='#ffffff';ctx.strokeText(cap,w/2,cy,w*0.9);ctx.fillText(cap,w/2,cy,w*0.9);}
+  const cap=String(activeReelClip.caption).trim();if(cap){const sizes={small:0.029,medium:0.039,large:0.05,extra:0.062};const fs=Math.max(17,Math.round(w*(sizes[activeReelClip.captionSize||'medium']||sizes.medium)));const positions={top:0.31,middle:0.57,bottom:0.70};const cy=Math.round(h*(positions[activeReelClip.captionPosition||'middle']||positions.middle));ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='700 '+fs+'px Arial, sans-serif';ctx.lineWidth=Math.max(3,Math.round(fs*0.16));ctx.strokeStyle='rgba(0,0,0,0.88)';ctx.fillStyle=activeReelClip.captionColor||'#ffffff';ctx.strokeText(cap,w/2,cy,w*0.9);ctx.fillText(cap,w/2,cy,w*0.9);}
  }
  if($('reelOverlayEnabled')?.checked){
   const title=($('reelOverlayTitle')?.value||'').trim(),subtitle=($('reelOverlaySubtitle')?.value||'').trim();
@@ -390,6 +390,15 @@ function renderReelClips(){
   const endLabel=document.createElement('label');endLabel.textContent='Caption end (sec; 0 = full clip)';capEnd.appendChild(endLabel);
   const endInput=document.createElement('input');endInput.type='number';endInput.min='0';endInput.step='0.5';endInput.value=String(clip.captionEnd??0);endInput.onchange=()=>{clip.captionEnd=Math.max(0,Number(endInput.value)||0);};capEnd.appendChild(endInput);
   capTiming.appendChild(capStart);capTiming.appendChild(capEnd);card.appendChild(capTiming);
+  const capStyle=document.createElement('div');capStyle.className='grid';
+  const posWrap=document.createElement('div'),sizeWrap=document.createElement('div'),colorWrap=document.createElement('div');
+  const posLabel=document.createElement('label');posLabel.textContent='Caption position';posWrap.appendChild(posLabel);
+  const posSelect=document.createElement('select');[['top','Top'],['middle','Middle'],['bottom','Bottom']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;posSelect.appendChild(o);});posSelect.value=clip.captionPosition||'middle';posSelect.onchange=()=>{clip.captionPosition=posSelect.value;};posWrap.appendChild(posSelect);
+  const sizeLabel=document.createElement('label');sizeLabel.textContent='Font size';sizeWrap.appendChild(sizeLabel);
+  const sizeSelect=document.createElement('select');[['small','Small'],['medium','Medium'],['large','Large'],['extra','Extra large']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;sizeSelect.appendChild(o);});sizeSelect.value=clip.captionSize||'medium';sizeSelect.onchange=()=>{clip.captionSize=sizeSelect.value;};sizeWrap.appendChild(sizeSelect);
+  const colorLabel=document.createElement('label');colorLabel.textContent='Text colour';colorWrap.appendChild(colorLabel);
+  const colorSelect=document.createElement('select');[['#ffffff','White'],['#facc15','Yellow'],['#38bdf8','Sky blue'],['#4ade80','Green'],['#fb923c','Orange'],['#f472b6','Pink']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t; colorSelect.appendChild(o);});colorSelect.value=clip.captionColor||'#ffffff';colorSelect.onchange=()=>{clip.captionColor=colorSelect.value;};colorWrap.appendChild(colorSelect);
+  capStyle.appendChild(posWrap);capStyle.appendChild(sizeWrap);capStyle.appendChild(colorWrap);card.appendChild(capStyle);
   if(clip.type==='Image'){const label=document.createElement('label');label.textContent='Photo duration';card.appendChild(label);const select=document.createElement('select');[2,3,4,5,6,8,10].forEach(n=>{const op=document.createElement('option');op.value=String(n);op.textContent=n+' sec';select.appendChild(op);});select.value=String(clip.duration);select.onchange=()=>{clip.duration=Number(select.value);renderReelClips();};card.appendChild(select);}
   const actions=document.createElement('div');actions.className='actions';
   const up=document.createElement('button');up.className='secondary';up.textContent='↑ Move up';up.disabled=index===0;up.onclick=()=>moveReelClip(index,-1);actions.appendChild(up);
