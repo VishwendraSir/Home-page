@@ -78,6 +78,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <label for="reelMusicFile">Music file</label><input id="reelMusicFile" type="file" accept="audio/*" onchange="loadReelMusic(event)">
 <div class="grid"><div><label>Music volume</label><input id="reelMusicVolume" type="range" min="0" max="1" step="0.05" value="0.25" oninput="setReelMusicVolume(this.value)"></div><div><label>Playback</label><label style="display:flex;align-items:center;gap:8px"><input id="reelMusicLoop" type="checkbox" checked style="width:auto"> Loop music</label></div></div>
 <div class="actions"><button class="secondary" onclick="playReelMusic()">▶ Play Music</button><button class="secondary" onclick="pauseReelMusic()">⏸ Pause</button><button class="secondary" onclick="stopReelMusic()">⏹ Stop</button></div>
+<div class="grid"><div><label style="display:flex;align-items:center;gap:8px"><input id="reelMusicDucking" type="checkbox" checked style="width:auto"> Auto lower music during voice-over (Ducking)</label><label for="reelMusicDuckLevel">Music level under voice</label><input id="reelMusicDuckLevel" type="range" min="0.05" max="0.6" step="0.05" value="0.22"></div><div><label for="reelMusicDuckAttack">Ducking attack (sec)</label><input id="reelMusicDuckAttack" type="number" min="0.05" max="2" step="0.05" value="0.25"><label for="reelMusicDuckRelease">Music restore (sec)</label><input id="reelMusicDuckRelease" type="number" min="0.05" max="3" step="0.05" value="0.65"></div></div>
 <div id="reelMusicStatus" class="status" role="status">कोई music file चुनी नहीं गई।</div><audio id="reelMusicAudio" preload="metadata"></audio>
 </div>
 <div class="panel" style="margin-top:14px"><b>🎬 Add Your Reel Clips</b><p class="note">फोन से फोटो और वीडियो चुनें। क्लिप का क्रम और प्रत्येक फोटो की स्क्रीन अवधि सेट करें। यह local clip planner है; अभी MP4 export नहीं करता। प्रत्येक scene के लिए अलग voice-over text लिखकर Listen Scene Voice से सुन सकते हैं। Browser Speech voice अभी WebM export में शामिल नहीं होती।</p><label for="reelClipFiles">Images / Videos (multiple selection)</label><input id="reelClipFiles" type="file" accept="image/*,video/*" multiple onchange="addReelClips(event)"><div class="panel" style="margin-top:14px"><b>📤 Export Reel — Browser WebM</b><p class="note">आपके clips को browser में जोड़कर WebM वीडियो बनाया जाएगा। MP4 नहीं। Music track जोड़ी जा सकती है; source video audio को अलग से on/off और volume control कर सकते हैं। Export फोन की memory और browser support पर निर्भर है।</p><div class="grid"><div><label style="display:flex;align-items:center;gap:8px"><input id="reelOriginalAudio" type="checkbox" checked style="width:auto"> Original video audio</label></div><div><label for="reelOriginalVolume">Original audio volume</label><input id="reelOriginalVolume" type="range" min="0" max="1" step="0.05" value="0.8"></div></div><div class="grid"><div><label for="reelExportRatio">Video format</label><select id="reelExportRatio"><option value="9:16">9:16 Vertical Reel</option><option value="16:9">16:9 Landscape</option><option value="1:1">1:1 Square</option></select></div><div><label for="reelExportFps">Frame rate</label><select id="reelExportFps"><option value="24">24 FPS</option><option value="30" selected>30 FPS</option></select></div></div><div class="actions"><button onclick="exportReelWebM()">⬇ Create & Download WebM</button><button class="secondary" onclick="cancelReelExport()">Cancel Export</button></div><div id="reelExportStatus" class="status">Export के लिए clips जोड़ें।</div><a id="reelExportDownload" class="dl hidden" download="science-centre-reel.webm">⬇ Download Reel</a></div><div class="actions"><button onclick="playReelPreview()">▶ Preview Reel Sequence</button><button class="secondary" onclick="stopReelPreview()">⏹ Stop Preview</button><button class="secondary" onclick="downloadClipEditList()">⬇ Download Clip Edit List</button><button class="secondary" onclick="clearReelClips()">Clear Clips</button></div><div id="reelPreviewStage" class="preview" style="min-height:220px;display:flex;align-items:center;justify-content:center">Reel preview यहाँ दिखाई देगा।</div><div id="reelPreviewStatus" class="status">Preview के लिए clips जोड़ें।</div><div id="reelClipStatus" class="status">अभी कोई clip नहीं जोड़ी गई।</div><div id="reelClipList" class="grid"></div></div><div class="actions"><button onclick="createReelPlan()">✨ Create Reel Plan</button><button class="secondary" onclick="clearReelPlan()">Clear</button></div>
@@ -335,6 +336,10 @@ async function exportReelWebM(){
  const ctx=canvas.getContext('2d');const videoStream=canvas.captureStream(fps);
  let audioContext=null,audioDestination=null,stream=videoStream;
  const music=$('reelMusicAudio'),includeClipAudio=$('reelOriginalAudio').checked;
+ const duckEnabled=$('reelMusicDucking')?.checked??true;
+ const duckLevel=Number($('reelMusicDuckLevel')?.value??0.22);
+ const duckAttack=Math.max(0.05,Number($('reelMusicDuckAttack')?.value??0.25));
+ const duckRelease=Math.max(0.05,Number($('reelMusicDuckRelease')?.value??0.65));
  const hasVideoAudio=includeClipAudio&&reelClips.some(x=>x.type==='Video');
  const hasSceneVoice=reelClips.some(x=>x.voiceUrl);
  if((music&&music.src)||hasVideoAudio||hasSceneVoice){
@@ -347,6 +352,7 @@ async function exportReelWebM(){
     if(reelMusicGainNode)reelMusicGainNode.disconnect();
     reelMusicGainNode=audioContext.createGain();reelMusicGainNode.gain.value=Number($('reelMusicVolume').value);
     reelMusicSourceNode.connect(reelMusicGainNode);reelMusicGainNode.connect(audioDestination);
+    if(duckEnabled&&hasSceneVoice)reelMusicGainNode.gain.setValueAtTime(duckLevel,audioContext.currentTime);
    }
    audioDestination.stream.getAudioTracks().forEach(t=>videoStream.addTrack(t));
   }catch(e){status.textContent='Audio setup समस्या: '+errorText(e);return;}
@@ -367,7 +373,13 @@ async function exportReelWebM(){
    const clip=reelClips[i];status.textContent='Exporting clip '+(i+1)+' / '+reelClips.length+'…';
    let sceneVoice=null,sceneVoiceSource=null,sceneVoiceGain=null;
    if(clip.voiceUrl&&audioContext&&audioDestination){
-    try{sceneVoice=new Audio();sceneVoice.src=clip.voiceUrl;sceneVoice.preload='auto';sceneVoiceSource=audioContext.createMediaElementSource(sceneVoice);sceneVoiceGain=audioContext.createGain();sceneVoiceGain.gain.value=Number(clip.voiceVolume??0.9);sceneVoiceSource.connect(sceneVoiceGain);sceneVoiceGain.connect(audioDestination);sceneVoice.currentTime=Math.max(0,Number(clip.voiceOffset||0));if(Number(clip.voiceDelay||0)>0)await new Promise(resolve=>setTimeout(resolve,Number(clip.voiceDelay)*1000));if(!reelExportCancel)await sceneVoice.play();}
+    try{sceneVoice=new Audio();sceneVoice.src=clip.voiceUrl;sceneVoice.preload='auto';sceneVoiceSource=audioContext.createMediaElementSource(sceneVoice);sceneVoiceGain=audioContext.createGain();sceneVoiceGain.gain.value=0;sceneVoiceSource.connect(sceneVoiceGain);sceneVoiceGain.connect(audioDestination);
+     const baseVoice=Number(clip.voiceVolume??0.9),voiceDuration=Number.isFinite(sceneVoice.duration)?sceneVoice.duration:0;
+     const voiceStart=audioContext.currentTime+Number(clip.voiceDelay||0),fadeIn=Math.min(Number(clip.voiceFadeIn||0),Math.max(0,voiceDuration-0.05)),fadeOut=Math.min(Number(clip.voiceFadeOut||0),Math.max(0,voiceDuration-fadeIn));
+     sceneVoiceGain.gain.setValueAtTime(0,voiceStart);if(fadeIn>0)sceneVoiceGain.gain.linearRampToValueAtTime(baseVoice,voiceStart+fadeIn);else sceneVoiceGain.gain.setValueAtTime(baseVoice,voiceStart);
+     if(fadeOut>0&&voiceDuration>fadeOut)sceneVoiceGain.gain.setValueAtTime(baseVoice,voiceStart+voiceDuration-fadeOut),sceneVoiceGain.gain.linearRampToValueAtTime(0,voiceStart+voiceDuration);
+     if(duckEnabled&&reelMusicGainNode){reelMusicGainNode.gain.cancelScheduledValues(voiceStart);reelMusicGainNode.gain.setValueAtTime(Number($('reelMusicVolume').value)*duckLevel,voiceStart);reelMusicGainNode.gain.setValueAtTime(Number($('reelMusicVolume').value)*duckLevel,voiceStart+voiceDuration);reelMusicGainNode.gain.linearRampToValueAtTime(Number($('reelMusicVolume').value),voiceStart+voiceDuration+duckRelease);}
+     sceneVoice.currentTime=Math.max(0,Number(clip.voiceOffset||0));if(Number(clip.voiceDelay||0)>0)await new Promise(resolve=>setTimeout(resolve,Number(clip.voiceDelay)*1000));if(!reelExportCancel)await sceneVoice.play();}
     catch(e){status.textContent='Scene voice audio शुरू नहीं हुआ; अगली clip जारी है।';}
    }
    let media;
@@ -466,6 +478,13 @@ function renderReelClips(){
   const offsetLabel=document.createElement('label');offsetLabel.textContent='Start audio from (sec)';offsetWrap.appendChild(offsetLabel);
   const offsetInput=document.createElement('input');offsetInput.type='number';offsetInput.min='0';offsetInput.step='0.1';offsetInput.value=String(clip.voiceOffset||0);offsetInput.onchange=()=>{clip.voiceOffset=Math.max(0,Number(offsetInput.value)||0);};offsetWrap.appendChild(offsetInput);
   voiceTiming.appendChild(delayWrap);voiceTiming.appendChild(offsetWrap);card.appendChild(voiceTiming);
+  const fadeGrid=document.createElement('div');fadeGrid.className='grid';
+  const fadeInWrap=document.createElement('div'),fadeOutWrap=document.createElement('div');
+  const fadeInLabel=document.createElement('label');fadeInLabel.textContent='Voice fade-in (sec)';fadeInWrap.appendChild(fadeInLabel);
+  const fadeInInput=document.createElement('input');fadeInInput.type='number';fadeInInput.min='0';fadeInInput.max='5';fadeInInput.step='0.1';fadeInInput.value=String(clip.voiceFadeIn||0);fadeInInput.onchange=()=>{clip.voiceFadeIn=Math.max(0,Math.min(5,Number(fadeInInput.value)||0));};fadeInWrap.appendChild(fadeInInput);
+  const fadeOutLabel=document.createElement('label');fadeOutLabel.textContent='Voice fade-out (sec)';fadeOutWrap.appendChild(fadeOutLabel);
+  const fadeOutInput=document.createElement('input');fadeOutInput.type='number';fadeOutInput.min='0';fadeOutInput.max='5';fadeOutInput.step='0.1';fadeOutInput.value=String(clip.voiceFadeOut||0);fadeOutInput.onchange=()=>{clip.voiceFadeOut=Math.max(0,Math.min(5,Number(fadeOutInput.value)||0));};fadeOutWrap.appendChild(fadeOutInput);
+  fadeGrid.appendChild(fadeInWrap);fadeGrid.appendChild(fadeOutWrap);card.appendChild(fadeGrid);
   const voiceVolLabel=document.createElement('label');voiceVolLabel.textContent='Scene audio volume';voiceActions.appendChild(voiceVolLabel);
   const voiceVol=document.createElement('input');voiceVol.type='range';voiceVol.min='0';voiceVol.max='1';voiceVol.step='0.05';voiceVol.value=String(clip.voiceVolume??0.9);voiceVol.oninput=()=>{clip.voiceVolume=Number(voiceVol.value);};voiceActions.appendChild(voiceVol);
   card.appendChild(voiceActions);
