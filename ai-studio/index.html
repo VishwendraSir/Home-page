@@ -423,14 +423,14 @@ async function exportReelWebM(){
     while(Date.now()<finish&&!reelExportCancel){activeReelClipTime=(Date.now()-imageStart)/1000;drawReelFrame(ctx,canvas,media);drawReelTransition(ctx,canvas,clip,activeReelClipTime);await new Promise(r=>requestAnimationFrame(r));}
    }else{
     media=document.createElement('video');media.src=clip.url;media.muted=false;media.volume=1;media.playsInline=true;media.preload='auto';
-    await waitMediaEvent(media,'loadedmetadata');media.currentTime=0;
+    await waitMediaEvent(media,'loadedmetadata');media.currentTime=Math.min(Number(clip.videoStartOffset||0),Math.max(0,media.duration-0.05));
     let clipSource=null,clipGain=null;
     if(includeClipAudio&&audioContext&&audioDestination){
      try{clipSource=audioContext.createMediaElementSource(media);clipGain=audioContext.createGain();clipGain.gain.value=Number($('reelOriginalVolume').value);clipSource.connect(clipGain);clipGain.connect(audioDestination);}catch(e){status.textContent='इस video की original audio mix नहीं हो पाई; visual export जारी है।';}
     }
     await media.play();
     activeReelClip=clip;canvas.__clipDuration=Number.isFinite(media.duration)?media.duration:0;
-    while(!media.ended&&!reelExportCancel&&(!Number(clip.timelineDuration)||media.currentTime<Number(clip.timelineDuration))){activeReelClipTime=media.currentTime||0;drawReelFrame(ctx,canvas,media);drawReelTransition(ctx,canvas,clip,activeReelClipTime);await new Promise(r=>requestAnimationFrame(r));}
+    while(!media.ended&&!reelExportCancel&&(!Number(clip.timelineDuration)||media.currentTime<Number(clip.videoStartOffset||0)+Number(clip.timelineDuration))){activeReelClipTime=media.currentTime||0;drawReelFrame(ctx,canvas,media);drawReelTransition(ctx,canvas,clip,activeReelClipTime);await new Promise(r=>requestAnimationFrame(r));}
     media.pause();if(clipSource)clipSource.disconnect();if(clipGain)clipGain.disconnect();media.removeAttribute('src');media.load();
    }
    if(sceneVoice){sceneVoice.pause();sceneVoice.currentTime=0;}if(sceneVoiceSource)sceneVoiceSource.disconnect();if(sceneVoiceGain)sceneVoiceGain.disconnect();if(transitionSound){transitionSound.pause();transitionSound.currentTime=0;}if(transitionSoundSource)transitionSoundSource.disconnect();if(transitionSoundGain)transitionSoundGain.disconnect();
@@ -578,6 +578,8 @@ function renderReelClips(){
   const actions=document.createElement('div');actions.className='actions';
   const up=document.createElement('button');up.className='secondary';up.textContent='↑ Move up';up.disabled=index===0;up.onclick=()=>moveReelClip(index,-1);actions.appendChild(up);
   const down=document.createElement('button');down.className='secondary';down.textContent='↓ Move down';down.disabled=index===reelClips.length-1;down.onclick=()=>moveReelClip(index,1);actions.appendChild(down);
+  const split=document.createElement('button');split.className='secondary';split.textContent='✂ Split Scene';split.onclick=()=>splitReelClip(index);actions.appendChild(split);
+  const duplicate=document.createElement('button');duplicate.className='secondary';duplicate.textContent='Duplicate';duplicate.onclick=()=>duplicateReelClip(index);actions.appendChild(duplicate);
   const remove=document.createElement('button');remove.className='secondary';remove.textContent='Remove';remove.onclick=()=>removeReelClip(index);actions.appendChild(remove);
   card.appendChild(actions);box.appendChild(card);
  });
@@ -602,6 +604,20 @@ function renderReelTimeline(){
  });
  const makeTrack=(label,key,color)=>{const row=document.createElement('div');row.style.cssText='display:grid;grid-template-columns:100px minmax(0,1fr);gap:8px;align-items:center';const title=document.createElement('b');title.textContent=label;row.appendChild(title);const cells=document.createElement('div');cells.style.cssText='display:flex;gap:3px;min-width:0';reelClips.forEach((clip,i)=>{const cell=document.createElement('div');cell.style.cssText='height:22px;flex:1;min-width:12px;border-radius:4px;background:'+(key(clip)?color:'#334155')+';opacity:'+(key(clip)?'1':'.25');cell.title=(i+1)+'. '+clip.file.name+(key(clip)?' · added':' · empty');cells.appendChild(cell);});row.appendChild(cells);tracks.appendChild(row);};
  makeTrack('Voice-over',x=>!!x.voiceUrl,'#16a34a');makeTrack('SFX',x=>!!x.transitionSoundUrl,'#d97706');makeTrack('Captions',x=>!!x.caption,'#8b5cf6');makeTrack('Music',()=>!!($('reelMusicAudio')&&$('reelMusicAudio').src),'#0ea5e9');
+}
+function splitReelClip(index){
+ const clip=reelClips[index];if(!clip)return;
+ const total=clip.type==='Image'?Number(clip.duration||3):Number(clip.timelineDuration||0);
+ if(!total||total<2){$('reelClipStatus').textContent='Split से पहले Video के लिए Timeline duration सेट करें (कम से कम 2 sec)।';return;}
+ const first=Math.floor(total/2*10)/10,second=Math.max(0.5,total-first);
+ if(clip.type==='Image'){clip.duration=first;const part={...clip,id:Date.now()+Math.random(),url:URL.createObjectURL(clip.file),duration:second,voiceUrl:null,voiceFile:null,transitionSoundUrl:null,transitionSoundFile:null,voiceText:''};reelClips.splice(index+1,0,part);}
+ else{const offset=Number(clip.videoStartOffset||0);clip.timelineDuration=first;const part={...clip,id:Date.now()+Math.random(),url:URL.createObjectURL(clip.file),videoStartOffset:offset+first,timelineDuration:second,voiceUrl:null,voiceFile:null,transitionSoundUrl:null,transitionSoundFile:null,voiceText:''};reelClips.splice(index+1,0,part);}
+ renderReelClips();$('reelClipStatus').textContent='Scene दो हिस्सों में Split हो गया।';
+}
+function duplicateReelClip(index){
+ const clip=reelClips[index];if(!clip)return;
+ const copy={...clip,id:Date.now()+Math.random(),url:URL.createObjectURL(clip.file),voiceUrl:clip.voiceFile?URL.createObjectURL(clip.voiceFile):null,transitionSoundUrl:clip.transitionSoundFile?URL.createObjectURL(clip.transitionSoundFile):null};
+ reelClips.splice(index+1,0,copy);renderReelClips();$('reelClipStatus').textContent='Scene duplicate हो गया।';
 }
 function moveReelClip(index,delta){const next=index+delta;if(next<0||next>=reelClips.length)return;[reelClips[index],reelClips[next]]=[reelClips[next],reelClips[index]];renderReelClips();}
 function removeReelClip(index){const clip=reelClips.splice(index,1)[0];if(clip){URL.revokeObjectURL(clip.url);if(clip.voiceUrl)URL.revokeObjectURL(clip.voiceUrl);if(clip.transitionSoundUrl)URL.revokeObjectURL(clip.transitionSoundUrl);}renderReelClips();}
