@@ -294,6 +294,11 @@ function drawReelFrame(ctx,canvas,media){
  ctx.fillStyle=theme.accent;ctx.font='600 '+Math.max(10,Math.round(w*0.016))+'px Arial, sans-serif';ctx.fillText('GUIDED BY VISHWENDRA SIR',Math.round(w*0.037),y+bandH*0.76,w*0.9);
  ctx.fillStyle=theme.text;ctx.textAlign='center';ctx.textBaseline='middle';
  if(activeReelClip&&activeReelClip.caption&&activeReelClipTime>=Number(activeReelClip.captionStart||0)&&(Number(activeReelClip.captionEnd||0)<=0||activeReelClipTime<=Number(activeReelClip.captionEnd))){
+  const anim=activeReelClip.captionAnimation||'none',elapsed=activeReelClipTime-Number(activeReelClip.captionStart||0),p=Math.max(0,Math.min(1,elapsed/0.45));
+  ctx.save();
+  if(anim==='fade')ctx.globalAlpha*=p;
+  else if(anim==='slide'){ctx.globalAlpha*=Math.min(1,p*1.25);ctx.translate(0,(1-p)*Math.min(70,h*0.08));}
+  else if(anim==='pop'){const scale=0.82+0.18*(1-Math.pow(1-p,3));ctx.translate(w/2,h*0.57);ctx.scale(scale,scale);ctx.translate(-w/2,-h*0.57);ctx.globalAlpha*=Math.min(1,p*1.4);}
   const cap=String(activeReelClip.caption).trim();if(cap){const sizes={small:0.029,medium:0.039,large:0.05,extra:0.062};const fs=Math.max(17,Math.round(w*(sizes[activeReelClip.captionSize||'medium']||sizes.medium)));const positions={top:0.31,middle:0.57,bottom:0.70};const cy=Math.round(h*(positions[activeReelClip.captionPosition||'middle']||positions.middle));ctx.textAlign='center';ctx.textBaseline='middle';
   const weight=activeReelClip.captionWeight==='normal'?'400':'700',italic=activeReelClip.captionItalic?'italic ':'';
   ctx.font=italic+weight+' '+fs+'px Arial, sans-serif';
@@ -311,6 +316,7 @@ function drawReelFrame(ctx,canvas,media){
    let wordIndex=0;lines.forEach((ln,li)=>{const totalW=ln.reduce((s,x)=>s+x.width,0)+space*Math.max(0,ln.length-1);let x=(w-totalW)/2;const yy=cy-totalH/2+li*lineH+lineH/2;ln.forEach(item=>{const idx=wordIndex++;ctx.textAlign='left';ctx.strokeText(item.word,x,yy);ctx.fillStyle=idx===activeIndex?(activeReelClip.karaokeColor||'#facc15'):(activeReelClip.captionColor||'#ffffff');ctx.fillText(item.word,x,yy);x+=item.width+space;});});
   }else{ctx.fillStyle=activeReelClip.captionColor||'#ffffff';ctx.strokeText(cap,w/2,cy,w*0.9);ctx.fillText(cap,w/2,cy,w*0.9);}
   ctx.shadowColor='transparent';ctx.shadowBlur=0;ctx.shadowOffsetY=0;}
+  ctx.restore();
  }
  if($('reelOverlayEnabled')?.checked){
   const title=($('reelOverlayTitle')?.value||'').trim(),subtitle=($('reelOverlaySubtitle')?.value||'').trim();
@@ -446,6 +452,10 @@ function renderReelClips(){
   const weightSelect=document.createElement('select');[['normal','Regular'],['bold','Bold']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;weightSelect.appendChild(o);});weightSelect.value=clip.captionWeight||'bold';weightSelect.onchange=()=>{clip.captionWeight=weightSelect.value;};weightWrap.appendChild(weightSelect);
   const italicLabel=document.createElement('label');italicLabel.textContent='Italic';italicWrap.appendChild(italicLabel);
   const italicSelect=document.createElement('select');[['no','Off'],['yes','On']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;italicSelect.appendChild(o);});italicSelect.value=clip.captionItalic?'yes':'no';italicSelect.onchange=()=>{clip.captionItalic=italicSelect.value==='yes';};italicWrap.appendChild(italicSelect);
+  const animWrap=document.createElement('div');
+  const animLabel=document.createElement('label');animLabel.textContent='Caption entrance animation';animWrap.appendChild(animLabel);
+  const animSelect=document.createElement('select');[['none','None'],['fade','Fade in'],['slide','Slide up'],['pop','Pop / Zoom']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;animSelect.appendChild(o);});animSelect.value=clip.captionAnimation||'none';animSelect.onchange=()=>{clip.captionAnimation=animSelect.value;};animWrap.appendChild(animSelect);
+  capStyle.appendChild(animWrap);
   const karaokeWrap=document.createElement('div');
   const karaokeLabel=document.createElement('label');karaokeLabel.textContent='Karaoke word highlight';karaokeWrap.appendChild(karaokeLabel);
   const karaokeSelect=document.createElement('select');[['off','Off'],['on','On']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;karaokeSelect.appendChild(o);});karaokeSelect.value=clip.karaoke?'on':'off';karaokeSelect.onchange=()=>{clip.karaoke=karaokeSelect.value==='on';};karaokeWrap.appendChild(karaokeSelect);
