@@ -283,6 +283,21 @@ let reelMusicSourceNode=null;
 let reelAudioContext=null;
 let reelMusicGainNode=null;
 function cancelReelExport(){reelExportCancel=true;$('reelExportStatus').textContent='Export cancel किया जा रहा है…';}
+function drawReelTransition(ctx,canvas,clip,time){
+ const type=clip.transition||'none',duration=Math.max(0.1,Math.min(2,Number(clip.transitionDuration??0.6)));
+ if(type==='none'||time>=duration)return;
+ const p=Math.max(0,Math.min(1,time/duration)),w=canvas.width,h=canvas.height;
+ ctx.save();
+ if(type==='fade'){ctx.fillStyle='rgba(0,0,0,'+(1-p)+')';ctx.fillRect(0,0,w,h);}
+ else if(type==='wipe'){ctx.fillStyle='#080b18';ctx.fillRect(0,0,w*(1-p),h);}
+ else if(type==='slide'){ctx.fillStyle='#080b18';ctx.fillRect(0,0,w*(1-p),h);ctx.fillStyle='rgba(255,255,255,'+(0.22*(1-p))+')';ctx.fillRect(w*(1-p)-Math.max(3,w*0.012),0,Math.max(3,w*0.012),h);}
+ else if(type==='zoom'){
+  const snap=document.createElement('canvas');snap.width=w;snap.height=h;const sctx=snap.getContext('2d');sctx.drawImage(canvas,0,0);
+  const scale=1.18-0.18*p;ctx.fillStyle='#080b18';ctx.fillRect(0,0,w,h);ctx.globalAlpha=0.45+0.55*p;
+  ctx.drawImage(snap,(w-w*scale)/2,(h-h*scale)/2,w*scale,h*scale);
+ }
+ ctx.restore();
+}
 function drawReelFrame(ctx,canvas,media){
  const w=canvas.width,h=canvas.height;ctx.fillStyle='#080b18';ctx.fillRect(0,0,w,h);
  const mw=media.videoWidth||media.naturalWidth||w,mh=media.videoHeight||media.naturalHeight||h;
@@ -386,7 +401,7 @@ async function exportReelWebM(){
    if(clip.type==='Image'){
     media=new Image();media.src=clip.url;if(!media.complete)await waitMediaEvent(media,'load');
     const imageStart=Date.now(),finish=imageStart+Number(clip.duration)*1000;activeReelClip=clip;
-    while(Date.now()<finish&&!reelExportCancel){activeReelClipTime=(Date.now()-imageStart)/1000;drawReelFrame(ctx,canvas,media);await new Promise(r=>requestAnimationFrame(r));}
+    while(Date.now()<finish&&!reelExportCancel){activeReelClipTime=(Date.now()-imageStart)/1000;drawReelFrame(ctx,canvas,media);drawReelTransition(ctx,canvas,clip,activeReelClipTime);await new Promise(r=>requestAnimationFrame(r));}
    }else{
     media=document.createElement('video');media.src=clip.url;media.muted=false;media.volume=1;media.playsInline=true;media.preload='auto';
     await waitMediaEvent(media,'loadedmetadata');media.currentTime=0;
@@ -396,7 +411,7 @@ async function exportReelWebM(){
     }
     await media.play();
     activeReelClip=clip;canvas.__clipDuration=Number.isFinite(media.duration)?media.duration:0;
-    while(!media.ended&&!reelExportCancel){activeReelClipTime=media.currentTime||0;drawReelFrame(ctx,canvas,media);await new Promise(r=>requestAnimationFrame(r));}
+    while(!media.ended&&!reelExportCancel){activeReelClipTime=media.currentTime||0;drawReelFrame(ctx,canvas,media);drawReelTransition(ctx,canvas,clip,activeReelClipTime);await new Promise(r=>requestAnimationFrame(r));}
     media.pause();if(clipSource)clipSource.disconnect();if(clipGain)clipGain.disconnect();media.removeAttribute('src');media.load();
    }
    if(sceneVoice){sceneVoice.pause();sceneVoice.currentTime=0;}if(sceneVoiceSource)sceneVoiceSource.disconnect();if(sceneVoiceGain)sceneVoiceGain.disconnect();
@@ -457,6 +472,13 @@ function renderReelClips(){
   const title=document.createElement('b');title.textContent=(index+1)+'. '+clip.file.name+' · '+clip.type;card.appendChild(title);
   let media;if(clip.type==='Image'){media=document.createElement('img');media.src=clip.url;media.alt=clip.file.name;}else{media=document.createElement('video');media.src=clip.url;media.controls=true;media.playsInline=true;}
   media.style.width='100%';media.style.maxHeight='190px';media.style.objectFit='contain';media.style.marginTop='8px';card.appendChild(media);
+  const transitionBox=document.createElement('div');transitionBox.className='grid';
+  const transTypeWrap=document.createElement('div'),transDurWrap=document.createElement('div');
+  const transLabel=document.createElement('label');transLabel.textContent='Scene transition';transTypeWrap.appendChild(transLabel);
+  const transSelect=document.createElement('select');[['none','None'],['fade','Fade'],['zoom','Zoom'],['slide','Slide'],['wipe','Wipe']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;transSelect.appendChild(o);});transSelect.value=clip.transition||'fade';transSelect.onchange=()=>{clip.transition=transSelect.value;};transTypeWrap.appendChild(transSelect);
+  const transDurLabel=document.createElement('label');transDurLabel.textContent='Transition duration (sec)';transDurWrap.appendChild(transDurLabel);
+  const transDur=document.createElement('input');transDur.type='number';transDur.min='0.1';transDur.max='2';transDur.step='0.1';transDur.value=String(clip.transitionDuration??0.6);transDur.onchange=()=>{clip.transitionDuration=Math.max(0.1,Math.min(2,Number(transDur.value)||0.6));};transDurWrap.appendChild(transDur);
+  transitionBox.appendChild(transTypeWrap);transitionBox.appendChild(transDurWrap);card.appendChild(transitionBox);
   const voiceLabel=document.createElement('label');voiceLabel.textContent='🎙️ Scene voice-over / इस scene की narration';card.appendChild(voiceLabel);
   const voiceInput=document.createElement('textarea');voiceInput.rows=2;voiceInput.maxLength=500;voiceInput.placeholder='इस scene में क्या बोलना है लिखें…';voiceInput.value=clip.voiceText||'';voiceInput.onchange=()=>{clip.voiceText=voiceInput.value;};card.appendChild(voiceInput);
   const voiceFileLabel=document.createElement('label');voiceFileLabel.textContent='Audio file for this scene (MP3 / WAV / M4A)';card.appendChild(voiceFileLabel);
