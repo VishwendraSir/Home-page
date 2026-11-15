@@ -62,6 +62,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <section id="reelPanel" class="panel hidden">
 <h2>🎞️ Reel Maker — Storyboard & Voice Script</h2>
 <p class="note">यह Free local planning tool है। बिना AI generation credits खर्च किए Reel की scene-by-scene योजना और voice-over script बनाएँ। तैयार script को Voice Studio में भेजकर सुन सकते हैं।</p>
+<div class="panel" style="margin-top:14px"><b>🎞️ Ready-made Video Templates</b><p class="note">पहले template चुनें। यह आपके Reel के scenes, hook, visual direction और editing style को तैयार करेगा।</p><label for="reelTemplate">Choose a video template</label><select id="reelTemplate" onchange="showReelTemplateInfo()"><option value="education">📚 Educational Explainer</option><option value="quiz">❓ Quiz Challenge</option><option value="school">🏫 School Announcement</option><option value="festival">🪔 Festival Greeting</option><option value="motivation">🔥 Motivational Reel</option><option value="science">🔬 Science Fact / Experiment</option><option value="promo">📢 Coaching / Course Promotion</option></select><div id="reelTemplateInfo" class="status">Step-by-step learning template with hook, concept, example and recap.</div><button class="secondary" onclick="applyReelTemplate()">✓ Apply Template</button></div>
 <label for="reelTopic">Reel का विषय / Topic</label>
 <textarea id="reelTopic" placeholder="उदाहरण: प्रकाश संश्लेषण क्या है? बच्चों के लिए आसान Reel बनानी है।"></textarea>
 <div class="grid">
@@ -196,31 +197,40 @@ async function makeCaption(){
  const r=await puter.ai.chat(prompt);$('captionOutput').value=typeof r==='string'?r:(r.message?.content||r.text||JSON.stringify(r));}
  catch(e){$('captionOutput').value='Caption नहीं बन सका: '+errorText(e);}
 }
+const reelTemplateData={
+ education:{name:'Educational Explainer',info:'Hook → Concept → Example → Recap → Follow CTA',style:'Educational',topic:'Photosynthesis — explain step by step',scenes:[['HOOK','क्या आप जानते हैं पौधे अपना भोजन खुद कैसे बनाते हैं?','Big question text with leaf close-up'],['CONCEPT','प्रकाश संश्लेषण वह प्रक्रिया है जिससे हरे पौधे भोजन बनाते हैं।','Plant, sunlight, water and carbon dioxide labels'],['PROCESS','क्लोरोफिल सूर्य के प्रकाश की मदद से भोजन बनाने में सहायता करता है।','Simple animated process diagram'],['EXAMPLE','पत्तियाँ पौधे की food factory की तरह काम करती हैं।','Leaf close-up with simple analogy'],['RECAP','सूर्य का प्रकाश + जल + कार्बन डाइऑक्साइड से भोजन बनता है।','Formula recap with arrows'],['CTA','ऐसे ही आसान नोट्स के लिए Science Centre Learning Hub को Follow करें।','Branded end card']]},
+ quiz:{name:'Quiz Challenge',info:'Question → Countdown → Answer → Explanation → Challenge',style:'Quiz',topic:'General Science Quiz',scenes:[['CHALLENGE','क्या आप इस सवाल का सही जवाब दे पाएँगे?','Bold quiz title and ticking countdown'],['QUESTION','प्रश्न स्क्रीन पर दिखाएँ और चार विकल्प दें।','Large readable MCQ with A B C D'],['THINK TIME','5 सेकंड में अपना उत्तर सोचिए।','Countdown 5 to 1'],['ANSWER','सही उत्तर हाइलाइट करें।','Green highlight on correct option'],['EXPLANATION','उत्तर का कारण एक आसान वाक्य में समझाएँ।','Simple visual explanation'],['CTA','अपना स्कोर कमेंट करें और अगला Quiz देखें।','Comment prompt and brand end card']]},
+ school:{name:'School Announcement',info:'School name → Notice → Date/time → Instructions → Contact',style:'Announcement',topic:'School Notice / Announcement',scenes:[['OPENING','Sant Tyagi Memorial Public School, Sahara Agra','School name with clean school-themed opening'],['ANNOUNCEMENT','मुख्य सूचना स्पष्ट और बड़े अक्षरों में दिखाएँ।','Notice card with key heading'],['DATE & TIME','तारीख, समय और कक्षा की जानकारी दिखाएँ।','Calendar and clock graphic'],['INSTRUCTIONS','अभिभावकों और विद्यार्थियों के लिए जरूरी निर्देश।','Short checklist on screen'],['REMINDER','कृपया समय पर उपस्थित रहें।','Reminder animation'],['CLOSING','धन्यवाद — Sant Tyagi Memorial Public School।','School branded closing card']]},
+ festival:{name:'Festival Greeting',info:'Festive opening → Greeting → Meaning → Wishes → Brand close',style:'Festival',topic:'Festival Wishes',scenes:[['FESTIVE HOOK','खुशियों और रोशनी का पावन पर्व…','Festive cinematic opening'],['GREETING','आप सभी को हार्दिक शुभकामनाएँ।','Elegant greeting typography'],['MESSAGE','प्रेम, सद्भाव और खुशियाँ बाँटने का संदेश।','Warm family/community visuals'],['WISHES','आपका जीवन सुख और समृद्धि से भरा रहे।','Festive lights and decorations'],['CLOSING','Science Centre Learning Hub की ओर से शुभकामनाएँ।','Branded greeting end card']]},
+ motivation:{name:'Motivational Reel',info:'Power hook → Problem → Mindset → Action → Strong close',style:'Motivational',topic:'Never Give Up',scenes:[['POWER HOOK','सफलता एक दिन में नहीं मिलती।','Cinematic bold opening'],['PROBLEM','रास्ते में कठिनाइयाँ आएँगी।','Student studying through challenge'],['MINDSET','हर दिन थोड़ा बेहतर बनने का प्रयास करें।','Progress montage'],['ACTION','आज एक छोटा लक्ष्य तय करें और पूरा करें।','Writing a daily goal'],['POWER CLOSE','रुकिए मत — आपकी मेहनत ही आपकी पहचान बनेगी।','Strong uplifting closing text']]},
+ science:{name:'Science Fact / Experiment',info:'Surprising fact → Materials → Demonstration → Science → Safety',style:'Educational',topic:'Simple Science Experiment',scenes:[['WOW FACT','एक छोटा प्रयोग, बड़ा विज्ञान!','Curiosity-led close-up'],['MATERIALS','प्रयोग की सामग्री एक-एक करके दिखाएँ।','Top-down materials layout'],['DEMO','प्रयोग को धीरे-धीरे करके दिखाएँ।','Clear step-by-step demonstration'],['SCIENCE','इसके पीछे का वैज्ञानिक कारण समझें।','Simple labeled science diagram'],['SAFETY & CTA','सुरक्षा नियम अपनाएँ और सीखते रहें।','Safety reminder and brand card']]},
+ promo:{name:'Coaching / Course Promotion',info:'Attention → What you learn → Benefits → Trust → Enrolment CTA',style:'Announcement',topic:'Science Centre Learning Hub Courses',scenes:[['ATTENTION','क्या आप अपनी पढ़ाई में मजबूत बनना चाहते हैं?','Energetic academic opening'],['COURSE','यहाँ Maths, Science और Entrance तैयारी सीखें।','Course titles and class visuals'],['BENEFITS','Concept clarity, practice और doubt support।','Three benefit cards'],['TRUST','Guided by Vishwendra Sir','Teacher/classroom visual and brand'],['CTA','अधिक जानकारी के लिए संपर्क करें।','Contact details and enrolment end card']]}
+};
+function showReelTemplateInfo(){const t=reelTemplateData[$('reelTemplate').value];$('reelTemplateInfo').textContent=t.info;}
+function applyReelTemplate(){const t=reelTemplateData[$('reelTemplate').value];$('reelStyle').value=t.style;$('reelTopic').value=t.topic;$('reelStatus').textContent=t.name+' template लागू हो गया। Topic और details अपनी जरूरत के अनुसार बदलें।';}
 function createReelPlan(){
  const topic=$('reelTopic').value.trim();if(!topic){$('reelStatus').textContent='पहले Reel का विषय लिखें।';return;}
  const duration=Number($('reelDuration').value),language=$('reelLanguage').value,style=$('reelStyle').value;
- const count=duration<=15?3:duration<=30?4:duration<=45?5:6;
- const scenes=[
-  ['HOOK','ध्यान खींचने वाला सवाल या चौंकाने वाला तथ्य।','Close-up / bold title; first 2 seconds में विषय दिखाएँ।'],
-  ['INTRO','आज हम जानेंगे: '+topic,'Topic title और simple visual दिखाएँ।'],
-  ['MAIN POINT 1','पहला मुख्य विचार आसान भाषा में समझाएँ।','Diagram / relevant image / classroom shot।'],
-  ['MAIN POINT 2','दूसरा मुख्य विचार या छोटा उदाहरण दें।','Example, labels या step-by-step visual।'],
-  ['QUICK RECAP','आज की बात को एक छोटी लाइन में दोहराएँ।','Key points on screen।'],
-  ['CALL TO ACTION','ऐसी और जानकारी के लिए Science Centre Learning Hub को Follow करें।','Brand end card: Guided by Vishwendra Sir।']
- ].slice(0,count);
- const intro=language==='English'?'Let us understand: '+topic+'.':language==='Hindi + English'?'आइए समझते हैं: '+topic+'. Let us learn it step by step.':'आइए आसान भाषा में समझते हैं: '+topic+'।';
- let lines=['SCIENCE CENTRE LEARNING HUB','REEL PLAN · '+duration+' SECONDS · '+language,'Style: '+style,'Topic: '+topic,'Format: Vertical 9:16',''];
- scenes.forEach((s,i)=>{
+ const template=reelTemplateData[$('reelTemplate').value];
+ const source=template.scenes;
+ const count=Math.min(source.length,duration<=15?3:duration<=30?4:duration<=45?5:6);
+ const scenes=source.slice(0,count);
+ const intro=language==='English'?'Let us explore: '+topic+'.':language==='Hindi + English'?'आइए समझते हैं: '+topic+'. Let us explore it step by step.':'आइए आसान भाषा में समझते हैं: '+topic+'।';
+ let lines=['SCIENCE CENTRE LEARNING HUB','VIDEO TEMPLATE: '+template.name,'REEL PLAN · '+duration+' SECONDS · '+language,'Style: '+style,'Topic: '+topic,'Format: '+$('reelExportRatio').value+' · '+$('reelExportFps').value+' FPS',''];
+ scenes.forEach((scene,i)=>{
   const seconds=Math.round(duration/count);
-  let narration=i===0?(language==='English'?'Do you know this?':language==='Hindi + English'?'क्या आप यह जानते हैं? Do you know this?':'क्या आप यह जानते हैं?'):i===1?intro:i===2?(language==='English'?'First, understand the main idea clearly.':'सबसे पहले मुख्य विचार को समझते हैं।'):i===3?(language==='English'?'Now look at a simple example.':'अब एक आसान उदाहरण देखते हैं।'):i===4?(language==='English'?'Let us quickly revise what we learned.':'आइए सीखी हुई बात दोहराएँ।'):(language==='English'?'Follow Science Centre Learning Hub for more.':'ऐसी और जानकारी के लिए Science Centre Learning Hub को Follow करें।');
-  lines.push('SCENE '+(i+1)+' · '+s[0]+' · ~'+seconds+' sec');
+  let narration=scene[1];
+  if(language==='English')narration=['Here is something interesting!','Let us explore this step by step.','Watch carefully and understand the idea.','Here is the key point to remember.','Now you know the concept!','Follow Science Centre Learning Hub for more.'][i]||scene[1];
+  else if(language==='Hindi + English')narration=scene[1]+' Let us learn together.';
+  lines.push('SCENE '+(i+1)+' · '+scene[0]+' · ~'+seconds+' sec');
   lines.push('Voice-over: '+(i===1?intro:narration));
-  lines.push('Visual: '+s[2]);
-  lines.push('On-screen text: '+(i===1?topic:s[0]));
+  lines.push('Visual: '+scene[2]);
+  lines.push('On-screen text: '+(i===1?topic:scene[0]));
+  lines.push('Transition: '+(i===0?'Quick hook cut':i===count-1?'Fade to branded end card':'Smooth cut / zoom'));
   lines.push('');
  });
- lines.push('EDITING NOTES','• Canvas: 9:16 vertical','• Use clear large subtitles and high contrast.','• Keep background music low under narration.','• Verify all facts and spellings before publishing.','• Add Science Centre Learning Hub branding.');
- $('reelOutput').value=lines.join('\n');$('reelStatus').textContent='Reel plan तैयार है। इसे edit करें, Voice Studio में भेजें या .txt डाउनलोड करें।';
+ lines.push('EDITING NOTES','• Use large readable subtitles and high contrast.','• Keep voice-over clear; lower music under narration.','• Verify facts, dates, names and contact details before publishing.','• Add SCIENCE CENTRE LEARNING HUB — Guided by Vishwendra Sir branding.');
+ $('reelOutput').value=lines.join('\n');$('reelStatus').textContent=template.name+' template से Reel plan तैयार है।';
 }
 let reelClips=[];
 let reelExportCancel=false;
