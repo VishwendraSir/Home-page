@@ -281,7 +281,7 @@ async function exportReelWebM(){
     const finish=Date.now()+Number(clip.duration)*1000;
     while(Date.now()<finish&&!reelExportCancel){drawReelFrame(ctx,canvas,media);await new Promise(r=>requestAnimationFrame(r));}
    }else{
-    media=document.createElement('video');media.src=clip.url;media.muted=true;media.playsInline=true;media.preload='auto';
+    media=document.createElement('video');media.src=clip.url;media.muted=false;media.volume=1;media.playsInline=true;media.preload='auto';
     await waitMediaEvent(media,'loadedmetadata');media.currentTime=0;
     let clipSource=null,clipGain=null;
     if(includeClipAudio&&audioContext&&audioDestination){
