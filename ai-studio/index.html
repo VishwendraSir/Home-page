@@ -63,6 +63,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <h2>🎞️ Reel Maker — Storyboard & Voice Script</h2>
 <p class="note">यह Free local planning tool है। बिना AI generation credits खर्च किए Reel की scene-by-scene योजना और voice-over script बनाएँ। तैयार script को Voice Studio में भेजकर सुन सकते हैं।</p>
 <div class="panel" style="margin-top:14px"><b>🎞️ Ready-made Video Templates</b><p class="note">पहले template चुनें। यह आपके Reel के scenes, hook, visual direction और editing style को तैयार करेगा।</p><label for="reelTemplate">Choose a video template</label><select id="reelTemplate" onchange="showReelTemplateInfo()"><option value="education">📚 Educational Explainer</option><option value="quiz">❓ Quiz Challenge</option><option value="school">🏫 School Announcement</option><option value="festival">🪔 Festival Greeting</option><option value="motivation">🔥 Motivational Reel</option><option value="science">🔬 Science Fact / Experiment</option><option value="promo">📢 Coaching / Course Promotion</option><option value="lesson">🧑‍🏫 Lesson / Chapter Summary</option><option value="math">➗ Maths Trick / Vedic Math</option><option value="gk">🌍 GK / Current Affairs</option><option value="phonics">🔤 English Phonics / Vocabulary</option><option value="tutorial">🛠️ Step-by-Step Tutorial</option><option value="exam">📝 Exam Preparation Tips</option><option value="admission">🎓 Admission Open</option><option value="achievement">🏆 Student Achievement</option><option value="parent">👨‍👩‍👧 Parent Awareness</option><option value="review">⭐ Product / Book Review</option><option value="story">📖 Storytelling / Moral Story</option><option value="toplist">🔟 Top 5 / Top 10 Facts</option></select><div id="reelTemplateInfo" class="status">Step-by-step learning template with hook, concept, example and recap.</div><button class="secondary" onclick="applyReelTemplate()">✓ Apply Template</button></div>
+<div class="panel" style="margin-top:14px"><b>🎨 Brand & Visual Style Preset</b><p class="note">चुनी हुई theme exported WebM पर branded banner और colours लागू करेगी।</p><label for="reelVisualPreset">Choose visual theme</label><select id="reelVisualPreset" onchange="showReelVisualInfo()"><option value="classroom">📘 Classroom Blue</option><option value="quiz">⚡ Bold Quiz</option><option value="festival">🪔 Festive Glow</option><option value="cinema">🎬 Cinematic Dark</option><option value="nature">🌿 Science Green</option></select><div id="reelVisualInfo" class="status">Classroom Blue · clean blue and white branded banner.</div></div>
 <label for="reelTopic">Reel का विषय / Topic</label>
 <textarea id="reelTopic" placeholder="उदाहरण: प्रकाश संश्लेषण क्या है? बच्चों के लिए आसान Reel बनानी है।"></textarea>
 <div class="grid">
@@ -220,6 +221,8 @@ const reelTemplateData={
 };
 function showReelTemplateInfo(){const t=reelTemplateData[$('reelTemplate').value];$('reelTemplateInfo').textContent=t.info;}
 function applyReelTemplate(){const t=reelTemplateData[$('reelTemplate').value];$('reelStyle').value=t.style;$('reelTopic').value=t.topic;$('reelStatus').textContent=t.name+' template लागू हो गया। Topic और details अपनी जरूरत के अनुसार बदलें।';}
+const reelVisualThemes={classroom:{name:'Classroom Blue',accent:'#38bdf8',panel:'#102a56',text:'#ffffff',info:'Clean blue and white classroom identity.'},quiz:{name:'Bold Quiz',accent:'#facc15',panel:'#29210b',text:'#ffffff',info:'High-contrast yellow quiz identity.'},festival:{name:'Festive Glow',accent:'#fb923c',panel:'#431407',text:'#fff7ed',info:'Warm festive orange and gold identity.'},cinema:{name:'Cinematic Dark',accent:'#e879f9',panel:'#24112f',text:'#ffffff',info:'Dark cinematic identity with vivid accent.'},nature:{name:'Science Green',accent:'#4ade80',panel:'#123524',text:'#f0fdf4',info:'Fresh green science identity.'}};
+function showReelVisualInfo(){const t=reelVisualThemes[$('reelVisualPreset').value]||reelVisualThemes.classroom;$('reelVisualInfo').textContent=t.name+' · '+t.info;}
 function createReelPlan(){
  const topic=$('reelTopic').value.trim();if(!topic){$('reelStatus').textContent='पहले Reel का विषय लिखें।';return;}
  const duration=Number($('reelDuration').value),language=$('reelLanguage').value,style=$('reelStyle').value;
@@ -228,7 +231,8 @@ function createReelPlan(){
  const count=Math.min(source.length,duration<=15?3:duration<=30?4:duration<=45?5:6);
  const scenes=source.slice(0,count);
  const intro=language==='English'?'Let us explore: '+topic+'.':language==='Hindi + English'?'आइए समझते हैं: '+topic+'. Let us explore it step by step.':'आइए आसान भाषा में समझते हैं: '+topic+'।';
- let lines=['SCIENCE CENTRE LEARNING HUB','VIDEO TEMPLATE: '+template.name,'REEL PLAN · '+duration+' SECONDS · '+language,'Style: '+style,'Topic: '+topic,'Format: '+$('reelExportRatio').value+' · '+$('reelExportFps').value+' FPS',''];
+ const visualTheme=reelVisualThemes[$('reelVisualPreset').value]||reelVisualThemes.classroom;
+ let lines=['SCIENCE CENTRE LEARNING HUB — Guided by Vishwendra Sir','VIDEO TEMPLATE: '+template.name,'VISUAL PRESET: '+visualTheme.name,'REEL PLAN · '+duration+' SECONDS · '+language,'Style: '+style,'Topic: '+topic,'Format: '+$('reelExportRatio').value+' · '+$('reelExportFps').value+' FPS',''];
  scenes.forEach((scene,i)=>{
   const seconds=Math.round(duration/count);
   let narration=scene[1];
@@ -253,9 +257,13 @@ function cancelReelExport(){reelExportCancel=true;$('reelExportStatus').textCont
 function drawReelFrame(ctx,canvas,media){
  const w=canvas.width,h=canvas.height;ctx.fillStyle='#080b18';ctx.fillRect(0,0,w,h);
  const mw=media.videoWidth||media.naturalWidth||w,mh=media.videoHeight||media.naturalHeight||h;
- if(!mw||!mh)return;
- const scale=Math.min(w/mw,h/mh),dw=mw*scale,dh=mh*scale;
- ctx.drawImage(media,(w-dw)/2,(h-dh)/2,dw,dh);
+ if(mw&&mh){const scale=Math.min(w/mw,h/mh),dw=mw*scale,dh=mh*scale;ctx.drawImage(media,(w-dw)/2,(h-dh)/2,dw,dh);}
+ const theme=reelVisualThemes[$('reelVisualPreset')?.value]||reelVisualThemes.classroom;
+ const bandH=Math.max(54,Math.round(h*0.105)),y=h-bandH;
+ const grad=ctx.createLinearGradient(0,y,0,h);grad.addColorStop(0,'rgba(0,0,0,0.12)');grad.addColorStop(1,theme.panel);ctx.fillStyle=grad;ctx.fillRect(0,y,w,bandH);
+ ctx.fillStyle=theme.accent;ctx.fillRect(0,y,Math.max(6,Math.round(w*0.012)),bandH);
+ ctx.textBaseline='middle';ctx.textAlign='left';ctx.fillStyle=theme.text;ctx.font='700 '+Math.max(15,Math.round(w*0.027))+'px Arial, sans-serif';ctx.fillText('SCIENCE CENTRE LEARNING HUB',Math.round(w*0.035),y+bandH*0.42,w*0.91);
+ ctx.fillStyle=theme.accent;ctx.font='600 '+Math.max(10,Math.round(w*0.016))+'px Arial, sans-serif';ctx.fillText('GUIDED BY VISHWENDRA SIR',Math.round(w*0.037),y+bandH*0.76,w*0.9);
 }
 function waitMediaEvent(media,eventName){return new Promise((resolve,reject)=>{const done=()=>{cleanup();resolve();};const fail=()=>{cleanup();reject(new Error('Media load/playback error'));};const cleanup=()=>{media.removeEventListener(eventName,done);media.removeEventListener('error',fail);};media.addEventListener(eventName,done,{once:true});media.addEventListener('error',fail,{once:true});});}
 async function exportReelWebM(){
