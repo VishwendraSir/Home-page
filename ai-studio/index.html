@@ -296,6 +296,21 @@ function drawReelTransition(ctx,canvas,clip,time){
   const scale=1.18-0.18*p;ctx.fillStyle='#080b18';ctx.fillRect(0,0,w,h);ctx.globalAlpha=0.45+0.55*p;
   ctx.drawImage(snap,(w-w*scale)/2,(h-h*scale)/2,w*scale,h*scale);
  }
+ else if(type==='circle'){
+  const radius=Math.hypot(w,h)*p;ctx.beginPath();ctx.rect(0,0,w,h);ctx.arc(w/2,h/2,radius,0,Math.PI*2,true);ctx.fillStyle='#080b18';ctx.fill('evenodd');
+ }
+ else if(type==='vertical'){ctx.fillStyle='#080b18';ctx.fillRect(0,0,w,h*(1-p));}
+ else if(type==='diagonal'){ctx.fillStyle='#080b18';ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(w*(1-p),0);ctx.lineTo(0,h*(1-p));ctx.closePath();ctx.fill();}
+ else if(type==='split'){ctx.fillStyle='#080b18';ctx.fillRect(0,0,w*(1-p)/2,h);ctx.fillRect(w-w*(1-p)/2,0,w*(1-p)/2,h);}
+ else if(type==='blur'){
+  const snap=document.createElement('canvas');snap.width=w;snap.height=h;const sctx=snap.getContext('2d');sctx.drawImage(canvas,0,0);
+  ctx.filter='blur('+(18*(1-p))+'px)';ctx.globalAlpha=1-p;ctx.drawImage(snap,0,0);ctx.filter='none';
+ }
+ else if(type==='spin'){
+  const snap=document.createElement('canvas');snap.width=w;snap.height=h;const sctx=snap.getContext('2d');sctx.drawImage(canvas,0,0);
+  const scale=0.72+0.28*p;ctx.fillStyle='#080b18';ctx.fillRect(0,0,w,h);ctx.translate(w/2,h/2);ctx.rotate((1-p)*Math.PI*0.45);ctx.scale(scale,scale);ctx.globalAlpha=0.25+0.75*p;ctx.drawImage(snap,-w/2,-h/2);
+ }
+ else if(type==='flash'){ctx.fillStyle='rgba(255,255,255,'+(1-p)+')';ctx.fillRect(0,0,w,h);}
  ctx.restore();
 }
 function drawReelFrame(ctx,canvas,media){
@@ -475,7 +490,7 @@ function renderReelClips(){
   const transitionBox=document.createElement('div');transitionBox.className='grid';
   const transTypeWrap=document.createElement('div'),transDurWrap=document.createElement('div');
   const transLabel=document.createElement('label');transLabel.textContent='Scene transition';transTypeWrap.appendChild(transLabel);
-  const transSelect=document.createElement('select');[['none','None'],['fade','Fade'],['zoom','Zoom'],['slide','Slide'],['wipe','Wipe']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;transSelect.appendChild(o);});transSelect.value=clip.transition||'fade';transSelect.onchange=()=>{clip.transition=transSelect.value;};transTypeWrap.appendChild(transSelect);
+  const transSelect=document.createElement('select');[['none','None'],['fade','Fade'],['zoom','Zoom'],['slide','Slide'],['wipe','Wipe'],['circle','Circle Reveal'],['vertical','Vertical Wipe'],['diagonal','Diagonal Wipe'],['split','Split Open'],['blur','Blur Reveal'],['spin','Spin'],['flash','Flash']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;transSelect.appendChild(o);});transSelect.value=clip.transition||'fade';transSelect.onchange=()=>{clip.transition=transSelect.value;};transTypeWrap.appendChild(transSelect);
   const transDurLabel=document.createElement('label');transDurLabel.textContent='Transition duration (sec)';transDurWrap.appendChild(transDurLabel);
   const transDur=document.createElement('input');transDur.type='number';transDur.min='0.1';transDur.max='2';transDur.step='0.1';transDur.value=String(clip.transitionDuration??0.6);transDur.onchange=()=>{clip.transitionDuration=Math.max(0.1,Math.min(2,Number(transDur.value)||0.6));};transDurWrap.appendChild(transDur);
   transitionBox.appendChild(transTypeWrap);transitionBox.appendChild(transDurWrap);card.appendChild(transitionBox);
