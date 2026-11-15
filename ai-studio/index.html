@@ -371,7 +371,7 @@ async function exportReelWebM(){
  const duckAttack=Math.max(0.05,Number($('reelMusicDuckAttack')?.value??0.25));
  const duckRelease=Math.max(0.05,Number($('reelMusicDuckRelease')?.value??0.65));
  const hasVideoAudio=includeClipAudio&&reelClips.some(x=>x.type==='Video');
- const hasSceneVoice=reelClips.some(x=>x.voiceUrl);
+ const hasSceneVoice=reelClips.some(x=>x.voiceUrl||x.transitionSoundUrl);
  if((music&&music.src)||hasVideoAudio||hasSceneVoice){
   try{
    if(!window.AudioContext)throw new Error('Audio mixing browser में उपलब्ध नहीं है।');
@@ -401,7 +401,7 @@ async function exportReelWebM(){
   for(let i=0;i<reelClips.length;i++){
    if(reelExportCancel)break;
    const clip=reelClips[i];status.textContent='Exporting clip '+(i+1)+' / '+reelClips.length+'…';
-   let sceneVoice=null,sceneVoiceSource=null,sceneVoiceGain=null;
+   let sceneVoice=null,sceneVoiceSource=null,sceneVoiceGain=null;let transitionSound=null,transitionSoundSource=null,transitionSoundGain=null;
    if(clip.voiceUrl&&audioContext&&audioDestination){
     try{sceneVoice=new Audio();sceneVoice.src=clip.voiceUrl;sceneVoice.preload='auto';await waitMediaEvent(sceneVoice,'loadedmetadata');sceneVoiceSource=audioContext.createMediaElementSource(sceneVoice);sceneVoiceGain=audioContext.createGain();sceneVoiceGain.gain.value=0;sceneVoiceSource.connect(sceneVoiceGain);sceneVoiceGain.connect(audioDestination);
      const baseVoice=Number(clip.voiceVolume??0.9),voiceDuration=Number.isFinite(sceneVoice.duration)?sceneVoice.duration:0;
@@ -411,6 +411,10 @@ async function exportReelWebM(){
      if(duckEnabled&&reelMusicGainNode){reelMusicGainNode.gain.cancelScheduledValues(voiceStart);reelMusicGainNode.gain.setValueAtTime(Number($('reelMusicVolume').value)*duckLevel,voiceStart);reelMusicGainNode.gain.setValueAtTime(Number($('reelMusicVolume').value)*duckLevel,voiceStart+voiceDuration);reelMusicGainNode.gain.linearRampToValueAtTime(Number($('reelMusicVolume').value),voiceStart+voiceDuration+duckRelease);}
      sceneVoice.currentTime=Math.max(0,Number(clip.voiceOffset||0));if(Number(clip.voiceDelay||0)>0)await new Promise(resolve=>setTimeout(resolve,Number(clip.voiceDelay)*1000));if(!reelExportCancel)await sceneVoice.play();}
     catch(e){status.textContent='Scene voice audio शुरू नहीं हुआ; अगली clip जारी है।';}
+   }
+   if(clip.transitionSoundUrl&&audioContext&&audioDestination){
+    try{transitionSound=new Audio();transitionSound.src=clip.transitionSoundUrl;transitionSound.preload='auto';await waitMediaEvent(transitionSound,'loadedmetadata');transitionSoundSource=audioContext.createMediaElementSource(transitionSound);transitionSoundGain=audioContext.createGain();transitionSoundGain.gain.value=Number(clip.transitionSoundVolume??0.8);transitionSoundSource.connect(transitionSoundGain);transitionSoundGain.connect(audioDestination);transitionSound.currentTime=0;if(!reelExportCancel)await transitionSound.play();}
+    catch(e){status.textContent='Transition sound effect play नहीं हुआ; export जारी है।';}
    }
    let media;
    if(clip.type==='Image'){
@@ -429,7 +433,7 @@ async function exportReelWebM(){
     while(!media.ended&&!reelExportCancel){activeReelClipTime=media.currentTime||0;drawReelFrame(ctx,canvas,media);drawReelTransition(ctx,canvas,clip,activeReelClipTime);await new Promise(r=>requestAnimationFrame(r));}
     media.pause();if(clipSource)clipSource.disconnect();if(clipGain)clipGain.disconnect();media.removeAttribute('src');media.load();
    }
-   if(sceneVoice){sceneVoice.pause();sceneVoice.currentTime=0;}if(sceneVoiceSource)sceneVoiceSource.disconnect();if(sceneVoiceGain)sceneVoiceGain.disconnect();
+   if(sceneVoice){sceneVoice.pause();sceneVoice.currentTime=0;}if(sceneVoiceSource)sceneVoiceSource.disconnect();if(sceneVoiceGain)sceneVoiceGain.disconnect();if(transitionSound){transitionSound.pause();transitionSound.currentTime=0;}if(transitionSoundSource)transitionSoundSource.disconnect();if(transitionSoundGain)transitionSoundGain.disconnect();
   }
   if(recorder.state!=='inactive')recorder.stop();await stopped;
   if(music){music.pause();music.currentTime=0;}
@@ -494,6 +498,9 @@ function renderReelClips(){
   const transDurLabel=document.createElement('label');transDurLabel.textContent='Transition duration (sec)';transDurWrap.appendChild(transDurLabel);
   const transDur=document.createElement('input');transDur.type='number';transDur.min='0.1';transDur.max='2';transDur.step='0.1';transDur.value=String(clip.transitionDuration??0.6);transDur.onchange=()=>{clip.transitionDuration=Math.max(0.1,Math.min(2,Number(transDur.value)||0.6));};transDurWrap.appendChild(transDur);
   transitionBox.appendChild(transTypeWrap);transitionBox.appendChild(transDurWrap);card.appendChild(transitionBox);
+  const fxLabel=document.createElement('label');fxLabel.textContent='🔊 Transition sound effect (optional)';card.appendChild(fxLabel);
+  const fxInput=document.createElement('input');fxInput.type='file';fxInput.accept='audio/*';fxInput.onchange=()=>{const file=fxInput.files&&fxInput.files[0];if(!file)return;if(clip.transitionSoundUrl)URL.revokeObjectURL(clip.transitionSoundUrl);clip.transitionSoundFile=file;clip.transitionSoundUrl=URL.createObjectURL(file);renderReelClips();};card.appendChild(fxInput);
+  if(clip.transitionSoundUrl){const fxAudio=document.createElement('audio');fxAudio.controls=true;fxAudio.src=clip.transitionSoundUrl;fxAudio.style.width='100%';card.appendChild(fxAudio);const fxVolLabel=document.createElement('label');fxVolLabel.textContent='Transition sound volume';card.appendChild(fxVolLabel);const fxVol=document.createElement('input');fxVol.type='range';fxVol.min='0';fxVol.max='1';fxVol.step='0.05';fxVol.value=String(clip.transitionSoundVolume??0.8);fxVol.oninput=()=>{clip.transitionSoundVolume=Number(fxVol.value);};card.appendChild(fxVol);}
   const voiceLabel=document.createElement('label');voiceLabel.textContent='🎙️ Scene voice-over / इस scene की narration';card.appendChild(voiceLabel);
   const voiceInput=document.createElement('textarea');voiceInput.rows=2;voiceInput.maxLength=500;voiceInput.placeholder='इस scene में क्या बोलना है लिखें…';voiceInput.value=clip.voiceText||'';voiceInput.onchange=()=>{clip.voiceText=voiceInput.value;};card.appendChild(voiceInput);
   const voiceFileLabel=document.createElement('label');voiceFileLabel.textContent='Audio file for this scene (MP3 / WAV / M4A)';card.appendChild(voiceFileLabel);
@@ -571,8 +578,8 @@ function renderReelClips(){
  });
 }
 function moveReelClip(index,delta){const next=index+delta;if(next<0||next>=reelClips.length)return;[reelClips[index],reelClips[next]]=[reelClips[next],reelClips[index]];renderReelClips();}
-function removeReelClip(index){const clip=reelClips.splice(index,1)[0];if(clip){URL.revokeObjectURL(clip.url);if(clip.voiceUrl)URL.revokeObjectURL(clip.voiceUrl);}renderReelClips();}
-function clearReelClips(){reelClips.forEach(x=>{URL.revokeObjectURL(x.url);if(x.voiceUrl)URL.revokeObjectURL(x.voiceUrl);});reelClips=[];renderReelClips();}
+function removeReelClip(index){const clip=reelClips.splice(index,1)[0];if(clip){URL.revokeObjectURL(clip.url);if(clip.voiceUrl)URL.revokeObjectURL(clip.voiceUrl);if(clip.transitionSoundUrl)URL.revokeObjectURL(clip.transitionSoundUrl);}renderReelClips();}
+function clearReelClips(){reelClips.forEach(x=>{URL.revokeObjectURL(x.url);if(x.voiceUrl)URL.revokeObjectURL(x.voiceUrl);if(x.transitionSoundUrl)URL.revokeObjectURL(x.transitionSoundUrl);});reelClips=[];renderReelClips();}
 function downloadClipEditList(){
  if(!reelClips.length){$('reelClipStatus').textContent='पहले images/videos जोड़ें।';return;}
  const lines=['SCIENCE CENTRE LEARNING HUB — REEL CLIP EDIT LIST','क्रम | प्रकार | फाइल | फोटो अवधि'];
