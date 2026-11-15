@@ -336,7 +336,8 @@ async function exportReelWebM(){
  let audioContext=null,audioDestination=null,stream=videoStream;
  const music=$('reelMusicAudio'),includeClipAudio=$('reelOriginalAudio').checked;
  const hasVideoAudio=includeClipAudio&&reelClips.some(x=>x.type==='Video');
- if((music&&music.src)||hasVideoAudio){
+ const hasSceneVoice=reelClips.some(x=>x.voiceUrl);
+ if((music&&music.src)||hasVideoAudio||hasSceneVoice){
   try{
    if(!window.AudioContext)throw new Error('Audio mixing browser में उपलब्ध नहीं है।');
    if(!reelAudioContext)reelAudioContext=new AudioContext();
@@ -364,6 +365,11 @@ async function exportReelWebM(){
   for(let i=0;i<reelClips.length;i++){
    if(reelExportCancel)break;
    const clip=reelClips[i];status.textContent='Exporting clip '+(i+1)+' / '+reelClips.length+'…';
+   let sceneVoice=null,sceneVoiceSource=null,sceneVoiceGain=null;
+   if(clip.voiceUrl&&audioContext&&audioDestination){
+    try{sceneVoice=new Audio();sceneVoice.src=clip.voiceUrl;sceneVoice.preload='auto';sceneVoiceSource=audioContext.createMediaElementSource(sceneVoice);sceneVoiceGain=audioContext.createGain();sceneVoiceGain.gain.value=Number(clip.voiceVolume??0.9);sceneVoiceSource.connect(sceneVoiceGain);sceneVoiceGain.connect(audioDestination);sceneVoice.currentTime=0;await sceneVoice.play();}
+    catch(e){status.textContent='Scene voice audio शुरू नहीं हुआ; अगली clip जारी है।';}
+   }
    let media;
    if(clip.type==='Image'){
     media=new Image();media.src=clip.url;if(!media.complete)await waitMediaEvent(media,'load');
@@ -381,6 +387,7 @@ async function exportReelWebM(){
     while(!media.ended&&!reelExportCancel){activeReelClipTime=media.currentTime||0;drawReelFrame(ctx,canvas,media);await new Promise(r=>requestAnimationFrame(r));}
     media.pause();if(clipSource)clipSource.disconnect();if(clipGain)clipGain.disconnect();media.removeAttribute('src');media.load();
    }
+   if(sceneVoice){sceneVoice.pause();sceneVoice.currentTime=0;}if(sceneVoiceSource)sceneVoiceSource.disconnect();if(sceneVoiceGain)sceneVoiceGain.disconnect();
   }
   if(recorder.state!=='inactive')recorder.stop();await stopped;
   if(music){music.pause();music.currentTime=0;}
@@ -440,6 +447,9 @@ function renderReelClips(){
   media.style.width='100%';media.style.maxHeight='190px';media.style.objectFit='contain';media.style.marginTop='8px';card.appendChild(media);
   const voiceLabel=document.createElement('label');voiceLabel.textContent='🎙️ Scene voice-over / इस scene की narration';card.appendChild(voiceLabel);
   const voiceInput=document.createElement('textarea');voiceInput.rows=2;voiceInput.maxLength=500;voiceInput.placeholder='इस scene में क्या बोलना है लिखें…';voiceInput.value=clip.voiceText||'';voiceInput.onchange=()=>{clip.voiceText=voiceInput.value;};card.appendChild(voiceInput);
+  const voiceFileLabel=document.createElement('label');voiceFileLabel.textContent='Audio file for this scene (MP3 / WAV / M4A)';card.appendChild(voiceFileLabel);
+  const voiceFileInput=document.createElement('input');voiceFileInput.type='file';voiceFileInput.accept='audio/*';voiceFileInput.onchange=()=>{const file=voiceFileInput.files&&voiceFileInput.files[0];if(!file)return;if(clip.voiceUrl)URL.revokeObjectURL(clip.voiceUrl);clip.voiceFile=file;clip.voiceUrl=URL.createObjectURL(file);renderReelClips();};card.appendChild(voiceFileInput);
+  if(clip.voiceUrl){const audioPreview=document.createElement('audio');audioPreview.controls=true;audioPreview.src=clip.voiceUrl;audioPreview.style.width='100%';audioPreview.style.marginTop='8px';card.appendChild(audioPreview);const fileName=document.createElement('small');fileName.textContent='Attached: '+clip.voiceFile.name;card.appendChild(fileName);}
   const voiceOptions=document.createElement('div');voiceOptions.className='grid';
   const langWrap=document.createElement('div'),rateWrap=document.createElement('div');
   const langLabel=document.createElement('label');langLabel.textContent='Voice language';langWrap.appendChild(langLabel);
@@ -449,6 +459,8 @@ function renderReelClips(){
   voiceOptions.appendChild(langWrap);voiceOptions.appendChild(rateWrap);card.appendChild(voiceOptions);
   const voiceActions=document.createElement('div');voiceActions.className='actions';
   const listenBtn=document.createElement('button');listenBtn.type='button';listenBtn.className='secondary';listenBtn.textContent='▶ Listen Scene Voice';listenBtn.onclick=()=>speakSceneVoice(clip);voiceActions.appendChild(listenBtn);
+  const voiceVolLabel=document.createElement('label');voiceVolLabel.textContent='Scene audio volume';voiceActions.appendChild(voiceVolLabel);
+  const voiceVol=document.createElement('input');voiceVol.type='range';voiceVol.min='0';voiceVol.max='1';voiceVol.step='0.05';voiceVol.value=String(clip.voiceVolume??0.9);voiceVol.oninput=()=>{clip.voiceVolume=Number(voiceVol.value);};voiceActions.appendChild(voiceVol);
   card.appendChild(voiceActions);
   const capLabel=document.createElement('label');capLabel.textContent='Scene caption / इस clip का text';card.appendChild(capLabel);
   const capInput=document.createElement('input');capInput.type='text';capInput.maxLength=100;capInput.placeholder='इस scene का caption लिखें';capInput.value=clip.caption||'';capInput.onchange=()=>{clip.caption=capInput.value;};card.appendChild(capInput);
