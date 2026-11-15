@@ -301,7 +301,16 @@ function drawReelFrame(ctx,canvas,media){
   const boxMode=activeReelClip.captionBox||'none';
   if(boxMode!=='none'){ctx.fillStyle=boxMode==='dark'?'rgba(0,0,0,0.78)':boxMode==='light'?'rgba(255,255,255,0.88)':theme.panel;ctx.beginPath();const bx=(w-boxW)/2,by=cy-boxH/2;const r=Math.max(6,Math.round(fs*0.22));ctx.roundRect(bx,by,boxW,boxH,r);ctx.fill();}
   const shadow=activeReelClip.captionShadow||'soft';if(shadow!=='none'){ctx.shadowColor='rgba(0,0,0,0.85)';ctx.shadowBlur=shadow==='strong'?Math.round(fs*0.42):Math.round(fs*0.2);ctx.shadowOffsetX=0;ctx.shadowOffsetY=Math.max(2,Math.round(fs*0.08));}
-  ctx.lineWidth=Math.max(2,Math.round(fs*0.12));ctx.strokeStyle='rgba(0,0,0,0.75)';ctx.fillStyle=activeReelClip.captionColor||'#ffffff';ctx.strokeText(cap,w/2,cy,w*0.9);ctx.fillText(cap,w/2,cy,w*0.9);ctx.shadowColor='transparent';ctx.shadowBlur=0;ctx.shadowOffsetY=0;}
+  ctx.lineWidth=Math.max(2,Math.round(fs*0.12));ctx.strokeStyle='rgba(0,0,0,0.75)';
+  if(activeReelClip.karaoke){
+   const words=cap.split(/\\s+/).filter(Boolean),space=ctx.measureText(' ').width,maxW=w*0.88,lines=[];let line=[],lineW=0;
+   words.forEach(word=>{const ww=ctx.measureText(word).width,need=line.length?space+ww:ww;if(line.length&&lineW+need>maxW){lines.push(line);line=[];lineW=0;}line.push({word,width:ww});lineW+=line.length>1?space+ww:ww;});if(line.length)lines.push(line);
+   const start=Number(activeReelClip.captionStart||0),end=Number(activeReelClip.captionEnd||0)>start?Number(activeReelClip.captionEnd):(activeReelClip.type==='Image'?Number(activeReelClip.duration||3):(ctx.canvas.__clipDuration||0));
+   const span=Math.max(0.5,end-start),progress=Math.max(0,Math.min(0.999,(activeReelClipTime-start)/span)),activeIndex=Math.min(words.length-1,Math.floor(progress*words.length));
+   const lineH=fs*1.28,totalH=lines.length*lineH;
+   lines.forEach((ln,li)=>{const totalW=ln.reduce((s,x)=>s+x.width,0)+space*Math.max(0,ln.length-1);let x=(w-totalW)/2;const yy=cy-totalH/2+li*lineH+lineH/2;ln.forEach(item=>{const idx=words.indexOf(item.word);ctx.textAlign='left';ctx.strokeText(item.word,x,yy);ctx.fillStyle=idx===activeIndex?(activeReelClip.karaokeColor||'#facc15'):(activeReelClip.captionColor||'#ffffff');ctx.fillText(item.word,x,yy);x+=item.width+space;});});
+  }else{ctx.fillStyle=activeReelClip.captionColor||'#ffffff';ctx.strokeText(cap,w/2,cy,w*0.9);ctx.fillText(cap,w/2,cy,w*0.9);}
+  ctx.shadowColor='transparent';ctx.shadowBlur=0;ctx.shadowOffsetY=0;}
  }
  if($('reelOverlayEnabled')?.checked){
   const title=($('reelOverlayTitle')?.value||'').trim(),subtitle=($('reelOverlaySubtitle')?.value||'').trim();
@@ -362,7 +371,7 @@ async function exportReelWebM(){
      try{clipSource=audioContext.createMediaElementSource(media);clipGain=audioContext.createGain();clipGain.gain.value=Number($('reelOriginalVolume').value);clipSource.connect(clipGain);clipGain.connect(audioDestination);}catch(e){status.textContent='इस video की original audio mix नहीं हो पाई; visual export जारी है।';}
     }
     await media.play();
-    activeReelClip=clip;
+    activeReelClip=clip;canvas.__clipDuration=Number.isFinite(media.duration)?media.duration:0;
     while(!media.ended&&!reelExportCancel){activeReelClipTime=media.currentTime||0;drawReelFrame(ctx,canvas,media);await new Promise(r=>requestAnimationFrame(r));}
     media.pause();if(clipSource)clipSource.disconnect();if(clipGain)clipGain.disconnect();media.removeAttribute('src');media.load();
    }
@@ -437,6 +446,12 @@ function renderReelClips(){
   const weightSelect=document.createElement('select');[['normal','Regular'],['bold','Bold']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;weightSelect.appendChild(o);});weightSelect.value=clip.captionWeight||'bold';weightSelect.onchange=()=>{clip.captionWeight=weightSelect.value;};weightWrap.appendChild(weightSelect);
   const italicLabel=document.createElement('label');italicLabel.textContent='Italic';italicWrap.appendChild(italicLabel);
   const italicSelect=document.createElement('select');[['no','Off'],['yes','On']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;italicSelect.appendChild(o);});italicSelect.value=clip.captionItalic?'yes':'no';italicSelect.onchange=()=>{clip.captionItalic=italicSelect.value==='yes';};italicWrap.appendChild(italicSelect);
+  const karaokeWrap=document.createElement('div');
+  const karaokeLabel=document.createElement('label');karaokeLabel.textContent='Karaoke word highlight';karaokeWrap.appendChild(karaokeLabel);
+  const karaokeSelect=document.createElement('select');[['off','Off'],['on','On']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;karaokeSelect.appendChild(o);});karaokeSelect.value=clip.karaoke?'on':'off';karaokeSelect.onchange=()=>{clip.karaoke=karaokeSelect.value==='on';};karaokeWrap.appendChild(karaokeSelect);
+  const karaokeColorLabel=document.createElement('label');karaokeColorLabel.textContent='Highlight colour';karaokeWrap.appendChild(karaokeColorLabel);
+  const karaokeColor=document.createElement('select');[['#facc15','Gold'],['#38bdf8','Sky blue'],['#4ade80','Green'],['#fb923c','Orange'],['#f472b6','Pink']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;karaokeColor.appendChild(o);});karaokeColor.value=clip.karaokeColor||'#facc15';karaokeColor.onchange=()=>{clip.karaokeColor=karaokeColor.value;};karaokeWrap.appendChild(karaokeColor);
+  capStyle.appendChild(karaokeWrap);
   const shadowLabel=document.createElement('label');shadowLabel.textContent='Text shadow';shadowWrap.appendChild(shadowLabel);
   const shadowSelect=document.createElement('select');[['none','None'],['soft','Soft'],['strong','Strong']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;shadowSelect.appendChild(o);});shadowSelect.value=clip.captionShadow||'soft';shadowSelect.onchange=()=>{clip.captionShadow=shadowSelect.value;};shadowWrap.appendChild(shadowSelect);
   capStyle.appendChild(posWrap);capStyle.appendChild(sizeWrap);capStyle.appendChild(colorWrap);capStyle.appendChild(boxWrap);capStyle.appendChild(weightWrap);capStyle.appendChild(italicWrap);capStyle.appendChild(shadowWrap);card.appendChild(capStyle);
