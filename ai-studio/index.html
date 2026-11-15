@@ -373,7 +373,7 @@ async function exportReelWebM(){
    const clip=reelClips[i];status.textContent='Exporting clip '+(i+1)+' / '+reelClips.length+'…';
    let sceneVoice=null,sceneVoiceSource=null,sceneVoiceGain=null;
    if(clip.voiceUrl&&audioContext&&audioDestination){
-    try{sceneVoice=new Audio();sceneVoice.src=clip.voiceUrl;sceneVoice.preload='auto';sceneVoiceSource=audioContext.createMediaElementSource(sceneVoice);sceneVoiceGain=audioContext.createGain();sceneVoiceGain.gain.value=0;sceneVoiceSource.connect(sceneVoiceGain);sceneVoiceGain.connect(audioDestination);
+    try{sceneVoice=new Audio();sceneVoice.src=clip.voiceUrl;sceneVoice.preload='auto';await waitMediaEvent(sceneVoice,'loadedmetadata');sceneVoiceSource=audioContext.createMediaElementSource(sceneVoice);sceneVoiceGain=audioContext.createGain();sceneVoiceGain.gain.value=0;sceneVoiceSource.connect(sceneVoiceGain);sceneVoiceGain.connect(audioDestination);
      const baseVoice=Number(clip.voiceVolume??0.9),voiceDuration=Number.isFinite(sceneVoice.duration)?sceneVoice.duration:0;
      const voiceStart=audioContext.currentTime+Number(clip.voiceDelay||0),fadeIn=Math.min(Number(clip.voiceFadeIn||0),Math.max(0,voiceDuration-0.05)),fadeOut=Math.min(Number(clip.voiceFadeOut||0),Math.max(0,voiceDuration-fadeIn));
      sceneVoiceGain.gain.setValueAtTime(0,voiceStart);if(fadeIn>0)sceneVoiceGain.gain.linearRampToValueAtTime(baseVoice,voiceStart+fadeIn);else sceneVoiceGain.gain.setValueAtTime(baseVoice,voiceStart);
