@@ -367,7 +367,7 @@ async function exportReelWebM(){
    const clip=reelClips[i];status.textContent='Exporting clip '+(i+1)+' / '+reelClips.length+'…';
    let sceneVoice=null,sceneVoiceSource=null,sceneVoiceGain=null;
    if(clip.voiceUrl&&audioContext&&audioDestination){
-    try{sceneVoice=new Audio();sceneVoice.src=clip.voiceUrl;sceneVoice.preload='auto';sceneVoiceSource=audioContext.createMediaElementSource(sceneVoice);sceneVoiceGain=audioContext.createGain();sceneVoiceGain.gain.value=Number(clip.voiceVolume??0.9);sceneVoiceSource.connect(sceneVoiceGain);sceneVoiceGain.connect(audioDestination);sceneVoice.currentTime=0;await sceneVoice.play();}
+    try{sceneVoice=new Audio();sceneVoice.src=clip.voiceUrl;sceneVoice.preload='auto';sceneVoiceSource=audioContext.createMediaElementSource(sceneVoice);sceneVoiceGain=audioContext.createGain();sceneVoiceGain.gain.value=Number(clip.voiceVolume??0.9);sceneVoiceSource.connect(sceneVoiceGain);sceneVoiceGain.connect(audioDestination);sceneVoice.currentTime=Math.max(0,Number(clip.voiceOffset||0));if(Number(clip.voiceDelay||0)>0)await new Promise(resolve=>setTimeout(resolve,Number(clip.voiceDelay)*1000));if(!reelExportCancel)await sceneVoice.play();}
     catch(e){status.textContent='Scene voice audio शुरू नहीं हुआ; अगली clip जारी है।';}
    }
    let media;
@@ -459,6 +459,13 @@ function renderReelClips(){
   voiceOptions.appendChild(langWrap);voiceOptions.appendChild(rateWrap);card.appendChild(voiceOptions);
   const voiceActions=document.createElement('div');voiceActions.className='actions';
   const listenBtn=document.createElement('button');listenBtn.type='button';listenBtn.className='secondary';listenBtn.textContent='▶ Listen Scene Voice';listenBtn.onclick=()=>speakSceneVoice(clip);voiceActions.appendChild(listenBtn);
+  const voiceTiming=document.createElement('div');voiceTiming.className='grid';
+  const delayWrap=document.createElement('div'),offsetWrap=document.createElement('div');
+  const delayLabel=document.createElement('label');delayLabel.textContent='Voice start delay (sec)';delayWrap.appendChild(delayLabel);
+  const delayInput=document.createElement('input');delayInput.type='number';delayInput.min='0';delayInput.max='60';delayInput.step='0.1';delayInput.value=String(clip.voiceDelay||0);delayInput.onchange=()=>{clip.voiceDelay=Math.max(0,Math.min(60,Number(delayInput.value)||0));};delayWrap.appendChild(delayInput);
+  const offsetLabel=document.createElement('label');offsetLabel.textContent='Start audio from (sec)';offsetWrap.appendChild(offsetLabel);
+  const offsetInput=document.createElement('input');offsetInput.type='number';offsetInput.min='0';offsetInput.step='0.1';offsetInput.value=String(clip.voiceOffset||0);offsetInput.onchange=()=>{clip.voiceOffset=Math.max(0,Number(offsetInput.value)||0);};offsetWrap.appendChild(offsetInput);
+  voiceTiming.appendChild(delayWrap);voiceTiming.appendChild(offsetWrap);card.appendChild(voiceTiming);
   const voiceVolLabel=document.createElement('label');voiceVolLabel.textContent='Scene audio volume';voiceActions.appendChild(voiceVolLabel);
   const voiceVol=document.createElement('input');voiceVol.type='range';voiceVol.min='0';voiceVol.max='1';voiceVol.step='0.05';voiceVol.value=String(clip.voiceVolume??0.9);voiceVol.oninput=()=>{clip.voiceVolume=Number(voiceVol.value);};voiceActions.appendChild(voiceVol);
   card.appendChild(voiceActions);
@@ -508,8 +515,8 @@ function renderReelClips(){
  });
 }
 function moveReelClip(index,delta){const next=index+delta;if(next<0||next>=reelClips.length)return;[reelClips[index],reelClips[next]]=[reelClips[next],reelClips[index]];renderReelClips();}
-function removeReelClip(index){const clip=reelClips.splice(index,1)[0];if(clip)URL.revokeObjectURL(clip.url);renderReelClips();}
-function clearReelClips(){reelClips.forEach(x=>URL.revokeObjectURL(x.url));reelClips=[];renderReelClips();}
+function removeReelClip(index){const clip=reelClips.splice(index,1)[0];if(clip){URL.revokeObjectURL(clip.url);if(clip.voiceUrl)URL.revokeObjectURL(clip.voiceUrl);}renderReelClips();}
+function clearReelClips(){reelClips.forEach(x=>{URL.revokeObjectURL(x.url);if(x.voiceUrl)URL.revokeObjectURL(x.voiceUrl);});reelClips=[];renderReelClips();}
 function downloadClipEditList(){
  if(!reelClips.length){$('reelClipStatus').textContent='पहले images/videos जोड़ें।';return;}
  const lines=['SCIENCE CENTRE LEARNING HUB — REEL CLIP EDIT LIST','क्रम | प्रकार | फाइल | फोटो अवधि'];
