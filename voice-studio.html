@@ -33,6 +33,16 @@ textarea{min-height:115px;resize:vertical}.grid{display:grid;grid-template-colum
 <div><label for="pitch">Pitch / आवाज़ का उतार-चढ़ाव</label><div class="range-row"><input id="pitch" type="range" min="0.7" max="1.4" step="0.1" value="1"><output id="pitchValue">1.0</output></div></div>
 </div>
 <div class="actions"><button id="play">▶ Play / सुनें</button><button class="secondary" id="pause">Ⅱ Pause</button><button class="secondary" id="resume">▶ Resume</button><button class="stop" id="stop">■ Stop</button><button class="secondary" id="test">🔉 Test voice</button></div>
+<div class="panel" style="margin:16px 0 0;padding:14px;background:#f7faff">
+<h3 style="margin:0 0 6px">⬇ Audio Download Studio / ऑडियो डाउनलोड</h3>
+<p class="hint">Hybrid mode: सुनने के लिए device voice और डाउनलोड के लिए online TTS। Internet आवश्यक है। चुनी हुई भाषा, Speed और Pitch लागू करने की कोशिश होगी।</p>
+<div class="actions">
+<button class="secondary" id="downloadMp3">⬇ Download MP3</button>
+<button class="secondary" id="downloadWav">⬇ Download WAV</button>
+<button id="downloadBoth">⬇ Download MP3 + WAV</button>
+</div>
+<div class="hint" id="downloadStatus" role="status" aria-live="polite">Download के लिए पहले text और language चुनें।</div>
+</div>
 <div class="status" id="status" role="status" aria-live="polite">Voice engine जाँच रहा है…</div>
 </section>
 <section class="panel">
@@ -89,6 +99,81 @@ textarea{min-height:115px;resize:vertical}.grid{display:grid;grid-template-colum
  $('pause').addEventListener('click',()=>{if(synth?.speaking){synth.pause();setStatus('Paused / रोका गया।');}});
  $('resume').addEventListener('click',()=>{if(synth?.paused){synth.resume();setStatus('Resumed / फिर शुरू।');}});
  $('stop').addEventListener('click',()=>{synth?.cancel();$('play').disabled=false;setStatus('Stopped / आवाज़ बंद।');});
+
+ // Hybrid audio export: Google Translate's public TTS endpoint supplies MP3;
+ // WAV is made locally by decoding the returned audio and encoding PCM.
+ const dlStatus=$('downloadStatus');
+ const setDlStatus=t=>{dlStatus.textContent=t;};
+ function selectedItems(){
+  const mode=$('mode').value,h=$('hindiText').value.trim(),e=$('englishText').value.trim();
+  const items=mode==='hi'?[{text:h,lang:'hi',label:'Hindi'}]:mode==='en'?[{text:e,lang:'en',label:'English'}]:[{text:h,lang:'hi',label:'Hindi'},{text:e,lang:'en',label:'English'}];
+  return items.filter(x=>x.text);
+ }
+ function splitText(text,max=180){
+  const words=text.split(/\\s+/);let out=[],part='';
+  for(const word of words){const next=part?part+' '+word:word;if(next.length>max&&part){out.push(part);part=word;}else part=next;}
+  if(part)out.push(part);return out;
+ }
+ async function getTtsBlob(item){
+  const chunks=splitText(item.text);const blobs=[];
+  for(let i=0;i<chunks.length;i++){
+   setDlStatus('Online TTS तैयार हो रहा है: '+item.label+' · '+(i+1)+'/'+chunks.length);
+   const url='https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl='+encodeURIComponent(item.lang)+'&q='+encodeURIComponent(chunks[i]);
+   const response=await fetch(url,{mode:'cors'});
+   if(!response.ok)throw new Error('Online TTS service ने '+response.status+' response दिया।');
+   const blob=await response.blob();if(!blob.size)throw new Error('TTS से audio नहीं मिला।');blobs.push(blob);
+  }
+  return new Blob(blobs,{type:'audio/mpeg'});
+ }
+ function safeName(s){return s.toLowerCase().replace(/[^a-z0-9-]+/g,'-').replace(/^-|-$/g,'')||'lesson';}
+ function saveBlob(blob,name){const a=document.createElement('a'),url=URL.createObjectURL(blob);a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
+ async function toWav(mp3Blob){
+  const bytes=await mp3Blob.arrayBuffer();const AudioCtx=window.AudioContext||window.webkitAudioContext;
+  if(!AudioCtx)throw new Error('इस browser में WAV conversion उपलब्ध नहीं है।');
+  const ctx=new AudioCtx();let decoded;
+  try{decoded=await ctx.decodeAudioData(bytes.slice(0));}finally{await ctx.close();}
+  const rate=Number($('rate').value),pitch=Number($('pitch').value);
+  const outRate=decoded.sampleRate;
+  const length=Math.max(1,Math.ceil(decoded.length/rate));
+  const Offline=window.OfflineAudioContext||window.webkitOfflineAudioContext;
+  if(!Offline)throw new Error('OfflineAudioContext उपलब्ध नहीं है। MP3 डाउनलोड कर सकते हैं।');
+  const off=new Offline(decoded.numberOfChannels,length,outRate);
+  const source=off.createBufferSource();source.buffer=decoded;source.playbackRate.value=rate;
+  source.detune.value=(pitch-1)*1200;source.connect(off.destination);source.start(0);
+  const rendered=await off.startRendering();
+  const channels=rendered.numberOfChannels,frames=rendered.length,bytesPerSample=2,blockAlign=channels*bytesPerSample;
+  const buffer=new ArrayBuffer(44+frames*blockAlign),view=new DataView(buffer);
+  const write=(o,s)=>{for(let i=0;i<s.length;i++)view.setUint8(o+i,s.charCodeAt(i));};
+  write(0,'RIFF');view.setUint32(4,36+frames*blockAlign,true);write(8,'WAVE');write(12,'fmt ');
+  view.setUint32(16,16,true);view.setUint16(20,1,true);view.setUint16(22,channels,true);
+  view.setUint32(24,outRate,true);view.setUint32(28,outRate*blockAlign,true);view.setUint16(32,blockAlign,true);
+  view.setUint16(34,16,true);write(36,'data');view.setUint32(40,frames*blockAlign,true);
+  let offset=44;
+  for(let i=0;i<frames;i++)for(let ch=0;ch<channels;ch++){
+   let sample=Math.max(-1,Math.min(1,rendered.getChannelData(ch)[i]));
+   view.setInt16(offset,sample<0?sample*32768:sample*32767,true);offset+=2;
+  }
+  return new Blob([buffer],{type:'audio/wav'});
+ }
+ async function download(format){
+  const items=selectedItems();if(!items.length){setDlStatus('पहले चुनी हुई भाषा में text लिखें।');return;}
+  const buttons=['downloadMp3','downloadWav','downloadBoth'].map(id=>$(id));buttons.forEach(b=>b.disabled=true);
+  try{
+   for(const item of items){
+    const mp3=await getTtsBlob(item),base='science-centre-'+safeName(item.label)+'-audio';
+    if(format==='mp3'||format==='both')saveBlob(mp3,base+'.mp3');
+    if(format==='wav'||format==='both'){
+     setDlStatus(item.label+' WAV में convert हो रहा है…');
+     const wav=await toWav(mp3);saveBlob(wav,base+'.wav');
+    }
+   }
+   setDlStatus('Download तैयार है। यदि browser पूछे तो Downloads की अनुमति दें।');
+  }catch(err){setDlStatus('Download नहीं हो पाया: '+err.message+' · Internet connection जाँचें या MP3 विकल्प आज़माएँ।');}
+  finally{buttons.forEach(b=>b.disabled=false);}
+ }
+ $('downloadMp3').addEventListener('click',()=>download('mp3'));
+ $('downloadWav').addEventListener('click',()=>download('wav'));
+ $('downloadBoth').addEventListener('click',()=>download('both'));
  $('test').addEventListener('click',()=>{const mode=$('mode').value;const hi='नमस्ते! विज्ञान केंद्र लर्निंग हब में आपका स्वागत है।';const en='Hello! Welcome to Science Centre Learning Hub.';const items=mode==='hi'?[{text:hi,lang:'hi-IN',label:'Hindi test'}]:mode==='en'?[{text:en,lang:'en-IN',label:'English test'}]:[{text:hi,lang:'hi-IN',label:'Hindi test'},{text:en,lang:'en-IN',label:'English test'}];run(items);});
 })();
 </script>
