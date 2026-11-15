@@ -77,7 +77,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <div class="actions"><button class="secondary" onclick="playReelMusic()">▶ Play Music</button><button class="secondary" onclick="pauseReelMusic()">⏸ Pause</button><button class="secondary" onclick="stopReelMusic()">⏹ Stop</button></div>
 <div id="reelMusicStatus" class="status" role="status">कोई music file चुनी नहीं गई।</div><audio id="reelMusicAudio" preload="metadata"></audio>
 </div>
-<div class="panel" style="margin-top:14px"><b>🎬 Add Your Reel Clips</b><p class="note">फोन से फोटो और वीडियो चुनें। क्लिप का क्रम और प्रत्येक फोटो की स्क्रीन अवधि सेट करें। यह local clip planner है; अभी MP4 export नहीं करता।</p><label for="reelClipFiles">Images / Videos (multiple selection)</label><input id="reelClipFiles" type="file" accept="image/*,video/*" multiple onchange="addReelClips(event)"><div class="actions"><button class="secondary" onclick="downloadClipEditList()">⬇ Download Clip Edit List</button><button class="secondary" onclick="clearReelClips()">Clear Clips</button></div><div id="reelClipStatus" class="status">अभी कोई clip नहीं जोड़ी गई।</div><div id="reelClipList" class="grid"></div></div><div class="actions"><button onclick="createReelPlan()">✨ Create Reel Plan</button><button class="secondary" onclick="clearReelPlan()">Clear</button></div>
+<div class="panel" style="margin-top:14px"><b>🎬 Add Your Reel Clips</b><p class="note">फोन से फोटो और वीडियो चुनें। क्लिप का क्रम और प्रत्येक फोटो की स्क्रीन अवधि सेट करें। यह local clip planner है; अभी MP4 export नहीं करता।</p><label for="reelClipFiles">Images / Videos (multiple selection)</label><input id="reelClipFiles" type="file" accept="image/*,video/*" multiple onchange="addReelClips(event)"><div class="actions"><button onclick="playReelPreview()">▶ Preview Reel Sequence</button><button class="secondary" onclick="stopReelPreview()">⏹ Stop Preview</button><button class="secondary" onclick="downloadClipEditList()">⬇ Download Clip Edit List</button><button class="secondary" onclick="clearReelClips()">Clear Clips</button></div><div id="reelPreviewStage" class="preview" style="min-height:220px;display:flex;align-items:center;justify-content:center">Reel preview यहाँ दिखाई देगा।</div><div id="reelPreviewStatus" class="status">Preview के लिए clips जोड़ें।</div><div id="reelClipStatus" class="status">अभी कोई clip नहीं जोड़ी गई।</div><div id="reelClipList" class="grid"></div></div><div class="actions"><button onclick="createReelPlan()">✨ Create Reel Plan</button><button class="secondary" onclick="clearReelPlan()">Clear</button></div>
 <div id="reelStatus" class="status" role="status"></div>
 <label for="reelOutput">Storyboard + Voice-over Script (editable)</label>
 <textarea id="reelOutput" style="min-height:300px" placeholder="आपका Reel plan यहाँ बनेगा…"></textarea>
@@ -223,6 +223,30 @@ function createReelPlan(){
  $('reelOutput').value=lines.join('\n');$('reelStatus').textContent='Reel plan तैयार है। इसे edit करें, Voice Studio में भेजें या .txt डाउनलोड करें।';
 }
 let reelClips=[];
+let reelPreviewRun=0;
+function stopReelPreview(){
+ reelPreviewRun++;
+ const stage=$('reelPreviewStage');const video=stage.querySelector('video');if(video){video.pause();video.removeAttribute('src');video.load();}
+ const music=$('reelMusicAudio');if(music&&!music.paused)music.pause();
+ $('reelPreviewStatus').textContent='Preview रोक दिया गया।';
+}
+function waitPreview(ms,run){return new Promise(resolve=>setTimeout(()=>resolve(run===reelPreviewRun),ms));}
+async function playReelPreview(){
+ if(!reelClips.length){$('reelPreviewStatus').textContent='पहले Photos या Videos जोड़ें।';return;}
+ stopReelPreview();const run=reelPreviewRun;const stage=$('reelPreviewStage');stage.innerHTML='';
+ const music=$('reelMusicAudio');
+ if(music&&music.src){music.currentTime=0;music.loop=true;music.play().catch(()=>{});}
+ for(let i=0;i<reelClips.length;i++){
+  if(run!==reelPreviewRun)return;
+  const clip=reelClips[i];stage.innerHTML='';
+  const heading=document.createElement('div');heading.textContent=(i+1)+' / '+reelClips.length+' · '+clip.file.name;heading.style.marginBottom='8px';stage.appendChild(heading);
+  const media=clip.type==='Image'?document.createElement('img'):document.createElement('video');
+  media.src=clip.url;media.style.width='100%';media.style.maxHeight='58vh';media.style.objectFit='contain';media.style.display='block';media.playsInline=true;
+  if(clip.type==='Video'){media.controls=true;stage.appendChild(media);$('reelPreviewStatus').textContent='Playing video '+(i+1)+' of '+reelClips.length;try{await media.play();await new Promise(resolve=>{media.onended=resolve;media.onerror=resolve;});}catch(e){$('reelPreviewStatus').textContent='Video playback के लिए Play दबाएँ या अगली clip चलाएँ।';return;}}
+  else{stage.appendChild(media);$('reelPreviewStatus').textContent='Showing photo '+(i+1)+' of '+reelClips.length+' · '+clip.duration+' sec';const continued=await waitPreview(Number(clip.duration)*1000,run);if(!continued)return;}
+ }
+ if(run===reelPreviewRun){if(music)music.pause();$('reelPreviewStatus').textContent='पूरा Reel sequence preview हो गया।';}
+}
 function addReelClips(event){
  const files=Array.from(event.target.files||[]);
  files.forEach(file=>{if(!file.type.startsWith('image/')&&!file.type.startsWith('video/'))return;reelClips.push({id:Date.now()+Math.random(),file,url:URL.createObjectURL(file),type:file.type.startsWith('video/')?'Video':'Image',duration:3});});
