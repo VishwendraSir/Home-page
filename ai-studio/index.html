@@ -133,17 +133,38 @@ function errorText(e){
  const bits=['code','message','name','status'].filter(k=>e[k]).map(k=>k+': '+e[k]);return bits.join(' | ')||JSON.stringify(e);
 }
 function setBusy(id,on,label){$(id).disabled=on;$(id).textContent=on?'⏳ कृपया प्रतीक्षा करें…':label;}
+function authErrorMessage(e){
+ const code=e&&(e.error||e.code||e.name||'');
+ const msg=e&&(e.msg||e.message||String(e))||'Unknown error';
+ if(code==='popup_blocked')return 'Browser ने login popup block कर दिया। Chrome में पेज खोलें और Pop-ups की अनुमति दें।';
+ if(code==='auth_window_closed')return 'Login window बंद हो गई या आपने login cancel किया। फिर से प्रयास करें।';
+ if(code==='unsupported_origin')return 'यह पेज unsupported origin में खुला है। GitHub Pages का पूरा HTTPS link खोलें।';
+ if(code==='not_available_in_app')return 'यह Puter App context है; यहाँ अलग popup login उपलब्ध नहीं।';
+ return 'Login error ('+code+'): '+msg;
+}
 async function refreshAuth(){
  try{
-  if(!window.puter){$('authStatus').textContent='Puter library लोड नहीं हुई। इंटरनेट जाँचें।';return;}
+  if(!window.puter){$('authStatus').textContent='Puter library लोड नहीं हुई। Internet connection जाँचें और पेज Refresh करें।';return;}
   if(puter.auth && puter.auth.isSignedIn()){
    const u=await puter.auth.getUser();$('authStatus').textContent='Connected ✓'+(u&&u.username?' — '+u.username:'');
-  }else $('authStatus').textContent='अभी sign in नहीं है। Connect / Sign in दबाएँ या Generate दबाकर consent दें।';
- }catch(e){$('authStatus').textContent='Status: '+errorText(e);}
+  }else $('authStatus').textContent='अभी sign in नहीं है। Connect / Sign in दबाएँ।';
+ }catch(e){$('authStatus').textContent='Status जाँचने में समस्या: '+authErrorMessage(e);}
 }
 async function connectPuter(){
- try{if(!window.puter)throw new Error('Puter library load नहीं हुई।');$('authStatus').textContent='Sign-in window खुल रही है…';await puter.auth.signIn();await refreshAuth();}
- catch(e){$('authStatus').textContent='Sign-in पूरा नहीं हुआ: '+errorText(e)+'। Popup अनुमति जाँचें; AI generation पर sign-in दोबारा माँगा जा सकता है।';}
+ const btn=$('connectBtn');if(btn)btn.disabled=true;
+ try{
+  if(!window.puter)throw new Error('Puter library load नहीं हुई। Internet जाँचें और पेज Refresh करें।');
+  $('authStatus').textContent='Puter authentication dialog खोल रहे हैं…';
+  if(puter.ui&&typeof puter.ui.authenticateWithPuter==='function'){
+   await puter.ui.authenticateWithPuter();
+  }else{
+   await puter.auth.signIn();
+  }
+  await refreshAuth();
+  if(puter.auth&&!puter.auth.isSignedIn())$('authStatus').textContent='Login पूरा नहीं हुआ। कृपया फिर से प्रयास करें।';
+ }catch(e){
+  $('authStatus').textContent='Sign-in नहीं हो पाया: '+authErrorMessage(e)+' यदि popup block हो, पेज को Chrome में खोलकर Pop-ups allow करें।';
+ }finally{if(btn)btn.disabled=false;}
 }
 function ratioOptions(r){const [w,h]=r.split(':').map(Number);return {w,h};}
 async function makeImage(){
