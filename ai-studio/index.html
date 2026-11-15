@@ -151,19 +151,23 @@ async function refreshAuth(){
  }catch(e){$('authStatus').textContent='Status जाँचने में समस्या: '+authErrorMessage(e);}
 }
 async function connectPuter(){
- const btn=$('connectBtn');if(btn)btn.disabled=true;
+ const btn=$('connectBtn');
+ if(btn)btn.disabled=true;
  try{
   if(!window.puter)throw new Error('Puter library load नहीं हुई। Internet जाँचें और पेज Refresh करें।');
-  $('authStatus').textContent='Puter authentication dialog खोल रहे हैं…';
-  if(puter.ui&&typeof puter.ui.authenticateWithPuter==='function'){
-   await puter.ui.authenticateWithPuter();
-  }else{
-   await puter.auth.signIn();
-  }
+  if(!puter.auth||typeof puter.auth.signIn!=='function')throw new Error('Puter authentication module उपलब्ध नहीं है।');
+  $('authStatus').textContent='Puter sign-in popup खोल रहे हैं…';
+  // Call directly from the button's click flow; Puter requires a user gesture for popups.
+  await puter.auth.signIn({request_auth:true});
   await refreshAuth();
-  if(puter.auth&&!puter.auth.isSignedIn())$('authStatus').textContent='Login पूरा नहीं हुआ। कृपया फिर से प्रयास करें।';
+  if(!puter.auth.isSignedIn())$('authStatus').textContent='Sign-in पूरा नहीं हुआ। Popup में account चुनकर अनुमति दें।';
  }catch(e){
-  $('authStatus').textContent='Sign-in नहीं हो पाया: '+authErrorMessage(e)+' यदि popup block हो, पेज को Chrome में खोलकर Pop-ups allow करें।';
+  const code=e&&(e.error||e.code||e.name||'');
+  const msg=e&&(e.msg||e.message||String(e))||'Unknown error';
+  if(code==='popup_blocked')$('authStatus').textContent='Popup block हो गया। Chrome में Pop-ups allow करें और फिर Connect दबाएँ।';
+  else if(code==='auth_window_closed')$('authStatus').textContent='Login window बंद हो गई। दोबारा Connect दबाकर login पूरा करें।';
+  else if(code==='unsupported_origin')$('authStatus').textContent='GitHub Pages का HTTPS link खोलें; file:// या embedded preview से login न करें।';
+  else $('authStatus').textContent='Sign-in error: '+msg;
  }finally{if(btn)btn.disabled=false;}
 }
 function ratioOptions(r){const [w,h]=r.split(':').map(Number);return {w,h};}
