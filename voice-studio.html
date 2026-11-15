@@ -110,7 +110,7 @@ textarea{min-height:115px;resize:vertical}.grid{display:grid;grid-template-colum
   return items.filter(x=>x.text);
  }
  function splitText(text,max=180){
-  const words=text.split(/\\s+/);let out=[],part='';
+  const words=text.split(/\s+/);let out=[],part='';
   for(const word of words){const next=part?part+' '+word:word;if(next.length>max&&part){out.push(part);part=word;}else part=next;}
   if(part)out.push(part);return out;
  }
