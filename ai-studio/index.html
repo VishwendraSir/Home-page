@@ -49,6 +49,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <div class="actions"><button class="preset" onclick="setPreset('vidPrompt','cinematic')">🎥 Cinematic Scene</button><button class="preset" onclick="setPreset('vidPrompt','classroom')">🏫 Classroom Explainer</button></div>
 <div class="grid"><div><label>Format</label><select id="vidRatio"><option value="16:9">16:9 Landscape</option><option value="9:16">9:16 Vertical</option><option value="1:1">1:1 Square</option></select></div>
 <div><label>Duration</label><select id="vidDuration"><option value="5">5 seconds</option><option value="8">8 seconds</option><option value="10">10 seconds</option></select></div></div>
+<p class="note">ध्यान दें: चुनी गई अवधि/आकार हर AI मॉडल पर उपलब्ध नहीं होते। मॉडल अपने समर्थित विकल्प के अनुसार आउटपुट बदल सकता है। Generate दबाने से पहले अपने Puter खाते में संभावित usage/charges जाँच लें।</p>
 <div class="actions"><button id="makeVideo" onclick="makeVideo()">🎥 Generate Video</button><button class="secondary" id="testVideo" onclick="testVideo()">🧪 Test Sample (no generation credits)</button><button class="secondary" onclick="clearField('vidPrompt','videoStatus','videoPreview')">Clear</button></div>
 <div id="videoStatus" class="status" role="status"></div><div id="videoPreview" class="preview">आपका वीडियो यहाँ दिखाई देगा।</div>
 </section>
@@ -117,15 +118,18 @@ async function renderVideo(result){
  if(!v && result&&result.src){v=document.createElement('video');v.src=result.src;}
  if(!v)throw new Error('Video API ने video element नहीं लौटाया।');
  v.controls=true;v.playsInline=true;v.preload='metadata';v.style.maxWidth='100%';v.style.maxHeight='620px';box.appendChild(v);
- const url=v.src||v.currentSrc||'';if(url){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.className='dl';a.textContent='⬇ Open / Download Video';box.appendChild(a);}
+ const url=v.src||v.currentSrc||'';if(url){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.className='dl';a.textContent='↗ Open Video (player से download करें)';box.appendChild(a);}
 }
 async function makeVideo(){
  const prompt=$('vidPrompt').value.trim();if(!prompt){$('videoStatus').textContent='पहले video prompt लिखें।';return;}
+ if(!confirm('वीडियो जनरेशन आपके Puter खाते के usage/charges के अधीन हो सकता है। आगे बढ़ने से पहले अपने खाते की शर्तें जाँच लें। क्या आप Generate करना चाहते हैं?'))return;
  setBusy('makeVideo',true,'🎥 Generate Video');$('videoStatus').textContent='वीडियो तैयार हो रहा है। इसमें कुछ मिनट लग सकते हैं।';$('videoPreview').textContent='Generating video… पेज खुला रखें।';
  try{
   if(!window.puter)throw new Error('Puter AI library लोड नहीं हुई।');
-  const r=$('vidRatio').value,[w,h]=r.split(':').map(Number);
-  const result=await puter.ai.txt2vid(prompt,{seconds:Number($('vidDuration').value),width:w*100,height:h*100});
+  const r=$('vidRatio').value;
+  const dimensions = {'16:9':{width:1280,height:720},'9:16':{width:720,height:1280},'1:1':{width:1024,height:1024}};
+  const size = dimensions[r] || dimensions['16:9'];
+  const result=await puter.ai.txt2vid(prompt,{seconds:Number($('vidDuration').value),width:size.width,height:size.height});
   await renderVideo(result);$('videoStatus').textContent='वीडियो तैयार है। Player में चलाएँ।';await refreshAuth();
  }catch(e){$('videoStatus').textContent='वीडियो नहीं बन सका: '+errorText(e);$('videoPreview').textContent='Preview उपलब्ध नहीं।';}
  finally{setBusy('makeVideo',false,'🎥 Generate Video');}
