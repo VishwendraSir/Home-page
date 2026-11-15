@@ -77,7 +77,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <div class="actions"><button class="secondary" onclick="playReelMusic()">▶ Play Music</button><button class="secondary" onclick="pauseReelMusic()">⏸ Pause</button><button class="secondary" onclick="stopReelMusic()">⏹ Stop</button></div>
 <div id="reelMusicStatus" class="status" role="status">कोई music file चुनी नहीं गई।</div><audio id="reelMusicAudio" preload="metadata"></audio>
 </div>
-<div class="panel" style="margin-top:14px"><b>🎬 Add Your Reel Clips</b><p class="note">फोन से फोटो और वीडियो चुनें। क्लिप का क्रम और प्रत्येक फोटो की स्क्रीन अवधि सेट करें। यह local clip planner है; अभी MP4 export नहीं करता।</p><label for="reelClipFiles">Images / Videos (multiple selection)</label><input id="reelClipFiles" type="file" accept="image/*,video/*" multiple onchange="addReelClips(event)"><div class="actions"><button onclick="playReelPreview()">▶ Preview Reel Sequence</button><button class="secondary" onclick="stopReelPreview()">⏹ Stop Preview</button><button class="secondary" onclick="downloadClipEditList()">⬇ Download Clip Edit List</button><button class="secondary" onclick="clearReelClips()">Clear Clips</button></div><div id="reelPreviewStage" class="preview" style="min-height:220px;display:flex;align-items:center;justify-content:center">Reel preview यहाँ दिखाई देगा।</div><div id="reelPreviewStatus" class="status">Preview के लिए clips जोड़ें।</div><div id="reelClipStatus" class="status">अभी कोई clip नहीं जोड़ी गई।</div><div id="reelClipList" class="grid"></div></div><div class="actions"><button onclick="createReelPlan()">✨ Create Reel Plan</button><button class="secondary" onclick="clearReelPlan()">Clear</button></div>
+<div class="panel" style="margin-top:14px"><b>🎬 Add Your Reel Clips</b><p class="note">फोन से फोटो और वीडियो चुनें। क्लिप का क्रम और प्रत्येक फोटो की स्क्रीन अवधि सेट करें। यह local clip planner है; अभी MP4 export नहीं करता।</p><label for="reelClipFiles">Images / Videos (multiple selection)</label><input id="reelClipFiles" type="file" accept="image/*,video/*" multiple onchange="addReelClips(event)"><div class="panel" style="margin-top:14px"><b>📤 Export Reel — Browser WebM</b><p class="note">आपके clips को browser में जोड़कर WebM वीडियो बनाया जाएगा। MP4 नहीं। Music track जोड़ी जा सकती है; source video की original audio इस शुरुआती exporter में शामिल नहीं होगी। Export फोन की memory और browser support पर निर्भर है।</p><div class="grid"><div><label for="reelExportRatio">Video format</label><select id="reelExportRatio"><option value="9:16">9:16 Vertical Reel</option><option value="16:9">16:9 Landscape</option><option value="1:1">1:1 Square</option></select></div><div><label for="reelExportFps">Frame rate</label><select id="reelExportFps"><option value="24">24 FPS</option><option value="30" selected>30 FPS</option></select></div></div><div class="actions"><button onclick="exportReelWebM()">⬇ Create & Download WebM</button><button class="secondary" onclick="cancelReelExport()">Cancel Export</button></div><div id="reelExportStatus" class="status">Export के लिए clips जोड़ें।</div><a id="reelExportDownload" class="dl hidden" download="science-centre-reel.webm">⬇ Download Reel</a></div><div class="actions"><button onclick="playReelPreview()">▶ Preview Reel Sequence</button><button class="secondary" onclick="stopReelPreview()">⏹ Stop Preview</button><button class="secondary" onclick="downloadClipEditList()">⬇ Download Clip Edit List</button><button class="secondary" onclick="clearReelClips()">Clear Clips</button></div><div id="reelPreviewStage" class="preview" style="min-height:220px;display:flex;align-items:center;justify-content:center">Reel preview यहाँ दिखाई देगा।</div><div id="reelPreviewStatus" class="status">Preview के लिए clips जोड़ें।</div><div id="reelClipStatus" class="status">अभी कोई clip नहीं जोड़ी गई।</div><div id="reelClipList" class="grid"></div></div><div class="actions"><button onclick="createReelPlan()">✨ Create Reel Plan</button><button class="secondary" onclick="clearReelPlan()">Clear</button></div>
 <div id="reelStatus" class="status" role="status"></div>
 <label for="reelOutput">Storyboard + Voice-over Script (editable)</label>
 <textarea id="reelOutput" style="min-height:300px" placeholder="आपका Reel plan यहाँ बनेगा…"></textarea>
@@ -223,6 +223,64 @@ function createReelPlan(){
  $('reelOutput').value=lines.join('\n');$('reelStatus').textContent='Reel plan तैयार है। इसे edit करें, Voice Studio में भेजें या .txt डाउनलोड करें।';
 }
 let reelClips=[];
+let reelExportCancel=false;
+let reelMusicSourceNode=null;
+function cancelReelExport(){reelExportCancel=true;$('reelExportStatus').textContent='Export cancel किया जा रहा है…';}
+function drawReelFrame(ctx,canvas,media){
+ const w=canvas.width,h=canvas.height;ctx.fillStyle='#080b18';ctx.fillRect(0,0,w,h);
+ const mw=media.videoWidth||media.naturalWidth||w,mh=media.videoHeight||media.naturalHeight||h;
+ if(!mw||!mh)return;
+ const scale=Math.min(w/mw,h/mh),dw=mw*scale,dh=mh*scale;
+ ctx.drawImage(media,(w-dw)/2,(h-dh)/2,dw,dh);
+}
+function waitMediaEvent(media,eventName){return new Promise((resolve,reject)=>{const done=()=>{cleanup();resolve();};const fail=()=>{cleanup();reject(new Error('Media load/playback error'));};const cleanup=()=>{media.removeEventListener(eventName,done);media.removeEventListener('error',fail);};media.addEventListener(eventName,done,{once:true});media.addEventListener('error',fail,{once:true});});}
+async function exportReelWebM(){
+ const status=$('reelExportStatus'),link=$('reelExportDownload');
+ link.classList.add('hidden');link.removeAttribute('href');
+ if(!reelClips.length){status.textContent='पहले Photos या Videos जोड़ें।';return;}
+ if(!window.MediaRecorder||!HTMLCanvasElement.prototype.captureStream){status.textContent='इस browser में WebM export support नहीं है। Chrome का नया version आज़माएँ।';return;}
+ const ratio=$('reelExportRatio').value.split(':').map(Number),fps=Number($('reelExportFps').value);
+ const canvas=document.createElement('canvas');canvas.width=ratio[0]===9?720:ratio[0]===16?1280:900;canvas.height=ratio[1]===16?1280:ratio[1]===9?720:900;
+ const ctx=canvas.getContext('2d');const videoStream=canvas.captureStream(fps);
+ let audioContext=null,audioDestination=null,stream=videoStream;
+ const music=$('reelMusicAudio');
+ if(music&&music.src&&window.AudioContext){
+  try{audioContext=new AudioContext();audioDestination=audioContext.createMediaStreamDestination();if(!reelMusicSourceNode)reelMusicSourceNode=audioContext.createMediaElementSource(music);const gain=audioContext.createGain();gain.gain.value=Number($('reelMusicVolume').value);reelMusicSourceNode.connect(gain);gain.connect(audioDestination);const tracks=audioDestination.stream.getAudioTracks();tracks.forEach(t=>videoStream.addTrack(t));}catch(e){status.textContent='Music audio जोड़ने में समस्या: '+errorText(e)+' · बिना music export जारी रहेगा।';}
+ }
+ const mimeTypes=['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'];
+ const mimeType=mimeTypes.find(type=>MediaRecorder.isTypeSupported(type));
+ if(!mimeType){status.textContent='इस browser में supported WebM codec नहीं मिला।';return;}
+ let recorder,chunks=[];
+ try{
+  recorder=new MediaRecorder(stream,{mimeType,videoBitsPerSecond:4500000});
+  recorder.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data);};
+  const stopped=new Promise((resolve,reject)=>{recorder.onstop=resolve;recorder.onerror=e=>reject(e.error||new Error('Recorder failed'));});
+  reelExportCancel=false;recorder.start(500);
+  if(music&&music.src){music.currentTime=0;music.loop=true;music.volume=Number($('reelMusicVolume').value);if(audioContext&&audioContext.state==='suspended')await audioContext.resume();try{await music.play();}catch(e){}}
+  for(let i=0;i<reelClips.length;i++){
+   if(reelExportCancel)break;
+   const clip=reelClips[i];status.textContent='Exporting clip '+(i+1)+' / '+reelClips.length+'…';
+   let media;
+   if(clip.type==='Image'){
+    media=new Image();media.src=clip.url;if(!media.complete)await waitMediaEvent(media,'load');
+    const end=Date.now()+Number(clip.duration)*1000;
+    while(Date.now()<end&&!reelExportCancel){drawReelFrame(ctx,canvas,media);await new Promise(r=>requestAnimationFrame(r));}
+   }else{
+    media=document.createElement('video');media.src=clip.url;media.muted=true;media.playsInline=true;media.preload='auto';
+    await waitMediaEvent(media,'loadedmetadata');media.currentTime=0;await media.play();
+    while(!media.ended&&!reelExportCancel){drawReelFrame(ctx,canvas,media);await new Promise(r=>requestAnimationFrame(r));}
+    media.pause();media.removeAttribute('src');media.load();
+   }
+  }
+  if(recorder.state!=='inactive')recorder.stop();await stopped;
+  if(music){music.pause();music.currentTime=0;}
+  if(reelExportCancel){status.textContent='Export cancel कर दिया गया।';return;}
+  const blob=new Blob(chunks,{type:mimeType});if(!blob.size)throw new Error('Export file खाली है।');
+  const url=URL.createObjectURL(blob);link.href=url;link.download='science-centre-reel-'+Date.now()+'.webm';link.classList.remove('hidden');
+  status.textContent='Export पूरा हुआ · '+(blob.size/1024/1024).toFixed(1)+' MB · WebM format';
+ }catch(e){if(recorder&&recorder.state!=='inactive')recorder.stop();status.textContent='Export नहीं हो पाया: '+errorText(e);}
+ finally{videoStream.getTracks().forEach(t=>t.stop());if(audioContext)audioContext.close().catch(()=>{});}
+}
 let reelPreviewRun=0;
 function stopReelPreview(){
  reelPreviewRun++;
