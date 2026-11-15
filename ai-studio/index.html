@@ -444,10 +444,15 @@ async function exportReelWebM(){
  }catch(e){if(recorder&&recorder.state!=='inactive')recorder.stop();status.textContent='Export नहीं हो पाया: '+errorText(e);}
  finally{activeReelClip=null;activeReelClipTime=0;videoStream.getTracks().forEach(t=>t.stop());if(audioDestination)audioDestination.stream.getTracks().forEach(t=>t.stop());}
 }
-let reelPreviewRun=0;
+let reelPreviewRun=0,reelPreviewSound=null;
+function applyReelPreviewTransition(media,clip){
+ const d=Math.max(100,Math.min(2000,Number(clip.transitionDuration??0.6)*1000)),type=clip.transition||'none';
+ const frames={fade:[{opacity:0},{opacity:1}],zoom:[{opacity:0.3,transform:'scale(1.18)'},{opacity:1,transform:'scale(1)'}],slide:[{opacity:0,transform:'translateX(45%)'},{opacity:1,transform:'translateX(0)'}],wipe:[{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0 0 0)'}],circle:[{clipPath:'circle(0% at 50% 50%)'},{clipPath:'circle(75% at 50% 50%)'}],vertical:[{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0 0)'}],diagonal:[{clipPath:'polygon(0 0,0 0,0 0,0 0)'},{clipPath:'polygon(0 0,100% 0,100% 100%,0 100%)'}],split:[{clipPath:'inset(0 50% 0 50%)'},{clipPath:'inset(0 0 0 0)'}],blur:[{opacity:0,filter:'blur(18px)'},{opacity:1,filter:'blur(0)'}],spin:[{opacity:0,transform:'rotate(-35deg) scale(.7)'},{opacity:1,transform:'rotate(0) scale(1)'}],flash:[{opacity:0.2,filter:'brightness(3)'},{opacity:1,filter:'brightness(1)'}]};
+ if(type!=='none'&&frames[type]&&media.animate)media.animate(frames[type],{duration:d,easing:'ease-out',fill:'both'});
+}
 function stopReelPreview(){
  reelPreviewRun++;
- const stage=$('reelPreviewStage');const video=stage.querySelector('video');if(video){video.pause();video.removeAttribute('src');video.load();}
+ const stage=$('reelPreviewStage');const video=stage.querySelector('video');if(video){video.pause();video.removeAttribute('src');video.load();}if(reelPreviewSound){reelPreviewSound.pause();reelPreviewSound=null;}
  const music=$('reelMusicAudio');if(music&&!music.paused)music.pause();
  $('reelPreviewStatus').textContent='Preview रोक दिया गया।';
 }
@@ -463,8 +468,8 @@ async function playReelPreview(){
   const heading=document.createElement('div');heading.textContent=(i+1)+' / '+reelClips.length+' · '+clip.file.name;heading.style.marginBottom='8px';stage.appendChild(heading);
   const media=clip.type==='Image'?document.createElement('img'):document.createElement('video');
   media.src=clip.url;media.style.width='100%';media.style.maxHeight='58vh';media.style.objectFit='contain';media.style.display='block';media.playsInline=true;
-  if(clip.type==='Video'){media.controls=true;stage.appendChild(media);$('reelPreviewStatus').textContent='Playing video '+(i+1)+' of '+reelClips.length;try{await media.play();await new Promise(resolve=>{media.onended=resolve;media.onerror=resolve;});}catch(e){$('reelPreviewStatus').textContent='Video playback के लिए Play दबाएँ या अगली clip चलाएँ।';return;}}
-  else{stage.appendChild(media);$('reelPreviewStatus').textContent='Showing photo '+(i+1)+' of '+reelClips.length+' · '+clip.duration+' sec';const continued=await waitPreview(Number(clip.duration)*1000,run);if(!continued)return;}
+  if(clip.type==='Video'){media.controls=true;stage.appendChild(media);applyReelPreviewTransition(media,clip);if(clip.transitionSoundUrl){reelPreviewSound=new Audio(clip.transitionSoundUrl);reelPreviewSound.volume=Number(clip.transitionSoundVolume??0.8);reelPreviewSound.play().catch(()=>{});}$('reelPreviewStatus').textContent='Playing video '+(i+1)+' of '+reelClips.length;try{await media.play();await new Promise(resolve=>{media.onended=resolve;media.onerror=resolve;});}catch(e){$('reelPreviewStatus').textContent='Video playback के लिए Play दबाएँ या अगली clip चलाएँ।';return;}}
+  else{stage.appendChild(media);applyReelPreviewTransition(media,clip);if(clip.transitionSoundUrl){reelPreviewSound=new Audio(clip.transitionSoundUrl);reelPreviewSound.volume=Number(clip.transitionSoundVolume??0.8);reelPreviewSound.play().catch(()=>{});}$('reelPreviewStatus').textContent='Showing photo '+(i+1)+' of '+reelClips.length+' · '+clip.duration+' sec';const continued=await waitPreview(Number(clip.duration)*1000,run);if(!continued)return;}
  }
  if(run===reelPreviewRun){if(music)music.pause();$('reelPreviewStatus').textContent='पूरा Reel sequence preview हो गया।';}
 }
