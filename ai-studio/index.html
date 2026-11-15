@@ -32,7 +32,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <div class="actions"><button id="connectBtn" onclick="connectPuter()">Connect / Sign in</button><button class="secondary" onclick="refreshAuth()">Refresh Status</button></div>
 <p class="note">Puter.js API Key को इस वेबसाइट में रखने की जरूरत नहीं है। AI अनुरोध पर Puter sign-in/consent माँग सकता है। हर यूज़र की AI usage और credits/charges उसके Puter खाते के नियमों के अनुसार होंगे।</p>
 </section>
-<div class="tabs"><button id="tabImage" onclick="showTab('image')">🖼️ AI Image</button><button id="tabVideo" class="secondary" onclick="showTab('video')">🎬 AI Video</button><button id="tabCaption" class="secondary" onclick="showTab('caption')">📣 Caption Maker</button><button id="tabVoice" class="secondary" onclick="showTab('voice')">🎙️ Voice Studio</button><button id="tabGallery" class="secondary" onclick="showTab('gallery')">🗂️ My Gallery</button></div>
+<div class="tabs"><button id="tabImage" onclick="showTab('image')">🖼️ AI Image</button><button id="tabVideo" class="secondary" onclick="showTab('video')">🎬 AI Video</button><button id="tabCaption" class="secondary" onclick="showTab('caption')">📣 Caption Maker</button><button id="tabVoice" class="secondary" onclick="showTab('voice')">🎙️ Voice Studio</button><button id="tabReel" class="secondary" onclick="showTab('reel')">🎞️ Reel Maker</button><button id="tabGallery" class="secondary" onclick="showTab('gallery')">🗂️ My Gallery</button></div>
 <section id="imagePanel" class="panel">
 <h2>🖼️ AI Image Generator</h2>
 <label for="imgPrompt">आप कैसी तस्वीर बनाना चाहते हैं?</label>
@@ -58,6 +58,22 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <div class="grid"><div><label>Platform</label><select id="captionPlatform"><option>Facebook</option><option>Instagram</option><option>WhatsApp</option><option>YouTube</option></select></div><div><label>Language</label><select id="captionLang"><option>Hindi</option><option>English</option><option>Hindi + English</option></select></div></div>
 <div class="actions"><button onclick="makeCaption()">✨ Create Caption</button><button class="secondary" onclick="copyText('captionOutput')">Copy Caption</button></div>
 <label>Caption</label><textarea id="captionOutput" placeholder="आपका caption यहाँ बनेगा…"></textarea>
+</section>
+<section id="reelPanel" class="panel hidden">
+<h2>🎞️ Reel Maker — Storyboard & Voice Script</h2>
+<p class="note">यह Free local planning tool है। बिना AI generation credits खर्च किए Reel की scene-by-scene योजना और voice-over script बनाएँ। तैयार script को Voice Studio में भेजकर सुन सकते हैं।</p>
+<label for="reelTopic">Reel का विषय / Topic</label>
+<textarea id="reelTopic" placeholder="उदाहरण: प्रकाश संश्लेषण क्या है? बच्चों के लिए आसान Reel बनानी है।"></textarea>
+<div class="grid">
+<div><label>Reel Duration</label><select id="reelDuration"><option value="15">15 seconds</option><option value="30" selected>30 seconds</option><option value="45">45 seconds</option><option value="60">60 seconds</option></select></div>
+<div><label>Language</label><select id="reelLanguage"><option value="Hindi">Hindi</option><option value="English">English</option><option value="Hindi + English">Hindi + English</option></select></div>
+<div><label>Reel Style</label><select id="reelStyle"><option value="Educational">Educational</option><option value="Motivational">Motivational</option><option value="Quiz">Quiz</option><option value="Announcement">School Announcement</option><option value="Festival">Festival / Greeting</option></select></div>
+</div>
+<div class="actions"><button onclick="createReelPlan()">✨ Create Reel Plan</button><button class="secondary" onclick="clearReelPlan()">Clear</button></div>
+<div id="reelStatus" class="status" role="status"></div>
+<label for="reelOutput">Storyboard + Voice-over Script (editable)</label>
+<textarea id="reelOutput" style="min-height:300px" placeholder="आपका Reel plan यहाँ बनेगा…"></textarea>
+<div class="actions"><button class="secondary" onclick="sendReelToVoice()">🎙️ Send to Voice Studio</button><button class="secondary" onclick="downloadReelPlan()">⬇ Download .txt</button><button class="secondary" onclick="copyReelPlan()">Copy Plan</button></div>
 </section>
 <section id="galleryPanel" class="panel hidden">
 <h2>🗂️ My Gallery — Recent Creations</h2>
@@ -87,7 +103,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <script>
 const $=id=>document.getElementById(id);
 function showTab(which){
- for(const name of ['image','video','caption','voice','gallery']){$(name+'Panel').classList.toggle('hidden',name!==which);$('tab'+name[0].toUpperCase()+name.slice(1)).classList.toggle('secondary',name!==which);}
+ for(const name of ['image','video','caption','voice','reel','gallery']){$(name+'Panel').classList.toggle('hidden',name!==which);$('tab'+name[0].toUpperCase()+name.slice(1)).classList.toggle('secondary',name!==which);}
 }
 function setPreset(id,key){
  const p={
@@ -172,6 +188,36 @@ async function makeCaption(){
  const r=await puter.ai.chat(prompt);$('captionOutput').value=typeof r==='string'?r:(r.message?.content||r.text||JSON.stringify(r));}
  catch(e){$('captionOutput').value='Caption नहीं बन सका: '+errorText(e);}
 }
+function createReelPlan(){
+ const topic=$('reelTopic').value.trim();if(!topic){$('reelStatus').textContent='पहले Reel का विषय लिखें।';return;}
+ const duration=Number($('reelDuration').value),language=$('reelLanguage').value,style=$('reelStyle').value;
+ const count=duration<=15?3:duration<=30?4:duration<=45?5:6;
+ const scenes=[
+  ['HOOK','ध्यान खींचने वाला सवाल या चौंकाने वाला तथ्य।','Close-up / bold title; first 2 seconds में विषय दिखाएँ।'],
+  ['INTRO','आज हम जानेंगे: '+topic,'Topic title और simple visual दिखाएँ।'],
+  ['MAIN POINT 1','पहला मुख्य विचार आसान भाषा में समझाएँ।','Diagram / relevant image / classroom shot।'],
+  ['MAIN POINT 2','दूसरा मुख्य विचार या छोटा उदाहरण दें।','Example, labels या step-by-step visual।'],
+  ['QUICK RECAP','आज की बात को एक छोटी लाइन में दोहराएँ।','Key points on screen।'],
+  ['CALL TO ACTION','ऐसी और जानकारी के लिए Science Centre Learning Hub को Follow करें।','Brand end card: Guided by Vishwendra Sir।']
+ ].slice(0,count);
+ const intro=language==='English'?'Let us understand: '+topic+'.':language==='Hindi + English'?'आइए समझते हैं: '+topic+'. Let us learn it step by step.':'आइए आसान भाषा में समझते हैं: '+topic+'।';
+ let lines=['SCIENCE CENTRE LEARNING HUB','REEL PLAN · '+duration+' SECONDS · '+language,'Style: '+style,'Topic: '+topic,'Format: Vertical 9:16',''];
+ scenes.forEach((s,i)=>{
+  const seconds=Math.round(duration/count);
+  let narration=i===0?(language==='English'?'Do you know this?':language==='Hindi + English'?'क्या आप यह जानते हैं? Do you know this?':'क्या आप यह जानते हैं?'):i===1?intro:i===2?(language==='English'?'First, understand the main idea clearly.':'सबसे पहले मुख्य विचार को समझते हैं।'):i===3?(language==='English'?'Now look at a simple example.':'अब एक आसान उदाहरण देखते हैं।'):i===4?(language==='English'?'Let us quickly revise what we learned.':'आइए सीखी हुई बात दोहराएँ।'):(language==='English'?'Follow Science Centre Learning Hub for more.':'ऐसी और जानकारी के लिए Science Centre Learning Hub को Follow करें।');
+  lines.push('SCENE '+(i+1)+' · '+s[0]+' · ~'+seconds+' sec');
+  lines.push('Voice-over: '+(i===1?intro:narration));
+  lines.push('Visual: '+s[2]);
+  lines.push('On-screen text: '+(i===1?topic:s[0]));
+  lines.push('');
+ });
+ lines.push('EDITING NOTES','• Canvas: 9:16 vertical','• Use clear large subtitles and high contrast.','• Keep background music low under narration.','• Verify all facts and spellings before publishing.','• Add Science Centre Learning Hub branding.');
+ $('reelOutput').value=lines.join('\n');$('reelStatus').textContent='Reel plan तैयार है। इसे edit करें, Voice Studio में भेजें या .txt डाउनलोड करें।';
+}
+function clearReelPlan(){$('reelTopic').value='';$('reelOutput').value='';$('reelStatus').textContent='';}
+function sendReelToVoice(){const value=$('reelOutput').value.trim();if(!value){$('reelStatus').textContent='पहले Reel Plan बनाएँ।';return;}const narration=value.split('\n').filter(line=>line.startsWith('Voice-over: ')).map(line=>line.replace('Voice-over: ','')).join(' ');$('voiceText').value=narration;showTab('voice');$('voiceStatus').textContent='Reel voice-over script तैयार। Speak दबाएँ।';}
+function downloadReelPlan(){const value=$('reelOutput').value.trim();if(!value){$('reelStatus').textContent='पहले Reel Plan बनाएँ।';return;}const blob=new Blob([value],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='science-centre-reel-plan.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+async function copyReelPlan(){const value=$('reelOutput').value;if(!value.trim())return;$('reelOutput').select();try{await navigator.clipboard.writeText(value);$('reelStatus').textContent='Plan copied.';}catch(e){document.execCommand('copy');$('reelStatus').textContent='Plan copied.';}}
 let galleryEntries=[];
 let galleryDbPromise=null;
 function openGalleryDB(){
