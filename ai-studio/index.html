@@ -32,7 +32,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <div class="actions"><button id="connectBtn" onclick="connectPuter()">Connect / Sign in</button><button class="secondary" onclick="refreshAuth()">Refresh Status</button></div>
 <p class="note">Puter.js API Key को इस वेबसाइट में रखने की जरूरत नहीं है। AI अनुरोध पर Puter sign-in/consent माँग सकता है। हर यूज़र की AI usage और credits/charges उसके Puter खाते के नियमों के अनुसार होंगे।</p>
 </section>
-<div class="tabs"><button id="tabImage" onclick="showTab('image')">🖼️ AI Image</button><button id="tabVideo" class="secondary" onclick="showTab('video')">🎬 AI Video</button><button id="tabCaption" class="secondary" onclick="showTab('caption')">📣 Caption Maker</button><button id="tabVoice" class="secondary" onclick="showTab('voice')">🎙️ Voice Studio</button></div>
+<div class="tabs"><button id="tabImage" onclick="showTab('image')">🖼️ AI Image</button><button id="tabVideo" class="secondary" onclick="showTab('video')">🎬 AI Video</button><button id="tabCaption" class="secondary" onclick="showTab('caption')">📣 Caption Maker</button><button id="tabVoice" class="secondary" onclick="showTab('voice')">🎙️ Voice Studio</button><button id="tabGallery" class="secondary" onclick="showTab('gallery')">🗂️ My Gallery</button></div>
 <section id="imagePanel" class="panel">
 <h2>🖼️ AI Image Generator</h2>
 <label for="imgPrompt">आप कैसी तस्वीर बनाना चाहते हैं?</label>
@@ -59,6 +59,13 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <div class="actions"><button onclick="makeCaption()">✨ Create Caption</button><button class="secondary" onclick="copyText('captionOutput')">Copy Caption</button></div>
 <label>Caption</label><textarea id="captionOutput" placeholder="आपका caption यहाँ बनेगा…"></textarea>
 </section>
+<section id="galleryPanel" class="panel hidden">
+<h2>🗂️ My Gallery — Recent Creations</h2>
+<p class="note">इस पेज के खुले रहने तक बनाई गई Images और Videos यहाँ दिखाई देंगी। यह Session Gallery है; पेज refresh/बंद करने पर सूची साफ हो जाएगी। फाइलें आपके डिवाइस पर अपने आप अपलोड नहीं होतीं।</p>
+<div class="actions"><button class="secondary" onclick="refreshGallery()">↻ Refresh Gallery</button><button class="secondary" onclick="clearGallery()">Clear Gallery</button></div>
+<div id="galleryCount" class="status">अभी कोई creation नहीं।</div>
+<div id="galleryItems" class="grid"></div>
+</section>
 <section id="voicePanel" class="panel hidden">
 <h2>🎙️ Voice Studio — Free Browser Voice</h2>
 <p class="note">अपने नोट्स, प्रश्न, उत्तर या रील स्क्रिप्ट को हिंदी/अंग्रेज़ी में सुनें। यह आपके डिवाइस के उपलब्ध Text-to-Speech voice का उपयोग करता है; अलग AI API की जरूरत नहीं है।</p>
@@ -80,7 +87,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <script>
 const $=id=>document.getElementById(id);
 function showTab(which){
- for(const name of ['image','video','caption','voice']){$(name+'Panel').classList.toggle('hidden',name!==which);$('tab'+name[0].toUpperCase()+name.slice(1)).classList.toggle('secondary',name!==which);}
+ for(const name of ['image','video','caption','voice','gallery']){$(name+'Panel').classList.toggle('hidden',name!==which);$('tab'+name[0].toUpperCase()+name.slice(1)).classList.toggle('secondary',name!==which);}
 }
 function setPreset(id,key){
  const p={
@@ -123,6 +130,7 @@ async function makeImage(){
   const box=$('imagePreview');box.innerHTML='';const im=image instanceof HTMLImageElement?image:new Image();if(im!==image)im.src=image.src;
   im.alt='AI generated image';im.style.maxWidth='100%';im.style.maxHeight='620px';box.appendChild(im);
   const a=document.createElement('a');a.href=im.src;a.download='science-centre-ai-image.png';a.className='dl';a.textContent='⬇ Download Image';box.appendChild(a);
+  addToGallery('Image',im.src,$('imgPrompt').value.trim());
   $('imageStatus').textContent='इमेज तैयार है। Download Image दबाएँ।';await refreshAuth();
  }catch(e){$('imageStatus').textContent='इमेज नहीं बन सकी: '+errorText(e);$('imagePreview').textContent='Preview उपलब्ध नहीं।';}
  finally{setBusy('makeImage',false,'✨ Generate Image');}
@@ -145,7 +153,9 @@ async function makeVideo(){
   const dimensions = {'16:9':{width:1280,height:720},'9:16':{width:720,height:1280},'1:1':{width:1024,height:1024}};
   const size = dimensions[r] || dimensions['16:9'];
   const result=await puter.ai.txt2vid(prompt,{seconds:Number($('vidDuration').value),width:size.width,height:size.height});
-  await renderVideo(result);$('videoStatus').textContent='वीडियो तैयार है। Player में चलाएँ।';await refreshAuth();
+  await renderVideo(result);
+  const player=$('videoPreview').querySelector('video');if(player)addToGallery('Video',player.src||player.currentSrc,$('vidPrompt').value.trim());
+  $('videoStatus').textContent='वीडियो तैयार है। Player में चलाएँ।';await refreshAuth();
  }catch(e){$('videoStatus').textContent='वीडियो नहीं बन सका: '+errorText(e);$('videoPreview').textContent='Preview उपलब्ध नहीं।';}
  finally{setBusy('makeVideo',false,'🎥 Generate Video');}
 }
@@ -162,6 +172,33 @@ async function makeCaption(){
  const r=await puter.ai.chat(prompt);$('captionOutput').value=typeof r==='string'?r:(r.message?.content||r.text||JSON.stringify(r));}
  catch(e){$('captionOutput').value='Caption नहीं बन सका: '+errorText(e);}
 }
+const galleryEntries=[];
+function addToGallery(type,src,prompt){
+ if(!src)return;
+ galleryEntries.unshift({type,src,prompt:prompt||'',createdAt:new Date().toLocaleTimeString()});
+ renderGallery();
+}
+function renderGallery(){
+ const box=$('galleryItems');if(!box)return;box.innerHTML='';
+ $('galleryCount').textContent=galleryEntries.length+' creation(s) in this session';
+ if(!galleryEntries.length){box.textContent='अभी कोई creation नहीं। पहले Image या Video generate करें।';return;}
+ galleryEntries.forEach((item,index)=>{
+  const card=document.createElement('div');card.className='panel';card.style.margin='0';
+  const heading=document.createElement('b');heading.textContent=item.type+' · '+item.createdAt;card.appendChild(heading);
+  let media;
+  if(item.type==='Image'){media=document.createElement('img');media.src=item.src;media.alt='Generated image';}
+  else{media=document.createElement('video');media.src=item.src;media.controls=true;media.playsInline=true;}
+  media.style.width='100%';media.style.maxHeight='260px';media.style.objectFit='contain';card.appendChild(media);
+  if(item.prompt){const p=document.createElement('p');p.className='note';p.textContent=item.prompt;card.appendChild(p);}
+  const actions=document.createElement('div');actions.className='actions';
+  const open=document.createElement('a');open.href=item.src;open.target='_blank';open.rel='noopener';open.className='dl';open.textContent='Open';actions.appendChild(open);
+  const copy=document.createElement('button');copy.className='secondary';copy.textContent='Copy Prompt';copy.onclick=()=>navigator.clipboard?.writeText(item.prompt||'');actions.appendChild(copy);
+  const remove=document.createElement('button');remove.className='secondary';remove.textContent='Remove';remove.onclick=()=>{galleryEntries.splice(index,1);renderGallery();};actions.appendChild(remove);
+  card.appendChild(actions);box.appendChild(card);
+ });
+}
+function refreshGallery(){renderGallery();}
+function clearGallery(){galleryEntries.splice(0,galleryEntries.length);renderGallery();}
 async function copyText(id){try{await navigator.clipboard.writeText($(id).value);if(id==='captionOutput')$('captionOutput').value+='';alert('Copied!');}catch(e){$(id).select();document.execCommand('copy');}}
 let availableVoices=[];
 function loadVoices(){
