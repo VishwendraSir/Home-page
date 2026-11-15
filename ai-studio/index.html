@@ -495,14 +495,14 @@ async function saveReelProject(silent=false){
  finally{reelProjectSaving=false;}
 }
 async function restoreReelProject(){
- const status=$('reelProjectStatus');try{const db=await openGalleryDB();const record=await new Promise((resolve,reject)=>{const tx=db.transaction('projects','readonly'),req=tx.objectStore('projects').get('current-reel-project');req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});
+ const status=$('reelProjectStatus');reelProjectRestoring=true;try{const db=await openGalleryDB();const record=await new Promise((resolve,reject)=>{const tx=db.transaction('projects','readonly'),req=tx.objectStore('projects').get('current-reel-project');req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});
  if(!record){status.textContent='कोई saved project नहीं मिला।';return;}
  reelClips.forEach(x=>{if(x.url)URL.revokeObjectURL(x.url);if(x.voiceUrl)URL.revokeObjectURL(x.voiceUrl);if(x.transitionSoundUrl)URL.revokeObjectURL(x.transitionSoundUrl);});
  reelClips=(record.clips||[]).map(x=>{const clip={...x,url:URL.createObjectURL(x.file)};delete clip.voiceBlob;delete clip.transitionSoundBlob;if(x.voiceBlob)clip.voiceUrl=URL.createObjectURL(x.voiceBlob);if(x.transitionSoundBlob)clip.transitionSoundUrl=URL.createObjectURL(x.transitionSoundBlob);return clip;});
  Object.entries(record.controls||{}).forEach(([id,value])=>{const el=$(id);if(el){if(el.type==='checkbox')el.checked=!!value;else el.value=value;}});
  if(reelMusicUrl)URL.revokeObjectURL(reelMusicUrl);reelMusicUrl='';const music=$('reelMusicAudio');if(record.musicBlob){reelMusicUrl=URL.createObjectURL(record.musicBlob);music.src=reelMusicUrl;music.loop=$('reelMusicLoop').checked;music.volume=Number($('reelMusicVolume').value);}
  renderReelClips();if($('reelProjectStatus'))$('reelProjectStatus').textContent='Project loaded · '+new Date(record.updatedAt).toLocaleString()+' · '+reelClips.length+' clips';
- }catch(e){status.textContent='Project load नहीं हो पाया: '+errorText(e);}
+ }catch(e){status.textContent='Project load नहीं हो पाया: '+errorText(e);}finally{reelProjectRestoring=false;}
 }
 async function clearSavedReelProject(){if(!confirm('इस browser में सेव Reel Project हटाना चाहते हैं?'))return;try{const db=await openGalleryDB();await new Promise((resolve,reject)=>{const tx=db.transaction('projects','readwrite');tx.objectStore('projects').delete('current-reel-project');tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);});$('reelProjectStatus').textContent='Saved project हटा दिया गया।';}catch(e){$('reelProjectStatus').textContent='Delete नहीं हो पाया: '+errorText(e);}}
 function scheduleReelProjectAutoSave(){if(!$('reelAutoSave')?.checked||reelProjectRestoring)return;if(reelProjectSaveTimer)clearTimeout(reelProjectSaveTimer);reelProjectSaveTimer=setTimeout(()=>{reelProjectSaveTimer=0;saveReelProject(true);},1200);}
@@ -778,7 +778,7 @@ function pauseSpeech(){if(window.speechSynthesis){window.speechSynthesis.pause()
 function resumeSpeech(){if(window.speechSynthesis){window.speechSynthesis.resume();$('voiceStatus').textContent='Resumed';}}
 function stopSpeech(){if(window.speechSynthesis){window.speechSynthesis.cancel();$('voiceStatus').textContent='Stopped';}}
 if('speechSynthesis' in window){window.speechSynthesis.onvoiceschanged=loadVoices;}
-window.addEventListener('load',()=>{const reelSection=$('reelPanel');if(reelSection){reelSection.addEventListener('input',scheduleReelProjectAutoSave);reelSection.addEventListener('change',scheduleReelProjectAutoSave);}setTimeout(refreshAuth,1200);setTimeout(loadVoices,500);});
+window.addEventListener('load',()=>{const reelSection=$('reelPanel');if(reelSection){reelSection.addEventListener('input',scheduleReelProjectAutoSave);reelSection.addEventListener('change',scheduleReelProjectAutoSave);}setTimeout(()=>restoreReelProject(),700);setTimeout(refreshAuth,1200);setTimeout(loadVoices,500);});
 </script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=1">
 let audioMixPreviewItems=[],audioMixPreviewTimers=[],audioMixPreviewPaused=false,audioMixPreviewContext=null,audioMixPreviewAnalyser=null,audioMixPreviewFrame=0,audioMixPreviewSources=[],audioMixMusicGain=null;
 function clearAudioMixPreview(){audioMixPreviewTimers.forEach(t=>clearTimeout(t));audioMixPreviewTimers=[];audioMixPreviewItems.forEach(x=>{try{x.audio.pause();x.audio.removeAttribute('src');x.audio.load();}catch(e){}});audioMixPreviewSources.forEach(x=>{try{x.disconnect();}catch(e){}});audioMixPreviewSources=[];audioMixPreviewItems=[];if(audioMixPreviewFrame)cancelAnimationFrame(audioMixPreviewFrame);audioMixPreviewFrame=0;if(audioMixPreviewContext){audioMixPreviewContext.close().catch(()=>{});audioMixPreviewContext=null;}audioMixPreviewAnalyser=null;audioMixMusicGain=null;const cv=$('audioMixMeter');if(cv){const x=cv.getContext('2d');x.clearRect(0,0,cv.width,cv.height);x.fillStyle='#0b1730';x.fillRect(0,0,cv.width,cv.height);}}
