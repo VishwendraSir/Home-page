@@ -430,7 +430,7 @@ async function exportReelWebM(){
     }
     await media.play();
     activeReelClip=clip;canvas.__clipDuration=Number.isFinite(media.duration)?media.duration:0;
-    while(!media.ended&&!reelExportCancel){activeReelClipTime=media.currentTime||0;drawReelFrame(ctx,canvas,media);drawReelTransition(ctx,canvas,clip,activeReelClipTime);await new Promise(r=>requestAnimationFrame(r));}
+    while(!media.ended&&!reelExportCancel&&(!Number(clip.timelineDuration)||media.currentTime<Number(clip.timelineDuration))){activeReelClipTime=media.currentTime||0;drawReelFrame(ctx,canvas,media);drawReelTransition(ctx,canvas,clip,activeReelClipTime);await new Promise(r=>requestAnimationFrame(r));}
     media.pause();if(clipSource)clipSource.disconnect();if(clipGain)clipGain.disconnect();media.removeAttribute('src');media.load();
    }
    if(sceneVoice){sceneVoice.pause();sceneVoice.currentTime=0;}if(sceneVoiceSource)sceneVoiceSource.disconnect();if(sceneVoiceGain)sceneVoiceGain.disconnect();if(transitionSound){transitionSound.pause();transitionSound.currentTime=0;}if(transitionSoundSource)transitionSoundSource.disconnect();if(transitionSoundGain)transitionSoundGain.disconnect();
@@ -587,14 +587,14 @@ let reelTimelineDragIndex=-1;
 function renderReelTimeline(){
  const lane=$('reelTimeline'),tracks=$('reelTimelineTracks'),summary=$('reelTimelineSummary');if(!lane||!tracks||!summary)return;
  lane.innerHTML='';tracks.innerHTML='';
- const total=reelClips.reduce((sum,x)=>sum+(x.type==='Image'?Number(x.duration||3):Number(x.timelineDuration||5)),0);
- summary.textContent=reelClips.length+' scenes · अनुमानित timeline '+total.toFixed(1)+' sec · drag & drop से scene reorder करें';
+ const total=reelClips.reduce((sum,x)=>sum+(x.type==='Image'?Number(x.duration||3):Number(x.timelineDuration||0)),0);
+ summary.textContent=reelClips.length+' scenes · ज्ञात अवधि '+total.toFixed(1)+' sec'+(reelClips.some(x=>x.type==='Video'&&!x.timelineDuration)?' + Auto-length video':'')+' · drag & drop से scene reorder करें';
  if(!reelClips.length){lane.textContent='पहले Photos या Videos जोड़ें।';return;}
  reelClips.forEach((clip,index)=>{
   const block=document.createElement('div');block.draggable=true;block.style.cssText='flex:0 0 150px;min-width:150px;border:1px solid #64748b;border-radius:10px;padding:9px;background:rgba(59,130,246,.10);cursor:grab';
   const name=document.createElement('b');name.textContent=(index+1)+'. '+clip.file.name;name.style.cssText='display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap';block.appendChild(name);
-  const kind=document.createElement('small');kind.textContent=clip.type+' · '+(clip.type==='Image'?Number(clip.duration||3).toFixed(1)+' sec':(clip.timelineDuration||'Video length')+' sec');block.appendChild(kind);
-  const duration=document.createElement('input');duration.type='number';duration.min='1';duration.max='120';duration.step='0.5';duration.value=String(clip.type==='Image'?clip.duration:(clip.timelineDuration||5));duration.title='Timeline duration in seconds';duration.style.cssText='width:100%;margin-top:6px';duration.onchange=()=>{const n=Math.max(1,Math.min(120,Number(duration.value)||3));if(clip.type==='Image')clip.duration=n;else clip.timelineDuration=n;renderReelTimeline();};block.appendChild(duration);
+  const kind=document.createElement('small');kind.textContent=clip.type+' · '+(clip.type==='Image'?Number(clip.duration||3).toFixed(1)+' sec':(clip.timelineDuration?clip.timelineDuration+' sec':'Auto length'));block.appendChild(kind);
+  const duration=document.createElement('input');duration.type='number';duration.min=clip.type==='Image'?'1':'0';duration.max='120';duration.step='0.5';duration.value=String(clip.type==='Image'?clip.duration:(clip.timelineDuration||''));duration.placeholder=clip.type==='Video'?'Auto':'3';duration.title='Timeline duration in seconds';duration.style.cssText='width:100%;margin-top:6px';duration.onchange=()=>{const n=Math.max(0,Math.min(120,Number(duration.value)||0));if(clip.type==='Image')clip.duration=Math.max(1,n||3);else clip.timelineDuration=n||0;renderReelTimeline();};block.appendChild(duration);
   block.addEventListener('dragstart',e=>{reelTimelineDragIndex=index;e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(index));});
   block.addEventListener('dragover',e=>{e.preventDefault();e.dataTransfer.dropEffect='move';});
   block.addEventListener('drop',e=>{e.preventDefault();const from=Number(e.dataTransfer.getData('text/plain'));const to=index;if(Number.isInteger(from)&&from>=0&&from<reelClips.length&&from!==to){const moved=reelClips.splice(from,1)[0];reelClips.splice(to,0,moved);renderReelClips();}});
