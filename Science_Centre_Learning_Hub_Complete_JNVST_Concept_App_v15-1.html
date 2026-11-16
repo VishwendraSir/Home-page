@@ -284,7 +284,7 @@ main::-webkit-scrollbar{display:none}
    <button class="active" data-section="all">All Sections</button><button data-section="Mental Ability">MAT</button><button data-section="Arithmetic">Mathematics</button><button data-section="Language">Language</button><button data-section="Hindi">हिंदी</button>
   </div>
   <div class="selects" id="countSelect">
-   <button data-count="20">20 Q</button><button class="active" data-count="50">50 Q</button><button data-count="100">100 Q</button><button data-count="all">All</button>
+   <button data-count="20">20 Q</button><button class="active" data-count="50">50 Q</button><button data-count="80">80 Q</button><button data-count="100">100 Q</button><button data-count="all">All</button>
   </div>
   <button class="primary" id="begin">START QUIZ ▶</button>
   <button class="primary hide" id="resumeBtn" style="background:#16834a">▶ RESUME SAVED TEST</button>
@@ -380,19 +380,19 @@ function launchDaily(){
  const date=localDateKey(),seed=Number(date.replaceAll('-',''));
  const pool=BANK.map((r,i)=>({...r,original:i})).filter(r=>r[3]===6);
  const by={};['Mental Ability','Arithmetic','Language'].forEach(sec=>by[sec]=seededShuffle(pool.filter(r=>r[4]===sec),seed+sec.length));
- questions=[...by['Mental Ability'].slice(0,4),...by.Arithmetic.slice(0,3),...by.Language.slice(0,3)];
- seededShuffle(questions,seed);
+ questions=seededShuffle([...by['Mental Ability'].slice(0,4),...by.Arithmetic.slice(0,3),...by.Language.slice(0,3)],seed);
+ if(questions.length!==10){alert('Daily Challenge के लिए पर्याप्त प्रश्न उपलब्ध नहीं हैं। / Not enough questions are available for the Daily Challenge.');return;}
  beginPreparedTest();
 }
 function launchMock(){
  testMode='mock';filter='6';sectionFilter='all';topicFilter='all';$('topicSelect').value='all';questionLimit=80;timeLimitSeconds=120*60;
  document.querySelectorAll('[data-filter]').forEach(b=>b.classList.toggle('active',b.dataset.filter==='6'));
  document.querySelectorAll('[data-section]').forEach(b=>b.classList.toggle('active',b.dataset.section==='all'));
- document.querySelectorAll('[data-count]').forEach(b=>b.classList.toggle('active',b.dataset.count==='100'));
+ document.querySelectorAll('[data-count]').forEach(b=>b.classList.toggle('active',b.dataset.count==='80'));
  const pool=BANK.map((r,i)=>({...r,original:i})).filter(r=>r[3]===6);
- const pick=(sec,n)=>{const a=pool.filter(r=>r[4]===sec).sort(()=>Math.random()-.5);return a.slice(0,n)};
- questions=[...pick('Mental Ability',40),...pick('Arithmetic',20),...pick('Language',20)];
- questions.sort(()=>Math.random()-.5);
+ const pick=(sec,n)=>seededShuffle(pool.filter(r=>r[4]===sec),Date.now()+sec.length).slice(0,n);
+ questions=seededShuffle([...pick('Mental Ability',40),...pick('Arithmetic',20),...pick('Language',20)],Date.now()+7);
+ if(questions.length!==80){alert('Mock Test के लिए 80 प्रश्न उपलब्ध नहीं हैं। / 80 questions are not available for this mock test.');return;}
  beginPreparedTest();
 }
 function beginPreparedTest(){
@@ -432,7 +432,7 @@ function learningNote(r){
 function persistProgress(){
  if(!started||!questions.length||reviewMode)return;
  const elapsed=Math.floor((Date.now()-startAt)/1000)+elapsedBefore;
- const state={filter,sectionFilter,questionLimit,studentName,questions,answers,index,lang,elapsed,testMode,timeLimitSeconds,savedAt:Date.now()};
+ const state={filter,sectionFilter,topicFilter,questionLimit,studentName,questions,answers,marked,index,lang,elapsed,testMode,timeLimitSeconds,savedAt:Date.now()};
  try{localStorage.setItem(SAVE_KEY,JSON.stringify(state));$('resumeBtn').classList.remove('hide');$('discardBtn').classList.remove('hide');}catch(e){}
 }
 function loadSavedProgress(){
@@ -478,6 +478,7 @@ function start(){
  // Shuffle each practice set so repeated attempts are not always in the same order.
  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
  questions=questionLimit==='all'?pool:pool.slice(0,Math.min(Number(questionLimit),pool.length));
+ if(!questions.length){alert('चुने गए Class / Section / Chapter में प्रश्न उपलब्ध नहीं हैं। कृपया दूसरा विकल्प चुनें। / No questions are available for the selected class, section, or chapter. Please choose another filter.');return;}
  answers={};index=0;reviewMode=false;started=true;startAt=Date.now();
  $('start').classList.add('hide');$('result').classList.add('hide');$('quiz').classList.remove('hide');$('bottom').classList.remove('hide');
  $('classPill').textContent=(filter==='all'?'ALL CLASSES':'CLASS '+filter)+' • '+(sectionFilter==='all'?'ALL':sectionFilter.toUpperCase());
