@@ -108,7 +108,16 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 </div>
 <div class="actions"><button onclick="speakText()">▶ Speak</button><button class="secondary" onclick="pauseSpeech()">⏸ Pause</button><button class="secondary" onclick="resumeSpeech()">▶ Resume</button><button class="secondary" onclick="stopSpeech()">⏹ Stop</button></div>
 <div class="actions"><button class="secondary" onclick="sendVoiceTextToReel()">🎞️ Send to Audio Reel Maker</button></div><div id="voiceTransferStatus" class="status" role="status">पहले Reel Maker में एक scene जोड़ें, फिर यहाँ से narration भेजें।</div>
-<div class="panel" style="margin-top:12px"><b>✨ AI Natural Voice — MP3 / WAV</b><p class="note">किसी AI voice service से तैयार Hindi/English narration audio यहाँ चुनें। चुनी हुई audio सीधे Reel Maker के Voice-over track में जाएगी। Free Browser Voice के लिए ऊपर Speak इस्तेमाल करें।</p><label for="voiceAiAudioFile">AI Voice audio file</label><input id="voiceAiAudioFile" type="file" accept="audio/*"><div id="voiceAiAudioPreview" class="status">अभी कोई AI audio file नहीं चुनी गई।</div></div>
+<div class="panel" style="margin-top:12px"><b>✨ AI Natural Voice Generator — Text to MP3/WAV</b>
+<p class="note">अपनी script से AI voice बनाएँ। Generated audio को सुनें, डाउनलोड करें या सीधे Audio Reel Maker के चुने हुए scene में भेजें। Browser Voice अलग और बिना AI generation के उपलब्ध है।</p>
+<label for="aiTtsProvider">AI Voice Provider</label><select id="aiTtsProvider" onchange="updateTtsOptions()"><option value="aws-polly">AWS Polly · Hindi Aditi</option><option value="openai">OpenAI · Natural multilingual</option><option value="elevenlabs">ElevenLabs · Multilingual</option><option value="gemini">Gemini · Natural voice</option><option value="xai">xAI · Expressive voice</option></select>
+<div class="grid"><div><label for="aiTtsVoice">Voice</label><select id="aiTtsVoice"><option value="Aditi">Aditi (Hindi)</option></select></div><div><label for="aiTtsFormat">Audio Format</label><select id="aiTtsFormat"><option value="mp3">MP3</option><option value="wav">WAV (provider dependent)</option></select></div></div>
+<label for="aiTtsStyle">Voice style / delivery</label><input id="aiTtsStyle" maxlength="220" value="Speak clearly, naturally and warmly. Use a teacher-like delivery with balanced pauses." placeholder="जैसे: energetic, friendly teacher, clear Hindi pronunciation">
+<label style="display:flex;align-items:center;gap:8px"><input id="aiTtsConsent" type="checkbox" style="width:auto"> I understand AI voice generation may use my Puter account usage/credits or charges.</label>
+<div class="actions"><button id="generateAiVoiceBtn" onclick="generateAiVoice()">✨ Generate AI Voice</button><button class="secondary" onclick="previewGeneratedAiVoice()">▶ Play</button><button class="secondary" onclick="stopGeneratedAiVoice()">⏹ Stop</button></div>
+<div id="aiTtsStatus" class="status" role="status">Script लिखें, provider चुनें और Generate दबाएँ।</div><audio id="aiTtsPlayer" controls class="hidden" style="width:100%;margin:8px 0"></audio><a id="aiTtsDownload" class="dl hidden" download="science-centre-ai-voice.mp3">⬇ Download AI Voice</a>
+<hr style="border-color:#35517f;margin:16px 0">
+<b>📁 Or upload an existing AI Voice</b><label for="voiceAiAudioFile">MP3 / WAV audio file</label><input id="voiceAiAudioFile" type="file" accept="audio/*"><div id="voiceAiAudioPreview" class="status">अभी कोई audio file नहीं चुनी गई।</div></div>
 <div id="voiceStatus" class="status" role="status">तैयार। Speak दबाकर सुनें।</div>
 <p class="note">उपलब्ध आवाज़ें Android/Browser और installed language packs पर निर्भर हैं। यह संस्करण ऑडियो फ़ाइल डाउनलोड नहीं करता; केवल डिवाइस पर बोलकर सुनाता है।</p>
 </section>
@@ -805,9 +814,52 @@ function speakText(){
  utterance.onerror=e=>{$('voiceStatus').textContent='Voice error: '+(e.error||'Playback failed');};
  window.speechSynthesis.speak(utterance);
 }
+let generatedVoiceFile=null, generatedVoiceObjectUrl='';
+function updateTtsOptions(){
+ const provider=$('aiTtsProvider')?.value,voice=$('aiTtsVoice');if(!voice)return;
+ const options={
+  'aws-polly':[['Aditi','Aditi (Hindi)'],['Kajal','Kajal (Hindi neural, if available)'],['Joanna','Joanna (English)']],
+  'openai':[['alloy','Alloy'],['ash','Ash'],['coral','Coral'],['echo','Echo'],['fable','Fable'],['nova','Nova'],['onyx','Onyx'],['sage','Sage'],['shimmer','Shimmer']],
+  'elevenlabs':[['21m00Tcm4TlvDq8ikWAM','Default multilingual voice'],['Bella','Bella'],['Rachel','Rachel']],
+  'gemini':[['Kore','Kore'],['Zephyr','Zephyr'],['Puck','Puck'],['Aoede','Aoede'],['Charon','Charon'],['Leda','Leda']],
+  'xai':[['eve','Eve'],['ara','Ara'],['rex','Rex'],['sal','Sal'],['leo','Leo']]
+ };
+ voice.innerHTML='';(options[provider]||options['aws-polly']).forEach(([v,label])=>{const o=document.createElement('option');o.value=v;o.textContent=label;voice.appendChild(o);});
+ $('aiTtsFormat').value='mp3';
+}
+async function generateAiVoice(){
+ const text=$('voiceText').value.trim(),provider=$('aiTtsProvider').value,voice=$('aiTtsVoice').value,style=$('aiTtsStyle').value.trim();
+ if(!text){$('aiTtsStatus').textContent='पहले Voice Studio के टेक्स्ट बॉक्स में narration लिखें।';return;}
+ if(text.length>3000){$('aiTtsStatus').textContent='एक बार में अधिकतम 3,000 characters generate करें। लंबी script को हिस्सों में बनाएँ।';return;}
+ if(!$('aiTtsConsent').checked){$('aiTtsStatus').textContent='आगे बढ़ने से पहले usage/charges की सहमति दें।';return;}
+ if(!window.puter?.ai?.txt2speech){$('aiTtsStatus').textContent='Puter TTS उपलब्ध नहीं है। इंटरनेट कनेक्शन और AI sign-in जाँचें।';return;}
+ const btn=$('generateAiVoiceBtn');btn.disabled=true;btn.textContent='⏳ AI Voice बन रही है…';$('aiTtsStatus').textContent='AI voice generate हो रही है। कृपया पेज बंद न करें…';
+ try{
+  let config={provider,voice};
+  if(provider==='aws-polly'){config={...config,language:$('voiceLang').value,engine:'standard'};}
+  if(provider==='openai'){config={...config,model:'gpt-4o-mini-tts',response_format:'mp3',instructions:style||'Speak naturally and clearly.'};}
+  if(provider==='elevenlabs'){config={...config,model:'eleven_multilingual_v2',output_format:'mp3_44100_128'};}
+  if(provider==='gemini'){config={...config,model:'gemini-3.8-flash-tts',instructions:style||'Speak naturally and clearly.'};}
+  if(provider==='xai'){config={...config,language:$('voiceLang').value.startsWith('hi')?'auto':'en',output_format:'mp3'};}
+  const audio=await puter.ai.txt2speech(text,config);
+  const src=audio?.src||audio?.currentSrc||String(audio||'');if(!src)throw new Error('Provider ने audio URL नहीं लौटाया।');
+  const response=await fetch(src);if(!response.ok)throw new Error('Generated audio download नहीं हो पाई: '+response.status);
+  const blob=await response.blob();if(!blob.size)throw new Error('Generated audio खाली है।');
+  const ext=(provider==='gemini'&&$('aiTtsFormat').value==='wav')?'wav':'mp3';
+  generatedVoiceFile=new File([blob],'science-centre-ai-voice.'+ext,{type:blob.type||(ext==='wav'?'audio/wav':'audio/mpeg')});
+  if(generatedVoiceObjectUrl)URL.revokeObjectURL(generatedVoiceObjectUrl);
+  generatedVoiceObjectUrl=URL.createObjectURL(blob);
+  const player=$('aiTtsPlayer');player.src=generatedVoiceObjectUrl;player.classList.remove('hidden');
+  const link=$('aiTtsDownload');link.href=generatedVoiceObjectUrl;link.download='science-centre-ai-voice.'+ext;link.classList.remove('hidden');
+  $('aiTtsStatus').textContent='AI Voice तैयार है · '+Math.round(blob.size/1024)+' KB · अब Play, Download या Send to Audio Reel Maker करें।';
+ }catch(e){$('aiTtsStatus').textContent='AI Voice नहीं बन सकी: '+errorText(e)+' · Provider/voice availability और Puter account usage जाँचें।';}
+ finally{btn.disabled=false;btn.textContent='✨ Generate AI Voice';}
+}
+function previewGeneratedAiVoice(){const p=$('aiTtsPlayer');if(!p?.src){$('aiTtsStatus').textContent='पहले AI Voice generate करें।';return;}p.play().catch(e=>$('aiTtsStatus').textContent='Playback error: '+errorText(e));}
+function stopGeneratedAiVoice(){const p=$('aiTtsPlayer');if(p){p.pause();p.currentTime=0;}}
 function sendVoiceTextToReel(){
  const text=$('voiceText').value.trim();
- const audioFile=$('voiceAiAudioFile')?.files?.[0]||null;
+ const audioFile=$('voiceAiAudioFile')?.files?.[0]||generatedVoiceFile||null;
  if(!text&&!audioFile){$('voiceTransferStatus').textContent='पहले narration text लिखें या AI Voice audio file चुनें।';return;}
  if(!Array.isArray(reelClips)||!reelClips.length){$('voiceTransferStatus').textContent='पहले Reel Maker में कम-से-कम एक photo/video scene जोड़ें।';return;}
  let index=reelSelectedSceneIndex;if(index<0||index>=reelClips.length)index=0;
@@ -828,7 +880,8 @@ function pauseSpeech(){if(window.speechSynthesis){window.speechSynthesis.pause()
 function resumeSpeech(){if(window.speechSynthesis){window.speechSynthesis.resume();$('voiceStatus').textContent='Resumed';}}
 function stopSpeech(){if(window.speechSynthesis){window.speechSynthesis.cancel();$('voiceStatus').textContent='Stopped';}}
 if('speechSynthesis' in window){window.speechSynthesis.onvoiceschanged=loadVoices;}
-$('voiceAiAudioFile')?.addEventListener('change',()=>{const f=$('voiceAiAudioFile').files?.[0];$('voiceAiAudioPreview').textContent=f?'Selected AI voice: '+f.name+' · '+Math.max(1,Math.round(f.size/1024))+' KB':'अभी कोई AI audio file नहीं चुनी गई।';});
+$('voiceAiAudioFile')?.addEventListener('change',()=>{const f=$('voiceAiAudioFile').files?.[0];$('voiceAiAudioPreview').textContent=f?'Selected audio: '+f.name+' · '+Math.max(1,Math.round(f.size/1024))+' KB':'अभी कोई audio file नहीं चुनी गई।';if(f)generatedVoiceFile=null;});
+updateTtsOptions();
 document.addEventListener('keydown',e=>{const reel=$('reelPanel');if(!reel||!reel.contains(document.activeElement)&&!reel.classList.contains('active'))return;const t=e.target,typing=t&&(t.isContentEditable||/INPUT|TEXTAREA|SELECT/.test(t.tagName));if(e.ctrlKey&&e.key.toLowerCase()==='s'){e.preventDefault();saveReelProject();return;}if(typing)return;if(e.ctrlKey&&e.key.toLowerCase()==='z'){e.preventDefault();undoReelEdit();return;}if(e.ctrlKey&&e.key.toLowerCase()==='y'){e.preventDefault();redoReelEdit();return;}if(reelSelectedSceneIndex<0||!reelClips[reelSelectedSceneIndex])return;if(e.key==='ArrowLeft'){e.preventDefault();moveReelClip(reelSelectedSceneIndex,-1);}else if(e.key==='ArrowRight'){e.preventDefault();moveReelClip(reelSelectedSceneIndex,1);}else if(e.key==='Delete'||e.key==='Backspace'){e.preventDefault();removeReelClip(reelSelectedSceneIndex);reelSelectedSceneIndex=Math.min(reelSelectedSceneIndex,reelClips.length-1);renderReelTimeline();}});
 window.addEventListener('load',()=>{const reelSection=$('reelPanel');if(reelSection){reelSection.addEventListener('input',e=>{scheduleReelProjectAutoSave();if(e.target.closest('#reelClipList'))pushReelUndoPoint();});reelSection.addEventListener('change',e=>{scheduleReelProjectAutoSave();if(e.target.closest('#reelClipList'))pushReelUndoPoint();});}setTimeout(async()=>{await refreshReelProjectList();await refreshReelVersionHistory();const sel=$('reelProjectSelect');if(sel&&sel.value){activeReelProjectId=sel.value;await restoreReelProject();}},700);setTimeout(refreshAuth,1200);setTimeout(loadVoices,500);});
 </script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=1">
