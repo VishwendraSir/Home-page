@@ -504,10 +504,12 @@ const HISTORY_KEY='science_centre_jnvst_history_v10';
 const $=id=>document.getElementById(id);
 function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
 function localize(value){
- const parts=String(value).split(' / ');
- if(lang==='en') return parts[0];
- if(lang==='hi') return parts[1]||parts[0];
- return value;
+ const parts=String(value).split(' / ').map(part=>part.replace(/\\s*\\/\\s*विकल्प\\s*\\d+\\s*$/,'').trim());
+ let result=lang==='en'?parts[0]:(lang==='hi'?(parts[1]||parts[0]):parts.join(' / '));
+ // Hide editorial topic tags and placeholder option labels in the student-facing text.
+ result=result.replace(/^\\[(?:Hindi|Vocabulary|Grammar)\\s*[–-][^\\]]+\\]\\s*/i,'');
+ result=result.replace(/\\s*\\/\\s*विकल्प\\s*\\d+\\s*$/,'').trim();
+ return result;
 }
 function speakSlide(){
  if(!('speechSynthesis' in window)){alert('Speech is not supported in this browser.');return;}
