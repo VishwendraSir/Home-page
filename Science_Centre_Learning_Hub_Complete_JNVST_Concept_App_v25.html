@@ -677,7 +677,7 @@ function render(){
  $('counter').textContent=(index+1)+' / '+questions.length;
  $('bar').style.width=((index+1)/questions.length*100)+'%';
  $('topic').textContent='CLASS '+r[3]+' • '+(r[4]||'Practice');$('qnum').textContent='QUESTION '+(index+1);
- const passageMatch=String(r[0]).match(/^Passage\\s+(\\d+):/i);
+ const passageMatch=String(r[0]).match(/^Passage\s+(\d+):/i);
  const passageBox=$('passageBox');
  if(passageMatch){
   const passageNo=Number(passageMatch[1]);
@@ -689,7 +689,7 @@ function render(){
   };
   const passage=passages[type];
   passageBox.innerHTML='<div class="passage-heading">'+(lang==='hi'?'गद्यांश '+passageNo:lang==='en'?'PASSAGE '+passageNo:'PASSAGE / गद्यांश '+passageNo)+'</div><div></div>';
-  passageBox.lastChild.textContent=lang==='hi'?passage[1]:lang==='en'?passage[0]:passage[0]+'\\n\\n'+passage[1];
+  passageBox.lastChild.textContent=lang==='hi'?passage[1]:lang==='en'?passage[0]:passage[0]+'\n\n'+passage[1];
   passageBox.hidden=false;passageBox.classList.add('show');
  }else{passageBox.hidden=true;passageBox.classList.remove('show');passageBox.textContent='';}
  $('question').textContent=localize(r[0]);
