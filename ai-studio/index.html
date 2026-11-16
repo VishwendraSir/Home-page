@@ -107,6 +107,7 @@ a.dl{display:inline-block;background:#20365d;color:white;padding:10px 14px;borde
 <div><label>Pitch</label><select id="voicePitch"><option value="0.8">Low</option><option value="1" selected>Normal</option><option value="1.15">High</option></select></div>
 </div>
 <div class="actions"><button onclick="speakText()">▶ Speak</button><button class="secondary" onclick="pauseSpeech()">⏸ Pause</button><button class="secondary" onclick="resumeSpeech()">▶ Resume</button><button class="secondary" onclick="stopSpeech()">⏹ Stop</button></div>
+<div class="actions"><button class="secondary" onclick="sendVoiceTextToReel()">🎞️ Send to Audio Reel Maker</button></div><div id="voiceTransferStatus" class="status" role="status">पहले Reel Maker में एक scene जोड़ें, फिर यहाँ से narration भेजें।</div>
 <div id="voiceStatus" class="status" role="status">तैयार। Speak दबाकर सुनें।</div>
 <p class="note">उपलब्ध आवाज़ें Android/Browser और installed language packs पर निर्भर हैं। यह संस्करण ऑडियो फ़ाइल डाउनलोड नहीं करता; केवल डिवाइस पर बोलकर सुनाता है।</p>
 </section>
@@ -802,6 +803,26 @@ function speakText(){
  utterance.onend=()=>{$('voiceStatus').textContent='पूरा हुआ।';};
  utterance.onerror=e=>{$('voiceStatus').textContent='Voice error: '+(e.error||'Playback failed');};
  window.speechSynthesis.speak(utterance);
+}
+function sendVoiceTextToReel(){
+ const text=$('voiceText').value.trim();
+ if(!text){$('voiceTransferStatus').textContent='पहले Voice Studio में narration text लिखें।';return;}
+ if(!Array.isArray(reelClips)||!reelClips.length){$('voiceTransferStatus').textContent='पहले Reel Maker में कम-से-कम एक photo/video scene जोड़ें।';return;}
+ let index=reelSelectedSceneIndex;
+ if(index<0||index>=reelClips.length)index=0;
+ const clip=reelClips[index];
+ if(clip.locked){$('voiceTransferStatus').textContent='चुना हुआ scene locked है। पहले उसे unlock करें।';return;}
+ clip.voiceText=text;
+ clip.voiceLang=$('voiceLang').value;
+ clip.voiceRate=Number($('voiceRate').value)||1;
+ clip.voicePitch=Number($('voicePitch').value)||1;
+ reelSelectedSceneIndex=index;
+ if(typeof renderReelClips==='function')renderReelClips();
+ if(typeof renderReelTimeline==='function')renderReelTimeline();
+ if(typeof scheduleReelProjectAutoSave==='function')scheduleReelProjectAutoSave();
+ $('voiceTransferStatus').textContent='Narration Scene '+(index+1)+' में भेज दी गई। Reel Maker खोलकर Voice-over देखें।';
+ $('reelClipStatus').textContent='Voice Studio narration Scene '+(index+1)+' में transfer हुई।';
+ showTab('reel');
 }
 function pauseSpeech(){if(window.speechSynthesis){window.speechSynthesis.pause();$('voiceStatus').textContent='Paused';}}
 function resumeSpeech(){if(window.speechSynthesis){window.speechSynthesis.resume();$('voiceStatus').textContent='Resumed';}}
