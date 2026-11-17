@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="theme-color" content="#172554"><title>BRAHMASTRA | Mobile Slide Practice</title>
+<style>
+:root{--bg:#eef2ff;--panel:#fff;--ink:#17213d;--muted:#64748b;--line:#dbe3f0;--blue:#243c9b;--violet:#7136b7;--green:#12834b;--red:#c43b4a}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;background:var(--bg);color:var(--ink);overscroll-behavior:none}
+body{display:flex;flex-direction:column;height:100dvh;min-height:0}
+header{flex:0 0 auto;background:linear-gradient(120deg,#111b4b,#2947a6 68%,#7039ad);color:#fff;padding:10px 13px;padding-top:max(10px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;gap:8px}
+.brand{font-size:14px;font-weight:850;letter-spacing:.4px}.sub{font-size:10px;opacity:.82}
+.iconbtn,.btn,select{border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-weight:700;padding:10px 12px;font-size:13px;min-height:40px}
+header .iconbtn{background:#ffffff20;color:#fff;border-color:#ffffff40}
+.filters{flex:0 0 auto;display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:8px 10px;background:#fff;border-bottom:1px solid var(--line)}
+select{width:100%;min-width:0;padding:8px;font-size:12px;min-height:38px}
+main{flex:1;min-height:0;display:flex;flex-direction:column;padding:9px 10px;gap:8px}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;color:var(--muted)}
+.progress{height:5px;background:#dce3f3;border-radius:9px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--violet));transition:width .2s}
+.slide{flex:1;min-height:0;background:var(--panel);border:1px solid var(--line);border-radius:19px;box-shadow:0 8px 26px #253b7812;padding:clamp(13px,3.5vw,22px);display:flex;flex-direction:column;gap:10px;overflow:auto}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:10px;padding:4px 8px;border-radius:20px;background:#eef2ff;color:#354b9d;font-weight:750}
+.qnum{font-size:11px;color:var(--muted);font-weight:800}.question{font-size:clamp(18px,5vw,25px);font-weight:800;line-height:1.5;overflow-wrap:anywhere}
+.question.en{font-size:clamp(16px,4.3vw,21px);font-weight:700;color:#334155}
+.options{display:grid;grid-template-columns:1fr;gap:8px;margin-top:3px}
+.opt{border:1px solid var(--line);border-radius:13px;padding:11px 12px;font-size:clamp(14px,3.8vw,17px);line-height:1.35;background:#fbfcff;display:flex;gap:9px;align-items:flex-start}
+.opt b{color:#5267b5;min-width:20px}.opt.correct{background:#e4f8eb;border-color:#6ac58a;color:#126438}.opt.wrong{background:#fff0f0;border-color:#e49aa0}
+.answer{display:none;border-radius:13px;background:#e9f9ef;border:1px solid #a6dfb9;padding:11px 13px;color:#145d35;font-size:14px;line-height:1.45}.answer.show{display:block}
+.explain{font-size:13px;color:#48566d;line-height:1.5;white-space:pre-wrap;margin-top:5px}
+.controls{flex:0 0 auto;display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:8px;padding-bottom:max(8px,env(safe-area-inset-bottom))}
+.btn{border:0;background:#e5eafe;color:#243c9b}.btn.primary{background:linear-gradient(120deg,#243c9b,#7136b7);color:white}.btn:disabled{opacity:.4}
+.footer{flex:0 0 auto;text-align:center;color:#718096;font-size:9px;padding:0 5px 5px}
+.loading{margin:auto;text-align:center;color:#435276;font-weight:700}.hidden{display:none!important}
+@media(min-width:700px){.filters{grid-template-columns:repeat(4,1fr);padding:10px 18px}main{max-width:850px;width:100%;margin:auto;padding:14px 18px}.slide{padding:26px}.options{grid-template-columns:1fr 1fr}.question{font-size:26px}}
+@media(max-height:650px){header{padding-top:6px;padding-bottom:6px}.filters{padding-top:5px;padding-bottom:5px}main{padding-top:5px;padding-bottom:5px;gap:5px}.slide{padding:11px;gap:7px}.question{font-size:18px}.opt{padding:8px}.controls .btn{min-height:36px;padding:7px}}
+</style></head><body>
+<header><div><div class="brand">⚡ EXAM BRAHMASTRA</div><div class="sub">GUIDED BY VISHWENDRA SIR · MOBILE SLIDE PRACTICE</div></div><button class="iconbtn" id="fullscreen">⛶ Full</button></header>
+<section class="filters">
+<select id="subject"><option value="">सभी विषय</option></select>
+<select id="topic"><option value="">सभी टॉपिक</option></select>
+<select id="class"><option value="">सभी कक्षाएँ</option><option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option><option>Class 5</option><option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>Competitive</option></select>
+<select id="language"><option value="both">हिंदी + English</option><option value="hi">केवल हिंदी</option><option value="en">English only</option></select>
+</section>
+<main><div class="meta"><span id="position">लोड हो रहा है…</span><span id="count">—</span></div><div class="progress"><div class="bar" id="bar"></div></div>
+<section class="slide" id="slide"><div class="loading" id="loading">प्रश्न बैंक लोड हो रहा है…</div><div id="content" class="hidden"><div class="tags" id="tags"></div><div class="qnum" id="qnum"></div><div class="question" id="qhi"></div><div class="question en" id="qen"></div><div class="options" id="options"></div><div class="answer" id="answer"></div></div></section>
+<div class="controls"><button class="btn" id="prev">← पिछला</button><button class="btn primary" id="reveal">उत्तर देखें</button><button class="btn" id="next">अगला →</button></div></main>
+<div class="footer">SCIENCE CENTRE LEARNING HUB · Offline-ready after first successful load where browser cache permits</div>
+<script>
+const SOURCES=[
+ ["questions-chemistry.json","chemistry"],
+ ["questions-english.json","english"],
+ ["questions-google-physics-biology.json","physics_biology"],
+ ["questions-hindi.json","hindi"],
+ ["questions-repository-imports.json","imports"]
+];
+let all=[],filtered=[],index=0,shown=false;
+const $=id=>document.getElementById(id);
+const clean=s=>String(s??"").replace(/<[^>]*>/g,"").trim();
+function normalize(x,kind,n){
+ let subject=x.subject||x.subject_id||x.category_hi||x.category||"अन्य";
+ let topic=x.topic||x.topic_id||x.chapter_hi||x.chapter_en||x.chapter_id||x.category_hi||x.category||"अन्य";
+ let hi=x.question_hi||x.question||x.word||"",en=x.question_en||"";
+ let opts=x.options||x.options_hi||x.options_en||[];
+ let answer=x.correct_index??x.answer_index??null;
+ let cls=[],aud=[];
+ if(kind==="imports"){
+  const src=x.source_file||x.source||"";
+  if(src.includes("JNVST")){cls=["Class 6"];aud=["JNVST Class 6"];}
+  else if(src.includes("Jaipur")||String(subject).includes("राजस्थान")){cls=["Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["Rajasthan GK","Competitive"];}
+  else{cls=["Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["General Science","Competitive"];}
+ }else if(kind==="english"){cls=["Class 3","Class 4","Class 5","Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["Foundation"];}
+ else if(kind==="hindi"){cls=["Class 3","Class 4","Class 5","Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["Foundation"];}
+ else if(kind==="chemistry"||kind==="physics_biology"){cls=["Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["Science Foundation"];}
+ if(kind==="chemistry")subject="रसायन विज्ञान";
+ if(kind==="english")subject="English";
+ if(kind==="hindi")subject="हिंदी";
+ return {id:x.question_id||kind+"_"+n,subject,topic,hi,en,opts,answer,
+  explanation:x.explanation_hi||x.explanation?.hi||x.explanation||x.explanation_en||"",
+  source:x.source_file||x.source||kind,classes:cls,audience:aud,raw:x};
+}
+function optionsList(q){if(!Array.isArray(q.opts))return [];return q.opts.map(o=>typeof o==="string"?o:(o.hi||o.en||o.text||JSON.stringify(o)));}
+function fillSelect(el,vals,first){const old=el.value;el.innerHTML='<option value="">'+first+'</option>'+vals.map(v=>'<option></option>').join("");[...el.options].slice(1).forEach((o,i)=>o.textContent=vals[i]);if(vals.includes(old))el.value=old;}
+function refreshTopics(){const s=$("subject").value;const vals=[...new Set(all.filter(q=>!s||q.subject===s).map(q=>q.topic))].sort((a,b)=>a.localeCompare(b));fillSelect($("topic"),vals,"सभी टॉपिक");}
+function applyFilters(){const s=$("subject").value,t=$("topic").value,c=$("class").value;filtered=all.filter(q=>(!s||q.subject===s)&&(!t||q.topic===t)&&(!c||(c==="Competitive"?q.audience.includes("Competitive"):q.classes.includes(c))));index=0;render();}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function render(){
+ const q=filtered[index];shown=false;$("answer").classList.remove("show");$("reveal").textContent="उत्तर देखें";
+ if(!q){$("content").classList.add("hidden");$("loading").classList.remove("hidden");$("loading").textContent="इस चयन में प्रश्न उपलब्ध नहीं हैं।";$("position").textContent="0 प्रश्न";$("count").textContent="0";$("prev").disabled=true;$("next").disabled=true;$("bar").style.width="0%";return;}
+ $("loading").classList.add("hidden");$("content").classList.remove("hidden");
+ $("position").textContent=(index+1)+" / "+filtered.length;$("count").textContent="कुल "+filtered.length+" प्रश्न";
+ $("bar").style.width=((index+1)/filtered.length*100)+"%";
+ $("tags").innerHTML='<span class="tag">'+esc(q.subject)+'</span><span class="tag">'+esc(q.topic)+'</span><span class="tag">'+esc(q.id)+'</span>';
+ $("qnum").textContent="प्रश्न "+(index+1);
+ const lang=$("language").value;
+ $("qhi").textContent=(lang==="en"?"":clean(q.hi));
+ $("qen").textContent=(lang==="hi"?"":clean(q.en));
+ $("qhi").classList.toggle("hidden",!$("qhi").textContent);
+ $("qen").classList.toggle("hidden",!$("qen").textContent);
+ const opts=optionsList(q);$("options").innerHTML=opts.map((o,i)=>'<div class="opt" data-i="'+i+'"><b>'+String.fromCharCode(65+i)+'.</b><span>'+esc(o)+'</span></div>').join("");
+ $("answer").innerHTML=q.answer===null||q.answer===undefined?"<b>उत्तर:</b> इस रिकॉर्ड में विकल्प-आधारित उत्तर उपलब्ध नहीं।":'<b>सही उत्तर:</b> '+esc(opts[q.answer]??q.answer)+(q.explanation?'<div class="explain">'+esc(q.explanation)+'</div>':"");
+ $("prev").disabled=index===0;$("next").disabled=index>=filtered.length-1;
+}
+function reveal(){const q=filtered[index];if(!q)return;shown=!shown;$("answer").classList.toggle("show",shown);$("reveal").textContent=shown?"उत्तर छिपाएँ":"उत्तर देखें";document.querySelectorAll(".opt").forEach((el,i)=>{el.classList.toggle("correct",shown&&q.answer===i);});}
+$("subject").addEventListener("change",()=>{refreshTopics();applyFilters();});
+$("topic").addEventListener("change",applyFilters);$("class").addEventListener("change",applyFilters);$("language").addEventListener("change",render);
+$("prev").onclick=()=>{if(index>0){index--;render();}};$("next").onclick=()=>{if(index<filtered.length-1){index++;render();}};
+$("reveal").onclick=reveal;
+$("fullscreen").onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.();};
+document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")$("next").click();if(e.key==="ArrowLeft")$("prev").click();if(e.key===" "){e.preventDefault();reveal();}});
+async function init(){try{
+ const loaded=await Promise.all(SOURCES.map(async ([file,kind])=>{const r=await fetch("./"+file,{cache:"no-cache"});if(!r.ok)throw Error(file+" HTTP "+r.status);const d=await r.json();return (d.records||[]).map((x,i)=>normalize(x,kind,i+1));}));
+ all=loaded.flat();
+ // Add the 24 questions already embedded in the main Brahmastra page after the source pack is reconciled separately.
+ fillSelect($("subject"),[...new Set(all.map(q=>q.subject))].sort((a,b)=>a.localeCompare(b)),"सभी विषय");
+ refreshTopics();applyFilters();$("loading").textContent="";
+ }catch(e){$("loading").textContent="डेटा लोड नहीं हो पाया: "+e.message+" · इंटरनेट कनेक्शन जाँचें और फिर Reload करें।";}}
+init();
+</script></body></html>
