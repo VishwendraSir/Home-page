@@ -59,7 +59,7 @@ function normalize(x,kind,n){
  let opts=x.options||x.options_hi||x.options_en||[];
  let answer=x.correct_index??x.answer_index??null;
  let cls=[],aud=[];
- if(kind==="core"){classes=[];aud=["Existing Brahmastra Core"];}
+ if(kind==="core"){cls=[];aud=["Competitive","Existing Brahmastra Core"];}
  if(kind==="imports"){
   const src=x.source_file||x.source||"";
   if(src.includes("JNVST")){cls=["Class 6"];aud=["JNVST Class 6"];}
@@ -72,7 +72,7 @@ function normalize(x,kind,n){
  if(kind==="chemistry")subject="रसायन विज्ञान";
  if(kind==="english"||String(subject).toLowerCase()==="english")subject="English";
  if(kind==="hindi")subject="हिंदी";
- return {id:x.question_id||kind+"_"+n,subject,topic,hi,en,opts,answer,
+ return {id:x.question_id||kind+"_"+n,subject,topic,hi,en,opts,answer,directAnswer:x.answer_hi||x.answer_en||"",
   explanation:x.explanation_hi||x.explanation?.hi||x.explanation||x.explanation_en||"",
   source:x.source_file||x.source||kind,classes:cls,audience:aud,raw:x};
 }
@@ -95,7 +95,7 @@ function render(){
  $("qhi").classList.toggle("hidden",!$("qhi").textContent);
  $("qen").classList.toggle("hidden",!$("qen").textContent);
  const opts=optionsList(q);$("options").innerHTML=opts.map((o,i)=>'<div class="opt" data-i="'+i+'"><b>'+String.fromCharCode(65+i)+'.</b><span>'+esc(o)+'</span></div>').join("");
- $("answer").innerHTML=q.answer===null||q.answer===undefined?"<b>उत्तर:</b> इस रिकॉर्ड में विकल्प-आधारित उत्तर उपलब्ध नहीं।":'<b>सही उत्तर:</b> '+esc(opts[q.answer]??q.answer)+(q.explanation?'<div class="explain">'+esc(q.explanation)+'</div>':"");
+ $("answer").innerHTML=q.directAnswer?'<b>उत्तर:</b> '+esc(q.directAnswer)+(q.explanation?'<div class="explain">'+esc(q.explanation)+'</div>':""):q.answer===null||q.answer===undefined?"<b>उत्तर:</b> इस रिकॉर्ड में विकल्प-आधारित उत्तर उपलब्ध नहीं।":'<b>सही उत्तर:</b> '+esc(opts[q.answer]??q.answer)+(q.explanation?'<div class="explain">'+esc(q.explanation)+'</div>':"");
  $("prev").disabled=index===0;$("next").disabled=index>=filtered.length-1;
 }
 function reveal(){const q=filtered[index];if(!q)return;shown=!shown;$("answer").classList.toggle("show",shown);$("reveal").textContent=shown?"उत्तर छिपाएँ":"उत्तर देखें";document.querySelectorAll(".opt").forEach((el,i)=>{el.classList.toggle("correct",shown&&q.answer===i);});}
