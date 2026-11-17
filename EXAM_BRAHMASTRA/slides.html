@@ -43,6 +43,7 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;padding:9px 10px;gap
 <script>
 const SOURCES=[
  ["questions-core.json","core"],
+ ["child-development-pedagogy-1000.json","psychology"],
  ["questions-cdp-psychology-1000.json","psychology"],
  ["questions-chemistry.json","chemistry"],
  ["questions-english.json","english"],
@@ -61,6 +62,7 @@ function normalize(x,kind,n){
  let answer=x.correct_index??x.answer_index??null;
  let cls=[],aud=[];
  if(kind==="core"){cls=[];aud=["Competitive","Existing Brahmastra Core"];}
+ if(kind==="psychology"){cls=[];aud=["Competitive","Teaching Exams"];}
  if(kind==="psychology"){cls=[];aud=["Competitive","Teaching Exams","CTET","UPTET","REET","KVS","NVS","DSSSB"];}
  if(kind==="imports"){
   const src=x.source_file||x.source||"";
