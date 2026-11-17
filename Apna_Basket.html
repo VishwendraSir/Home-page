@@ -24,7 +24,7 @@ header{background:linear-gradient(120deg,#14213d,#3d3b9e);color:white;padding:18
 </section>
 <section id="cartView" class="hidden">
 <div class="section"><h3>आपका Cart</h3><div id="cartItems"></div><div class="row" style="margin-top:12px"><span>Subtotal</span><b id="subtotal">₹0</b></div><div class="row"><span>Delivery charge</span><b id="deliveryFee">₹0</b></div><div class="field"><label>Coupon Code</label><div class="row"><input id="couponInput" placeholder="Coupon code"><button class="btn secondary" onclick="applyCoupon()">Apply</button></div><small id="couponMessage" class="muted"></small></div><div class="row"><span>Discount</span><b id="discountValue">₹0</b></div><div class="row" style="margin-top:10px"><span class="total">Total</span><span class="total" id="grandTotal">₹0</span></div></div>
-<div class="section"><h3>Order Details</h3><div class="field"><label>आपका नाम</label><input id="custName" placeholder="नाम"></div><div class="field"><label>Mobile Number</label><input id="custPhone" inputmode="numeric" placeholder="10 digit mobile number"></div><div class="field"><label>Delivery Address</label><textarea id="custAddress" rows="2" placeholder="पूरा पता / मोहल्ला"></textarea></div><div class="field"><label>Delivery PIN Code</label><input id="custPincode" inputmode="numeric" maxlength="6" placeholder="6 digit PIN code"></div><div class="field"><label>Payment Method</label><select id="payMethod"><option>UPI</option><option>Cash on Delivery</option></select></div><div class="field"><label>Order Note (optional)</label><input id="orderNote" placeholder="जैसे कम तीखा"></div><div class="notice">Order भेजने से पहले दुकान का WhatsApp नंबर Admin Settings में जोड़ें। UPI भुगतान फिलहाल निर्देश/मैनुअल पुष्टि से होगा।</div><button class="btn green" style="width:100%;padding:13px" onclick="placeOrder()">WhatsApp पर Order भेजें</button><p class="muted">UPI चुनने पर order submit के बाद UPI app खोलने का विकल्प मिलेगा। भुगतान की पुष्टि दुकान को अलग से करनी होगी।</p><p class="muted">Firebase connected होने पर Order Cloud में create होगा; Admin panel पर live दिखाई देगा। Customer order history अभी local tracking (Order ID + mobile) तक सीमित है।</p></div>
+<div class="section"><h3>Order Details</h3><div class="field"><label>आपका नाम</label><input id="custName" placeholder="नाम"></div><div class="field"><label>Mobile Number</label><input id="custPhone" inputmode="numeric" placeholder="10 digit mobile number"></div><div class="field"><label>Delivery Address</label><textarea id="custAddress" rows="2" placeholder="पूरा पता / मोहल्ला"></textarea></div><div class="field"><label>Delivery PIN Code</label><input id="custPincode" inputmode="numeric" maxlength="6" placeholder="6 digit PIN code"></div><div class="field"><label>Payment Method</label><select id="payMethod"><option>UPI</option><option>Cash on Delivery</option></select></div><div class="field"><label>Order Note (optional)</label><input id="orderNote" placeholder="जैसे कम तीखा"></div><div class="notice">अब Customer को Firebase Login की जरूरत नहीं है। Order सीधे दुकान के WhatsApp पर भेजा जाएगा। Admin Settings में दुकान का WhatsApp नंबर (91 सहित) सेव होना जरूरी है। UPI भुगतान की पुष्टि दुकान अलग से करेगी।</div><button class="btn green" style="width:100%;padding:13px" onclick="placeOrder()">WhatsApp पर Order भेजें</button><p class="muted">UPI चुनने पर order submit के बाद UPI app खोलने का विकल्प मिलेगा। भुगतान की पुष्टि दुकान को अलग से करनी होगी।</p><p class="muted">Firebase Customer Login optional है। Login उपलब्ध होने पर Order Cloud में भी सेव करने की कोशिश होगी; अन्यथा WhatsApp पर भेजा जाएगा। WhatsApp order का रिकॉर्ड दुकान की chat में रहेगा।</p></div>
 </section>
 <section id="trackView" class="hidden">
 <div class="section"><h3>📦 अपना Order Track करें</h3><p class="muted">Order ID और वही mobile number डालें जो order करते समय दिया था।</p>
@@ -189,14 +189,18 @@ function updateOrder(id){
 async function placeOrder(){
  let entries=Object.entries(cart).map(([id,q])=>({p:products.find(x=>String(x.id)===String(id)),q:Number(q)})).filter(x=>x.p);
  if(!entries.length){alert("Cart खाली है।");return}
- let name=document.getElementById("custName").value.trim(),phone=document.getElementById("custPhone").value.trim(),address=document.getElementById("custAddress").value.trim(),pincode=document.getElementById("custPincode").value.trim();
+ const name=document.getElementById("custName").value.trim();
+ const phone=document.getElementById("custPhone").value.trim();
+ const address=document.getElementById("custAddress").value.trim();
+ const pincode=document.getElementById("custPincode").value.trim();
  if(settings.open===false){alert("दुकान अभी बंद है। कृपया बाद में order करें।");return}
  if(!name||phone.replace(/\D/g,"").length<10||!address||!/^\d{6}$/.test(pincode)){alert("नाम, सही mobile number, पूरा address और 6 digit PIN code भरें।");return}
  if(settings.pinCodes&&settings.pinCodes.length&&!settings.pinCodes.includes(pincode)){alert("क्षमा करें, इस PIN code पर अभी delivery उपलब्ध नहीं है।");return}
- if(!fbReady||!fbAuth?.currentUser){alert("पहले Firebase Customer Login / Connect करें। Cloud Order बिना Login के स्वीकार नहीं होगा।");return}
+ const shopWhatsApp=String(settings.wa||"").replace(/\D/g,"");
+ if(!/^91[6-9]\d{9}$/.test(shopWhatsApp)){alert("Order भेजने के लिए Admin → Shop Settings में दुकान का सही WhatsApp नंबर country code 91 सहित सेव करें।");showTab("admin");return}
  for(const x of entries){if(!Number.isSafeInteger(x.q)||x.q<=0){alert("Cart quantity गलत है।");return}if(x.p.stock!==undefined&&x.q>x.p.stock){alert("Stock कम है: "+x.p.name);return}}
  const subtotalPaise=entries.reduce((sum,x)=>sum+Math.round(Number(x.p.price)*100)*x.q,0);
- if(!Number.isSafeInteger(subtotalPaise)){alert("Order amount बहुत बड़ा या गलत है।");return}
+ if(!Number.isSafeInteger(subtotalPaise)){alert("Order amount गलत है।");return}
  if(subtotalPaise/100<Number(settings.minimum||0)){alert("Minimum order "+money(settings.minimum)+" है।");return}
  const deliveryFeePaise=Math.round(Number(settings.fee||0)*100);
  const couponCode=(localStorage.getItem("ab_coupon_applied")||"").trim().toUpperCase();
@@ -204,15 +208,22 @@ async function placeOrder(){
  const totalPaise=subtotalPaise+deliveryFeePaise-discountPaise;
  if(!Number.isSafeInteger(totalPaise)||totalPaise<0){alert("Total amount invalid है।");return}
  const id="ORD"+Date.now();
- const order={id,userId:fbAuth.currentUser.uid,name,phone,address,pincode,status:"Pending",subtotalPaise,deliveryFeePaise,totalPaise,items:entries.map(x=>({productId:String(x.p.id),name:String(x.p.name),quantity:x.q})),payment:document.getElementById("payMethod").value,date:fbModules.serverTimestamp(),note:document.getElementById("orderNote").value.trim(),...(couponCode?{couponCode}:{}),discountPaise};
- try{await firebaseCreateOrder(order);}catch(err){alert("Cloud पर Order सेव नहीं हुआ: "+err.message+"\nCart सुरक्षित रखा गया है।");return;}
- const displayOrder={id,name,phone,address,pincode,total:totalPaise/100,discount:discountPaise/100,status:"Pending",date:new Date().toLocaleString("en-IN"),items:entries.map(x=>`${x.p.name} x ${x.q}`).join(", "),payment:order.payment,note:order.note,totalPaise,subtotalPaise,deliveryFeePaise,userId:order.userId};
+ const items=entries.map(x=>({productId:String(x.p.id),name:String(x.p.name),quantity:x.q}));
+ const payment=document.getElementById("payMethod").value;
+ const note=document.getElementById("orderNote").value.trim();
+ const displayOrder={id,name,phone,address,pincode,total:totalPaise/100,discount:discountPaise/100,status:"Pending",date:new Date().toLocaleString("en-IN"),items:items.map(x=>x.name+" x "+x.quantity).join(", "),payment,note,totalPaise,subtotalPaise,deliveryFeePaise};
+ // Cloud sync is optional; WhatsApp ordering must still work without Firebase login/config.
+ if(fbReady&&fbAuth?.currentUser&&fbModules){
+  const cloudOrder={id,userId:fbAuth.currentUser.uid,name,phone,address,pincode,status:"Pending",subtotalPaise,deliveryFeePaise,discountPaise,totalPaise,items,payment,date:fbModules.serverTimestamp(),note,...(couponCode?{couponCode}:{})};
+  try{await firebaseCreateOrder(cloudOrder);displayOrder.userId=cloudOrder.userId;displayOrder.cloudSaved=true;}
+  catch(err){console.warn("Cloud order save failed; continuing with WhatsApp order:",err);displayOrder.cloudSaved=false;}
+ }
+ const msg="New Apna Basket Order "+id+"\nName: "+name+"\nPhone: "+phone+"\nAddress: "+address+"\nPIN: "+pincode+"\nItems: "+displayOrder.items+"\nSubtotal: ₹"+(subtotalPaise/100)+"\nDiscount: ₹"+(discountPaise/100)+"\nDelivery: ₹"+(deliveryFeePaise/100)+"\nTotal: ₹"+(totalPaise/100)+"\nPayment: "+payment+"\nNote: "+(note||"-");
+ const waUrl="https://wa.me/"+shopWhatsApp+"?text="+encodeURIComponent(msg);
  orders.push(displayOrder);localStorage.setItem("ab_last_order",id);localStorage.setItem("ab_profile",JSON.stringify({name,phone,address,pincode}));persist();
- const msg=`New Order ${id}%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AAddress: ${encodeURIComponent(address)}%0APIN: ${encodeURIComponent(pincode)}%0AItems: ${encodeURIComponent(displayOrder.items)}%0ADiscount: ${discountPaise/100}%0ADelivery: ${deliveryFeePaise/100}%0ATotal: ${totalPaise/100}%0APayment: ${encodeURIComponent(order.payment)}%0ANote: ${encodeURIComponent(order.note)}`;
- if(settings.wa)window.open("https://wa.me/"+settings.wa+"?text="+msg,"_blank");
+ window.open(waUrl,"_blank");
  cart={};localStorage.removeItem("ab_coupon_discount");localStorage.removeItem("ab_coupon_applied");persist();renderCart();renderProducts();
- if(order.payment==="UPI"&&settings.upi){let upiUrl="upi://pay?pa="+encodeURIComponent(settings.upi)+"&pn="+encodeURIComponent(settings.name)+"&am="+encodeURIComponent(totalPaise/100)+"&cu=INR&tn="+encodeURIComponent("Order "+id);if(confirm("Order "+id+" सेव हो गया। UPI app खोलें?"))window.location.href=upiUrl;}
- alert("Order "+id+" Firebase पर सेव हो गया। Admin approval के बाद status अपडेट होगा।");
+ alert("Order "+id+" तैयार है। WhatsApp खुलेगा—वहाँ Send दबाकर दुकान को Order भेजें।");
 }
 function loadProfile(){
  let p=JSON.parse(localStorage.getItem("ab_profile")||"{}");
