@@ -39,7 +39,7 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;padding:9px 10px;gap
 <main><div class="meta"><span id="position">लोड हो रहा है…</span><span id="count">—</span></div><div class="progress"><div class="bar" id="bar"></div></div>
 <section class="slide" id="slide"><div class="loading" id="loading">प्रश्न बैंक लोड हो रहा है…</div><div id="content" class="hidden"><div class="tags" id="tags"></div><div class="qnum" id="qnum"></div><div class="question" id="qhi"></div><div class="question en" id="qen"></div><div class="options" id="options"></div><div class="answer" id="answer"></div></div></section>
 <div class="controls"><button class="btn" id="prev">← पिछला</button><button class="btn primary" id="reveal">उत्तर देखें</button><button class="btn" id="next">अगला →</button></div></main>
-<div class="footer">SCIENCE CENTRE LEARNING HUB · Offline-ready after first successful load where browser cache permits</div>
+<div class="footer">SCIENCE CENTRE LEARNING HUB · GitHub-hosted question bank · Internet required to load questions</div>
 <script>
 const SOURCES=[
  ["questions-core.json","core"],
@@ -70,7 +70,7 @@ function normalize(x,kind,n){
  else if(kind==="chemistry"||kind==="physics_biology"){cls=["Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["Science Foundation"];}
  if(kind==="core"){subject=x.subject||"अन्य";topic=x.topic||"अन्य";}
  if(kind==="chemistry")subject="रसायन विज्ञान";
- if(kind==="english")subject="English";
+ if(kind==="english"||String(subject).toLowerCase()==="english")subject="English";
  if(kind==="hindi")subject="हिंदी";
  return {id:x.question_id||kind+"_"+n,subject,topic,hi,en,opts,answer,
   explanation:x.explanation_hi||x.explanation?.hi||x.explanation||x.explanation_en||"",
