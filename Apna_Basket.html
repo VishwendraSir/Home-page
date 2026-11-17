@@ -2,7 +2,7 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#14213d"><title>Apna Basket V12 | Security & Order Workflow Update</title>
+<meta name="theme-color" content="#14213d"><title>Apna Basket V13 | Critical Firebase Fix & Safer Categories</title>
 <style>
 :root{--navy:#14213d;--blue:#2563eb;--purple:#7047d7;--bg:#f5f7fb;--ink:#172033;--muted:#68738a;--line:#e6eaf1;--green:#168653}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink)}
@@ -53,7 +53,7 @@ header{background:linear-gradient(120deg,#14213d,#3d3b9e);color:white;padding:18
 <div class="section"><h3>Live Menu Control</h3><div id="adminProducts"></div></div>
 <div class="section"><h3>📊 Sales Summary</h3><div id="salesSummary" class="adminstats"></div></div><div class="section"><h3>Recent Orders</h3><div class="admin-tools-row"><input class="search" id="orderSearch" placeholder="Order ID / नाम / मोबाइल खोजें" oninput="renderOrderList()"><button class="btn secondary" onclick="exportOrdersCSV()">Export CSV</button></div><div id="orders"></div></div><div class="section"><h3>⭐ Customer Reviews</h3><div id="reviewList"></div></div>
 <div class="section" id="firebasePanel">
-<h3>☁️ V12 Firebase Cloud Sync & Security</h3>
+<h3>☁️ V13 Firebase Cloud Sync & Security</h3>
 <p class="muted">अब Firebase Console से Copy किया हुआ पूरा JavaScript Config सीधे पेस्ट करें; JSON भी स्वीकार होगा। Admin/Customer login और Firestore sync के लिए Firebase setup व सुरक्षित Rules जरूरी हैं।</p>
 <div class="field"><label>Firebase Web Config (पूरा copied snippet या JSON)</label><textarea id="fbConfig" rows="7" placeholder="const firebaseConfig = { apiKey: \"...\", authDomain: \"...\", projectId: \"apna-basket-3433e\", appId: \"...\" }; "></textarea><small class="muted">Firebase Console के Config बॉक्स से Copy करें और यहाँ सीधे Paste करें। // comment और const firebaseConfig भी अब स्वीकार हैं।</small></div>
 <div class="field"><label>Admin Email</label><input id="fbEmail" type="email" placeholder="admin@example.com"></div>
@@ -68,7 +68,7 @@ header{background:linear-gradient(120deg,#14213d,#3d3b9e);color:white;padding:18
 </details></div>
 <div class="section"><h3>Admin Tools</h3><p class="muted">Pending delivery: <b id="pendingDeliveryCount">0</b></p><div class="toolbar"><button class="btn secondary" onclick="exportBackup()">⬇ Export Backup</button><label class="btn secondary" style="text-align:center;cursor:pointer">⬆ Restore Backup<input type="file" accept="application/json" style="display:none" onchange="importBackup(this.files[0]);this.value=''"></label><button class="btn secondary" onclick="changeAdminPin()">Change PIN</button><button class="btn danger" onclick="adminUnlocked=false;showTab('customer')">Lock Admin</button></div><p class="muted">Backup में products, orders और settings शामिल हैं। PIN इस डिवाइस के browser में रहता है।</p></div>
 </section>
-<div class="footer">Apna Basket • Local Ordering & Delivery<br>V12: Firebase Config accepts copied JavaScript snippet or JSON. Cloud sync तभी active होगा जब Firebase project config और secure rules सेट हों।</div>
+<div class="footer">Apna Basket • Local Ordering & Delivery<br>V13: Firebase async fix + safer category rendering snippet or JSON. Cloud sync तभी active होगा जब Firebase project config और secure rules सेट हों।</div>
 </main>
 <script>
 const seed=[
@@ -97,7 +97,15 @@ function showTab(t){
  if(t==="cart")renderCart();if(t==="admin")renderAdmin();if(t==="account")loadProfile();if(t==="delivery")renderDelivery()
 }
 function updateShopStatus(){let el=document.getElementById("shopStatusPill");if(!el)return;el.textContent=settings.open===false?"🔴 दुकान बंद":"🟢 दुकान खुली • 3–5 KM";el.style.background=settings.open===false?"#8b1e2d":"#ffffff22";}
-function renderCategories(){let cats=["All",...new Set(products.map(p=>p.cat))];document.getElementById("categories").innerHTML=cats.map(c=>`<button class="cat ${category===c?'active':''}" onclick="category='${c.replace(/'/g,"\\'")}';renderCategories();renderProducts()">${c}</button>`).join("")}
+function renderCategories(){
+ const cats=["All",...new Set(products.map(p=>String(p.cat||"Other")))];
+ const host=document.getElementById("categories");
+ host.innerHTML=cats.map(c=>'<button type="button" class="cat '+(category===c?'active':'')+'" data-category="'+esc(c)+'">'+esc(c)+'</button>').join("");
+ host.querySelectorAll("[data-category]").forEach(btn=>btn.addEventListener("click",()=>{
+  category=btn.getAttribute("data-category")||"All";
+  renderCategories();renderProducts();
+ }));
+}
 function renderProducts(){renderCategories();let q=document.getElementById("search").value.toLowerCase();let list=products.filter(p=>p.active&&(category==="All"||p.cat===category)&&(p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)));document.getElementById("products").innerHTML=list.length?list.map(p=>`<article class="product"><div class="pic">${p.imageUrl?`<img class="product-photo" src="${esc(p.imageUrl)}" alt="${esc(p.name)}">`:p.emoji||"🛍️"}</div><div class="pbody">${p.featured?'<div class="tagline">⭐ FEATURED</div>':""}${p.bestseller?'<div class="tagline">🔥 BEST SELLER</div>':""}<div class="pname">${esc(p.name)}</div><div class="desc">${esc(p.desc||p.cat)}</div><div class="reviewline">★ ${Number(p.rating||0).toFixed(1)} • ${Number(p.reviewCount||0)} reviews</div><div class="stock-note">${p.stock===undefined?"Available":p.stock<=0?"Out of Stock":p.stock<=5?`Only ${p.stock} left`: "In Stock"}</div><div class="row"><div class="price">${money(p.price)}</div><button class="btn" ${p.stock!==undefined&&p.stock<=0?"disabled":""} onclick="addCart(${p.id})">${p.stock!==undefined&&p.stock<=0?"Sold Out":"Add +"}</button><button class="btn secondary smallbtn" onclick="addReview(${p.id})">Rate</button></div></div></article>`).join(""):'<div class="section">इस category में अभी कोई सामान उपलब्ध नहीं है।</div>';document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
 function addCart(id){let p=products.find(x=>x.id===id);if(!p)return;if(p.stock!==undefined&&(cart[id]||0)>=p.stock){alert("इससे अधिक stock उपलब्ध नहीं है।");return}cart[id]=(cart[id]||0)+1;persist();renderProducts();renderCart()}
 function changeQty(id,d){let p=products.find(x=>x.id==id),next=(cart[id]||0)+d;if(d>0&&p&&p.stock!==undefined&&next>p.stock){alert("इससे अधिक stock उपलब्ध नहीं है।");return}cart[id]=next;if(cart[id]<=0)delete cart[id];persist();renderCart();renderProducts()}
@@ -403,7 +411,7 @@ function startFirebaseListeners(){
   },e=>fbMessage("Orders sync issue: "+e.message)));
  }
 }
-async function firebaseCreateOrder(order){
+async async function firebaseCreateOrder(order){
  if(!fbReady||!fbAuth?.currentUser)throw new Error("पहले Customer Connect करें।");
  if(order.userId!==fbAuth.currentUser.uid)throw new Error("Order owner mismatch");
  const {doc,setDoc}=fbModules;
