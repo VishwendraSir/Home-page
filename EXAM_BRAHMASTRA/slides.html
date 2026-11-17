@@ -42,6 +42,7 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;padding:9px 10px;gap
 <div class="footer">SCIENCE CENTRE LEARNING HUB · Offline-ready after first successful load where browser cache permits</div>
 <script>
 const SOURCES=[
+ ["questions-core.json","core"],
  ["questions-chemistry.json","chemistry"],
  ["questions-english.json","english"],
  ["questions-google-physics-biology.json","physics_biology"],
@@ -58,6 +59,7 @@ function normalize(x,kind,n){
  let opts=x.options||x.options_hi||x.options_en||[];
  let answer=x.correct_index??x.answer_index??null;
  let cls=[],aud=[];
+ if(kind==="core"){classes=[];aud=["Existing Brahmastra Core"];}
  if(kind==="imports"){
   const src=x.source_file||x.source||"";
   if(src.includes("JNVST")){cls=["Class 6"];aud=["JNVST Class 6"];}
@@ -66,6 +68,7 @@ function normalize(x,kind,n){
  }else if(kind==="english"){cls=["Class 3","Class 4","Class 5","Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["Foundation"];}
  else if(kind==="hindi"){cls=["Class 3","Class 4","Class 5","Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["Foundation"];}
  else if(kind==="chemistry"||kind==="physics_biology"){cls=["Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["Science Foundation"];}
+ if(kind==="core"){subject=x.subject||"अन्य";topic=x.topic||"अन्य";}
  if(kind==="chemistry")subject="रसायन विज्ञान";
  if(kind==="english")subject="English";
  if(kind==="hindi")subject="हिंदी";
@@ -105,7 +108,6 @@ document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")$("next").click(
 async function init(){try{
  const loaded=await Promise.all(SOURCES.map(async ([file,kind])=>{const r=await fetch("./"+file,{cache:"no-cache"});if(!r.ok)throw Error(file+" HTTP "+r.status);const d=await r.json();return (d.records||[]).map((x,i)=>normalize(x,kind,i+1));}));
  all=loaded.flat();
- // Add the 24 questions already embedded in the main Brahmastra page after the source pack is reconciled separately.
  fillSelect($("subject"),[...new Set(all.map(q=>q.subject))].sort((a,b)=>a.localeCompare(b)),"सभी विषय");
  refreshTopics();applyFilters();$("loading").textContent="";
  }catch(e){$("loading").textContent="डेटा लोड नहीं हो पाया: "+e.message+" · इंटरनेट कनेक्शन जाँचें और फिर Reload करें।";}}
