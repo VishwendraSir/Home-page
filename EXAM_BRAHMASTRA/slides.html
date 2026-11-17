@@ -44,8 +44,6 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;padding:9px 10px;gap
 const SOURCES=[
  ["questions-core.json","core"],
  ["pedagogy-psychology-1000-bilingual.json","pedagogy"],
- ["child-development-pedagogy-1000.json","psychology"],
- ["questions-cdp-psychology-1000.json","psychology"],
  ["questions-chemistry.json","chemistry"],
  ["questions-english.json","english"],
  ["questions-google-physics-biology.json","physics_biology"],
@@ -57,9 +55,9 @@ const $=id=>document.getElementById(id);
 const clean=s=>String(s??"").replace(/<[^>]*>/g,"").trim();
 function normalize(x,kind,n){
  let subject=kind==="pedagogy"?"बाल विकास एवं शिक्षाशास्त्र":(x.subject||x.subject_id||x.category_hi||x.category||"अन्य");
- let topic=x.topic||x.topic_id||x.topic_hi||x.chapter_hi||x.chapter_en||x.chapter_id||x.category_hi||x.category||"अन्य";
+ let topic=x.topic||x.topic_hi||x.topic_id||x.chapter_hi||x.chapter_en||x.chapter_id||x.category_hi||x.category||"अन्य";
  let hi=x.question_hi||x.question||x.word||"",en=x.question_en||"";
- let opts=x.options||x.options_hi||x.options_en||[];
+ let opts=x.options||x.options_hi||x.options_en||[]; if(kind==="pedagogy"&&x.options_hi)opts=x.options_hi.map((v,i)=>[v,x.options_en?.[i]].filter(Boolean).join(" / "));
  let answer=x.correct_index??x.answer_index??null;
  let cls=[],aud=[];
  if(kind==="core"){cls=[];aud=["Competitive","Existing Brahmastra Core"];}
@@ -79,7 +77,7 @@ function normalize(x,kind,n){
  if(kind==="english"||String(subject).toLowerCase()==="english")subject="English";
  if(kind==="hindi")subject="हिंदी";
  return {id:x.question_id||kind+"_"+n,subject,topic,hi,en,opts,answer,directAnswer:x.answer_hi||x.answer_en||"",
-  explanation:x.explanation_hi||x.explanation?.hi||x.explanation||x.explanation_en||"",
+  explanation:[x.explanation_hi,x.explanation_en].filter(Boolean).join("\n"),
   source:x.source_file||x.source||kind,classes:cls,audience:aud,raw:x};
 }
 function optionsList(q){if(!Array.isArray(q.opts))return [];return q.opts.map(o=>typeof o==="string"?o:(o.hi||o.en||o.text||JSON.stringify(o)));}
