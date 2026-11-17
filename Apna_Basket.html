@@ -207,6 +207,7 @@ async function placeOrder(){
  const discountPaise=Math.min(Math.round(Number(localStorage.getItem("ab_coupon_discount")||0)*100),subtotalPaise);
  const totalPaise=subtotalPaise+deliveryFeePaise-discountPaise;
  if(!Number.isSafeInteger(totalPaise)||totalPaise<0){alert("Total amount invalid है।");return}
+ const waWindow=window.open("about:blank","_blank");
  const id="ORD"+Date.now();
  const items=entries.map(x=>({productId:String(x.p.id),name:String(x.p.name),quantity:x.q}));
  const payment=document.getElementById("payMethod").value;
@@ -221,7 +222,7 @@ async function placeOrder(){
  const msg="New Apna Basket Order "+id+"\nName: "+name+"\nPhone: "+phone+"\nAddress: "+address+"\nPIN: "+pincode+"\nItems: "+displayOrder.items+"\nSubtotal: ₹"+(subtotalPaise/100)+"\nDiscount: ₹"+(discountPaise/100)+"\nDelivery: ₹"+(deliveryFeePaise/100)+"\nTotal: ₹"+(totalPaise/100)+"\nPayment: "+payment+"\nNote: "+(note||"-");
  const waUrl="https://wa.me/"+shopWhatsApp+"?text="+encodeURIComponent(msg);
  orders.push(displayOrder);localStorage.setItem("ab_last_order",id);localStorage.setItem("ab_profile",JSON.stringify({name,phone,address,pincode}));persist();
- window.open(waUrl,"_blank");
+ if(waWindow)waWindow.location.href=waUrl;else window.location.href=waUrl;
  cart={};localStorage.removeItem("ab_coupon_discount");localStorage.removeItem("ab_coupon_applied");persist();renderCart();renderProducts();
  alert("Order "+id+" तैयार है। WhatsApp खुलेगा—वहाँ Send दबाकर दुकान को Order भेजें।");
 }
