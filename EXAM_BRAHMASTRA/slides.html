@@ -43,6 +43,7 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;padding:9px 10px;gap
 <script>
 const SOURCES=[
  ["questions-core.json","core"],
+ ["pedagogy-psychology-1000-bilingual.json","pedagogy"],
  ["child-development-pedagogy-1000.json","psychology"],
  ["questions-cdp-psychology-1000.json","psychology"],
  ["questions-chemistry.json","chemistry"],
@@ -55,13 +56,14 @@ let all=[],filtered=[],index=0,shown=false;
 const $=id=>document.getElementById(id);
 const clean=s=>String(s??"").replace(/<[^>]*>/g,"").trim();
 function normalize(x,kind,n){
- let subject=x.subject||x.subject_id||x.category_hi||x.category||"अन्य";
- let topic=x.topic||x.topic_id||x.chapter_hi||x.chapter_en||x.chapter_id||x.category_hi||x.category||"अन्य";
+ let subject=kind==="pedagogy"?"बाल विकास एवं शिक्षाशास्त्र":(x.subject||x.subject_id||x.category_hi||x.category||"अन्य");
+ let topic=x.topic||x.topic_id||x.topic_hi||x.chapter_hi||x.chapter_en||x.chapter_id||x.category_hi||x.category||"अन्य";
  let hi=x.question_hi||x.question||x.word||"",en=x.question_en||"";
  let opts=x.options||x.options_hi||x.options_en||[];
  let answer=x.correct_index??x.answer_index??null;
  let cls=[],aud=[];
  if(kind==="core"){cls=[];aud=["Competitive","Existing Brahmastra Core"];}
+ if(kind==="pedagogy"){cls=["Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["Competitive","CTET","UPTET","REET","KVS","NVS","DSSSB"];}
  if(kind==="psychology"){cls=[];aud=["Competitive","Teaching Exams"];}
  if(kind==="psychology"){cls=[];aud=["Competitive","Teaching Exams","CTET","UPTET","REET","KVS","NVS","DSSSB"];}
  if(kind==="imports"){
