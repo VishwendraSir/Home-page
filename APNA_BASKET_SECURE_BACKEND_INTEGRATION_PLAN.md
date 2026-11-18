@@ -40,11 +40,11 @@ Functions region: `asia-south1`. Firebase project: `apna-basket-3433e`.
 ## Safe implementation sequence
 
 - [x] Load Firebase Functions SDK and callable wrappers in the app (commit `8829060`).
-- [ ] Add a compatibility layer for quote/create/approve/reject/status calls.
-- [ ] Change customer order creation to callable `createCustomerOrder` and show server-returned totals.
+- [x] Add a compatibility layer for quote/create/approve/reject/status calls (commit `8829060`).
+- [x] Change customer order creation to callable `createCustomerOrder`; checkout uses server quote totals (commit `c02a6c3`).
 - [ ] Split public and private settings, including a safe one-time migration procedure.
 - [ ] Replace all browser stock/status mutations with callable functions.
-- [ ] Preserve a clearly labelled WhatsApp-only fallback when cloud checkout is unavailable; do not claim cloud order saved.
+- [x] Preserve a clearly labelled WhatsApp-only fallback when cloud checkout is unavailable; do not claim cloud order saved (commit `c02a6c3`).
 - [ ] Add Emulator/preview tests for customer, Owner, stock, price-change, coupon and retry scenarios.
 - [ ] Review security rules against the migrated app and only then plan deployment.
 
