@@ -195,8 +195,11 @@ function updateOrder(id){
  const s=["Pending","Accepted","Preparing","Ready","Out for Delivery","Delivered"];
  const current=normalizedStatus(o.status),i=s.indexOf(current);
  if(i<0||i===s.length-1){alert("इस order का अगला status उपलब्ध नहीं है।");return}
- o.status=s[i+1];persist();if(fbReady&&fbAdmin)firebaseUpdateOrderStatus(o);renderAdmin();renderDelivery();
- }
+ const next=s[i+1],backendStatus=next==="Out for Delivery"?"OutForDelivery":next;
+ if(fbReady&&fbAdmin){
+  firebaseUpdateOrderStatus({...o,status:backendStatus}).then(ok=>{if(ok){o.status=next;persist();renderAdmin();renderDelivery();}});
+ }else{o.status=next;persist();renderAdmin();renderDelivery();}
+}
 async function placeOrder(){
  const entries=Object.entries(cart).map(([id,q])=>({p:products.find(x=>String(x.id)===String(id)),q:Number(q)})).filter(x=>x.p);
  if(!entries.length){alert("Cart खाली है।");return}
@@ -284,9 +287,9 @@ function setDeliveryStatus(id,status){
  let o=orders.find(x=>String(x.id)===String(id));if(!o)return;
  if(fbReady&&!fbAdmin){alert("Cloud delivery status बदलने के लिए verified Admin login जरूरी है।");return}
  if(!["Out for Delivery","Delivered"].includes(status)){alert("Invalid delivery status");return}
- o.status=status;persist();if(fbReady&&fbAdmin)firebaseUpdateOrderStatus(o);
- renderDelivery();renderAdmin();
- if("Notification" in window&&Notification.permission==="granted")new Notification("Apna Basket Order Update",{body:o.id+" : "+status});
+ const backendStatus=status==="Out for Delivery"?"OutForDelivery":status;
+ const save=()=>{o.status=status;persist();renderDelivery();renderAdmin();if("Notification" in window&&Notification.permission==="granted")new Notification("Apna Basket Order Update",{body:o.id+" : "+status});};
+ if(fbReady&&fbAdmin)firebaseUpdateOrderStatus({...o,status:backendStatus}).then(ok=>{if(ok)save();});else save();
  }
 async function trackOrder(){
  let id=document.getElementById("trackId").value.trim(),phone=document.getElementById("trackPhone").value.replace(/\D/g,"");
@@ -482,8 +485,15 @@ async function rejectCloudOrder(orderId,reason="Rejected by Admin"){
  if(!fbReady||!fbAdmin||fbAuth?.currentUser?.uid!==AB_ADMIN_UID)throw new Error("Verified Owner login required");
  return rejectOrderSecure(orderId,reason);
 }
-async function adminApproveOrder(id){try{await approveCloudOrder(id);alert("Order Accepted. Stock and total verified atomically.");}catch(e){alert("Approval failed: "+e.message);} }
-async function adminRejectOrder(id){const reason=prompt("Reject करने का कारण:","Stock unavailable");if(reason===null)return;try{await rejectCloudOrder(id,reason);alert("Order Rejected.");}catch(e){alert("Reject failed: "+e.message);} }
+async function adminApproveOrder(id){
+ try{await approveCloudOrder(id);const o=orders.find(x=>String(x.id)===String(id));if(o){o.status="Accepted";persist();renderAdmin();renderDelivery();}alert("Order Accepted. Server ने stock और price snapshot verify किया।");}
+ catch(e){alert("Approval failed: "+e.message);}
+}
+async function adminRejectOrder(id){
+ const reason=prompt("Reject करने का कारण:","Stock unavailable");if(reason===null)return;
+ try{await rejectCloudOrder(id,reason);const o=orders.find(x=>String(x.id)===String(id));if(o){o.status="Rejected";persist();renderAdmin();renderDelivery();}alert("Order Rejected.");}
+ catch(e){alert("Reject failed: "+e.message);}
+}
 async function firebaseSaveAdminData(){
  if(!fbReady||!fbAdmin)throw new Error("Verified Admin Login आवश्यक है।");
  try{
