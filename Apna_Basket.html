@@ -224,18 +224,23 @@ async function placeOrder(){
  const payment=document.getElementById("payMethod").value;
  const note=document.getElementById("orderNote").value.trim();
  const displayOrder={id,name,phone,address,pincode,total:totalPaise/100,discount:discountPaise/100,status:"Pending",date:new Date().toLocaleString("en-IN"),items:items.map(x=>x.name+" x "+x.quantity).join(", "),payment,note,totalPaise,subtotalPaise,deliveryFeePaise};
- // Cloud sync is optional; WhatsApp ordering must still work without Firebase login/config.
+ // Automatically create a customer cloud session when this browser already has the public Firebase Web Config.
+ // Without a config on this device, WhatsApp ordering still works, but the order remains local-only.
+ if(!fbReady&&localStorage.getItem("ab_fb_config")){
+  try{await fbInit();if(!fbAuth.currentUser)await fbModules.signInAnonymously(fbAuth);fbReady=true;fbAdmin=false;startFirebaseListeners();}
+  catch(err){console.warn("Automatic customer cloud connection failed:",err);fbReady=false;}
+ }
  if(fbReady&&fbAuth?.currentUser&&fbModules){
   const cloudOrder={id,userId:fbAuth.currentUser.uid,name,phone,address,pincode,status:"Pending",subtotalPaise,deliveryFeePaise,discountPaise,totalPaise,items,payment,date:fbModules.serverTimestamp(),note,...(couponCode?{couponCode}:{})};
   try{await firebaseCreateOrder(cloudOrder);displayOrder.userId=cloudOrder.userId;displayOrder.cloudSaved=true;}
   catch(err){console.warn("Cloud order save failed; continuing with WhatsApp order:",err);displayOrder.cloudSaved=false;}
- }
+ }else{displayOrder.cloudSaved=false;displayOrder.syncNote="Local device + WhatsApp only; Firebase config unavailable on this device."}
  const msg="New Apna Basket Order "+id+"\nName: "+name+"\nPhone: "+phone+"\nAddress: "+address+"\nPIN: "+pincode+"\nItems: "+displayOrder.items+"\nSubtotal: ₹"+(subtotalPaise/100)+"\nDiscount: ₹"+(discountPaise/100)+"\nDelivery: ₹"+(deliveryFeePaise/100)+"\nTotal: ₹"+(totalPaise/100)+"\nPayment: "+payment+"\nNote: "+(note||"-");
  const waUrl="https://wa.me/"+shopWhatsApp+"?text="+encodeURIComponent(msg);
  orders.push(displayOrder);localStorage.setItem("ab_last_order",id);localStorage.setItem("ab_profile",JSON.stringify({name,phone,address,pincode}));persist();
  if(waWindow)waWindow.location.href=waUrl;else window.location.href=waUrl;
  cart={};localStorage.removeItem("ab_coupon_discount");localStorage.removeItem("ab_coupon_applied");persist();renderCart();renderProducts();
- alert("Order "+id+" तैयार है। WhatsApp खुलेगा—वहाँ Send दबाकर दुकान को Order भेजें।");
+ alert("Order "+id+" तैयार है। "+(displayOrder.cloudSaved?"Cloud में भी सेव हो गया। ":"ध्यान दें: यह ऑर्डर अभी इसी device पर सेव है; सभी Admin devices पर दिखाने के लिए Firebase Config और Customer Anonymous Auth चालू होना जरूरी है। ")+"WhatsApp खुलेगा—वहाँ Send दबाकर दुकान को Order भेजें।");
 }
 function loadProfile(){
  let p=JSON.parse(localStorage.getItem("ab_profile")||"{}");
@@ -406,7 +411,13 @@ function startFirebaseListeners(){
  if(fbAdmin){
   fbUnsubs.push(onSnapshot(collection(fbDb,"orders"),snap=>{
    if(!fbApplyingRemote){
-    fbApplyingRemote=true;orders=snap.docs.map(d=>d.data());
+    fbApplyingRemote=true;
+    const cloudOrders=snap.docs.map(d=>d.data());
+    const localOrders=JSON.parse(localStorage.getItem("lf_orders")||"[]");
+    const byId=new Map();
+    localOrders.forEach(o=>{if(o&&o.id)byId.set(String(o.id),o);});
+    cloudOrders.forEach(o=>{if(o&&o.id)byId.set(String(o.id),{...(byId.get(String(o.id))||{}),...o,cloudSaved:true});});
+    orders=Array.from(byId.values()).sort((a,b)=>String(b.id).localeCompare(String(a.id)));
     localStorage.setItem("lf_orders",JSON.stringify(orders));
     if(adminUnlocked)renderAdmin();renderDelivery();fbApplyingRemote=false;
    }
