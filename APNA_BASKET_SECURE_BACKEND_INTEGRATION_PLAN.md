@@ -117,3 +117,12 @@ Do not deploy the new Firestore Rules or Functions against production until the 
 - This verifies the backend branch through commit `8f03e71`, including the payment-state approval guards and their integration tests.
 - It does not verify later commits if any, frontend browser/end-to-end compatibility, production Firebase configuration, payment-provider webhook, or production deployment.
 - Keep PR #1 Draft and do not merge/deploy until the remaining frontend and production readiness checks are completed.
+
+
+## Frontend configuration compatibility fix — 19 Nov 2026
+- Reviewed the actual `Apna_Basket.html` checkout and settings code on the integration branch.
+- Found a configuration mismatch: the UI previously said an empty serviceable-PIN list disables PIN restrictions, but the backend quote callable rejects every PIN unless it is present in `privateSettings/main.serviceablePincodes`. An empty list would therefore make all secure cloud checkouts fail.
+- Updated the Admin PIN field guidance to state that Cloud checkout requires at least one valid 6-digit serviceable PIN.
+- Updated `saveSettings()` to deduplicate valid PINs, block cloud settings sync when none are configured, await the cloud sync result, and accurately distinguish local save from successful cloud sync.
+- Frontend commit: `3689e9f`.
+- This is a source-level compatibility fix only. Browser-based checkout, Owner session, stock sync, and end-to-end preview tests remain pending; no production deploy.
