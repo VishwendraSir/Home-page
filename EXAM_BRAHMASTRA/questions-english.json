@@ -31,7 +31,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "संज्ञा पहचानिए: लड़की गाती है।",
+      "options_hi": [
+        "गाता है",
+        "लड़की",
+        "वह (निश्चयवाचक उपपद)",
+        "जल्दी"
+      ],
+      "explanation_hi": "संज्ञा किसी व्यक्ति, स्थान, वस्तु या भाव का नाम बताती है। यहाँ 'लड़की' व्यक्ति का नाम है।"
     },
     {
       "question_id": "ENG_0002",
@@ -53,7 +61,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "क्रिया पहचानिए: पक्षी आकाश में उड़ते हैं।",
+      "options_hi": [
+        "आकाश",
+        "पक्षी",
+        "उड़ते हैं",
+        "वह (निश्चयवाचक उपपद)"
+      ],
+      "explanation_hi": "क्रिया किसी कार्य या अवस्था को दर्शाती है। यहाँ 'उड़ते हैं' कार्य बताता है।"
     },
     {
       "question_id": "ENG_0003",
@@ -75,7 +91,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "विशेषण चुनिए: यह एक सुंदर फूल है।",
+      "options_hi": [
+        "एक",
+        "सुंदर",
+        "फूल",
+        "है"
+      ],
+      "explanation_hi": "विशेषण संज्ञा या सर्वनाम की विशेषता बताता है। 'सुंदर' फूल की विशेषता बताता है।"
     },
     {
       "question_id": "ENG_0004",
@@ -97,7 +121,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "क्रिया-विशेषण चुनिए: वह तेज़ी से दौड़ता है।",
+      "options_hi": [
+        "दौड़ना",
+        "तेज़ी से",
+        "वह",
+        "दौड़ता है"
+      ],
+      "explanation_hi": "क्रिया-विशेषण क्रिया के होने के ढंग, समय या स्थान के बारे में बताता है। 'तेज़ी से' दौड़ने का ढंग बताता है।"
     },
     {
       "question_id": "ENG_0005",
@@ -119,7 +151,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वनाम चुनिए: वह मेरी मित्र है।",
+      "options_hi": [
+        "वह",
+        "मेरी",
+        "है",
+        "मित्र"
+      ],
+      "explanation_hi": "सर्वनाम संज्ञा के स्थान पर प्रयुक्त होता है। 'वह' सर्वनाम है।"
     },
     {
       "question_id": "ENG_0006",
@@ -141,7 +181,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "संबंधसूचक अव्यय चुनिए: किताब मेज़ पर है।",
+      "options_hi": [
+        "पर",
+        "मेज़",
+        "है",
+        "किताब"
+      ],
+      "explanation_hi": "संबंधसूचक अव्यय संज्ञा या सर्वनाम का दूसरे शब्दों से संबंध बताता है। 'पर' किताब और मेज़ का संबंध बताता है।"
     },
     {
       "question_id": "ENG_0007",
@@ -163,7 +211,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "समुच्चयबोधक चुनिए: राम और श्याम मित्र हैं।",
+      "options_hi": [
+        "मित्र",
+        "और",
+        "हैं",
+        "राम"
+      ],
+      "explanation_hi": "समुच्चयबोधक शब्दों या वाक्यांशों को जोड़ता है। 'और' राम तथा श्याम को जोड़ता है।"
     },
     {
       "question_id": "ENG_0008",
@@ -185,7 +241,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "विस्मयादिबोधक चुनिए: वाह! हम जीत गए।",
+      "options_hi": [
+        "वह (निश्चयवाचक उपपद)",
+        "जीत गए",
+        "हम",
+        "वाह"
+      ],
+      "explanation_hi": "विस्मयादिबोधक अचानक उत्पन्न भावना या हर्ष व्यक्त करता है। 'वाह!' खुशी व्यक्त करता है।"
     },
     {
       "question_id": "ENG_0009",
@@ -207,7 +271,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: संज्ञा पहचानिए: लड़की गाती है।",
+      "options_hi": [
+        "गाता है",
+        "लड़की",
+        "वह (निश्चयवाचक उपपद)",
+        "जल्दी"
+      ],
+      "explanation_hi": "संज्ञा किसी व्यक्ति, स्थान, वस्तु या भाव का नाम बताती है। यहाँ 'लड़की' व्यक्ति का नाम है।"
     },
     {
       "question_id": "ENG_0010",
@@ -229,7 +301,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: क्रिया पहचानिए: पक्षी आकाश में उड़ते हैं।",
+      "options_hi": [
+        "आकाश",
+        "पक्षी",
+        "उड़ते हैं",
+        "वह (निश्चयवाचक उपपद)"
+      ],
+      "explanation_hi": "क्रिया किसी कार्य या अवस्था को दर्शाती है। यहाँ 'उड़ते हैं' कार्य बताता है।"
     },
     {
       "question_id": "ENG_0011",
@@ -251,7 +331,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: विशेषण चुनिए: यह एक सुंदर फूल है।",
+      "options_hi": [
+        "एक",
+        "सुंदर",
+        "फूल",
+        "है"
+      ],
+      "explanation_hi": "विशेषण संज्ञा या सर्वनाम की विशेषता बताता है। 'सुंदर' फूल की विशेषता बताता है।"
     },
     {
       "question_id": "ENG_0012",
@@ -273,7 +361,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: क्रिया-विशेषण चुनिए: वह तेज़ी से दौड़ता है।",
+      "options_hi": [
+        "दौड़ना",
+        "तेज़ी से",
+        "वह",
+        "दौड़ता है"
+      ],
+      "explanation_hi": "क्रिया-विशेषण क्रिया के होने के ढंग, समय या स्थान के बारे में बताता है। 'तेज़ी से' दौड़ने का ढंग बताता है।"
     },
     {
       "question_id": "ENG_0013",
@@ -295,7 +391,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: सर्वनाम चुनिए: वह मेरी मित्र है।",
+      "options_hi": [
+        "वह",
+        "मेरी",
+        "है",
+        "मित्र"
+      ],
+      "explanation_hi": "सर्वनाम संज्ञा के स्थान पर प्रयुक्त होता है। 'वह' सर्वनाम है।"
     },
     {
       "question_id": "ENG_0014",
@@ -317,7 +421,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: संबंधसूचक अव्यय चुनिए: किताब मेज़ पर है।",
+      "options_hi": [
+        "पर",
+        "मेज़",
+        "है",
+        "किताब"
+      ],
+      "explanation_hi": "संबंधसूचक अव्यय संज्ञा या सर्वनाम का दूसरे शब्दों से संबंध बताता है। 'पर' किताब और मेज़ का संबंध बताता है।"
     },
     {
       "question_id": "ENG_0015",
@@ -339,7 +451,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: समुच्चयबोधक चुनिए: राम और श्याम मित्र हैं।",
+      "options_hi": [
+        "मित्र",
+        "और",
+        "हैं",
+        "राम"
+      ],
+      "explanation_hi": "समुच्चयबोधक शब्दों या वाक्यांशों को जोड़ता है। 'और' राम तथा श्याम को जोड़ता है।"
     },
     {
       "question_id": "ENG_0016",
@@ -361,7 +481,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: विस्मयादिबोधक चुनिए: वाह! हम जीत गए।",
+      "options_hi": [
+        "वह (निश्चयवाचक उपपद)",
+        "जीत गए",
+        "हम",
+        "वाह"
+      ],
+      "explanation_hi": "विस्मयादिबोधक अचानक उत्पन्न भावना या हर्ष व्यक्त करता है। 'वाह!' खुशी व्यक्त करता है।"
     },
     {
       "question_id": "ENG_0017",
@@ -383,7 +511,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: संज्ञा पहचानिए: लड़की गाती है।",
+      "options_hi": [
+        "गाता है",
+        "लड़की",
+        "वह (निश्चयवाचक उपपद)",
+        "जल्दी"
+      ],
+      "explanation_hi": "संज्ञा किसी व्यक्ति, स्थान, वस्तु या भाव का नाम बताती है। यहाँ 'लड़की' व्यक्ति का नाम है।"
     },
     {
       "question_id": "ENG_0018",
@@ -405,7 +541,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: क्रिया पहचानिए: पक्षी आकाश में उड़ते हैं।",
+      "options_hi": [
+        "आकाश",
+        "पक्षी",
+        "उड़ते हैं",
+        "वह (निश्चयवाचक उपपद)"
+      ],
+      "explanation_hi": "क्रिया किसी कार्य या अवस्था को दर्शाती है। यहाँ 'उड़ते हैं' कार्य बताता है।"
     },
     {
       "question_id": "ENG_0019",
@@ -427,7 +571,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: विशेषण चुनिए: यह एक सुंदर फूल है।",
+      "options_hi": [
+        "एक",
+        "सुंदर",
+        "फूल",
+        "है"
+      ],
+      "explanation_hi": "विशेषण संज्ञा या सर्वनाम की विशेषता बताता है। 'सुंदर' फूल की विशेषता बताता है।"
     },
     {
       "question_id": "ENG_0020",
@@ -449,7 +601,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: क्रिया-विशेषण चुनिए: वह तेज़ी से दौड़ता है।",
+      "options_hi": [
+        "दौड़ना",
+        "तेज़ी से",
+        "वह",
+        "दौड़ता है"
+      ],
+      "explanation_hi": "क्रिया-विशेषण क्रिया के होने के ढंग, समय या स्थान के बारे में बताता है। 'तेज़ी से' दौड़ने का ढंग बताता है।"
     },
     {
       "question_id": "ENG_0021",
@@ -471,7 +631,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: सर्वनाम चुनिए: वह मेरी मित्र है।",
+      "options_hi": [
+        "वह",
+        "मेरी",
+        "है",
+        "मित्र"
+      ],
+      "explanation_hi": "सर्वनाम संज्ञा के स्थान पर प्रयुक्त होता है। 'वह' सर्वनाम है।"
     },
     {
       "question_id": "ENG_0022",
@@ -493,7 +661,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: संबंधसूचक अव्यय चुनिए: किताब मेज़ पर है।",
+      "options_hi": [
+        "पर",
+        "मेज़",
+        "है",
+        "किताब"
+      ],
+      "explanation_hi": "संबंधसूचक अव्यय संज्ञा या सर्वनाम का दूसरे शब्दों से संबंध बताता है। 'पर' किताब और मेज़ का संबंध बताता है।"
     },
     {
       "question_id": "ENG_0023",
@@ -515,7 +691,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: समुच्चयबोधक चुनिए: राम और श्याम मित्र हैं।",
+      "options_hi": [
+        "मित्र",
+        "और",
+        "हैं",
+        "राम"
+      ],
+      "explanation_hi": "समुच्चयबोधक शब्दों या वाक्यांशों को जोड़ता है। 'और' राम तथा श्याम को जोड़ता है।"
     },
     {
       "question_id": "ENG_0024",
@@ -537,7 +721,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: विस्मयादिबोधक चुनिए: वाह! हम जीत गए।",
+      "options_hi": [
+        "वह (निश्चयवाचक उपपद)",
+        "जीत गए",
+        "हम",
+        "वाह"
+      ],
+      "explanation_hi": "विस्मयादिबोधक अचानक उत्पन्न भावना या हर्ष व्यक्त करता है। 'वाह!' खुशी व्यक्त करता है।"
     },
     {
       "question_id": "ENG_0025",
@@ -559,7 +751,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? संज्ञा पहचानिए: लड़की गाती है।",
+      "options_hi": [
+        "गाता है",
+        "लड़की",
+        "वह (निश्चयवाचक उपपद)",
+        "जल्दी"
+      ],
+      "explanation_hi": "संज्ञा किसी व्यक्ति, स्थान, वस्तु या भाव का नाम बताती है। यहाँ 'लड़की' व्यक्ति का नाम है।"
     },
     {
       "question_id": "ENG_0026",
@@ -581,7 +781,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? क्रिया पहचानिए: पक्षी आकाश में उड़ते हैं।",
+      "options_hi": [
+        "आकाश",
+        "पक्षी",
+        "उड़ते हैं",
+        "वह (निश्चयवाचक उपपद)"
+      ],
+      "explanation_hi": "क्रिया किसी कार्य या अवस्था को दर्शाती है। यहाँ 'उड़ते हैं' कार्य बताता है।"
     },
     {
       "question_id": "ENG_0027",
@@ -603,7 +811,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? विशेषण चुनिए: यह एक सुंदर फूल है।",
+      "options_hi": [
+        "एक",
+        "सुंदर",
+        "फूल",
+        "है"
+      ],
+      "explanation_hi": "विशेषण संज्ञा या सर्वनाम की विशेषता बताता है। 'सुंदर' फूल की विशेषता बताता है।"
     },
     {
       "question_id": "ENG_0028",
@@ -625,7 +841,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? क्रिया-विशेषण चुनिए: वह तेज़ी से दौड़ता है।",
+      "options_hi": [
+        "दौड़ना",
+        "तेज़ी से",
+        "वह",
+        "दौड़ता है"
+      ],
+      "explanation_hi": "क्रिया-विशेषण क्रिया के होने के ढंग, समय या स्थान के बारे में बताता है। 'तेज़ी से' दौड़ने का ढंग बताता है।"
     },
     {
       "question_id": "ENG_0029",
@@ -647,7 +871,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? सर्वनाम चुनिए: वह मेरी मित्र है।",
+      "options_hi": [
+        "वह",
+        "मेरी",
+        "है",
+        "मित्र"
+      ],
+      "explanation_hi": "सर्वनाम संज्ञा के स्थान पर प्रयुक्त होता है। 'वह' सर्वनाम है।"
     },
     {
       "question_id": "ENG_0030",
@@ -669,7 +901,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? संबंधसूचक अव्यय चुनिए: किताब मेज़ पर है।",
+      "options_hi": [
+        "पर",
+        "मेज़",
+        "है",
+        "किताब"
+      ],
+      "explanation_hi": "संबंधसूचक अव्यय संज्ञा या सर्वनाम का दूसरे शब्दों से संबंध बताता है। 'पर' किताब और मेज़ का संबंध बताता है।"
     },
     {
       "question_id": "ENG_0031",
