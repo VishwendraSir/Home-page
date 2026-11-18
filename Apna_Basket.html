@@ -337,7 +337,7 @@ async function verifyAdminAccount(user){
  if(!user||user.uid!==AB_ADMIN_UID)throw new Error("यह Admin UID नहीं है। Firebase Authentication में निर्धारित Owner Admin account से Login करें।");
  return true;
 }
-async async function connectFirebase(){
+async function connectFirebase(){
  if(fbConnecting)return;
  fbConnecting=true;
  try{
@@ -455,8 +455,8 @@ async function rejectCloudOrder(orderId,reason="Rejected by Admin"){
  if(!fbReady||!fbAdmin||fbAuth.currentUser?.uid!==AB_ADMIN_UID)throw new Error("Verified Admin login required");
  const m=fbModules;await m.runTransaction(fbDb,async t=>{const ref=m.doc(fbDb,"orders",orderId),snap=await t.get(ref);if(!snap.exists()||snap.data().status!=="Pending")throw new Error("Order missing or not Pending");t.update(ref,{status:"Rejected",rejectionReason:String(reason).slice(0,200),rejectedAt:m.serverTimestamp(),rejectedBy:fbAuth.currentUser.uid});});
 }
-async async function adminApproveOrder(id){try{await approveCloudOrder(id);alert("Order Accepted. Stock and total verified atomically.");}catch(e){alert("Approval failed: "+e.message);} }
-async async function adminRejectOrder(id){const reason=prompt("Reject करने का कारण:","Stock unavailable");if(reason===null)return;try{await rejectCloudOrder(id,reason);alert("Order Rejected.");}catch(e){alert("Reject failed: "+e.message);} }
+async function adminApproveOrder(id){try{await approveCloudOrder(id);alert("Order Accepted. Stock and total verified atomically.");}catch(e){alert("Approval failed: "+e.message);} }
+async function adminRejectOrder(id){const reason=prompt("Reject करने का कारण:","Stock unavailable");if(reason===null)return;try{await rejectCloudOrder(id,reason);alert("Order Rejected.");}catch(e){alert("Reject failed: "+e.message);} }
 async function firebaseSaveAdminData(){
  if(!fbReady||!fbAdmin)throw new Error("Verified Admin Login आवश्यक है।");
  try{
@@ -474,7 +474,7 @@ async function firebaseUpdateOrderStatus(order){
   fbMessage("☁️ Order status synced • "+order.id);
  }catch(e){fbMessage("Order status sync issue: "+e.message);alert("Order status Cloud Sync नहीं हुआ: "+e.message);}
 }
-async async function firebasePushLocal(){
+async function firebasePushLocal(){
  if(!fbReady||!fbAdmin){alert("पहले verified Admin Email/Password से Login करें।");return;}
  if(!confirm("Local Products और Shop Settings Cloud पर भेजें? Existing Cloud products with matching IDs overwrite हो सकते हैं। पुराने Local Orders upload नहीं होंगे।"))return;
  const saved=await firebaseSaveAdminData();
