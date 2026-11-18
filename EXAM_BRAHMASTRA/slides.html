@@ -65,8 +65,20 @@ function normalize(x,kind,n){
  // Legacy core records sometimes put an English sentence in question_hi.
  // Reclassify it at normalization so English-only mode always has a real English field.
  if(String(subject).trim().toLowerCase()==="english"&&!en&&hi){en=hi;hi="";}
- let opts=x.options||x.options_hi||x.options_en||[];
- if(kind==="pedagogy"&&x.options_hi)opts=x.options_hi.map((v,i)=>({hi:v,en:x.options_en?.[i]||""}));
+ // Merge parallel Hindi/English option arrays instead of letting x.options
+ // mask options_en. Keep original order and preserve object-shaped options.
+ const rawOpts=Array.isArray(x.options)?x.options:[];
+ const hiOpts=Array.isArray(x.options_hi)?x.options_hi:rawOpts;
+ const enOpts=Array.isArray(x.options_en)?x.options_en:[];
+ const optionCount=Math.max(rawOpts.length,hiOpts.length,enOpts.length);
+ let opts=Array.from({length:optionCount},(_,i)=>{
+  const raw=rawOpts[i], hi=hiOpts[i], en=enOpts[i];
+  if(raw&&typeof raw==="object"&&!Array.isArray(raw))
+   return {hi:raw.hi||raw.hindi||raw.text_hi||hi||"",en:raw.en||raw.english||raw.text_en||en||""};
+  if(hi&&typeof hi==="object")return {hi:hi.hi||hi.text||"",en:hi.en||en||""};
+  if(en&&typeof en==="object")return {hi:hi||en.hi||"",en:en.en||en.text||""};
+  return {hi:hi??(typeof raw==="string"?raw:"")??"",en:en??""};
+ });
  let answer=x.correct_index??x.answer_index??(Number.isInteger(x.answer)?x.answer:null);
  let cls=[],aud=[];
  if(kind==="core"){cls=[];aud=["Competitive","Existing Brahmastra Core"];}
