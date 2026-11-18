@@ -328,16 +328,46 @@ function fbConfigValue(){
  return cfg;
 }
 async function fbInit(){
- if(fbApp&&fbAuth&&fbDb)return;
+ if(fbApp&&fbAuth&&fbDb&&fbFunctions)return;
  const cfg=fbConfigValue(),v="https://www.gstatic.com/firebasejs/10.14.1/";
- const [appM,authM,dbM]=await Promise.all([
-  import(v+"firebase-app.js"),import(v+"firebase-auth.js"),import(v+"firebase-firestore.js")
+ const [appM,authM,dbM,functionsM]=await Promise.all([
+  import(v+"firebase-app.js"),import(v+"firebase-auth.js"),import(v+"firebase-firestore.js"),
+  import(v+"firebase-functions.js")
  ]);
- fbModules={...appM,...authM,...dbM};
+ fbModules={...appM,...authM,...dbM,...functionsM};
  const existing=appM.getApps().find(a=>a.name==="[DEFAULT]");
  fbApp=existing||appM.initializeApp(cfg);
  if(fbApp.options.projectId!==cfg.projectId)throw new Error("इस Browser में पहले से अलग Firebase Project initialize है। Page reload करके दोबारा प्रयास करें।");
  fbAuth=authM.getAuth(fbApp);fbDb=dbM.getFirestore(fbApp);
+ fbFunctions=functionsM.getFunctions(fbApp,"asia-south1");
+}
+let fbFunctions=null;
+function fbCallable(name){
+ if(!fbFunctions||!fbModules?.httpsCallable)throw new Error("Secure backend अभी initialize नहीं हुआ।");
+ return fbModules.httpsCallable(fbFunctions,name);
+}
+async function secureBackendCall(name,payload={}){
+ if(!fbReady||!fbAuth?.currentUser)throw new Error("पहले Firebase Customer/Admin Connect करें।");
+ const result=await fbCallable(name)(payload);
+ return result?.data??null;
+}
+async function quoteCustomerOrder(items,pincode){
+ return secureBackendCall("quoteCustomerOrder",{items,pincode:String(pincode||"").trim()});
+}
+async function createCustomerOrderSecure(payload){
+ return secureBackendCall("createCustomerOrder",payload);
+}
+async function approveOrderSecure(orderId){
+ if(!fbAdmin||fbAuth?.currentUser?.uid!==AB_ADMIN_UID)throw new Error("Verified Owner access required.");
+ return secureBackendCall("approveOrder",{orderId:String(orderId)});
+}
+async function rejectOrderSecure(orderId,reason){
+ if(!fbAdmin||fbAuth?.currentUser?.uid!==AB_ADMIN_UID)throw new Error("Verified Owner access required.");
+ return secureBackendCall("rejectOrder",{orderId:String(orderId),reason:String(reason||"").slice(0,200)});
+}
+async function setOrderStatusSecure(orderId,status){
+ if(!fbAdmin||fbAuth?.currentUser?.uid!==AB_ADMIN_UID)throw new Error("Verified Owner access required.");
+ return secureBackendCall("setOrderStatus",{orderId:String(orderId),status:String(status)});
 }
 async function verifyAdminAccount(user){
  // The deployed Firestore security model grants admin authority only to this owner UID.
