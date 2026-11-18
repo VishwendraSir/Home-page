@@ -91,3 +91,11 @@ Do not deploy the new Firestore Rules or Functions against production until the 
 - Backend commits: `23abce1`, `dbdb5bd`.
 - A trusted payment provider/webhook is not configured in the project context. Therefore automatic payment verification is intentionally not implemented; manual screenshots/UTR must not be treated as authoritative settlement.
 - CI/emulator execution remains unverified; do not deploy.
+
+
+## Order approval integrity hardening — 19 Nov 2026
+- Owner approval now refuses UPI orders unless trusted verification fields explicitly indicate `paymentVerified: true` and `paymentStatus: "Verified"`. No verification endpoint exists yet, so UPI orders remain Pending; COD approval remains available.
+- Approval now checks the item list has no duplicate/inconsistent product IDs, verifies item quantities and price snapshots, recomputes subtotal, and validates delivery fee, zero discount, and total arithmetic before decrementing stock.
+- Added emulator integration tests for blocked unverified UPI approval and tampered aggregate totals; both assert stock remains unchanged and order remains Pending.
+- Backend commits: `357a901` (approval validation), `238d380` (integration tests).
+- These tests have been added but not executed/CI-verified in this environment. Production Rules/Functions deployment and PR merge remain blocked.
