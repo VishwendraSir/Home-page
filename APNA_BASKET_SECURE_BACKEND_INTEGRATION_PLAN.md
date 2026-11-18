@@ -82,3 +82,12 @@ Do not deploy the new Firestore Rules or Functions against production until the 
 - Added emulator integration tests for payload mismatch and stable retry after product changes.
 - Backend commits: `92e9ff3`, `6c7fa89`, `ce34b22`, `61cbd35`, `4c0826c`, `4acbf7a`.
 - Tests/build/CI have not been executed in this environment; deployment remains blocked pending actual CI and emulator verification.
+
+
+## Payment state safety — 19 Nov 2026
+- New orders now persist explicit server-set payment fields: UPI `paymentStatus: "Unverified"`; Cash on Delivery `paymentStatus: "PendingCollection"`; both set `paymentVerified: false`.
+- No client or admin callable has been added to mark UPI paid. Firestore Rules continue to deny all client order updates and payment writes.
+- Added emulator integration assertions for COD pending collection and UPI unverified states.
+- Backend commits: `23abce1`, `dbdb5bd`.
+- A trusted payment provider/webhook is not configured in the project context. Therefore automatic payment verification is intentionally not implemented; manual screenshots/UTR must not be treated as authoritative settlement.
+- CI/emulator execution remains unverified; do not deploy.
