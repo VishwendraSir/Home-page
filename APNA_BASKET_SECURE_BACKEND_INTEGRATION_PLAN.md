@@ -67,3 +67,9 @@ Do not deploy the new Firestore Rules or Functions against production until the 
 - Frontend branch adds `setProductStockSecure`. Existing product catalog updates now omit the stock field from direct Firestore writes; changed stock is sent separately through the callable. New product creation retains initial stock.
 - Frontend commit: `1a787887`.
 - Still pending: run backend CI, add callable unit/integration tests, validate Firestore Rules compatibility in Emulator, and test the actual app end-to-end. Production deployment remains blocked.
+
+
+## Stock callable test coverage — 19 Nov 2026
+- Added emulator integration test for `setProductStock`: rejects non-Owner callers, negative/fractional/over-limit values; verifies successful update and `orderAudit` entry.
+- Backend test commit: `f1e0f9b`.
+- Workflow-run lookup for this commit returned no PR-triggered runs; this is not evidence of a pass or failure. Build and emulator execution are still unverified here.
