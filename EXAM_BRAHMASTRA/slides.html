@@ -72,12 +72,13 @@ function normalize(x,kind,n){
  const enOpts=Array.isArray(x.options_en)?x.options_en:[];
  const optionCount=Math.max(rawOpts.length,hiOpts.length,enOpts.length);
  let opts=Array.from({length:optionCount},(_,i)=>{
-  const raw=rawOpts[i], hi=hiOpts[i], en=enOpts[i];
-  if(raw&&typeof raw==="object"&&!Array.isArray(raw))
-   return {hi:raw.hi||raw.hindi||raw.text_hi||hi||"",en:raw.en||raw.english||raw.text_en||en||""};
-  if(hi&&typeof hi==="object")return {hi:hi.hi||hi.text||"",en:hi.en||en||""};
-  if(en&&typeof en==="object")return {hi:hi||en.hi||"",en:en.en||en.text||""};
-  return {hi:hi??(typeof raw==="string"?raw:"")??"",en:en??""};
+  const raw=rawOpts[i], hi=hiOpts[i], en=enOpts[i];let h="",e="";
+  if(raw&&typeof raw==="object"&&!Array.isArray(raw)){h=raw.hi||raw.hindi||raw.text_hi||hi||"";e=raw.en||raw.english||raw.text_en||en||"";}
+  else if(hi&&typeof hi==="object"){h=hi.hi||hi.text||"";e=hi.en||en||"";}
+  else if(en&&typeof en==="object"){h=hi||en.hi||"";e=en.en||en.text||"";}
+  else{h=hi??(typeof raw==="string"?raw:"")??"";e=en??"";}
+  if(h&&e&&String(h).trim()===String(e).trim()&&/[A-Za-z]/.test(String(h)))h="";
+  return {hi:h,en:e};
  });
  let answer=x.correct_index??x.answer_index??(Number.isInteger(x.answer)?x.answer:null);
  let cls=[],aud=[];
@@ -96,16 +97,18 @@ function normalize(x,kind,n){
  if(kind==="chemistry")subject="रसायन विज्ञान";
  if(kind==="english"||String(subject).toLowerCase()==="english")subject="English";
  if(kind==="hindi")subject="हिंदी";
+ if(hi&&en&&String(hi).trim()===String(en).trim()&&/[A-Za-z]/.test(String(hi)))hi="";
  const ex=x.explanation&&typeof x.explanation==="object"?x.explanation:{};
  return {id:x.question_id||x.id||kind+"_"+n,subject,topic,hi,en,opts,answer,
   directAnswer:x.answer_hi||x.answer_en||"",
+  explanationHi:x.explanation_hi||ex.hi||"",explanationEn:x.explanation_en||ex.en||"",
   explanation:[x.explanation_hi||ex.hi,x.explanation_en||ex.en].filter(Boolean).join("\n"),
   source:x.source_file||x.source||kind,classes:cls,audience:aud,raw:x};
 }
 function optionsList(q){
  if(!Array.isArray(q.opts))return [];
  const lang=$("language").value;
- return q.opts.map(o=>typeof o==="string"?o:lang==="hi"?(o.hi||o.en||o.text||""):lang==="en"?(o.en||o.hi||o.text||""):[o.hi,o.en].filter(Boolean).join(" / "));
+ return q.opts.map(o=>typeof o==="string"?o:lang==="hi"?(o.hi||"हिंदी अनुवाद उपलब्ध नहीं"):lang==="en"?(o.en||"English translation unavailable"):[o.hi||"हिंदी अनुवाद उपलब्ध नहीं",o.en||"English translation unavailable"].join(" / "));
 }
 function fillSelect(el,vals,first){const old=el.value;el.innerHTML='<option value="">'+first+'</option>'+vals.map(v=>'<option></option>').join("");[...el.options].slice(1).forEach((o,i)=>o.textContent=vals[i]);if(vals.includes(old))el.value=old;}
 function refreshTopics(){const s=$("subject").value;const vals=[...new Set(all.filter(q=>!s||q.subject===s).map(q=>q.topic))].sort((a,b)=>a.localeCompare(b));fillSelect($("topic"),vals,"सभी टॉपिक");}
@@ -177,14 +180,17 @@ function render(){
  // Language-safe fallback: older/imported records may store English text in question_hi
  // or provide only one language. Never hide the only available question.
  const hiText=clean(q.hi), enText=clean(q.en);
- const showHi=lang==="en"?(hiText?"":enText):(hiText|| (lang==="hi"?enText:""));
- const showEn=lang==="hi"?"":(enText|| (lang==="en"&&!enText?hiText:""));
+ const showHi=lang==="en"?"":hiText;
+ const showEn=lang==="hi"?"":enText;
+ const missingLang=(lang==="both"&&(!hiText||!enText));
+ if(missingLang){$("tags").innerHTML+='<span class="tag" style="background:#fff3cd;color:#7a4b00">अनुवाद अधूरा</span>';}
  $("qhi").textContent=showHi;
  $("qen").textContent=showEn;
  $("qhi").classList.toggle("hidden",!showHi);
  $("qen").classList.toggle("hidden",!showEn);
  const opts=optionsList(q);$("options").innerHTML=opts.map((o,i)=>'<div class="opt" data-i="'+i+'"><b>'+String.fromCharCode(65+i)+'.</b><span>'+esc(o)+'</span></div>').join("");
- $("answer").innerHTML=q.directAnswer?'<b>उत्तर:</b> '+esc(q.directAnswer)+(q.explanation?'<div class="explain">'+esc(q.explanation)+'</div>':""):q.answer===null||q.answer===undefined?"<b>उत्तर:</b> इस रिकॉर्ड में विकल्प-आधारित उत्तर उपलब्ध नहीं।":'<b>सही उत्तर:</b> '+esc(opts[q.answer]??q.answer)+(q.explanation?'<div class="explain">'+esc(q.explanation)+'</div>':"");
+ const explanation=lang==="hi"?(q.explanationHi||"व्याख्या का हिंदी अनुवाद उपलब्ध नहीं"):lang==="en"?(q.explanationEn||"Explanation unavailable"):[q.explanationHi||"हिंदी व्याख्या उपलब्ध नहीं",q.explanationEn||"English explanation unavailable"].join("\\n");
+ $("answer").innerHTML=q.directAnswer?'<b>उत्तर:</b> '+esc(q.directAnswer)+(explanation?'<div class="explain">'+esc(explanation)+'</div>':""):q.answer===null||q.answer===undefined?"<b>उत्तर:</b> इस रिकॉर्ड में विकल्प-आधारित उत्तर उपलब्ध नहीं।":'<b>सही उत्तर:</b> '+esc(opts[q.answer]??q.answer)+(explanation?'<div class="explain">'+esc(explanation)+'</div>':"");
  $("prev").disabled=index===0;$("next").disabled=index>=filtered.length-1;
 }
 function reveal(){const q=filtered[index];if(!q)return;shown=!shown;$("answer").classList.toggle("show",shown);$("reveal").textContent=shown?"उत्तर छिपाएँ":"उत्तर देखें";document.querySelectorAll(".opt").forEach((el,i)=>{el.classList.toggle("correct",shown&&q.answer===i);});}
