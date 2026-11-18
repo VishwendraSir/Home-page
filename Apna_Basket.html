@@ -383,6 +383,10 @@ async function setOrderStatusSecure(orderId,status){
  if(!fbAdmin||fbAuth?.currentUser?.uid!==AB_ADMIN_UID)throw new Error("Verified Owner access required.");
  return secureBackendCall("setOrderStatus",{orderId:String(orderId),status:String(status)});
 }
+function setProductStockSecure(productId,stock){
+ if(!fbAdmin||fbAuth?.currentUser?.uid!==AB_ADMIN_UID)throw new Error("Verified Owner access required.");
+ return secureBackendCall("setProductStock",{productId:String(productId),stock:Number(stock)});
+}
 async function verifyAdminAccount(user){
  // The deployed Firestore security model grants admin authority only to this owner UID.
  // Do not add a client-side users/{uid}.role dependency: it is not the authorization boundary.
@@ -494,8 +498,19 @@ async function adminRejectOrder(id){
 async function firebaseSaveAdminData(){
  if(!fbReady||!fbAdmin)throw new Error("Verified Admin Login आवश्यक है।");
  try{
-  const {doc,setDoc}=fbModules;
-  for(const p of products)await setDoc(doc(fbDb,"products",String(p.id)),p);
+  const {doc,setDoc,getDoc}=fbModules;
+  for(const p of products){
+   const ref=doc(fbDb,"products",String(p.id));
+   const existing=await getDoc(ref);
+   if(!existing.exists()){
+    await setDoc(ref,p);
+   }else{
+    const oldStock=Number(existing.data().stock??0);
+    const {stock,...catalogFields}=p;
+    await setDoc(ref,catalogFields,{merge:true});
+    if(Number(stock??0)!==oldStock)await setProductStockSecure(p.id,Number(stock??0));
+   }
+  }
   const publicSettings={
    name:String(settings.name||"Apna Basket").slice(0,100),
    wa:String(settings.wa||"").replace(/\D/g,""),
