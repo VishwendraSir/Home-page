@@ -138,7 +138,7 @@ function auditData(){
 $("auditToggle").addEventListener("click",()=>{$("auditBox").classList.toggle("show");});
 async function runCdpAudit(){
  const box=$("cdpAuditBox");box.classList.add("show");box.textContent="तीनों CDP/Psychology डेटा पैक जाँचे जा रहे हैं…";
- const files=["pedagogy-psychology-1000-bilingual.json","child-development-pedagogy-1000.json","questions-cdp-psychology-1000.json"];
+ const files=["pedagogy-psychology-1000-bilingual.json"];
  const norm=s=>String(s||"").normalize("NFKC").toLowerCase().replace(/<[^>]*>/g,"").replace(/[\s\p{P}]+/gu," ").trim();
  const getQ=x=>{const q=x.question&&typeof x.question==="object"?x.question:{};return x.question_hi||q.hi||x.question_en||q.en||(typeof x.question==="string"?x.question:"")||x.question_text||x.text||"";};
  const getTopic=x=>x.topic||x.topic_hi||x.topic_en||x.topic_id||x.chapter||x.unit||x.category||"टॉपिक निर्दिष्ट नहीं";
