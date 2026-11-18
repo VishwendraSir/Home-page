@@ -133,3 +133,13 @@ Do not deploy the new Firestore Rules or Functions against production until the 
 - Changed both declarations to `async function` so their existing awaited callable/sync operations are valid.
 - Frontend commit: `7968351`.
 - This is a source-level fix. A full browser runtime/preview test and CI/static syntax check are still required before release.
+
+
+## Frontend JavaScript syntax CI — PASS — 19 Nov 2026
+- GitHub Actions run: `44424222196`
+- Tested commit: `907337ad857e107beb8af3722d0e0db1e59c766c`
+- Workflow: `Apna Basket HTML Syntax Check`
+- Job `html-javascript`: completed / success.
+- Python extracted the inline JavaScript blocks from `Apna_Basket.html`; Node.js `--check` passed for every extracted block.
+- Earlier failed runs were traced to duplicate `async async` declarations and corrected in commit `907337a`.
+- Scope: syntax only. This does not prove Firebase callable compatibility, browser runtime behavior, Owner authorization, checkout completion, payment verification, or production readiness.
