@@ -42,7 +42,7 @@ Functions region: `asia-south1`. Firebase project: `apna-basket-3433e`.
 - [x] Load Firebase Functions SDK and callable wrappers in the app (commit `8829060`).
 - [x] Add a compatibility layer for quote/create/approve/reject/status calls (commit `8829060`).
 - [x] Change customer order creation to callable `createCustomerOrder`; checkout uses server quote totals (commit `c02a6c3`).
-- [ ] Split public and private settings, including a safe one-time migration procedure.
+- [x] Split app sync into `publicSettings/main` (customer-safe presentation fields) and `privateSettings/main` (server quote configuration); legacy `settings/main` is no longer read or written by the migrated client (commit `54b9a6f`). One-time migration/population and emulator verification remain before production.
 - [ ] Replace all browser stock/status mutations with callable functions.
 - [x] Preserve a clearly labelled WhatsApp-only fallback when cloud checkout is unavailable; do not claim cloud order saved (commit `c02a6c3`).
 - [ ] Add Emulator/preview tests for customer, Owner, stock, price-change, coupon and retry scenarios.
