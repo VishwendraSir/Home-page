@@ -15,7 +15,7 @@ header{background:linear-gradient(120deg,#14213d,#3d3b9e);color:white;padding:18
 @media(min-width:620px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.pic{height:130px}}
 </style></head>
 <body>
-<header><div class="top"><div><div class="brand" id="brandTitle">🛒 Apna Basket</div><div class="sub">आपकी पसंद, आपके घर तक! • Food • Grocery • More</div></div><div class="pill" id="shopStatusPill">🟢 दुकान खुली • 3–5 KM</div></div></header>
+<header><div class="top"><div><div class="brand" id="brandTitle">🛒 Apna Basket</div><div class="sub">आपकी पसंद, आपके घर तक! • Food • Grocery • More</div><div class="sub">सहायता / WhatsApp: <a href="https://wa.me/916350248088" style="color:#fff;font-weight:800;text-decoration:underline">6350248088</a></div></div><div class="pill" id="shopStatusPill">🟢 दुकान खुली • 3–5 KM</div></div></header>
 <main class="wrap">
 <div class="tabs"><button class="tab active" id="customerTab" onclick="showTab('customer')">🛍️ Shop</button><button class="tab" id="cartTab" onclick="showTab('cart')">🧺 Cart <span id="cartCount">0</span></button><button class="tab" id="trackTab" onclick="showTab('track')">📦 Track</button><button class="tab" id="accountTab" onclick="showTab('account')">👤 Account</button><button class="tab" id="deliveryTab" onclick="showTab('delivery')">🛵 Delivery</button><button class="tab" id="adminTab" onclick="showTab('admin')">⚙️ Admin</button></div>
 <section id="customerView">
@@ -68,7 +68,7 @@ header{background:linear-gradient(120deg,#14213d,#3d3b9e);color:white;padding:18
 </details></div>
 <div class="section"><h3>Admin Tools</h3><p class="muted">Pending delivery: <b id="pendingDeliveryCount">0</b></p><div class="toolbar"><button class="btn secondary" onclick="exportBackup()">⬇ Export Backup</button><label class="btn secondary" style="text-align:center;cursor:pointer">⬆ Restore Backup<input type="file" accept="application/json" style="display:none" onchange="importBackup(this.files[0]);this.value=''"></label><button class="btn secondary" onclick="changeAdminPin()">Change PIN</button><button class="btn danger" onclick="adminUnlocked=false;showTab('customer')">Lock Admin</button></div><p class="muted">Backup में products, orders और settings शामिल हैं। PIN इस डिवाइस के browser में रहता है।</p></div>
 </section>
-<div class="footer">Apna Basket • Local Ordering & Delivery<br>V14: Firebase parse, coupon approval, Admin UID and order status fixes snippet or JSON. Cloud sync तभी active होगा जब Firebase project config और secure rules सेट हों।</div>
+<div class="footer">Apna Basket • Local Ordering & Delivery<br>सहायता / WhatsApp: <a href="https://wa.me/916350248088">6350248088</a><br>V14: Firebase parse, coupon approval, Admin UID and order status fixes snippet or JSON. Cloud sync तभी active होगा जब Firebase project config और secure rules सेट हों।</div>
 </main>
 <script>
 const seed=[
@@ -81,8 +81,8 @@ const seed=[
 let products=JSON.parse(localStorage.getItem("lf_products")||"null")||seed;
 let cart=JSON.parse(localStorage.getItem("lf_cart")||"{}");
 let orders=JSON.parse(localStorage.getItem("lf_orders")||"[]");
-let settings=JSON.parse(localStorage.getItem("lf_settings")||'{"name":"Apna Basket","wa":"","fee":20,"minimum":0,"upi":"","open":true,"pinCodes":[]}');
-settings.open = settings.open !== false; settings.pinCodes = Array.isArray(settings.pinCodes) ? settings.pinCodes : [];
+let settings=JSON.parse(localStorage.getItem("lf_settings")||'{"name":"Apna Basket","wa":"916350248088","fee":20,"minimum":0,"upi":"","open":true,"pinCodes":[]}');
+settings.open = settings.open !== false; settings.pinCodes = Array.isArray(settings.pinCodes) ? settings.pinCodes : []; settings.wa = String(settings.wa || "916350248088").replace(/\\D/g,"");
 let category="All";
 const money=n=>"₹"+Number(n||0).toFixed(0);
 function persist(){localStorage.setItem("lf_products",JSON.stringify(products));localStorage.setItem("lf_cart",JSON.stringify(cart));localStorage.setItem("lf_orders",JSON.stringify(orders));}
@@ -394,7 +394,7 @@ function startFirebaseListeners(){
  },e=>fbMessage("Products sync issue: "+e.message)));
  fbUnsubs.push(onSnapshot(doc(fbDb,"settings","main"),snap=>{
   if(snap.exists()&&!fbApplyingRemote){
-   fbApplyingRemote=true;settings={...settings,...snap.data()};
+   fbApplyingRemote=true;settings={...settings,...snap.data()};settings.wa=String(settings.wa||"916350248088").replace(/\\D/g,"");
    localStorage.setItem("lf_settings",JSON.stringify(settings));
    document.getElementById("brandTitle").textContent="🛒 "+settings.name;
    updateShopStatus();renderCart();fbApplyingRemote=false;
