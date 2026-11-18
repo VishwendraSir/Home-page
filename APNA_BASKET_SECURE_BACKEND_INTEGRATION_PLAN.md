@@ -126,3 +126,10 @@ Do not deploy the new Firestore Rules or Functions against production until the 
 - Updated `saveSettings()` to deduplicate valid PINs, block cloud settings sync when none are configured, await the cloud sync result, and accurately distinguish local save from successful cloud sync.
 - Frontend commit: `3689e9f`.
 - This is a source-level compatibility fix only. Browser-based checkout, Owner session, stock sync, and end-to-end preview tests remain pending; no production deploy.
+
+
+## JavaScript syntax blocker found and fixed — 19 Nov 2026
+- Deeper source audit found two functions using `await` while declared as ordinary functions: `firebaseUpdateOrderStatus()` and `firebasePushLocal()`. This is invalid JavaScript syntax and can prevent the entire page script from parsing.
+- Changed both declarations to `async function` so their existing awaited callable/sync operations are valid.
+- Frontend commit: `7968351`.
+- This is a source-level fix. A full browser runtime/preview test and CI/static syntax check are still required before release.
