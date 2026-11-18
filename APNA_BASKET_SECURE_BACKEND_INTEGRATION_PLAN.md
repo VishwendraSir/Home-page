@@ -51,3 +51,12 @@ Functions region: `asia-south1`. Firebase project: `apna-basket-3433e`.
 ## Deployment guardrails
 
 Do not deploy the new Firestore Rules or Functions against production until the app migration is complete and tested. Existing V13 is incompatible with the new rules and would lose customer settings/order/admin workflows if the rules were applied now.
+
+
+## Compatibility audit — 19 Nov 2026
+- Confirmed app listeners now read `publicSettings/main`; customer product listener queries only active products; Owner order listener is owner-only.
+- Confirmed client no longer references legacy `settings/main`.
+- Removed obsolete `firebaseCreateOrder` helper that wrote orders directly from the browser; customer checkout must use `createCustomerOrder` callable (commit `0a01481`).
+- Remaining blocker: product sync uses full-document writes. Firestore Rules intentionally reject changes to `products/{id}.stock`; therefore catalog sync can fail when local stock differs from cloud stock. Stock changes need a trusted Owner callable or a dedicated controlled migration path.
+- Emulator rules suite currently has 18 tests, but it does not run the actual HTML app in a browser. A separate frontend integration/preview test is still required.
+- Do not deploy production rules until stock management, public/private settings seed, and end-to-end checkout are tested.
