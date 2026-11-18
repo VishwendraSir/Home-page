@@ -73,3 +73,12 @@ Do not deploy the new Firestore Rules or Functions against production until the 
 - Added emulator integration test for `setProductStock`: rejects non-Owner callers, negative/fractional/over-limit values; verifies successful update and `orderAudit` entry.
 - Backend test commit: `f1e0f9b`.
 - Workflow-run lookup for this commit returned no PR-triggered runs; this is not evidence of a pass or failure. Build and emulator execution are still unverified here.
+
+
+## Idempotency security audit — 19 Nov 2026
+- Backend now hashes the normalized customer intent (UID, contact/address, payment, note, PIN, product IDs and quantities) with SHA-256 and stores the fingerprint beside the idempotency key.
+- Reusing a key for a different order payload is rejected with `already-exists`; exact retries return the original order.
+- Fingerprint is independent of mutable catalog price/availability. Existing identical retries are checked before quote generation, so a product price or active-state change does not prevent retrieval of an already-created order.
+- Added emulator integration tests for payload mismatch and stable retry after product changes.
+- Backend commits: `92e9ff3`, `6c7fa89`, `ce34b22`, `61cbd35`, `4c0826c`, `4acbf7a`.
+- Tests/build/CI have not been executed in this environment; deployment remains blocked pending actual CI and emulator verification.
