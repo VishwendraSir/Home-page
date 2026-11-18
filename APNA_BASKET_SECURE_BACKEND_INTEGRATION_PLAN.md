@@ -39,7 +39,7 @@ Functions region: `asia-south1`. Firebase project: `apna-basket-3433e`.
 
 ## Safe implementation sequence
 
-- [ ] Load Firebase Functions SDK and callable wrappers in the app.
+- [x] Load Firebase Functions SDK and callable wrappers in the app (commit `8829060`).
 - [ ] Add a compatibility layer for quote/create/approve/reject/status calls.
 - [ ] Change customer order creation to callable `createCustomerOrder` and show server-returned totals.
 - [ ] Split public and private settings, including a safe one-time migration procedure.
