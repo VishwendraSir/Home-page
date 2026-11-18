@@ -160,7 +160,58 @@ function exportOrdersCSV(){
 function printOrder(id){
  const o=orders.find(x=>x.id===id);if(!o)return;
  const w=window.open("","_blank");if(!w){alert("Print window blocked. Popup allow करें।");return}
- w.document.write(`<html><head><title>${esc(o.id)}</title><style>body{font:15px Arial;padding:24px}h2{margin-bottom:4px}hr{border:0;border-top:1px dashed #777}table{width:100%;border-collapse:collapse}td{padding:8px 0;border-bottom:1px solid #ddd}</style></head><body><h2>${esc(settings.name)}</h2><p>Order Receipt • ${esc(o.id)}</p><hr><p>Customer: ${esc(o.name)}<br>Phone: ${esc(o.phone)}<br>Address: ${esc(o.address)}<br>PIN: ${esc(o.pincode||"")}</p><hr><p>${esc(orderItemsText(o))}</p><hr><h3>Total: ${money(orderAmount(o))}</h3><p>Payment: ${esc(o.payment||"")}<br>Status: ${esc(o.status)}</p><script>window.onload=()=>window.print()<\\/script></body></html>`);w.document.close();
+ w.document.write(`<html><head><title>${esc(o.id)}</title><style>body{font:15px Arial;padding:24px}h2{margin-bottom:4px}hr{border:0;border-top:1px dashed #777}table{width:100%;border-collapse:collapse}td{padding:8px 0;border-bottom:1px solid #ddd}</style></head><body><h2>${esc(settings.name)}</h2><p>Order Receipt • ${esc(o.id)}</p><hr><p>Customer: ${esc(o.name)}<br>Phone: ${esc(o.phone)}<br>Address: ${esc(o.address)}<br>PIN: ${esc(o.pincode||"")}</p><hr><p>${esc(orderItemsText(o))}</p><hr><h3>Total: ${money(orderAmount(o))}</h3><p>Payment: ${esc(o.payment||"")}<br>Status: ${esc(o.status)}</p><script>window.onload=()=>window.print()<\\/script>
+<style id="ab-ai-style">
+#abAiFab{position:fixed;right:16px;bottom:86px;z-index:40;border:0;border-radius:999px;background:linear-gradient(135deg,#2563eb,#7047d7);color:#fff;padding:13px 17px;font-weight:800;box-shadow:0 8px 24px #14213d35}
+#abAiPanel{position:fixed;inset:auto 12px 12px auto;bottom:145px;width:min(390px,calc(100vw - 24px));max-height:min(72vh,650px);z-index:41;background:#fff;border:1px solid #dce3f0;border-radius:20px;box-shadow:0 18px 55px #14213d35;display:none;overflow:hidden}
+#abAiPanel.open{display:flex;flex-direction:column}
+#abAiHead{padding:14px 16px;background:linear-gradient(120deg,#14213d,#3d3b9e);color:white;display:flex;justify-content:space-between;align-items:center}
+#abAiClose{background:#ffffff22;color:white;border:0;border-radius:9px;padding:7px 11px;font-size:18px}
+#abAiMessages{padding:13px;overflow:auto;display:flex;flex-direction:column;gap:9px;min-height:160px}
+.ab-ai-msg{padding:10px 12px;border-radius:13px;max-width:92%;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.45}
+.ab-ai-bot{background:#f0f4fb;align-self:flex-start;color:#172033}.ab-ai-user{background:#2563eb;color:white;align-self:flex-end}
+#abAiForm{display:flex;gap:7px;padding:11px;border-top:1px solid #e6eaf1}
+#abAiInput{min-width:0;flex:1;border:1px solid #dce3f0;border-radius:12px;padding:11px;font:inherit}
+#abAiSend{border:0;border-radius:12px;background:#2563eb;color:#fff;padding:0 15px;font-weight:750}
+#abAiHint{font-size:11px;color:#68738a;padding:0 13px 11px}
+@media(max-width:480px){#abAiPanel{right:8px;bottom:138px;width:calc(100vw - 16px)}#abAiFab{bottom:82px;right:12px}}
+</style>
+<button id="abAiFab" type="button" aria-controls="abAiPanel" aria-expanded="false">✨ AI Shopping Help</button>
+<section id="abAiPanel" aria-label="AI Shopping Assistant" aria-live="polite">
+ <header id="abAiHead"><div><b>✨ Apna Basket AI</b><div style="font-size:11px;opacity:.85">Hindi + English shopping help</div></div><button id="abAiClose" type="button" aria-label="Close">×</button></header>
+ <div id="abAiMessages"><div class="ab-ai-msg ab-ai-bot">नमस्ते! आपको क्या खरीदना है? मैं उपलब्ध products खोजने और सही विकल्प चुनने में मदद कर सकता हूँ।</div></div>
+ <form id="abAiForm"><input id="abAiInput" autocomplete="off" placeholder="जैसे: ₹200 में snacks बताओ..." aria-label="Ask Apna Basket AI"><button id="abAiSend" type="submit">Send</button></form>
+ <div id="abAiHint">AI सुझाव गलत हो सकते हैं। कीमत, उपलब्धता और ऑर्डर की पुष्टि Shop में करें।</div>
+</section>
+<script id="ab-ai-assistant">
+(()=>{"use strict";
+const ENDPOINT="https://science-centre-ai-tutor.realclassesguruji.workers.dev/api/chat";
+const $=id=>document.getElementById(id);
+const fab=$("abAiFab"),panel=$("abAiPanel"),messages=$("abAiMessages"),form=$("abAiForm"),input=$("abAiInput"),send=$("abAiSend");
+if(!fab||!panel||!form)return;
+const add=(text,who)=>{const el=document.createElement("div");el.className="ab-ai-msg "+(who==="user"?"ab-ai-user":"ab-ai-bot");el.textContent=String(text||"");messages.appendChild(el);messages.scrollTop=messages.scrollHeight;};
+const toggle=open=>{panel.classList.toggle("open",open);fab.setAttribute("aria-expanded",String(open));if(open)input.focus();};
+fab.addEventListener("click",()=>toggle(!panel.classList.contains("open")));
+$("abAiClose").addEventListener("click",()=>toggle(false));
+const catalog=()=>{try{return (Array.isArray(products)?products:[]).filter(p=>p&&p.active!==false).slice(0,80).map(p=>({name:p.name,category:p.cat,price:p.price,description:p.desc||""}));}catch(_){return []}};
+const extract=data=>{if(typeof data==="string")return data;for(const k of ["answer","response","text","reply","output","message","result"])if(data&&typeof data[k]==="string")return data[k];if(data&&data.candidates?.[0]?.content?.parts)return data.candidates[0].content.parts.map(p=>p.text||"").join("\n");return JSON.stringify(data);};
+form.addEventListener("submit",async e=>{
+ e.preventDefault();const question=input.value.trim();if(!question)return;
+ input.value="";add(question,"user");send.disabled=true;send.textContent="…";
+ const context=catalog();
+ const fullQuestion="You are Apna Basket's bilingual Hindi-English shopping assistant. Help customers discover products from the catalogue below. Do not invent products, prices, stock, discounts, delivery promises or order status. If information is missing, say so. Do not claim to place an order or change stock. Suggest that the customer verify details in the shop before checkout.\nCATALOGUE: "+JSON.stringify(context)+"\nCUSTOMER QUESTION: "+question;
+ try{
+  const response=await fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:fullQuestion})});
+  const raw=await response.text();let data;try{data=JSON.parse(raw)}catch(_){data=raw}
+  if(!response.ok)throw new Error("AI सेवा अभी उपलब्ध नहीं है (HTTP "+response.status+").");
+  add(extract(data),"bot");
+ }catch(err){add("AI से अभी संपर्क नहीं हो पाया। कृपया Shop की Search सुविधा इस्तेमाल करें और थोड़ी देर बाद फिर कोशिश करें।","bot");}
+ finally{send.disabled=false;send.textContent="Send";input.focus();}
+});
+})();
+</script>
+
+</body></html>`);w.document.close();
 }
 function applyCoupon(){
  const code=document.getElementById("couponInput").value.trim().toUpperCase();
