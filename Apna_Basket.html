@@ -444,14 +444,17 @@ function startFirebaseListeners(){
    renderProducts();if(adminUnlocked)renderAdmin();fbApplyingRemote=false;
   }
  },e=>fbMessage("Products sync issue: "+e.message)));
- fbUnsubs.push(onSnapshot(doc(fbDb,"settings","main"),snap=>{
+ // Customers read only the explicitly public settings document. Never subscribe to legacy settings/main.
+ fbUnsubs.push(onSnapshot(doc(fbDb,"publicSettings","main"),snap=>{
   if(snap.exists()&&!fbApplyingRemote){
-   fbApplyingRemote=true;settings={...settings,...snap.data()};settings.wa=String(settings.wa||"916350248088").replace(/\D/g,"");
+   fbApplyingRemote=true;
+   const d=snap.data();
+   settings={...settings,name:d.name||settings.name,wa:String(d.wa||settings.wa||"").replace(/\D/g,""),fee:Number(d.fee??settings.fee??0),minimum:Number(d.minimum??settings.minimum??0),upi:d.upi||"",open:d.open!==false,pinCodes:Array.isArray(d.pinCodes)?d.pinCodes:[]};
    localStorage.setItem("lf_settings",JSON.stringify(settings));
    document.getElementById("brandTitle").textContent="🛒 "+settings.name;
    updateShopStatus();renderCart();fbApplyingRemote=false;
   }
- },e=>fbMessage("Settings sync issue: "+e.message)));
+ },e=>fbMessage("Public settings sync issue: "+e.message)));
  if(fbAdmin){
   fbUnsubs.push(onSnapshot(collection(fbDb,"orders"),snap=>{
    if(!fbApplyingRemote){
@@ -499,8 +502,21 @@ async function firebaseSaveAdminData(){
  try{
   const {doc,setDoc}=fbModules;
   for(const p of products)await setDoc(doc(fbDb,"products",String(p.id)),p);
-  await setDoc(doc(fbDb,"settings","main"),settings);
-  fbMessage("☁️ Products + Settings synced ("+products.length+" products)");
+  const publicSettings={
+   name:String(settings.name||"Apna Basket").slice(0,100),
+   wa:String(settings.wa||"").replace(/\D/g,""),
+   fee:Number(settings.fee||0),minimum:Number(settings.minimum||0),
+   upi:String(settings.upi||"").slice(0,120),open:settings.open!==false,
+   pinCodes:Array.isArray(settings.pinCodes)?settings.pinCodes.filter(x=>/^\d{6}$/.test(String(x))):[]
+  };
+  const privateSettings={
+   serviceablePincodes:publicSettings.pinCodes,
+   deliveryFeePaise:Math.round(publicSettings.fee*100),
+   minimumOrderPaise:Math.round(publicSettings.minimum*100)
+  };
+  await setDoc(doc(fbDb,"publicSettings","main"),publicSettings);
+  await setDoc(doc(fbDb,"privateSettings","main"),privateSettings);
+  fbMessage("☁️ Products + split public/private settings synced ("+products.length+" products)");
   return true;
  }catch(e){fbMessage("Cloud save issue: "+e.message);alert("Cloud Sync issue: "+e.message);return false;}
 }
