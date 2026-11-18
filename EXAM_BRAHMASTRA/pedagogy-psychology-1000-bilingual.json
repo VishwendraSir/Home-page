@@ -997,4 +997,79 @@
       "subject": "child-development-pedagogy",
       "topic": "Learning",
       "difficulty": "Intermediate",
+      "language": "bilingual",      "question": {
+        "en": "Scaffolding means:",
+        "hi": "स्कैफोल्डिंग (आधारभूत सहारा) का अर्थ क्या है?"
+      },
+      "options": [
+        {
+          "en": "Temporary support gradually withdrawn",
+          "hi": "अस्थायी सहायता जिसे धीरे-धीरे हटा लिया जाता है"
+        },
+        {
+          "en": "Permanent dependence",
+          "hi": "स्थायी निर्भरता"
+        },
+        {
+          "en": "Punishment for errors",
+          "hi": "गलतियों के लिए दंड"
+        },
+        {
+          "en": "Learning without interaction",
+          "hi": "बिना अंतःक्रिया के अधिगम"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Scaffolding is temporary assistance adjusted to learner need.",
+        "hi": "स्कैफोल्डिंग विद्यार्थी की आवश्यकता के अनुसार दी जाने वाली अस्थायी सहायता है, जिसे क्षमता बढ़ने पर कम किया जाता है।"
+      },
+      "source": "Original CTET-aligned practice question",
+      "year": null,
+      "verifiedPYQ": false,
+      "translationStatus": "AI translation; teacher review recommended",
+      "provenance": "competition-question-bank-1847.json"
+    },
+    {
+      "id": "ctet-paper-2-037",
+      "exam": "ctet",
+      "paper": "paper-2",
+      "subject": "child-development-pedagogy",
+      "topic": "Final duplicate replacement",
+      "difficulty": "Intermediate",
       "language": "bilingual",
+      "question": {
+        "en": "Which question checks conceptual understanding of multiplication?",
+        "hi": "कौन-सा प्रश्न गुणा की अवधारणात्मक समझ की जाँच करता है?"
+      },
+      "options": [
+        {
+          "en": "Explain why 4 groups of 3 make 12",
+          "hi": "समझाइए कि 3 के 4 समूह मिलकर 12 क्यों होते हैं"
+        },
+        {
+          "en": "Recite the table of 4 only",
+          "hi": "केवल 4 का पहाड़ा सुनाना"
+        },
+        {
+          "en": "Copy 12 ten times",
+          "hi": "12 को दस बार लिखना"
+        },
+        {
+          "en": "Write the word multiplication",
+          "hi": "गुणा शब्द लिखना"
+        }
+      ],
+      "answer": 0,
+      "explanation": {
+        "en": "Explaining equal groups checks the meaning of multiplication.",
+        "hi": "समान समूहों की व्याख्या करने से गुणा के अर्थ और संरचना की समझ जाँची जाती है।"
+      },
+      "source": "Original replacement practice question",
+      "year": null,
+      "verifiedPYQ": false,
+      "translationStatus": "AI translation; teacher review recommended",
+      "provenance": "competition-question-bank-1847.json"
+    }
+  ]
+}
