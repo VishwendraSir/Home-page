@@ -108,3 +108,12 @@ Do not deploy the new Firestore Rules or Functions against production until the 
 - Added emulator tests for unknown payment methods and inconsistent COD payment state; both assert stock is unchanged.
 - Backend commits: `b87b1b5` (validation), `8f03e71` (tests).
 - Tests/CI have not yet been executed or verified; no production deployment or PR merge.
+
+
+## CI verification — 19 Nov 2026
+- GitHub Actions Run #109 completed with overall conclusion `success` on backend branch head `8f03e71db154eebc104847b1a31fc01b83c33ced`.
+- `firestore-rules` job: success; Firestore Emulator tests completed successfully.
+- `functions-build` job: success; Functions dependencies install, TypeScript compilation, security unit tests, and callable integration tests all completed successfully.
+- This verifies the backend branch through commit `8f03e71`, including the payment-state approval guards and their integration tests.
+- It does not verify later commits if any, frontend browser/end-to-end compatibility, production Firebase configuration, payment-provider webhook, or production deployment.
+- Keep PR #1 Draft and do not merge/deploy until the remaining frontend and production readiness checks are completed.
