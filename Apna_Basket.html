@@ -225,9 +225,14 @@ async function placeOrder(){
   if(couponCode){if(waWindow)waWindow.close();alert("Coupon checkout अभी secure backend में उपलब्ध नहीं है। कृपया Coupon हटाकर फिर Order करें।");return;}
   try{
    quote=await quoteCustomerOrder(items,pincode);
-   const idempotencyKey=(crypto.randomUUID?crypto.randomUUID():("ab"+Date.now().toString(36)+Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2))).replace(/[^A-Za-z0-9_-]/g,"").slice(0,80);
-   serverOrder=await createCustomerOrderSecure({name,phone,address,payment,note,pincode,items,idempotencyKey});
+   const createPayload={name,phone,address,payment,note,pincode,items};
+   let retryRecord=null;try{retryRecord=JSON.parse(localStorage.getItem("ab_checkout_request")||"null");}catch(_){}
+   const sameRequest=retryRecord&&JSON.stringify(retryRecord.payload)===JSON.stringify(createPayload);
+   const idempotencyKey=sameRequest?retryRecord.key:("ab"+(crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2))).replace(/[^A-Za-z0-9_-]/g,"").slice(0,80);
+   if(!sameRequest)localStorage.setItem("ab_checkout_request",JSON.stringify({key:idempotencyKey,payload:createPayload}));
+   serverOrder=await createCustomerOrderSecure({...createPayload,idempotencyKey});
    if(!serverOrder?.orderId)throw new Error("Backend ने Order ID नहीं लौटाई।");
+   localStorage.removeItem("ab_checkout_request");
    orderId=String(serverOrder.orderId);cloudSaved=true;
   }catch(err){if(waWindow)waWindow.close();alert("Secure Order save नहीं हुआ: "+(err.message||err)+"\nकृपया दोबारा प्रयास करें। कोई WhatsApp order अभी नहीं भेजा गया।");return;}
  }else{
