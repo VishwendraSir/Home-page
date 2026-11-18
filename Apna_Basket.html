@@ -68,7 +68,7 @@ header{background:linear-gradient(120deg,#14213d,#3d3b9e);color:white;padding:18
 </details></div>
 <div class="section"><h3>Admin Tools</h3><p class="muted">Pending delivery: <b id="pendingDeliveryCount">0</b></p><div class="toolbar"><button class="btn secondary" onclick="exportBackup()">⬇ Export Backup</button><label class="btn secondary" style="text-align:center;cursor:pointer">⬆ Restore Backup<input type="file" accept="application/json" style="display:none" onchange="importBackup(this.files[0]);this.value=''"></label><button class="btn secondary" onclick="changeAdminPin()">Change PIN</button><button class="btn danger" onclick="adminUnlocked=false;showTab('customer')">Lock Admin</button></div><p class="muted">Backup में products, orders और settings शामिल हैं। PIN इस डिवाइस के browser में रहता है।</p></div>
 </section>
-<div class="footer">Apna Basket • Local Ordering & Delivery<br>V13: Firebase async fix + safer category rendering snippet or JSON. Cloud sync तभी active होगा जब Firebase project config और secure rules सेट हों।</div>
+<div class="footer">Apna Basket • Local Ordering & Delivery<br>V14: Firebase parse, coupon approval, Admin UID and order status fixes snippet or JSON. Cloud sync तभी active होगा जब Firebase project config और secure rules सेट हों।</div>
 </main>
 <script>
 const seed=[
@@ -138,7 +138,7 @@ function orderDateText(o){
  return String(d||"");
 }
 function normalizedStatus(s){
- return s==="Approved"?"Accepted":s==="Rejected"?"Cancelled":String(s||"Pending");
+ return s==="Approved"?"Accepted":String(s||"Pending");
 }
 function renderOrderList(){
  const el=document.getElementById("orders");if(!el)return;
@@ -332,10 +332,9 @@ async function fbInit(){
  fbAuth=authM.getAuth(fbApp);fbDb=dbM.getFirestore(fbApp);
 }
 async function verifyAdminAccount(user){
- if(!user||user.uid!==AB_ADMIN_UID)throw new Error("यह Admin UID नहीं है। उसी Firebase Admin Authentication account से Login करें जिसका UID users document में दर्ज है।");
- const ref=fbModules.doc(fbDb,"users",AB_ADMIN_UID);
- const snap=await fbModules.getDoc(ref);
- if(!snap.exists()||String(snap.data().role||"").toLowerCase()!=="admin")throw new Error('Firestore users document में role field की value Admin/admin होनी चाहिए। Firestore Security Rules में भी role check उसी मान से मेल खाना चाहिए; सुरक्षित और अनुशंसित value lowercase admin है।');
+ // The deployed Firestore security model grants admin authority only to this owner UID.
+ // Do not add a client-side users/{uid}.role dependency: it is not the authorization boundary.
+ if(!user||user.uid!==AB_ADMIN_UID)throw new Error("यह Admin UID नहीं है। Firebase Authentication में निर्धारित Owner Admin account से Login करें।");
  return true;
 }
 async function connectFirebase(){
