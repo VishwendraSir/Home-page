@@ -471,13 +471,7 @@ function startFirebaseListeners(){
   },e=>fbMessage("Orders sync issue: "+e.message)));
  }
 }
-async function firebaseCreateOrder(order){
- if(!fbReady||!fbAuth?.currentUser)throw new Error("पहले Customer Connect करें।");
- if(order.userId!==fbAuth.currentUser.uid)throw new Error("Order owner mismatch");
- const {doc,setDoc}=fbModules;
- await setDoc(doc(fbDb,"orders",String(order.id)),order);
- fbMessage("☁️ Cloud Order created • "+order.id);
-}
+// Customer orders must be created only through the trusted createCustomerOrder callable.
 
 // Admin browser transaction: useful for a controlled pilot, not a trusted server.
 async function approveCloudOrder(orderId){
