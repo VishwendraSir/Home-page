@@ -82,7 +82,7 @@ let products=JSON.parse(localStorage.getItem("lf_products")||"null")||seed;
 let cart=JSON.parse(localStorage.getItem("lf_cart")||"{}");
 let orders=JSON.parse(localStorage.getItem("lf_orders")||"[]");
 let settings=JSON.parse(localStorage.getItem("lf_settings")||'{"name":"Apna Basket","wa":"916350248088","fee":20,"minimum":0,"upi":"","open":true,"pinCodes":[]}');
-settings.open = settings.open !== false; settings.pinCodes = Array.isArray(settings.pinCodes) ? settings.pinCodes : []; settings.wa = String(settings.wa || "916350248088").replace(/\\D/g,"");
+settings.open = settings.open !== false; settings.pinCodes = Array.isArray(settings.pinCodes) ? settings.pinCodes : []; settings.wa = String(settings.wa || "916350248088").replace(/\D/g,"");
 let category="All";
 const money=n=>"₹"+Number(n||0).toFixed(0);
 function persist(){localStorage.setItem("lf_products",JSON.stringify(products));localStorage.setItem("lf_cart",JSON.stringify(cart));localStorage.setItem("lf_orders",JSON.stringify(orders));}
@@ -394,7 +394,7 @@ function startFirebaseListeners(){
  },e=>fbMessage("Products sync issue: "+e.message)));
  fbUnsubs.push(onSnapshot(doc(fbDb,"settings","main"),snap=>{
   if(snap.exists()&&!fbApplyingRemote){
-   fbApplyingRemote=true;settings={...settings,...snap.data()};settings.wa=String(settings.wa||"916350248088").replace(/\\D/g,"");
+   fbApplyingRemote=true;settings={...settings,...snap.data()};settings.wa=String(settings.wa||"916350248088").replace(/\D/g,"");
    localStorage.setItem("lf_settings",JSON.stringify(settings));
    document.getElementById("brandTitle").textContent="🛒 "+settings.name;
    updateShopStatus();renderCart();fbApplyingRemote=false;
