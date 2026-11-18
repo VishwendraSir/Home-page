@@ -464,7 +464,8 @@ async function firebaseSaveAdminData(){
   for(const p of products)await setDoc(doc(fbDb,"products",String(p.id)),p);
   await setDoc(doc(fbDb,"settings","main"),settings);
   fbMessage("☁️ Products + Settings synced ("+products.length+" products)");
- }catch(e){fbMessage("Cloud save issue: "+e.message);alert("Cloud Sync issue: "+e.message);}
+  return true;
+ }catch(e){fbMessage("Cloud save issue: "+e.message);alert("Cloud Sync issue: "+e.message);return false;}
 }
 async function firebaseUpdateOrderStatus(order){
  if(!fbReady||!fbAdmin)return;
@@ -476,8 +477,9 @@ async function firebaseUpdateOrderStatus(order){
 async function firebasePushLocal(){
  if(!fbReady||!fbAdmin){alert("पहले verified Admin Email/Password से Login करें।");return;}
  if(!confirm("Local Products और Shop Settings Cloud पर भेजें? Existing Cloud products with matching IDs overwrite हो सकते हैं। पुराने Local Orders upload नहीं होंगे।"))return;
- await firebaseSaveAdminData();
- alert("Products और Shop Settings upload प्रक्रिया पूरी हुई। Status में कोई error न हो, यह जाँचें।");
+ const saved=await firebaseSaveAdminData();
+ if(!saved){alert("Upload पूरा नहीं हुआ। ऊपर Firebase Status में error देखें और दोबारा प्रयास करें।");return;}
+ alert("Products और Shop Settings Cloud पर सफलतापूर्वक save हुए।");
 }
 async function firebaseLogout(){
  try{if(fbAuth&&fbModules)await fbModules.signOut(fbAuth);}catch(e){}
