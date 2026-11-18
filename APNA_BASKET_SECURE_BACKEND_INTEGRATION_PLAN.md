@@ -60,3 +60,10 @@ Do not deploy the new Firestore Rules or Functions against production until the 
 - Remaining blocker: product sync uses full-document writes. Firestore Rules intentionally reject changes to `products/{id}.stock`; therefore catalog sync can fail when local stock differs from cloud stock. Stock changes need a trusted Owner callable or a dedicated controlled migration path.
 - Emulator rules suite currently has 18 tests, but it does not run the actual HTML app in a browser. A separate frontend integration/preview test is still required.
 - Do not deploy production rules until stock management, public/private settings seed, and end-to-end checkout are tested.
+
+
+## Secure stock update — 19 Nov 2026
+- Backend branch adds Owner-only callable `setProductStock`; validates integer stock range 0–1,000,000, updates the product transactionally, and writes an audit record (`e08928d`).
+- Frontend branch adds `setProductStockSecure`. Existing product catalog updates now omit the stock field from direct Firestore writes; changed stock is sent separately through the callable. New product creation retains initial stock.
+- Frontend commit: `1a787887`.
+- Still pending: run backend CI, add callable unit/integration tests, validate Firestore Rules compatibility in Emulator, and test the actual app end-to-end. Production deployment remains blocked.
