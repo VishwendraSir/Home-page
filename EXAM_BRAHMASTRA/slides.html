@@ -62,6 +62,9 @@ function normalize(x,kind,n){
  let topic=x.topic||x.topic_hi||x.topic_id||x.chapter_hi||x.chapter_en||x.chapter_id||x.category_hi||x.category||"अन्य";
  let hi=x.question_hi||qo.hi||(typeof x.question==="string"?x.question:"")||x.word||"";
  let en=x.question_en||qo.en||"";
+ // Legacy core records sometimes put an English sentence in question_hi.
+ // Reclassify it at normalization so English-only mode always has a real English field.
+ if(String(subject).trim().toLowerCase()==="english"&&!en&&hi){en=hi;hi="";}
  let opts=x.options||x.options_hi||x.options_en||[];
  if(kind==="pedagogy"&&x.options_hi)opts=x.options_hi.map((v,i)=>({hi:v,en:x.options_en?.[i]||""}));
  let answer=x.correct_index??x.answer_index??(Number.isInteger(x.answer)?x.answer:null);
