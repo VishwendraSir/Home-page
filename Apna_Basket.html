@@ -198,49 +198,55 @@ function updateOrder(id){
  o.status=s[i+1];persist();if(fbReady&&fbAdmin)firebaseUpdateOrderStatus(o);renderAdmin();renderDelivery();
  }
 async function placeOrder(){
- let entries=Object.entries(cart).map(([id,q])=>({p:products.find(x=>String(x.id)===String(id)),q:Number(q)})).filter(x=>x.p);
+ const entries=Object.entries(cart).map(([id,q])=>({p:products.find(x=>String(x.id)===String(id)),q:Number(q)})).filter(x=>x.p);
  if(!entries.length){alert("Cart खाली है।");return}
  const name=document.getElementById("custName").value.trim();
  const phone=document.getElementById("custPhone").value.trim();
  const address=document.getElementById("custAddress").value.trim();
  const pincode=document.getElementById("custPincode").value.trim();
  if(settings.open===false){alert("दुकान अभी बंद है। कृपया बाद में order करें।");return}
- if(!name||phone.replace(/\D/g,"").length<10||!address||!/^\d{6}$/.test(pincode)){alert("नाम, सही mobile number, पूरा address और 6 digit PIN code भरें।");return}
+ if(!name||phone.replace(/\D/g,"").length<10||!address||!/^[0-9]{6}$/.test(pincode)){alert("नाम, सही mobile number, पूरा address और 6 digit PIN code भरें।");return}
  if(settings.pinCodes&&settings.pinCodes.length&&!settings.pinCodes.includes(pincode)){alert("क्षमा करें, इस PIN code पर अभी delivery उपलब्ध नहीं है।");return}
  const shopWhatsApp=String(settings.wa||"").replace(/\D/g,"");
  if(!/^91[6-9]\d{9}$/.test(shopWhatsApp)){alert("Order भेजने के लिए Admin → Shop Settings में दुकान का सही WhatsApp नंबर country code 91 सहित सेव करें।");showTab("admin");return}
- for(const x of entries){if(!Number.isSafeInteger(x.q)||x.q<=0){alert("Cart quantity गलत है।");return}if(x.p.stock!==undefined&&x.q>x.p.stock){alert("Stock कम है: "+x.p.name);return}}
- const subtotalPaise=entries.reduce((sum,x)=>sum+Math.round(Number(x.p.price)*100)*x.q,0);
- if(!Number.isSafeInteger(subtotalPaise)){alert("Order amount गलत है।");return}
- if(subtotalPaise/100<Number(settings.minimum||0)){alert("Minimum order "+money(settings.minimum)+" है।");return}
- const deliveryFeePaise=Math.round(Number(settings.fee||0)*100);
- const couponCode=(localStorage.getItem("ab_coupon_applied")||"").trim().toUpperCase();
- const discountPaise=Math.min(Math.round(Number(localStorage.getItem("ab_coupon_discount")||0)*100),subtotalPaise);
- const totalPaise=subtotalPaise+deliveryFeePaise-discountPaise;
- if(!Number.isSafeInteger(totalPaise)||totalPaise<0){alert("Total amount invalid है।");return}
- const waWindow=window.open("about:blank","_blank");
- const id="ORD"+Date.now();
- const items=entries.map(x=>({productId:String(x.p.id),name:String(x.p.name),quantity:x.q}));
+ for(const x of entries){if(!Number.isSafeInteger(x.q)||x.q<=0){alert("Cart quantity गलत है।");return}}
+ const items=entries.map(x=>({productId:String(x.p.id),quantity:x.q}));
  const payment=document.getElementById("payMethod").value;
  const note=document.getElementById("orderNote").value.trim();
- const displayOrder={id,name,phone,address,pincode,total:totalPaise/100,discount:discountPaise/100,status:"Pending",date:new Date().toLocaleString("en-IN"),items:items.map(x=>x.name+" x "+x.quantity).join(", "),payment,note,totalPaise,subtotalPaise,deliveryFeePaise};
- // Automatically create a customer cloud session when this browser already has the public Firebase Web Config.
- // Without a config on this device, WhatsApp ordering still works, but the order remains local-only.
+ const couponCode=(localStorage.getItem("ab_coupon_applied")||"").trim().toUpperCase();
+ const waWindow=window.open("about:blank","_blank");
+ let quote=null,orderId="ORD"+Date.now(),cloudSaved=false,serverOrder=null;
+ // A configured cloud checkout must use server quote/create only. Coupon support is intentionally disabled.
  if(!fbReady&&localStorage.getItem("ab_fb_config")){
   try{await fbInit();if(!fbAuth.currentUser)await fbModules.signInAnonymously(fbAuth);fbReady=true;fbAdmin=false;startFirebaseListeners();}
-  catch(err){console.warn("Automatic customer cloud connection failed:",err);fbReady=false;}
+  catch(err){if(waWindow)waWindow.close();alert("Secure checkout connect नहीं हुआ: "+(err.message||err));return;}
  }
- if(fbReady&&fbAuth?.currentUser&&fbModules){
-  const cloudOrder={id,userId:fbAuth.currentUser.uid,name,phone,address,pincode,status:"Pending",subtotalPaise,deliveryFeePaise,discountPaise,totalPaise,items,payment,date:fbModules.serverTimestamp(),note,...(couponCode?{couponCode}:{})};
-  try{await firebaseCreateOrder(cloudOrder);displayOrder.userId=cloudOrder.userId;displayOrder.cloudSaved=true;}
-  catch(err){console.warn("Cloud order save failed; continuing with WhatsApp order:",err);displayOrder.cloudSaved=false;}
- }else{displayOrder.cloudSaved=false;displayOrder.syncNote="Local device + WhatsApp only; Firebase config unavailable on this device."}
- const msg="New Apna Basket Order "+id+"\nName: "+name+"\nPhone: "+phone+"\nAddress: "+address+"\nPIN: "+pincode+"\nItems: "+displayOrder.items+"\nSubtotal: ₹"+(subtotalPaise/100)+"\nDiscount: ₹"+(discountPaise/100)+"\nDelivery: ₹"+(deliveryFeePaise/100)+"\nTotal: ₹"+(totalPaise/100)+"\nPayment: "+payment+"\nNote: "+(note||"-");
+ if(fbReady&&fbAuth?.currentUser){
+  if(couponCode){if(waWindow)waWindow.close();alert("Coupon checkout अभी secure backend में उपलब्ध नहीं है। कृपया Coupon हटाकर फिर Order करें।");return;}
+  try{
+   quote=await quoteCustomerOrder(items,pincode);
+   const idempotencyKey=(crypto.randomUUID?crypto.randomUUID():("ab"+Date.now().toString(36)+Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2))).replace(/[^A-Za-z0-9_-]/g,"").slice(0,80);
+   serverOrder=await createCustomerOrderSecure({name,phone,address,payment,note,pincode,items,idempotencyKey});
+   if(!serverOrder?.orderId)throw new Error("Backend ने Order ID नहीं लौटाई।");
+   orderId=String(serverOrder.orderId);cloudSaved=true;
+  }catch(err){if(waWindow)waWindow.close();alert("Secure Order save नहीं हुआ: "+(err.message||err)+"\nकृपया दोबारा प्रयास करें। कोई WhatsApp order अभी नहीं भेजा गया।");return;}
+ }else{
+  // WhatsApp-only fallback: browser estimates are not a cloud quote or confirmed order.
+  const subtotalPaise=entries.reduce((sum,x)=>sum+Math.round(Number(x.p.price)*100)*x.q,0);
+  const deliveryFeePaise=Math.round(Number(settings.fee||0)*100);
+  quote={items:entries.map(x=>({productId:String(x.p.id),name:String(x.p.name),quantity:x.q,unitPricePaise:Math.round(Number(x.p.price)*100),lineTotalPaise:Math.round(Number(x.p.price)*100)*x.q})),subtotalPaise,deliveryFeePaise,discountPaise:0,totalPaise:subtotalPaise+deliveryFeePaise,pincode};
+ }
+ const subtotalPaise=Number(quote.subtotalPaise),deliveryFeePaise=Number(quote.deliveryFeePaise),discountPaise=Number(quote.discountPaise||0),totalPaise=Number(quote.totalPaise);
+ if(![subtotalPaise,deliveryFeePaise,discountPaise,totalPaise].every(Number.isSafeInteger)){if(waWindow)waWindow.close();alert("Order quote में अमान्य राशि मिली।");return;}
+ const itemText=(quote.items||[]).map(x=>String(x.name||x.productId)+" x "+x.quantity).join(", ");
+ const displayOrder={id:orderId,name,phone,address,pincode,total:totalPaise/100,discount:discountPaise/100,status:"Pending",date:new Date().toLocaleString("en-IN"),items:itemText,payment,note,totalPaise,subtotalPaise,deliveryFeePaise,cloudSaved};
+ if(cloudSaved)displayOrder.userId=fbAuth.currentUser.uid;
+ const msg="New Apna Basket Order "+orderId+"\nName: "+name+"\nPhone: "+phone+"\nAddress: "+address+"\nPIN: "+pincode+"\nItems: "+itemText+"\nSubtotal: ₹"+(subtotalPaise/100)+"\nDiscount: ₹"+(discountPaise/100)+"\nDelivery: ₹"+(deliveryFeePaise/100)+"\nTotal: ₹"+(totalPaise/100)+"\nPayment: "+payment+"\nNote: "+(note||"-")+"\n"+(cloudSaved?"Cloud Order ID: "+orderId:"WhatsApp-only estimate; not saved to cloud.");
  const waUrl="https://wa.me/"+shopWhatsApp+"?text="+encodeURIComponent(msg);
- orders.push(displayOrder);localStorage.setItem("ab_last_order",id);localStorage.setItem("ab_profile",JSON.stringify({name,phone,address,pincode}));persist();
+ orders.push(displayOrder);localStorage.setItem("ab_last_order",orderId);localStorage.setItem("ab_profile",JSON.stringify({name,phone,address,pincode}));persist();
  if(waWindow)waWindow.location.href=waUrl;else window.location.href=waUrl;
  cart={};localStorage.removeItem("ab_coupon_discount");localStorage.removeItem("ab_coupon_applied");persist();renderCart();renderProducts();
- alert("Order "+id+" तैयार है। "+(displayOrder.cloudSaved?"Cloud में भी सेव हो गया। ":"ध्यान दें: यह ऑर्डर अभी इसी device पर सेव है; सभी Admin devices पर दिखाने के लिए Firebase Config और Customer Anonymous Auth चालू होना जरूरी है। ")+"WhatsApp खुलेगा—वहाँ Send दबाकर दुकान को Order भेजें।");
+ alert("Order "+orderId+" तैयार है। "+(cloudSaved?"Server से quote और Cloud Order save सफल हुआ। ":"यह WhatsApp-only order है; Cloud में save नहीं हुआ और कीमत अंतिम पुष्टि के अधीन है। ")+"WhatsApp खुलेगा—वहाँ Send दबाएँ।");
 }
 function loadProfile(){
  let p=JSON.parse(localStorage.getItem("ab_profile")||"{}");
