@@ -529,7 +529,7 @@ async function firebaseSaveAdminData(){
   return true;
  }catch(e){fbMessage("Cloud save issue: "+e.message);alert("Cloud Sync issue: "+e.message);return false;}
 }
-async async function firebaseUpdateOrderStatus(order){
+async function firebaseUpdateOrderStatus(order){
  if(!fbReady||!fbAdmin)throw new Error("Verified Owner login required");
  try{
   await setOrderStatusSecure(String(order.id),String(order.status));
@@ -537,7 +537,7 @@ async async function firebaseUpdateOrderStatus(order){
   return true;
  }catch(e){fbMessage("Secure status update failed: "+e.message);alert("Order status Cloud Sync नहीं हुआ: "+e.message);return false;}
 }
-async async function firebasePushLocal(){
+async function firebasePushLocal(){
  if(!fbReady||!fbAdmin){alert("पहले verified Admin Email/Password से Login करें।");return;}
  if(!confirm("Local Products और Shop Settings Cloud पर भेजें? Existing Cloud products with matching IDs overwrite हो सकते हैं। पुराने Local Orders upload नहीं होंगे।"))return;
  const saved=await firebaseSaveAdminData();
