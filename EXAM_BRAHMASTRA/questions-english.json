@@ -36,7 +36,7 @@
       "options_hi": [
         "गाता है",
         "लड़की",
-        "वह (निश्चयवाचक उपपद)",
+        "the (निश्चित उपपद)",
         "जल्दी"
       ],
       "explanation_hi": "संज्ञा किसी व्यक्ति, स्थान, वस्तु या भाव का नाम बताती है। यहाँ 'लड़की' व्यक्ति का नाम है।"
@@ -67,7 +67,7 @@
         "आकाश",
         "पक्षी",
         "उड़ते हैं",
-        "वह (निश्चयवाचक उपपद)"
+        "the (निश्चित उपपद)"
       ],
       "explanation_hi": "क्रिया किसी कार्य या अवस्था को दर्शाती है। यहाँ 'उड़ते हैं' कार्य बताता है।"
     },
@@ -244,7 +244,7 @@
       "last_updated": "2026-11-17",
       "question_hi": "विस्मयादिबोधक चुनिए: वाह! हम जीत गए।",
       "options_hi": [
-        "वह (निश्चयवाचक उपपद)",
+        "the (निश्चित उपपद)",
         "जीत गए",
         "हम",
         "वाह"
@@ -276,7 +276,7 @@
       "options_hi": [
         "गाता है",
         "लड़की",
-        "वह (निश्चयवाचक उपपद)",
+        "the (निश्चित उपपद)",
         "जल्दी"
       ],
       "explanation_hi": "संज्ञा किसी व्यक्ति, स्थान, वस्तु या भाव का नाम बताती है। यहाँ 'लड़की' व्यक्ति का नाम है।"
@@ -307,7 +307,7 @@
         "आकाश",
         "पक्षी",
         "उड़ते हैं",
-        "वह (निश्चयवाचक उपपद)"
+        "the (निश्चित उपपद)"
       ],
       "explanation_hi": "क्रिया किसी कार्य या अवस्था को दर्शाती है। यहाँ 'उड़ते हैं' कार्य बताता है।"
     },
@@ -484,7 +484,7 @@
       "last_updated": "2026-11-17",
       "question_hi": "व्याकरण का अभ्यास करें: विस्मयादिबोधक चुनिए: वाह! हम जीत गए।",
       "options_hi": [
-        "वह (निश्चयवाचक उपपद)",
+        "the (निश्चित उपपद)",
         "जीत गए",
         "हम",
         "वाह"
@@ -516,7 +516,7 @@
       "options_hi": [
         "गाता है",
         "लड़की",
-        "वह (निश्चयवाचक उपपद)",
+        "the (निश्चित उपपद)",
         "जल्दी"
       ],
       "explanation_hi": "संज्ञा किसी व्यक्ति, स्थान, वस्तु या भाव का नाम बताती है। यहाँ 'लड़की' व्यक्ति का नाम है।"
@@ -547,7 +547,7 @@
         "आकाश",
         "पक्षी",
         "उड़ते हैं",
-        "वह (निश्चयवाचक उपपद)"
+        "the (निश्चित उपपद)"
       ],
       "explanation_hi": "क्रिया किसी कार्य या अवस्था को दर्शाती है। यहाँ 'उड़ते हैं' कार्य बताता है।"
     },
@@ -724,7 +724,7 @@
       "last_updated": "2026-11-17",
       "question_hi": "सर्वोत्तम विकल्प चुनिए: विस्मयादिबोधक चुनिए: वाह! हम जीत गए।",
       "options_hi": [
-        "वह (निश्चयवाचक उपपद)",
+        "the (निश्चित उपपद)",
         "जीत गए",
         "हम",
         "वाह"
@@ -756,7 +756,7 @@
       "options_hi": [
         "गाता है",
         "लड़की",
-        "वह (निश्चयवाचक उपपद)",
+        "the (निश्चित उपपद)",
         "जल्दी"
       ],
       "explanation_hi": "संज्ञा किसी व्यक्ति, स्थान, वस्तु या भाव का नाम बताती है। यहाँ 'लड़की' व्यक्ति का नाम है।"
@@ -787,7 +787,7 @@
         "आकाश",
         "पक्षी",
         "उड़ते हैं",
-        "वह (निश्चयवाचक उपपद)"
+        "the (निश्चित उपपद)"
       ],
       "explanation_hi": "क्रिया किसी कार्य या अवस्था को दर्शाती है। यहाँ 'उड़ते हैं' कार्य बताता है।"
     },
@@ -931,7 +931,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा शब्द व्यक्तिवाचक संज्ञा है?",
+      "options_hi": [
+        "देश",
+        "भारत",
+        "शहर",
+        "नदी"
+      ],
+      "explanation_hi": "व्यक्तिवाचक संज्ञा किसी विशेष व्यक्ति, स्थान या वस्तु का नाम बताती है। भारत एक विशेष देश का नाम है।"
     },
     {
       "question_id": "ENG_0032",
@@ -953,7 +961,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "भाववाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "पेंसिल",
+        "ईमानदारी",
+        "मेज़",
+        "बगीचा"
+      ],
+      "explanation_hi": "ईमानदारी एक गुण है, इसलिए यह भाववाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0033",
@@ -975,7 +991,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "समूहवाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "गेंद",
+        "मैदान",
+        "खिलाड़ी",
+        "टीम"
+      ],
+      "explanation_hi": "टीम व्यक्तियों के समूह को दर्शाती है, इसलिए यह समूहवाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0034",
@@ -997,7 +1021,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "जातिवाचक संज्ञा चुनिए।",
+      "options_hi": [
+        "रिया",
+        "सोमवार",
+        "अध्यापक",
+        "भारत"
+      ],
+      "explanation_hi": "अध्यापक किसी एक विशेष व्यक्ति का नहीं, बल्कि पूरी जाति या वर्ग का सामान्य नाम है।"
     },
     {
       "question_id": "ENG_0035",
@@ -1019,7 +1051,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "द्रव्यवाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "सोना",
+        "सेना",
+        "भीड़",
+        "सुंदरता"
+      ],
+      "explanation_hi": "सोना एक पदार्थ है, इसलिए यह द्रव्यवाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0036",
@@ -1041,7 +1081,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "संज्ञा पहचानिए: पिल्ला सो रहा है।",
+      "options_hi": [
+        "the (निश्चित उपपद)",
+        "है",
+        "सो रहा है",
+        "पिल्ला"
+      ],
+      "explanation_hi": "'पिल्ला' एक जानवर का नाम बताता है, इसलिए यह संज्ञा है।"
     },
     {
       "question_id": "ENG_0037",
@@ -1063,7 +1111,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: कौन-सा शब्द व्यक्तिवाचक संज्ञा है?",
+      "options_hi": [
+        "देश",
+        "भारत",
+        "शहर",
+        "नदी"
+      ],
+      "explanation_hi": "व्यक्तिवाचक संज्ञा किसी विशेष व्यक्ति, स्थान या वस्तु का नाम बताती है। भारत एक विशेष देश का नाम है।"
     },
     {
       "question_id": "ENG_0038",
@@ -1085,7 +1141,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: भाववाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "पेंसिल",
+        "ईमानदारी",
+        "मेज़",
+        "बगीचा"
+      ],
+      "explanation_hi": "ईमानदारी एक गुण है, इसलिए यह भाववाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0039",
@@ -1107,7 +1171,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: समूहवाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "गेंद",
+        "मैदान",
+        "खिलाड़ी",
+        "टीम"
+      ],
+      "explanation_hi": "टीम व्यक्तियों के समूह को दर्शाती है, इसलिए यह समूहवाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0040",
@@ -1129,7 +1201,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: जातिवाचक संज्ञा चुनिए।",
+      "options_hi": [
+        "रिया",
+        "सोमवार",
+        "अध्यापक",
+        "भारत"
+      ],
+      "explanation_hi": "अध्यापक किसी एक विशेष व्यक्ति का नहीं, बल्कि पूरी जाति या वर्ग का सामान्य नाम है।"
     },
     {
       "question_id": "ENG_0041",
@@ -1151,7 +1231,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: द्रव्यवाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "सोना",
+        "सेना",
+        "भीड़",
+        "सुंदरता"
+      ],
+      "explanation_hi": "सोना एक पदार्थ है, इसलिए यह द्रव्यवाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0042",
@@ -1173,7 +1261,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "व्याकरण का अभ्यास करें: संज्ञा पहचानिए: पिल्ला सो रहा है।",
+      "options_hi": [
+        "the (निश्चित उपपद)",
+        "है",
+        "सो रहा है",
+        "पिल्ला"
+      ],
+      "explanation_hi": "'पिल्ला' एक जानवर का नाम बताता है, इसलिए यह संज्ञा है।"
     },
     {
       "question_id": "ENG_0043",
@@ -1195,7 +1291,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: कौन-सा शब्द व्यक्तिवाचक संज्ञा है?",
+      "options_hi": [
+        "देश",
+        "भारत",
+        "शहर",
+        "नदी"
+      ],
+      "explanation_hi": "व्यक्तिवाचक संज्ञा किसी विशेष व्यक्ति, स्थान या वस्तु का नाम बताती है। भारत एक विशेष देश का नाम है।"
     },
     {
       "question_id": "ENG_0044",
@@ -1217,7 +1321,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: भाववाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "पेंसिल",
+        "ईमानदारी",
+        "मेज़",
+        "बगीचा"
+      ],
+      "explanation_hi": "ईमानदारी एक गुण है, इसलिए यह भाववाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0045",
@@ -1239,7 +1351,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: समूहवाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "गेंद",
+        "मैदान",
+        "खिलाड़ी",
+        "टीम"
+      ],
+      "explanation_hi": "टीम व्यक्तियों के समूह को दर्शाती है, इसलिए यह समूहवाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0046",
@@ -1261,7 +1381,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: जातिवाचक संज्ञा चुनिए।",
+      "options_hi": [
+        "रिया",
+        "सोमवार",
+        "अध्यापक",
+        "भारत"
+      ],
+      "explanation_hi": "अध्यापक किसी एक विशेष व्यक्ति का नहीं, बल्कि पूरी जाति या वर्ग का सामान्य नाम है।"
     },
     {
       "question_id": "ENG_0047",
@@ -1283,7 +1411,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: द्रव्यवाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "सोना",
+        "सेना",
+        "भीड़",
+        "सुंदरता"
+      ],
+      "explanation_hi": "सोना एक पदार्थ है, इसलिए यह द्रव्यवाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0048",
@@ -1305,7 +1441,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "सर्वोत्तम विकल्प चुनिए: संज्ञा पहचानिए: पिल्ला सो रहा है।",
+      "options_hi": [
+        "the (निश्चित उपपद)",
+        "है",
+        "सो रहा है",
+        "पिल्ला"
+      ],
+      "explanation_hi": "'पिल्ला' एक जानवर का नाम बताता है, इसलिए यह संज्ञा है।"
     },
     {
       "question_id": "ENG_0049",
@@ -1327,7 +1471,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? कौन-सा शब्द व्यक्तिवाचक संज्ञा है?",
+      "options_hi": [
+        "देश",
+        "भारत",
+        "शहर",
+        "नदी"
+      ],
+      "explanation_hi": "व्यक्तिवाचक संज्ञा किसी विशेष व्यक्ति, स्थान या वस्तु का नाम बताती है। भारत एक विशेष देश का नाम है।"
     },
     {
       "question_id": "ENG_0050",
@@ -1349,7 +1501,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? भाववाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "पेंसिल",
+        "ईमानदारी",
+        "मेज़",
+        "बगीचा"
+      ],
+      "explanation_hi": "ईमानदारी एक गुण है, इसलिए यह भाववाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0051",
@@ -1371,7 +1531,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? समूहवाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "गेंद",
+        "मैदान",
+        "खिलाड़ी",
+        "टीम"
+      ],
+      "explanation_hi": "टीम व्यक्तियों के समूह को दर्शाती है, इसलिए यह समूहवाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0052",
@@ -1393,7 +1561,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? जातिवाचक संज्ञा चुनिए।",
+      "options_hi": [
+        "रिया",
+        "सोमवार",
+        "अध्यापक",
+        "भारत"
+      ],
+      "explanation_hi": "अध्यापक किसी एक विशेष व्यक्ति का नहीं, बल्कि पूरी जाति या वर्ग का सामान्य नाम है।"
     },
     {
       "question_id": "ENG_0053",
@@ -1415,7 +1591,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? द्रव्यवाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "सोना",
+        "सेना",
+        "भीड़",
+        "सुंदरता"
+      ],
+      "explanation_hi": "सोना एक पदार्थ है, इसलिए यह द्रव्यवाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0054",
@@ -1437,7 +1621,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "कौन-सा विकल्प सही है? संज्ञा पहचानिए: पिल्ला सो रहा है।",
+      "options_hi": [
+        "the (निश्चित उपपद)",
+        "है",
+        "सो रहा है",
+        "पिल्ला"
+      ],
+      "explanation_hi": "'पिल्ला' एक जानवर का नाम बताता है, इसलिए यह संज्ञा है।"
     },
     {
       "question_id": "ENG_0055",
@@ -1459,7 +1651,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "अभ्यास प्रश्न: कौन-सा शब्द व्यक्तिवाचक संज्ञा है?",
+      "options_hi": [
+        "देश",
+        "भारत",
+        "शहर",
+        "नदी"
+      ],
+      "explanation_hi": "व्यक्तिवाचक संज्ञा किसी विशेष व्यक्ति, स्थान या वस्तु का नाम बताती है। भारत एक विशेष देश का नाम है।"
     },
     {
       "question_id": "ENG_0056",
@@ -1481,7 +1681,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "अभ्यास प्रश्न: भाववाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "पेंसिल",
+        "ईमानदारी",
+        "मेज़",
+        "बगीचा"
+      ],
+      "explanation_hi": "ईमानदारी एक गुण है, इसलिए यह भाववाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0057",
@@ -1503,7 +1711,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "अभ्यास प्रश्न: समूहवाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "गेंद",
+        "मैदान",
+        "खिलाड़ी",
+        "टीम"
+      ],
+      "explanation_hi": "टीम व्यक्तियों के समूह को दर्शाती है, इसलिए यह समूहवाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0058",
@@ -1525,7 +1741,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "अभ्यास प्रश्न: जातिवाचक संज्ञा चुनिए।",
+      "options_hi": [
+        "रिया",
+        "सोमवार",
+        "अध्यापक",
+        "भारत"
+      ],
+      "explanation_hi": "अध्यापक किसी एक विशेष व्यक्ति का नहीं, बल्कि पूरी जाति या वर्ग का सामान्य नाम है।"
     },
     {
       "question_id": "ENG_0059",
@@ -1547,7 +1771,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "अभ्यास प्रश्न: द्रव्यवाचक संज्ञा कौन-सी है?",
+      "options_hi": [
+        "सोना",
+        "सेना",
+        "भीड़",
+        "सुंदरता"
+      ],
+      "explanation_hi": "सोना एक पदार्थ है, इसलिए यह द्रव्यवाचक संज्ञा है।"
     },
     {
       "question_id": "ENG_0060",
@@ -1569,7 +1801,15 @@
       "source_url": "https://vishwendrasir.github.io/Home-page/Science_Centre_Complete_English_Grammar_30_Parts_900Q_Language_Option-3.html",
       "verification_status": "imported_deduplicated_not_official_pyq",
       "difficulty": "not_assessed",
-      "last_updated": "2026-11-17"
+      "last_updated": "2026-11-17",
+      "question_hi": "अभ्यास प्रश्न: संज्ञा पहचानिए: पिल्ला सो रहा है।",
+      "options_hi": [
+        "the (निश्चित उपपद)",
+        "है",
+        "सो रहा है",
+        "पिल्ला"
+      ],
+      "explanation_hi": "'पिल्ला' एक जानवर का नाम बताता है, इसलिए यह संज्ञा है।"
     },
     {
       "question_id": "ENG_0061",
