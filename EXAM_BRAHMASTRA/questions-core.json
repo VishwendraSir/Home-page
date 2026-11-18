@@ -177,10 +177,10 @@
       ],
       "explanation_en": "Replace each letter with the next letter: D→E, O→P, G→H.",
       "options_hi": [
-        "EPH",
-        "EOG",
-        "FPH",
-        "DPH"
+        "ईपीएच",
+        "ईओजी",
+        "एफपीएच",
+        "डीपीएच"
       ]
     },
     {
@@ -357,10 +357,10 @@
       ],
       "explanation_en": "A water molecule contains two hydrogen atoms and one oxygen atom.",
       "options_hi": [
-        "CO₂",
-        "O₂",
-        "H₂O",
-        "NaCl"
+        "कार्बन डाइऑक्साइड (CO₂)",
+        "ऑक्सीजन (O₂)",
+        "पानी (H₂O)",
+        "सोडियम क्लोराइड (NaCl)"
       ]
     },
     {
@@ -507,10 +507,10 @@
       ],
       "explanation_en": "Child का plural form children है।",
       "options_hi": [
-        "बच्चे",
-        "चाइल्ड्स",
-        "बालक",
-        "बच्चेगण"
+        "Childs (गलत रूप)",
+        "Childes (गलत रूप)",
+        "Children (सही रूप)",
+        "Childrens (गलत रूप)"
       ]
     },
     {
@@ -597,10 +597,10 @@
       ],
       "explanation_en": "सही spelling Environment है।",
       "options_hi": [
-        "एनवायरमेंट (गलत)",
-        "एनवायरनमेंट",
-        "एनविर्नमेंट (गलत)",
-        "एनवायरनमेंट (गलत)"
+        "Enviroment (गलत वर्तनी)",
+        "Environment (सही वर्तनी)",
+        "Envirnment (गलत वर्तनी)",
+        "Environmant (गलत वर्तनी)"
       ]
     },
     {
@@ -627,10 +627,10 @@
       ],
       "explanation_en": "CPU stands for Central Processing Unit.",
       "options_hi": [
-        "Central Processing Unit",
-        "Computer Personal Unit",
-        "Central Program Utility",
-        "Control Processing User"
+        "केंद्रीय प्रसंस्करण इकाई",
+        "कंप्यूटर व्यक्तिगत इकाई",
+        "केंद्रीय प्रोग्राम उपयोगिता",
+        "नियंत्रण प्रसंस्करण उपयोगकर्ता"
       ]
     },
     {
@@ -657,10 +657,10 @@
       ],
       "explanation_en": "RAM is temporary (volatile) memory.",
       "options_hi": [
-        "ROM",
-        "RAM",
-        "DVD",
-        "Hard Disk"
+        "रीड ओनली मेमोरी (ROM)",
+        "रैंडम एक्सेस मेमोरी (RAM)",
+        "डीवीडी",
+        "हार्ड डिस्क"
       ]
     },
     {
