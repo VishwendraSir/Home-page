@@ -411,7 +411,7 @@ function startFirebaseListeners(){
   },e=>fbMessage("Orders sync issue: "+e.message)));
  }
 }
-async async function firebaseCreateOrder(order){
+async function firebaseCreateOrder(order){
  if(!fbReady||!fbAuth?.currentUser)throw new Error("पहले Customer Connect करें।");
  if(order.userId!==fbAuth.currentUser.uid)throw new Error("Order owner mismatch");
  const {doc,setDoc}=fbModules;
@@ -430,13 +430,24 @@ async function approveCloudOrder(orderId){
   if(!Array.isArray(o.items)||!o.items.length||!Number.isSafeInteger(o.totalPaise)||o.totalPaise<0)throw new Error("Invalid order schema");
   const qty={};for(const it of o.items){if(!it||typeof it.productId!=="string"||!Number.isSafeInteger(it.quantity)||it.quantity<=0)throw new Error("Invalid item");qty[it.productId]=(qty[it.productId]||0)+it.quantity;}
   const productRows={};for(const [pid,q] of Object.entries(qty)){const ref=m.doc(fbDb,"products",pid),snap=await t.get(ref);if(!snap.exists())throw new Error("Missing product "+pid);const p=snap.data();const price=p.pricePaise??Math.round(Number(p.price)*100);if(p.active!==true||!Number.isSafeInteger(p.stock)||p.stock<q||!Number.isSafeInteger(price)||price<=0)throw new Error("Product/stock validation failed: "+pid);productRows[pid]={ref,stock:p.stock,price};}
-  let couponRef=null,coupon=null;if(o.couponCode){couponRef=m.doc(fbDb,"coupons",o.couponCode);const cs=await t.get(couponRef);if(!cs.exists())throw new Error("Private coupon not found");coupon=cs.data();}
+  let couponSettings=null;
+  if(o.couponCode){
+   const settingsSnap=await t.get(m.doc(fbDb,"settings","main"));
+   if(!settingsSnap.exists())throw new Error("Shop settings missing");
+   couponSettings=settingsSnap.data();
+   if(String(couponSettings.couponCode||"").trim().toUpperCase()!==String(o.couponCode).trim().toUpperCase())throw new Error("Coupon is no longer active");
+  }
   let subtotal=0;for(const [pid,q] of Object.entries(qty)){const line=productRows[pid].price*q;if(!Number.isSafeInteger(line))throw new Error("Price overflow");subtotal+=line;if(!Number.isSafeInteger(subtotal))throw new Error("Subtotal overflow");}
-  let discount=0;if(coupon){if(coupon.active!==true||!Number.isSafeInteger(coupon.usedCount)||!Number.isSafeInteger(coupon.usageLimit)||coupon.usedCount<0||coupon.usageLimit<=coupon.usedCount)throw new Error("Coupon inactive or exhausted");if(!coupon.expiryDate?.toDate||coupon.expiryDate.toDate()<=new Date())throw new Error("Coupon expired/invalid");const min=coupon.minOrderValuePaise??0;if(!Number.isSafeInteger(min)||min<0||subtotal<min)throw new Error("Coupon minimum spend not met");if(coupon.type==="PERCENTAGE"){const pct=coupon.discountPercentage;if(typeof pct!=="number"||!Number.isFinite(pct)||pct<=0||pct>100)throw new Error("Invalid percentage");discount=Math.round(subtotal*pct/100);const cap=coupon.maxDiscountPaise??0;if(!Number.isSafeInteger(cap)||cap<0)throw new Error("Invalid coupon cap");if(cap>0)discount=Math.min(discount,cap);}else if(coupon.type==="FIXED"){discount=coupon.discountPaise;if(!Number.isSafeInteger(discount)||discount<0)throw new Error("Invalid fixed discount");}else throw new Error("Unknown coupon type");discount=Math.min(discount,subtotal);}
+  let discount=0;
+  if(o.couponCode){
+   const pct=Number(couponSettings?.couponPercent);
+   if(!Number.isFinite(pct)||pct<=0||pct>50)throw new Error("Invalid shop coupon percentage");
+   discount=Math.min(Math.round(subtotal*pct/100),subtotal);
+  }
   const delivery=o.deliveryFeePaise??0;if(!Number.isSafeInteger(delivery)||delivery<0)throw new Error("Invalid delivery fee");const verified=subtotal+delivery-discount;if(!Number.isSafeInteger(verified)||verified!==o.totalPaise)throw new Error("Order total mismatch; expected "+verified+" paise");
   // All transaction reads are complete. Writes begin here.
   for(const [pid,q] of Object.entries(qty))t.update(productRows[pid].ref,{stock:productRows[pid].stock-q});
-  if(couponRef)t.update(couponRef,{usedCount:coupon.usedCount+1});
+  
   t.update(orderRef,{status:"Accepted",verifiedSubtotalPaise:subtotal,verifiedDiscountPaise:discount,verifiedTotalPaise:verified,approvedAt:m.serverTimestamp(),approvedBy:fbAuth.currentUser.uid});
   return {totalPaise:verified};
  });
@@ -445,7 +456,7 @@ async function rejectCloudOrder(orderId,reason="Rejected by Admin"){
  if(!fbReady||!fbAdmin||fbAuth.currentUser?.uid!==AB_ADMIN_UID)throw new Error("Verified Admin login required");
  const m=fbModules;await m.runTransaction(fbDb,async t=>{const ref=m.doc(fbDb,"orders",orderId),snap=await t.get(ref);if(!snap.exists()||snap.data().status!=="Pending")throw new Error("Order missing or not Pending");t.update(ref,{status:"Rejected",rejectionReason:String(reason).slice(0,200),rejectedAt:m.serverTimestamp(),rejectedBy:fbAuth.currentUser.uid});});
 }
-async function adminApproveOrder(id){try{await approveCloudOrder(id);alert("Order Accepted. Stock and coupon updated atomically.");}catch(e){alert("Approval failed: "+e.message);} }
+async function adminApproveOrder(id){try{await approveCloudOrder(id);alert("Order Accepted. Stock and total verified atomically.");}catch(e){alert("Approval failed: "+e.message);} }
 async function adminRejectOrder(id){const reason=prompt("Reject करने का कारण:","Stock unavailable");if(reason===null)return;try{await rejectCloudOrder(id,reason);alert("Order Rejected.");}catch(e){alert("Reject failed: "+e.message);} }
 async function firebaseSaveAdminData(){
  if(!fbReady||!fbAdmin)throw new Error("Verified Admin Login आवश्यक है।");
