@@ -8,9 +8,13 @@ Audit branch: `apna-basket-v14-audit-fixes`
 1. Fixed a JavaScript parse blocker in `Apna_Basket.html`: `async async function firebaseCreateOrder` is now `async function firebaseCreateOrder`.
 2. Fixed cloud coupon approval to use the same live coupon settings saved by the app in `settings/main` (`couponCode` and `couponPercent`). The previous code required a separate `coupons/{code}` document that the V13 UI never created, so coupon orders could fail during admin approval.
 3. Updated the approval confirmation message to describe stock and total verification accurately.
+4. Removed a redundant Firestore `users/{uid}.role == admin` check from client-side Admin login. The Firestore Rules identify the owner by the fixed Admin UID, so client verification now matches the actual authorization boundary.
+5. Fixed status normalization so `Rejected` remains `Rejected` in the Admin and Delivery UI instead of being incorrectly displayed as `Cancelled`.
 
 ## Static checks performed
 - Confirmed the duplicate `async` syntax token is absent.
+- Confirmed Admin verification uses the owner UID and no longer requires a redundant role document.
+- Confirmed `Rejected` status is no longer remapped to `Cancelled`.
 - Checked inline event-handler function references against declared functions: no unresolved handler calls found.
 - Checked `getElementById()` references against HTML IDs: no missing IDs found.
 - Confirmed the HTML source contains the expected script boundary (the second script token is in the receipt-print template).
