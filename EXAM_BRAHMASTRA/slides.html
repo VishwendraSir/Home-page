@@ -161,10 +161,9 @@ function render(){
  const lang=$("language").value;
  // Language-safe fallback: older/imported records may store English text in question_hi
  // or provide only one language. Never hide the only available question.
- const isEnglishSubject=String(q.subject||"").trim().toLowerCase()==="english";
  const hiText=clean(q.hi), enText=clean(q.en);
- const showHi=lang==="en"?(isEnglishSubject&&!enText?hiText:""):hiText|| (lang==="hi"?enText:"");
- const showEn=lang==="hi"?"":(enText|| (lang==="en"?hiText:""));
+ const showHi=lang==="en"?"":(hiText|| (lang==="hi"?enText:""));
+ const showEn=lang==="hi"?"":(enText|| (lang==="en"&&!enText?hiText:""));
  $("qhi").textContent=showHi;
  $("qen").textContent=showEn;
  $("qhi").classList.toggle("hidden",!showHi);
