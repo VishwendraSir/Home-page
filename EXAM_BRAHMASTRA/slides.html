@@ -194,12 +194,20 @@ $("prev").onclick=()=>{if(index>0){index--;render();}};$("next").onclick=()=>{if
 $("reveal").onclick=reveal;
 $("fullscreen").onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.();};
 document.addEventListener("keydown",e=>{if(e.key==="ArrowRight")$("next").click();if(e.key==="ArrowLeft")$("prev").click();if(e.key===" "){e.preventDefault();reveal();}});
-async function init(){try{
- const loaded=await Promise.all(SOURCES.map(async ([file,kind])=>{const r=await fetch("./"+file,{cache:"no-cache"});if(!r.ok)throw Error(file+" HTTP "+r.status);const d=await r.json();return (d.records||[]).map((x,i)=>{const q=normalize(x,kind,i+1);q.pack=file;return q;});}));
- all=loaded.flat();
+async function init(){
+ const settled=await Promise.all(SOURCES.map(async ([file,kind])=>{
+  try{const r=await fetch("./"+file,{cache:"no-cache"});if(!r.ok)throw Error("HTTP "+r.status);const d=await r.json();const rows=Array.isArray(d)?d:(d.records||d.questions||d.data||d.items||[]);if(!Array.isArray(rows))throw Error("question array missing");return {file,kind,rows:rows.map((x,i)=>{const q=normalize(x,kind,i+1);q.pack=file;return q;})};}
+  catch(error){return {file,kind,error:error.message,rows:[]};}
+ }));
+ const loaded=settled.filter(x=>!x.error);
+ const missing=settled.filter(x=>x.error);
+ all=loaded.flatMap(x=>x.rows);
  auditData();
  fillSelect($("subject"),[...new Set(all.map(q=>q.subject))].sort((a,b)=>a.localeCompare(b)),"सभी विषय");
- refreshTopics();applyFilters();$("loading").textContent="";
- }catch(e){$("loading").textContent="डेटा लोड नहीं हो पाया: "+e.message+" · इंटरनेट कनेक्शन जाँचें और फिर Reload करें।";}}
+ refreshTopics();applyFilters();
+ if(missing.length){$("loading").textContent="";$("auditBox").classList.add("show");$("auditBox").innerHTML+="<p><b>स्रोत उपलब्धता:</b><br>"+missing.map(x=>esc(x.file)+" — "+esc(x.error)).join("<br>")+"</p><p>अनुपलब्ध वैकल्पिक पैक के कारण उपलब्ध प्रश्न बैंक बंद नहीं होगा।</p>";}
+ if(!all.length){$("loading").textContent="कोई प्रश्न बैंक उपलब्ध नहीं मिला। इंटरनेट कनेक्शन और JSON फाइल paths जाँचें।";}
+ }catch(e){$("loading").textContent="प्रश्न बैंक प्रारंभ नहीं हो पाया: "+e.message;}}
+
 init();
 </script></body></html>
