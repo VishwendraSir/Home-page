@@ -39,7 +39,7 @@ main{flex:1;min-height:0;display:flex;flex-direction:column;padding:9px 10px;gap
 <select id="class"><option value="">सभी कक्षाएँ</option><option>Class 1</option><option>Class 2</option><option>Class 3</option><option>Class 4</option><option>Class 5</option><option>Class 6</option><option>Class 7</option><option>Class 8</option><option>Class 9</option><option>Class 10</option><option>Competitive</option></select>
 <select id="language"><option value="both">हिंदी + English</option><option value="hi">केवल हिंदी</option><option value="en">English only</option></select>
 </section>
-<main><div class="meta"><span id="position">लोड हो रहा है…</span><span id="count">—</span><button class="auditbtn" id="auditToggle" type="button">DATA AUDIT</button></div><div class="auditbox" id="auditBox" aria-live="polite">ऑडिट तैयार हो रहा है…</div><div class="progress"><div class="bar" id="bar"></div></div>
+<main><div class="meta"><span id="position">लोड हो रहा है…</span><span id="count">—</span><button class="auditbtn" id="auditToggle" type="button">DATA AUDIT</button><button class="auditbtn" id="cdpAudit" type="button">CDP BANK AUDIT</button></div><div class="auditbox" id="auditBox" aria-live="polite">ऑडिट तैयार हो रहा है…</div><div class="auditbox" id="cdpAuditBox" aria-live="polite">CDP audit अभी नहीं चला है।</div><div class="progress"><div class="bar" id="bar"></div></div>
 <section class="slide" id="slide"><div class="loading" id="loading">प्रश्न बैंक लोड हो रहा है…</div><div id="content" class="hidden"><div class="tags" id="tags"></div><div class="qnum" id="qnum"></div><div class="question" id="qhi"></div><div class="question en" id="qen"></div><div class="options" id="options"></div><div class="answer" id="answer"></div></div></section>
 <div class="controls"><button class="btn" id="prev">← पिछला</button><button class="btn primary" id="reveal">उत्तर देखें</button><button class="btn" id="next">अगला →</button></div></main>
 <div class="footer">SCIENCE CENTRE LEARNING HUB · GitHub-hosted question bank · Internet required to load questions</div>
@@ -118,6 +118,24 @@ function auditData(){
  $("auditBox").innerHTML='<div class="auditgrid"><div><b>'+all.length+'</b> कुल रिकॉर्ड लोड हुए</div><div><b>'+packs.length+'</b> डेटा पैक</div><div><b>'+duplicateIds+'</b> दोहराई गई IDs</div><div><b>'+duplicateText+'</b> समान प्रश्न-पाठ (extra rows)</div><div><b>'+missingQ+'</b> प्रश्न-पाठ खाली</div><div><b>'+invalidKey+'</b> संभावित अमान्य answer keys</div><div><b>'+missingExplain+'</b> explanation खाली</div><div><b>'+withOptions+'</b> विकल्प वाले रिकॉर्ड</div></div><p>समान प्रश्न-पाठ और class/exam mapping को स्वतः delete नहीं किया गया है। यह तकनीकी जाँच है, उत्तरों की विषय-विशेषज्ञ पुष्टि नहीं।</p><b>विषयवार रिकॉर्ड:</b><br>'+subjectHtml+'<p><b>टॉपिकवार शीर्ष 30:</b><br>'+topicHtml+'</p><b>डेटा पैक:</b><br>'+packs.map(p=>{const n=all.filter(q=>q.pack===p).length;return esc(p)+': '+n;}).join('<br>');
 }
 $("auditToggle").addEventListener("click",()=>{$("auditBox").classList.toggle("show");});
+async function runCdpAudit(){
+ const box=$("cdpAuditBox");box.classList.add("show");box.textContent="तीनों CDP/Psychology डेटा पैक जाँचे जा रहे हैं…";
+ const files=["pedagogy-psychology-1000-bilingual.json","child-development-pedagogy-1000.json","questions-cdp-psychology-1000.json"];
+ const norm=s=>String(s||"").normalize("NFKC").toLowerCase().replace(/<[^>]*>/g,"").replace(/[\\s\\p{P}]+/gu," ").trim();
+ const getQ=x=>{const q=x.question&&typeof x.question==="object"?x.question:{};return x.question_hi||q.hi||x.question_en||q.en||(typeof x.question==="string"?x.question:"")||x.question_text||x.text||"";};
+ const getTopic=x=>x.topic||x.topic_hi||x.topic_en||x.topic_id||x.chapter||x.unit||x.category||"टॉपिक निर्दिष्ट नहीं";
+ try{
+  const banks=await Promise.all(files.map(async file=>{const r=await fetch("./"+file,{cache:"no-cache"});if(!r.ok)throw Error(file+" HTTP "+r.status);const d=await r.json();const arr=Array.isArray(d)?d:(d.records||d.questions||d.data||d.items||[]);if(!Array.isArray(arr))throw Error(file+" में प्रश्न array नहीं मिला");return {file,rows:arr};}));
+  const seen=new Map(),topicCounts=new Map();let total=0,blank=0;
+  for(const bank of banks)for(const x of bank.rows){total++;const key=norm(getQ(x));if(!key){blank++;continue;}if(!seen.has(key))seen.set(key,new Set());seen.get(key).add(bank.file);const topic=getTopic(x);topicCounts.set(topic,(topicCounts.get(topic)||0)+1);}
+  const duplicateGroups=[...seen.values()].filter(s=>s.size>1).length;
+  const overlapRows=[...seen.values()].filter(s=>s.size>1).reduce((n,s)=>n+s.size,0);
+  const perFile=banks.map(b=>"<b>"+esc(b.file)+"</b>: "+b.rows.length+" रिकॉर्ड").join("<br>");
+  const topics=[...topicCounts].sort((a,b)=>b[1]-a[1]).slice(0,25).map(([t,n])=>esc(t)+": "+n).join("<br>");
+  box.innerHTML="<div class=\"auditgrid\"><div><b>"+total+"</b> कुल रिकॉर्ड</div><div><b>"+seen.size+"</b> अलग प्रश्न-पाठ</div><div><b>"+duplicateGroups+"</b> cross-file समान प्रश्न समूह</div><div><b>"+overlapRows+"</b> overlap में शामिल रिकॉर्ड</div><div><b>"+blank+"</b> खाली प्रश्न-पाठ</div></div><p><b>प्रति फाइल:</b><br>"+perFile+"</p><p><b>टॉपिक के अनुसार रिकॉर्ड (शीर्ष 25):</b><br>"+(topics||"टॉपिक डेटा उपलब्ध नहीं")+"</p><p>यह browser-side text comparison है। यह समान प्रश्नों को हटाता नहीं है और न ही answer-key की शुद्धता प्रमाणित करता है। प्रश्न-पाठ के अलग अनुवाद/रूपांतर अलग गिने जा सकते हैं।</p>";
+ }catch(e){box.textContent="CDP audit पूरा नहीं हुआ: "+e.message;}
+}
+$("cdpAudit").addEventListener("click",runCdpAudit);
 function render(){
  const q=filtered[index];shown=false;$("answer").classList.remove("show");$("reveal").textContent="उत्तर देखें";
  if(!q){$("content").classList.add("hidden");$("loading").classList.remove("hidden");$("loading").textContent="इस चयन में प्रश्न उपलब्ध नहीं हैं।";$("position").textContent="0 प्रश्न";$("count").textContent="0";$("prev").disabled=true;$("next").disabled=true;$("bar").style.width="0%";return;}
