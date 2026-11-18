@@ -54,15 +54,17 @@ let all=[],filtered=[],index=0,shown=false;
 const $=id=>document.getElementById(id);
 const clean=s=>String(s??"").replace(/<[^>]*>/g,"").trim();
 function normalize(x,kind,n){
+ const qo=x.question&&typeof x.question==="object"?x.question:{};
  let subject=kind==="pedagogy"?"बाल विकास एवं शिक्षाशास्त्र":(x.subject||x.subject_id||x.category_hi||x.category||"अन्य");
  let topic=x.topic||x.topic_hi||x.topic_id||x.chapter_hi||x.chapter_en||x.chapter_id||x.category_hi||x.category||"अन्य";
- let hi=x.question_hi||x.question||x.word||"",en=x.question_en||"";
- let opts=x.options||x.options_hi||x.options_en||[]; if(kind==="pedagogy"&&x.options_hi)opts=x.options_hi.map((v,i)=>[v,x.options_en?.[i]].filter(Boolean).join(" / "));
- let answer=x.correct_index??x.answer_index??null;
+ let hi=x.question_hi||qo.hi||(typeof x.question==="string"?x.question:"")||x.word||"";
+ let en=x.question_en||qo.en||"";
+ let opts=x.options||x.options_hi||x.options_en||[];
+ if(kind==="pedagogy"&&x.options_hi)opts=x.options_hi.map((v,i)=>({hi:v,en:x.options_en?.[i]||""}));
+ let answer=x.correct_index??x.answer_index??(Number.isInteger(x.answer)?x.answer:null);
  let cls=[],aud=[];
  if(kind==="core"){cls=[];aud=["Competitive","Existing Brahmastra Core"];}
- if(kind==="pedagogy"){cls=["Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["Competitive","CTET","UPTET","REET","KVS","NVS","DSSSB"];}
- if(kind==="psychology"){cls=[];aud=["Competitive","Teaching Exams"];}
+ if(kind==="pedagogy"){cls=["Class 6","Class 7","Class 8","Class 9","Class 10"];aud=["Competitive","Teaching Exams","CTET","UPTET","REET","KVS","NVS","DSSSB"];}
  if(kind==="psychology"){cls=[];aud=["Competitive","Teaching Exams","CTET","UPTET","REET","KVS","NVS","DSSSB"];}
  if(kind==="imports"){
   const src=x.source_file||x.source||"";
@@ -76,11 +78,17 @@ function normalize(x,kind,n){
  if(kind==="chemistry")subject="रसायन विज्ञान";
  if(kind==="english"||String(subject).toLowerCase()==="english")subject="English";
  if(kind==="hindi")subject="हिंदी";
- return {id:x.question_id||kind+"_"+n,subject,topic,hi,en,opts,answer,directAnswer:x.answer_hi||x.answer_en||"",
-  explanation:[x.explanation_hi,x.explanation_en].filter(Boolean).join("\n"),
+ const ex=x.explanation&&typeof x.explanation==="object"?x.explanation:{};
+ return {id:x.question_id||x.id||kind+"_"+n,subject,topic,hi,en,opts,answer,
+  directAnswer:x.answer_hi||x.answer_en||"",
+  explanation:[x.explanation_hi||ex.hi,x.explanation_en||ex.en].filter(Boolean).join("\n"),
   source:x.source_file||x.source||kind,classes:cls,audience:aud,raw:x};
 }
-function optionsList(q){if(!Array.isArray(q.opts))return [];return q.opts.map(o=>typeof o==="string"?o:(o.hi||o.en||o.text||JSON.stringify(o)));}
+function optionsList(q){
+ if(!Array.isArray(q.opts))return [];
+ const lang=$("language").value;
+ return q.opts.map(o=>typeof o==="string"?o:lang==="hi"?(o.hi||o.en||o.text||""):lang==="en"?(o.en||o.hi||o.text||""):[o.hi,o.en].filter(Boolean).join(" / "));
+}
 function fillSelect(el,vals,first){const old=el.value;el.innerHTML='<option value="">'+first+'</option>'+vals.map(v=>'<option></option>').join("");[...el.options].slice(1).forEach((o,i)=>o.textContent=vals[i]);if(vals.includes(old))el.value=old;}
 function refreshTopics(){const s=$("subject").value;const vals=[...new Set(all.filter(q=>!s||q.subject===s).map(q=>q.topic))].sort((a,b)=>a.localeCompare(b));fillSelect($("topic"),vals,"सभी टॉपिक");}
 function applyFilters(){const s=$("subject").value,t=$("topic").value,c=$("class").value;filtered=all.filter(q=>(!s||q.subject===s)&&(!t||q.topic===t)&&(!c||(c==="Competitive"?q.audience.includes("Competitive"):q.classes.includes(c))));index=0;render();}
