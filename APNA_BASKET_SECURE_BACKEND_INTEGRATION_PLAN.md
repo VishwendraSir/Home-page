@@ -99,3 +99,12 @@ Do not deploy the new Firestore Rules or Functions against production until the 
 - Added emulator integration tests for blocked unverified UPI approval and tampered aggregate totals; both assert stock remains unchanged and order remains Pending.
 - Backend commits: `357a901` (approval validation), `238d380` (integration tests).
 - These tests have been added but not executed/CI-verified in this environment. Production Rules/Functions deployment and PR merge remain blocked.
+
+
+## Payment-state approval audit — 19 Nov 2026
+- Approval now validates the payment method against the two supported values only: `UPI` and `Cash on Delivery`.
+- COD approval requires the server-created state `paymentStatus: "PendingCollection"` and `paymentVerified: false`; malformed or legacy inconsistent COD states are rejected.
+- UPI remains blocked unless the order carries trusted verified state; unsupported/unknown payment methods are rejected.
+- Added emulator tests for unknown payment methods and inconsistent COD payment state; both assert stock is unchanged.
+- Backend commits: `b87b1b5` (validation), `8f03e71` (tests).
+- Tests/CI have not yet been executed or verified; no production deployment or PR merge.
