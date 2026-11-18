@@ -121,18 +121,32 @@ $("auditToggle").addEventListener("click",()=>{$("auditBox").classList.toggle("s
 async function runCdpAudit(){
  const box=$("cdpAuditBox");box.classList.add("show");box.textContent="तीनों CDP/Psychology डेटा पैक जाँचे जा रहे हैं…";
  const files=["pedagogy-psychology-1000-bilingual.json","child-development-pedagogy-1000.json","questions-cdp-psychology-1000.json"];
- const norm=s=>String(s||"").normalize("NFKC").toLowerCase().replace(/<[^>]*>/g,"").replace(/[\\s\\p{P}]+/gu," ").trim();
+ const norm=s=>String(s||"").normalize("NFKC").toLowerCase().replace(/<[^>]*>/g,"").replace(/[\s\p{P}]+/gu," ").trim();
  const getQ=x=>{const q=x.question&&typeof x.question==="object"?x.question:{};return x.question_hi||q.hi||x.question_en||q.en||(typeof x.question==="string"?x.question:"")||x.question_text||x.text||"";};
  const getTopic=x=>x.topic||x.topic_hi||x.topic_en||x.topic_id||x.chapter||x.unit||x.category||"टॉपिक निर्दिष्ट नहीं";
+ const getOpts=x=>x.options||x.options_hi||x.options_en||[];
+ const getAnswer=x=>x.correct_index??x.answer_index??x.correctAnswer??x.answer;
  try{
   const banks=await Promise.all(files.map(async file=>{const r=await fetch("./"+file,{cache:"no-cache"});if(!r.ok)throw Error(file+" HTTP "+r.status);const d=await r.json();const arr=Array.isArray(d)?d:(d.records||d.questions||d.data||d.items||[]);if(!Array.isArray(arr))throw Error(file+" में प्रश्न array नहीं मिला");return {file,rows:arr};}));
-  const seen=new Map(),topicCounts=new Map();let total=0,blank=0;
-  for(const bank of banks)for(const x of bank.rows){total++;const key=norm(getQ(x));if(!key){blank++;continue;}if(!seen.has(key))seen.set(key,new Set());seen.get(key).add(bank.file);const topic=getTopic(x);topicCounts.set(topic,(topicCounts.get(topic)||0)+1);}
+  const seen=new Map(),topicCounts=new Map();let total=0,blank=0,withOptions=0,withoutOptions=0,withAnswer=0,withoutAnswer=0,hiOnly=0,enOnly=0,bilingual=0;
+  const perBank=[];
+  for(const bank of banks){
+   let opt=0,noOpt=0,ans=0,noAns=0,empty=0;
+   for(const x of bank.rows){
+    total++;const q=x.question&&typeof x.question==="object"?x.question:{};
+    const hi=x.question_hi||q.hi||(typeof x.question==="string"?x.question:"")||"";
+    const en=x.question_en||q.en||"";
+    if(hi&&en)bilingual++;else if(hi)hiOnly++;else if(en)enOnly++;
+    const key=norm(getQ(x));if(!key){blank++;empty++;}else{if(!seen.has(key))seen.set(key,new Set());seen.get(key).add(bank.file);const topic=getTopic(x);topicCounts.set(topic,(topicCounts.get(topic)||0)+1);}
+    const options=getOpts(x);if(Array.isArray(options)&&options.length>=2){withOptions++;opt++;}else{withoutOptions++;noOpt++;}
+    const answer=getAnswer(x);if(answer!==undefined&&answer!==null&&answer!==""){withAnswer++;ans++;}else{withoutAnswer++;noAns++;}
+   }
+   perBank.push("<b>"+esc(bank.file)+"</b>: "+bank.rows.length+" रिकॉर्ड · विकल्प "+opt+" · उत्तर-कुंजी "+ans+" · खाली प्रश्न "+empty);
+  }
   const duplicateGroups=[...seen.values()].filter(s=>s.size>1).length;
   const overlapRows=[...seen.values()].filter(s=>s.size>1).reduce((n,s)=>n+s.size,0);
-  const perFile=banks.map(b=>"<b>"+esc(b.file)+"</b>: "+b.rows.length+" रिकॉर्ड").join("<br>");
   const topics=[...topicCounts].sort((a,b)=>b[1]-a[1]).slice(0,25).map(([t,n])=>esc(t)+": "+n).join("<br>");
-  box.innerHTML="<div class=\"auditgrid\"><div><b>"+total+"</b> कुल रिकॉर्ड</div><div><b>"+seen.size+"</b> अलग प्रश्न-पाठ</div><div><b>"+duplicateGroups+"</b> cross-file समान प्रश्न समूह</div><div><b>"+overlapRows+"</b> overlap में शामिल रिकॉर्ड</div><div><b>"+blank+"</b> खाली प्रश्न-पाठ</div></div><p><b>प्रति फाइल:</b><br>"+perFile+"</p><p><b>टॉपिक के अनुसार रिकॉर्ड (शीर्ष 25):</b><br>"+(topics||"टॉपिक डेटा उपलब्ध नहीं")+"</p><p>यह browser-side text comparison है। यह समान प्रश्नों को हटाता नहीं है और न ही answer-key की शुद्धता प्रमाणित करता है। प्रश्न-पाठ के अलग अनुवाद/रूपांतर अलग गिने जा सकते हैं।</p>";
+  box.innerHTML="<div class=\"auditgrid\"><div><b>"+total+"</b> कुल रिकॉर्ड</div><div><b>"+seen.size+"</b> अलग प्रश्न-पाठ</div><div><b>"+duplicateGroups+"</b> cross-file समान समूह</div><div><b>"+overlapRows+"</b> overlap रिकॉर्ड</div><div><b>"+blank+"</b> खाली प्रश्न-पाठ</div><div><b>"+withOptions+"</b> विकल्प सहित</div><div><b>"+withoutOptions+"</b> विकल्प गायब/कम</div><div><b>"+withAnswer+"</b> उत्तर-कुंजी उपलब्ध</div><div><b>"+withoutAnswer+"</b> उत्तर-कुंजी गायब</div><div><b>"+bilingual+"</b> bilingual</div><div><b>"+hiOnly+"</b> केवल हिंदी</div><div><b>"+enOnly+"</b> केवल English</div></div><p><b>प्रति फाइल:</b><br>"+perBank.join("<br>")+"</p><p><b>टॉपिक के अनुसार रिकॉर्ड (शीर्ष 25):</b><br>"+(topics||"टॉपिक डेटा उपलब्ध नहीं")+"</p><p>यह तकनीकी जाँच है। समान प्रश्न हटाए नहीं जाते और answer-key की विषय-विशेषज्ञ पुष्टि नहीं होती। अलग अनुवाद/रूपांतर अलग गिने जा सकते हैं।</p>";
  }catch(e){box.textContent="CDP audit पूरा नहीं हुआ: "+e.message;}
 }
 $("cdpAudit").addEventListener("click",runCdpAudit);
