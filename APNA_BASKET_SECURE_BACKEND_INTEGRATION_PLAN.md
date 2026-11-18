@@ -143,3 +143,14 @@ Do not deploy the new Firestore Rules or Functions against production until the 
 - Python extracted the inline JavaScript blocks from `Apna_Basket.html`; Node.js `--check` passed for every extracted block.
 - Earlier failed runs were traced to duplicate `async async` declarations and corrected in commit `907337a`.
 - Scope: syntax only. This does not prove Firebase callable compatibility, browser runtime behavior, Owner authorization, checkout completion, payment verification, or production readiness.
+
+
+## Callable contract audit — 19 Nov 2026
+- Frontend callable names match backend exports: quoteCustomerOrder, createCustomerOrder, approveOrder, rejectOrder, setOrderStatus, setProductStock.
+- Region is configured as asia-south1.
+- Checkout payload keys match backend reads: name, phone, address, payment, note, pincode, items, idempotencyKey.
+- Payment option strings in UI match backend accepted values: UPI and Cash on Delivery.
+- Owner action payloads match backend: orderId; reject reason; status; productId and numeric stock.
+- Frontend reads callable result.data; create flow checks returned orderId, matching backend create response.
+- Security behavior: UPI approvals remain blocked unless paymentVerified=true and paymentStatus=Verified; no trusted verification integration exists yet. COD uses PendingCollection and remains eligible for normal Owner approval subject to server validation.
+- This was a source-level contract review only; no live Firebase/browser transaction was executed.
