@@ -1,1 +1,727 @@
-{"schema_version":"1.0.0","title":"Brahmastra embedded core questions","record_count":24,"records":[{"question_id":"BRAH_BASE_001","subject":"गणित","topic":"Unclassified","question_hi":"240 का 25% कितना है?","options":["40","50","60","80"],"correct_index":2,"explanation_hi":"25% = 1/4; 240 ÷ 4 = 60।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_002","subject":"गणित","topic":"Unclassified","question_hi":"यदि 3 : 5 = x : 20, तो x का मान क्या होगा?","options":["10","12","15","18"],"correct_index":1,"explanation_hi":"3/5 = x/20; x = 12।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_003","subject":"गणित","topic":"Unclassified","question_hi":"12, 18 और 24 का औसत कितना है?","options":["16","18","20","22"],"correct_index":1,"explanation_hi":"(12 + 18 + 24) ÷ 3 = 18।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_004","subject":"गणित","topic":"Unclassified","question_hi":"एक वस्तु ₹800 में खरीदी और ₹920 में बेची। लाभ प्रतिशत कितना है?","options":["10%","12%","15%","20%"],"correct_index":2,"explanation_hi":"लाभ = ₹120; लाभ प्रतिशत = 120/800 × 100 = 15%।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_005","subject":"रीजनिंग","topic":"Unclassified","question_hi":"श्रृंखला पूरी करें: 2, 6, 12, 20, 30, ?","options":["36","40","42","44"],"correct_index":2,"explanation_hi":"अंतर 4, 6, 8, 10 है; अगला अंतर 12 होगा। उत्तर 42।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_006","subject":"रीजनिंग","topic":"Unclassified","question_hi":"यदि CAT को DBU लिखा जाए, तो DOG को कैसे लिखेंगे?","options":["EPH","EOG","FPH","DPH"],"correct_index":0,"explanation_hi":"हर अक्षर के अगले अक्षर से बदलें: D→E, O→P, G→H।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_007","subject":"रीजनिंग","topic":"Unclassified","question_hi":"अलग शब्द चुनें।","options":["सेब","आम","गाजर","केला"],"correct_index":2,"explanation_hi":"गाजर सब्ज़ी है; अन्य फल हैं।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_008","subject":"रीजनिंग","topic":"Unclassified","question_hi":"एक व्यक्ति उत्तर की ओर 5 km चलता है, फिर दाएँ मुड़कर 3 km चलता है। अब वह किस दिशा में है?","options":["उत्तर","दक्षिण","पूर्व","पश्चिम"],"correct_index":2,"explanation_hi":"उत्तर की ओर मुख करके दाएँ मुड़ने पर दिशा पूर्व होती है।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_009","subject":"सामान्य विज्ञान","topic":"Unclassified","question_hi":"बल की SI इकाई क्या है?","options":["जूल","न्यूटन","वाट","पास्कल"],"correct_index":1,"explanation_hi":"बल की SI इकाई न्यूटन है।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_010","subject":"सामान्य विज्ञान","topic":"Unclassified","question_hi":"मानव शरीर में रक्त को छानने का मुख्य कार्य कौन करता है?","options":["हृदय","फेफड़े","गुर्दे","आमाशय"],"correct_index":2,"explanation_hi":"गुर्दे रक्त से अपशिष्ट पदार्थ छानकर मूत्र बनाते हैं।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_011","subject":"सामान्य विज्ञान","topic":"Unclassified","question_hi":"पौधे प्रकाश संश्लेषण में मुख्यतः कौन-सी गैस लेते हैं?","options":["ऑक्सीजन","कार्बन डाइऑक्साइड","नाइट्रोजन","हाइड्रोजन"],"correct_index":1,"explanation_hi":"प्रकाश संश्लेषण में पौधे कार्बन डाइऑक्साइड लेते हैं।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_012","subject":"सामान्य विज्ञान","topic":"Unclassified","question_hi":"पानी का रासायनिक सूत्र क्या है?","options":["CO₂","O₂","H₂O","NaCl"],"correct_index":2,"explanation_hi":"पानी के एक अणु में दो हाइड्रोजन और एक ऑक्सीजन परमाणु होता है।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_013","subject":"सामान्य ज्ञान एवं संविधान","topic":"Unclassified","question_hi":"भारतीय संविधान कब लागू हुआ?","options":["15 अगस्त 1947","26 जनवरी 1950","26 नवंबर 1949","2 अक्टूबर 1950"],"correct_index":1,"explanation_hi":"भारतीय संविधान 26 जनवरी 1950 को लागू हुआ।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_014","subject":"सामान्य ज्ञान एवं संविधान","topic":"Unclassified","question_hi":"भारत का राष्ट्रीय पशु कौन है?","options":["एशियाई सिंह","बाघ","हाथी","तेंदुआ"],"correct_index":1,"explanation_hi":"भारत का राष्ट्रीय पशु बाघ है।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_015","subject":"सामान्य ज्ञान एवं संविधान","topic":"Unclassified","question_hi":"मौलिक अधिकार संविधान के किस भाग में हैं?","options":["भाग I","भाग II","भाग III","भाग IV"],"correct_index":2,"explanation_hi":"मौलिक अधिकार भारतीय संविधान के भाग III में हैं।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_016","subject":"सामान्य ज्ञान एवं संविधान","topic":"Unclassified","question_hi":"भारत की संसद के कितने सदन हैं?","options":["एक","दो","तीन","चार"],"correct_index":1,"explanation_hi":"संसद के दो सदन हैं—लोकसभा और राज्यसभा।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_017","subject":"English","topic":"Unclassified","question_hi":"Choose the correct plural of “Child”.","options":["Childs","Childes","Children","Childrens"],"correct_index":2,"explanation_hi":"The plural form of child is children.","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_018","subject":"English","topic":"Unclassified","question_hi":"Choose the synonym of “Rapid”.","options":["Slow","Fast","Weak","Late"],"correct_index":1,"explanation_hi":"Rapid means fast or quick.","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_019","subject":"English","topic":"Unclassified","question_hi":"Fill in the blank: She ___ to school every day.","options":["go","going","goes","gone"],"correct_index":2,"explanation_hi":"With “she” in the simple present tense, use “goes”.","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_020","subject":"English","topic":"Unclassified","question_hi":"Choose the correctly spelled word.","options":["Enviroment","Environment","Envirnment","Environmant"],"correct_index":1,"explanation_hi":"The correct spelling is Environment.","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_021","subject":"कंप्यूटर","topic":"Unclassified","question_hi":"CPU का पूरा नाम क्या है?","options":["Central Processing Unit","Computer Personal Unit","Central Program Utility","Control Processing User"],"correct_index":0,"explanation_hi":"CPU का पूरा नाम Central Processing Unit है।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_022","subject":"कंप्यूटर","topic":"Unclassified","question_hi":"कंप्यूटर में अस्थायी मेमोरी कौन-सी है?","options":["ROM","RAM","DVD","Hard Disk"],"correct_index":1,"explanation_hi":"RAM अस्थायी/volatile memory है।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_023","subject":"बाल विकास एवं शिक्षाशास्त्र","topic":"Unclassified","question_hi":"बाल-केंद्रित शिक्षा में मुख्य केंद्र कौन होता है?","options":["पाठ्यपुस्तक","शिक्षक","विद्यार्थी","परीक्षा"],"correct_index":2,"explanation_hi":"बाल-केंद्रित शिक्षा में विद्यार्थी की आवश्यकताएँ और सक्रिय भागीदारी केंद्र में होती हैं।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"},{"question_id":"BRAH_BASE_024","subject":"बाल विकास एवं शिक्षाशास्त्र","topic":"Unclassified","question_hi":"समावेशी शिक्षा का मुख्य उद्देश्य क्या है?","options":["केवल प्रतिभाशाली बच्चों को पढ़ाना","सभी बच्चों को साथ सीखने का अवसर देना","केवल ऑनलाइन शिक्षा","परीक्षा हटाना"],"correct_index":1,"explanation_hi":"समावेशी शिक्षा सभी बच्चों की विविध आवश्यकताओं के साथ समान भागीदारी सुनिश्चित करती है।","source":"EXAM_BRAHMASTRA/index.html","verification_status":"existing_question_not_independently_verified"}]}
+{
+  "schema_version": "1.0.0",
+  "title": "Brahmastra embedded core questions",
+  "record_count": 24,
+  "records": [
+    {
+      "question_id": "BRAH_BASE_001",
+      "subject": "गणित",
+      "topic": "Unclassified",
+      "question_hi": "240 का 25% कितना है?",
+      "options": [
+        "40",
+        "50",
+        "60",
+        "80"
+      ],
+      "correct_index": 2,
+      "explanation_hi": "25% = 1/4; 240 ÷ 4 = 60।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "What is 25% of 240?",
+      "options_en": [
+        "40",
+        "50",
+        "60",
+        "80"
+      ],
+      "explanation_en": "25% = 1/4; 240 ÷ 4 = 60.",
+      "options_hi": [
+        "40",
+        "50",
+        "60",
+        "80"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_002",
+      "subject": "गणित",
+      "topic": "Unclassified",
+      "question_hi": "यदि 3 : 5 = x : 20, तो x का मान क्या होगा?",
+      "options": [
+        "10",
+        "12",
+        "15",
+        "18"
+      ],
+      "correct_index": 1,
+      "explanation_hi": "3/5 = x/20; x = 12।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "If 3 : 5 = x : 20, what is the value of x?",
+      "options_en": [
+        "10",
+        "12",
+        "15",
+        "18"
+      ],
+      "explanation_en": "3/5 = x/20; x = 12.",
+      "options_hi": [
+        "10",
+        "12",
+        "15",
+        "18"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_003",
+      "subject": "गणित",
+      "topic": "Unclassified",
+      "question_hi": "12, 18 और 24 का औसत कितना है?",
+      "options": [
+        "16",
+        "18",
+        "20",
+        "22"
+      ],
+      "correct_index": 1,
+      "explanation_hi": "(12 + 18 + 24) ÷ 3 = 18।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "What is the average of 12, 18 and 24?",
+      "options_en": [
+        "16",
+        "18",
+        "20",
+        "22"
+      ],
+      "explanation_en": "(12 + 18 + 24) ÷ 3 = 18.",
+      "options_hi": [
+        "16",
+        "18",
+        "20",
+        "22"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_004",
+      "subject": "गणित",
+      "topic": "Unclassified",
+      "question_hi": "एक वस्तु ₹800 में खरीदी और ₹920 में बेची। लाभ प्रतिशत कितना है?",
+      "options": [
+        "10%",
+        "12%",
+        "15%",
+        "20%"
+      ],
+      "correct_index": 2,
+      "explanation_hi": "लाभ = ₹120; लाभ प्रतिशत = 120/800 × 100 = 15%।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "An item was bought for ₹800 and sold for ₹920. What is the profit percentage?",
+      "options_en": [
+        "10%",
+        "12%",
+        "15%",
+        "20%"
+      ],
+      "explanation_en": "Profit = ₹120; profit percentage = 120/800 × 100 = 15%.",
+      "options_hi": [
+        "10%",
+        "12%",
+        "15%",
+        "20%"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_005",
+      "subject": "रीजनिंग",
+      "topic": "Unclassified",
+      "question_hi": "श्रृंखला पूरी करें: 2, 6, 12, 20, 30, ?",
+      "options": [
+        "36",
+        "40",
+        "42",
+        "44"
+      ],
+      "correct_index": 2,
+      "explanation_hi": "अंतर 4, 6, 8, 10 है; अगला अंतर 12 होगा। उत्तर 42।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "Complete the series: 2, 6, 12, 20, 30, ?",
+      "options_en": [
+        "36",
+        "40",
+        "42",
+        "44"
+      ],
+      "explanation_en": "The differences are 4, 6, 8 and 10; the next difference is 12. The answer is 42.",
+      "options_hi": [
+        "36",
+        "40",
+        "42",
+        "44"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_006",
+      "subject": "रीजनिंग",
+      "topic": "Unclassified",
+      "question_hi": "यदि CAT को DBU लिखा जाए, तो DOG को कैसे लिखेंगे?",
+      "options": [
+        "EPH",
+        "EOG",
+        "FPH",
+        "DPH"
+      ],
+      "correct_index": 0,
+      "explanation_hi": "हर अक्षर के अगले अक्षर से बदलें: D→E, O→P, G→H।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "If CAT is coded as DBU, how will DOG be coded?",
+      "options_en": [
+        "EPH",
+        "EOG",
+        "FPH",
+        "DPH"
+      ],
+      "explanation_en": "Replace each letter with the next letter: D→E, O→P, G→H.",
+      "options_hi": [
+        "EPH",
+        "EOG",
+        "FPH",
+        "DPH"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_007",
+      "subject": "रीजनिंग",
+      "topic": "Unclassified",
+      "question_hi": "अलग शब्द चुनें।",
+      "options": [
+        "सेब",
+        "आम",
+        "गाजर",
+        "केला"
+      ],
+      "correct_index": 2,
+      "explanation_hi": "गाजर सब्ज़ी है; अन्य फल हैं।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "Choose the odd word out.",
+      "options_en": [
+        "Apple",
+        "Mango",
+        "Carrot",
+        "Banana"
+      ],
+      "explanation_en": "Carrot is a vegetable; the others are fruits.",
+      "options_hi": [
+        "सेब",
+        "आम",
+        "गाजर",
+        "केला"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_008",
+      "subject": "रीजनिंग",
+      "topic": "Unclassified",
+      "question_hi": "एक व्यक्ति उत्तर की ओर 5 km चलता है, फिर दाएँ मुड़कर 3 km चलता है। अब वह किस दिशा में है?",
+      "options": [
+        "उत्तर",
+        "दक्षिण",
+        "पूर्व",
+        "पश्चिम"
+      ],
+      "correct_index": 2,
+      "explanation_hi": "उत्तर की ओर मुख करके दाएँ मुड़ने पर दिशा पूर्व होती है।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "A person walks 5 km north, then turns right and walks 3 km. Which direction is the person facing now?",
+      "options_en": [
+        "North",
+        "South",
+        "East",
+        "West"
+      ],
+      "explanation_en": "When facing north, turning right means facing east.",
+      "options_hi": [
+        "उत्तर",
+        "दक्षिण",
+        "पूर्व",
+        "पश्चिम"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_009",
+      "subject": "सामान्य विज्ञान",
+      "topic": "Unclassified",
+      "question_hi": "बल की SI इकाई क्या है?",
+      "options": [
+        "जूल",
+        "न्यूटन",
+        "वाट",
+        "पास्कल"
+      ],
+      "correct_index": 1,
+      "explanation_hi": "बल की SI इकाई न्यूटन है।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "What is the SI unit of force?",
+      "options_en": [
+        "Joule",
+        "Newton",
+        "Watt",
+        "Pascal"
+      ],
+      "explanation_en": "The SI unit of force is the newton.",
+      "options_hi": [
+        "जूल",
+        "न्यूटन",
+        "वाट",
+        "पास्कल"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_010",
+      "subject": "सामान्य विज्ञान",
+      "topic": "Unclassified",
+      "question_hi": "मानव शरीर में रक्त को छानने का मुख्य कार्य कौन करता है?",
+      "options": [
+        "हृदय",
+        "फेफड़े",
+        "गुर्दे",
+        "आमाशय"
+      ],
+      "correct_index": 2,
+      "explanation_hi": "गुर्दे रक्त से अपशिष्ट पदार्थ छानकर मूत्र बनाते हैं।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "Which organ mainly filters blood in the human body?",
+      "options_en": [
+        "Heart",
+        "Lungs",
+        "Kidneys",
+        "Stomach"
+      ],
+      "explanation_en": "The kidneys filter waste products from the blood and produce urine.",
+      "options_hi": [
+        "हृदय",
+        "फेफड़े",
+        "गुर्दे",
+        "आमाशय"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_011",
+      "subject": "सामान्य विज्ञान",
+      "topic": "Unclassified",
+      "question_hi": "पौधे प्रकाश संश्लेषण में मुख्यतः कौन-सी गैस लेते हैं?",
+      "options": [
+        "ऑक्सीजन",
+        "कार्बन डाइऑक्साइड",
+        "नाइट्रोजन",
+        "हाइड्रोजन"
+      ],
+      "correct_index": 1,
+      "explanation_hi": "प्रकाश संश्लेषण में पौधे कार्बन डाइऑक्साइड लेते हैं।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "Which gas do plants mainly absorb during photosynthesis?",
+      "options_en": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Hydrogen"
+      ],
+      "explanation_en": "Plants absorb carbon dioxide during photosynthesis.",
+      "options_hi": [
+        "ऑक्सीजन",
+        "कार्बन डाइऑक्साइड",
+        "नाइट्रोजन",
+        "हाइड्रोजन"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_012",
+      "subject": "सामान्य विज्ञान",
+      "topic": "Unclassified",
+      "question_hi": "पानी का रासायनिक सूत्र क्या है?",
+      "options": [
+        "CO₂",
+        "O₂",
+        "H₂O",
+        "NaCl"
+      ],
+      "correct_index": 2,
+      "explanation_hi": "पानी के एक अणु में दो हाइड्रोजन और एक ऑक्सीजन परमाणु होता है।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "What is the chemical formula of water?",
+      "options_en": [
+        "CO₂",
+        "O₂",
+        "H₂O",
+        "NaCl"
+      ],
+      "explanation_en": "A water molecule contains two hydrogen atoms and one oxygen atom.",
+      "options_hi": [
+        "CO₂",
+        "O₂",
+        "H₂O",
+        "NaCl"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_013",
+      "subject": "सामान्य ज्ञान एवं संविधान",
+      "topic": "Unclassified",
+      "question_hi": "भारतीय संविधान कब लागू हुआ?",
+      "options": [
+        "15 अगस्त 1947",
+        "26 जनवरी 1950",
+        "26 नवंबर 1949",
+        "2 अक्टूबर 1950"
+      ],
+      "correct_index": 1,
+      "explanation_hi": "भारतीय संविधान 26 जनवरी 1950 को लागू हुआ।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "When did the Constitution of India come into effect?",
+      "options_en": [
+        "15 August 1947",
+        "26 January 1950",
+        "26 November 1949",
+        "2 October 1950"
+      ],
+      "explanation_en": "The Constitution of India came into effect on 26 January 1950.",
+      "options_hi": [
+        "15 अगस्त 1947",
+        "26 जनवरी 1950",
+        "26 नवंबर 1949",
+        "2 अक्टूबर 1950"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_014",
+      "subject": "सामान्य ज्ञान एवं संविधान",
+      "topic": "Unclassified",
+      "question_hi": "भारत का राष्ट्रीय पशु कौन है?",
+      "options": [
+        "एशियाई सिंह",
+        "बाघ",
+        "हाथी",
+        "तेंदुआ"
+      ],
+      "correct_index": 1,
+      "explanation_hi": "भारत का राष्ट्रीय पशु बाघ है।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "What is the national animal of India?",
+      "options_en": [
+        "Asiatic lion",
+        "Tiger",
+        "Elephant",
+        "Leopard"
+      ],
+      "explanation_en": "The national animal of India is the tiger.",
+      "options_hi": [
+        "एशियाई सिंह",
+        "बाघ",
+        "हाथी",
+        "तेंदुआ"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_015",
+      "subject": "सामान्य ज्ञान एवं संविधान",
+      "topic": "Unclassified",
+      "question_hi": "मौलिक अधिकार संविधान के किस भाग में हैं?",
+      "options": [
+        "भाग I",
+        "भाग II",
+        "भाग III",
+        "भाग IV"
+      ],
+      "correct_index": 2,
+      "explanation_hi": "मौलिक अधिकार भारतीय संविधान के भाग III में हैं।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "In which Part of the Constitution are Fundamental Rights provided?",
+      "options_en": [
+        "Part I",
+        "Part II",
+        "Part III",
+        "Part IV"
+      ],
+      "explanation_en": "Fundamental Rights are provided in Part III of the Constitution of India.",
+      "options_hi": [
+        "भाग I",
+        "भाग II",
+        "भाग III",
+        "भाग IV"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_016",
+      "subject": "सामान्य ज्ञान एवं संविधान",
+      "topic": "Unclassified",
+      "question_hi": "भारत की संसद के कितने सदन हैं?",
+      "options": [
+        "एक",
+        "दो",
+        "तीन",
+        "चार"
+      ],
+      "correct_index": 1,
+      "explanation_hi": "संसद के दो सदन हैं—लोकसभा और राज्यसभा।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "How many Houses does the Parliament of India have?",
+      "options_en": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      "explanation_en": "The Parliament of India has two Houses: the Lok Sabha and the Rajya Sabha.",
+      "options_hi": [
+        "एक",
+        "दो",
+        "तीन",
+        "चार"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_017",
+      "subject": "English",
+      "topic": "Unclassified",
+      "question_hi": "“Child” का सही बहुवचन चुनिए।",
+      "options": [
+        "Childs",
+        "Childes",
+        "Children",
+        "Childrens"
+      ],
+      "correct_index": 2,
+      "explanation_hi": "The plural form of child is children.",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "“Child” का सही बहुवचन चुनिए।",
+      "options_en": [
+        "Childs",
+        "Childes",
+        "Children",
+        "Childrens"
+      ],
+      "explanation_en": "Child का plural form children है।",
+      "options_hi": [
+        "बच्चे",
+        "चाइल्ड्स",
+        "बालक",
+        "बच्चेगण"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_018",
+      "subject": "English",
+      "topic": "Unclassified",
+      "question_hi": "“Rapid” का समानार्थी शब्द चुनिए।",
+      "options": [
+        "Slow",
+        "Fast",
+        "Weak",
+        "Late"
+      ],
+      "correct_index": 1,
+      "explanation_hi": "Rapid means fast or quick.",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "“Rapid” का समानार्थी शब्द चुनिए।",
+      "options_en": [
+        "Slow — धीमा",
+        "Fast — तेज",
+        "Weak — कमजोर",
+        "Late — देर से"
+      ],
+      "explanation_en": "Rapid का अर्थ fast या quick होता है।",
+      "options_hi": [
+        "धीमा",
+        "तेज",
+        "कमजोर",
+        "देर से"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_019",
+      "subject": "English",
+      "topic": "Unclassified",
+      "question_hi": "रिक्त स्थान भरें: She ___ to school every day.",
+      "options": [
+        "go",
+        "going",
+        "goes",
+        "gone"
+      ],
+      "correct_index": 2,
+      "explanation_hi": "With “she” in the simple present tense, use “goes”.",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "रिक्त स्थान भरें: She ___ to school every day.",
+      "options_en": [
+        "go — जाना",
+        "going — जा रही",
+        "goes — जाती है",
+        "gone — जा चुकी"
+      ],
+      "explanation_en": "Simple Present Tense में she के साथ goes का प्रयोग होता है।",
+      "options_hi": [
+        "जाना",
+        "जा रहा/रही",
+        "जाती है",
+        "जा चुका/चुकी"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_020",
+      "subject": "English",
+      "topic": "Unclassified",
+      "question_hi": "सही वर्तनी वाला शब्द चुनिए।",
+      "options": [
+        "Enviroment",
+        "Environment",
+        "Envirnment",
+        "Environmant"
+      ],
+      "correct_index": 1,
+      "explanation_hi": "The correct spelling is Environment.",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "सही वर्तनी वाला शब्द चुनिए।",
+      "options_en": [
+        "Enviroment",
+        "Environment",
+        "Envirnment",
+        "Environmant"
+      ],
+      "explanation_en": "सही spelling Environment है।",
+      "options_hi": [
+        "एनवायरमेंट (गलत)",
+        "एनवायरनमेंट",
+        "एनविर्नमेंट (गलत)",
+        "एनवायरनमेंट (गलत)"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_021",
+      "subject": "कंप्यूटर",
+      "topic": "Unclassified",
+      "question_hi": "CPU का पूरा नाम क्या है?",
+      "options": [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Central Program Utility",
+        "Control Processing User"
+      ],
+      "correct_index": 0,
+      "explanation_hi": "CPU का पूरा नाम Central Processing Unit है।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "What is the full form of CPU? ",
+      "options_en": [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Central Program Utility",
+        "Control Processing User"
+      ],
+      "explanation_en": "CPU stands for Central Processing Unit.",
+      "options_hi": [
+        "Central Processing Unit",
+        "Computer Personal Unit",
+        "Central Program Utility",
+        "Control Processing User"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_022",
+      "subject": "कंप्यूटर",
+      "topic": "Unclassified",
+      "question_hi": "कंप्यूटर में अस्थायी मेमोरी कौन-सी है?",
+      "options": [
+        "ROM",
+        "RAM",
+        "DVD",
+        "Hard Disk"
+      ],
+      "correct_index": 1,
+      "explanation_hi": "RAM अस्थायी/volatile memory है।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "Which is the temporary memory in a computer?",
+      "options_en": [
+        "ROM",
+        "RAM",
+        "DVD",
+        "Hard Disk"
+      ],
+      "explanation_en": "RAM is temporary (volatile) memory.",
+      "options_hi": [
+        "ROM",
+        "RAM",
+        "DVD",
+        "Hard Disk"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_023",
+      "subject": "बाल विकास एवं शिक्षाशास्त्र",
+      "topic": "Unclassified",
+      "question_hi": "बाल-केंद्रित शिक्षा में मुख्य केंद्र कौन होता है?",
+      "options": [
+        "पाठ्यपुस्तक",
+        "शिक्षक",
+        "विद्यार्थी",
+        "परीक्षा"
+      ],
+      "correct_index": 2,
+      "explanation_hi": "बाल-केंद्रित शिक्षा में विद्यार्थी की आवश्यकताएँ और सक्रिय भागीदारी केंद्र में होती हैं।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "Who is at the centre of child-centred education?",
+      "options_en": [
+        "Textbook",
+        "Teacher",
+        "Learner",
+        "Examination"
+      ],
+      "explanation_en": "In child-centred education, learners' needs and active participation are central.",
+      "options_hi": [
+        "पाठ्यपुस्तक",
+        "शिक्षक",
+        "विद्यार्थी",
+        "परीक्षा"
+      ]
+    },
+    {
+      "question_id": "BRAH_BASE_024",
+      "subject": "बाल विकास एवं शिक्षाशास्त्र",
+      "topic": "Unclassified",
+      "question_hi": "समावेशी शिक्षा का मुख्य उद्देश्य क्या है?",
+      "options": [
+        "केवल प्रतिभाशाली बच्चों को पढ़ाना",
+        "सभी बच्चों को साथ सीखने का अवसर देना",
+        "केवल ऑनलाइन शिक्षा",
+        "परीक्षा हटाना"
+      ],
+      "correct_index": 1,
+      "explanation_hi": "समावेशी शिक्षा सभी बच्चों की विविध आवश्यकताओं के साथ समान भागीदारी सुनिश्चित करती है।",
+      "source": "EXAM_BRAHMASTRA/index.html",
+      "verification_status": "existing_question_not_independently_verified",
+      "question_en": "What is the main aim of inclusive education?",
+      "options_en": [
+        "To teach only gifted children",
+        "To provide all children opportunities to learn together",
+        "Only online education",
+        "To remove examinations"
+      ],
+      "explanation_en": "Inclusive education ensures equal participation while addressing the diverse needs of all children.",
+      "options_hi": [
+        "केवल प्रतिभाशाली बच्चों को पढ़ाना",
+        "सभी बच्चों को साथ सीखने का अवसर देना",
+        "केवल ऑनलाइन शिक्षा",
+        "परीक्षा हटाना"
+      ]
+    }
+  ]
+}
