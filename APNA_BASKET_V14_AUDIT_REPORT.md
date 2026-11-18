@@ -42,3 +42,28 @@ Audit branch: `apna-basket-v14-audit-fixes`
 
 ## Release status
 This is a source-level fix branch. It is not yet merged to `main` and has not been promoted to the live GitHub Pages site. Do not mark the app production-ready until the manual Firebase and WhatsApp acceptance tests pass.
+
+
+## Acceptance test progress (2026-11-18)
+The project owner reported that the following five tests passed on their test setup:
+- Admin Firebase Login
+- Products + Settings Cloud Upload
+- Customer creates a new order
+- Admin approves the order and stock is deducted
+- Customer order tracking
+
+These are recorded as user-reported results; they have not been independently reproduced from this repository connection.
+
+## Remaining manual acceptance tests
+1. Cart persistence after refresh and quantity/remove edge cases.
+2. Delivery fee, minimum order, valid/invalid coupon, and allowed/disallowed PIN code.
+3. Confirm the exact WhatsApp message reaches the configured shop number.
+4. Verify rejected orders do not decrement stock and cannot be approved twice.
+5. Verify status transitions and delivery actions sync to the customer session.
+6. Attempt customer writes to products/settings and another customer's order reads; all must be denied by deployed Firestore Rules.
+7. Verify the exact rules in this repository are the ones deployed in Firebase Console.
+8. Test Android Chrome and desktop browser; inspect console for syntax/runtime errors.
+
+## Additional static code check
+- Normalized all accidental duplicate `async async function` declarations introduced during the follow-up edits. The current branch contains zero matches.
+- Firebase/Firestore live security and transaction behavior still requires the above manual tests against the actual Firebase project.
