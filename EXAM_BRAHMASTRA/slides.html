@@ -111,7 +111,11 @@ function auditData(){
  const duplicateIds=[...ids.values()].filter(n=>n>1).reduce((a,n)=>a+n-1,0);
  const duplicateText=[...texts.values()].filter(n=>n>1).reduce((a,n)=>a+n-1,0);
  const packs=[...new Set(all.map(q=>q.pack))];
- $("auditBox").innerHTML='<div class="auditgrid"><div><b>'+all.length+'</b> कुल रिकॉर्ड लोड हुए</div><div><b>'+packs.length+'</b> डेटा पैक</div><div><b>'+duplicateIds+'</b> दोहराई गई IDs</div><div><b>'+duplicateText+'</b> समान प्रश्न-पाठ (extra rows)</div><div><b>'+missingQ+'</b> प्रश्न-पाठ खाली</div><div><b>'+invalidKey+'</b> संभावित अमान्य answer keys</div><div><b>'+missingExplain+'</b> explanation खाली</div><div><b>'+withOptions+'</b> विकल्प वाले रिकॉर्ड</div></div><p>समान प्रश्न-पाठ और class/exam mapping को स्वतः delete नहीं किया गया है। यह तकनीकी जाँच है, उत्तरों की विषय-विशेषज्ञ पुष्टि नहीं।</p><b>डेटा पैक:</b><br>'+packs.map(p=>{const n=all.filter(q=>q.pack===p).length;return esc(p)+': '+n;}).join('<br>');
+ const subjectCounts=new Map(),topicCounts=new Map();
+ for(const q of all){subjectCounts.set(q.subject,(subjectCounts.get(q.subject)||0)+1);const k=q.subject+"|||"+q.topic;topicCounts.set(k,(topicCounts.get(k)||0)+1);}
+ const subjectHtml=[...subjectCounts].sort((a,b)=>b[1]-a[1]).map(([s,n])=>esc(s)+': '+n).join('<br>');
+ const topicHtml=[...topicCounts].sort((a,b)=>b[1]-a[1]).slice(0,30).map(([k,n])=>{const [s,t]=k.split("|||");return esc(s)+' → '+esc(t)+': '+n;}).join('<br>');
+ $("auditBox").innerHTML='<div class="auditgrid"><div><b>'+all.length+'</b> कुल रिकॉर्ड लोड हुए</div><div><b>'+packs.length+'</b> डेटा पैक</div><div><b>'+duplicateIds+'</b> दोहराई गई IDs</div><div><b>'+duplicateText+'</b> समान प्रश्न-पाठ (extra rows)</div><div><b>'+missingQ+'</b> प्रश्न-पाठ खाली</div><div><b>'+invalidKey+'</b> संभावित अमान्य answer keys</div><div><b>'+missingExplain+'</b> explanation खाली</div><div><b>'+withOptions+'</b> विकल्प वाले रिकॉर्ड</div></div><p>समान प्रश्न-पाठ और class/exam mapping को स्वतः delete नहीं किया गया है। यह तकनीकी जाँच है, उत्तरों की विषय-विशेषज्ञ पुष्टि नहीं।</p><b>विषयवार रिकॉर्ड:</b><br>'+subjectHtml+'<p><b>टॉपिकवार शीर्ष 30:</b><br>'+topicHtml+'</p><b>डेटा पैक:</b><br>'+packs.map(p=>{const n=all.filter(q=>q.pack===p).length;return esc(p)+': '+n;}).join('<br>');
 }
 $("auditToggle").addEventListener("click",()=>{$("auditBox").classList.toggle("show");});
 function render(){
