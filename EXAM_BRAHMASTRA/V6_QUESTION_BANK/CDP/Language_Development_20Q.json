@@ -1,0 +1,1405 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Language Development",
+  "batch_id": "V6-CDP-009",
+  "subject_id": "cdp",
+  "topic_id": "language_development",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Language development relates to what?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा विकास किससे संबंधित है?",
+      "question_en": "Language development relates to what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भाषा समझने और प्रयोग करने की क्षमता",
+          "en": "भाषा समझने और प्रयोग करने की क्षमता"
+        },
+        {
+          "option_id": "B",
+          "hi": "Ability to understand and use language",
+          "en": "Ability to understand and use language"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल शारीरिक वृद्धि",
+          "en": "केवल शारीरिक वृद्धि"
+        },
+        {
+          "option_id": "D",
+          "hi": "Physical growth only",
+          "en": "Physical growth only"
+        },
+        {
+          "hi": "केवल नैतिकता",
+          "en": "केवल नैतिकता"
+        },
+        {
+          "hi": "Morality only",
+          "en": "Morality only"
+        },
+        {
+          "hi": "केवल गणना",
+          "en": "केवल गणना"
+        },
+        {
+          "hi": "Calculation only",
+          "en": "Calculation only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "भाषा विकास में सुनना, समझना, बोलना, शब्दावली और भाषा प्रयोग शामिल हैं।",
+      "explanation_en": "Language development includes listening, comprehension, speaking, vocabulary and use.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "What is receptive language?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "ग्रहणशील भाषा (Receptive Language) क्या है?",
+      "question_en": "What is receptive language?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भाषा समझने की क्षमता",
+          "en": "भाषा समझने की क्षमता"
+        },
+        {
+          "option_id": "B",
+          "hi": "Ability to understand language",
+          "en": "Ability to understand language"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल बोलना",
+          "en": "केवल बोलना"
+        },
+        {
+          "option_id": "D",
+          "hi": "Speaking only",
+          "en": "Speaking only"
+        },
+        {
+          "hi": "लिखना ही",
+          "en": "लिखना ही"
+        },
+        {
+          "hi": "Writing only",
+          "en": "Writing only"
+        },
+        {
+          "hi": "चित्र बनाना",
+          "en": "चित्र बनाना"
+        },
+        {
+          "hi": "Drawing",
+          "en": "Drawing"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "ग्रहणशील भाषा दूसरों की भाषा समझने से संबंधित है।",
+      "explanation_en": "Receptive language relates to understanding language from others.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "What is expressive language?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अभिव्यक्त भाषा (Expressive Language) क्या है?",
+      "question_en": "What is expressive language?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "विचारों को भाषा में व्यक्त करना",
+          "en": "विचारों को भाषा में व्यक्त करना"
+        },
+        {
+          "option_id": "B",
+          "hi": "Expressing ideas through language",
+          "en": "Expressing ideas through language"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल सुनना",
+          "en": "केवल सुनना"
+        },
+        {
+          "option_id": "D",
+          "hi": "Listening only",
+          "en": "Listening only"
+        },
+        {
+          "hi": "केवल पढ़ना",
+          "en": "केवल पढ़ना"
+        },
+        {
+          "hi": "Reading only",
+          "en": "Reading only"
+        },
+        {
+          "hi": "मौन रहना",
+          "en": "मौन रहना"
+        },
+        {
+          "hi": "Silence",
+          "en": "Silence"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "अभिव्यक्त भाषा में शब्दों और वाक्यों के माध्यम से विचार व्यक्त करना शामिल है।",
+      "explanation_en": "Expressive language involves communicating ideas through words and sentences.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "What supports vocabulary development?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शब्दावली विकास को कौन समर्थन देता है?",
+      "question_en": "What supports vocabulary development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "समृद्ध संवाद और पढ़ना",
+          "en": "समृद्ध संवाद और पढ़ना"
+        },
+        {
+          "option_id": "B",
+          "hi": "Rich conversation and reading",
+          "en": "Rich conversation and reading"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल दंड",
+          "en": "केवल दंड"
+        },
+        {
+          "option_id": "D",
+          "hi": "Punishment only",
+          "en": "Punishment only"
+        },
+        {
+          "hi": "संवाद रोकना",
+          "en": "संवाद रोकना"
+        },
+        {
+          "hi": "Stopping conversation",
+          "en": "Stopping conversation"
+        },
+        {
+          "hi": "अलगाव",
+          "en": "अलगाव"
+        },
+        {
+          "hi": "Isolation",
+          "en": "Isolation"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "समृद्ध संवाद, कहानी और पढ़ना शब्दावली विकास को समर्थन देते हैं।",
+      "explanation_en": "Rich conversation, stories and reading support vocabulary development.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Importance of interaction in language learning—",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा सीखने में संवाद का महत्व—",
+      "question_en": "Importance of interaction in language learning—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अर्थपूर्ण प्रयोग और प्रतिक्रिया का अवसर",
+          "en": "अर्थपूर्ण प्रयोग और प्रतिक्रिया का अवसर"
+        },
+        {
+          "option_id": "B",
+          "hi": "Opportunity for meaningful use and feedback",
+          "en": "Opportunity for meaningful use and feedback"
+        },
+        {
+          "option_id": "C",
+          "hi": "कोई महत्व नहीं",
+          "en": "कोई महत्व नहीं"
+        },
+        {
+          "option_id": "D",
+          "hi": "No importance",
+          "en": "No importance"
+        },
+        {
+          "hi": "केवल रटना",
+          "en": "केवल रटना"
+        },
+        {
+          "hi": "Rote only",
+          "en": "Rote only"
+        },
+        {
+          "hi": "केवल लिखना",
+          "en": "केवल लिखना"
+        },
+        {
+          "hi": "Writing only",
+          "en": "Writing only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "संवाद भाषा के अर्थपूर्ण प्रयोग और प्रतिक्रिया का अवसर देता है।",
+      "explanation_en": "Interaction provides opportunities for meaningful language use and feedback.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Listening to stories supports which skill?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कहानी सुनना किस कौशल को समर्थन देता है?",
+      "question_en": "Listening to stories supports which skill?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "श्रवण समझ और भाषा",
+          "en": "श्रवण समझ और भाषा"
+        },
+        {
+          "option_id": "B",
+          "hi": "Listening comprehension and language",
+          "en": "Listening comprehension and language"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल मोटर कौशल",
+          "en": "केवल मोटर कौशल"
+        },
+        {
+          "option_id": "D",
+          "hi": "Motor only",
+          "en": "Motor only"
+        },
+        {
+          "hi": "केवल वजन",
+          "en": "केवल वजन"
+        },
+        {
+          "hi": "Weight only",
+          "en": "Weight only"
+        },
+        {
+          "hi": "केवल गणना",
+          "en": "केवल गणना"
+        },
+        {
+          "hi": "Calculation",
+          "en": "Calculation"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "कहानियाँ श्रवण समझ, शब्दावली और भाषा संरचना को समर्थन दे सकती हैं।",
+      "explanation_en": "Stories can support listening comprehension, vocabulary and language structure.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Errors in language development—",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा विकास में गलतियाँ—",
+      "question_en": "Errors in language development—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सीखने की प्रक्रिया का सामान्य भाग हो सकती हैं",
+          "en": "सीखने की प्रक्रिया का सामान्य भाग हो सकती हैं"
+        },
+        {
+          "option_id": "B",
+          "hi": "May be a normal part of learning",
+          "en": "May be a normal part of learning"
+        },
+        {
+          "option_id": "C",
+          "hi": "हमेशा बुद्धि की कमी",
+          "en": "हमेशा बुद्धि की कमी"
+        },
+        {
+          "option_id": "D",
+          "hi": "Always lack of intelligence",
+          "en": "Always lack of intelligence"
+        },
+        {
+          "hi": "दंड का कारण",
+          "en": "दंड का कारण"
+        },
+        {
+          "hi": "Reason for punishment",
+          "en": "Reason for punishment"
+        },
+        {
+          "hi": "सीखना असंभव",
+          "en": "सीखना असंभव"
+        },
+        {
+          "hi": "Learning impossible",
+          "en": "Learning impossible"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "भाषा सीखते समय त्रुटियाँ सामान्य हैं और प्रतिक्रिया से सीखने का अवसर देती हैं।",
+      "explanation_en": "Errors during language learning are normal and offer opportunities for feedback.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Appropriate statement about a multilingual child—",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बहुभाषिक बच्चे के बारे में उचित कथन—",
+      "question_en": "Appropriate statement about a multilingual child—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "एक से अधिक भाषाएँ सीखना क्षमता का सामान्य रूप हो सकता है",
+          "en": "एक से अधिक भाषाएँ सीखना क्षमता का सामान्य रूप हो सकता है"
+        },
+        {
+          "option_id": "B",
+          "hi": "Learning multiple languages can be a normal capability",
+          "en": "Learning multiple languages can be a normal capability"
+        },
+        {
+          "option_id": "C",
+          "hi": "भाषा भ्रम निश्चित",
+          "en": "भाषा भ्रम निश्चित"
+        },
+        {
+          "option_id": "D",
+          "hi": "Confusion is certain",
+          "en": "Confusion is certain"
+        },
+        {
+          "hi": "एक भाषा रोकनी चाहिए",
+          "en": "एक भाषा रोकनी चाहिए"
+        },
+        {
+          "hi": "One language must be stopped",
+          "en": "One language must be stopped"
+        },
+        {
+          "hi": "सीखना असंभव",
+          "en": "सीखना असंभव"
+        },
+        {
+          "hi": "Learning is impossible",
+          "en": "Learning is impossible"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "बहुभाषिकता सामान्य है; भाषाओं का अनुभव संदर्भ के अनुसार विकसित होता है।",
+      "explanation_en": "Multilingualism is normal; language experience develops according to context.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "What can a teacher do for language development?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक भाषा विकास के लिए क्या कर सकता है?",
+      "question_en": "What can a teacher do for language development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "बच्चों से अर्थपूर्ण बातचीत",
+          "en": "बच्चों से अर्थपूर्ण बातचीत"
+        },
+        {
+          "option_id": "B",
+          "hi": "Meaningful conversations with children",
+          "en": "Meaningful conversations with children"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल चुप्पी",
+          "en": "केवल चुप्पी"
+        },
+        {
+          "option_id": "D",
+          "hi": "Silence only",
+          "en": "Silence only"
+        },
+        {
+          "hi": "प्रश्न रोकना",
+          "en": "प्रश्न रोकना"
+        },
+        {
+          "hi": "Stop questions",
+          "en": "Stop questions"
+        },
+        {
+          "hi": "उपहास",
+          "en": "उपहास"
+        },
+        {
+          "hi": "Mockery",
+          "en": "Mockery"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "अर्थपूर्ण बातचीत बच्चों को भाषा प्रयोग का अवसर देती है।",
+      "explanation_en": "Meaningful conversation provides opportunities to use language.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Phonological awareness relates to what?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "ध्वन्यात्मक जागरूकता किससे संबंधित है?",
+      "question_en": "Phonological awareness relates to what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भाषा की ध्वनियों को पहचानना और उनके साथ काम करना",
+          "en": "भाषा की ध्वनियों को पहचानना और उनके साथ काम करना"
+        },
+        {
+          "option_id": "B",
+          "hi": "Recognising and working with speech sounds",
+          "en": "Recognising and working with speech sounds"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल अर्थ",
+          "en": "केवल अर्थ"
+        },
+        {
+          "option_id": "D",
+          "hi": "Meaning only",
+          "en": "Meaning only"
+        },
+        {
+          "hi": "केवल लिखावट",
+          "en": "केवल लिखावट"
+        },
+        {
+          "hi": "Handwriting only",
+          "en": "Handwriting only"
+        },
+        {
+          "hi": "केवल मोटर",
+          "en": "केवल मोटर"
+        },
+        {
+          "hi": "Motor only",
+          "en": "Motor only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "ध्वन्यात्मक जागरूकता शब्दों और ध्वनियों की संरचना पर ध्यान देना है।",
+      "explanation_en": "Phonological awareness involves noticing and working with sound structures in language.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "A child asking word meanings indicates what?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बच्चे का शब्दों का अर्थ पूछना किसका संकेत है?",
+      "question_en": "A child asking word meanings indicates what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "शब्दावली और अर्थ सीखने में सक्रियता",
+          "en": "शब्दावली और अर्थ सीखने में सक्रियता"
+        },
+        {
+          "option_id": "B",
+          "hi": "Active vocabulary and meaning learning",
+          "en": "Active vocabulary and meaning learning"
+        },
+        {
+          "option_id": "C",
+          "hi": "सीखने में बाधा",
+          "en": "सीखने में बाधा"
+        },
+        {
+          "option_id": "D",
+          "hi": "Learning barrier",
+          "en": "Learning barrier"
+        },
+        {
+          "hi": "केवल अनुकरण",
+          "en": "केवल अनुकरण"
+        },
+        {
+          "hi": "Imitation only",
+          "en": "Imitation only"
+        },
+        {
+          "hi": "सामाजिक विकास रुकना",
+          "en": "सामाजिक विकास रुकना"
+        },
+        {
+          "hi": "Social development stopping",
+          "en": "Social development stopping"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "शब्दार्थ पूछना भाषा सीखने में सक्रिय भागीदारी का संकेत हो सकता है।",
+      "explanation_en": "Asking meanings can indicate active participation in language learning.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Joint attention in language development—",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा विकास में संयुक्त ध्यान (Joint Attention)—",
+      "question_en": "Joint attention in language development—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "एक वस्तु या घटना पर साझा ध्यान",
+          "en": "एक वस्तु या घटना पर साझा ध्यान"
+        },
+        {
+          "option_id": "B",
+          "hi": "Shared attention to an object or event",
+          "en": "Shared attention to an object or event"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल दौड़ना",
+          "en": "केवल दौड़ना"
+        },
+        {
+          "option_id": "D",
+          "hi": "Running only",
+          "en": "Running only"
+        },
+        {
+          "hi": "स्मृति मिटाना",
+          "en": "स्मृति मिटाना"
+        },
+        {
+          "hi": "Erasing memory",
+          "en": "Erasing memory"
+        },
+        {
+          "hi": "नियम पालन",
+          "en": "नियम पालन"
+        },
+        {
+          "hi": "Rule-following",
+          "en": "Rule-following"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "संयुक्त ध्यान संवाद और शब्द सीखने के लिए महत्वपूर्ण संदर्भ प्रदान करता है।",
+      "explanation_en": "Joint attention provides an important context for communication and word learning.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Turn-taking in conversation is what skill?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "संवाद में बारी लेना किसका कौशल है?",
+      "question_en": "Turn-taking in conversation is what skill?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "प्राग्मेटिक भाषा कौशल",
+          "en": "प्राग्मेटिक भाषा कौशल"
+        },
+        {
+          "option_id": "B",
+          "hi": "Pragmatic language skill",
+          "en": "Pragmatic language skill"
+        },
+        {
+          "option_id": "C",
+          "hi": "स्थूल मोटर",
+          "en": "स्थूल मोटर"
+        },
+        {
+          "option_id": "D",
+          "hi": "Gross motor",
+          "en": "Gross motor"
+        },
+        {
+          "hi": "नैतिक निर्णय",
+          "en": "नैतिक निर्णय"
+        },
+        {
+          "hi": "Moral judgment",
+          "en": "Moral judgment"
+        },
+        {
+          "hi": "वस्तु स्थायित्व",
+          "en": "वस्तु स्थायित्व"
+        },
+        {
+          "hi": "Object permanence",
+          "en": "Object permanence"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "संवाद में बारी लेना भाषा के सामाजिक उपयोग का हिस्सा है।",
+      "explanation_en": "Turn-taking is part of the social use of language.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Assessment of language development—",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा विकास का आकलन—",
+      "question_en": "Assessment of language development—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "समझ, अभिव्यक्ति और संदर्भ में संवाद देखना",
+          "en": "समझ, अभिव्यक्ति और संदर्भ में संवाद देखना"
+        },
+        {
+          "option_id": "B",
+          "hi": "Observe comprehension, expression and contextual communication",
+          "en": "Observe comprehension, expression and contextual communication"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल अक्षर लिखना",
+          "en": "केवल अक्षर लिखना"
+        },
+        {
+          "option_id": "D",
+          "hi": "Writing letters only",
+          "en": "Writing letters only"
+        },
+        {
+          "hi": "केवल उपस्थिति",
+          "en": "केवल उपस्थिति"
+        },
+        {
+          "hi": "Attendance only",
+          "en": "Attendance only"
+        },
+        {
+          "hi": "केवल ऊँचाई",
+          "en": "केवल ऊँचाई"
+        },
+        {
+          "hi": "Height only",
+          "en": "Height only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "भाषा के विभिन्न पहलुओं और वास्तविक संवाद का आकलन व्यापक जानकारी देता है।",
+      "explanation_en": "Assessing multiple language aspects and real communication provides broader information.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Reading aloud may help with what?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पढ़कर सुनाना किसमें मदद कर सकता है?",
+      "question_en": "Reading aloud may help with what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "शब्दावली, समझ और सुनने",
+          "en": "शब्दावली, समझ और सुनने"
+        },
+        {
+          "option_id": "B",
+          "hi": "Vocabulary, comprehension and listening",
+          "en": "Vocabulary, comprehension and listening"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल शारीरिक विकास",
+          "en": "केवल शारीरिक विकास"
+        },
+        {
+          "option_id": "D",
+          "hi": "Physical development only",
+          "en": "Physical development only"
+        },
+        {
+          "hi": "केवल नैतिकता",
+          "en": "केवल नैतिकता"
+        },
+        {
+          "hi": "Morality only",
+          "en": "Morality only"
+        },
+        {
+          "hi": "केवल गणित",
+          "en": "केवल गणित"
+        },
+        {
+          "hi": "Math only",
+          "en": "Math only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "पढ़कर सुनाना भाषा अनुभव और समझ को बढ़ावा दे सकता है।",
+      "explanation_en": "Reading aloud can promote language experience and comprehension.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Language and cognitive development—",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा और संज्ञानात्मक विकास—",
+      "question_en": "Language and cognitive development—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "एक-दूसरे को समर्थन दे सकते हैं",
+          "en": "एक-दूसरे को समर्थन दे सकते हैं"
+        },
+        {
+          "option_id": "B",
+          "hi": "Can support each other",
+          "en": "Can support each other"
+        },
+        {
+          "option_id": "C",
+          "hi": "असंबंधित",
+          "en": "असंबंधित"
+        },
+        {
+          "option_id": "D",
+          "hi": "Unrelated",
+          "en": "Unrelated"
+        },
+        {
+          "hi": "केवल शारीरिक",
+          "en": "केवल शारीरिक"
+        },
+        {
+          "hi": "Physical only",
+          "en": "Physical only"
+        },
+        {
+          "hi": "एक दूसरे को रोकते हैं",
+          "en": "एक दूसरे को रोकते हैं"
+        },
+        {
+          "hi": "Prevent each other",
+          "en": "Prevent each other"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "भाषा विचारों को व्यक्त और व्यवस्थित करने में मदद करती है; संज्ञान भाषा सीखने को भी समर्थन देता है।",
+      "explanation_en": "Language helps express and organise ideas; cognition also supports language learning.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Opportunity to answer in the child's language—",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बच्चे को अपनी भाषा में उत्तर देने का अवसर—",
+      "question_en": "Opportunity to answer in the child's language—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भागीदारी और समझ व्यक्त करने में मदद",
+          "en": "भागीदारी और समझ व्यक्त करने में मदद"
+        },
+        {
+          "option_id": "B",
+          "hi": "Helps participation and expressing understanding",
+          "en": "Helps participation and expressing understanding"
+        },
+        {
+          "option_id": "C",
+          "hi": "हमेशा गलत",
+          "en": "हमेशा गलत"
+        },
+        {
+          "option_id": "D",
+          "hi": "Always wrong",
+          "en": "Always wrong"
+        },
+        {
+          "hi": "भाषा रोकता है",
+          "en": "भाषा रोकता है"
+        },
+        {
+          "hi": "Stops language",
+          "en": "Stops language"
+        },
+        {
+          "hi": "केवल परीक्षा",
+          "en": "केवल परीक्षा"
+        },
+        {
+          "hi": "Exam only",
+          "en": "Exam only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "परिचित भाषा में उत्तर देने का अवसर समझ और सहभागिता प्रदर्शित करने में मदद कर सकता है।",
+      "explanation_en": "Responding in a familiar language can help demonstrate understanding and participation.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "What should feedback in language learning be like?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा सीखने में प्रतिक्रिया कैसी हो?",
+      "question_en": "What should feedback in language learning be like?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सहायक, स्पष्ट और अर्थपूर्ण",
+          "en": "सहायक, स्पष्ट और अर्थपूर्ण"
+        },
+        {
+          "option_id": "B",
+          "hi": "Supportive, clear and meaningful",
+          "en": "Supportive, clear and meaningful"
+        },
+        {
+          "option_id": "C",
+          "hi": "अपमानजनक",
+          "en": "अपमानजनक"
+        },
+        {
+          "option_id": "D",
+          "hi": "Humiliating",
+          "en": "Humiliating"
+        },
+        {
+          "hi": "केवल दंड",
+          "en": "केवल दंड"
+        },
+        {
+          "hi": "Punishment only",
+          "en": "Punishment only"
+        },
+        {
+          "hi": "बिना संदर्भ",
+          "en": "बिना संदर्भ"
+        },
+        {
+          "hi": "Without context",
+          "en": "Without context"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "सहायक प्रतिक्रिया भाषा सीखने में सुधार और आत्मविश्वास का समर्थन करती है।",
+      "explanation_en": "Supportive feedback can support language learning and confidence.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Which statement about language development is correct?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कौन-सा कथन भाषा विकास के बारे में सही है?",
+      "question_en": "Which statement about language development is correct?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "यह संवाद, अनुभव और अवसरों से प्रभावित होता है",
+          "en": "यह संवाद, अनुभव और अवसरों से प्रभावित होता है"
+        },
+        {
+          "option_id": "B",
+          "hi": "It is influenced by interaction, experience and opportunities",
+          "en": "It is influenced by interaction, experience and opportunities"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल जन्मजात",
+          "en": "केवल जन्मजात"
+        },
+        {
+          "option_id": "D",
+          "hi": "Innate only",
+          "en": "Innate only"
+        },
+        {
+          "hi": "विद्यालय में शुरू",
+          "en": "विद्यालय में शुरू"
+        },
+        {
+          "hi": "Starts only at school",
+          "en": "Starts only at school"
+        },
+        {
+          "hi": "सभी में समान",
+          "en": "सभी में समान"
+        },
+        {
+          "hi": "Identical in all",
+          "en": "Identical in all"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "भाषा विकास अनुभव, संवाद और व्यक्तिगत तथा सामाजिक संदर्भ से प्रभावित होता है।",
+      "explanation_en": "Language development is influenced by experience, interaction and individual and social context.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "How should a teacher support diversity in language development?",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक भाषा विकास में विविधता को कैसे समर्थन दे?",
+      "question_en": "How should a teacher support diversity in language development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सम्मान, अवसर और आवश्यकतानुसार सहायता",
+          "en": "सम्मान, अवसर और आवश्यकतानुसार सहायता"
+        },
+        {
+          "option_id": "B",
+          "hi": "Respect, opportunities and support as needed",
+          "en": "Respect, opportunities and support as needed"
+        },
+        {
+          "option_id": "C",
+          "hi": "भाषा का उपहास",
+          "en": "भाषा का उपहास"
+        },
+        {
+          "option_id": "D",
+          "hi": "Mock language",
+          "en": "Mock language"
+        },
+        {
+          "hi": "बच्चे को चुप करना",
+          "en": "बच्चे को चुप करना"
+        },
+        {
+          "hi": "Silence child",
+          "en": "Silence child"
+        },
+        {
+          "hi": "सभी को एक स्तर मानना",
+          "en": "सभी को एक स्तर मानना"
+        },
+        {
+          "hi": "Assume same level",
+          "en": "Assume same level"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "भाषा विविधता का सम्मान करते हुए अवसर और आवश्यक सहायता प्रदान करना उचित है।",
+      "explanation_en": "Respecting language diversity while providing opportunities and needed support is appropriate.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
