@@ -16,12 +16,12 @@
 - Subjects: 10
 - Topic entries: 481
 - Minimum target: 9620 questions (20 per topic entry; subtopic expansion is tracked separately as the syllabus is refined).
-- Current V6-generated verified questions: 0 before this first batch.
+- Current V6-generated questions: 20 (1 batch); verification status: draft pending independent review.
 
 ## Batches
 | Batch | Subject | Topic | Target | Status |
 |---|---|---|---:|---|
-| V6-CDP-001 | CDP | Growth and Development | 20 | In progress |
+| V6-CDP-001 | CDP | Growth and Development | 20 | Generated; structural checks passed; content review pending |
 
 ## Next steps
 1. Reconcile existing sources and duplicates without deleting source records.
@@ -30,5 +30,5 @@
 4. Validate answer keys, options, translations, duplicates, and difficulty distribution.
 5. Integrate the new V6 bank into the app after the existing app source can be inspected and tested.
 
-## Honest completion rule
+## Batch QA — V6-CDP-001\n- Record count: 20.\n- Difficulty: 5 easy / 10 moderate / 5 difficult.\n- Unique IDs: passed.\n- Duplicate Hindi question text: none detected.\n- Four bilingual options per question: passed.\n- Correct-answer index and label consistency: passed.\n- Hindi/English question and explanation fields: passed.\n- Content correctness and translation quality: pending independent review.\n\n## Honest completion rule
 A topic is marked complete only when its minimum question count exists and passes structural and content checks. Source-imported questions are not automatically verified.
