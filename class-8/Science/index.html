@@ -58,6 +58,10 @@ function loadVersion(name){
  document.getElementById("desc").textContent=descriptions[name]||"Interactive question bank";
  const raw=atob(versions[name]);const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));const html=new TextDecoder("utf-8").decode(bytes);
  document.getElementById("bank").srcdoc=html;
+ const frameWrap=document.getElementById("frameWrap");
+ frameWrap.style.height="calc(100dvh - 180px)";
+ frameWrap.style.minHeight="0";
+ frameWrap.scrollIntoView({behavior:"smooth",block:"start"});
 }
 const buttons=document.getElementById("buttons");
 labels.forEach(name=>{const b=document.createElement("button");b.textContent=name;b.dataset.version=name;b.onclick=()=>loadVersion(name);buttons.appendChild(b);});
