@@ -31,7 +31,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "Moral development relates to what?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -44,37 +44,21 @@
         {
           "option_id": "A",
           "hi": "सही-गलत और न्याय के बारे में समझ",
-          "en": "सही-गलत और न्याय के बारे में समझ"
-        },
-        {
-          "option_id": "B",
-          "hi": "Understanding right, wrong and fairness",
           "en": "Understanding right, wrong and fairness"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल शारीरिक वृद्धि",
-          "en": "केवल शारीरिक वृद्धि"
-        },
-        {
-          "option_id": "D",
-          "hi": "Physical growth only",
           "en": "Physical growth only"
         },
         {
+          "option_id": "C",
           "hi": "केवल भाषा",
-          "en": "केवल भाषा"
-        },
-        {
-          "hi": "Language only",
           "en": "Language only"
         },
         {
+          "option_id": "D",
           "hi": "केवल स्मृति",
-          "en": "केवल स्मृति"
-        },
-        {
-          "hi": "Memory only",
           "en": "Memory only"
         }
       ],
@@ -100,7 +84,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "An example of moral judgment—",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -113,37 +97,21 @@
         {
           "option_id": "A",
           "hi": "ईमानदारी को उचित मानना",
-          "en": "ईमानदारी को उचित मानना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Considering honesty appropriate",
           "en": "Considering honesty appropriate"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल तेज दौड़ना",
-          "en": "केवल तेज दौड़ना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Running fast",
           "en": "Running fast"
         },
         {
+          "option_id": "C",
           "hi": "शब्द याद करना",
-          "en": "शब्द याद करना"
-        },
-        {
-          "hi": "Memorising words",
           "en": "Memorising words"
         },
         {
+          "option_id": "D",
           "hi": "चित्र बनाना",
-          "en": "चित्र बनाना"
-        },
-        {
-          "hi": "Drawing",
           "en": "Drawing"
         }
       ],
@@ -169,7 +137,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "Explaining the purpose of rules helps with what?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -182,37 +150,21 @@
         {
           "option_id": "A",
           "hi": "नैतिक समझ विकसित करना",
-          "en": "नैतिक समझ विकसित करना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Developing moral understanding",
           "en": "Developing moral understanding"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल डर",
-          "en": "केवल डर"
-        },
-        {
-          "option_id": "D",
-          "hi": "Fear only",
           "en": "Fear only"
         },
         {
+          "option_id": "C",
           "hi": "रटने",
-          "en": "रटने"
-        },
-        {
-          "hi": "Rote learning",
           "en": "Rote learning"
         },
         {
+          "option_id": "D",
           "hi": "शारीरिक वृद्धि",
-          "en": "शारीरिक वृद्धि"
-        },
-        {
-          "hi": "Physical growth",
           "en": "Physical growth"
         }
       ],
@@ -238,7 +190,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "An example of fairness—",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -251,37 +203,21 @@
         {
           "option_id": "A",
           "hi": "सभी को उचित अवसर देना",
-          "en": "सभी को उचित अवसर देना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Giving everyone a fair opportunity",
           "en": "Giving everyone a fair opportunity"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "पक्षपात",
-          "en": "पक्षपात"
-        },
-        {
-          "option_id": "D",
-          "hi": "Bias",
           "en": "Bias"
         },
         {
+          "option_id": "C",
           "hi": "दूसरों को रोकना",
-          "en": "दूसरों को रोकना"
-        },
-        {
-          "hi": "Blocking others",
           "en": "Blocking others"
         },
         {
+          "option_id": "D",
           "hi": "केवल मित्रों को अवसर",
-          "en": "केवल मित्रों को अवसर"
-        },
-        {
-          "hi": "Only friends get opportunities",
           "en": "Only friends get opportunities"
         }
       ],
@@ -307,7 +243,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "Modelling in moral development—",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -320,37 +256,21 @@
         {
           "option_id": "A",
           "hi": "वयस्क के व्यवहार से सीखना",
-          "en": "वयस्क के व्यवहार से सीखना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Learning from adult behaviour",
           "en": "Learning from adult behaviour"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल पाठ पढ़ना",
-          "en": "केवल पाठ पढ़ना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Reading only",
           "en": "Reading only"
         },
         {
+          "option_id": "C",
           "hi": "कोई प्रभाव नहीं",
-          "en": "कोई प्रभाव नहीं"
-        },
-        {
-          "hi": "No effect",
           "en": "No effect"
         },
         {
+          "option_id": "D",
           "hi": "केवल दंड",
-          "en": "केवल दंड"
-        },
-        {
-          "hi": "Punishment only",
           "en": "Punishment only"
         }
       ],
@@ -376,7 +296,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Benefit of discussing moral dilemmas—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -389,37 +309,21 @@
         {
           "option_id": "A",
           "hi": "विभिन्न दृष्टिकोण और तर्क समझना",
-          "en": "विभिन्न दृष्टिकोण और तर्क समझना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Understanding perspectives and reasoning",
           "en": "Understanding perspectives and reasoning"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "उत्तर रटना",
-          "en": "उत्तर रटना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Memorising answers",
           "en": "Memorising answers"
         },
         {
+          "option_id": "C",
           "hi": "संवाद रोकना",
-          "en": "संवाद रोकना"
-        },
-        {
-          "hi": "Stopping dialogue",
           "en": "Stopping dialogue"
         },
         {
+          "option_id": "D",
           "hi": "दंड बढ़ाना",
-          "en": "दंड बढ़ाना"
-        },
-        {
-          "hi": "Increasing punishment",
           "en": "Increasing punishment"
         }
       ],
@@ -445,7 +349,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Moral behaviour and rule-following—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -458,37 +362,21 @@
         {
           "option_id": "A",
           "hi": "नियम का कारण समझना भी महत्वपूर्ण",
-          "en": "नियम का कारण समझना भी महत्वपूर्ण"
-        },
-        {
-          "option_id": "B",
-          "hi": "Understanding reasons for rules also matters",
           "en": "Understanding reasons for rules also matters"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल डर पर्याप्त",
-          "en": "केवल डर पर्याप्त"
-        },
-        {
-          "option_id": "D",
-          "hi": "Fear alone is sufficient",
           "en": "Fear alone is sufficient"
         },
         {
+          "option_id": "C",
           "hi": "दोनों असंबंधित",
-          "en": "दोनों असंबंधित"
-        },
-        {
-          "hi": "Unrelated",
           "en": "Unrelated"
         },
         {
+          "option_id": "D",
           "hi": "नियम हमेशा बदलते",
-          "en": "नियम हमेशा बदलते"
-        },
-        {
-          "hi": "Rules always change",
           "en": "Rules always change"
         }
       ],
@@ -514,7 +402,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Empathy in moral development—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -527,37 +415,21 @@
         {
           "option_id": "A",
           "hi": "दूसरों के हित और भावनाओं पर विचार में मदद",
-          "en": "दूसरों के हित और भावनाओं पर विचार में मदद"
-        },
-        {
-          "option_id": "B",
-          "hi": "Helps consider others' welfare and feelings",
           "en": "Helps consider others' welfare and feelings"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "अनावश्यक",
-          "en": "अनावश्यक"
-        },
-        {
-          "option_id": "D",
-          "hi": "Unnecessary",
           "en": "Unnecessary"
         },
         {
+          "option_id": "C",
           "hi": "केवल शारीरिक",
-          "en": "केवल शारीरिक"
-        },
-        {
-          "hi": "Physical only",
           "en": "Physical only"
         },
         {
+          "option_id": "D",
           "hi": "केवल अंक",
-          "en": "केवल अंक"
-        },
-        {
-          "hi": "Marks only",
           "en": "Marks only"
         }
       ],
@@ -583,7 +455,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "An example of moral responsibility—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -596,37 +468,21 @@
         {
           "option_id": "A",
           "hi": "गलती स्वीकार कर सुधार करना",
-          "en": "गलती स्वीकार कर सुधार करना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Admit and correct a mistake",
           "en": "Admit and correct a mistake"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "दोष दूसरों पर डालना",
-          "en": "दोष दूसरों पर डालना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Blame others",
           "en": "Blame others"
         },
         {
+          "option_id": "C",
           "hi": "छिपाना",
-          "en": "छिपाना"
-        },
-        {
-          "hi": "Hide it",
           "en": "Hide it"
         },
         {
+          "option_id": "D",
           "hi": "उपेक्षा",
-          "en": "उपेक्षा"
-        },
-        {
-          "hi": "Ignore",
           "en": "Ignore"
         }
       ],
@@ -652,7 +508,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Assessment of moral development—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -665,37 +521,21 @@
         {
           "option_id": "A",
           "hi": "तर्क और व्यवहार पर चर्चा व अवलोकन",
-          "en": "तर्क और व्यवहार पर चर्चा व अवलोकन"
-        },
-        {
-          "option_id": "B",
-          "hi": "Discussion and observation of reasoning and behaviour",
           "en": "Discussion and observation of reasoning and behaviour"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल अंक",
-          "en": "केवल अंक"
-        },
-        {
-          "option_id": "D",
-          "hi": "Marks only",
           "en": "Marks only"
         },
         {
+          "option_id": "C",
           "hi": "एक प्रश्न",
-          "en": "एक प्रश्न"
-        },
-        {
-          "hi": "One question",
           "en": "One question"
         },
         {
+          "option_id": "D",
           "hi": "केवल दंड",
-          "en": "केवल दंड"
-        },
-        {
-          "hi": "Punishment only",
           "en": "Punishment only"
         }
       ],
@@ -721,7 +561,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Role of culture in morality—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -734,37 +574,21 @@
         {
           "option_id": "A",
           "hi": "मूल्य और मानदंड प्रभावित कर सकते हैं",
-          "en": "मूल्य और मानदंड प्रभावित कर सकते हैं"
-        },
-        {
-          "option_id": "B",
-          "hi": "Values and norms may influence it",
           "en": "Values and norms may influence it"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "कोई भूमिका नहीं",
-          "en": "कोई भूमिका नहीं"
-        },
-        {
-          "option_id": "D",
-          "hi": "No role",
           "en": "No role"
         },
         {
+          "option_id": "C",
           "hi": "सभी समाज समान",
-          "en": "सभी समाज समान"
-        },
-        {
-          "hi": "All societies identical",
           "en": "All societies identical"
         },
         {
+          "option_id": "D",
           "hi": "केवल आनुवंशिक",
-          "en": "केवल आनुवंशिक"
-        },
-        {
-          "hi": "Genetic only",
           "en": "Genetic only"
         }
       ],
@@ -790,7 +614,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "When can discussion be more useful than punishment?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -803,37 +627,21 @@
         {
           "option_id": "A",
           "hi": "कारण और परिणाम समझाने में",
-          "en": "कारण और परिणाम समझाने में"
-        },
-        {
-          "option_id": "B",
-          "hi": "In explaining reasons and consequences",
           "en": "In explaining reasons and consequences"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "हर परिस्थिति में दंड निषिद्ध",
-          "en": "हर परिस्थिति में दंड निषिद्ध"
-        },
-        {
-          "option_id": "D",
-          "hi": "Punishment is prohibited in every case",
           "en": "Punishment is prohibited in every case"
         },
         {
+          "option_id": "C",
           "hi": "सीखने में कभी नहीं",
-          "en": "सीखने में कभी नहीं"
-        },
-        {
-          "hi": "Never in learning",
           "en": "Never in learning"
         },
         {
+          "option_id": "D",
           "hi": "केवल अंक के लिए",
-          "en": "केवल अंक के लिए"
-        },
-        {
-          "hi": "Only for marks",
           "en": "Only for marks"
         }
       ],
@@ -859,7 +667,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Protecting shared resources reflects which value?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -872,37 +680,21 @@
         {
           "option_id": "A",
           "hi": "जिम्मेदारी",
-          "en": "जिम्मेदारी"
-        },
-        {
-          "option_id": "B",
-          "hi": "Responsibility",
           "en": "Responsibility"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "स्वार्थ",
-          "en": "स्वार्थ"
-        },
-        {
-          "option_id": "D",
-          "hi": "Selfishness",
           "en": "Selfishness"
         },
         {
+          "option_id": "C",
           "hi": "पक्षपात",
-          "en": "पक्षपात"
-        },
-        {
-          "hi": "Bias",
           "en": "Bias"
         },
         {
+          "option_id": "D",
           "hi": "उपेक्षा",
-          "en": "उपेक्षा"
-        },
-        {
-          "hi": "Neglect",
           "en": "Neglect"
         }
       ],
@@ -928,7 +720,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Perspective-taking in moral judgment—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -941,37 +733,21 @@
         {
           "option_id": "A",
           "hi": "दूसरे की स्थिति समझना",
-          "en": "दूसरे की स्थिति समझना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Understanding another's position",
           "en": "Understanding another's position"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल स्वयं",
-          "en": "केवल स्वयं"
-        },
-        {
-          "option_id": "D",
-          "hi": "Self only",
           "en": "Self only"
         },
         {
+          "option_id": "C",
           "hi": "नियम भूलना",
-          "en": "नियम भूलना"
-        },
-        {
-          "hi": "Forgetting rules",
           "en": "Forgetting rules"
         },
         {
+          "option_id": "D",
           "hi": "दंड देना",
-          "en": "दंड देना"
-        },
-        {
-          "hi": "Punishing",
           "en": "Punishing"
         }
       ],
@@ -997,7 +773,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "A way to promote honesty in a child—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1010,37 +786,21 @@
         {
           "option_id": "A",
           "hi": "ईमानदार व्यवहार का मॉडल और सकारात्मक संवाद",
-          "en": "ईमानदार व्यवहार का मॉडल और सकारात्मक संवाद"
-        },
-        {
-          "option_id": "B",
-          "hi": "Model honesty and use positive dialogue",
           "en": "Model honesty and use positive dialogue"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "झूठ बोलने पर अपमान",
-          "en": "झूठ बोलने पर अपमान"
-        },
-        {
-          "option_id": "D",
-          "hi": "Humiliate for lying",
           "en": "Humiliate for lying"
         },
         {
+          "option_id": "C",
           "hi": "केवल डर",
-          "en": "केवल डर"
-        },
-        {
-          "hi": "Fear only",
           "en": "Fear only"
         },
         {
+          "option_id": "D",
           "hi": "प्रश्न न पूछना",
-          "en": "प्रश्न न पूछना"
-        },
-        {
-          "hi": "No questions",
           "en": "No questions"
         }
       ],
@@ -1066,7 +826,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "School's role in moral development—",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1079,37 +839,21 @@
         {
           "option_id": "A",
           "hi": "निष्पक्ष नियम और व्यवहार का मॉडल",
-          "en": "निष्पक्ष नियम और व्यवहार का मॉडल"
-        },
-        {
-          "option_id": "B",
-          "hi": "Fair rules and behavioural modelling",
           "en": "Fair rules and behavioural modelling"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल परीक्षा",
-          "en": "केवल परीक्षा"
-        },
-        {
-          "option_id": "D",
-          "hi": "Exams only",
           "en": "Exams only"
         },
         {
+          "option_id": "C",
           "hi": "कोई भूमिका नहीं",
-          "en": "कोई भूमिका नहीं"
-        },
-        {
-          "hi": "No role",
           "en": "No role"
         },
         {
+          "option_id": "D",
           "hi": "केवल प्रतियोगिता",
-          "en": "केवल प्रतियोगिता"
-        },
-        {
-          "hi": "Competition only",
           "en": "Competition only"
         }
       ],
@@ -1135,7 +879,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "Relationship between moral and social development—",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1148,37 +892,21 @@
         {
           "option_id": "A",
           "hi": "सामाजिक अनुभव नैतिक समझ को प्रभावित कर सकते हैं",
-          "en": "सामाजिक अनुभव नैतिक समझ को प्रभावित कर सकते हैं"
-        },
-        {
-          "option_id": "B",
-          "hi": "Social experiences can influence moral understanding",
           "en": "Social experiences can influence moral understanding"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "असंबंधित",
-          "en": "असंबंधित"
-        },
-        {
-          "option_id": "D",
-          "hi": "Unrelated",
           "en": "Unrelated"
         },
         {
+          "option_id": "C",
           "hi": "एक ही नहीं",
-          "en": "एक ही नहीं"
-        },
-        {
-          "hi": "Not identical",
           "en": "Not identical"
         },
         {
+          "option_id": "D",
           "hi": "केवल जैविक",
-          "en": "केवल जैविक"
-        },
-        {
-          "hi": "Biological only",
           "en": "Biological only"
         }
       ],
@@ -1204,7 +932,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "A learner accidentally breaks a friend's item and apologises. What does this show?",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1217,37 +945,21 @@
         {
           "option_id": "A",
           "hi": "जिम्मेदारी और सुधार का प्रयास",
-          "en": "जिम्मेदारी और सुधार का प्रयास"
-        },
-        {
-          "option_id": "B",
-          "hi": "Responsibility and attempt to repair",
           "en": "Responsibility and attempt to repair"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल भय",
-          "en": "केवल भय"
-        },
-        {
-          "option_id": "D",
-          "hi": "Fear only",
           "en": "Fear only"
         },
         {
+          "option_id": "C",
           "hi": "असामाजिकता",
-          "en": "असामाजिकता"
-        },
-        {
-          "hi": "Asociality",
           "en": "Asociality"
         },
         {
+          "option_id": "D",
           "hi": "स्मृति",
-          "en": "स्मृति"
-        },
-        {
-          "hi": "Memory",
           "en": "Memory"
         }
       ],
@@ -1273,7 +985,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "Correct statement about moral development—",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1286,37 +998,21 @@
         {
           "option_id": "A",
           "hi": "यह अनुभव, संवाद और सामाजिक संदर्भ से प्रभावित होता है",
-          "en": "यह अनुभव, संवाद और सामाजिक संदर्भ से प्रभावित होता है"
-        },
-        {
-          "option_id": "B",
-          "hi": "It is influenced by experience, dialogue and social context",
           "en": "It is influenced by experience, dialogue and social context"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल नियम रटने से",
-          "en": "केवल नियम रटने से"
-        },
-        {
-          "option_id": "D",
-          "hi": "Only memorising rules",
           "en": "Only memorising rules"
         },
         {
+          "option_id": "C",
           "hi": "जन्म पर पूर्ण",
-          "en": "जन्म पर पूर्ण"
-        },
-        {
-          "hi": "Complete at birth",
           "en": "Complete at birth"
         },
         {
+          "option_id": "D",
           "hi": "सभी में समान",
-          "en": "सभी में समान"
-        },
-        {
-          "hi": "Identical in all",
           "en": "Identical in all"
         }
       ],
@@ -1342,7 +1038,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "A teacher hears differing views on a moral issue. Appropriate response—",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1355,37 +1051,21 @@
         {
           "option_id": "A",
           "hi": "सम्मानपूर्वक तर्क सुनना और विचार कराना",
-          "en": "सम्मानपूर्वक तर्क सुनना और विचार कराना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Listen respectfully and encourage reasoning",
           "en": "Listen respectfully and encourage reasoning"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "एक मत थोपना",
-          "en": "एक मत थोपना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Impose one view",
           "en": "Impose one view"
         },
         {
+          "option_id": "C",
           "hi": "उपहास करना",
-          "en": "उपहास करना"
-        },
-        {
-          "hi": "Mock",
           "en": "Mock"
         },
         {
+          "option_id": "D",
           "hi": "चर्चा बंद",
-          "en": "चर्चा बंद"
-        },
-        {
-          "hi": "Stop discussion",
           "en": "Stop discussion"
         }
       ],
