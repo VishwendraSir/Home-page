@@ -96,27 +96,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "8",
-          "en": "Eight"
-        },
-        {
-          "option_id": "B",
           "hi": "4",
           "en": "Four"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "5",
           "en": "Five"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "12",
           "en": "Twelve"
+        },
+        {
+          "option_id": "D",
+          "hi": "8",
+          "en": "Eight"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -149,27 +149,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "विश्वास बनाम अविश्वास",
-          "en": "Trust vs. mistrust"
-        },
-        {
-          "option_id": "B",
-          "hi": "स्वायत्तता बनाम शर्म",
-          "en": "Autonomy vs. shame"
-        },
-        {
-          "option_id": "C",
           "hi": "पहचान बनाम भूमिका भ्रम",
           "en": "Identity vs. role confusion"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "उत्पादकता बनाम ठहराव",
           "en": "Generativity vs. stagnation"
+        },
+        {
+          "option_id": "C",
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्वायत्तता बनाम शर्म",
+          "en": "Autonomy vs. shame"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -202,27 +202,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "अखंडता बनाम निराशा",
+          "en": "Integrity vs. despair"
+        },
+        {
+          "option_id": "B",
           "hi": "स्वायत्तता बनाम शर्म और संदेह",
           "en": "Autonomy vs. shame and doubt"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "विश्वास बनाम अविश्वास",
           "en": "Trust vs. mistrust"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "उद्योग बनाम हीनता",
           "en": "Industry vs. inferiority"
-        },
-        {
-          "option_id": "D",
-          "hi": "अखंडता बनाम निराशा",
-          "en": "Integrity vs. despair"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -308,27 +308,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "उद्योग बनाम हीनता",
-          "en": "Industry vs. inferiority"
-        },
-        {
-          "option_id": "B",
           "hi": "स्वायत्तता बनाम शर्म",
           "en": "Autonomy vs. shame"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "अंतरंगता बनाम अलगाव",
           "en": "Intimacy vs. isolation"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "अखंडता बनाम निराशा",
           "en": "Integrity vs. despair"
+        },
+        {
+          "option_id": "D",
+          "hi": "उद्योग बनाम हीनता",
+          "en": "Industry vs. inferiority"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -361,27 +361,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "पहचान बनाम भूमिका भ्रम",
-          "en": "Identity vs. role confusion"
-        },
-        {
-          "option_id": "B",
-          "hi": "विश्वास बनाम अविश्वास",
-          "en": "Trust vs. mistrust"
-        },
-        {
-          "option_id": "C",
           "hi": "उद्योग बनाम हीनता",
           "en": "Industry vs. inferiority"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "उत्पादकता बनाम ठहराव",
           "en": "Generativity vs. stagnation"
+        },
+        {
+          "option_id": "C",
+          "hi": "पहचान बनाम भूमिका भ्रम",
+          "en": "Identity vs. role confusion"
+        },
+        {
+          "option_id": "D",
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -414,27 +414,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "स्वायत्तता बनाम शर्म",
+          "en": "Autonomy vs. shame"
+        },
+        {
+          "option_id": "B",
           "hi": "अंतरंगता बनाम अलगाव",
           "en": "Intimacy vs. isolation"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "पहल बनाम अपराधबोध",
           "en": "Initiative vs. guilt"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "पहचान बनाम भ्रम",
           "en": "Identity vs. confusion"
-        },
-        {
-          "option_id": "D",
-          "hi": "स्वायत्तता बनाम शर्म",
-          "en": "Autonomy vs. shame"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -520,27 +520,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "अखंडता बनाम निराशा",
-          "en": "Integrity vs. despair"
-        },
-        {
-          "option_id": "B",
           "hi": "पहचान बनाम भ्रम",
           "en": "Identity vs. confusion"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "पहल बनाम अपराधबोध",
           "en": "Initiative vs. guilt"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "स्वायत्तता बनाम शर्म",
           "en": "Autonomy vs. shame"
+        },
+        {
+          "option_id": "D",
+          "hi": "अखंडता बनाम निराशा",
+          "en": "Integrity vs. despair"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -573,27 +573,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "विकास की चुनौती है",
-          "en": "Is a developmental challenge"
-        },
-        {
-          "option_id": "B",
-          "hi": "अनिवार्य रोग है",
-          "en": "Is a disorder"
-        },
-        {
-          "option_id": "C",
           "hi": "केवल परीक्षा है",
           "en": "Is only an exam"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "सभी चरण समान",
           "en": "All stages are identical"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास की चुनौती है",
+          "en": "Is a developmental challenge"
+        },
+        {
+          "option_id": "D",
+          "hi": "अनिवार्य रोग है",
+          "en": "Is a disorder"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -626,27 +626,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "प्रश्न रोकना",
+          "en": "Stop questions"
+        },
+        {
+          "option_id": "B",
           "hi": "अन्वेषण और सम्मान का अवसर देना",
           "en": "Provide opportunities for exploration and respect"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "एक पहचान थोपना",
           "en": "Impose one identity"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "तुलना करना",
           "en": "Compare students"
-        },
-        {
-          "option_id": "D",
-          "hi": "प्रश्न रोकना",
-          "en": "Stop questions"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -732,27 +732,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "उचित विकल्प देना",
-          "en": "Offer appropriate choices"
-        },
-        {
-          "option_id": "B",
           "hi": "हर निर्णय लेना",
           "en": "Make every decision"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "गलतियों पर शर्मिंदा करना",
           "en": "Shame mistakes"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "नियंत्रण बढ़ाना",
           "en": "Increase control"
+        },
+        {
+          "option_id": "D",
+          "hi": "उचित विकल्प देना",
+          "en": "Offer appropriate choices"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -785,27 +785,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "संगत और संवेदनशील देखभाल",
-          "en": "Consistent and responsive care"
-        },
-        {
-          "option_id": "B",
-          "hi": "अस्थिर प्रतिक्रिया",
-          "en": "Inconsistent responses"
-        },
-        {
-          "option_id": "C",
           "hi": "उपेक्षा",
           "en": "Neglect"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "दंड",
           "en": "Punishment"
+        },
+        {
+          "option_id": "C",
+          "hi": "संगत और संवेदनशील देखभाल",
+          "en": "Consistent and responsive care"
+        },
+        {
+          "option_id": "D",
+          "hi": "अस्थिर प्रतिक्रिया",
+          "en": "Inconsistent responses"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -838,27 +838,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "केवल संज्ञानात्मक",
+          "en": "Cognitive only"
+        },
+        {
+          "option_id": "B",
           "hi": "मनोसामाजिक चरण सिद्धांत",
           "en": "Psychosocial stage theory"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "व्यवहारवादी",
           "en": "Behaviourist"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "शास्त्रीय अनुबंधन",
           "en": "Classical conditioning"
-        },
-        {
-          "option_id": "D",
-          "hi": "केवल संज्ञानात्मक",
-          "en": "Cognitive only"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -944,27 +944,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "चरणीय संकट समाधान में सहायक",
-          "en": "Supports resolution of stage crises"
-        },
-        {
-          "option_id": "B",
           "hi": "अप्रासंगिक",
           "en": "Irrelevant"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल पुरस्कार",
           "en": "Only rewards"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "विकास रोकता है",
           "en": "Stops development"
+        },
+        {
+          "option_id": "D",
+          "hi": "चरणीय संकट समाधान में सहायक",
+          "en": "Supports resolution of stage crises"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -997,27 +997,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "जीवनभर विकास का वर्णन करते हैं",
-          "en": "Describe development across the lifespan"
-        },
-        {
-          "option_id": "B",
-          "hi": "केवल बचपन",
-          "en": "Only childhood"
-        },
-        {
-          "option_id": "C",
           "hi": "केवल किशोरावस्था",
           "en": "Only adolescence"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "अधिगम से असंबंधित",
           "en": "Unrelated to learning"
+        },
+        {
+          "option_id": "C",
+          "hi": "जीवनभर विकास का वर्णन करते हैं",
+          "en": "Describe development across the lifespan"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल बचपन",
+          "en": "Only childhood"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -1050,27 +1050,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "उपेक्षा करना",
+          "en": "Ignore"
+        },
+        {
+          "option_id": "B",
           "hi": "मार्गदर्शन और विविध अवसर देना",
           "en": "Offer guidance and varied opportunities"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "लेबल लगाना",
           "en": "Label them"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "दबाव डालना",
           "en": "Pressure them"
-        },
-        {
-          "option_id": "D",
-          "hi": "उपेक्षा करना",
-          "en": "Ignore"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
