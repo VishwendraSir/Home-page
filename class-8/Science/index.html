@@ -16,7 +16,7 @@ button{background:#4f46e5;color:white}button.active{background:#059669;box-shado
 .badges{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.badge{background:#e0e7ff;color:#3730a3;padding:7px 12px;border-radius:24px}
 .quickGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .quick{border:1px solid #dbeafe;border-radius:14px;padding:13px;background:#f8fafc}
-.quick b{display:block;margin-bottom:5px}.quick button{width:100%;margin-top:8px}
+.quick b{display:block;margin-bottom:5px}.quick button{width:100%;margin-top:8px}.fullscreenBtn{display:block;width:100%;margin:10px 0;background:#2563eb;color:#fff;font-size:17px;padding:15px}.fullscreenBtn:active{background:#1d4ed8}#frameWrap:fullscreen{width:100vw;height:100dvh;min-height:0;border-radius:0;border:0;background:#111827}#frameWrap:fullscreen iframe{height:100dvh}
 #frameWrap{height:calc(100dvh - 420px);min-height:550px;border-radius:18px;overflow:hidden;background:#111827;border:1px solid #c7d2fe}
 iframe{width:100%;height:100%;border:0;background:white}
 @media(max-width:600px){main{padding:8px}.panel{padding:12px}.versionGrid{gap:8px}.versionBtn{font-size:13px;padding:10px 7px}.quickGrid{grid-template-columns:1fr}#frameWrap{height:calc(100dvh - 440px);min-height:480px}}
@@ -40,7 +40,7 @@ iframe{width:100%;height:100%;border:0;background:white}
 <div class="quick"><b>🟩 Master Bank</b><span>Basic · Intermediate · Advanced</span><button onclick="loadVersion(labels[4])">Open V5 · 800</button></div>
 </div>
 </section>
-<section class="panel" id="languageNotice" style="background:#fff7ed;border-left:5px solid #f97316"><strong>हिन्दी UI सूचना:</strong> Chapter 1 के पहले 10 प्रश्नों का हिन्दी translation pilot उपलब्ध है। बाकी प्रश्न अभी English में हैं।</section><section id="frameWrap"><iframe id="bank" title="Selected question bank" allow="fullscreen"></iframe></section>
+<button class="fullscreenBtn" id="fullscreenBtn" onclick="activateFullscreen()">🔵 Full Screen Mode</button><section class="panel" id="languageNotice" style="background:#fff7ed;border-left:5px solid #f97316"><strong>हिन्दी UI सूचना:</strong> Chapter 1 के पहले 10 प्रश्नों का हिन्दी translation pilot उपलब्ध है। बाकी प्रश्न अभी English में हैं।</section><section id="frameWrap"><iframe id="bank" title="Selected question bank" allow="fullscreen"></iframe></section>
 </main>
 <script>
 const HI10={
@@ -97,7 +97,7 @@ const descriptions={
 "V4 – 400 Questions":"Extended bank • 25 questions per chapter",
 "V5 – 800 Questions (Basic to Advanced)":"Master bank • 50 questions per chapter • Basic, Intermediate and Advanced levels"
 };
-function loadVersion(name){
+function activateFullscreen(){const target=document.getElementById("frameWrap");if(target.requestFullscreen){target.requestFullscreen().then(()=>{target.style.height="100dvh";target.style.minHeight="0";}).catch(()=>{document.getElementById("desc").textContent="Full-screen mode is not supported by this browser. Open the quiz in a new tab or use browser full-screen.";});}else{document.getElementById("desc").textContent="Full-screen mode is not supported in this browser.";} }\nfunction loadVersion(name){
  document.querySelectorAll("button[data-version]").forEach(b=>b.classList.toggle("active",b.dataset.version===name));
  document.getElementById("desc").textContent=descriptions[name]||"Interactive question bank";
  const raw=atob(versions[name]);const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));const html=new TextDecoder("utf-8").decode(bytes);
