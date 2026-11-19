@@ -17,7 +17,7 @@
 - Prompt-derived topic entries: 481
 - Baseline minimum target: 9,620 questions (20 per listed topic).
 - The prompt-derived topic list is a baseline; explicit deeper subtopic mapping remains to be expanded.
-- Current V6-generated questions: 580 across 29 CDP topic batches; status: draft pending independent content review.
+- Current V6-generated questions: 680 across 34 CDP topic batches; status: draft pending independent content review.
 
 ## Batches
 | Batch | Subject | Topic | Target | Status |
@@ -49,6 +49,11 @@
 | V6-CDP-027 | CDP | Guidance & Counselling | 20 | Generated; bilingual fields and four options checked; content review pending |
 | V6-CDP-028 | CDP | Memory & Attention | 20 | Generated; bilingual fields and four options checked; content review pending |
 | V6-CDP-029 | CDP | Child-Centred Learning | 20 | Generated; bilingual fields and four options checked; content review pending |
+| V6-CDP-030 | CDP | Constructivist Learning | 20 | Generated; structure and answer rotation pending QA |
+| V6-CDP-031 | CDP | Behaviourism | 20 | Generated; structure and answer rotation pending QA |
+| V6-CDP-032 | CDP | Cognitive Learning Theory | 20 | Generated; structure and answer rotation pending QA |
+| V6-CDP-033 | CDP | Play-Based Learning | 20 | Generated; structure and answer rotation pending QA |
+| V6-CDP-034 | CDP | Lesson Planning | 20 | Generated; structure and answer rotation pending QA |
 
 ## Batch QA — V6-CDP-001
 - Record count: 20.
@@ -91,6 +96,11 @@
 - Hindi/English question, options, explanations: populated.
 - Correct-answer index and label consistency: generated consistently.
 - Answer positions rotated A–D.
+- Independent factual, translation and distractor-quality review: pending.
+
+## Batch QA — V6-CDP-030–034
+- Five topic packs; 20 records each; 100 records total.
+- JSON structure, answer key and bilingual field checks: pending independent verification.
 - Independent factual, translation and distractor-quality review: pending.
 
 ## Next steps
