@@ -1,0 +1,1085 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Principles of Development",
+  "batch_id": "V6-CDP-002",
+  "subject_id": "cdp",
+  "topic_id": "principles_of_development",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_PD_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास के सिद्धांतों के अनुसार बच्चों में विकास सामान्यतः कैसा होता है?",
+      "question_en": "According to developmental principles, how does development generally occur?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "क्रमबद्ध, लेकिन गति में व्यक्तिगत अंतर के साथ",
+          "en": "In an orderly sequence, but with individual differences in pace"
+        },
+        {
+          "option_id": "B",
+          "hi": "पूरी तरह अनियमित",
+          "en": "Completely random"
+        },
+        {
+          "option_id": "C",
+          "hi": "सभी बच्चों में समान गति से",
+          "en": "At the same rate in all children"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल अचानक परिवर्तन के रूप में",
+          "en": "Only through sudden changes"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "विकास सामान्य क्रम का अनुसरण करता है, लेकिन प्रत्येक बच्चे की गति अलग हो सकती है।",
+      "explanation_en": "Development generally follows an orderly sequence, while each child may progress at a different rate.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "'विकास निरंतर प्रक्रिया है' का क्या अर्थ है?",
+      "question_en": "What does it mean that development is a continuous process?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "विकास केवल एक आयु में होता है",
+          "en": "Development occurs only at one age"
+        },
+        {
+          "option_id": "B",
+          "hi": "विकास जीवन के विभिन्न चरणों में आगे बढ़ता रहता है",
+          "en": "Development continues across different life stages"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास कभी बदलता नहीं",
+          "en": "Development never changes"
+        },
+        {
+          "option_id": "D",
+          "hi": "विकास केवल शारीरिक होता है",
+          "en": "Development is only physical"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "विकास विभिन्न जीवन चरणों में जारी रहता है; कुछ परिवर्तन धीमे और कुछ तेज हो सकते हैं।",
+      "explanation_en": "Development continues across life stages, with some changes occurring more slowly and others more rapidly.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सिर से पैर की दिशा में विकास किस सिद्धांत का उदाहरण है?",
+      "question_en": "Development from head to toe illustrates which principle?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "निकट-दूर",
+          "en": "Proximodistal"
+        },
+        {
+          "option_id": "B",
+          "hi": "मस्तकाधोमुखी",
+          "en": "Cephalocaudal"
+        },
+        {
+          "option_id": "C",
+          "hi": "विशिष्ट से सामान्य",
+          "en": "Specific-to-general"
+        },
+        {
+          "option_id": "D",
+          "hi": "सामाजिक",
+          "en": "Social"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "मस्तकाधोमुखी सिद्धांत विकास की दिशा सिर से नीचे की ओर बताता है।",
+      "explanation_en": "The cephalocaudal principle describes development progressing from the head downward.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शरीर के केंद्र से हाथ-पैरों की ओर विकास किस सिद्धांत के अनुसार होता है?",
+      "question_en": "Development from the centre of the body toward the limbs follows which principle?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "मस्तकाधोमुखी",
+          "en": "Cephalocaudal"
+        },
+        {
+          "option_id": "B",
+          "hi": "निकट-दूर",
+          "en": "Proximodistal"
+        },
+        {
+          "option_id": "C",
+          "hi": "निरंतरता",
+          "en": "Continuity"
+        },
+        {
+          "option_id": "D",
+          "hi": "समानता",
+          "en": "Uniformity"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "निकट-दूर सिद्धांत केंद्र से बाहरी भागों की ओर विकास का वर्णन करता है।",
+      "explanation_en": "The proximodistal principle describes development from the centre outward.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास के सिद्धांतों में व्यक्तिगत भिन्नता का क्या महत्व है?",
+      "question_en": "Why are individual differences important in developmental principles?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सभी बच्चों को समान स्तर पर मानना चाहिए",
+          "en": "All children should be assumed to be at the same level"
+        },
+        {
+          "option_id": "B",
+          "hi": "विकास की गति और उपलब्धियों में भिन्नता स्वाभाविक है",
+          "en": "Differences in pace and achievement are natural"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल उम्र ही क्षमता बताती है",
+          "en": "Age alone determines ability"
+        },
+        {
+          "option_id": "D",
+          "hi": "भिन्नता विकास में बाधा है",
+          "en": "Variation is a developmental obstacle"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "बच्चे अपनी गति, अनुभव और संदर्भ के अनुसार विकसित होते हैं; व्यक्तिगत अंतर सामान्य हैं।",
+      "explanation_en": "Children develop according to their pace, experiences and context; individual differences are normal.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "एक बच्चा पहले बड़े मांसपेशीय आंदोलनों को नियंत्रित करता है और बाद में उंगलियों से सूक्ष्म कार्य करता है। यह किस प्रवृत्ति से संबंधित है?",
+      "question_en": "A child controls large muscle movements before fine finger movements. Which trend does this relate to?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सामान्य से विशिष्ट",
+          "en": "General-to-specific"
+        },
+        {
+          "option_id": "B",
+          "hi": "मस्तकाधोमुखी",
+          "en": "Cephalocaudal"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल संज्ञानात्मक विकास",
+          "en": "Cognitive development only"
+        },
+        {
+          "option_id": "D",
+          "hi": "विकास का रुकना",
+          "en": "Developmental arrest"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "मोटे नियंत्रण से सूक्ष्म नियंत्रण की ओर बढ़ना सामान्य से विशिष्ट कौशल की प्रवृत्ति का उदाहरण है।",
+      "explanation_en": "Progressing from broad control to finer control illustrates the general-to-specific developmental trend.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास के विभिन्न क्षेत्रों की परस्पर निर्भरता का उदाहरण कौन-सा है?",
+      "question_en": "Which example illustrates interdependence among developmental domains?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भाषा कौशल सामाजिक सहभागिता को बेहतर बना सकता है",
+          "en": "Language skills can improve social interaction"
+        },
+        {
+          "option_id": "B",
+          "hi": "शारीरिक विकास का अन्य क्षेत्रों से कोई संबंध नहीं",
+          "en": "Physical development has no relation to other domains"
+        },
+        {
+          "option_id": "C",
+          "hi": "हर क्षेत्र स्वतंत्र रूप से विकसित होता है",
+          "en": "Every domain develops independently"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल उम्र सभी कौशल निर्धारित करती है",
+          "en": "Age alone determines all skills"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "भाषा, सामाजिक और संज्ञानात्मक विकास परस्पर जुड़े होते हैं।",
+      "explanation_en": "Language, social and cognitive development are interconnected.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास की दिशा 'सामान्य से विशिष्ट' का अर्थ क्या है?",
+      "question_en": "What does the developmental trend from general to specific mean?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "व्यापक प्रतिक्रियाएँ धीरे-धीरे विशिष्ट कौशल में बदलती हैं",
+          "en": "Broad responses gradually become specific skills"
+        },
+        {
+          "option_id": "B",
+          "hi": "विशिष्ट कौशल सामान्य प्रतिक्रियाओं में बदलते हैं",
+          "en": "Specific skills become general responses"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास उल्टी दिशा में चलता है",
+          "en": "Development proceeds in reverse"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल शब्दावली बढ़ती है",
+          "en": "Only vocabulary increases"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "बच्चे की प्रतिक्रियाएँ धीरे-धीरे अधिक सटीक और विशिष्ट बनती हैं।",
+      "explanation_en": "Children's responses gradually become more precise and specific.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास के क्रम और गति में सही अंतर क्या है?",
+      "question_en": "What is the correct difference between developmental sequence and rate?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "क्रम कौशलों का सामान्य क्रम है; गति प्रगति की दर है",
+          "en": "Sequence is the usual order of skills; rate is the pace of progress"
+        },
+        {
+          "option_id": "B",
+          "hi": "दोनों समान हैं",
+          "en": "They are identical"
+        },
+        {
+          "option_id": "C",
+          "hi": "क्रम केवल शारीरिक और गति केवल सामाजिक है",
+          "en": "Sequence is only physical and rate only social"
+        },
+        {
+          "option_id": "D",
+          "hi": "क्रम और गति का आकलन नहीं किया जा सकता",
+          "en": "Neither can be assessed"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "क्रम बताता है कि कौशल सामान्यतः किस क्रम में आते हैं; गति बताती है कि कितनी तेजी से प्रगति होती है।",
+      "explanation_en": "Sequence describes the usual order of skills; rate describes how quickly progress occurs.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक बच्चों को उनकी readiness के अनुसार गतिविधियाँ देता है। यह किस सिद्धांत के अनुरूप है?",
+      "question_en": "A teacher provides activities according to children's readiness. Which principle does this align with?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "विकासात्मक तत्परता और व्यक्तिगत भिन्नता",
+          "en": "Developmental readiness and individual differences"
+        },
+        {
+          "option_id": "B",
+          "hi": "समान गति",
+          "en": "Uniform rate"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल अनुकरण",
+          "en": "Imitation only"
+        },
+        {
+          "option_id": "D",
+          "hi": "विकास का निषेध",
+          "en": "Denial of development"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Readiness और व्यक्तिगत भिन्नताओं को ध्यान में रखना विकासात्मक रूप से उपयुक्त शिक्षण है।",
+      "explanation_en": "Considering readiness and individual differences is developmentally appropriate teaching.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास पर वातावरण का प्रभाव किस कथन से सबसे अच्छी तरह समझाया जाता है?",
+      "question_en": "Which statement best explains the influence of environment on development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "वातावरण अनुभव और अवसर प्रदान करके विकास को प्रभावित करता है",
+          "en": "Environment influences development through experiences and opportunities"
+        },
+        {
+          "option_id": "B",
+          "hi": "वातावरण का कोई प्रभाव नहीं",
+          "en": "Environment has no influence"
+        },
+        {
+          "option_id": "C",
+          "hi": "वातावरण आनुवंशिकता को पूरी तरह बदल देता है",
+          "en": "Environment completely replaces heredity"
+        },
+        {
+          "option_id": "D",
+          "hi": "वातावरण केवल वयस्कों को प्रभावित करता है",
+          "en": "Environment affects only adults"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "परिवार, विद्यालय, पोषण, संस्कृति और अनुभव विकास के अवसरों तथा परिणामों को प्रभावित करते हैं।",
+      "explanation_en": "Family, school, nutrition, culture and experiences influence developmental opportunities and outcomes.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास में परिपक्वता और सीखने का संबंध कैसा है?",
+      "question_en": "How are maturation and learning related in development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "वे परस्पर संबंधित हैं और readiness तथा अनुभव दोनों महत्वपूर्ण हैं",
+          "en": "They are related; readiness and experience both matter"
+        },
+        {
+          "option_id": "B",
+          "hi": "परिपक्वता सीखने को पूरी तरह समाप्त करती है",
+          "en": "Maturation completely eliminates learning"
+        },
+        {
+          "option_id": "C",
+          "hi": "सीखना केवल जन्मजात है",
+          "en": "Learning is only innate"
+        },
+        {
+          "option_id": "D",
+          "hi": "दोनों का कोई संबंध नहीं",
+          "en": "They are unrelated"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "जैविक readiness और अनुभव/अभ्यास दोनों कौशलों के विकास में भूमिका निभा सकते हैं।",
+      "explanation_en": "Biological readiness and experience or practice can both contribute to skill development.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास को संचयी प्रक्रिया कहने का अर्थ है—",
+      "question_en": "Describing development as cumulative means—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "पूर्व अनुभव आगे के विकास की नींव बन सकते हैं",
+          "en": "Earlier experiences can form a foundation for later development"
+        },
+        {
+          "option_id": "B",
+          "hi": "हर चरण पुराने अनुभवों को मिटा देता है",
+          "en": "Each stage erases earlier experiences"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास केवल आनुवंशिक है",
+          "en": "Development is only genetic"
+        },
+        {
+          "option_id": "D",
+          "hi": "विकास में कोई परिवर्तन नहीं होता",
+          "en": "No change occurs in development"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "पूर्व कौशल और अनुभव बाद के सीखने तथा क्षमताओं को आधार प्रदान कर सकते हैं।",
+      "explanation_en": "Earlier skills and experiences can support later learning and abilities.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किसी बच्चे की प्रगति का निष्पक्ष आकलन करने के लिए शिक्षक को क्या करना चाहिए?",
+      "question_en": "What should a teacher do to assess a child's progress fairly?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल अन्य बच्चों से तुलना",
+          "en": "Compare only with other children"
+        },
+        {
+          "option_id": "B",
+          "hi": "समय के साथ बच्चे की अपनी प्रगति देखना और कई प्रमाण लेना",
+          "en": "Track the child's own progress over time and use multiple evidence sources"
+        },
+        {
+          "option_id": "C",
+          "hi": "एक परीक्षा के आधार पर निर्णय",
+          "en": "Decide from one test"
+        },
+        {
+          "option_id": "D",
+          "hi": "सभी बच्चों के लिए समान निष्कर्ष",
+          "en": "Use identical conclusions for all children"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "व्यक्तिगत प्रगति और विभिन्न प्रमाण विकासात्मक आकलन को अधिक उचित बनाते हैं।",
+      "explanation_en": "Individual progress and multiple sources of evidence make developmental assessment fairer.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास की गति अलग-अलग क्षेत्रों में भिन्न हो सकती है। इसका अर्थ है—",
+      "question_en": "Developmental rates can differ across domains. This means—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "एक बच्चा भाषा में आगे और मोटर कौशल में अलग गति से हो सकता है",
+          "en": "A child may progress in language and motor skills at different rates"
+        },
+        {
+          "option_id": "B",
+          "hi": "सभी क्षेत्र समान गति से विकसित होते हैं",
+          "en": "All domains develop at the same rate"
+        },
+        {
+          "option_id": "C",
+          "hi": "एक क्षेत्र में कठिनाई सभी क्षेत्रों में कठिनाई सिद्ध करती है",
+          "en": "Difficulty in one domain proves difficulty in all domains"
+        },
+        {
+          "option_id": "D",
+          "hi": "विकास का आकलन असंभव है",
+          "en": "Development cannot be assessed"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "विकास के क्षेत्र परस्पर संबंधित होते हैं, लेकिन उनकी गति समान होना आवश्यक नहीं है।",
+      "explanation_en": "Developmental domains are related, but they need not progress at the same rate.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "यदि दो बच्चे समान विकासात्मक क्रम में कौशल प्राप्त करते हैं लेकिन अलग-अलग उम्र में, तो कौन-सा सिद्धांत सबसे उपयुक्त है?",
+      "question_en": "If two children acquire skills in a similar sequence but at different ages, which principle best applies?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "क्रम में समानता और गति में व्यक्तिगत भिन्नता",
+          "en": "Similarity in sequence with individual variation in rate"
+        },
+        {
+          "option_id": "B",
+          "hi": "सभी बच्चों की समान गति",
+          "en": "Uniform rate for all children"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास का अनियमित होना",
+          "en": "Random development"
+        },
+        {
+          "option_id": "D",
+          "hi": "विकास का केवल वातावरण से निर्धारित होना",
+          "en": "Development determined only by environment"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "सामान्य विकासात्मक क्रम समान हो सकता है, जबकि कौशल प्राप्त करने की उम्र और गति अलग होती है।",
+      "explanation_en": "The general developmental sequence may be similar, while the age and rate of skill acquisition differ.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "difficult",
+      "question_type": "Assertion-Reason",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कथन (A): विकास के सभी आयाम परस्पर संबंधित हैं। कारण (R): किसी क्षेत्र में परिवर्तन दूसरे क्षेत्र के अनुभवों या अवसरों को प्रभावित कर सकता है।",
+      "question_en": "Assertion (A): Developmental domains are interrelated. Reason (R): Change in one domain can influence experiences or opportunities in another.",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "A और R सही हैं तथा R, A की व्याख्या करता है",
+          "en": "Both A and R are true, and R explains A"
+        },
+        {
+          "option_id": "B",
+          "hi": "A और R सही हैं, लेकिन R व्याख्या नहीं करता",
+          "en": "Both are true, but R does not explain A"
+        },
+        {
+          "option_id": "C",
+          "hi": "A सही, R गलत",
+          "en": "A true, R false"
+        },
+        {
+          "option_id": "D",
+          "hi": "A गलत, R सही",
+          "en": "A false, R true"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "विकास के क्षेत्रों के बीच प्रभाव होने से उनकी परस्पर निर्भरता स्पष्ट होती है।",
+      "explanation_en": "Influence between developmental domains demonstrates their interdependence.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "'विकास की दिशा सामान्यतः पूर्वानुमेय है' का सबसे सही अर्थ क्या है?",
+      "question_en": "What is the best meaning of 'development is generally predictable'?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सभी बच्चों की उपलब्धियों और तारीखों का सटीक अनुमान लगाया जा सकता है",
+          "en": "Exact achievements and dates can be predicted for every child"
+        },
+        {
+          "option_id": "B",
+          "hi": "सामान्य प्रवृत्तियाँ और क्रम पहचाने जा सकते हैं, लेकिन व्यक्तिगत परिणाम निश्चित नहीं होते",
+          "en": "Broad trends and sequences can be identified, but individual outcomes are not fixed"
+        },
+        {
+          "option_id": "C",
+          "hi": "वातावरण कोई परिवर्तन नहीं कर सकता",
+          "en": "Environment cannot change anything"
+        },
+        {
+          "option_id": "D",
+          "hi": "विकास केवल एक निश्चित उम्र पर होता है",
+          "en": "Development occurs only at one fixed age"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "सामान्य क्रम और प्रवृत्तियाँ उपयोगी हैं, लेकिन व्यक्तिगत गति और संदर्भ के कारण सटीक भविष्यवाणी संभव नहीं होती।",
+      "explanation_en": "General sequences and trends are useful, but individual pace and context prevent exact prediction.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक ने देखा कि बच्चा अभ्यास के बाद सूक्ष्म मोटर कौशल में सुधार करता है। इस अवलोकन से सबसे उचित निष्कर्ष क्या है?",
+      "question_en": "A teacher observes improvement in fine motor skills after practice. What is the most reasonable conclusion?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अनुभव और अभ्यास विकास/सीखने में योगदान दे सकते हैं",
+          "en": "Experience and practice can contribute to development and learning"
+        },
+        {
+          "option_id": "B",
+          "hi": "परिपक्वता का कोई महत्व नहीं",
+          "en": "Maturation has no importance"
+        },
+        {
+          "option_id": "C",
+          "hi": "सभी बच्चों में समान सुधार होगा",
+          "en": "All children will improve equally"
+        },
+        {
+          "option_id": "D",
+          "hi": "अभ्यास विकास को रोकता है",
+          "en": "Practice stops development"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "अनुभव और अभ्यास कौशल में सुधार कर सकते हैं; परिणाम readiness और व्यक्तिगत भिन्नताओं पर भी निर्भर करते हैं।",
+      "explanation_en": "Experience and practice can improve skills; outcomes also depend on readiness and individual differences.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PD_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "principles_of_development",
+      "topic": "Principles of Development",
+      "subtopic_id": "general_principles",
+      "subtopic": "General Principles",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास के सिद्धांतों का उपयोग करते समय कौन-सा दृष्टिकोण सबसे वैज्ञानिक है?",
+      "question_en": "Which approach is most scientific when applying developmental principles?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सिद्धांतों को कठोर नियम मानना",
+          "en": "Treat principles as rigid rules"
+        },
+        {
+          "option_id": "B",
+          "hi": "सामान्य प्रवृत्तियों के साथ व्यक्तिगत, सांस्कृतिक और पर्यावरणीय संदर्भ पर विचार करना",
+          "en": "Consider general trends along with individual, cultural and environmental context"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल उम्र से निर्णय करना",
+          "en": "Judge only by age"
+        },
+        {
+          "option_id": "D",
+          "hi": "सभी बच्चों को एक ही मानक से लेबल करना",
+          "en": "Label all children using one standard"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "विकासात्मक सिद्धांत सामान्य प्रवृत्तियाँ बताते हैं; वैज्ञानिक उपयोग में संदर्भ और व्यक्तिगत भिन्नताओं का ध्यान रखा जाता है।",
+      "explanation_en": "Developmental principles describe general trends; scientific application considers context and individual variation.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
