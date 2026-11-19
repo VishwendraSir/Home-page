@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Question Bank QC V9</title>
+<style>
+:root{--bg:#0b1020;--panel:#151d33;--line:#2b3858;--text:#eef3ff;--muted:#9eb0d1;--blue:#70a7ff;--green:#54d69a;--yellow:#ffd166;--red:#ff6b7a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px system-ui,Arial}header{padding:22px;background:linear-gradient(120deg,#14284c,#32205b);border-bottom:1px solid var(--line)}h1{margin:0 0 6px;font-size:24px}small,.muted{color:var(--muted)}main{max-width:1200px;margin:auto;padding:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.btn,button{background:#263b66;color:white;border:1px solid #45659a;padding:10px 14px;border-radius:9px;cursor:pointer}button:hover{filter:brightness(1.15)}input,select,textarea{background:#0c1428;color:var(--text);border:1px solid var(--line);padding:10px;border-radius:8px}textarea{width:100%;min-height:130px} .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.stat{background:#0d162b;border:1px solid var(--line);padding:14px;border-radius:10px}.stat b{display:block;font-size:23px}.good{color:var(--green)}.warn{color:var(--yellow)}.bad{color:var(--red)}table{width:100%;border-collapse:collapse;min-width:800px}th,td{border-bottom:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}th{color:var(--blue)}.tablewrap{overflow:auto}.pill{display:inline-block;border-radius:20px;padding:3px 8px;background:#263653;font-size:12px}.approved{color:var(--green)}.revise{color:var(--yellow)}.reject{color:var(--red)}details{margin-top:6px}footer{padding:20px;color:var(--muted);text-align:center}
+</style></head><body>
+<header><h1>🛡️ QUESTION BANK QUALITY CONTROL V9</h1><div>SCIENCE CENTRE LEARNING HUB · Guided by Vishwendra Sir</div><small>Quality First • Source Integrity • Answer Audit • Duplicate Control • Bilingual Review</small></header>
+<main>
+<section class="card"><h2>1. Question Bank Import</h2><p class="muted">JSON array या {questions:[...]} format. यह tool heuristic audit करता है; source/answer की वास्तविक सत्यता तभी पुष्टि होगी जब प्रमाण/स्रोत उपलब्ध हों।</p>
+<div class="row"><input type="file" id="file" accept=".json,application/json"><button onclick="runAudit()">Audit Questions</button><button onclick="loadSample()">Load Demo</button><button onclick="exportReport()">Export Audit JSON</button><button onclick="exportCSV()">Export CSV</button></div>
+<textarea id="json" placeholder='Paste JSON here…'></textarea></section>
+<section class="card"><h2>2. Audit Summary</h2><div class="stats" id="stats"></div><p id="notice" class="muted"></p></section>
+<section class="card"><h2>3. Filters</h2><div class="row"><select id="statusFilter" onchange="render()"><option value="">All statuses</option><option>APPROVED</option><option>REVISE</option><option>REJECT</option></select><select id="sourceFilter" onchange="render()"><option value="">All source types</option><option>OFFICIAL_PYQ</option><option>TEXTBOOK_BASED</option><option>SYLLABUS_BASED</option><option>ORIGINAL_PRACTICE</option><option>SOURCE_VERIFICATION_PENDING</option><option>UNCLASSIFIED</option></select><input id="search" placeholder="Search question/topic" oninput="render()"></div></section>
+<section class="card"><h2>4. Question Audit Results</h2><div class="tablewrap"><table><thead><tr><th># / ID</th><th>Question</th><th>Source</th><th>Score</th><th>Status</th><th>Flags / Recommendations</th></tr></thead><tbody id="rows"></tbody></table></div></section>
+</main><footer>QC V9 • Offline, browser-based audit • No external dependencies</footer>
+<script>
+let audited=[];
+const $=id=>document.getElementById(id);
+$('file').addEventListener('change',async e=>{if(e.target.files[0])$('json').value=await e.target.files[0].text()});
+function parse(){let d=JSON.parse($('json').value);return Array.isArray(d)?d:(d.questions||d.items||[])}
+function norm(s){return String(s||'').toLowerCase().replace(/[।,!?;:()\[\]{}"'—–-]/g,' ').replace(/\s+/g,' ').trim()}
+function textQ(q){return q.question_en||q.question||q.question_hi||q.text||q.questionText||''}
+function audit(q,i,all){
+ const flags=[],recommend=[];
+ const en=q.question_en||q.question||q.text||q.questionText||'', hi=q.question_hi||q.questionHindi||'';
+ const opts=q.options_en||q.options||q.choices||q.options_hi||[];
+ const answer=q.answer??q.correct_answer??q.correctAnswer??q.answer_key;
+ const source=(q.source_type||q.sourceType||q.source||'').toString().toUpperCase();
+ let score=100;
+ if(!en&&!hi){flags.push('QUESTION_TEXT_MISSING');score-=30}
+ if(!en){flags.push('ENGLISH_TEXT_MISSING');score-=5}
+ if(!hi){flags.push('HINDI_TEXT_MISSING');score-=5}
+ if(!Array.isArray(opts)||opts.length<2){flags.push('OPTIONS_MISSING/INVALID');score-=20}
+ else {if(opts.length!==4)recommend.push('MCQ option count is '+opts.length+' (check expected format)');if(new Set(opts.map(x=>norm(typeof x==='object'?JSON.stringify(x):x))).size!==opts.length){flags.push('DUPLICATE_OPTIONS');score-=15}}
+ if(answer===undefined||answer===null||answer===''){flags.push('ANSWER_MISSING');score-=25}
+ if(!q.explanation_en&&!q.explanation&&!q.solution&&!q.explanation_hi){flags.push('EXPLANATION_MISSING');score-=10}
+ if(!q.topic&&!q.chapter&&!q.concept_tag&&!q.conceptTag){flags.push('TOPIC/CONCEPT_MISSING');score-=5}
+ const allowed=['OFFICIAL_PYQ','TEXTBOOK_BASED','SYLLABUS_BASED','ORIGINAL_PRACTICE','SOURCE_VERIFICATION_PENDING'];
+ if(!allowed.includes(source)){flags.push('SOURCE_UNCLASSIFIED');score-=10}
+ if(source==='OFFICIAL_PYQ'&&!(q.source_url||q.source_reference||q.source_detail||q.year||q.exam)){flags.push('PYQ_EVIDENCE_MISSING');score-=20;recommend.push('Attach official source URL/reference; do not treat label alone as proof')}
+ if(source==='OFFICIAL_PYQ'&&q.verified!==true&&q.verified_status!=='VERIFIED'){flags.push('PYQ_NOT_VERIFIED');score-=15}
+ if(source==='SOURCE_VERIFICATION_PENDING'){recommend.push('Verify source before approval');score-=5}
+ const key=norm(en||hi);
+ if(key&&all.some((x,j)=>j!==i&&norm(textQ(x))===key)){flags.push('EXACT_DUPLICATE');score-=25}
+ const normalizedOpts=Array.isArray(opts)?opts.map(x=>norm(typeof x==='object'?JSON.stringify(x):x)):[];
+ if(normalizedOpts.some(x=>!x)){flags.push('EMPTY_OPTION');score-=10}
+ if(q.difficulty&&!['BASIC','EASY','MODERATE','ADVANCED','EXAM CHALLENGE','CHALLENGE'].includes(String(q.difficulty).toUpperCase()))recommend.push('Review difficulty label');
+ if(flags.includes('QUESTION_TEXT_MISSING')||flags.includes('ANSWER_MISSING')||flags.includes('OPTIONS_MISSING/INVALID')||flags.includes('DUPLICATE_OPTIONS')||flags.includes('EXACT_DUPLICATE'))return {q,i,score:Math.max(0,score),flags,recommend,status:'REJECT'};
+ score=Math.max(0,score);
+ return {q,i,score,flags,recommend,status:score>=85&&flags.length===0?'APPROVED':'REVISE'};
+}
+function runAudit(){try{let qs=parse();if(!qs.length)throw Error('No questions found');audited=qs.map((q,i)=>audit(q,i,qs));$('notice').textContent='Audit completed. This is a rule-based screening—not external fact-checking. Provide source evidence for authenticity and answer verification.';render()}catch(e){$('notice').textContent='Import error: '+e.message}}
+function render(){const status=$('statusFilter').value,src=$('sourceFilter').value,search=norm($('search').value);let list=audited.filter(a=>(!status||a.status===status)&&(!src||(a.q.source_type||a.q.sourceType||a.q.source||'UNCLASSIFIED').toString().toUpperCase()===src)&&(!search||norm(JSON.stringify(a.q)).includes(search)));$('rows').innerHTML=list.map(a=>{let q=a.q;let question=textQ(q);let source=(q.source_type||q.sourceType||q.source||'UNCLASSIFIED');return '<tr><td>'+(q.id||q.question_id||a.i+1)+'</td><td>'+esc(question)+'<details><summary>Details</summary><pre>'+esc(JSON.stringify(q,null,2))+'</pre></details></td><td>'+esc(source)+'</td><td><b>'+a.score+'/100</b></td><td class="'+a.status.toLowerCase()+'">'+a.status+'</td><td>'+[...a.flags,...a.recommend].map(x=>'<span class="pill">'+esc(x)+'</span>').join(' ')+'</td></tr>'}).join('');const count=s=>audited.filter(a=>a.status===s).length;const srcCount=audited.filter(a=>['OFFICIAL_PYQ','TEXTBOOK_BASED','SYLLABUS_BASED','ORIGINAL_PRACTICE'].includes((a.q.source_type||a.q.sourceType||a.q.source||'').toUpperCase())).length;$('stats').innerHTML=[['Total',audited.length],['Approved',count('APPROVED')],['Revise',count('REVISE')],['Rejected',count('REJECT')],['Source classified',srcCount],['Avg score',audited.length?Math.round(audited.reduce((s,a)=>s+a.score,0)/audited.length):0]].map(([l,v])=>'<div class="stat"><small>'+l+'</small><b>'+v+'</b></div>').join('')}
+function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function loadSample(){$('json').value=JSON.stringify({questions:[{id:'DEMO-001',question_en:'Which planet is known as the Red Planet?',question_hi:'लाल ग्रह किसे कहा जाता है?',options:['Earth','Mars','Venus','Jupiter'],answer:'Mars',explanation_en:'Mars appears reddish due to iron oxide on its surface.',topic:'Solar System',difficulty:'Easy',source_type:'ORIGINAL_PRACTICE'},{id:'DEMO-002',question:'Sample question without evidence',options:['A','A','C'],answer:'A',source_type:'OFFICIAL_PYQ'}]},null,2);runAudit()}
+function exportReport(){let out=audited.map(a=>({...a.q,qc:{score:a.score,status:a.status,flags:a.flags,recommendations:a.recommend}}));download('question-bank-qc-report.json',JSON.stringify({generated_at:new Date().toISOString(),warning:'Heuristic audit only. Source authenticity and factual correctness require evidence review.',summary:{total:audited.length,approved:audited.filter(a=>a.status==='APPROVED').length,revise:audited.filter(a=>a.status==='REVISE').length,rejected:audited.filter(a=>a.status==='REJECT').length},questions:out},null,2),'application/json')}
+function exportCSV(){let lines=[['id','question','source','score','status','flags','recommendations'].join(',')];audited.forEach(a=>lines.push([a.q.id||a.i+1,textQ(a.q),a.q.source_type||a.q.source||'UNCLASSIFIED',a.score,a.status,a.flags.join(';'),a.recommend.join(';')].map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')));download('question-bank-qc.csv',lines.join('\n'),'text/csv')}
+function download(name,data,type){let b=new Blob([data],{type}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click();URL.revokeObjectURL(a.href)}
+</script></body></html>
