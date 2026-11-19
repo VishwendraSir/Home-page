@@ -17,7 +17,7 @@
 - Prompt-derived topic entries: 481
 - Baseline minimum target: 9,620 questions (20 per listed topic).
 - The prompt-derived topic list is a baseline; explicit deeper subtopic mapping remains to be expanded.
-- Current V6-generated questions: 40 in 2 batches; status: draft pending independent content review.
+- Current V6-generated questions: 480 across 24 CDP topic batches; status: draft pending independent content review.
 
 ## Batches
 | Batch | Subject | Topic | Target | Status |
@@ -39,6 +39,11 @@
 | V6-CDP-017 | CDP | Vygotsky's Theory | 20 | Generated; bilingual structure repaired; answer positions balanced; content review pending |
 | V6-CDP-018 | CDP | Kohlberg's Moral Development | 20 | Generated; bilingual structure repaired; answer positions balanced; content review pending |
 | V6-CDP-019 | CDP | Erikson's Psychosocial Theory | 20 | Generated; bilingual structure repaired; answer positions balanced; content review pending |
+| V6-CDP-020 | CDP | Inclusive Education | 20 | Generated; bilingual fields and four options checked; content review pending |
+| V6-CDP-021 | CDP | Assessment & Evaluation | 20 | Generated; bilingual fields and four options checked; content review pending |
+| V6-CDP-022 | CDP | Classroom Management | 20 | Generated; bilingual fields and four options checked; content review pending |
+| V6-CDP-023 | CDP | Motivation | 20 | Generated; bilingual fields and four options checked; content review pending |
+| V6-CDP-024 | CDP | Intelligence & Creativity | 20 | Generated; bilingual fields and four options checked; content review pending |
 
 ## Batch QA — V6-CDP-001
 - Record count: 20.
@@ -66,6 +71,13 @@
 - Correct option/index consistency: checked.
 - Answer positions rotated across A–D.
 - English question and explanation fields populated.
+- Content correctness, distractor quality, and translation quality: independent review pending.
+
+## Batch QA — V6-CDP-020–024
+- Five topic packs; 20 records each; 100 records total.
+- Record counts and JSON structure: checked at generation.
+- Hindi and English questions, options, and explanations populated.
+- Answer position rotated across A–D.
 - Content correctness, distractor quality, and translation quality: independent review pending.
 
 ## Next steps
