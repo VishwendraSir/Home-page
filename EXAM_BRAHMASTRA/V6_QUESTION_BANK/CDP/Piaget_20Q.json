@@ -96,27 +96,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "0–2 वर्ष",
-          "en": "0–2 years"
-        },
-        {
-          "option_id": "B",
           "hi": "2–7 वर्ष",
           "en": "2–7 years"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "7–11 वर्ष",
           "en": "7–11 years"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "11 वर्ष से आगे",
           "en": "11 years onward"
+        },
+        {
+          "option_id": "D",
+          "hi": "0–2 वर्ष",
+          "en": "0–2 years"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -149,27 +149,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "संवेदी-गामक",
-          "en": "Sensorimotor"
-        },
-        {
-          "option_id": "B",
-          "hi": "पूर्व-संक्रियात्मक",
-          "en": "Preoperational"
-        },
-        {
-          "option_id": "C",
           "hi": "मूर्त संक्रियात्मक",
           "en": "Concrete operational"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "औपचारिक संक्रियात्मक",
           "en": "Formal operational"
+        },
+        {
+          "option_id": "C",
+          "hi": "संवेदी-गामक",
+          "en": "Sensorimotor"
+        },
+        {
+          "option_id": "D",
+          "hi": "पूर्व-संक्रियात्मक",
+          "en": "Preoperational"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -202,27 +202,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "औपचारिक तर्क",
+          "en": "Formal reasoning"
+        },
+        {
+          "option_id": "B",
           "hi": "प्रतीकात्मक चिंतन",
           "en": "Symbolic thought"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "वैज्ञानिक परिकल्पना",
           "en": "Scientific hypothesis"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "पूर्ण संरक्षण",
           "en": "Full conservation"
-        },
-        {
-          "option_id": "D",
-          "hi": "औपचारिक तर्क",
-          "en": "Formal reasoning"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -308,27 +308,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "मूर्त संक्रियात्मक",
-          "en": "Concrete operational"
-        },
-        {
-          "option_id": "B",
           "hi": "संवेदी-गामक",
           "en": "Sensorimotor"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "पूर्व-संक्रियात्मक",
           "en": "Preoperational"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "केवल किशोरावस्था",
           "en": "Only adolescence"
+        },
+        {
+          "option_id": "D",
+          "hi": "मूर्त संक्रियात्मक",
+          "en": "Concrete operational"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -361,27 +361,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "7–11 वर्ष",
-          "en": "7–11 years"
-        },
-        {
-          "option_id": "B",
-          "hi": "0–2 वर्ष",
-          "en": "0–2 years"
-        },
-        {
-          "option_id": "C",
           "hi": "2–7 वर्ष",
           "en": "2–7 years"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "15–20 वर्ष",
           "en": "15–20 years"
+        },
+        {
+          "option_id": "C",
+          "hi": "7–11 वर्ष",
+          "en": "7–11 years"
+        },
+        {
+          "option_id": "D",
+          "hi": "0–2 वर्ष",
+          "en": "0–2 years"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -414,27 +414,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "संवेदी प्रतिक्रिया",
+          "en": "Sensory response"
+        },
+        {
+          "option_id": "B",
           "hi": "अमूर्त और काल्पनिक तर्क",
           "en": "Abstract and hypothetical reasoning"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "केवल वस्तु पहचान",
           "en": "Object recognition only"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "अनुकरण मात्र",
           "en": "Imitation only"
-        },
-        {
-          "option_id": "D",
-          "hi": "संवेदी प्रतिक्रिया",
-          "en": "Sensory response"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -520,27 +520,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "नए अनुभव को मौजूदा स्कीमा में समाहित करना",
-          "en": "Fit new experience into existing schema"
-        },
-        {
-          "option_id": "B",
           "hi": "स्कीमा बदलना",
           "en": "Change schema"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "ज्ञान भूलना",
           "en": "Forget knowledge"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "नकल करना",
           "en": "Imitate"
+        },
+        {
+          "option_id": "D",
+          "hi": "नए अनुभव को मौजूदा स्कीमा में समाहित करना",
+          "en": "Fit new experience into existing schema"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -573,27 +573,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "नए अनुभव के अनुसार स्कीमा बदलना",
-          "en": "Modify schemas for new experience"
-        },
-        {
-          "option_id": "B",
-          "hi": "पुराने ज्ञान को दोहराना",
-          "en": "Repeat old knowledge"
-        },
-        {
-          "option_id": "C",
           "hi": "दंड देना",
           "en": "Punish"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "ध्यान हटाना",
           "en": "Distract"
+        },
+        {
+          "option_id": "C",
+          "hi": "नए अनुभव के अनुसार स्कीमा बदलना",
+          "en": "Modify schemas for new experience"
+        },
+        {
+          "option_id": "D",
+          "hi": "पुराने ज्ञान को दोहराना",
+          "en": "Repeat old knowledge"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -626,27 +626,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "भाषा विकास मात्र",
+          "en": "Language development only"
+        },
+        {
+          "option_id": "B",
           "hi": "Assimilation और accommodation का संतुलन",
           "en": "Balance of assimilation and accommodation"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "केवल अनुकरण",
           "en": "Imitation only"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "दंड और पुरस्कार",
           "en": "Punishment and reward"
-        },
-        {
-          "option_id": "D",
-          "hi": "भाषा विकास मात्र",
-          "en": "Language development only"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -732,27 +732,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "दृष्टिकोण ग्रहण और अहंकेंद्रिता",
-          "en": "Perspective-taking and egocentrism"
-        },
-        {
-          "option_id": "B",
           "hi": "संरक्षण",
           "en": "Conservation"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "पुनर्बलन",
           "en": "Reinforcement"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "नैतिकता",
           "en": "Morality"
+        },
+        {
+          "option_id": "D",
+          "hi": "दृष्टिकोण ग्रहण और अहंकेंद्रिता",
+          "en": "Perspective-taking and egocentrism"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -785,27 +785,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "बच्चा अनुभवों को आत्मसात करता है",
-          "en": "Children assimilate experiences"
-        },
-        {
-          "option_id": "B",
-          "hi": "यह सीखना रोकता है",
-          "en": "It stops learning"
-        },
-        {
-          "option_id": "C",
           "hi": "यह केवल शारीरिक व्यायाम",
           "en": "It is only exercise"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "यह दंड है",
           "en": "It is punishment"
+        },
+        {
+          "option_id": "C",
+          "hi": "बच्चा अनुभवों को आत्मसात करता है",
+          "en": "Children assimilate experiences"
+        },
+        {
+          "option_id": "D",
+          "hi": "यह सीखना रोकता है",
+          "en": "It stops learning"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -838,27 +838,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "त्रुटि पर दंड",
+          "en": "Punish errors"
+        },
+        {
+          "option_id": "B",
           "hi": "अन्वेषण के अवसर देना",
           "en": "Provide opportunities for exploration"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "हर उत्तर बताना",
           "en": "Tell every answer"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "केवल व्याख्यान",
           "en": "Lecture only"
-        },
-        {
-          "option_id": "D",
-          "hi": "त्रुटि पर दंड",
-          "en": "Punish errors"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -944,27 +944,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "कुछ क्षमताएँ अपेक्षा से पहले दिख सकती हैं",
-          "en": "Some abilities may appear earlier than proposed"
-        },
-        {
-          "option_id": "B",
           "hi": "बच्चे सोचते नहीं",
           "en": "Children do not think"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "विकास नहीं होता",
           "en": "Development does not occur"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "केवल भाषा महत्वपूर्ण",
           "en": "Only language matters"
+        },
+        {
+          "option_id": "D",
+          "hi": "कुछ क्षमताएँ अपेक्षा से पहले दिख सकती हैं",
+          "en": "Some abilities may appear earlier than proposed"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -997,27 +997,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "विकास सीखने की संभावनाओं को प्रभावित करता है",
-          "en": "Development influences learning possibilities"
-        },
-        {
-          "option_id": "B",
-          "hi": "पूरी तरह समान",
-          "en": "Exactly identical"
-        },
-        {
-          "option_id": "C",
           "hi": "असंबंधित",
           "en": "Unrelated"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "केवल पुरस्कार आधारित",
           "en": "Reward-based only"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास सीखने की संभावनाओं को प्रभावित करता है",
+          "en": "Development influences learning possibilities"
+        },
+        {
+          "option_id": "D",
+          "hi": "पूरी तरह समान",
+          "en": "Exactly identical"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -1050,27 +1050,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "सभी में अनुपयोगी",
+          "en": "Useless for all"
+        },
+        {
+          "option_id": "B",
           "hi": "मूर्त संक्रियात्मक",
           "en": "Concrete operational"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "औपचारिक संक्रियात्मक केवल",
           "en": "Formal operational only"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "संवेदी-गामक केवल",
           "en": "Sensorimotor only"
-        },
-        {
-          "option_id": "D",
-          "hi": "सभी में अनुपयोगी",
-          "en": "Useless for all"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
