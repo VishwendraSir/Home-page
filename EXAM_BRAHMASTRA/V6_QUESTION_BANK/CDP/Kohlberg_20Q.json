@@ -96,27 +96,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "3",
-          "en": "Three"
-        },
-        {
-          "option_id": "B",
           "hi": "2",
           "en": "Two"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "4",
           "en": "Four"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "6",
           "en": "Six"
+        },
+        {
+          "option_id": "D",
+          "hi": "3",
+          "en": "Three"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -149,27 +149,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "दंड और व्यक्तिगत लाभ",
-          "en": "Punishment and personal benefit"
-        },
-        {
-          "option_id": "B",
-          "hi": "सामाजिक अनुबंध",
-          "en": "Social contract"
-        },
-        {
-          "option_id": "C",
           "hi": "सार्वभौमिक सिद्धांत",
           "en": "Universal principles"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "कानून का सम्मान",
           "en": "Respect for law"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड और व्यक्तिगत लाभ",
+          "en": "Punishment and personal benefit"
+        },
+        {
+          "option_id": "D",
+          "hi": "सामाजिक अनुबंध",
+          "en": "Social contract"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -202,27 +202,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "किसी स्तर में नहीं",
+          "en": "None"
+        },
+        {
+          "option_id": "B",
           "hi": "पूर्व-परंपरागत",
           "en": "Pre-conventional"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "परंपरागत",
           "en": "Conventional"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "उत्तर-परंपरागत",
           "en": "Post-conventional"
-        },
-        {
-          "option_id": "D",
-          "hi": "किसी स्तर में नहीं",
-          "en": "None"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -308,27 +308,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "सामाजिक अपेक्षाओं और नियमों का महत्व मानता है",
-          "en": "Values social expectations and rules"
-        },
-        {
-          "option_id": "B",
           "hi": "केवल दंड से डरता है",
           "en": "Only fears punishment"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "नियम अस्वीकार करता है",
           "en": "Rejects rules"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "सार्वभौमिक सिद्धांत बनाता है",
           "en": "Creates universal principles"
+        },
+        {
+          "option_id": "D",
+          "hi": "सामाजिक अपेक्षाओं और नियमों का महत्व मानता है",
+          "en": "Values social expectations and rules"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -361,27 +361,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "परंपरागत स्तर",
-          "en": "Conventional level"
-        },
-        {
-          "option_id": "B",
-          "hi": "पूर्व-परंपरागत",
-          "en": "Pre-conventional"
-        },
-        {
-          "option_id": "C",
           "hi": "उत्तर-परंपरागत",
           "en": "Post-conventional"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "असंंबंधित",
           "en": "Unrelated"
+        },
+        {
+          "option_id": "C",
+          "hi": "परंपरागत स्तर",
+          "en": "Conventional level"
+        },
+        {
+          "option_id": "D",
+          "hi": "पूर्व-परंपरागत",
+          "en": "Pre-conventional"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -414,27 +414,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "संवेदी स्तर",
+          "en": "Sensory"
+        },
+        {
+          "option_id": "B",
           "hi": "परंपरागत स्तर",
           "en": "Conventional level"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "पूर्व-परंपरागत",
           "en": "Pre-conventional"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "उत्तर-परंपरागत",
           "en": "Post-conventional"
-        },
-        {
-          "option_id": "D",
-          "hi": "संवेदी स्तर",
-          "en": "Sensory"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -520,27 +520,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "कानून बदल सकने और अधिकारों का विचार",
-          "en": "Laws can change and rights matter"
-        },
-        {
-          "option_id": "B",
           "hi": "अंध आज्ञापालन",
           "en": "Blind obedience"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल पुरस्कार",
           "en": "Rewards only"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "समूह दबाव",
           "en": "Group pressure"
+        },
+        {
+          "option_id": "D",
+          "hi": "कानून बदल सकने और अधिकारों का विचार",
+          "en": "Laws can change and rights matter"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -573,27 +573,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "उत्तर-परंपरागत",
-          "en": "Post-conventional"
-        },
-        {
-          "option_id": "B",
-          "hi": "पूर्व-परंपरागत",
-          "en": "Pre-conventional"
-        },
-        {
-          "option_id": "C",
           "hi": "परंपरागत",
           "en": "Conventional"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "पूर्व-संक्रियात्मक",
           "en": "Preoperational"
+        },
+        {
+          "option_id": "C",
+          "hi": "उत्तर-परंपरागत",
+          "en": "Post-conventional"
+        },
+        {
+          "option_id": "D",
+          "hi": "पूर्व-परंपरागत",
+          "en": "Pre-conventional"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -626,27 +626,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "एरिक्सन",
+          "en": "Erikson"
+        },
+        {
+          "option_id": "B",
           "hi": "कोहलबर्ग",
           "en": "Kohlberg"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "पियाजे",
           "en": "Piaget"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "स्किनर",
           "en": "Skinner"
-        },
-        {
-          "option_id": "D",
-          "hi": "एरिक्सन",
-          "en": "Erikson"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -732,27 +732,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "नहीं",
-          "en": "No"
-        },
-        {
-          "option_id": "B",
           "hi": "हाँ",
           "en": "Yes"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल बच्चों में",
           "en": "Only in children"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "केवल वयस्कों में",
           "en": "Only in adults"
+        },
+        {
+          "option_id": "D",
+          "hi": "नहीं",
+          "en": "No"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -785,27 +785,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "सांस्कृतिक और लैंगिक पक्षपात की संभावना",
-          "en": "Possible cultural and gender bias"
-        },
-        {
-          "option_id": "B",
-          "hi": "नैतिकता का कोई अध्ययन नहीं",
-          "en": "No study of morality"
-        },
-        {
-          "option_id": "C",
           "hi": "केवल शारीरिक विकास",
           "en": "Only physical development"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "सीखने को नकारना",
           "en": "Denies learning"
+        },
+        {
+          "option_id": "C",
+          "hi": "सांस्कृतिक और लैंगिक पक्षपात की संभावना",
+          "en": "Possible cultural and gender bias"
+        },
+        {
+          "option_id": "D",
+          "hi": "नैतिकता का कोई अध्ययन नहीं",
+          "en": "No study of morality"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -838,27 +838,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "चर्चा रोकना",
+          "en": "Stop discussion"
+        },
+        {
+          "option_id": "B",
           "hi": "नैतिक दुविधाओं पर चर्चा",
           "en": "Discuss moral dilemmas"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "केवल दंड",
           "en": "Punishment only"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "उत्तर रटवाना",
           "en": "Memorise answers"
-        },
-        {
-          "option_id": "D",
-          "hi": "चर्चा रोकना",
-          "en": "Stop discussion"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -944,27 +944,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "क्रमिक और संरचित",
-          "en": "Sequential and structured"
-        },
-        {
-          "option_id": "B",
           "hi": "मनमाने",
           "en": "Arbitrary"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल आयु आधारित",
           "en": "Age-only"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "स्थिर व्यवहार",
           "en": "Fixed behaviour"
+        },
+        {
+          "option_id": "D",
+          "hi": "क्रमिक और संरचित",
+          "en": "Sequential and structured"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -997,27 +997,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "परंपरागत नैतिकता",
-          "en": "Conventional morality"
-        },
-        {
-          "option_id": "B",
-          "hi": "पूर्व-परंपरागत",
-          "en": "Pre-conventional"
-        },
-        {
-          "option_id": "C",
           "hi": "उत्तर-परंपरागत",
           "en": "Post-conventional"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "अधिगमहीन",
           "en": "No learning"
+        },
+        {
+          "option_id": "C",
+          "hi": "परंपरागत नैतिकता",
+          "en": "Conventional morality"
+        },
+        {
+          "option_id": "D",
+          "hi": "पूर्व-परंपरागत",
+          "en": "Pre-conventional"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -1050,27 +1050,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "मतभेद रोकना",
+          "en": "Suppress disagreement"
+        },
+        {
+          "option_id": "B",
           "hi": "सम्मानपूर्ण संवाद और तर्क",
           "en": "Respectful dialogue and reasoning"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "शर्मिंदा करना",
           "en": "Shaming"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "अंध आज्ञापालन",
           "en": "Blind obedience"
-        },
-        {
-          "option_id": "D",
-          "hi": "मतभेद रोकना",
-          "en": "Suppress disagreement"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
