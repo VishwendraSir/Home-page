@@ -1,0 +1,1125 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Assessment & Evaluation",
+  "batch_id": "V6-CDP-021",
+  "subject_id": "cdp",
+  "topic_id": "assessment_evaluation",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Formative assessment कब किया जाता है?",
+      "question_en": "When is formative assessment conducted?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "सीखने के दौरान",
+            "During learning",
+            "केवल वर्ष अंत",
+            "Only year-end",
+            "प्रवेश से पहले",
+            "Before admission",
+            "केवल परिणाम के बाद",
+            "After results only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Formative assessment शिक्षण-सीखने की प्रक्रिया के दौरान सुधार हेतु होता है।",
+          "en": "Formative assessment supports improvement during learning."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Summative assessment का उद्देश्य—",
+      "question_en": "The purpose of summative assessment is—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Summative assessment इकाई या अवधि के अंत में उपलब्धि मापता है।",
+          "en": "Summative assessment measures achievement at the end of a unit or period."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "अंतिम उपलब्धि का मूल्यांकन",
+            "Evaluate final achievement",
+            "दैनिक सहायता",
+            "Daily support",
+            "पूर्व ज्ञान जानना",
+            "Find prior knowledge",
+            "सहपाठी सहयोग",
+            "Peer support"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Diagnostic assessment का उपयोग—",
+      "question_en": "Diagnostic assessment is used to—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "कठिनाई और पूर्व ज्ञान पहचानना",
+            "Identify difficulties and prior knowledge",
+            "अंतिम ग्रेड देना",
+            "Give final grade",
+            "पुरस्कार देना",
+            "Give rewards",
+            "अनुशासन",
+            "Discipline"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Diagnostic assessment शिक्षण से पहले जरूरतों की पहचान कर सकता है।",
+          "en": "Diagnostic assessment can identify needs before instruction."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Assessment for learning किसका उदाहरण है?",
+      "question_en": "Assessment for learning refers to—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Formative assessment",
+            "Formative assessment",
+            "Summative only",
+            "Summative only",
+            "Ranking only",
+            "Ranking only",
+            "Admission test",
+            "Admission test"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Assessment for learning सीखने में सुधार हेतु मूल्यांकन है।",
+          "en": "Assessment for learning uses evidence to improve learning."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Assessment of learning सामान्यतः—",
+      "question_en": "Assessment of learning is generally—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "Summative",
+            "Summative",
+            "Diagnostic",
+            "Diagnostic",
+            "Peer tutoring",
+            "Peer tutoring",
+            "Scaffolding",
+            "Scaffolding"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "यह सीखने के परिणामों का सारांश प्रस्तुत करता है।",
+          "en": "It summarises learning outcomes."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Assessment as learning में विद्यार्थी—",
+      "question_en": "In assessment as learning, learners—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Self-assessment और reflection आत्म-नियमन बढ़ाते हैं।",
+          "en": "Self-assessment and reflection support self-regulation."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "स्वयं सीखने की निगरानी करते हैं",
+            "Monitor their own learning",
+            "केवल शिक्षक पर निर्भर",
+            "Depend only on teacher",
+            "परीक्षा नहीं देते",
+            "Never test",
+            "दंड पाते",
+            "Receive punishment"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विश्वसनीयता का अर्थ—",
+      "question_en": "Reliability means—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "माप में स्थिरता",
+            "Consistency of measurement",
+            "सही विषय मापना",
+            "Measuring intended construct",
+            "आसान परीक्षा",
+            "Easy test",
+            "लंबी परीक्षा",
+            "Long test"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Reliability माप की consistency से संबंधित है।",
+          "en": "Reliability concerns consistency of measurement."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Validity का अर्थ—",
+      "question_en": "Validity means—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "जिसका मापन करना है वही मापना",
+            "Measuring what is intended",
+            "हर बार समान अंक",
+            "Same score every time",
+            "कम प्रश्न",
+            "Few questions",
+            "आसान प्रश्न",
+            "Easy questions"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Validity बताती है कि उपकरण इच्छित क्षमता मापता है या नहीं।",
+          "en": "Validity concerns whether an instrument measures its intended construct."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Rubric क्या है?",
+      "question_en": "What is a rubric?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "मानदंड और स्तरों का मूल्यांकन ढाँचा",
+            "Criteria and performance-level framework",
+            "उपस्थिति सूची",
+            "Attendance list",
+            "उत्तर कुंजी",
+            "Answer key",
+            "पाठ योजना",
+            "Lesson plan"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Rubric स्पष्ट मानदंड और प्रदर्शन स्तर देता है।",
+          "en": "A rubric specifies criteria and performance levels."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Portfolio assessment में—",
+      "question_en": "Portfolio assessment includes—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Portfolio विकास और उपलब्धियों के नमूने संकलित करता है।",
+          "en": "A portfolio collects samples of progress and achievement."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "समय के साथ विद्यार्थी के कार्य",
+            "Learner work over time",
+            "केवल एक परीक्षा",
+            "One test only",
+            "केवल उपस्थिति",
+            "Attendance only",
+            "दंड रिकॉर्ड",
+            "Punishment record"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रभावी feedback कैसी हो?",
+      "question_en": "Effective feedback should be—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "विशिष्ट, उपयोगी और समय पर",
+            "Specific, actionable and timely",
+            "व्यक्तिगत आलोचना",
+            "Personal criticism",
+            "अस्पष्ट",
+            "Vague",
+            "बहुत देर से",
+            "Very late"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Feedback अगले सुधार के लिए स्पष्ट दिशा देता है।",
+          "en": "Feedback gives clear direction for improvement."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Objective test का लाभ—",
+      "question_en": "An advantage of an objective test is—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "अंकन अपेक्षाकृत निष्पक्ष",
+            "Relatively objective scoring",
+            "गहरी अभिव्यक्ति हमेशा",
+            "Always deep expression",
+            "कोई तैयारी नहीं",
+            "No preparation",
+            "केवल मौखिक",
+            "Oral only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Objective items में scoring अधिक standardized हो सकती है।",
+          "en": "Objective items can offer more standardised scoring."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Open-ended प्रश्न क्या जाँच सकता है?",
+      "question_en": "An open-ended question can assess—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "व्याख्या और तर्क",
+            "Explanation and reasoning",
+            "केवल पहचान",
+            "Recognition only",
+            "उपस्थिति",
+            "Attendance",
+            "गति मात्र",
+            "Speed only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Open-ended उत्तर विस्तृत सोच और तर्क दिखा सकते हैं।",
+          "en": "Open-ended responses can reveal extended thinking and reasoning."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रश्नपत्र blueprint का उद्देश्य—",
+      "question_en": "The purpose of a test blueprint is—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Blueprint सामग्री, उद्देश्यों और प्रश्नों का संतुलन सुनिश्चित करता है।",
+          "en": "A blueprint balances content, objectives and items."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "विषय और कौशल का संतुलित कवरेज",
+            "Balanced coverage of topics and skills",
+            "उत्तर छिपाना",
+            "Hide answers",
+            "समय बढ़ाना",
+            "Increase time",
+            "दंड तय करना",
+            "Set punishment"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Criterion-referenced assessment तुलना करता है—",
+      "question_en": "Criterion-referenced assessment compares performance with—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "निर्धारित मानदंड",
+            "Defined criteria",
+            "सहपाठी",
+            "Peers",
+            "राष्ट्रीय औसत",
+            "National average",
+            "शिक्षक की आयु",
+            "Teacher age"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "यह तय मानकों के विरुद्ध प्रदर्शन देखता है।",
+          "en": "It evaluates performance against set standards."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Norm-referenced assessment तुलना करता है—",
+      "question_en": "Norm-referenced assessment compares—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "समूह के प्रदर्शन से",
+            "With group performance",
+            "केवल लक्ष्य",
+            "Only a target",
+            "स्वयं से",
+            "With oneself",
+            "पाठ्यक्रम से",
+            "With curriculum"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Norm-referenced tests व्यक्ति को संदर्भ समूह से तुलना करते हैं।",
+          "en": "Norm-referenced tests compare learners with a reference group."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रश्नों का कठिनाई स्तर क्या दर्शाता है?",
+      "question_en": "Item difficulty indicates—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "कितने परीक्षार्थियों ने सही उत्तर दिया",
+            "Proportion answering correctly",
+            "प्रश्न की लंबाई",
+            "Question length",
+            "अंकन विधि",
+            "Scoring method",
+            "परीक्षा समय",
+            "Test duration"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Difficulty index सामान्यतः सही उत्तर देने वालों के अनुपात से निकाला जाता है।",
+          "en": "Difficulty is commonly based on the proportion answering correctly."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "परीक्षा में विविध प्रश्न प्रकार क्यों?",
+      "question_en": "Why use varied item types in assessment?",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "विविध प्रश्न अलग ज्ञान और कौशल का प्रमाण देते हैं।",
+          "en": "Varied items provide evidence of different knowledge and skills."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "विभिन्न क्षमताओं का मापन",
+            "Measure varied abilities",
+            "परीक्षा कठिन बनाना",
+            "Make test harder",
+            "अंक घटाना",
+            "Reduce marks",
+            "समय नष्ट",
+            "Waste time"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Self-assessment का लाभ—",
+      "question_en": "A benefit of self-assessment is—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "आत्म-निगरानी और जिम्मेदारी",
+            "Self-monitoring and responsibility",
+            "आत्मविश्वास घटाना",
+            "Reduce confidence",
+            "शिक्षक हटाना",
+            "Remove teacher",
+            "केवल अंक",
+            "Marks only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Self-assessment आत्म-नियमन और सीखने की जिम्मेदारी बढ़ाता है।",
+          "en": "Self-assessment supports self-regulation and responsibility."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ASSESSMENT_EVALUATION_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "assessment_evaluation",
+      "topic": "Assessment & Evaluation",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "मूल्यांकन का उपयोग किसलिए होना चाहिए?",
+      "question_en": "Assessment should be used to—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "शिक्षण में सुधार और प्रगति समझना",
+            "Improve teaching and understand progress",
+            "केवल डर",
+            "Create fear only",
+            "लेबल लगाना",
+            "Label learners",
+            "तुलना मात्र",
+            "Compare only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "साक्ष्य से शिक्षक अगला शिक्षण कदम तय करता है।",
+          "en": "Evidence helps teachers decide next instructional steps."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
