@@ -1,0 +1,1145 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Learning Theories",
+  "batch_id": "V6-CDP-015",
+  "subject_id": "cdp",
+  "topic_id": "learning_theories",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शास्त्रीय अनुबंधन का संबंध किससे है?",
+      "question_en": "Classical conditioning is associated with whom?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "पावलॉव",
+            "Pavlov",
+            "स्किनर",
+            "Skinner",
+            "बंडूरा",
+            "Bandura",
+            "कोहलर",
+            "Köhler"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "पावलॉव ने उद्दीपक-संबंध के माध्यम से शास्त्रीय अनुबंधन का अध्ययन किया।",
+          "en": "Pavlov studied classical conditioning through stimulus associations."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "क्रियाप्रसूत अनुबंधन में व्यवहार किससे प्रभावित होता है?",
+      "question_en": "In operant conditioning, behaviour is influenced by what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "परिणामों से",
+            "Consequences",
+            "केवल आयु से",
+            "Age alone",
+            "वंशानुक्रम से ही",
+            "Heredity alone",
+            "अनुकरण से ही",
+            "Imitation alone"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "व्यवहार के बाद मिलने वाले परिणाम उसकी पुनरावृत्ति को प्रभावित करते हैं।",
+          "en": "Consequences following behaviour influence its likelihood of recurrence."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सकारात्मक पुनर्बलन का उदाहरण क्या है?",
+      "question_en": "Which is an example of positive reinforcement?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "सही उत्तर पर प्रशंसा",
+            "Praise for a correct answer",
+            "कार्य छीन लेना",
+            "Removing a task",
+            "दंड देना",
+            "Punishing",
+            "अनदेखा करना",
+            "Ignoring"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "वांछित व्यवहार के बाद प्रशंसनीय परिणाम देना सकारात्मक पुनर्बलन है।",
+          "en": "Adding a desirable consequence after behaviour is positive reinforcement."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "नकारात्मक पुनर्बलन का अर्थ है—",
+      "question_en": "Negative reinforcement means—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "अप्रिय उद्दीपक हटाकर व्यवहार बढ़ाना",
+            "Increasing behaviour by removing an unpleasant stimulus",
+            "दंड देना",
+            "Punishing",
+            "पुरस्कार रोकना",
+            "Withholding reward",
+            "व्यवहार समाप्त करना",
+            "Eliminating behaviour"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "नकारात्मक पुनर्बलन अप्रिय स्थिति हटाकर व्यवहार की संभावना बढ़ाता है।",
+          "en": "Negative reinforcement increases behaviour by removing an aversive condition."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "दंड और पुनर्बलन में मुख्य अंतर क्या है?",
+      "question_en": "What is the key difference between punishment and reinforcement?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "पुनर्बलन व्यवहार बढ़ाता, दंड घटाता है",
+            "Reinforcement increases behaviour; punishment decreases it",
+            "दोनों व्यवहार बढ़ाते हैं",
+            "Both increase behaviour",
+            "दोनों समान हैं",
+            "They are identical",
+            "दोनों केवल पुरस्कार हैं",
+            "Both are rewards"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "पुनर्बलन व्यवहार बढ़ाता है; दंड व्यवहार घटाने का उद्देश्य रखता है।",
+          "en": "Reinforcement increases behaviour; punishment aims to reduce it."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अवलोकनात्मक अधिगम का प्रमुख सिद्धांतकार कौन है?",
+      "question_en": "Who is a major theorist of observational learning?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "अल्बर्ट बंडूरा",
+            "Albert Bandura",
+            "पावलॉव",
+            "Pavlov",
+            "थॉर्नडाइक",
+            "Thorndike",
+            "फ्रायड",
+            "Freud"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "बंडूरा ने मॉडल देखकर सीखने पर बल दिया।",
+          "en": "Bandura emphasised learning by observing models."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बंडूरा के अनुसार सीखने के लिए क्या आवश्यक हो सकता है?",
+      "question_en": "According to Bandura, what may be necessary for learning?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "ध्यान और स्मृति",
+            "Attention and retention",
+            "केवल दंड",
+            "Punishment only",
+            "केवल परिपक्वता",
+            "Maturation only",
+            "केवल अभ्यास",
+            "Practice only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "अवलोकनात्मक अधिगम में ध्यान, स्मृति, पुनरुत्पादन और प्रेरणा महत्वपूर्ण हैं।",
+          "en": "Attention, retention, reproduction and motivation are important in observational learning."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "थॉर्नडाइक का प्रभाव का नियम बताता है कि—",
+      "question_en": "Thorndike's law of effect states that—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "संतोषजनक परिणाम व्यवहार को मजबूत करते हैं",
+            "Satisfying consequences strengthen behaviour",
+            "सभी सीखना अचानक होता है",
+            "All learning occurs suddenly",
+            "सीखना केवल अनुकरण है",
+            "Learning is only imitation",
+            "दंड हमेशा सर्वोत्तम है",
+            "Punishment is always best"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "संतोषजनक परिणाम से जुड़े व्यवहार की पुनरावृत्ति बढ़ती है।",
+          "en": "Behaviours followed by satisfying consequences tend to recur."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अंतर्दृष्टि अधिगम किससे संबंधित है?",
+      "question_en": "Insight learning is associated with—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "कोहलर",
+            "Köhler",
+            "पावलॉव",
+            "Pavlov",
+            "स्किनर",
+            "Skinner",
+            "वॉटसन",
+            "Watson"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "कोहलर ने चिंपैंजी के प्रयोगों से अंतर्दृष्टि अधिगम का वर्णन किया।",
+          "en": "Köhler described insight learning through chimpanzee experiments."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "रचनावादी दृष्टिकोण में विद्यार्थी—",
+      "question_en": "In constructivism, learners—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "ज्ञान सक्रिय रूप से निर्मित करते हैं",
+            "Actively construct knowledge",
+            "निष्क्रिय सुनते हैं",
+            "Listen passively",
+            "केवल नकल करते हैं",
+            "Only copy",
+            "जन्म से सब जानते हैं",
+            "Know everything at birth"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "रचनावाद में विद्यार्थी पूर्व ज्ञान और अनुभव के आधार पर अर्थ बनाते हैं।",
+          "en": "Constructivists build meaning using prior knowledge and experience."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अर्थपूर्ण अधिगम किससे बेहतर होता है?",
+      "question_en": "Meaningful learning is enhanced by—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "नए ज्ञान को पूर्व ज्ञान से जोड़ना",
+            "Connecting new knowledge with prior knowledge",
+            "रटने की पुनरावृत्ति मात्र",
+            "Repetition alone",
+            "भय",
+            "Fear",
+            "अलग-अलग असंबद्ध तथ्य",
+            "Isolated facts"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "पूर्व ज्ञान से संबंध नए ज्ञान को अर्थपूर्ण बनाता है।",
+          "en": "Connecting to prior knowledge makes learning meaningful."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "गेस्टाल्ट सिद्धांत किस पर बल देता है?",
+      "question_en": "Gestalt theory emphasises—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "समग्र पैटर्न",
+            "Whole patterns",
+            "केवल छोटे भाग",
+            "Only small parts",
+            "दंड",
+            "Punishment",
+            "शारीरिक वृद्धि",
+            "Physical growth"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "गेस्टाल्ट दृष्टिकोण अनुभव को समग्र रूप में समझने पर बल देता है।",
+          "en": "Gestalt approach emphasises understanding experience as a whole."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अधिगम का स्थानांतरण क्या है?",
+      "question_en": "What is transfer of learning?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "एक परिस्थिति का ज्ञान दूसरी में उपयोग",
+            "Using learning in another situation",
+            "ज्ञान भूल जाना",
+            "Forgetting",
+            "केवल परीक्षा देना",
+            "Taking an exam only",
+            "दंड से सीखना",
+            "Learning through punishment"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "पूर्व अधिगम का नई परिस्थिति में उपयोग स्थानांतरण है।",
+          "en": "Transfer is applying prior learning to a new situation."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रयास और त्रुटि अधिगम किससे जुड़ा है?",
+      "question_en": "Trial-and-error learning is associated with—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "थॉर्नडाइक",
+            "Thorndike",
+            "वाइगोत्स्की",
+            "Vygotsky",
+            "एरिक्सन",
+            "Erikson",
+            "मास्लो",
+            "Maslow"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "थॉर्नडाइक ने प्रयास और त्रुटि द्वारा सीखने का अध्ययन किया।",
+          "en": "Thorndike studied learning through trial and error."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रेरणा अधिगम में क्या भूमिका निभाती है?",
+      "question_en": "What role does motivation play in learning?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "सीखने में संलग्नता बढ़ाती है",
+            "Increases engagement",
+            "सीखना रोकती है",
+            "Stops learning",
+            "बुद्धि का विकल्प है",
+            "Replaces intelligence",
+            "केवल बाहरी पुरस्कार जरूरी",
+            "External rewards are always necessary"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "प्रेरणा विद्यार्थी की रुचि, प्रयास और संलग्नता को प्रभावित करती है।",
+          "en": "Motivation influences interest, effort and engagement."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "आंतरिक प्रेरणा का उदाहरण है—",
+      "question_en": "An example of intrinsic motivation is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "जिज्ञासा से पढ़ना",
+            "Studying out of curiosity",
+            "इनाम के लिए पढ़ना",
+            "Studying for a prize",
+            "दंड से बचना",
+            "Avoiding punishment",
+            "अंक के दबाव में पढ़ना",
+            "Studying under grade pressure"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "आंतरिक प्रेरणा गतिविधि में स्वयं रुचि से उत्पन्न होती है।",
+          "en": "Intrinsic motivation comes from interest in the activity itself."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्कैफोल्डिंग का उद्देश्य क्या है?",
+      "question_en": "What is the purpose of scaffolding?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "अस्थायी सहायता देकर स्वतंत्रता बढ़ाना",
+            "Temporary support leading to independence",
+            "स्थायी निर्भरता",
+            "Permanent dependence",
+            "कार्य सरलतम करना",
+            "Make every task trivial",
+            "उत्तर बताना",
+            "Give answers"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सहारा धीरे-धीरे हटाकर विद्यार्थी की स्वतंत्र क्षमता विकसित की जाती है।",
+          "en": "Support is gradually withdrawn as learner independence develops."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अधिगम में प्रतिक्रिया कैसी होनी चाहिए?",
+      "question_en": "Feedback in learning should be—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "विशिष्ट और समयोचित",
+            "Specific and timely",
+            "केवल आलोचनात्मक",
+            "Only critical",
+            "बहुत देर से",
+            "Very delayed",
+            "अस्पष्ट",
+            "Vague"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "विशिष्ट समयोचित प्रतिक्रिया सुधार में मदद करती है।",
+          "en": "Specific, timely feedback supports improvement."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कौन-सा अभ्यास कौशल को स्थिर करने में मदद करता है?",
+      "question_en": "Which practice helps stabilise a skill?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "उद्देश्यपूर्ण अभ्यास",
+            "Purposeful practice",
+            "बिना प्रतिक्रिया अभ्यास",
+            "Practice without feedback",
+            "केवल एक बार करना",
+            "Doing it once",
+            "कार्य टालना",
+            "Procrastinating"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "उद्देश्यपूर्ण अभ्यास और प्रतिक्रिया कौशल विकास में सहायक हैं।",
+          "en": "Purposeful practice and feedback support skill development."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_THEORIES_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "learning_theories",
+      "topic": "Learning Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक को सीखने की विविधता का सम्मान क्यों करना चाहिए?",
+      "question_en": "Why should a teacher respect learning diversity?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "विद्यार्थियों की गति और आवश्यकताएँ अलग होती हैं",
+            "Learners differ in pace and needs",
+            "सब समान सीखते हैं",
+            "Everyone learns identically",
+            "विविधता बाधा है",
+            "Diversity is a barrier",
+            "एक ही तरीका पर्याप्त",
+            "One method is sufficient"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "विद्यार्थियों की क्षमता, गति और पृष्ठभूमि अलग हो सकती है।",
+          "en": "Learners may differ in ability, pace and background."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
