@@ -1,0 +1,1025 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Transfer of Learning",
+  "batch_id": "V6-CDP-39",
+  "subject_id": "cdp",
+  "topic_id": "transfer_learning",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Transfer of learning—",
+      "question_en": "Transfer of learning—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सीख का नई स्थिति में उपयोग",
+          "en": "Apply learning in new situation"
+        },
+        {
+          "option_id": "B",
+          "hi": "भूल",
+          "en": "Forgetting"
+        },
+        {
+          "option_id": "C",
+          "hi": "नकल",
+          "en": "Copying"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Punishment"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Positive transfer—",
+      "question_en": "Positive transfer—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "बाधा",
+          "en": "Interference"
+        },
+        {
+          "option_id": "C",
+          "hi": "कोई संबंध नहीं",
+          "en": "No relation"
+        },
+        {
+          "option_id": "D",
+          "hi": "भूल",
+          "en": "Forgetting"
+        },
+        {
+          "option_id": "A",
+          "hi": "पुराना सीखना नई सीख में मदद",
+          "en": "Old learning helps new learning"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Negative transfer—",
+      "question_en": "Negative transfer—",
+      "options": [
+        {
+          "option_id": "C",
+          "hi": "समान",
+          "en": "Same"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्मरण",
+          "en": "Recall"
+        },
+        {
+          "option_id": "A",
+          "hi": "पुराना सीख नई सीख में बाधा",
+          "en": "Old learning hinders new"
+        },
+        {
+          "option_id": "B",
+          "hi": "सहायता",
+          "en": "Help"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Near transfer—",
+      "question_en": "Near transfer—",
+      "options": [
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "A",
+          "hi": "समान परिस्थिति में उपयोग",
+          "en": "Use in similar context"
+        },
+        {
+          "option_id": "B",
+          "hi": "बहुत दूर संदर्भ",
+          "en": "Far context"
+        },
+        {
+          "option_id": "C",
+          "hi": "भूल",
+          "en": "Forgetting"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Far transfer—",
+      "question_en": "Far transfer—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अलग संदर्भ में उपयोग",
+          "en": "Use in different context"
+        },
+        {
+          "option_id": "B",
+          "hi": "समान drill",
+          "en": "Same drill"
+        },
+        {
+          "option_id": "C",
+          "hi": "नकल",
+          "en": "Copy"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल स्मृति",
+          "en": "Memory only"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Transfer बढ़ाने हेतु—",
+      "question_en": "To promote transfer—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "एक उदाहरण",
+          "en": "One example"
+        },
+        {
+          "option_id": "C",
+          "hi": "रटना",
+          "en": "Memorise"
+        },
+        {
+          "option_id": "D",
+          "hi": "अनुप्रयोग रोकना",
+          "en": "Avoid application"
+        },
+        {
+          "option_id": "A",
+          "hi": "विविध संदर्भ में अभ्यास",
+          "en": "Practice across contexts"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अवधारणा समझ—",
+      "question_en": "Conceptual understanding—",
+      "options": [
+        {
+          "option_id": "C",
+          "hi": "अनावश्यक",
+          "en": "Unneeded"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "A",
+          "hi": "transfer में सहायक",
+          "en": "Supports transfer"
+        },
+        {
+          "option_id": "B",
+          "hi": "बाधा हमेशा",
+          "en": "Always hinders"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Analogies—",
+      "question_en": "Analogies—",
+      "options": [
+        {
+          "option_id": "D",
+          "hi": "निष्क्रियता",
+          "en": "Passivity"
+        },
+        {
+          "option_id": "A",
+          "hi": "समान संबंध समझाते",
+          "en": "Explain similar relations"
+        },
+        {
+          "option_id": "B",
+          "hi": "भ्रम मात्र",
+          "en": "Confusion only"
+        },
+        {
+          "option_id": "C",
+          "hi": "परीक्षा",
+          "en": "Exam"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Problem solving—",
+      "question_en": "Problem solving—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "नई समस्या पर रणनीति",
+          "en": "Strategy for new problem"
+        },
+        {
+          "option_id": "B",
+          "hi": "नकल",
+          "en": "Copy"
+        },
+        {
+          "option_id": "C",
+          "hi": "रटंत",
+          "en": "Rote"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Punishment"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Transfer assessment—",
+      "question_en": "Transfer assessment—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "केवल परिभाषा",
+          "en": "Definition only"
+        },
+        {
+          "option_id": "C",
+          "hi": "उपस्थिति",
+          "en": "Attendance"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्मृति मात्र",
+          "en": "Memory only"
+        },
+        {
+          "option_id": "A",
+          "hi": "नई परिस्थिति में कार्य",
+          "en": "Task in new situation"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Common principle पहचान—",
+      "question_en": "Identifying a common principle—",
+      "options": [
+        {
+          "option_id": "C",
+          "hi": "नकल",
+          "en": "Copy"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "A",
+          "hi": "विभिन्न उदाहरण तुलना",
+          "en": "Compare varied examples"
+        },
+        {
+          "option_id": "B",
+          "hi": "एक उदाहरण",
+          "en": "One example"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Practice variety—",
+      "question_en": "Practice variety—",
+      "options": [
+        {
+          "option_id": "D",
+          "hi": "भूल",
+          "en": "Forgetting"
+        },
+        {
+          "option_id": "A",
+          "hi": "अनुप्रयोग लचीलापन",
+          "en": "Flexible application"
+        },
+        {
+          "option_id": "B",
+          "hi": "सीख सीमित",
+          "en": "Limits learning"
+        },
+        {
+          "option_id": "C",
+          "hi": "अनावश्यक",
+          "en": "Unneeded"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Feedback transfer—",
+      "question_en": "Feedback for transfer—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "रणनीति पर चिंतन",
+          "en": "Reflect on strategy"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल अंक",
+          "en": "Marks only"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "D",
+          "hi": "मौन",
+          "en": "Silence"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Prior learning—",
+      "question_en": "Prior learning—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "अनदेखी",
+          "en": "Ignore"
+        },
+        {
+          "option_id": "C",
+          "hi": "हटाना",
+          "en": "Remove"
+        },
+        {
+          "option_id": "D",
+          "hi": "निषिद्ध",
+          "en": "Forbidden"
+        },
+        {
+          "option_id": "A",
+          "hi": "नई समस्या हल में उपयोग",
+          "en": "Use to solve new problem"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Transfer बाधा—",
+      "question_en": "A transfer barrier—",
+      "options": [
+        {
+          "option_id": "C",
+          "hi": "अभ्यास",
+          "en": "Practice"
+        },
+        {
+          "option_id": "D",
+          "hi": "प्रेरणा",
+          "en": "Motivation"
+        },
+        {
+          "option_id": "A",
+          "hi": "संदर्भ निर्भरता",
+          "en": "Context dependence"
+        },
+        {
+          "option_id": "B",
+          "hi": "समझ",
+          "en": "Understanding"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Skill transfer—",
+      "question_en": "Skill transfer—",
+      "options": [
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "A",
+          "hi": "कौशल दूसरे कार्य में",
+          "en": "Skill to another task"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल वही",
+          "en": "Same only"
+        },
+        {
+          "option_id": "C",
+          "hi": "भूल",
+          "en": "Forget"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Interdisciplinary learning—",
+      "question_en": "Interdisciplinary learning—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "विषयों के संबंध",
+          "en": "Connections across subjects"
+        },
+        {
+          "option_id": "B",
+          "hi": "विभाजन",
+          "en": "Separation"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल एक विषय",
+          "en": "One subject"
+        },
+        {
+          "option_id": "D",
+          "hi": "नकल",
+          "en": "Copy"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Real-life application—",
+      "question_en": "Real-life application—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "अप्रासंगिक",
+          "en": "Irrelevant"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "D",
+          "hi": "रटंत",
+          "en": "Rote"
+        },
+        {
+          "option_id": "A",
+          "hi": "transfer अवसर",
+          "en": "Transfer opportunity"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Transfer हेतु शिक्षक—",
+      "question_en": "Teacher for transfer—",
+      "options": [
+        {
+          "option_id": "C",
+          "hi": "उत्तर बताना",
+          "en": "Tell answer"
+        },
+        {
+          "option_id": "D",
+          "hi": "निष्क्रिय",
+          "en": "Passive"
+        },
+        {
+          "option_id": "A",
+          "hi": "अनेक उदाहरण और reflection",
+          "en": "Multiple examples and reflection"
+        },
+        {
+          "option_id": "B",
+          "hi": "एक drill",
+          "en": "One drill"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TRANSFER_LEARNING_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "transfer_learning",
+      "topic": "Transfer of Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Transfer सफलता—",
+      "question_en": "Transfer success—",
+      "options": [
+        {
+          "option_id": "D",
+          "hi": "उपस्थिति",
+          "en": "Attendance"
+        },
+        {
+          "option_id": "A",
+          "hi": "नए संदर्भ में स्वतंत्र उपयोग",
+          "en": "Independent use in new context"
+        },
+        {
+          "option_id": "B",
+          "hi": "सिर्फ याद",
+          "en": "Recall only"
+        },
+        {
+          "option_id": "C",
+          "hi": "कॉपी",
+          "en": "Copy"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
