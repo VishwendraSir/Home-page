@@ -17,7 +17,7 @@
 - Prompt-derived topic entries: 481
 - Baseline minimum target: 9,620 questions (20 per listed topic).
 - The prompt-derived topic list is a baseline; explicit deeper subtopic mapping remains to be expanded.
-- Current V6-generated questions: 780 across 39 CDP topic batches; status: draft pending independent content review.
+- Current V6-generated questions: 880 across 44 CDP topic batches; status: draft pending independent content review.
 
 ## Batches
 | Batch | Subject | Topic | Target | Status |
@@ -59,6 +59,11 @@
 | V6-CDP-037 | CDP | Gender & Education | 20 | Generated; explanations populated; translation/content review pending |
 | V6-CDP-038 | CDP | Classroom Communication | 20 | Generated; explanations populated; translation/content review pending |
 | V6-CDP-039 | CDP | Transfer of Learning | 20 | Generated; explanations populated; translation/content review pending |
+| V6-CDP-040 | CDP | Memory & Forgetting | 20 | Generated; bilingual fields; QA pending |
+| V6-CDP-041 | CDP | Attention & Perception | 20 | Generated; bilingual fields; QA pending |
+| V6-CDP-042 | CDP | Problem Solving & Reasoning | 20 | Generated; bilingual fields; QA pending |
+| V6-CDP-043 | CDP | Critical Thinking | 20 | Generated; bilingual fields; QA pending |
+| V6-CDP-044 | CDP | Metacognition | 20 | Generated; bilingual fields; QA pending |
 
 ## Batch QA — V6-CDP-001
 - Record count: 20.
@@ -114,6 +119,12 @@
 - Explanation fields populated in Hindi and English.
 - Several option translations in this batch are English duplicates rather than full Hindi translations; bilingual QA is pending and must be corrected before production use.
 - Independent factual, translation and distractor-quality review: pending.
+
+## Batch QA — V6-CDP-040–044
+- Five topic packs; 20 records each; 100 records total.
+- Structure, answer key and option rotation generated programmatically.
+- Questions are concept-based originals, not official PYQs.
+- Independent factual review, translation quality, duplicate detection and distractor audit pending. Some questions use concept-level repeated stems with scenario variation; editorial review is required before production use.
 
 ## Next steps
 1. Reconcile existing sources and duplicates without deleting source records.
