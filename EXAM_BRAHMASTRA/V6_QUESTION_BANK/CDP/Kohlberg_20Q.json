@@ -43,28 +43,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "नैतिक तर्क",
-            "Moral reasoning",
-            "भाषा",
-            "Language",
-            "शारीरिक",
-            "Physical",
-            "संवेदी",
-            "Sensory"
-          ],
-          "en": 0
+          "hi": "नैतिक तर्क",
+          "en": "Moral reasoning"
         },
         {
           "option_id": "B",
-          "hi": "कोहलबर्ग ने नैतिक तर्क के विकास के स्तर प्रस्तावित किए।",
-          "en": "Kohlberg proposed levels of moral reasoning."
+          "hi": "भाषा",
+          "en": "Language"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "शारीरिक",
+          "en": "Physical"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "संवेदी",
+          "en": "Sensory"
         }
       ],
       "correct_option": "A",
@@ -75,7 +70,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "कोहलबर्ग ने नैतिक तर्क के विकास के स्तर प्रस्तावित किए।",
+      "explanation_en": "Kohlberg proposed levels of moral reasoning."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_002",
@@ -99,28 +96,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "3",
-            "Three",
-            "2",
-            "Two",
-            "4",
-            "Four",
-            "6",
-            "Six"
-          ],
-          "en": 0
+          "hi": "3",
+          "en": "Three"
         },
         {
           "option_id": "B",
-          "hi": "तीन स्तर: पूर्व-परंपरागत, परंपरागत और उत्तर-परंपरागत।",
-          "en": "Three levels: pre-conventional, conventional and post-conventional."
+          "hi": "2",
+          "en": "Two"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "4",
+          "en": "Four"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "6",
+          "en": "Six"
         }
       ],
       "correct_option": "A",
@@ -131,7 +123,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "तीन स्तर: पूर्व-परंपरागत, परंपरागत और उत्तर-परंपरागत।",
+      "explanation_en": "Three levels: pre-conventional, conventional and post-conventional."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_003",
@@ -155,28 +149,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "दंड और व्यक्तिगत लाभ",
-            "Punishment and personal benefit",
-            "सामाजिक अनुबंध",
-            "Social contract",
-            "सार्वभौमिक सिद्धांत",
-            "Universal principles",
-            "कानून का सम्मान",
-            "Respect for law"
-          ],
-          "en": 0
+          "hi": "दंड और व्यक्तिगत लाभ",
+          "en": "Punishment and personal benefit"
         },
         {
           "option_id": "B",
-          "hi": "इस स्तर पर निर्णय दंड से बचने या लाभ पाने से प्रभावित होते हैं।",
-          "en": "Decisions are influenced by avoiding punishment or gaining benefit."
+          "hi": "सामाजिक अनुबंध",
+          "en": "Social contract"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "सार्वभौमिक सिद्धांत",
+          "en": "Universal principles"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "कानून का सम्मान",
+          "en": "Respect for law"
         }
       ],
       "correct_option": "A",
@@ -187,7 +176,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "इस स्तर पर निर्णय दंड से बचने या लाभ पाने से प्रभावित होते हैं।",
+      "explanation_en": "Decisions are influenced by avoiding punishment or gaining benefit."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_004",
@@ -211,28 +202,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "पूर्व-परंपरागत",
-            "Pre-conventional",
-            "परंपरागत",
-            "Conventional",
-            "उत्तर-परंपरागत",
-            "Post-conventional",
-            "किसी स्तर में नहीं",
-            "None"
-          ],
-          "en": 0
+          "hi": "पूर्व-परंपरागत",
+          "en": "Pre-conventional"
         },
         {
           "option_id": "B",
-          "hi": "यह पूर्व-परंपरागत स्तर का चरण है।",
-          "en": "It is a stage of the pre-conventional level."
+          "hi": "परंपरागत",
+          "en": "Conventional"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "उत्तर-परंपरागत",
+          "en": "Post-conventional"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "किसी स्तर में नहीं",
+          "en": "None"
         }
       ],
       "correct_option": "A",
@@ -243,7 +229,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "यह पूर्व-परंपरागत स्तर का चरण है।",
+      "explanation_en": "It is a stage of the pre-conventional level."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_005",
@@ -267,28 +255,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "अपने लाभ और विनिमय",
-            "Self-interest and exchange",
-            "सार्वभौमिक न्याय",
-            "Universal justice",
-            "कानून",
-            "Law",
-            "सामाजिक व्यवस्था",
-            "Social order"
-          ],
-          "en": 0
+          "hi": "अपने लाभ और विनिमय",
+          "en": "Self-interest and exchange"
         },
         {
           "option_id": "B",
-          "hi": "व्यक्ति अपने हित और पारस्परिक लाभ के आधार पर निर्णय करता है।",
-          "en": "Decisions are based on self-interest and reciprocal benefit."
+          "hi": "सार्वभौमिक न्याय",
+          "en": "Universal justice"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "कानून",
+          "en": "Law"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "सामाजिक व्यवस्था",
+          "en": "Social order"
         }
       ],
       "correct_option": "A",
@@ -299,7 +282,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "व्यक्ति अपने हित और पारस्परिक लाभ के आधार पर निर्णय करता है।",
+      "explanation_en": "Decisions are based on self-interest and reciprocal benefit."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_006",
@@ -323,28 +308,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "सामाजिक अपेक्षाओं और नियमों का महत्व मानता है",
-            "Values social expectations and rules",
-            "केवल दंड से डरता है",
-            "Only fears punishment",
-            "नियम अस्वीकार करता है",
-            "Rejects rules",
-            "सार्वभौमिक सिद्धांत बनाता है",
-            "Creates universal principles"
-          ],
-          "en": 0
+          "hi": "सामाजिक अपेक्षाओं और नियमों का महत्व मानता है",
+          "en": "Values social expectations and rules"
         },
         {
           "option_id": "B",
-          "hi": "परंपरागत स्तर पर सामाजिक स्वीकृति और व्यवस्था महत्वपूर्ण होती है।",
-          "en": "Social approval and order matter at the conventional level."
+          "hi": "केवल दंड से डरता है",
+          "en": "Only fears punishment"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "नियम अस्वीकार करता है",
+          "en": "Rejects rules"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "सार्वभौमिक सिद्धांत बनाता है",
+          "en": "Creates universal principles"
         }
       ],
       "correct_option": "A",
@@ -355,7 +335,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "परंपरागत स्तर पर सामाजिक स्वीकृति और व्यवस्था महत्वपूर्ण होती है।",
+      "explanation_en": "Social approval and order matter at the conventional level."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_007",
@@ -379,28 +361,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "परंपरागत स्तर",
-            "Conventional level",
-            "पूर्व-परंपरागत",
-            "Pre-conventional",
-            "उत्तर-परंपरागत",
-            "Post-conventional",
-            "असंंबंधित",
-            "Unrelated"
-          ],
-          "en": 0
+          "hi": "परंपरागत स्तर",
+          "en": "Conventional level"
         },
         {
           "option_id": "B",
-          "hi": "यह दूसरों की स्वीकृति और अपेक्षाओं से संबंधित है।",
-          "en": "It concerns approval and expectations of others."
+          "hi": "पूर्व-परंपरागत",
+          "en": "Pre-conventional"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "उत्तर-परंपरागत",
+          "en": "Post-conventional"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "असंंबंधित",
+          "en": "Unrelated"
         }
       ],
       "correct_option": "A",
@@ -411,7 +388,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "यह दूसरों की स्वीकृति और अपेक्षाओं से संबंधित है।",
+      "explanation_en": "It concerns approval and expectations of others."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_008",
@@ -435,28 +414,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "परंपरागत स्तर",
-            "Conventional level",
-            "पूर्व-परंपरागत",
-            "Pre-conventional",
-            "उत्तर-परंपरागत",
-            "Post-conventional",
-            "संवेदी स्तर",
-            "Sensory"
-          ],
-          "en": 0
+          "hi": "परंपरागत स्तर",
+          "en": "Conventional level"
         },
         {
           "option_id": "B",
-          "hi": "इस चरण में नियम और सामाजिक व्यवस्था बनाए रखना महत्वपूर्ण है।",
-          "en": "Maintaining rules and social order is important at this stage."
+          "hi": "पूर्व-परंपरागत",
+          "en": "Pre-conventional"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "उत्तर-परंपरागत",
+          "en": "Post-conventional"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "संवेदी स्तर",
+          "en": "Sensory"
         }
       ],
       "correct_option": "A",
@@ -467,7 +441,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "इस चरण में नियम और सामाजिक व्यवस्था बनाए रखना महत्वपूर्ण है।",
+      "explanation_en": "Maintaining rules and social order is important at this stage."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_009",
@@ -491,28 +467,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "अधिकार और सिद्धांत",
-            "Rights and principles",
-            "दंड",
-            "Punishment",
-            "व्यक्तिगत पुरस्कार",
-            "Personal reward",
-            "समूह की स्वीकृति मात्र",
-            "Group approval only"
-          ],
-          "en": 0
+          "hi": "अधिकार और सिद्धांत",
+          "en": "Rights and principles"
         },
         {
           "option_id": "B",
-          "hi": "व्यक्ति सामाजिक नियमों का मूल्यांकन अधिकार और नैतिक सिद्धांतों से करता है।",
-          "en": "Rules are evaluated using rights and moral principles."
+          "hi": "दंड",
+          "en": "Punishment"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "व्यक्तिगत पुरस्कार",
+          "en": "Personal reward"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "समूह की स्वीकृति मात्र",
+          "en": "Group approval only"
         }
       ],
       "correct_option": "A",
@@ -523,7 +494,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "व्यक्ति सामाजिक नियमों का मूल्यांकन अधिकार और नैतिक सिद्धांतों से करता है।",
+      "explanation_en": "Rules are evaluated using rights and moral principles."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_010",
@@ -547,28 +520,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "कानून बदल सकने और अधिकारों का विचार",
-            "Laws can change and rights matter",
-            "अंध आज्ञापालन",
-            "Blind obedience",
-            "केवल पुरस्कार",
-            "Rewards only",
-            "समूह दबाव",
-            "Group pressure"
-          ],
-          "en": 0
+          "hi": "कानून बदल सकने और अधिकारों का विचार",
+          "en": "Laws can change and rights matter"
         },
         {
           "option_id": "B",
-          "hi": "कानून सामाजिक हित और अधिकारों के लिए बनाए गए समझे जाते हैं।",
-          "en": "Laws are seen as serving social interests and rights."
+          "hi": "अंध आज्ञापालन",
+          "en": "Blind obedience"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल पुरस्कार",
+          "en": "Rewards only"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "समूह दबाव",
+          "en": "Group pressure"
         }
       ],
       "correct_option": "A",
@@ -579,7 +547,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "कानून सामाजिक हित और अधिकारों के लिए बनाए गए समझे जाते हैं।",
+      "explanation_en": "Laws are seen as serving social interests and rights."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_011",
@@ -603,28 +573,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "उत्तर-परंपरागत",
-            "Post-conventional",
-            "पूर्व-परंपरागत",
-            "Pre-conventional",
-            "परंपरागत",
-            "Conventional",
-            "पूर्व-संक्रियात्मक",
-            "Preoperational"
-          ],
-          "en": 0
+          "hi": "उत्तर-परंपरागत",
+          "en": "Post-conventional"
         },
         {
           "option_id": "B",
-          "hi": "यह उच्चतम स्तर का सिद्धांत-आधारित नैतिक तर्क है।",
-          "en": "It is principled moral reasoning at the highest level."
+          "hi": "पूर्व-परंपरागत",
+          "en": "Pre-conventional"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "परंपरागत",
+          "en": "Conventional"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "पूर्व-संक्रियात्मक",
+          "en": "Preoperational"
         }
       ],
       "correct_option": "A",
@@ -635,7 +600,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "यह उच्चतम स्तर का सिद्धांत-आधारित नैतिक तर्क है।",
+      "explanation_en": "It is principled moral reasoning at the highest level."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_012",
@@ -659,28 +626,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "कोहलबर्ग",
-            "Kohlberg",
-            "पियाजे",
-            "Piaget",
-            "स्किनर",
-            "Skinner",
-            "एरिक्सन",
-            "Erikson"
-          ],
-          "en": 0
+          "hi": "कोहलबर्ग",
+          "en": "Kohlberg"
         },
         {
           "option_id": "B",
-          "hi": "Heinz dilemma नैतिक तर्क के स्तरों का अध्ययन करने हेतु उपयोग हुआ।",
-          "en": "The Heinz dilemma was used to study moral reasoning."
+          "hi": "पियाजे",
+          "en": "Piaget"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "स्किनर",
+          "en": "Skinner"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "एरिक्सन",
+          "en": "Erikson"
         }
       ],
       "correct_option": "A",
@@ -691,7 +653,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "Heinz dilemma नैतिक तर्क के स्तरों का अध्ययन करने हेतु उपयोग हुआ।",
+      "explanation_en": "The Heinz dilemma was used to study moral reasoning."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_013",
@@ -715,28 +679,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "नैतिक निर्णय के पीछे तर्क",
-            "Reasoning behind moral decisions",
-            "व्यवहार की आवृत्ति",
-            "Behaviour frequency",
-            "IQ",
-            "IQ",
-            "शारीरिक आयु",
-            "Physical age"
-          ],
-          "en": 0
+          "hi": "नैतिक निर्णय के पीछे तर्क",
+          "en": "Reasoning behind moral decisions"
         },
         {
           "option_id": "B",
-          "hi": "कोहलबर्ग निर्णय के पीछे तर्क पर केंद्रित थे।",
-          "en": "Kohlberg focused on reasoning behind decisions."
+          "hi": "व्यवहार की आवृत्ति",
+          "en": "Behaviour frequency"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "IQ",
+          "en": "IQ"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "शारीरिक आयु",
+          "en": "Physical age"
         }
       ],
       "correct_option": "A",
@@ -747,7 +706,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "कोहलबर्ग निर्णय के पीछे तर्क पर केंद्रित थे।",
+      "explanation_en": "Kohlberg focused on reasoning behind decisions."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_014",
@@ -771,28 +732,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "नहीं",
-            "No",
-            "हाँ",
-            "Yes",
-            "केवल बच्चों में",
-            "Only in children",
-            "केवल वयस्कों में",
-            "Only in adults"
-          ],
-          "en": 0
+          "hi": "नहीं",
+          "en": "No"
         },
         {
           "option_id": "B",
-          "hi": "उच्च नैतिक तर्क होने से व्यवहार हमेशा उसी के अनुरूप हो, यह जरूरी नहीं।",
-          "en": "Higher moral reasoning does not guarantee matching behaviour."
+          "hi": "हाँ",
+          "en": "Yes"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल बच्चों में",
+          "en": "Only in children"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "केवल वयस्कों में",
+          "en": "Only in adults"
         }
       ],
       "correct_option": "A",
@@ -803,7 +759,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "उच्च नैतिक तर्क होने से व्यवहार हमेशा उसी के अनुरूप हो, यह जरूरी नहीं।",
+      "explanation_en": "Higher moral reasoning does not guarantee matching behaviour."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_015",
@@ -827,28 +785,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "सांस्कृतिक और लैंगिक पक्षपात की संभावना",
-            "Possible cultural and gender bias",
-            "नैतिकता का कोई अध्ययन नहीं",
-            "No study of morality",
-            "केवल शारीरिक विकास",
-            "Only physical development",
-            "सीखने को नकारना",
-            "Denies learning"
-          ],
-          "en": 0
+          "hi": "सांस्कृतिक और लैंगिक पक्षपात की संभावना",
+          "en": "Possible cultural and gender bias"
         },
         {
           "option_id": "B",
-          "hi": "सिद्धांत पर सांस्कृतिक संदर्भ और देखभाल-आधारित नैतिकता को कम महत्व देने की आलोचना हुई।",
-          "en": "It has been criticised for cultural bias and undervaluing care-based morality."
+          "hi": "नैतिकता का कोई अध्ययन नहीं",
+          "en": "No study of morality"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल शारीरिक विकास",
+          "en": "Only physical development"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "सीखने को नकारना",
+          "en": "Denies learning"
         }
       ],
       "correct_option": "A",
@@ -859,7 +812,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "सिद्धांत पर सांस्कृतिक संदर्भ और देखभाल-आधारित नैतिकता को कम महत्व देने की आलोचना हुई।",
+      "explanation_en": "It has been criticised for cultural bias and undervaluing care-based morality."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_016",
@@ -883,28 +838,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "नैतिक दुविधाओं पर चर्चा",
-            "Discuss moral dilemmas",
-            "केवल दंड",
-            "Punishment only",
-            "उत्तर रटवाना",
-            "Memorise answers",
-            "चर्चा रोकना",
-            "Stop discussion"
-          ],
-          "en": 0
+          "hi": "नैतिक दुविधाओं पर चर्चा",
+          "en": "Discuss moral dilemmas"
         },
         {
           "option_id": "B",
-          "hi": "नैतिक दुविधाओं पर तर्कपूर्ण चर्चा दृष्टिकोण और विचार विकसित कर सकती है।",
-          "en": "Reasoned discussion of dilemmas can develop moral perspectives."
+          "hi": "केवल दंड",
+          "en": "Punishment only"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "उत्तर रटवाना",
+          "en": "Memorise answers"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "चर्चा रोकना",
+          "en": "Stop discussion"
         }
       ],
       "correct_option": "A",
@@ -915,7 +865,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "नैतिक दुविधाओं पर तर्कपूर्ण चर्चा दृष्टिकोण और विचार विकसित कर सकती है।",
+      "explanation_en": "Reasoned discussion of dilemmas can develop moral perspectives."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_017",
@@ -939,28 +891,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "दूसरों की स्थिति समझने में",
-            "Understanding others' situations",
-            "दंड बढ़ाने में",
-            "Increasing punishment",
-            "नियम हटाने में",
-            "Removing rules",
-            "केवल अंक",
-            "Marks only"
-          ],
-          "en": 0
+          "hi": "दूसरों की स्थिति समझने में",
+          "en": "Understanding others' situations"
         },
         {
           "option_id": "B",
-          "hi": "सहानुभूति दूसरों के अनुभव और प्रभावों को समझने में मदद करती है।",
-          "en": "Empathy helps understand others' experiences and consequences."
+          "hi": "दंड बढ़ाने में",
+          "en": "Increasing punishment"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "नियम हटाने में",
+          "en": "Removing rules"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "केवल अंक",
+          "en": "Marks only"
         }
       ],
       "correct_option": "A",
@@ -971,7 +918,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "सहानुभूति दूसरों के अनुभव और प्रभावों को समझने में मदद करती है।",
+      "explanation_en": "Empathy helps understand others' experiences and consequences."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_018",
@@ -995,28 +944,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "क्रमिक और संरचित",
-            "Sequential and structured",
-            "मनमाने",
-            "Arbitrary",
-            "केवल आयु आधारित",
-            "Age-only",
-            "स्थिर व्यवहार",
-            "Fixed behaviour"
-          ],
-          "en": 0
+          "hi": "क्रमिक और संरचित",
+          "en": "Sequential and structured"
         },
         {
           "option_id": "B",
-          "hi": "सिद्धांत चरणों को क्रमिक नैतिक तर्क संरचनाओं के रूप में प्रस्तुत करता है।",
-          "en": "The theory presents stages as sequential reasoning structures."
+          "hi": "मनमाने",
+          "en": "Arbitrary"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल आयु आधारित",
+          "en": "Age-only"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "स्थिर व्यवहार",
+          "en": "Fixed behaviour"
         }
       ],
       "correct_option": "A",
@@ -1027,7 +971,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "सिद्धांत चरणों को क्रमिक नैतिक तर्क संरचनाओं के रूप में प्रस्तुत करता है।",
+      "explanation_en": "The theory presents stages as sequential reasoning structures."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_019",
@@ -1051,28 +997,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "परंपरागत नैतिकता",
-            "Conventional morality",
-            "पूर्व-परंपरागत",
-            "Pre-conventional",
-            "उत्तर-परंपरागत",
-            "Post-conventional",
-            "अधिगमहीन",
-            "No learning"
-          ],
-          "en": 0
+          "hi": "परंपरागत नैतिकता",
+          "en": "Conventional morality"
         },
         {
           "option_id": "B",
-          "hi": "समूह स्वीकृति और अपेक्षाएँ परंपरागत स्तर का आधार हैं।",
-          "en": "Group approval and expectations characterise conventional morality."
+          "hi": "पूर्व-परंपरागत",
+          "en": "Pre-conventional"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "उत्तर-परंपरागत",
+          "en": "Post-conventional"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अधिगमहीन",
+          "en": "No learning"
         }
       ],
       "correct_option": "A",
@@ -1083,7 +1024,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "समूह स्वीकृति और अपेक्षाएँ परंपरागत स्तर का आधार हैं।",
+      "explanation_en": "Group approval and expectations characterise conventional morality."
     },
     {
       "question_id": "CDP_KOHLBERG_V6_020",
@@ -1107,28 +1050,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "सम्मानपूर्ण संवाद और तर्क",
-            "Respectful dialogue and reasoning",
-            "शर्मिंदा करना",
-            "Shaming",
-            "अंध आज्ञापालन",
-            "Blind obedience",
-            "मतभेद रोकना",
-            "Suppress disagreement"
-          ],
-          "en": 0
+          "hi": "सम्मानपूर्ण संवाद और तर्क",
+          "en": "Respectful dialogue and reasoning"
         },
         {
           "option_id": "B",
-          "hi": "संवाद, तर्क और सम्मान नैतिक चिंतन को प्रोत्साहित करते हैं।",
-          "en": "Dialogue, reasoning and respect encourage moral reflection."
+          "hi": "शर्मिंदा करना",
+          "en": "Shaming"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "अंध आज्ञापालन",
+          "en": "Blind obedience"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "मतभेद रोकना",
+          "en": "Suppress disagreement"
         }
       ],
       "correct_option": "A",
@@ -1139,7 +1077,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "संवाद, तर्क और सम्मान नैतिक चिंतन को प्रोत्साहित करते हैं।",
+      "explanation_en": "Dialogue, reasoning and respect encourage moral reflection."
     }
   ]
 }
