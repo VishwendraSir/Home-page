@@ -1,0 +1,1085 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Principles of Growth and Development",
+  "batch_id": "V6-CDP-056",
+  "subject_id": "cdp",
+  "topic_id": "growth_development_principles",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "V6-CDP-056-001",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास की प्रक्रिया सामान्यतः कैसी होती है?",
+      "question_en": "Development is generally what kind of process?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "निरंतर",
+          "en": "निरंतर"
+        },
+        {
+          "option_id": "B",
+          "hi": "अचानक और असंबद्ध",
+          "en": "Continuous"
+        },
+        {
+          "option_id": "C",
+          "hi": "सभी में समान",
+          "en": "Sudden and disconnected"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल उलटी",
+          "en": "Identical in everyone"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-002",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास किस दिशा में आगे बढ़ता है?",
+      "question_en": "Development generally proceeds in which direction?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल नीचे से ऊपर",
+          "en": "Random"
+        },
+        {
+          "option_id": "B",
+          "hi": "सामान्य से विशिष्ट",
+          "en": "सामान्य से विशिष्ट"
+        },
+        {
+          "option_id": "C",
+          "hi": "विशिष्ट से सामान्य हमेशा",
+          "en": "General to specific"
+        },
+        {
+          "option_id": "D",
+          "hi": "यादृच्छिक",
+          "en": "Always specific to general"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-003",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "easy",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Cephalocaudal सिद्धांत का अर्थ है?",
+      "question_en": "What does the cephalocaudal principle mean?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केंद्र से बाहर",
+          "en": "Toe to head"
+        },
+        {
+          "option_id": "B",
+          "hi": "बाहर से केंद्र",
+          "en": "Centre outward"
+        },
+        {
+          "option_id": "C",
+          "hi": "सिर से पैर की ओर विकास",
+          "en": "सिर से पैर की ओर विकास"
+        },
+        {
+          "option_id": "D",
+          "hi": "पैर से सिर",
+          "en": "Head to toe"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-004",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Proximodistal विकास किस दिशा में है?",
+      "question_en": "Proximodistal development proceeds in what direction?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "पैर से सिर",
+          "en": "Centre outward"
+        },
+        {
+          "option_id": "B",
+          "hi": "सामान्य से विशिष्ट",
+          "en": "Toe to head"
+        },
+        {
+          "option_id": "C",
+          "hi": "बाएँ से दाएँ",
+          "en": "General to specific"
+        },
+        {
+          "option_id": "D",
+          "hi": "केंद्र से बाहरी भागों की ओर",
+          "en": "केंद्र से बाहरी भागों की ओर"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-005",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास की गति कैसी हो सकती है?",
+      "question_en": "How may the pace of development vary?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "व्यक्ति और क्षेत्र के अनुसार",
+          "en": "व्यक्ति और क्षेत्र के अनुसार"
+        },
+        {
+          "option_id": "B",
+          "hi": "हर बच्चे में समान",
+          "en": "Across individuals and domains"
+        },
+        {
+          "option_id": "C",
+          "hi": "हमेशा तेज",
+          "en": "Same in every child"
+        },
+        {
+          "option_id": "D",
+          "hi": "हमेशा धीमी",
+          "en": "Always fast"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-006",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास के विभिन्न क्षेत्र कैसे जुड़े हैं?",
+      "question_en": "How are developmental domains related?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल भाषा प्रभावी",
+          "en": "Only physical matters"
+        },
+        {
+          "option_id": "B",
+          "hi": "परस्पर संबंधित",
+          "en": "परस्पर संबंधित"
+        },
+        {
+          "option_id": "C",
+          "hi": "पूरी तरह अलग",
+          "en": "Interrelated"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल शारीरिक प्रभावी",
+          "en": "Completely separate"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-007",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "परिपक्वता और सीखने का संबंध क्या है?",
+      "question_en": "What is the relationship between maturation and learning?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "परिपक्वता अप्रासंगिक है",
+          "en": "Learning eliminates maturation"
+        },
+        {
+          "option_id": "B",
+          "hi": "दोनों असंबंधित",
+          "en": "Maturation is irrelevant"
+        },
+        {
+          "option_id": "C",
+          "hi": "दोनों विकास में योगदान देते हैं",
+          "en": "दोनों विकास में योगदान देते हैं"
+        },
+        {
+          "option_id": "D",
+          "hi": "सीखना परिपक्वता को समाप्त करता है",
+          "en": "Both contribute to development"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-008",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास के क्रम के बारे में सही कथन?",
+      "question_en": "Which statement about developmental sequence is correct?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "क्रम और गति समान",
+          "en": "Sequence is relatively stable, pace varies"
+        },
+        {
+          "option_id": "B",
+          "hi": "क्रम पूरी तरह यादृच्छिक",
+          "en": "Sequence and pace are identical"
+        },
+        {
+          "option_id": "C",
+          "hi": "हर कौशल एक साथ आता है",
+          "en": "Sequence is random"
+        },
+        {
+          "option_id": "D",
+          "hi": "क्रम अपेक्षाकृत स्थिर, गति भिन्न",
+          "en": "क्रम अपेक्षाकृत स्थिर, गति भिन्न"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-009",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वृद्धि और विकास में अंतर क्या है?",
+      "question_en": "What is the difference between growth and development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "वृद्धि मात्रात्मक, विकास व्यापक गुणात्मक परिवर्तन भी",
+          "en": "वृद्धि मात्रात्मक, विकास व्यापक गुणात्मक परिवर्तन भी"
+        },
+        {
+          "option_id": "B",
+          "hi": "दोनों समान शब्द",
+          "en": "Growth is quantitative; development is broader"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास केवल वजन",
+          "en": "They are identical"
+        },
+        {
+          "option_id": "D",
+          "hi": "वृद्धि केवल मानसिक",
+          "en": "Development is only weight"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-010",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास का मूल्यांकन किससे करना चाहिए?",
+      "question_en": "How should development be assessed?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल उम्र से",
+          "en": "Comparison only"
+        },
+        {
+          "option_id": "B",
+          "hi": "विविध संकेतों और संदर्भ से",
+          "en": "विविध संकेतों और संदर्भ से"
+        },
+        {
+          "option_id": "C",
+          "hi": "एक परीक्षा से ही",
+          "en": "Multiple indicators and context"
+        },
+        {
+          "option_id": "D",
+          "hi": "अन्य बच्चों से तुलना",
+          "en": "One test only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-011",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किस सिद्धांत से छोटे मांसपेशीय कौशल बाद में परिष्कृत होते हैं?",
+      "question_en": "Which principle explains later refinement of small-muscle skills?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड",
+          "en": "Imitation only"
+        },
+        {
+          "option_id": "B",
+          "hi": "स्थिरता",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "C",
+          "hi": "सामान्य से विशिष्ट",
+          "en": "सामान्य से विशिष्ट"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल अनुकरण",
+          "en": "General to specific"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-012",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास में व्यक्तिगत भिन्नता का अर्थ?",
+      "question_en": "What does individual variation in development mean?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सबका विकास समान",
+          "en": "Children differ in pace and achievements"
+        },
+        {
+          "option_id": "B",
+          "hi": "भिन्नता असामान्य",
+          "en": "All develop identically"
+        },
+        {
+          "option_id": "C",
+          "hi": "तुलना अनिवार्य",
+          "en": "Difference is abnormal"
+        },
+        {
+          "option_id": "D",
+          "hi": "बच्चों की गति और उपलब्धियाँ भिन्न",
+          "en": "बच्चों की गति और उपलब्धियाँ भिन्न"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-013",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किसे विकास का बहुआयामी स्वरूप कहते हैं?",
+      "question_en": "What is meant by multidimensional development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "शारीरिक, संज्ञानात्मक, सामाजिक आदि क्षेत्रों में परिवर्तन",
+          "en": "शारीरिक, संज्ञानात्मक, सामाजिक आदि क्षेत्रों में परिवर्तन"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल ऊँचाई",
+          "en": "Changes across physical, cognitive, social etc. domains"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल स्मृति",
+          "en": "Height only"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल भाषा",
+          "en": "Memory only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-014",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास की भविष्यवाणी करते समय शिक्षक क्या ध्यान रखे?",
+      "question_en": "What should teachers consider when predicting development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "लेबल",
+          "en": "Birth date alone"
+        },
+        {
+          "option_id": "B",
+          "hi": "सीमित अनुमान और संदर्भ",
+          "en": "सीमित अनुमान और संदर्भ"
+        },
+        {
+          "option_id": "C",
+          "hi": "निश्चित परिणाम",
+          "en": "Cautious estimates and context"
+        },
+        {
+          "option_id": "D",
+          "hi": "जन्मदिन ही पर्याप्त",
+          "en": "Certain outcomes"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-015",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किस कथन में विकास की निरंतरता है?",
+      "question_en": "Which statement reflects continuity in development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सीखना बंद होना",
+          "en": "Instant complete change"
+        },
+        {
+          "option_id": "B",
+          "hi": "असंबद्ध चरण",
+          "en": "Learning stops"
+        },
+        {
+          "option_id": "C",
+          "hi": "अभ्यास से कौशल क्रमशः बेहतर होना",
+          "en": "अभ्यास से कौशल क्रमशः बेहतर होना"
+        },
+        {
+          "option_id": "D",
+          "hi": "एक दिन में पूर्ण परिवर्तन",
+          "en": "Skill gradually improving with practice"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-016",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामान्य विकास क्रम का ज्ञान किसलिए उपयोगी है?",
+      "question_en": "Why is knowledge of typical developmental sequence useful?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "बच्चों को कठोर श्रेणी देने हेतु",
+          "en": "To select appropriate activities and support"
+        },
+        {
+          "option_id": "B",
+          "hi": "सीखना रोकने हेतु",
+          "en": "Rigid categorisation"
+        },
+        {
+          "option_id": "C",
+          "hi": "अंक तय करने हेतु",
+          "en": "Stop learning"
+        },
+        {
+          "option_id": "D",
+          "hi": "उचित गतिविधि और सहायता चुनने हेतु",
+          "en": "उचित गतिविधि और सहायता चुनने हेतु"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-017",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास की दिशा का उदाहरण कौन सा है?",
+      "question_en": "Which is an example of developmental direction?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "पहले पकड़, फिर सूक्ष्म लेखन नियंत्रण",
+          "en": "पहले पकड़, फिर सूक्ष्म लेखन नियंत्रण"
+        },
+        {
+          "option_id": "B",
+          "hi": "पहले लेखन, फिर पकड़",
+          "en": "Grasping before refined writing control"
+        },
+        {
+          "option_id": "C",
+          "hi": "सभी कौशल एक साथ",
+          "en": "Writing before grasping"
+        },
+        {
+          "option_id": "D",
+          "hi": "कोई क्रम नहीं",
+          "en": "All skills together"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-018",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास में असमानता क्या दर्शाती है?",
+      "question_en": "What does uneven development indicate?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सब क्षेत्रों में समान गति",
+          "en": "No development"
+        },
+        {
+          "option_id": "B",
+          "hi": "एक क्षेत्र तेज, दूसरा धीमा हो सकता है",
+          "en": "एक क्षेत्र तेज, दूसरा धीमा हो सकता है"
+        },
+        {
+          "option_id": "C",
+          "hi": "असफलता निश्चित",
+          "en": "One domain may advance faster than another"
+        },
+        {
+          "option_id": "D",
+          "hi": "विकास नहीं",
+          "en": "Failure is certain"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-019",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास पर अनुभव का प्रभाव कैसा है?",
+      "question_en": "How does experience affect development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल जीन प्रभावी",
+          "en": "No effect"
+        },
+        {
+          "option_id": "B",
+          "hi": "सभी अनुभव समान",
+          "en": "Genes only"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास को दिशा और अवसर दे सकता है",
+          "en": "विकास को दिशा और अवसर दे सकता है"
+        },
+        {
+          "option_id": "D",
+          "hi": "कोई प्रभाव नहीं",
+          "en": "It can shape direction and opportunities"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-056-020",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Principles of Growth and Development",
+      "topic_id": "growth_development_principles",
+      "topic": "Principles of Growth and Development",
+      "subtopic_id": "growth_development_principles",
+      "subtopic": "Principles of Growth and Development",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सबसे सटीक सिद्धांत कौन सा है?",
+      "question_en": "Which statement is most accurate?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "विकास समान और स्थिर",
+          "en": "Development is orderly, multidimensional and individual"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल आयु पर निर्भर",
+          "en": "Uniform and fixed"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल वातावरण से तय",
+          "en": "Age alone"
+        },
+        {
+          "option_id": "D",
+          "hi": "विकास क्रमबद्ध, बहुआयामी और व्यक्तिगत है",
+          "en": "विकास क्रमबद्ध, बहुआयामी और व्यक्तिगत है"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
