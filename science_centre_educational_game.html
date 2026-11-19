@@ -22,17 +22,21 @@ const STORE='sc_game_banks_v2';let banks=[],current=[],lastKey=[];
 const $=id=>document.getElementById(id);
 function readStore(){try{banks=JSON.parse(localStorage.getItem(STORE)||'[]')}catch{banks=[]}renderBanks()}
 function save(){localStorage.setItem(STORE,JSON.stringify(banks));renderBanks()}
+function textValue(v){if(v==null)return '';if(typeof v==='string'||typeof v==='number')return String(v);if(typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(textValue).join(' ');if(typeof v==='object'){for(const k of ['text','value','label','content','name','title','question','option'])if(v[k]!=null)return textValue(v[k]);return Object.entries(v).map(([k,val])=>k+': '+textValue(val)).join(' ')}return String(v)}
 function normQuestion(q){if(typeof q==='string')return {question:q,options:[],answer:null};if(!q||typeof q!=='object')return null;
 let question=q.question??q.q??q.text??q.questionText??q.prompt??q.statement;
+if(question&&typeof question==='object')question=textValue(question);
 let opts=q.options??q.choices??q.answers??q.option??[];
-if(!Array.isArray(opts)&&opts&&typeof opts==='object')opts=Object.values(opts);
-if(typeof opts==='string')opts=opts.split(/\n|\|/).map(x=>x.trim()).filter(Boolean);
+if(!Array.isArray(opts)&&opts&&typeof opts==='object')opts=Object.entries(opts).sort(([a],[b])=>a.localeCompare(b,undefined,{numeric:true})).map(([k,v])=>v);
+if(typeof opts==='string')opts=opts.split(/\\n|\\|/).map(x=>x.trim()).filter(Boolean);
+opts=(Array.isArray(opts)?opts:[]).map(textValue);
 let ans=q.answer??q.correctAnswer??q.correct_answer??q.correct??q.key??q.solution??q.answerIndex;
-if(typeof ans==='string'){let m=ans.trim().match(/^([A-D])$/i);if(m)ans=m[1].toUpperCase().charCodeAt(0)-65;else{let n=opts.findIndex(x=>String(x).trim().toLowerCase()===ans.trim().toLowerCase());if(n>=0)ans=n}}
+if(ans&&typeof ans==='object')ans=textValue(ans);
+if(typeof ans==='string'){let m=ans.trim().match(/^([A-D])$/i);if(m)ans=m[1].toUpperCase().charCodeAt(0)-65;else{let n=opts.findIndex(x=>x.trim().toLowerCase()===ans.trim().toLowerCase());if(n>=0)ans=n}}
 if(typeof ans==='number'&&ans>=1&&ans<=4&&q.answerIndex===undefined)ans=ans-1;
 if(typeof ans==='number'&&ans>=0&&ans<opts.length)ans=String.fromCharCode(65+ans);
-if(typeof ans==='string'&&!/^[A-D]$/i.test(ans)){let m=ans.match(/^([A-D])\s*[).:-]/i);if(m)ans=m[1].toUpperCase()}
-return question?{question:String(question),options:opts.map(String),answer:ans,explanation:q.explanation??q.explain??q.solutionText??'',topic:q.topic??q.subject??'',difficulty:q.difficulty??q.level??''}:null}
+if(typeof ans==='string'&&!/^[A-D]$/i.test(ans)){let m=ans.match(/^([A-D])\\s*[).:-]/i);if(m)ans=m[1].toUpperCase()}
+return question?{question:textValue(question),options:opts,answer:ans,explanation:textValue(q.explanation??q.explain??q.solutionText??''),topic:textValue(q.topic??q.subject??''),difficulty:textValue(q.difficulty??q.level??'')}:null}
 function collect(data){let out=[];const seen=new Set();function walk(x,depth=0){if(depth>7||x==null)return;if(Array.isArray(x)){x.forEach(v=>walk(v,depth+1));return}if(typeof x!=='object')return;let n=normQuestion(x);if(n&&n.options.length>=2){let sig=n.question+'|'+n.options.join('|');if(!seen.has(sig)){seen.add(sig);out.push(n)}return}for(const [k,v] of Object.entries(x)){if(['metadata','settings','config','student','students','results','stats'].includes(k.toLowerCase()))continue;walk(v,depth+1)}}walk(data);return out}
 function renderBanks(){const sel=$('bankSelect');let keep=sel.value;sel.innerHTML='<option value="">Select saved question bank</option>';banks.forEach((b,i)=>{let o=document.createElement('option');o.value=i;o.textContent=b.name+' — '+b.questions.length+' questions';sel.append(o)});if(keep&&banks[keep])sel.value=keep;const box=$('banks');box.innerHTML=banks.length?banks.map((b,i)=>'<div class="bank"><b>'+esc(b.name)+'</b> · '+b.questions.length+' questions <button data-del="'+i+'">Delete</button></div>').join(''):'<p class="muted">No saved banks.</p>';box.querySelectorAll('[data-del]').forEach(btn=>btn.onclick=()=>{banks.splice(+btn.dataset.del,1);save()})}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
