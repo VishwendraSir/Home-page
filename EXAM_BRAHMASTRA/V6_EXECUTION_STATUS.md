@@ -17,7 +17,7 @@
 - Prompt-derived topic entries: 481
 - Baseline minimum target: 9,620 questions (20 per listed topic).
 - The prompt-derived topic list is a baseline; explicit deeper subtopic mapping remains to be expanded.
-- Current V6-generated questions: 480 across 24 CDP topic batches; status: draft pending independent content review.
+- Current V6-generated questions: 580 across 29 CDP topic batches; status: draft pending independent content review.
 
 ## Batches
 | Batch | Subject | Topic | Target | Status |
@@ -44,6 +44,11 @@
 | V6-CDP-022 | CDP | Classroom Management | 20 | Generated; bilingual fields and four options checked; content review pending |
 | V6-CDP-023 | CDP | Motivation | 20 | Generated; bilingual fields and four options checked; content review pending |
 | V6-CDP-024 | CDP | Intelligence & Creativity | 20 | Generated; bilingual fields and four options checked; content review pending |
+| V6-CDP-025 | CDP | Teaching Methods | 20 | Generated; bilingual fields and four options checked; content review pending |
+| V6-CDP-026 | CDP | Learning Disabilities | 20 | Generated; bilingual fields and four options checked; content review pending |
+| V6-CDP-027 | CDP | Guidance & Counselling | 20 | Generated; bilingual fields and four options checked; content review pending |
+| V6-CDP-028 | CDP | Memory & Attention | 20 | Generated; bilingual fields and four options checked; content review pending |
+| V6-CDP-029 | CDP | Child-Centred Learning | 20 | Generated; bilingual fields and four options checked; content review pending |
 
 ## Batch QA — V6-CDP-001
 - Record count: 20.
@@ -79,6 +84,14 @@
 - Hindi and English questions, options, and explanations populated.
 - Answer position rotated across A–D.
 - Content correctness, distractor quality, and translation quality: independent review pending.
+
+## Batch QA — V6-CDP-025–029
+- Five topic packs; 20 records each; 100 records total.
+- Record count and JSON structure: generated.
+- Hindi/English question, options, explanations: populated.
+- Correct-answer index and label consistency: generated consistently.
+- Answer positions rotated A–D.
+- Independent factual, translation and distractor-quality review: pending.
 
 ## Next steps
 1. Reconcile existing sources and duplicates without deleting source records.
