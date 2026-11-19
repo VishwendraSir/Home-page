@@ -1,7 +1,7 @@
 {
   "schema_version": "6.0.0",
   "title": "EXAM BRAHMASTRA V6 — CDP Moral Development",
-  "batch_id": "V6-CDP-008",
+  "batch_id": "V6-CDP-52",
   "subject_id": "cdp",
   "topic_id": "moral_development",
   "minimum_questions": 20,
@@ -25,7 +25,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_001",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -38,35 +38,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिक विकास किससे संबंधित है?",
-      "question_en": "Moral development relates to what?",
+      "question_hi": "कोहलबर्ग",
+      "question_en": "Kohlberg",
       "options": [
         {
-          "option_id": "A",
-          "hi": "सही-गलत और न्याय के बारे में समझ",
-          "en": "Understanding right, wrong and fairness"
+          "en": "Stages of moral reasoning",
+          "hi": "नैतिक तर्क के चरण",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "केवल शारीरिक वृद्धि",
-          "en": "Physical growth only"
+          "en": "I",
+          "hi": "Q",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "केवल भाषा",
-          "en": "Language only"
+          "en": "I",
+          "hi": "Q",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "केवल स्मृति",
-          "en": "Memory only"
+          "en": "L",
+          "hi": "a",
+          "option_id": "D"
+        },
+        {
+          "en": "भ",
+          "hi": "ा"
+        },
+        {
+          "en": "M",
+          "hi": "o"
+        },
+        {
+          "en": "ग",
+          "hi": "ा"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "नैतिक विकास में सही-गलत, न्याय, जिम्मेदारी और नैतिक निर्णय की समझ शामिल है।",
-      "explanation_en": "Moral development includes understanding right and wrong, fairness, responsibility and moral judgment.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "explanation_hi": "Kohlberg studied moral reasoning development.",
+      "explanation_en": "Kohlberg studied moral reasoning development.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -78,7 +90,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_002",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -91,35 +103,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिक निर्णय का उदाहरण—",
-      "question_en": "An example of moral judgment—",
+      "question_hi": "पूर्व-परंपरागत तर्क",
+      "question_en": "Pre-conventional reasoning",
       "options": [
         {
-          "option_id": "A",
-          "hi": "ईमानदारी को उचित मानना",
-          "en": "Considering honesty appropriate"
+          "en": "S",
+          "hi": "o",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "केवल तेज दौड़ना",
-          "en": "Running fast"
+          "en": "स",
+          "hi": "ा",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "शब्द याद करना",
-          "en": "Memorising words"
+          "en": "U",
+          "hi": "n",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "चित्र बनाना",
-          "en": "Drawing"
+          "en": "स",
+          "hi": "ा",
+          "option_id": "D"
+        },
+        {
+          "en": "A",
+          "hi": "b"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "Consequences and personal interests",
+          "hi": "परिणाम एवं व्यक्तिगत हित"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "ईमानदारी के मूल्य पर निर्णय नैतिक निर्णय का उदाहरण है।",
-      "explanation_en": "Judging the value of honesty is an example of moral judgment.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Pre-conventional reasoning often focuses on consequences.",
+      "explanation_en": "Pre-conventional reasoning often focuses on consequences.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -131,7 +155,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_003",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -144,35 +168,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नियमों का उद्देश्य समझाना किसमें सहायक है?",
-      "question_en": "Explaining the purpose of rules helps with what?",
+      "question_hi": "परंपरागत तर्क",
+      "question_en": "Conventional reasoning",
       "options": [
         {
-          "option_id": "A",
-          "hi": "नैतिक समझ विकसित करना",
-          "en": "Developing moral understanding"
+          "en": "क",
+          "hi": "े",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "केवल डर",
-          "en": "Fear only"
+          "en": "U",
+          "hi": "n",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "रटने",
-          "en": "Rote learning"
+          "en": "स",
+          "hi": "ा",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "शारीरिक वृद्धि",
-          "en": "Physical growth"
+          "en": "N",
+          "hi": "o",
+          "option_id": "D"
+        },
+        {
+          "en": "न",
+          "hi": "ि"
+        },
+        {
+          "en": "Rules and social approval",
+          "hi": "नियम एवं सामाजिक स्वीकृति"
+        },
+        {
+          "en": "P",
+          "hi": "e"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "नियमों के कारण समझने से नैतिक तर्क विकसित हो सकता है।",
-      "explanation_en": "Understanding reasons behind rules can support moral reasoning.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Conventional reasoning considers norms and expectations.",
+      "explanation_en": "Conventional reasoning considers norms and expectations.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -184,7 +220,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_004",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -197,35 +233,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "न्याय की भावना का उदाहरण—",
-      "question_en": "An example of fairness—",
+      "question_hi": "उत्तर-परंपरागत",
+      "question_en": "Post-conventional",
       "options": [
         {
-          "option_id": "A",
-          "hi": "सभी को उचित अवसर देना",
-          "en": "Giving everyone a fair opportunity"
+          "en": "R",
+          "hi": "e",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "पक्षपात",
-          "en": "Bias"
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "दूसरों को रोकना",
-          "en": "Blocking others"
+          "en": "I",
+          "hi": "m",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "केवल मित्रों को अवसर",
-          "en": "Only friends get opportunities"
+          "en": "अ",
+          "hi": "न",
+          "option_id": "D"
+        },
+        {
+          "en": "Principles and rights",
+          "hi": "सिद्धांत एवं अधिकार"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "क",
+          "hi": "े"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "न्याय में निष्पक्षता और उचित अवसर शामिल हैं।",
-      "explanation_en": "Fairness includes impartiality and equitable opportunity.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Post-conventional reasoning considers principles.",
+      "explanation_en": "Post-conventional reasoning considers principles.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -237,7 +285,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_005",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -250,35 +298,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिक विकास में मॉडलिंग—",
-      "question_en": "Modelling in moral development—",
+      "question_hi": "नैतिक दुविधा",
+      "question_en": "Moral dilemma",
       "options": [
         {
-          "option_id": "A",
-          "hi": "वयस्क के व्यवहार से सीखना",
-          "en": "Learning from adult behaviour"
+          "en": "Discuss reasons and perspectives",
+          "hi": "कारण एवं दृष्टिकोण चर्चा",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "केवल पाठ पढ़ना",
-          "en": "Reading only"
+          "en": "G",
+          "hi": "i",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "कोई प्रभाव नहीं",
-          "en": "No effect"
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "केवल दंड",
-          "en": "Punishment only"
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "M",
+          "hi": "e"
+        },
+        {
+          "en": "र",
+          "hi": "ट"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "बच्चे वयस्कों के व्यवहार से नैतिक आचरण सीख सकते हैं।",
-      "explanation_en": "Children can learn moral conduct by observing adults.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "explanation_hi": "Dilemmas can encourage moral reasoning discussion.",
+      "explanation_en": "Dilemmas can encourage moral reasoning discussion.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -290,7 +350,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_006",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -303,35 +363,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिक दुविधा में चर्चा का लाभ—",
-      "question_en": "Benefit of discussing moral dilemmas—",
+      "question_hi": "नैतिक व्यवहार",
+      "question_en": "Moral behaviour",
       "options": [
         {
-          "option_id": "A",
-          "hi": "विभिन्न दृष्टिकोण और तर्क समझना",
-          "en": "Understanding perspectives and reasoning"
+          "en": "A",
+          "hi": "l",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "उत्तर रटना",
-          "en": "Memorising answers"
+          "en": "ह",
+          "hi": "म",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "संवाद रोकना",
-          "en": "Stopping dialogue"
+          "en": "U",
+          "hi": "n",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "दंड बढ़ाना",
-          "en": "Increasing punishment"
+          "en": "प",
+          "hi": "ू",
+          "option_id": "D"
+        },
+        {
+          "en": "O",
+          "hi": "n"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "Reasoning may not always predict action",
+          "hi": "तर्क हमेशा व्यवहार का अनुमान नहीं"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "दुविधा चर्चा विभिन्न दृष्टिकोणों और तर्कों पर विचार करने का अवसर देती है।",
-      "explanation_en": "Dilemma discussion offers opportunities to consider perspectives and reasoning.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Moral reasoning and action may differ.",
+      "explanation_en": "Moral reasoning and action may differ.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -343,7 +415,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_007",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -356,35 +428,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिक व्यवहार और नियम पालन—",
-      "question_en": "Moral behaviour and rule-following—",
+      "question_hi": "सहानुभूति",
+      "question_en": "Empathy",
       "options": [
         {
-          "option_id": "A",
-          "hi": "नियम का कारण समझना भी महत्वपूर्ण",
-          "en": "Understanding reasons for rules also matters"
+          "en": "क",
+          "hi": "े",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "केवल डर पर्याप्त",
-          "en": "Fear alone is sufficient"
+          "en": "P",
+          "hi": "u",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "दोनों असंबंधित",
-          "en": "Unrelated"
+          "en": "द",
+          "hi": "ं",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "नियम हमेशा बदलते",
-          "en": "Rules always change"
+          "en": "C",
+          "hi": "o",
+          "option_id": "D"
+        },
+        {
+          "en": "प",
+          "hi": "्"
+        },
+        {
+          "en": "Consider others' feelings",
+          "hi": "दूसरों की भावनाओं पर विचार"
+        },
+        {
+          "en": "S",
+          "hi": "e"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "नियमों के पीछे कारण समझना केवल बाहरी पालन से आगे नैतिक समझ विकसित कर सकता है।",
-      "explanation_en": "Understanding reasons behind rules can develop moral understanding beyond external compliance.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Empathy can support prosocial decisions.",
+      "explanation_en": "Empathy can support prosocial decisions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -396,7 +480,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_008",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -409,35 +493,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "सहानुभूति नैतिक विकास में—",
-      "question_en": "Empathy in moral development—",
+      "question_hi": "कक्षा नियम",
+      "question_en": "Class rules",
       "options": [
         {
-          "option_id": "A",
-          "hi": "दूसरों के हित और भावनाओं पर विचार में मदद",
-          "en": "Helps consider others' welfare and feelings"
+          "en": "F",
+          "hi": "e",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "अनावश्यक",
-          "en": "Unnecessary"
+          "en": "भ",
+          "hi": "य",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "केवल शारीरिक",
-          "en": "Physical only"
+          "en": "H",
+          "hi": "u",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "केवल अंक",
-          "en": "Marks only"
+          "en": "अ",
+          "hi": "प",
+          "option_id": "D"
+        },
+        {
+          "en": "Explain fairness and rationale",
+          "hi": "न्याय एवं कारण समझाना"
+        },
+        {
+          "en": "A",
+          "hi": "r"
+        },
+        {
+          "en": "म",
+          "hi": "न"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "सहानुभूति दूसरों के हित और भावनाओं को नैतिक निर्णय में शामिल करने में मदद करती है।",
-      "explanation_en": "Empathy helps consider others' welfare and feelings in moral decisions.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Reasoned rules can support moral understanding.",
+      "explanation_en": "Reasoned rules can support moral understanding.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -449,7 +545,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_009",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -462,35 +558,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिक जिम्मेदारी का उदाहरण—",
-      "question_en": "An example of moral responsibility—",
+      "question_hi": "नैतिक शिक्षा",
+      "question_en": "Moral education",
       "options": [
         {
-          "option_id": "A",
-          "hi": "गलती स्वीकार कर सुधार करना",
-          "en": "Admit and correct a mistake"
+          "en": "Dialogue, reflection and role-taking",
+          "hi": "संवाद, चिंतन एवं भूमिका ग्रहण",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "दोष दूसरों पर डालना",
-          "en": "Blame others"
+          "en": "R",
+          "hi": "o",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "छिपाना",
-          "en": "Hide it"
+          "en": "र",
+          "hi": "ट",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "उपेक्षा",
-          "en": "Ignore"
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "L",
+          "hi": "a"
+        },
+        {
+          "en": "ल",
+          "hi": "े"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "गलती स्वीकारना और सुधार करना जिम्मेदारी दर्शाता है।",
-      "explanation_en": "Admitting and correcting a mistake demonstrates responsibility.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "explanation_hi": "Reflection and perspective-taking support moral learning.",
+      "explanation_en": "Reflection and perspective-taking support moral learning.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -502,7 +610,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_010",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -515,35 +623,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिक विकास का आकलन—",
-      "question_en": "Assessment of moral development—",
+      "question_hi": "शिक्षक निष्पक्षता",
+      "question_en": "Teacher fairness",
       "options": [
         {
-          "option_id": "A",
-          "hi": "तर्क और व्यवहार पर चर्चा व अवलोकन",
-          "en": "Discussion and observation of reasoning and behaviour"
+          "en": "F",
+          "hi": "a",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "केवल अंक",
-          "en": "Marks only"
+          "en": "प",
+          "hi": "क",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "एक प्रश्न",
-          "en": "One question"
+          "en": "P",
+          "hi": "u",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "केवल दंड",
-          "en": "Punishment only"
+          "en": "स",
+          "hi": "ा",
+          "option_id": "D"
+        },
+        {
+          "en": "B",
+          "hi": "i"
+        },
+        {
+          "en": "प",
+          "hi": "ू"
+        },
+        {
+          "en": "Consistent and respectful treatment",
+          "hi": "संगत एवं सम्मानपूर्ण व्यवहार"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "नैतिक तर्क और व्यवहार को विभिन्न संदर्भों में समझना चाहिए।",
-      "explanation_en": "Moral reasoning and behaviour should be understood across contexts.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Fair treatment models moral principles.",
+      "explanation_en": "Fair treatment models moral principles.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -555,7 +675,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_011",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -568,35 +688,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिकता में संस्कृति की भूमिका—",
-      "question_en": "Role of culture in morality—",
+      "question_hi": "शिक्षण संदर्भ में कोहलबर्ग का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Kohlberg mean?",
       "options": [
         {
-          "option_id": "A",
-          "hi": "मूल्य और मानदंड प्रभावित कर सकते हैं",
-          "en": "Values and norms may influence it"
+          "en": "I",
+          "hi": "Q",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "कोई भूमिका नहीं",
-          "en": "No role"
+          "en": "L",
+          "hi": "a",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "सभी समाज समान",
-          "en": "All societies identical"
+          "en": "भ",
+          "hi": "ा",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "केवल आनुवंशिक",
-          "en": "Genetic only"
+          "en": "M",
+          "hi": "o",
+          "option_id": "D"
+        },
+        {
+          "en": "ग",
+          "hi": "ा"
+        },
+        {
+          "en": "Stages of moral reasoning",
+          "hi": "नैतिक तर्क के चरण"
+        },
+        {
+          "en": "I",
+          "hi": "Q"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "नैतिक मानदंडों और मूल्यों पर संस्कृति का प्रभाव हो सकता है।",
-      "explanation_en": "Culture may influence moral norms and values.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Kohlberg studied moral reasoning development.",
+      "explanation_en": "Kohlberg studied moral reasoning development.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -608,7 +740,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_012",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -621,35 +753,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "दंड की बजाय चर्चा कब उपयोगी हो सकती है?",
-      "question_en": "When can discussion be more useful than punishment?",
+      "question_hi": "शिक्षण संदर्भ में पूर्व-परंपरागत तर्क का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Pre-conventional reasoning mean?",
       "options": [
         {
-          "option_id": "A",
-          "hi": "कारण और परिणाम समझाने में",
-          "en": "In explaining reasons and consequences"
+          "en": "U",
+          "hi": "n",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "हर परिस्थिति में दंड निषिद्ध",
-          "en": "Punishment is prohibited in every case"
+          "en": "स",
+          "hi": "ा",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "सीखने में कभी नहीं",
-          "en": "Never in learning"
+          "en": "A",
+          "hi": "b",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "केवल अंक के लिए",
-          "en": "Only for marks"
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "Consequences and personal interests",
+          "hi": "परिणाम एवं व्यक्तिगत हित"
+        },
+        {
+          "en": "S",
+          "hi": "o"
+        },
+        {
+          "en": "स",
+          "hi": "ा"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "संवाद बच्चों को व्यवहार के कारण और प्रभाव समझने में मदद कर सकता है।",
-      "explanation_en": "Dialogue can help children understand reasons and consequences of behaviour.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Pre-conventional reasoning often focuses on consequences.",
+      "explanation_en": "Pre-conventional reasoning often focuses on consequences.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -661,7 +805,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_013",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -674,35 +818,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "साझा संसाधन की रक्षा किस मूल्य को दर्शाती है?",
-      "question_en": "Protecting shared resources reflects which value?",
+      "question_hi": "शिक्षण संदर्भ में परंपरागत तर्क का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Conventional reasoning mean?",
       "options": [
         {
-          "option_id": "A",
-          "hi": "जिम्मेदारी",
-          "en": "Responsibility"
+          "en": "Rules and social approval",
+          "hi": "नियम एवं सामाजिक स्वीकृति",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "स्वार्थ",
-          "en": "Selfishness"
+          "en": "P",
+          "hi": "e",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "पक्षपात",
-          "en": "Bias"
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "उपेक्षा",
-          "en": "Neglect"
+          "en": "U",
+          "hi": "n",
+          "option_id": "D"
+        },
+        {
+          "en": "स",
+          "hi": "ा"
+        },
+        {
+          "en": "N",
+          "hi": "o"
+        },
+        {
+          "en": "न",
+          "hi": "ि"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "साझा संसाधनों की देखभाल सामूहिक जिम्मेदारी का उदाहरण है।",
-      "explanation_en": "Caring for shared resources is collective responsibility.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "explanation_hi": "Conventional reasoning considers norms and expectations.",
+      "explanation_en": "Conventional reasoning considers norms and expectations.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -714,7 +870,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_014",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -727,35 +883,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिक निर्णय में दृष्टिकोण ग्रहण करना—",
-      "question_en": "Perspective-taking in moral judgment—",
+      "question_hi": "शिक्षण संदर्भ में उत्तर-परंपरागत का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Post-conventional mean?",
       "options": [
         {
-          "option_id": "A",
-          "hi": "दूसरे की स्थिति समझना",
-          "en": "Understanding another's position"
+          "en": "P",
+          "hi": "u",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "केवल स्वयं",
-          "en": "Self only"
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "नियम भूलना",
-          "en": "Forgetting rules"
+          "en": "R",
+          "hi": "e",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "दंड देना",
-          "en": "Punishing"
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "I",
+          "hi": "m"
+        },
+        {
+          "en": "अ",
+          "hi": "न"
+        },
+        {
+          "en": "Principles and rights",
+          "hi": "सिद्धांत एवं अधिकार"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "दृष्टिकोण ग्रहण करने से दूसरों की स्थिति और जरूरत समझने में मदद मिलती है।",
-      "explanation_en": "Perspective-taking helps understand others' situations and needs.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Post-conventional reasoning considers principles.",
+      "explanation_en": "Post-conventional reasoning considers principles.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -767,7 +935,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_015",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -780,35 +948,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "बच्चे में ईमानदारी को बढ़ावा देने का तरीका—",
-      "question_en": "A way to promote honesty in a child—",
+      "question_hi": "शिक्षण संदर्भ में नैतिक दुविधा का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Moral dilemma mean?",
       "options": [
         {
-          "option_id": "A",
-          "hi": "ईमानदार व्यवहार का मॉडल और सकारात्मक संवाद",
-          "en": "Model honesty and use positive dialogue"
+          "en": "क",
+          "hi": "े",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "झूठ बोलने पर अपमान",
-          "en": "Humiliate for lying"
+          "en": "P",
+          "hi": "u",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "केवल डर",
-          "en": "Fear only"
+          "en": "द",
+          "hi": "ं",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "प्रश्न न पूछना",
-          "en": "No questions"
+          "en": "M",
+          "hi": "e",
+          "option_id": "D"
+        },
+        {
+          "en": "र",
+          "hi": "ट"
+        },
+        {
+          "en": "Discuss reasons and perspectives",
+          "hi": "कारण एवं दृष्टिकोण चर्चा"
+        },
+        {
+          "en": "G",
+          "hi": "i"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "वयस्क का मॉडल और सुरक्षित संवाद ईमानदारी को प्रोत्साहित कर सकते हैं।",
-      "explanation_en": "Adult modelling and safe dialogue can encourage honesty.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Dilemmas can encourage moral reasoning discussion.",
+      "explanation_en": "Dilemmas can encourage moral reasoning discussion.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -820,7 +1000,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_016",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -833,35 +1013,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिक विकास में विद्यालय की भूमिका—",
-      "question_en": "School's role in moral development—",
+      "question_hi": "शिक्षण संदर्भ में नैतिक व्यवहार का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Moral behaviour mean?",
       "options": [
         {
-          "option_id": "A",
-          "hi": "निष्पक्ष नियम और व्यवहार का मॉडल",
-          "en": "Fair rules and behavioural modelling"
+          "en": "U",
+          "hi": "n",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "केवल परीक्षा",
-          "en": "Exams only"
+          "en": "प",
+          "hi": "ू",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "कोई भूमिका नहीं",
-          "en": "No role"
+          "en": "O",
+          "hi": "n",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "केवल प्रतियोगिता",
-          "en": "Competition only"
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "Reasoning may not always predict action",
+          "hi": "तर्क हमेशा व्यवहार का अनुमान नहीं"
+        },
+        {
+          "en": "A",
+          "hi": "l"
+        },
+        {
+          "en": "ह",
+          "hi": "म"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "विद्यालय निष्पक्षता, सहयोग और जिम्मेदारी का अभ्यास करा सकता है।",
-      "explanation_en": "School can practise fairness, cooperation and responsibility.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Moral reasoning and action may differ.",
+      "explanation_en": "Moral reasoning and action may differ.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -873,7 +1065,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_017",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -886,35 +1078,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिक और सामाजिक विकास का संबंध—",
-      "question_en": "Relationship between moral and social development—",
+      "question_hi": "शिक्षण संदर्भ में सहानुभूति का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Empathy mean?",
       "options": [
         {
-          "option_id": "A",
-          "hi": "सामाजिक अनुभव नैतिक समझ को प्रभावित कर सकते हैं",
-          "en": "Social experiences can influence moral understanding"
+          "en": "Consider others' feelings",
+          "hi": "दूसरों की भावनाओं पर विचार",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "असंबंधित",
-          "en": "Unrelated"
+          "en": "S",
+          "hi": "e",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "एक ही नहीं",
-          "en": "Not identical"
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "केवल जैविक",
-          "en": "Biological only"
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "C",
+          "hi": "o"
+        },
+        {
+          "en": "प",
+          "hi": "्"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "सामाजिक अनुभव नैतिक विचारों और निर्णयों के विकास में योगदान कर सकते हैं।",
-      "explanation_en": "Social experiences can contribute to moral ideas and judgments.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "explanation_hi": "Empathy can support prosocial decisions.",
+      "explanation_en": "Empathy can support prosocial decisions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -926,7 +1130,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_018",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -939,35 +1143,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "एक विद्यार्थी गलती से मित्र की वस्तु तोड़ता है और क्षमा माँगता है। यह क्या दर्शाता है?",
-      "question_en": "A learner accidentally breaks a friend's item and apologises. What does this show?",
+      "question_hi": "शिक्षण संदर्भ में कक्षा नियम का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Class rules mean?",
       "options": [
         {
-          "option_id": "A",
-          "hi": "जिम्मेदारी और सुधार का प्रयास",
-          "en": "Responsibility and attempt to repair"
+          "en": "A",
+          "hi": "r",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "केवल भय",
-          "en": "Fear only"
+          "en": "म",
+          "hi": "न",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "असामाजिकता",
-          "en": "Asociality"
+          "en": "F",
+          "hi": "e",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "स्मृति",
-          "en": "Memory"
+          "en": "भ",
+          "hi": "य",
+          "option_id": "D"
+        },
+        {
+          "en": "H",
+          "hi": "u"
+        },
+        {
+          "en": "अ",
+          "hi": "प"
+        },
+        {
+          "en": "Explain fairness and rationale",
+          "hi": "न्याय एवं कारण समझाना"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "क्षमा माँगना और सुधार का प्रयास जिम्मेदारी तथा संबंध सुधारने का संकेत है।",
-      "explanation_en": "Apologising and attempting repair indicate responsibility and relationship repair.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Reasoned rules can support moral understanding.",
+      "explanation_en": "Reasoned rules can support moral understanding.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -979,7 +1195,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_019",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -992,35 +1208,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "नैतिक विकास के बारे में सही कथन—",
-      "question_en": "Correct statement about moral development—",
+      "question_hi": "शिक्षण संदर्भ में नैतिक शिक्षा का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Moral education mean?",
       "options": [
         {
-          "option_id": "A",
-          "hi": "यह अनुभव, संवाद और सामाजिक संदर्भ से प्रभावित होता है",
-          "en": "It is influenced by experience, dialogue and social context"
+          "en": "र",
+          "hi": "ट",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "केवल नियम रटने से",
-          "en": "Only memorising rules"
+          "en": "P",
+          "hi": "u",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "जन्म पर पूर्ण",
-          "en": "Complete at birth"
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "सभी में समान",
-          "en": "Identical in all"
+          "en": "L",
+          "hi": "a",
+          "option_id": "D"
+        },
+        {
+          "en": "ल",
+          "hi": "े"
+        },
+        {
+          "en": "Dialogue, reflection and role-taking",
+          "hi": "संवाद, चिंतन एवं भूमिका ग्रहण"
+        },
+        {
+          "en": "R",
+          "hi": "o"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "नैतिक समझ अनुभव, सामाजिक संवाद और संदर्भ के साथ विकसित हो सकती है।",
-      "explanation_en": "Moral understanding may develop through experience, social dialogue and context.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Reflection and perspective-taking support moral learning.",
+      "explanation_en": "Reflection and perspective-taking support moral learning.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -1032,7 +1260,7 @@
       "question_id": "CDP_MORAL_DEVELOPMENT_V6_020",
       "subject_id": "cdp",
       "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "category": "Educational Psychology",
       "topic_id": "moral_development",
       "topic": "Moral Development",
       "subtopic_id": "core_concepts",
@@ -1045,35 +1273,47 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "शिक्षक नैतिक प्रश्न पर अलग विचार सुनता है। उचित प्रतिक्रिया—",
-      "question_en": "A teacher hears differing views on a moral issue. Appropriate response—",
+      "question_hi": "शिक्षण संदर्भ में शिक्षक निष्पक्षता का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Teacher fairness mean?",
       "options": [
         {
-          "option_id": "A",
-          "hi": "सम्मानपूर्वक तर्क सुनना और विचार कराना",
-          "en": "Listen respectfully and encourage reasoning"
+          "en": "P",
+          "hi": "u",
+          "option_id": "A"
         },
         {
-          "option_id": "B",
-          "hi": "एक मत थोपना",
-          "en": "Impose one view"
+          "en": "स",
+          "hi": "ा",
+          "option_id": "B"
         },
         {
-          "option_id": "C",
-          "hi": "उपहास करना",
-          "en": "Mock"
+          "en": "B",
+          "hi": "i",
+          "option_id": "C"
         },
         {
-          "option_id": "D",
-          "hi": "चर्चा बंद",
-          "en": "Stop discussion"
+          "en": "प",
+          "hi": "ू",
+          "option_id": "D"
+        },
+        {
+          "en": "Consistent and respectful treatment",
+          "hi": "संगत एवं सम्मानपूर्ण व्यवहार"
+        },
+        {
+          "en": "F",
+          "hi": "a"
+        },
+        {
+          "en": "प",
+          "hi": "क"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "सम्मानपूर्ण चर्चा तर्क और दृष्टिकोण समझने का अवसर देती है।",
-      "explanation_en": "Respectful discussion provides opportunities for reasoning and perspective-taking.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Fair treatment models moral principles.",
+      "explanation_en": "Fair treatment models moral principles.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
