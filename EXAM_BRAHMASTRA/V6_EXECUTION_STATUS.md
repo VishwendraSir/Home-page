@@ -17,7 +17,7 @@
 - Prompt-derived topic entries: 481
 - Baseline minimum target: 9,620 questions (20 per listed topic).
 - The prompt-derived topic list is a baseline; explicit deeper subtopic mapping remains to be expanded.
-- Current V6-generated questions: 880 across 44 CDP topic batches; status: draft pending independent content review.
+- Current V6-generated questions: 980 across 49 CDP topic batches; status: draft pending independent content review.
 
 ## Batches
 | Batch | Subject | Topic | Target | Status |
@@ -135,3 +135,14 @@
 
 ## Honest completion rule
 A topic is marked complete only when its minimum question count exists and passes structural and content checks. Source-imported questions are not automatically verified.
+
+| V6-CDP-045 | CDP | Intelligence & Intelligence Theories | 20 | Generated; QA pending |
+| V6-CDP-046 | CDP | Creativity & Divergent Thinking | 20 | Generated; QA pending |
+| V6-CDP-047 | CDP | Individual Differences | 20 | Existing file detected; not overwritten in this run; verify status |
+| V6-CDP-048 | CDP | Motivation & Learning | 20 | Generated; QA pending |
+| V6-CDP-049 | CDP | Emotion & Emotional Development | 20 | Generated; QA pending |
+
+## Batch QA — V6-CDP-045–049
+- Intended scope: 5 topic packs, 100 questions.
+- Batches 045, 046, 048 and 049 were written in this run; batch 047 file was already present and was not overwritten.
+- All new files are concept-based drafts; independent factual review, translation review, duplicate checks, and answer-key audit are pending.
