@@ -1,0 +1,1125 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Cognitive Learning Theory",
+  "batch_id": "V6-CDP-32",
+  "subject_id": "cdp",
+  "topic_id": "cognitive_learning",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Cognitive theories focus on—",
+      "question_en": "Cognitive theories focus on—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "Mental processes",
+            "Mental processes",
+            "Only observable movement",
+            "Only observable movement",
+            "Punishment",
+            "Punishment",
+            "Physical growth",
+            "Physical growth"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Cognitive approaches study processes such as memory, attention and thinking.",
+          "en": "Cognitive approaches study processes such as memory, attention and thinking."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Information processing compares learning to—",
+      "question_en": "Information processing compares learning to—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Information-processing models describe stages and systems involved in handling information.",
+          "en": "Information-processing models describe stages and systems involved in handling information."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Processing and storing information",
+            "Processing and storing information",
+            "Physical exercise only",
+            "Physical exercise only",
+            "Punishment",
+            "Punishment",
+            "Social status",
+            "Social status"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Attention is important because—",
+      "question_en": "Attention is important because—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "It supports selection of information",
+            "It supports selection of information",
+            "It guarantees memory",
+            "It guarantees memory",
+            "It replaces practice",
+            "It replaces practice",
+            "It eliminates motivation",
+            "It eliminates motivation"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Attention helps select information for further processing.",
+          "en": "Attention helps select information for further processing."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Working memory has—",
+      "question_en": "Working memory has—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Limited capacity",
+            "Limited capacity",
+            "Unlimited capacity",
+            "Unlimited capacity",
+            "No role in learning",
+            "No role in learning",
+            "Only permanent storage",
+            "Only permanent storage"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Working memory is limited, so instruction should manage cognitive load.",
+          "en": "Working memory is limited, so instruction should manage cognitive load."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Schema refers to—",
+      "question_en": "Schema refers to—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "Organised knowledge structure",
+            "Organised knowledge structure",
+            "A punishment",
+            "A punishment",
+            "A sensory organ",
+            "A sensory organ",
+            "A timetable",
+            "A timetable"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Schemas organise knowledge and guide interpretation.",
+          "en": "Schemas organise knowledge and guide interpretation."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Metacognition means—",
+      "question_en": "Metacognition means—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Metacognition includes monitoring and regulating one's cognition.",
+          "en": "Metacognition includes monitoring and regulating one's cognition."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Thinking about one's thinking",
+            "Thinking about one's thinking",
+            "Rote copying",
+            "Rote copying",
+            "Physical growth",
+            "Physical growth",
+            "Conditioning",
+            "Conditioning"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Advance organiser helps—",
+      "question_en": "An advance organiser helps—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Connect new material with prior knowledge",
+            "Connect new material with prior knowledge",
+            "Hide lesson goals",
+            "Hide lesson goals",
+            "Increase distraction",
+            "Increase distraction",
+            "Replace assessment",
+            "Replace assessment"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "An organiser provides a conceptual framework before detailed learning.",
+          "en": "An organiser provides a conceptual framework before detailed learning."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Cognitive load may be reduced by—",
+      "question_en": "Cognitive load may be reduced by—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Clear steps and worked examples",
+            "Clear steps and worked examples",
+            "Unnecessary details",
+            "Unnecessary details",
+            "Confusing instructions",
+            "Confusing instructions",
+            "Multiple distractions",
+            "Multiple distractions"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Clear sequencing and examples reduce avoidable processing demands.",
+          "en": "Clear sequencing and examples reduce avoidable processing demands."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Meaningful rehearsal—",
+      "question_en": "Meaningful rehearsal—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "Links ideas and elaborates",
+            "Links ideas and elaborates",
+            "Repeats without understanding",
+            "Repeats without understanding",
+            "Avoids connections",
+            "Avoids connections",
+            "Stops retrieval",
+            "Stops retrieval"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Elaboration connects new information with existing knowledge.",
+          "en": "Elaboration connects new information with existing knowledge."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Transfer of learning means—",
+      "question_en": "Transfer of learning means—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Transfer is applying knowledge or skills beyond the original context.",
+          "en": "Transfer is applying knowledge or skills beyond the original context."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Applying learning in a new situation",
+            "Applying learning in a new situation",
+            "Forgetting",
+            "Forgetting",
+            "Copying",
+            "Copying",
+            "Only repeating",
+            "Only repeating"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Problem solving often involves—",
+      "question_en": "Problem solving often involves—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Representing and testing solutions",
+            "Representing and testing solutions",
+            "Guessing only",
+            "Guessing only",
+            "Avoiding goals",
+            "Avoiding goals",
+            "Rote repetition only",
+            "Rote repetition only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Problem solvers represent the problem and evaluate possible strategies.",
+          "en": "Problem solvers represent the problem and evaluate possible strategies."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Mental imagery can support—",
+      "question_en": "Mental imagery can support—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Remembering and understanding",
+            "Remembering and understanding",
+            "Only discipline",
+            "Only discipline",
+            "Punishment",
+            "Punishment",
+            "Attendance",
+            "Attendance"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Images can provide additional representations of information.",
+          "en": "Images can provide additional representations of information."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Dual coding suggests combining—",
+      "question_en": "Dual coding suggests combining—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "Verbal and visual representations",
+            "Verbal and visual representations",
+            "Two punishments",
+            "Two punishments",
+            "Noise and text",
+            "Noise and text",
+            "Only repetition",
+            "Only repetition"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Verbal and visual representations can support learning when well aligned.",
+          "en": "Verbal and visual representations can support learning when well aligned."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Cognitive conflict may lead to—",
+      "question_en": "Cognitive conflict may lead to—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Conflict with evidence can prompt revision of knowledge structures.",
+          "en": "Conflict with evidence can prompt revision of knowledge structures."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Revision of existing schema",
+            "Revision of existing schema",
+            "Avoidance always",
+            "Avoidance always",
+            "No learning",
+            "No learning",
+            "Punishment",
+            "Punishment"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Retrieval cue is—",
+      "question_en": "A retrieval cue is—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "A prompt that helps recall",
+            "A prompt that helps recall",
+            "A punishment",
+            "A punishment",
+            "A new topic",
+            "A new topic",
+            "A distraction",
+            "A distraction"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Cues can activate related stored information.",
+          "en": "Cues can activate related stored information."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Self-regulated learning includes—",
+      "question_en": "Self-regulated learning includes—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Planning, monitoring and evaluating",
+            "Planning, monitoring and evaluating",
+            "Waiting passively",
+            "Waiting passively",
+            "Copying",
+            "Copying",
+            "Avoiding goals",
+            "Avoiding goals"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Learners regulate their learning through planning and monitoring.",
+          "en": "Learners regulate their learning through planning and monitoring."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "A worked example is useful when—",
+      "question_en": "A worked example is useful when—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "Learning a new procedure",
+            "Learning a new procedure",
+            "Testing only",
+            "Testing only",
+            "No explanation needed",
+            "No explanation needed",
+            "Distracting learners",
+            "Distracting learners"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Worked examples show steps and can reduce unnecessary cognitive load.",
+          "en": "Worked examples show steps and can reduce unnecessary cognitive load."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Conceptual understanding is shown by—",
+      "question_en": "Conceptual understanding is shown by—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Explaining relationships indicates deeper understanding.",
+          "en": "Explaining relationships indicates deeper understanding."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Explaining relationships",
+            "Explaining relationships",
+            "Repeating words only",
+            "Repeating words only",
+            "Guessing",
+            "Guessing",
+            "Copying",
+            "Copying"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Cognitive theory supports teaching that—",
+      "question_en": "Cognitive theory supports teaching that—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Organises information and activates prior knowledge",
+            "Organises information and activates prior knowledge",
+            "Overloads learners",
+            "Overloads learners",
+            "Ignores attention",
+            "Ignores attention",
+            "Uses no feedback",
+            "Uses no feedback"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Organised information and prior knowledge support processing.",
+          "en": "Organised information and prior knowledge support processing."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_COGNITIVE_LEARNING_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "cognitive_learning",
+      "topic": "Cognitive Learning Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Learner strategy instruction can improve—",
+      "question_en": "Learner strategy instruction can improve—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Independent learning",
+            "Independent learning",
+            "Dependence only",
+            "Dependence only",
+            "Fear",
+            "Fear",
+            "Distraction",
+            "Distraction"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Explicit strategy instruction supports independent learning.",
+          "en": "Explicit strategy instruction supports independent learning."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
