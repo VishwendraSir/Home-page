@@ -31,7 +31,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "Language development relates to what?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -44,37 +44,21 @@
         {
           "option_id": "A",
           "hi": "भाषा समझने और प्रयोग करने की क्षमता",
-          "en": "भाषा समझने और प्रयोग करने की क्षमता"
-        },
-        {
-          "option_id": "B",
-          "hi": "Ability to understand and use language",
           "en": "Ability to understand and use language"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल शारीरिक वृद्धि",
-          "en": "केवल शारीरिक वृद्धि"
-        },
-        {
-          "option_id": "D",
-          "hi": "Physical growth only",
           "en": "Physical growth only"
         },
         {
+          "option_id": "C",
           "hi": "केवल नैतिकता",
-          "en": "केवल नैतिकता"
-        },
-        {
-          "hi": "Morality only",
           "en": "Morality only"
         },
         {
+          "option_id": "D",
           "hi": "केवल गणना",
-          "en": "केवल गणना"
-        },
-        {
-          "hi": "Calculation only",
           "en": "Calculation only"
         }
       ],
@@ -100,7 +84,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "What is receptive language?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -113,37 +97,21 @@
         {
           "option_id": "A",
           "hi": "भाषा समझने की क्षमता",
-          "en": "भाषा समझने की क्षमता"
-        },
-        {
-          "option_id": "B",
-          "hi": "Ability to understand language",
           "en": "Ability to understand language"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल बोलना",
-          "en": "केवल बोलना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Speaking only",
           "en": "Speaking only"
         },
         {
+          "option_id": "C",
           "hi": "लिखना ही",
-          "en": "लिखना ही"
-        },
-        {
-          "hi": "Writing only",
           "en": "Writing only"
         },
         {
+          "option_id": "D",
           "hi": "चित्र बनाना",
-          "en": "चित्र बनाना"
-        },
-        {
-          "hi": "Drawing",
           "en": "Drawing"
         }
       ],
@@ -169,7 +137,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "What is expressive language?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -182,37 +150,21 @@
         {
           "option_id": "A",
           "hi": "विचारों को भाषा में व्यक्त करना",
-          "en": "विचारों को भाषा में व्यक्त करना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Expressing ideas through language",
           "en": "Expressing ideas through language"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल सुनना",
-          "en": "केवल सुनना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Listening only",
           "en": "Listening only"
         },
         {
+          "option_id": "C",
           "hi": "केवल पढ़ना",
-          "en": "केवल पढ़ना"
-        },
-        {
-          "hi": "Reading only",
           "en": "Reading only"
         },
         {
+          "option_id": "D",
           "hi": "मौन रहना",
-          "en": "मौन रहना"
-        },
-        {
-          "hi": "Silence",
           "en": "Silence"
         }
       ],
@@ -238,7 +190,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "What supports vocabulary development?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -251,37 +203,21 @@
         {
           "option_id": "A",
           "hi": "समृद्ध संवाद और पढ़ना",
-          "en": "समृद्ध संवाद और पढ़ना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Rich conversation and reading",
           "en": "Rich conversation and reading"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल दंड",
-          "en": "केवल दंड"
-        },
-        {
-          "option_id": "D",
-          "hi": "Punishment only",
           "en": "Punishment only"
         },
         {
+          "option_id": "C",
           "hi": "संवाद रोकना",
-          "en": "संवाद रोकना"
-        },
-        {
-          "hi": "Stopping conversation",
           "en": "Stopping conversation"
         },
         {
+          "option_id": "D",
           "hi": "अलगाव",
-          "en": "अलगाव"
-        },
-        {
-          "hi": "Isolation",
           "en": "Isolation"
         }
       ],
@@ -307,7 +243,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "Importance of interaction in language learning—",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -320,37 +256,21 @@
         {
           "option_id": "A",
           "hi": "अर्थपूर्ण प्रयोग और प्रतिक्रिया का अवसर",
-          "en": "अर्थपूर्ण प्रयोग और प्रतिक्रिया का अवसर"
-        },
-        {
-          "option_id": "B",
-          "hi": "Opportunity for meaningful use and feedback",
           "en": "Opportunity for meaningful use and feedback"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "कोई महत्व नहीं",
-          "en": "कोई महत्व नहीं"
-        },
-        {
-          "option_id": "D",
-          "hi": "No importance",
           "en": "No importance"
         },
         {
+          "option_id": "C",
           "hi": "केवल रटना",
-          "en": "केवल रटना"
-        },
-        {
-          "hi": "Rote only",
           "en": "Rote only"
         },
         {
+          "option_id": "D",
           "hi": "केवल लिखना",
-          "en": "केवल लिखना"
-        },
-        {
-          "hi": "Writing only",
           "en": "Writing only"
         }
       ],
@@ -376,7 +296,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Listening to stories supports which skill?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -389,37 +309,21 @@
         {
           "option_id": "A",
           "hi": "श्रवण समझ और भाषा",
-          "en": "श्रवण समझ और भाषा"
-        },
-        {
-          "option_id": "B",
-          "hi": "Listening comprehension and language",
           "en": "Listening comprehension and language"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल मोटर कौशल",
-          "en": "केवल मोटर कौशल"
-        },
-        {
-          "option_id": "D",
-          "hi": "Motor only",
           "en": "Motor only"
         },
         {
+          "option_id": "C",
           "hi": "केवल वजन",
-          "en": "केवल वजन"
-        },
-        {
-          "hi": "Weight only",
           "en": "Weight only"
         },
         {
+          "option_id": "D",
           "hi": "केवल गणना",
-          "en": "केवल गणना"
-        },
-        {
-          "hi": "Calculation",
           "en": "Calculation"
         }
       ],
@@ -445,7 +349,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Errors in language development—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -458,37 +362,21 @@
         {
           "option_id": "A",
           "hi": "सीखने की प्रक्रिया का सामान्य भाग हो सकती हैं",
-          "en": "सीखने की प्रक्रिया का सामान्य भाग हो सकती हैं"
-        },
-        {
-          "option_id": "B",
-          "hi": "May be a normal part of learning",
           "en": "May be a normal part of learning"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "हमेशा बुद्धि की कमी",
-          "en": "हमेशा बुद्धि की कमी"
-        },
-        {
-          "option_id": "D",
-          "hi": "Always lack of intelligence",
           "en": "Always lack of intelligence"
         },
         {
+          "option_id": "C",
           "hi": "दंड का कारण",
-          "en": "दंड का कारण"
-        },
-        {
-          "hi": "Reason for punishment",
           "en": "Reason for punishment"
         },
         {
+          "option_id": "D",
           "hi": "सीखना असंभव",
-          "en": "सीखना असंभव"
-        },
-        {
-          "hi": "Learning impossible",
           "en": "Learning impossible"
         }
       ],
@@ -514,7 +402,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Appropriate statement about a multilingual child—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -527,37 +415,21 @@
         {
           "option_id": "A",
           "hi": "एक से अधिक भाषाएँ सीखना क्षमता का सामान्य रूप हो सकता है",
-          "en": "एक से अधिक भाषाएँ सीखना क्षमता का सामान्य रूप हो सकता है"
-        },
-        {
-          "option_id": "B",
-          "hi": "Learning multiple languages can be a normal capability",
           "en": "Learning multiple languages can be a normal capability"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "भाषा भ्रम निश्चित",
-          "en": "भाषा भ्रम निश्चित"
-        },
-        {
-          "option_id": "D",
-          "hi": "Confusion is certain",
           "en": "Confusion is certain"
         },
         {
+          "option_id": "C",
           "hi": "एक भाषा रोकनी चाहिए",
-          "en": "एक भाषा रोकनी चाहिए"
-        },
-        {
-          "hi": "One language must be stopped",
           "en": "One language must be stopped"
         },
         {
+          "option_id": "D",
           "hi": "सीखना असंभव",
-          "en": "सीखना असंभव"
-        },
-        {
-          "hi": "Learning is impossible",
           "en": "Learning is impossible"
         }
       ],
@@ -583,7 +455,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "What can a teacher do for language development?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -596,37 +468,21 @@
         {
           "option_id": "A",
           "hi": "बच्चों से अर्थपूर्ण बातचीत",
-          "en": "बच्चों से अर्थपूर्ण बातचीत"
-        },
-        {
-          "option_id": "B",
-          "hi": "Meaningful conversations with children",
           "en": "Meaningful conversations with children"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल चुप्पी",
-          "en": "केवल चुप्पी"
-        },
-        {
-          "option_id": "D",
-          "hi": "Silence only",
           "en": "Silence only"
         },
         {
+          "option_id": "C",
           "hi": "प्रश्न रोकना",
-          "en": "प्रश्न रोकना"
-        },
-        {
-          "hi": "Stop questions",
           "en": "Stop questions"
         },
         {
+          "option_id": "D",
           "hi": "उपहास",
-          "en": "उपहास"
-        },
-        {
-          "hi": "Mockery",
           "en": "Mockery"
         }
       ],
@@ -652,7 +508,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Phonological awareness relates to what?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -665,37 +521,21 @@
         {
           "option_id": "A",
           "hi": "भाषा की ध्वनियों को पहचानना और उनके साथ काम करना",
-          "en": "भाषा की ध्वनियों को पहचानना और उनके साथ काम करना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Recognising and working with speech sounds",
           "en": "Recognising and working with speech sounds"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल अर्थ",
-          "en": "केवल अर्थ"
-        },
-        {
-          "option_id": "D",
-          "hi": "Meaning only",
           "en": "Meaning only"
         },
         {
+          "option_id": "C",
           "hi": "केवल लिखावट",
-          "en": "केवल लिखावट"
-        },
-        {
-          "hi": "Handwriting only",
           "en": "Handwriting only"
         },
         {
+          "option_id": "D",
           "hi": "केवल मोटर",
-          "en": "केवल मोटर"
-        },
-        {
-          "hi": "Motor only",
           "en": "Motor only"
         }
       ],
@@ -721,7 +561,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "A child asking word meanings indicates what?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -734,37 +574,21 @@
         {
           "option_id": "A",
           "hi": "शब्दावली और अर्थ सीखने में सक्रियता",
-          "en": "शब्दावली और अर्थ सीखने में सक्रियता"
-        },
-        {
-          "option_id": "B",
-          "hi": "Active vocabulary and meaning learning",
           "en": "Active vocabulary and meaning learning"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "सीखने में बाधा",
-          "en": "सीखने में बाधा"
-        },
-        {
-          "option_id": "D",
-          "hi": "Learning barrier",
           "en": "Learning barrier"
         },
         {
+          "option_id": "C",
           "hi": "केवल अनुकरण",
-          "en": "केवल अनुकरण"
-        },
-        {
-          "hi": "Imitation only",
           "en": "Imitation only"
         },
         {
+          "option_id": "D",
           "hi": "सामाजिक विकास रुकना",
-          "en": "सामाजिक विकास रुकना"
-        },
-        {
-          "hi": "Social development stopping",
           "en": "Social development stopping"
         }
       ],
@@ -790,7 +614,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Joint attention in language development—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -803,37 +627,21 @@
         {
           "option_id": "A",
           "hi": "एक वस्तु या घटना पर साझा ध्यान",
-          "en": "एक वस्तु या घटना पर साझा ध्यान"
-        },
-        {
-          "option_id": "B",
-          "hi": "Shared attention to an object or event",
           "en": "Shared attention to an object or event"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल दौड़ना",
-          "en": "केवल दौड़ना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Running only",
           "en": "Running only"
         },
         {
+          "option_id": "C",
           "hi": "स्मृति मिटाना",
-          "en": "स्मृति मिटाना"
-        },
-        {
-          "hi": "Erasing memory",
           "en": "Erasing memory"
         },
         {
+          "option_id": "D",
           "hi": "नियम पालन",
-          "en": "नियम पालन"
-        },
-        {
-          "hi": "Rule-following",
           "en": "Rule-following"
         }
       ],
@@ -859,7 +667,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Turn-taking in conversation is what skill?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -872,37 +680,21 @@
         {
           "option_id": "A",
           "hi": "प्राग्मेटिक भाषा कौशल",
-          "en": "प्राग्मेटिक भाषा कौशल"
-        },
-        {
-          "option_id": "B",
-          "hi": "Pragmatic language skill",
           "en": "Pragmatic language skill"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "स्थूल मोटर",
-          "en": "स्थूल मोटर"
-        },
-        {
-          "option_id": "D",
-          "hi": "Gross motor",
           "en": "Gross motor"
         },
         {
+          "option_id": "C",
           "hi": "नैतिक निर्णय",
-          "en": "नैतिक निर्णय"
-        },
-        {
-          "hi": "Moral judgment",
           "en": "Moral judgment"
         },
         {
+          "option_id": "D",
           "hi": "वस्तु स्थायित्व",
-          "en": "वस्तु स्थायित्व"
-        },
-        {
-          "hi": "Object permanence",
           "en": "Object permanence"
         }
       ],
@@ -928,7 +720,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Assessment of language development—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -941,37 +733,21 @@
         {
           "option_id": "A",
           "hi": "समझ, अभिव्यक्ति और संदर्भ में संवाद देखना",
-          "en": "समझ, अभिव्यक्ति और संदर्भ में संवाद देखना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Observe comprehension, expression and contextual communication",
           "en": "Observe comprehension, expression and contextual communication"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल अक्षर लिखना",
-          "en": "केवल अक्षर लिखना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Writing letters only",
           "en": "Writing letters only"
         },
         {
+          "option_id": "C",
           "hi": "केवल उपस्थिति",
-          "en": "केवल उपस्थिति"
-        },
-        {
-          "hi": "Attendance only",
           "en": "Attendance only"
         },
         {
+          "option_id": "D",
           "hi": "केवल ऊँचाई",
-          "en": "केवल ऊँचाई"
-        },
-        {
-          "hi": "Height only",
           "en": "Height only"
         }
       ],
@@ -997,7 +773,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Reading aloud may help with what?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1010,37 +786,21 @@
         {
           "option_id": "A",
           "hi": "शब्दावली, समझ और सुनने",
-          "en": "शब्दावली, समझ और सुनने"
-        },
-        {
-          "option_id": "B",
-          "hi": "Vocabulary, comprehension and listening",
           "en": "Vocabulary, comprehension and listening"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल शारीरिक विकास",
-          "en": "केवल शारीरिक विकास"
-        },
-        {
-          "option_id": "D",
-          "hi": "Physical development only",
           "en": "Physical development only"
         },
         {
+          "option_id": "C",
           "hi": "केवल नैतिकता",
-          "en": "केवल नैतिकता"
-        },
-        {
-          "hi": "Morality only",
           "en": "Morality only"
         },
         {
+          "option_id": "D",
           "hi": "केवल गणित",
-          "en": "केवल गणित"
-        },
-        {
-          "hi": "Math only",
           "en": "Math only"
         }
       ],
@@ -1066,7 +826,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "Language and cognitive development—",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1079,37 +839,21 @@
         {
           "option_id": "A",
           "hi": "एक-दूसरे को समर्थन दे सकते हैं",
-          "en": "एक-दूसरे को समर्थन दे सकते हैं"
-        },
-        {
-          "option_id": "B",
-          "hi": "Can support each other",
           "en": "Can support each other"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "असंबंधित",
-          "en": "असंबंधित"
-        },
-        {
-          "option_id": "D",
-          "hi": "Unrelated",
           "en": "Unrelated"
         },
         {
+          "option_id": "C",
           "hi": "केवल शारीरिक",
-          "en": "केवल शारीरिक"
-        },
-        {
-          "hi": "Physical only",
           "en": "Physical only"
         },
         {
+          "option_id": "D",
           "hi": "एक दूसरे को रोकते हैं",
-          "en": "एक दूसरे को रोकते हैं"
-        },
-        {
-          "hi": "Prevent each other",
           "en": "Prevent each other"
         }
       ],
@@ -1135,7 +879,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "Opportunity to answer in the child's language—",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1148,37 +892,21 @@
         {
           "option_id": "A",
           "hi": "भागीदारी और समझ व्यक्त करने में मदद",
-          "en": "भागीदारी और समझ व्यक्त करने में मदद"
-        },
-        {
-          "option_id": "B",
-          "hi": "Helps participation and expressing understanding",
           "en": "Helps participation and expressing understanding"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "हमेशा गलत",
-          "en": "हमेशा गलत"
-        },
-        {
-          "option_id": "D",
-          "hi": "Always wrong",
           "en": "Always wrong"
         },
         {
+          "option_id": "C",
           "hi": "भाषा रोकता है",
-          "en": "भाषा रोकता है"
-        },
-        {
-          "hi": "Stops language",
           "en": "Stops language"
         },
         {
+          "option_id": "D",
           "hi": "केवल परीक्षा",
-          "en": "केवल परीक्षा"
-        },
-        {
-          "hi": "Exam only",
           "en": "Exam only"
         }
       ],
@@ -1204,7 +932,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "What should feedback in language learning be like?",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1217,37 +945,21 @@
         {
           "option_id": "A",
           "hi": "सहायक, स्पष्ट और अर्थपूर्ण",
-          "en": "सहायक, स्पष्ट और अर्थपूर्ण"
-        },
-        {
-          "option_id": "B",
-          "hi": "Supportive, clear and meaningful",
           "en": "Supportive, clear and meaningful"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "अपमानजनक",
-          "en": "अपमानजनक"
-        },
-        {
-          "option_id": "D",
-          "hi": "Humiliating",
           "en": "Humiliating"
         },
         {
+          "option_id": "C",
           "hi": "केवल दंड",
-          "en": "केवल दंड"
-        },
-        {
-          "hi": "Punishment only",
           "en": "Punishment only"
         },
         {
+          "option_id": "D",
           "hi": "बिना संदर्भ",
-          "en": "बिना संदर्भ"
-        },
-        {
-          "hi": "Without context",
           "en": "Without context"
         }
       ],
@@ -1273,7 +985,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "Which statement about language development is correct?",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1286,37 +998,21 @@
         {
           "option_id": "A",
           "hi": "यह संवाद, अनुभव और अवसरों से प्रभावित होता है",
-          "en": "यह संवाद, अनुभव और अवसरों से प्रभावित होता है"
-        },
-        {
-          "option_id": "B",
-          "hi": "It is influenced by interaction, experience and opportunities",
           "en": "It is influenced by interaction, experience and opportunities"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल जन्मजात",
-          "en": "केवल जन्मजात"
-        },
-        {
-          "option_id": "D",
-          "hi": "Innate only",
           "en": "Innate only"
         },
         {
+          "option_id": "C",
           "hi": "विद्यालय में शुरू",
-          "en": "विद्यालय में शुरू"
-        },
-        {
-          "hi": "Starts only at school",
           "en": "Starts only at school"
         },
         {
+          "option_id": "D",
           "hi": "सभी में समान",
-          "en": "सभी में समान"
-        },
-        {
-          "hi": "Identical in all",
           "en": "Identical in all"
         }
       ],
@@ -1342,7 +1038,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "How should a teacher support diversity in language development?",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1355,37 +1051,21 @@
         {
           "option_id": "A",
           "hi": "सम्मान, अवसर और आवश्यकतानुसार सहायता",
-          "en": "सम्मान, अवसर और आवश्यकतानुसार सहायता"
-        },
-        {
-          "option_id": "B",
-          "hi": "Respect, opportunities and support as needed",
           "en": "Respect, opportunities and support as needed"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "भाषा का उपहास",
-          "en": "भाषा का उपहास"
-        },
-        {
-          "option_id": "D",
-          "hi": "Mock language",
           "en": "Mock language"
         },
         {
+          "option_id": "C",
           "hi": "बच्चे को चुप करना",
-          "en": "बच्चे को चुप करना"
-        },
-        {
-          "hi": "Silence child",
           "en": "Silence child"
         },
         {
+          "option_id": "D",
           "hi": "सभी को एक स्तर मानना",
-          "en": "सभी को एक स्तर मानना"
-        },
-        {
-          "hi": "Assume same level",
           "en": "Assume same level"
         }
       ],
