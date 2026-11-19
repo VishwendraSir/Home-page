@@ -43,28 +43,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "पावलॉव",
-            "Pavlov",
-            "स्किनर",
-            "Skinner",
-            "बंडूरा",
-            "Bandura",
-            "कोहलर",
-            "Köhler"
-          ],
-          "en": 0
+          "hi": "पावलॉव",
+          "en": "Pavlov"
         },
         {
           "option_id": "B",
-          "hi": "पावलॉव ने उद्दीपक-संबंध के माध्यम से शास्त्रीय अनुबंधन का अध्ययन किया।",
-          "en": "Pavlov studied classical conditioning through stimulus associations."
+          "hi": "स्किनर",
+          "en": "Skinner"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "बंडूरा",
+          "en": "Bandura"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "कोहलर",
+          "en": "Köhler"
         }
       ],
       "correct_option": "A",
@@ -75,7 +70,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "पावलॉव ने उद्दीपक-संबंध के माध्यम से शास्त्रीय अनुबंधन का अध्ययन किया।",
+      "explanation_en": "Pavlov studied classical conditioning through stimulus associations."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_002",
@@ -99,28 +96,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "परिणामों से",
-            "Consequences",
-            "केवल आयु से",
-            "Age alone",
-            "वंशानुक्रम से ही",
-            "Heredity alone",
-            "अनुकरण से ही",
-            "Imitation alone"
-          ],
-          "en": 0
+          "hi": "परिणामों से",
+          "en": "Consequences"
         },
         {
           "option_id": "B",
-          "hi": "व्यवहार के बाद मिलने वाले परिणाम उसकी पुनरावृत्ति को प्रभावित करते हैं।",
-          "en": "Consequences following behaviour influence its likelihood of recurrence."
+          "hi": "केवल आयु से",
+          "en": "Age alone"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "वंशानुक्रम से ही",
+          "en": "Heredity alone"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अनुकरण से ही",
+          "en": "Imitation alone"
         }
       ],
       "correct_option": "A",
@@ -131,7 +123,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "व्यवहार के बाद मिलने वाले परिणाम उसकी पुनरावृत्ति को प्रभावित करते हैं।",
+      "explanation_en": "Consequences following behaviour influence its likelihood of recurrence."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_003",
@@ -155,28 +149,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "सही उत्तर पर प्रशंसा",
-            "Praise for a correct answer",
-            "कार्य छीन लेना",
-            "Removing a task",
-            "दंड देना",
-            "Punishing",
-            "अनदेखा करना",
-            "Ignoring"
-          ],
-          "en": 0
+          "hi": "सही उत्तर पर प्रशंसा",
+          "en": "Praise for a correct answer"
         },
         {
           "option_id": "B",
-          "hi": "वांछित व्यवहार के बाद प्रशंसनीय परिणाम देना सकारात्मक पुनर्बलन है।",
-          "en": "Adding a desirable consequence after behaviour is positive reinforcement."
+          "hi": "कार्य छीन लेना",
+          "en": "Removing a task"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "दंड देना",
+          "en": "Punishing"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अनदेखा करना",
+          "en": "Ignoring"
         }
       ],
       "correct_option": "A",
@@ -187,7 +176,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "वांछित व्यवहार के बाद प्रशंसनीय परिणाम देना सकारात्मक पुनर्बलन है।",
+      "explanation_en": "Adding a desirable consequence after behaviour is positive reinforcement."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_004",
@@ -211,28 +202,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "अप्रिय उद्दीपक हटाकर व्यवहार बढ़ाना",
-            "Increasing behaviour by removing an unpleasant stimulus",
-            "दंड देना",
-            "Punishing",
-            "पुरस्कार रोकना",
-            "Withholding reward",
-            "व्यवहार समाप्त करना",
-            "Eliminating behaviour"
-          ],
-          "en": 0
+          "hi": "अप्रिय उद्दीपक हटाकर व्यवहार बढ़ाना",
+          "en": "Increasing behaviour by removing an unpleasant stimulus"
         },
         {
           "option_id": "B",
-          "hi": "नकारात्मक पुनर्बलन अप्रिय स्थिति हटाकर व्यवहार की संभावना बढ़ाता है।",
-          "en": "Negative reinforcement increases behaviour by removing an aversive condition."
+          "hi": "दंड देना",
+          "en": "Punishing"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "पुरस्कार रोकना",
+          "en": "Withholding reward"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "व्यवहार समाप्त करना",
+          "en": "Eliminating behaviour"
         }
       ],
       "correct_option": "A",
@@ -243,7 +229,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "नकारात्मक पुनर्बलन अप्रिय स्थिति हटाकर व्यवहार की संभावना बढ़ाता है।",
+      "explanation_en": "Negative reinforcement increases behaviour by removing an aversive condition."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_005",
@@ -267,28 +255,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "पुनर्बलन व्यवहार बढ़ाता, दंड घटाता है",
-            "Reinforcement increases behaviour; punishment decreases it",
-            "दोनों व्यवहार बढ़ाते हैं",
-            "Both increase behaviour",
-            "दोनों समान हैं",
-            "They are identical",
-            "दोनों केवल पुरस्कार हैं",
-            "Both are rewards"
-          ],
-          "en": 0
+          "hi": "पुनर्बलन व्यवहार बढ़ाता, दंड घटाता है",
+          "en": "Reinforcement increases behaviour; punishment decreases it"
         },
         {
           "option_id": "B",
-          "hi": "पुनर्बलन व्यवहार बढ़ाता है; दंड व्यवहार घटाने का उद्देश्य रखता है।",
-          "en": "Reinforcement increases behaviour; punishment aims to reduce it."
+          "hi": "दोनों व्यवहार बढ़ाते हैं",
+          "en": "Both increase behaviour"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "दोनों समान हैं",
+          "en": "They are identical"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "दोनों केवल पुरस्कार हैं",
+          "en": "Both are rewards"
         }
       ],
       "correct_option": "A",
@@ -299,7 +282,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "पुनर्बलन व्यवहार बढ़ाता है; दंड व्यवहार घटाने का उद्देश्य रखता है।",
+      "explanation_en": "Reinforcement increases behaviour; punishment aims to reduce it."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_006",
@@ -323,28 +308,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "अल्बर्ट बंडूरा",
-            "Albert Bandura",
-            "पावलॉव",
-            "Pavlov",
-            "थॉर्नडाइक",
-            "Thorndike",
-            "फ्रायड",
-            "Freud"
-          ],
-          "en": 0
+          "hi": "अल्बर्ट बंडूरा",
+          "en": "Albert Bandura"
         },
         {
           "option_id": "B",
-          "hi": "बंडूरा ने मॉडल देखकर सीखने पर बल दिया।",
-          "en": "Bandura emphasised learning by observing models."
+          "hi": "पावलॉव",
+          "en": "Pavlov"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "थॉर्नडाइक",
+          "en": "Thorndike"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "फ्रायड",
+          "en": "Freud"
         }
       ],
       "correct_option": "A",
@@ -355,7 +335,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "बंडूरा ने मॉडल देखकर सीखने पर बल दिया।",
+      "explanation_en": "Bandura emphasised learning by observing models."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_007",
@@ -379,28 +361,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "ध्यान और स्मृति",
-            "Attention and retention",
-            "केवल दंड",
-            "Punishment only",
-            "केवल परिपक्वता",
-            "Maturation only",
-            "केवल अभ्यास",
-            "Practice only"
-          ],
-          "en": 0
+          "hi": "ध्यान और स्मृति",
+          "en": "Attention and retention"
         },
         {
           "option_id": "B",
-          "hi": "अवलोकनात्मक अधिगम में ध्यान, स्मृति, पुनरुत्पादन और प्रेरणा महत्वपूर्ण हैं।",
-          "en": "Attention, retention, reproduction and motivation are important in observational learning."
+          "hi": "केवल दंड",
+          "en": "Punishment only"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल परिपक्वता",
+          "en": "Maturation only"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "केवल अभ्यास",
+          "en": "Practice only"
         }
       ],
       "correct_option": "A",
@@ -411,7 +388,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "अवलोकनात्मक अधिगम में ध्यान, स्मृति, पुनरुत्पादन और प्रेरणा महत्वपूर्ण हैं।",
+      "explanation_en": "Attention, retention, reproduction and motivation are important in observational learning."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_008",
@@ -435,28 +414,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "संतोषजनक परिणाम व्यवहार को मजबूत करते हैं",
-            "Satisfying consequences strengthen behaviour",
-            "सभी सीखना अचानक होता है",
-            "All learning occurs suddenly",
-            "सीखना केवल अनुकरण है",
-            "Learning is only imitation",
-            "दंड हमेशा सर्वोत्तम है",
-            "Punishment is always best"
-          ],
-          "en": 0
+          "hi": "संतोषजनक परिणाम व्यवहार को मजबूत करते हैं",
+          "en": "Satisfying consequences strengthen behaviour"
         },
         {
           "option_id": "B",
-          "hi": "संतोषजनक परिणाम से जुड़े व्यवहार की पुनरावृत्ति बढ़ती है।",
-          "en": "Behaviours followed by satisfying consequences tend to recur."
+          "hi": "सभी सीखना अचानक होता है",
+          "en": "All learning occurs suddenly"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "सीखना केवल अनुकरण है",
+          "en": "Learning is only imitation"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "दंड हमेशा सर्वोत्तम है",
+          "en": "Punishment is always best"
         }
       ],
       "correct_option": "A",
@@ -467,7 +441,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "संतोषजनक परिणाम से जुड़े व्यवहार की पुनरावृत्ति बढ़ती है।",
+      "explanation_en": "Behaviours followed by satisfying consequences tend to recur."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_009",
@@ -491,28 +467,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "कोहलर",
-            "Köhler",
-            "पावलॉव",
-            "Pavlov",
-            "स्किनर",
-            "Skinner",
-            "वॉटसन",
-            "Watson"
-          ],
-          "en": 0
+          "hi": "कोहलर",
+          "en": "Köhler"
         },
         {
           "option_id": "B",
-          "hi": "कोहलर ने चिंपैंजी के प्रयोगों से अंतर्दृष्टि अधिगम का वर्णन किया।",
-          "en": "Köhler described insight learning through chimpanzee experiments."
+          "hi": "पावलॉव",
+          "en": "Pavlov"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "स्किनर",
+          "en": "Skinner"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "वॉटसन",
+          "en": "Watson"
         }
       ],
       "correct_option": "A",
@@ -523,7 +494,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "कोहलर ने चिंपैंजी के प्रयोगों से अंतर्दृष्टि अधिगम का वर्णन किया।",
+      "explanation_en": "Köhler described insight learning through chimpanzee experiments."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_010",
@@ -547,28 +520,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "ज्ञान सक्रिय रूप से निर्मित करते हैं",
-            "Actively construct knowledge",
-            "निष्क्रिय सुनते हैं",
-            "Listen passively",
-            "केवल नकल करते हैं",
-            "Only copy",
-            "जन्म से सब जानते हैं",
-            "Know everything at birth"
-          ],
-          "en": 0
+          "hi": "ज्ञान सक्रिय रूप से निर्मित करते हैं",
+          "en": "Actively construct knowledge"
         },
         {
           "option_id": "B",
-          "hi": "रचनावाद में विद्यार्थी पूर्व ज्ञान और अनुभव के आधार पर अर्थ बनाते हैं।",
-          "en": "Constructivists build meaning using prior knowledge and experience."
+          "hi": "निष्क्रिय सुनते हैं",
+          "en": "Listen passively"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल नकल करते हैं",
+          "en": "Only copy"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "जन्म से सब जानते हैं",
+          "en": "Know everything at birth"
         }
       ],
       "correct_option": "A",
@@ -579,7 +547,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "रचनावाद में विद्यार्थी पूर्व ज्ञान और अनुभव के आधार पर अर्थ बनाते हैं।",
+      "explanation_en": "Constructivists build meaning using prior knowledge and experience."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_011",
@@ -603,28 +573,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "नए ज्ञान को पूर्व ज्ञान से जोड़ना",
-            "Connecting new knowledge with prior knowledge",
-            "रटने की पुनरावृत्ति मात्र",
-            "Repetition alone",
-            "भय",
-            "Fear",
-            "अलग-अलग असंबद्ध तथ्य",
-            "Isolated facts"
-          ],
-          "en": 0
+          "hi": "नए ज्ञान को पूर्व ज्ञान से जोड़ना",
+          "en": "Connecting new knowledge with prior knowledge"
         },
         {
           "option_id": "B",
-          "hi": "पूर्व ज्ञान से संबंध नए ज्ञान को अर्थपूर्ण बनाता है।",
-          "en": "Connecting to prior knowledge makes learning meaningful."
+          "hi": "रटने की पुनरावृत्ति मात्र",
+          "en": "Repetition alone"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "भय",
+          "en": "Fear"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अलग-अलग असंबद्ध तथ्य",
+          "en": "Isolated facts"
         }
       ],
       "correct_option": "A",
@@ -635,7 +600,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "पूर्व ज्ञान से संबंध नए ज्ञान को अर्थपूर्ण बनाता है।",
+      "explanation_en": "Connecting to prior knowledge makes learning meaningful."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_012",
@@ -659,28 +626,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "समग्र पैटर्न",
-            "Whole patterns",
-            "केवल छोटे भाग",
-            "Only small parts",
-            "दंड",
-            "Punishment",
-            "शारीरिक वृद्धि",
-            "Physical growth"
-          ],
-          "en": 0
+          "hi": "समग्र पैटर्न",
+          "en": "Whole patterns"
         },
         {
           "option_id": "B",
-          "hi": "गेस्टाल्ट दृष्टिकोण अनुभव को समग्र रूप में समझने पर बल देता है।",
-          "en": "Gestalt approach emphasises understanding experience as a whole."
+          "hi": "केवल छोटे भाग",
+          "en": "Only small parts"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Punishment"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "शारीरिक वृद्धि",
+          "en": "Physical growth"
         }
       ],
       "correct_option": "A",
@@ -691,7 +653,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "गेस्टाल्ट दृष्टिकोण अनुभव को समग्र रूप में समझने पर बल देता है।",
+      "explanation_en": "Gestalt approach emphasises understanding experience as a whole."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_013",
@@ -715,28 +679,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "एक परिस्थिति का ज्ञान दूसरी में उपयोग",
-            "Using learning in another situation",
-            "ज्ञान भूल जाना",
-            "Forgetting",
-            "केवल परीक्षा देना",
-            "Taking an exam only",
-            "दंड से सीखना",
-            "Learning through punishment"
-          ],
-          "en": 0
+          "hi": "एक परिस्थिति का ज्ञान दूसरी में उपयोग",
+          "en": "Using learning in another situation"
         },
         {
           "option_id": "B",
-          "hi": "पूर्व अधिगम का नई परिस्थिति में उपयोग स्थानांतरण है।",
-          "en": "Transfer is applying prior learning to a new situation."
+          "hi": "ज्ञान भूल जाना",
+          "en": "Forgetting"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल परीक्षा देना",
+          "en": "Taking an exam only"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "दंड से सीखना",
+          "en": "Learning through punishment"
         }
       ],
       "correct_option": "A",
@@ -747,7 +706,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "पूर्व अधिगम का नई परिस्थिति में उपयोग स्थानांतरण है।",
+      "explanation_en": "Transfer is applying prior learning to a new situation."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_014",
@@ -771,28 +732,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "थॉर्नडाइक",
-            "Thorndike",
-            "वाइगोत्स्की",
-            "Vygotsky",
-            "एरिक्सन",
-            "Erikson",
-            "मास्लो",
-            "Maslow"
-          ],
-          "en": 0
+          "hi": "थॉर्नडाइक",
+          "en": "Thorndike"
         },
         {
           "option_id": "B",
-          "hi": "थॉर्नडाइक ने प्रयास और त्रुटि द्वारा सीखने का अध्ययन किया।",
-          "en": "Thorndike studied learning through trial and error."
+          "hi": "वाइगोत्स्की",
+          "en": "Vygotsky"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "एरिक्सन",
+          "en": "Erikson"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "मास्लो",
+          "en": "Maslow"
         }
       ],
       "correct_option": "A",
@@ -803,7 +759,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "थॉर्नडाइक ने प्रयास और त्रुटि द्वारा सीखने का अध्ययन किया।",
+      "explanation_en": "Thorndike studied learning through trial and error."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_015",
@@ -827,28 +785,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "सीखने में संलग्नता बढ़ाती है",
-            "Increases engagement",
-            "सीखना रोकती है",
-            "Stops learning",
-            "बुद्धि का विकल्प है",
-            "Replaces intelligence",
-            "केवल बाहरी पुरस्कार जरूरी",
-            "External rewards are always necessary"
-          ],
-          "en": 0
+          "hi": "सीखने में संलग्नता बढ़ाती है",
+          "en": "Increases engagement"
         },
         {
           "option_id": "B",
-          "hi": "प्रेरणा विद्यार्थी की रुचि, प्रयास और संलग्नता को प्रभावित करती है।",
-          "en": "Motivation influences interest, effort and engagement."
+          "hi": "सीखना रोकती है",
+          "en": "Stops learning"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "बुद्धि का विकल्प है",
+          "en": "Replaces intelligence"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "केवल बाहरी पुरस्कार जरूरी",
+          "en": "External rewards are always necessary"
         }
       ],
       "correct_option": "A",
@@ -859,7 +812,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "प्रेरणा विद्यार्थी की रुचि, प्रयास और संलग्नता को प्रभावित करती है।",
+      "explanation_en": "Motivation influences interest, effort and engagement."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_016",
@@ -883,28 +838,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "जिज्ञासा से पढ़ना",
-            "Studying out of curiosity",
-            "इनाम के लिए पढ़ना",
-            "Studying for a prize",
-            "दंड से बचना",
-            "Avoiding punishment",
-            "अंक के दबाव में पढ़ना",
-            "Studying under grade pressure"
-          ],
-          "en": 0
+          "hi": "जिज्ञासा से पढ़ना",
+          "en": "Studying out of curiosity"
         },
         {
           "option_id": "B",
-          "hi": "आंतरिक प्रेरणा गतिविधि में स्वयं रुचि से उत्पन्न होती है।",
-          "en": "Intrinsic motivation comes from interest in the activity itself."
+          "hi": "इनाम के लिए पढ़ना",
+          "en": "Studying for a prize"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "दंड से बचना",
+          "en": "Avoiding punishment"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अंक के दबाव में पढ़ना",
+          "en": "Studying under grade pressure"
         }
       ],
       "correct_option": "A",
@@ -915,7 +865,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "आंतरिक प्रेरणा गतिविधि में स्वयं रुचि से उत्पन्न होती है।",
+      "explanation_en": "Intrinsic motivation comes from interest in the activity itself."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_017",
@@ -939,28 +891,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "अस्थायी सहायता देकर स्वतंत्रता बढ़ाना",
-            "Temporary support leading to independence",
-            "स्थायी निर्भरता",
-            "Permanent dependence",
-            "कार्य सरलतम करना",
-            "Make every task trivial",
-            "उत्तर बताना",
-            "Give answers"
-          ],
-          "en": 0
+          "hi": "अस्थायी सहायता देकर स्वतंत्रता बढ़ाना",
+          "en": "Temporary support leading to independence"
         },
         {
           "option_id": "B",
-          "hi": "सहारा धीरे-धीरे हटाकर विद्यार्थी की स्वतंत्र क्षमता विकसित की जाती है।",
-          "en": "Support is gradually withdrawn as learner independence develops."
+          "hi": "स्थायी निर्भरता",
+          "en": "Permanent dependence"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "कार्य सरलतम करना",
+          "en": "Make every task trivial"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "उत्तर बताना",
+          "en": "Give answers"
         }
       ],
       "correct_option": "A",
@@ -971,7 +918,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "सहारा धीरे-धीरे हटाकर विद्यार्थी की स्वतंत्र क्षमता विकसित की जाती है।",
+      "explanation_en": "Support is gradually withdrawn as learner independence develops."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_018",
@@ -995,28 +944,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "विशिष्ट और समयोचित",
-            "Specific and timely",
-            "केवल आलोचनात्मक",
-            "Only critical",
-            "बहुत देर से",
-            "Very delayed",
-            "अस्पष्ट",
-            "Vague"
-          ],
-          "en": 0
+          "hi": "विशिष्ट और समयोचित",
+          "en": "Specific and timely"
         },
         {
           "option_id": "B",
-          "hi": "विशिष्ट समयोचित प्रतिक्रिया सुधार में मदद करती है।",
-          "en": "Specific, timely feedback supports improvement."
+          "hi": "केवल आलोचनात्मक",
+          "en": "Only critical"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "बहुत देर से",
+          "en": "Very delayed"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अस्पष्ट",
+          "en": "Vague"
         }
       ],
       "correct_option": "A",
@@ -1027,7 +971,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "विशिष्ट समयोचित प्रतिक्रिया सुधार में मदद करती है।",
+      "explanation_en": "Specific, timely feedback supports improvement."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_019",
@@ -1051,28 +997,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "उद्देश्यपूर्ण अभ्यास",
-            "Purposeful practice",
-            "बिना प्रतिक्रिया अभ्यास",
-            "Practice without feedback",
-            "केवल एक बार करना",
-            "Doing it once",
-            "कार्य टालना",
-            "Procrastinating"
-          ],
-          "en": 0
+          "hi": "उद्देश्यपूर्ण अभ्यास",
+          "en": "Purposeful practice"
         },
         {
           "option_id": "B",
-          "hi": "उद्देश्यपूर्ण अभ्यास और प्रतिक्रिया कौशल विकास में सहायक हैं।",
-          "en": "Purposeful practice and feedback support skill development."
+          "hi": "बिना प्रतिक्रिया अभ्यास",
+          "en": "Practice without feedback"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल एक बार करना",
+          "en": "Doing it once"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "कार्य टालना",
+          "en": "Procrastinating"
         }
       ],
       "correct_option": "A",
@@ -1083,7 +1024,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "उद्देश्यपूर्ण अभ्यास और प्रतिक्रिया कौशल विकास में सहायक हैं।",
+      "explanation_en": "Purposeful practice and feedback support skill development."
     },
     {
       "question_id": "CDP_LEARNING_THEORIES_V6_020",
@@ -1107,28 +1050,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "विद्यार्थियों की गति और आवश्यकताएँ अलग होती हैं",
-            "Learners differ in pace and needs",
-            "सब समान सीखते हैं",
-            "Everyone learns identically",
-            "विविधता बाधा है",
-            "Diversity is a barrier",
-            "एक ही तरीका पर्याप्त",
-            "One method is sufficient"
-          ],
-          "en": 0
+          "hi": "विद्यार्थियों की गति और आवश्यकताएँ अलग होती हैं",
+          "en": "Learners differ in pace and needs"
         },
         {
           "option_id": "B",
-          "hi": "विद्यार्थियों की क्षमता, गति और पृष्ठभूमि अलग हो सकती है।",
-          "en": "Learners may differ in ability, pace and background."
+          "hi": "सब समान सीखते हैं",
+          "en": "Everyone learns identically"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "विविधता बाधा है",
+          "en": "Diversity is a barrier"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "एक ही तरीका पर्याप्त",
+          "en": "One method is sufficient"
         }
       ],
       "correct_option": "A",
@@ -1139,7 +1077,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "विद्यार्थियों की क्षमता, गति और पृष्ठभूमि अलग हो सकती है।",
+      "explanation_en": "Learners may differ in ability, pace and background."
     }
   ]
 }
