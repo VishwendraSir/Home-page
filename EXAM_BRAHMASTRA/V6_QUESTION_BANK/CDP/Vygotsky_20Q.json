@@ -96,27 +96,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "निकटस्थ विकास क्षेत्र",
-          "en": "Zone of Proximal Development"
-        },
-        {
-          "option_id": "B",
           "hi": "प्राथमिक विकास क्षेत्र",
           "en": "Primary Development Zone"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "शून्य प्रदर्शन क्षेत्र",
           "en": "Zero Performance Zone"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "सामाजिक दूरी",
           "en": "Social Distance"
+        },
+        {
+          "option_id": "D",
+          "hi": "निकटस्थ विकास क्षेत्र",
+          "en": "Zone of Proximal Development"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -149,27 +149,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "सहायता से कार्य पूरा करना",
-          "en": "Complete a task with assistance"
-        },
-        {
-          "option_id": "B",
-          "hi": "कुछ भी नहीं सीखना",
-          "en": "Learn nothing"
-        },
-        {
-          "option_id": "C",
           "hi": "केवल स्वतंत्र कार्य",
           "en": "Only work independently"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "सभी कार्य बिना सहायता",
           "en": "Do everything unaided"
+        },
+        {
+          "option_id": "C",
+          "hi": "सहायता से कार्य पूरा करना",
+          "en": "Complete a task with assistance"
+        },
+        {
+          "option_id": "D",
+          "hi": "कुछ भी नहीं सीखना",
+          "en": "Learn nothing"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -202,27 +202,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "केवल परीक्षा",
+          "en": "Examination only"
+        },
+        {
+          "option_id": "B",
           "hi": "अस्थायी संरचित सहायता",
           "en": "Temporary structured support"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "स्थायी नियंत्रण",
           "en": "Permanent control"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "दंड",
           "en": "Punishment"
-        },
-        {
-          "option_id": "D",
-          "hi": "केवल परीक्षा",
-          "en": "Examination only"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -308,27 +308,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "चिंतन को व्यवस्थित करने का साधन",
-          "en": "A tool for organising thought"
-        },
-        {
-          "option_id": "B",
           "hi": "विकास में अप्रासंगिक",
           "en": "Irrelevant"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल संचार",
           "en": "Communication only"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "केवल लिखित",
           "en": "Written only"
+        },
+        {
+          "option_id": "D",
+          "hi": "चिंतन को व्यवस्थित करने का साधन",
+          "en": "A tool for organising thought"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -361,27 +361,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "बच्चे का स्वयं से बोलना",
-          "en": "A child talking to oneself"
-        },
-        {
-          "option_id": "B",
-          "hi": "सार्वजनिक भाषण",
-          "en": "Public speech"
-        },
-        {
-          "option_id": "C",
           "hi": "मौन",
           "en": "Silence"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "अनुकरण",
           "en": "Imitation"
+        },
+        {
+          "option_id": "C",
+          "hi": "बच्चे का स्वयं से बोलना",
+          "en": "A child talking to oneself"
+        },
+        {
+          "option_id": "D",
+          "hi": "सार्वजनिक भाषण",
+          "en": "Public speech"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -414,27 +414,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "केवल जैविक",
+          "en": "Only biological"
+        },
+        {
+          "option_id": "B",
           "hi": "विकास को आगे बढ़ा सकता है",
           "en": "Can lead development forward"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "विकास के बाद ही संभव",
           "en": "Only after development"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "सामाजिकता से अलग",
           "en": "Separate from social life"
-        },
-        {
-          "option_id": "D",
-          "hi": "केवल जैविक",
-          "en": "Only biological"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -520,27 +520,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "भाषा और संख्या प्रणाली",
-          "en": "Language and number systems"
-        },
-        {
-          "option_id": "B",
           "hi": "केवल खिलौना",
           "en": "Toy only"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "दंड",
           "en": "Punishment"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "शारीरिक वृद्धि",
           "en": "Physical growth"
+        },
+        {
+          "option_id": "D",
+          "hi": "भाषा और संख्या प्रणाली",
+          "en": "Language and number systems"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -573,27 +573,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "उचित सहायता और संवाद देना",
-          "en": "Provide appropriate support and dialogue"
-        },
-        {
-          "option_id": "B",
-          "hi": "सभी सहायता रोकना",
-          "en": "Withhold all support"
-        },
-        {
-          "option_id": "C",
           "hi": "केवल व्याख्यान",
           "en": "Lecture only"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "उत्तर याद कराना",
           "en": "Make students memorise answers"
+        },
+        {
+          "option_id": "C",
+          "hi": "उचित सहायता और संवाद देना",
+          "en": "Provide appropriate support and dialogue"
+        },
+        {
+          "option_id": "D",
+          "hi": "सभी सहायता रोकना",
+          "en": "Withhold all support"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -626,27 +626,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "दंड तय करना",
+          "en": "Determine punishment"
+        },
+        {
+          "option_id": "B",
           "hi": "अगला उपयुक्त सीखने का स्तर पहचानना",
           "en": "Identify the next learning level"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "केवल वर्तमान अंक",
           "en": "Only current marks"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "बच्चों की तुलना",
           "en": "Compare children"
-        },
-        {
-          "option_id": "D",
-          "hi": "दंड तय करना",
-          "en": "Determine punishment"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -732,27 +732,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "क्षमता और स्वतंत्रता बढ़ने पर",
-          "en": "As competence and independence increase"
-        },
-        {
-          "option_id": "B",
           "hi": "पहले दिन",
           "en": "On the first day"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "कभी नहीं",
           "en": "Never"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "असफलता पर",
           "en": "After failure"
+        },
+        {
+          "option_id": "D",
+          "hi": "क्षमता और स्वतंत्रता बढ़ने पर",
+          "en": "As competence and independence increase"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -785,27 +785,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "ज्ञान सह-निर्माण का माध्यम",
-          "en": "A means of co-constructing knowledge"
-        },
-        {
-          "option_id": "B",
-          "hi": "समय नष्ट करना",
-          "en": "Waste time"
-        },
-        {
-          "option_id": "C",
           "hi": "केवल अनुशासन",
           "en": "Discipline only"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "विकास रोकना",
           "en": "Stop development"
+        },
+        {
+          "option_id": "C",
+          "hi": "ज्ञान सह-निर्माण का माध्यम",
+          "en": "A means of co-constructing knowledge"
+        },
+        {
+          "option_id": "D",
+          "hi": "समय नष्ट करना",
+          "en": "Waste time"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -838,27 +838,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "कार्य हट जाता है",
+          "en": "Task disappears"
+        },
+        {
+          "option_id": "B",
           "hi": "सक्षम साथियों से सहायता मिलती है",
           "en": "Learners receive help from capable peers"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "हर बच्चा अकेला",
           "en": "Everyone works alone"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "सभी उत्तर समान",
           "en": "All answers identical"
-        },
-        {
-          "option_id": "D",
-          "hi": "कार्य हट जाता है",
-          "en": "Task disappears"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -944,27 +944,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "पहले संकेत, फिर सहायता कम करना",
-          "en": "Give prompts, then gradually reduce help"
-        },
-        {
-          "option_id": "B",
           "hi": "सीधा उत्तर लिख देना",
           "en": "Write the answer directly"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "कार्य न देना",
           "en": "Give no task"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "दंड देना",
           "en": "Punish"
+        },
+        {
+          "option_id": "D",
+          "hi": "पहले संकेत, फिर सहायता कम करना",
+          "en": "Give prompts, then gradually reduce help"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -997,27 +997,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "वाइगोत्स्की सामाजिक-सांस्कृतिक भूमिका पर अधिक बल देते हैं",
-          "en": "Vygotsky emphasised socio-cultural roles more"
-        },
-        {
-          "option_id": "B",
-          "hi": "दोनों केवल पुरस्कार",
-          "en": "Both only rewards"
-        },
-        {
-          "option_id": "C",
           "hi": "पियाजे भाषा नहीं मानते",
           "en": "Piaget ignored language"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "दोनों विकास नकारते हैं",
           "en": "Both deny development"
+        },
+        {
+          "option_id": "C",
+          "hi": "वाइगोत्स्की सामाजिक-सांस्कृतिक भूमिका पर अधिक बल देते हैं",
+          "en": "Vygotsky emphasised socio-cultural roles more"
+        },
+        {
+          "option_id": "D",
+          "hi": "दोनों केवल पुरस्कार",
+          "en": "Both only rewards"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -1050,27 +1050,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "कार्य से बचना",
+          "en": "Avoid tasks"
+        },
+        {
+          "option_id": "B",
           "hi": "स्वतंत्र दक्षता",
           "en": "Independent competence"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "स्थायी निर्भरता",
           "en": "Permanent dependence"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "केवल सही उत्तर",
           "en": "Correct answers only"
-        },
-        {
-          "option_id": "D",
-          "hi": "कार्य से बचना",
-          "en": "Avoid tasks"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
