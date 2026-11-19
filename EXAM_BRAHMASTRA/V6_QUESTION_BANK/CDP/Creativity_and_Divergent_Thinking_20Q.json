@@ -1,0 +1,1325 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Creativity & Divergent Thinking",
+  "batch_id": "V6-CDP-46",
+  "subject_id": "cdp",
+  "topic_id": "creativity_divergent",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Divergent thinking—",
+      "question_en": "Divergent thinking—",
+      "options": [
+        {
+          "hi": "एक प्रश्न के अनेक संभावित उत्तर",
+          "en": "Many possible answers to a question",
+          "option_id": "A"
+        },
+        {
+          "hi": "ए",
+          "en": "क",
+          "option_id": "B"
+        },
+        {
+          "hi": "O",
+          "en": "n",
+          "option_id": "C"
+        },
+        {
+          "hi": "र",
+          "en": "ट",
+          "option_id": "D"
+        },
+        {
+          "hi": "R",
+          "en": "o"
+        },
+        {
+          "hi": "न",
+          "en": "क"
+        },
+        {
+          "hi": "C",
+          "en": "o"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Divergent thinking generates multiple possibilities.",
+      "explanation_en": "Divergent thinking generates multiple possibilities.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Convergent thinking—",
+      "question_en": "Convergent thinking—",
+      "options": [
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "A"
+        },
+        {
+          "hi": "U",
+          "en": "n",
+          "option_id": "B"
+        },
+        {
+          "hi": "क",
+          "en": "ल",
+          "option_id": "C"
+        },
+        {
+          "hi": "I",
+          "en": "m",
+          "option_id": "D"
+        },
+        {
+          "hi": "अ",
+          "en": "न"
+        },
+        {
+          "hi": "I",
+          "en": "g"
+        },
+        {
+          "hi": "उचित एक समाधान चुनना",
+          "en": "Select an appropriate solution"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Convergent thinking narrows options toward a solution.",
+      "explanation_en": "Convergent thinking narrows options toward a solution.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Creativity में fluency—",
+      "question_en": "Fluency in creativity—",
+      "options": [
+        {
+          "hi": "O",
+          "en": "r",
+          "option_id": "A"
+        },
+        {
+          "hi": "व",
+          "en": "ि",
+          "option_id": "B"
+        },
+        {
+          "hi": "E",
+          "en": "l",
+          "option_id": "C"
+        },
+        {
+          "hi": "ग",
+          "en": "त",
+          "option_id": "D"
+        },
+        {
+          "hi": "S",
+          "en": "p"
+        },
+        {
+          "hi": "अधिक विचार उत्पन्न करना",
+          "en": "Generate many ideas"
+        },
+        {
+          "hi": "व",
+          "en": "ि"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Fluency refers to quantity of ideas.",
+      "explanation_en": "Fluency refers to quantity of ideas.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Originality—",
+      "question_en": "Originality—",
+      "options": [
+        {
+          "hi": "स",
+          "en": "ह",
+          "option_id": "A"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "C"
+        },
+        {
+          "hi": "I",
+          "en": "m",
+          "option_id": "D"
+        },
+        {
+          "hi": "असामान्य या नवीन विचार",
+          "en": "Novel or uncommon ideas"
+        },
+        {
+          "hi": "अ",
+          "en": "ध"
+        },
+        {
+          "hi": "M",
+          "en": "o"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Originality concerns novelty.",
+      "explanation_en": "Originality concerns novelty.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Flexibility—",
+      "question_en": "Flexibility—",
+      "options": [
+        {
+          "hi": "विभिन्न श्रेणियों में विचार",
+          "en": "Ideas across categories",
+          "option_id": "A"
+        },
+        {
+          "hi": "ए",
+          "en": "क",
+          "option_id": "B"
+        },
+        {
+          "hi": "O",
+          "en": "n",
+          "option_id": "C"
+        },
+        {
+          "hi": "ग",
+          "en": "त",
+          "option_id": "D"
+        },
+        {
+          "hi": "S",
+          "en": "p"
+        },
+        {
+          "hi": "स",
+          "en": "्"
+        },
+        {
+          "hi": "M",
+          "en": "e"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Flexibility reflects variety in approaches.",
+      "explanation_en": "Flexibility reflects variety in approaches.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Creativity बढ़ाने—",
+      "question_en": "To encourage creativity—",
+      "options": [
+        {
+          "hi": "ए",
+          "en": "क",
+          "option_id": "A"
+        },
+        {
+          "hi": "S",
+          "en": "i",
+          "option_id": "B"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "C"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "D"
+        },
+        {
+          "hi": "न",
+          "en": "क"
+        },
+        {
+          "hi": "C",
+          "en": "o"
+        },
+        {
+          "hi": "खुले प्रश्न पूछना",
+          "en": "Ask open-ended questions"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Open-ended prompts support idea generation.",
+      "explanation_en": "Open-ended prompts support idea generation.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "गलत उत्तर पर प्रतिक्रिया—",
+      "question_en": "Response to an unusual answer—",
+      "options": [
+        {
+          "hi": "R",
+          "en": "i",
+          "option_id": "A"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "B"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "C"
+        },
+        {
+          "hi": "र",
+          "en": "ो",
+          "option_id": "D"
+        },
+        {
+          "hi": "S",
+          "en": "t"
+        },
+        {
+          "hi": "विचार का सम्मान और चर्चा",
+          "en": "Respect and discuss the idea"
+        },
+        {
+          "hi": "त",
+          "en": "ु"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Psychological safety helps learners express ideas.",
+      "explanation_en": "Psychological safety helps learners express ideas.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Creative classroom—",
+      "question_en": "A creative classroom—",
+      "options": [
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "A"
+        },
+        {
+          "hi": "R",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "च",
+          "en": "ु",
+          "option_id": "C"
+        },
+        {
+          "hi": "S",
+          "en": "i",
+          "option_id": "D"
+        },
+        {
+          "hi": "प्रयोग और विकल्प की अनुमति",
+          "en": "Allows experimentation and options"
+        },
+        {
+          "hi": "क",
+          "en": "ठ"
+        },
+        {
+          "hi": "R",
+          "en": "i"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Creative environments permit exploration.",
+      "explanation_en": "Creative environments permit exploration.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Creativity मूल्यांकन—",
+      "question_en": "Assessing creativity—",
+      "options": [
+        {
+          "hi": "प्रक्रिया और विविधता देखना",
+          "en": "Observe process and variety",
+          "option_id": "A"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "B"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "C"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "D"
+        },
+        {
+          "hi": "M",
+          "en": "a"
+        },
+        {
+          "hi": "द",
+          "en": "ं"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Creativity assessment may consider multiple dimensions.",
+      "explanation_en": "Creativity assessment may consider multiple dimensions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Creative learner—",
+      "question_en": "A creative learner—",
+      "options": [
+        {
+          "hi": "ह",
+          "en": "म",
+          "option_id": "A"
+        },
+        {
+          "hi": "A",
+          "en": "l",
+          "option_id": "B"
+        },
+        {
+          "hi": "स",
+          "en": "ी",
+          "option_id": "C"
+        },
+        {
+          "hi": "C",
+          "en": "a",
+          "option_id": "D"
+        },
+        {
+          "hi": "क",
+          "en": "े"
+        },
+        {
+          "hi": "I",
+          "en": "m"
+        },
+        {
+          "hi": "नए तरीकों से समस्या देख सकता",
+          "en": "May view problems in new ways"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Creativity can involve useful novel approaches.",
+      "explanation_en": "Creativity can involve useful novel approaches.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Divergent thinking—",
+      "question_en": "In the situation, what should the teacher understand? Divergent thinking—",
+      "options": [
+        {
+          "hi": "O",
+          "en": "n",
+          "option_id": "A"
+        },
+        {
+          "hi": "र",
+          "en": "ट",
+          "option_id": "B"
+        },
+        {
+          "hi": "R",
+          "en": "o",
+          "option_id": "C"
+        },
+        {
+          "hi": "न",
+          "en": "क",
+          "option_id": "D"
+        },
+        {
+          "hi": "C",
+          "en": "o"
+        },
+        {
+          "hi": "एक प्रश्न के अनेक संभावित उत्तर",
+          "en": "Many possible answers to a question"
+        },
+        {
+          "hi": "ए",
+          "en": "क"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Divergent thinking generates multiple possibilities.",
+      "explanation_en": "Divergent thinking generates multiple possibilities.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Convergent thinking—",
+      "question_en": "In the situation, what should the teacher understand? Convergent thinking—",
+      "options": [
+        {
+          "hi": "क",
+          "en": "ल",
+          "option_id": "A"
+        },
+        {
+          "hi": "I",
+          "en": "m",
+          "option_id": "B"
+        },
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "C"
+        },
+        {
+          "hi": "I",
+          "en": "g",
+          "option_id": "D"
+        },
+        {
+          "hi": "उचित एक समाधान चुनना",
+          "en": "Select an appropriate solution"
+        },
+        {
+          "hi": "अ",
+          "en": "न"
+        },
+        {
+          "hi": "U",
+          "en": "n"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Convergent thinking narrows options toward a solution.",
+      "explanation_en": "Convergent thinking narrows options toward a solution.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Creativity में fluency—",
+      "question_en": "In the situation, what should the teacher understand? Fluency in creativity—",
+      "options": [
+        {
+          "hi": "अधिक विचार उत्पन्न करना",
+          "en": "Generate many ideas",
+          "option_id": "A"
+        },
+        {
+          "hi": "व",
+          "en": "ि",
+          "option_id": "B"
+        },
+        {
+          "hi": "O",
+          "en": "r",
+          "option_id": "C"
+        },
+        {
+          "hi": "व",
+          "en": "ि",
+          "option_id": "D"
+        },
+        {
+          "hi": "E",
+          "en": "l"
+        },
+        {
+          "hi": "ग",
+          "en": "त"
+        },
+        {
+          "hi": "S",
+          "en": "p"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Fluency refers to quantity of ideas.",
+      "explanation_en": "Fluency refers to quantity of ideas.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Originality—",
+      "question_en": "In the situation, what should the teacher understand? Originality—",
+      "options": [
+        {
+          "hi": "अ",
+          "en": "ध",
+          "option_id": "A"
+        },
+        {
+          "hi": "M",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "स",
+          "en": "ह",
+          "option_id": "C"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "अ",
+          "en": "न"
+        },
+        {
+          "hi": "I",
+          "en": "m"
+        },
+        {
+          "hi": "असामान्य या नवीन विचार",
+          "en": "Novel or uncommon ideas"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Originality concerns novelty.",
+      "explanation_en": "Originality concerns novelty.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Flexibility—",
+      "question_en": "In the situation, what should the teacher understand? Flexibility—",
+      "options": [
+        {
+          "hi": "O",
+          "en": "n",
+          "option_id": "A"
+        },
+        {
+          "hi": "ग",
+          "en": "त",
+          "option_id": "B"
+        },
+        {
+          "hi": "S",
+          "en": "p",
+          "option_id": "C"
+        },
+        {
+          "hi": "स",
+          "en": "्",
+          "option_id": "D"
+        },
+        {
+          "hi": "M",
+          "en": "e"
+        },
+        {
+          "hi": "विभिन्न श्रेणियों में विचार",
+          "en": "Ideas across categories"
+        },
+        {
+          "hi": "ए",
+          "en": "क"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Flexibility reflects variety in approaches.",
+      "explanation_en": "Flexibility reflects variety in approaches.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Creativity बढ़ाने—",
+      "question_en": "In the situation, what should the teacher understand? To encourage creativity—",
+      "options": [
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "A"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "B"
+        },
+        {
+          "hi": "न",
+          "en": "क",
+          "option_id": "C"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "खुले प्रश्न पूछना",
+          "en": "Ask open-ended questions"
+        },
+        {
+          "hi": "ए",
+          "en": "क"
+        },
+        {
+          "hi": "S",
+          "en": "i"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Open-ended prompts support idea generation.",
+      "explanation_en": "Open-ended prompts support idea generation.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? गलत उत्तर पर प्रतिक्रिया—",
+      "question_en": "In the situation, what should the teacher understand? Response to an unusual answer—",
+      "options": [
+        {
+          "hi": "विचार का सम्मान और चर्चा",
+          "en": "Respect and discuss the idea",
+          "option_id": "A"
+        },
+        {
+          "hi": "त",
+          "en": "ु",
+          "option_id": "B"
+        },
+        {
+          "hi": "R",
+          "en": "i",
+          "option_id": "C"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "D"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        },
+        {
+          "hi": "र",
+          "en": "ो"
+        },
+        {
+          "hi": "S",
+          "en": "t"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Psychological safety helps learners express ideas.",
+      "explanation_en": "Psychological safety helps learners express ideas.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Creative classroom—",
+      "question_en": "In the situation, what should the teacher understand? A creative classroom—",
+      "options": [
+        {
+          "hi": "क",
+          "en": "ठ",
+          "option_id": "A"
+        },
+        {
+          "hi": "R",
+          "en": "i",
+          "option_id": "B"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "C"
+        },
+        {
+          "hi": "R",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "च",
+          "en": "ु"
+        },
+        {
+          "hi": "S",
+          "en": "i"
+        },
+        {
+          "hi": "प्रयोग और विकल्प की अनुमति",
+          "en": "Allows experimentation and options"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Creative environments permit exploration.",
+      "explanation_en": "Creative environments permit exploration.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Creativity मूल्यांकन—",
+      "question_en": "In the situation, what should the teacher understand? Assessing creativity—",
+      "options": [
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "A"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "B"
+        },
+        {
+          "hi": "M",
+          "en": "a",
+          "option_id": "C"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "D"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        },
+        {
+          "hi": "प्रक्रिया और विविधता देखना",
+          "en": "Observe process and variety"
+        },
+        {
+          "hi": "क",
+          "en": "े"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Creativity assessment may consider multiple dimensions.",
+      "explanation_en": "Creativity assessment may consider multiple dimensions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CREATIVITY_DIVERGENT_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "creativity_divergent",
+      "topic": "Creativity & Divergent Thinking",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Creative learner—",
+      "question_en": "In the situation, what should the teacher understand? A creative learner—",
+      "options": [
+        {
+          "hi": "स",
+          "en": "ी",
+          "option_id": "A"
+        },
+        {
+          "hi": "C",
+          "en": "a",
+          "option_id": "B"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "C"
+        },
+        {
+          "hi": "I",
+          "en": "m",
+          "option_id": "D"
+        },
+        {
+          "hi": "नए तरीकों से समस्या देख सकता",
+          "en": "May view problems in new ways"
+        },
+        {
+          "hi": "ह",
+          "en": "म"
+        },
+        {
+          "hi": "A",
+          "en": "l"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Creativity can involve useful novel approaches.",
+      "explanation_en": "Creativity can involve useful novel approaches.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
