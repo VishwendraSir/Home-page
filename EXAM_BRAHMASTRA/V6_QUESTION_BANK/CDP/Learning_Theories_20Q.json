@@ -96,27 +96,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "परिणामों से",
-          "en": "Consequences"
-        },
-        {
-          "option_id": "B",
           "hi": "केवल आयु से",
           "en": "Age alone"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "वंशानुक्रम से ही",
           "en": "Heredity alone"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "अनुकरण से ही",
           "en": "Imitation alone"
+        },
+        {
+          "option_id": "D",
+          "hi": "परिणामों से",
+          "en": "Consequences"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -149,27 +149,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "सही उत्तर पर प्रशंसा",
-          "en": "Praise for a correct answer"
-        },
-        {
-          "option_id": "B",
-          "hi": "कार्य छीन लेना",
-          "en": "Removing a task"
-        },
-        {
-          "option_id": "C",
           "hi": "दंड देना",
           "en": "Punishing"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "अनदेखा करना",
           "en": "Ignoring"
+        },
+        {
+          "option_id": "C",
+          "hi": "सही उत्तर पर प्रशंसा",
+          "en": "Praise for a correct answer"
+        },
+        {
+          "option_id": "D",
+          "hi": "कार्य छीन लेना",
+          "en": "Removing a task"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -202,27 +202,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "व्यवहार समाप्त करना",
+          "en": "Eliminating behaviour"
+        },
+        {
+          "option_id": "B",
           "hi": "अप्रिय उद्दीपक हटाकर व्यवहार बढ़ाना",
           "en": "Increasing behaviour by removing an unpleasant stimulus"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "दंड देना",
           "en": "Punishing"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "पुरस्कार रोकना",
           "en": "Withholding reward"
-        },
-        {
-          "option_id": "D",
-          "hi": "व्यवहार समाप्त करना",
-          "en": "Eliminating behaviour"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -308,27 +308,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "अल्बर्ट बंडूरा",
-          "en": "Albert Bandura"
-        },
-        {
-          "option_id": "B",
           "hi": "पावलॉव",
           "en": "Pavlov"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "थॉर्नडाइक",
           "en": "Thorndike"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "फ्रायड",
           "en": "Freud"
+        },
+        {
+          "option_id": "D",
+          "hi": "अल्बर्ट बंडूरा",
+          "en": "Albert Bandura"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -361,27 +361,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "ध्यान और स्मृति",
-          "en": "Attention and retention"
-        },
-        {
-          "option_id": "B",
-          "hi": "केवल दंड",
-          "en": "Punishment only"
-        },
-        {
-          "option_id": "C",
           "hi": "केवल परिपक्वता",
           "en": "Maturation only"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "केवल अभ्यास",
           "en": "Practice only"
+        },
+        {
+          "option_id": "C",
+          "hi": "ध्यान और स्मृति",
+          "en": "Attention and retention"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल दंड",
+          "en": "Punishment only"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -414,27 +414,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "दंड हमेशा सर्वोत्तम है",
+          "en": "Punishment is always best"
+        },
+        {
+          "option_id": "B",
           "hi": "संतोषजनक परिणाम व्यवहार को मजबूत करते हैं",
           "en": "Satisfying consequences strengthen behaviour"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "सभी सीखना अचानक होता है",
           "en": "All learning occurs suddenly"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "सीखना केवल अनुकरण है",
           "en": "Learning is only imitation"
-        },
-        {
-          "option_id": "D",
-          "hi": "दंड हमेशा सर्वोत्तम है",
-          "en": "Punishment is always best"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -520,27 +520,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "ज्ञान सक्रिय रूप से निर्मित करते हैं",
-          "en": "Actively construct knowledge"
-        },
-        {
-          "option_id": "B",
           "hi": "निष्क्रिय सुनते हैं",
           "en": "Listen passively"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल नकल करते हैं",
           "en": "Only copy"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "जन्म से सब जानते हैं",
           "en": "Know everything at birth"
+        },
+        {
+          "option_id": "D",
+          "hi": "ज्ञान सक्रिय रूप से निर्मित करते हैं",
+          "en": "Actively construct knowledge"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -573,27 +573,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "नए ज्ञान को पूर्व ज्ञान से जोड़ना",
-          "en": "Connecting new knowledge with prior knowledge"
-        },
-        {
-          "option_id": "B",
-          "hi": "रटने की पुनरावृत्ति मात्र",
-          "en": "Repetition alone"
-        },
-        {
-          "option_id": "C",
           "hi": "भय",
           "en": "Fear"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "अलग-अलग असंबद्ध तथ्य",
           "en": "Isolated facts"
+        },
+        {
+          "option_id": "C",
+          "hi": "नए ज्ञान को पूर्व ज्ञान से जोड़ना",
+          "en": "Connecting new knowledge with prior knowledge"
+        },
+        {
+          "option_id": "D",
+          "hi": "रटने की पुनरावृत्ति मात्र",
+          "en": "Repetition alone"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -626,27 +626,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "शारीरिक वृद्धि",
+          "en": "Physical growth"
+        },
+        {
+          "option_id": "B",
           "hi": "समग्र पैटर्न",
           "en": "Whole patterns"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "केवल छोटे भाग",
           "en": "Only small parts"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "दंड",
           "en": "Punishment"
-        },
-        {
-          "option_id": "D",
-          "hi": "शारीरिक वृद्धि",
-          "en": "Physical growth"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -732,27 +732,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "थॉर्नडाइक",
-          "en": "Thorndike"
-        },
-        {
-          "option_id": "B",
           "hi": "वाइगोत्स्की",
           "en": "Vygotsky"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "एरिक्सन",
           "en": "Erikson"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "मास्लो",
           "en": "Maslow"
+        },
+        {
+          "option_id": "D",
+          "hi": "थॉर्नडाइक",
+          "en": "Thorndike"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -785,27 +785,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "सीखने में संलग्नता बढ़ाती है",
-          "en": "Increases engagement"
-        },
-        {
-          "option_id": "B",
-          "hi": "सीखना रोकती है",
-          "en": "Stops learning"
-        },
-        {
-          "option_id": "C",
           "hi": "बुद्धि का विकल्प है",
           "en": "Replaces intelligence"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "केवल बाहरी पुरस्कार जरूरी",
           "en": "External rewards are always necessary"
+        },
+        {
+          "option_id": "C",
+          "hi": "सीखने में संलग्नता बढ़ाती है",
+          "en": "Increases engagement"
+        },
+        {
+          "option_id": "D",
+          "hi": "सीखना रोकती है",
+          "en": "Stops learning"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -838,27 +838,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "अंक के दबाव में पढ़ना",
+          "en": "Studying under grade pressure"
+        },
+        {
+          "option_id": "B",
           "hi": "जिज्ञासा से पढ़ना",
           "en": "Studying out of curiosity"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "इनाम के लिए पढ़ना",
           "en": "Studying for a prize"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "दंड से बचना",
           "en": "Avoiding punishment"
-        },
-        {
-          "option_id": "D",
-          "hi": "अंक के दबाव में पढ़ना",
-          "en": "Studying under grade pressure"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -944,27 +944,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "विशिष्ट और समयोचित",
-          "en": "Specific and timely"
-        },
-        {
-          "option_id": "B",
           "hi": "केवल आलोचनात्मक",
           "en": "Only critical"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "बहुत देर से",
           "en": "Very delayed"
         },
         {
-          "option_id": "D",
+          "option_id": "C",
           "hi": "अस्पष्ट",
           "en": "Vague"
+        },
+        {
+          "option_id": "D",
+          "hi": "विशिष्ट और समयोचित",
+          "en": "Specific and timely"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "D",
+      "correct_index": 3,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -997,27 +997,27 @@
       "options": [
         {
           "option_id": "A",
-          "hi": "उद्देश्यपूर्ण अभ्यास",
-          "en": "Purposeful practice"
-        },
-        {
-          "option_id": "B",
-          "hi": "बिना प्रतिक्रिया अभ्यास",
-          "en": "Practice without feedback"
-        },
-        {
-          "option_id": "C",
           "hi": "केवल एक बार करना",
           "en": "Doing it once"
         },
         {
-          "option_id": "D",
+          "option_id": "B",
           "hi": "कार्य टालना",
           "en": "Procrastinating"
+        },
+        {
+          "option_id": "C",
+          "hi": "उद्देश्यपूर्ण अभ्यास",
+          "en": "Purposeful practice"
+        },
+        {
+          "option_id": "D",
+          "hi": "बिना प्रतिक्रिया अभ्यास",
+          "en": "Practice without feedback"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "C",
+      "correct_index": 2,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
@@ -1050,27 +1050,27 @@
       "options": [
         {
           "option_id": "A",
+          "hi": "एक ही तरीका पर्याप्त",
+          "en": "One method is sufficient"
+        },
+        {
+          "option_id": "B",
           "hi": "विद्यार्थियों की गति और आवश्यकताएँ अलग होती हैं",
           "en": "Learners differ in pace and needs"
         },
         {
-          "option_id": "B",
+          "option_id": "C",
           "hi": "सब समान सीखते हैं",
           "en": "Everyone learns identically"
         },
         {
-          "option_id": "C",
+          "option_id": "D",
           "hi": "विविधता बाधा है",
           "en": "Diversity is a barrier"
-        },
-        {
-          "option_id": "D",
-          "hi": "एक ही तरीका पर्याप्त",
-          "en": "One method is sufficient"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
+      "correct_option": "B",
+      "correct_index": 1,
       "source_reference": "Original concept-based practice item; not official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
