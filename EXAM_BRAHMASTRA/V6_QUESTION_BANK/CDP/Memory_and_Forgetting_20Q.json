@@ -1,7 +1,7 @@
 {
   "schema_version": "6.0.0",
-  "title": "EXAM BRAHMASTRA V6 — CDP Memory & Forgetting",
-  "batch_id": "V6-CDP-40",
+  "title": "EXAM BRAHMASTRA V6 — CDP Memory and Forgetting",
+  "batch_id": "V6-CDP-061",
   "subject_id": "cdp",
   "topic_id": "memory_forgetting",
   "minimum_questions": 20,
@@ -22,14 +22,14 @@
   },
   "records": [
     {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_001",
+      "question_id": "V6-CDP-061-001",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
       "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
       "difficulty": "easy",
       "question_type": "Conceptual",
       "exam_tags": [
@@ -38,47 +38,35 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "Encoding का अर्थ है—",
-      "question_en": "Encoding means—",
+      "question_hi": "स्मृति की पहली प्रक्रिया कौन सी है?",
+      "question_en": "Which is the first process of memory?",
       "options": [
         {
-          "hi": "सूचना को स्मृति में दर्ज करना",
-          "en": "Register information in memory",
-          "option_id": "A"
+          "option_id": "A",
+          "hi": "Encoding",
+          "en": "Encoding"
         },
         {
-          "hi": "स",
-          "en": "ू",
-          "option_id": "B"
+          "option_id": "B",
+          "hi": "Retrieval",
+          "en": "Retrieval"
         },
         {
-          "hi": "E",
-          "en": "r",
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "Forgetting",
+          "en": "Forgetting"
         },
         {
-          "hi": "उ",
-          "en": "त",
-          "option_id": "D"
-        },
-        {
-          "hi": "F",
-          "en": "o"
-        },
-        {
-          "hi": "क",
-          "en": "े"
-        },
-        {
-          "hi": "R",
-          "en": "e"
+          "option_id": "D",
+          "hi": "Rehearsal",
+          "en": "Rehearsal"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "Encoding transforms information into a form that can be stored.",
-      "explanation_en": "Encoding transforms information into a form that can be stored.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "explanation_hi": "Encoding transforms information into a memory representation.",
+      "explanation_en": "Encoding transforms information into a memory representation.",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -87,193 +75,51 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_002",
+      "question_id": "V6-CDP-061-002",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
       "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
       "difficulty": "easy",
-      "question_type": "Conceptual",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "Retrieval—",
-      "question_en": "Retrieval—",
+      "question_hi": "सूचना को पुनः प्राप्त करना कहलाता है?",
+      "question_en": "Retrieving stored information is called?",
       "options": [
         {
-          "hi": "न",
-          "en": "ई",
-          "option_id": "A"
+          "option_id": "A",
+          "hi": "Sensory input",
+          "en": "Sensory input"
         },
         {
-          "hi": "E",
-          "en": "r",
-          "option_id": "B"
+          "option_id": "B",
+          "hi": "Recall",
+          "en": "Recall"
         },
         {
-          "hi": "क",
-          "en": "े",
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "Encoding",
+          "en": "Encoding"
         },
         {
-          "hi": "W",
-          "en": "r",
-          "option_id": "D"
-        },
-        {
-          "hi": "न",
-          "en": "ी"
-        },
-        {
-          "hi": "S",
-          "en": "l"
-        },
-        {
-          "hi": "संग्रहीत सूचना को वापस प्राप्त करना",
-          "en": "Access stored information"
-        }
-      ],
-      "correct_option": "D",
-      "correct_index": 3,
-      "explanation_hi": "Retrieval is accessing stored information.",
-      "explanation_en": "Retrieval is accessing stored information.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_003",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "easy",
-      "question_type": "Conceptual",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "Working memory—",
-      "question_en": "Working memory—",
-      "options": [
-        {
-          "hi": "P",
-          "en": "e",
-          "option_id": "A"
-        },
-        {
-          "hi": "अ",
-          "en": "न",
-          "option_id": "B"
-        },
-        {
-          "hi": "I",
-          "en": "n",
-          "option_id": "C"
-        },
-        {
-          "hi": "क",
-          "en": "े",
-          "option_id": "D"
-        },
-        {
-          "hi": "E",
-          "en": "m"
-        },
-        {
-          "hi": "सूचना को थोड़े समय सक्रिय रखना",
-          "en": "Keep information active briefly"
-        },
-        {
-          "hi": "स",
-          "en": "्"
-        }
-      ],
-      "correct_option": "C",
-      "correct_index": 2,
-      "explanation_hi": "Working memory temporarily holds and manipulates information.",
-      "explanation_en": "Working memory temporarily holds and manipulates information.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_004",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "easy",
-      "question_type": "Conceptual",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "Long-term memory—",
-      "question_en": "Long-term memory—",
-      "options": [
-        {
-          "hi": "क",
-          "en": "े",
-          "option_id": "A"
-        },
-        {
-          "hi": "A",
-          "en": "t",
-          "option_id": "B"
-        },
-        {
-          "hi": "त",
-          "en": "त",
-          "option_id": "C"
-        },
-        {
-          "hi": "I",
-          "en": "m",
-          "option_id": "D"
-        },
-        {
-          "hi": "दीर्घ अवधि की सूचना",
-          "en": "Information retained over long periods"
-        },
-        {
-          "hi": "क",
-          "en": "्"
-        },
-        {
-          "hi": "B",
-          "en": "r"
+          "option_id": "D",
+          "hi": "Storage",
+          "en": "Storage"
         }
       ],
       "correct_option": "B",
       "correct_index": 1,
-      "explanation_hi": "Long-term memory can retain information over extended periods.",
-      "explanation_en": "Long-term memory can retain information over extended periods.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "explanation_hi": "Recall is retrieval of stored information.",
+      "explanation_en": "Recall is retrieval of stored information.",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -282,14 +128,67 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_005",
+      "question_id": "V6-CDP-061-003",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
       "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "easy",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कार्यशील स्मृति किस कार्य में उपयोगी?",
+      "question_en": "Working memory is useful for?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "प्रतिवर्त",
+          "en": "Permanent recognition"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल नींद",
+          "en": "Reflexes"
+        },
+        {
+          "option_id": "C",
+          "hi": "मानसिक गणना और सूचना को सक्रिय रखना",
+          "en": "मानसिक गणना और सूचना को सक्रिय रखना"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्थायी पहचान",
+          "en": "Mental calculation and holding information active"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-004",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
       "difficulty": "easy",
       "question_type": "Conceptual",
       "exam_tags": [
@@ -298,112 +197,35 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "अर्थपूर्ण अभ्यास—",
-      "question_en": "Meaningful practice—",
+      "question_hi": "अर्थपूर्ण संगठन स्मृति में कैसे मदद करता है?",
+      "question_en": "How does meaningful organisation help memory?",
       "options": [
         {
-          "hi": "स्मृति मजबूत कर सकता",
-          "en": "Can strengthen memory",
-          "option_id": "A"
+          "option_id": "A",
+          "hi": "सूचना मिटाता",
+          "en": "Connects information through relationships"
         },
         {
-          "hi": "ह",
-          "en": "म",
-          "option_id": "B"
+          "option_id": "B",
+          "hi": "ध्यान रोकता",
+          "en": "Erases information"
         },
         {
-          "hi": "A",
-          "en": "l",
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "अभ्यास हटाता",
+          "en": "Blocks attention"
         },
         {
-          "hi": "स",
-          "en": "्",
-          "option_id": "D"
-        },
-        {
-          "hi": "E",
-          "en": "r"
-        },
-        {
-          "hi": "क",
-          "en": "े"
-        },
-        {
-          "hi": "P",
-          "en": "u"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "Meaningful practice supports retention.",
-      "explanation_en": "Meaningful practice supports retention.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_006",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "Spacing effect—",
-      "question_en": "Spacing effect—",
-      "options": [
-        {
-          "hi": "ए",
-          "en": "क",
-          "option_id": "A"
-        },
-        {
-          "hi": "C",
-          "en": "r",
-          "option_id": "B"
-        },
-        {
-          "hi": "अ",
-          "en": "भ",
-          "option_id": "C"
-        },
-        {
-          "hi": "P",
-          "en": "r",
-          "option_id": "D"
-        },
-        {
-          "hi": "क",
-          "en": "े"
-        },
-        {
-          "hi": "E",
-          "en": "x"
-        },
-        {
-          "hi": "अंतराल में अभ्यास अधिक उपयोगी",
-          "en": "Practice spaced over time is beneficial"
+          "option_id": "D",
+          "hi": "सूचना को संबंधों में जोड़ता है",
+          "en": "सूचना को संबंधों में जोड़ता है"
         }
       ],
       "correct_option": "D",
       "correct_index": 3,
-      "explanation_hi": "Distributed practice often improves long-term retention.",
-      "explanation_en": "Distributed practice often improves long-term retention.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -412,15 +234,15 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_007",
+      "question_id": "V6-CDP-061-005",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
       "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "easy",
       "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
@@ -428,177 +250,35 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "Forgetting का कारण हो सकता—",
-      "question_en": "A cause of forgetting may be—",
+      "question_hi": "विस्मरण का एक संभावित कारण?",
+      "question_en": "One possible cause of forgetting?",
       "options": [
         {
-          "hi": "A",
-          "en": "l",
-          "option_id": "A"
-        },
-        {
-          "hi": "क",
-          "en": "े",
-          "option_id": "B"
-        },
-        {
-          "hi": "I",
-          "en": "n",
-          "option_id": "C"
-        },
-        {
-          "hi": "श",
-          "en": "ि",
-          "option_id": "D"
-        },
-        {
-          "hi": "T",
-          "en": "e"
-        },
-        {
+          "option_id": "A",
           "hi": "Retrieval failure",
           "en": "Retrieval failure"
         },
         {
-          "hi": "ह",
-          "en": "म"
-        }
-      ],
-      "correct_option": "C",
-      "correct_index": 2,
-      "explanation_hi": "Forgetting may occur when retrieval cues are insufficient.",
-      "explanation_en": "Forgetting may occur when retrieval cues are insufficient.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_008",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "Mnemonic—",
-      "question_en": "A mnemonic—",
-      "options": [
-        {
-          "hi": "भ",
-          "en": "ू",
-          "option_id": "A"
+          "option_id": "B",
+          "hi": "केवल बुद्धि",
+          "en": "Retrieval failure"
         },
         {
-          "hi": "F",
-          "en": "o",
-          "option_id": "B"
+          "option_id": "C",
+          "hi": "केवल उम्र",
+          "en": "Intelligence only"
         },
         {
-          "hi": "म",
-          "en": "ू",
-          "option_id": "C"
-        },
-        {
-          "hi": "A",
-          "en": "s",
-          "option_id": "D"
-        },
-        {
-          "hi": "स्मरण सहायक रणनीति",
-          "en": "Memory aid strategy"
-        },
-        {
-          "hi": "द",
-          "en": "ं"
-        },
-        {
-          "hi": "P",
-          "en": "u"
-        }
-      ],
-      "correct_option": "B",
-      "correct_index": 1,
-      "explanation_hi": "Mnemonics provide cues for remembering.",
-      "explanation_en": "Mnemonics provide cues for remembering.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_009",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "Interference—",
-      "question_en": "Interference—",
-      "options": [
-        {
-          "hi": "अन्य सीख स्मरण प्रभावित करे",
-          "en": "Other learning affects recall",
-          "option_id": "A"
-        },
-        {
-          "hi": "स",
-          "en": "ह",
-          "option_id": "B"
-        },
-        {
-          "hi": "A",
-          "en": "l",
-          "option_id": "C"
-        },
-        {
-          "hi": "ध",
-          "en": "्",
-          "option_id": "D"
-        },
-        {
-          "hi": "N",
-          "en": "o"
-        },
-        {
-          "hi": "न",
-          "en": "ी"
-        },
-        {
-          "hi": "S",
-          "en": "l"
+          "option_id": "D",
+          "hi": "प्रशंसा",
+          "en": "Age only"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "Interference can affect remembering.",
-      "explanation_en": "Interference can affect remembering.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -607,193 +287,51 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_010",
+      "question_id": "V6-CDP-061-006",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
       "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
       "difficulty": "moderate",
-      "question_type": "Application-Based",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "Recall—",
-      "question_en": "Recall—",
+      "question_hi": "Interference में क्या होता है?",
+      "question_en": "What happens in interference?",
       "options": [
         {
-          "hi": "प",
-          "en": "ह",
-          "option_id": "A"
+          "option_id": "A",
+          "hi": "शारीरिक वृद्धि",
+          "en": "No effect"
         },
         {
-          "hi": "R",
-          "en": "e",
-          "option_id": "B"
+          "option_id": "B",
+          "hi": "अन्य सूचना याद करने में बाधा देती",
+          "en": "अन्य सूचना याद करने में बाधा देती"
         },
         {
-          "hi": "द",
-          "en": "े",
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "स्मृति बढ़ती ही",
+          "en": "Other information disrupts retrieval"
         },
         {
-          "hi": "S",
-          "en": "e",
-          "option_id": "D"
-        },
-        {
-          "hi": "स",
-          "en": "ु"
-        },
-        {
-          "hi": "H",
-          "en": "e"
-        },
-        {
-          "hi": "बिना संकेत सूचना याद करना",
-          "en": "Remember without a prompt"
-        }
-      ],
-      "correct_option": "D",
-      "correct_index": 3,
-      "explanation_hi": "Recall requires retrieving information without the item present.",
-      "explanation_en": "Recall requires retrieving information without the item present.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_011",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "Encoding का अर्थ है— उदाहरण में—",
-      "question_en": "In an example, Encoding means—",
-      "options": [
-        {
-          "hi": "E",
-          "en": "r",
-          "option_id": "A"
-        },
-        {
-          "hi": "उ",
-          "en": "त",
-          "option_id": "B"
-        },
-        {
-          "hi": "F",
-          "en": "o",
-          "option_id": "C"
-        },
-        {
-          "hi": "क",
-          "en": "े",
-          "option_id": "D"
-        },
-        {
-          "hi": "R",
-          "en": "e"
-        },
-        {
-          "hi": "सूचना को स्मृति में दर्ज करना",
-          "en": "Register information in memory"
-        },
-        {
-          "hi": "स",
-          "en": "ू"
-        }
-      ],
-      "correct_option": "C",
-      "correct_index": 2,
-      "explanation_hi": "Encoding transforms information into a form that can be stored.",
-      "explanation_en": "Encoding transforms information into a form that can be stored.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_012",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "Retrieval— उदाहरण में—",
-      "question_en": "In an example, Retrieval—",
-      "options": [
-        {
-          "hi": "क",
-          "en": "े",
-          "option_id": "A"
-        },
-        {
-          "hi": "W",
-          "en": "r",
-          "option_id": "B"
-        },
-        {
-          "hi": "न",
-          "en": "ी",
-          "option_id": "C"
-        },
-        {
-          "hi": "S",
-          "en": "l",
-          "option_id": "D"
-        },
-        {
-          "hi": "संग्रहीत सूचना को वापस प्राप्त करना",
-          "en": "Access stored information"
-        },
-        {
-          "hi": "न",
-          "en": "ई"
-        },
-        {
-          "hi": "E",
-          "en": "r"
+          "option_id": "D",
+          "hi": "कोई प्रभाव नहीं",
+          "en": "Memory always improves"
         }
       ],
       "correct_option": "B",
       "correct_index": 1,
-      "explanation_hi": "Retrieval is accessing stored information.",
-      "explanation_en": "Retrieval is accessing stored information.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -802,14 +340,67 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_013",
+      "question_id": "V6-CDP-061-007",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
       "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अंतराल अभ्यास किसमें सहायक?",
+      "question_en": "Spaced practice helps with?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल गति",
+          "en": "Immediate forgetting"
+        },
+        {
+          "option_id": "B",
+          "hi": "अनुशासन",
+          "en": "Speed only"
+        },
+        {
+          "option_id": "C",
+          "hi": "दीर्घकालिक स्मृति",
+          "en": "दीर्घकालिक स्मृति"
+        },
+        {
+          "option_id": "D",
+          "hi": "तत्काल भूल",
+          "en": "Long-term memory"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-008",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
       "difficulty": "moderate",
       "question_type": "Application-Based",
       "exam_tags": [
@@ -818,47 +409,88 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "Working memory— उदाहरण में—",
-      "question_en": "In an example, Working memory—",
+      "question_hi": "सक्रिय पुनःस्मरण का उदाहरण?",
+      "question_en": "Example of active retrieval practice?",
       "options": [
         {
-          "hi": "सूचना को थोड़े समय सक्रिय रखना",
-          "en": "Keep information active briefly",
-          "option_id": "A"
+          "option_id": "A",
+          "hi": "बार-बार पढ़ना मात्र",
+          "en": "Answering questions without the book"
         },
         {
-          "hi": "स",
-          "en": "्",
-          "option_id": "B"
+          "option_id": "B",
+          "hi": "हाइलाइट करना",
+          "en": "Rereading only"
         },
         {
-          "hi": "P",
-          "en": "e",
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "कॉपी करना",
+          "en": "Highlighting"
         },
         {
-          "hi": "अ",
-          "en": "न",
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "बिना पुस्तक प्रश्नों के उत्तर देना",
+          "en": "बिना पुस्तक प्रश्नों के उत्तर देना"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-009",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Recognition और recall में अंतर?",
+      "question_en": "Difference between recognition and recall?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "Recognition में संकेत/विकल्प पहचानना",
+          "en": "Recognition में संकेत/विकल्प पहचानना"
         },
         {
-          "hi": "I",
-          "en": "n"
+          "option_id": "B",
+          "hi": "दोनों समान",
+          "en": "Recognition identifies; recall produces"
         },
         {
-          "hi": "क",
-          "en": "े"
+          "option_id": "C",
+          "hi": "Recall में विकल्प हमेशा",
+          "en": "Same"
         },
         {
-          "hi": "E",
-          "en": "m"
+          "option_id": "D",
+          "hi": "Recognition असंभव",
+          "en": "Recall always has options"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "Working memory temporarily holds and manipulates information.",
-      "explanation_en": "Working memory temporarily holds and manipulates information.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -867,193 +499,51 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_014",
+      "question_id": "V6-CDP-061-010",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
       "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
       "difficulty": "moderate",
-      "question_type": "Application-Based",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "Long-term memory— उदाहरण में—",
-      "question_en": "In an example, Long-term memory—",
+      "question_hi": "स्मृति में chunking क्या है?",
+      "question_en": "What is chunking in memory?",
       "options": [
         {
-          "hi": "क",
-          "en": "्",
-          "option_id": "A"
+          "option_id": "A",
+          "hi": "विकर्षण",
+          "en": "Punishment"
         },
         {
-          "hi": "B",
-          "en": "r",
-          "option_id": "B"
+          "option_id": "B",
+          "hi": "सूचना को अर्थपूर्ण समूह बनाना",
+          "en": "सूचना को अर्थपूर्ण समूह बनाना"
         },
         {
-          "hi": "क",
-          "en": "े",
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "सूचना मिटाना",
+          "en": "Grouping information meaningfully"
         },
         {
-          "hi": "A",
-          "en": "t",
-          "option_id": "D"
-        },
-        {
-          "hi": "त",
-          "en": "त"
-        },
-        {
-          "hi": "I",
-          "en": "m"
-        },
-        {
-          "hi": "दीर्घ अवधि की सूचना",
-          "en": "Information retained over long periods"
-        }
-      ],
-      "correct_option": "D",
-      "correct_index": 3,
-      "explanation_hi": "Long-term memory can retain information over extended periods.",
-      "explanation_en": "Long-term memory can retain information over extended periods.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_015",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "अर्थपूर्ण अभ्यास— उदाहरण में—",
-      "question_en": "In an example, Meaningful practice—",
-      "options": [
-        {
-          "hi": "A",
-          "en": "l",
-          "option_id": "A"
-        },
-        {
-          "hi": "स",
-          "en": "्",
-          "option_id": "B"
-        },
-        {
-          "hi": "E",
-          "en": "r",
-          "option_id": "C"
-        },
-        {
-          "hi": "क",
-          "en": "े",
-          "option_id": "D"
-        },
-        {
-          "hi": "P",
-          "en": "u"
-        },
-        {
-          "hi": "स्मृति मजबूत कर सकता",
-          "en": "Can strengthen memory"
-        },
-        {
-          "hi": "ह",
-          "en": "म"
-        }
-      ],
-      "correct_option": "C",
-      "correct_index": 2,
-      "explanation_hi": "Meaningful practice supports retention.",
-      "explanation_en": "Meaningful practice supports retention.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_016",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "Spacing effect— उदाहरण में—",
-      "question_en": "In an example, Spacing effect—",
-      "options": [
-        {
-          "hi": "अ",
-          "en": "भ",
-          "option_id": "A"
-        },
-        {
-          "hi": "P",
-          "en": "r",
-          "option_id": "B"
-        },
-        {
-          "hi": "क",
-          "en": "े",
-          "option_id": "C"
-        },
-        {
-          "hi": "E",
-          "en": "x",
-          "option_id": "D"
-        },
-        {
-          "hi": "अंतराल में अभ्यास अधिक उपयोगी",
-          "en": "Practice spaced over time is beneficial"
-        },
-        {
-          "hi": "ए",
-          "en": "क"
-        },
-        {
-          "hi": "C",
-          "en": "r"
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Erasing information"
         }
       ],
       "correct_option": "B",
       "correct_index": 1,
-      "explanation_hi": "Distributed practice often improves long-term retention.",
-      "explanation_en": "Distributed practice often improves long-term retention.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -1062,15 +552,68 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_017",
+      "question_id": "V6-CDP-061-011",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
       "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रारंभिक और अंतिम प्रभाव किससे जुड़ा?",
+      "question_en": "Primacy and recency effects relate to?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड",
+          "en": "Forgetting only"
+        },
+        {
+          "option_id": "B",
+          "hi": "मोटर विकास",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "C",
+          "hi": "सूची के शुरू और अंत की याद",
+          "en": "सूची के शुरू और अंत की याद"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल भूल",
+          "en": "Remembering list beginnings and endings"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-012",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "moderate",
       "question_type": "Analytical",
       "exam_tags": [
         "CTET",
@@ -1078,47 +621,88 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "Forgetting का कारण हो सकता— उदाहरण में—",
-      "question_en": "In an example, A cause of forgetting may be—",
+      "question_hi": "दीर्घकालिक स्मृति की विशेषता?",
+      "question_en": "A feature of long-term memory?",
       "options": [
         {
-          "hi": "Retrieval failure",
-          "en": "Retrieval failure",
-          "option_id": "A"
+          "option_id": "A",
+          "hi": "क्षणिक ध्वनि",
+          "en": "Long-term storage"
         },
         {
-          "hi": "ह",
-          "en": "म",
-          "option_id": "B"
+          "option_id": "B",
+          "hi": "केवल 2 सेकंड",
+          "en": "Brief sound"
         },
         {
-          "hi": "A",
-          "en": "l",
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल प्रतिवर्त",
+          "en": "Only two seconds"
         },
         {
-          "hi": "क",
-          "en": "े",
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "लंबे समय तक संग्रह",
+          "en": "लंबे समय तक संग्रह"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-013",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पाठ में उदाहरण देने से स्मृति क्यों बेहतर?",
+      "question_en": "Why can examples improve memory?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अमूर्त अवधारणा को संदर्भ मिलता है",
+          "en": "अमूर्त अवधारणा को संदर्भ मिलता है"
         },
         {
-          "hi": "I",
-          "en": "n"
+          "option_id": "B",
+          "hi": "ध्यान घटता",
+          "en": "Abstract ideas gain context"
         },
         {
-          "hi": "श",
-          "en": "ि"
+          "option_id": "C",
+          "hi": "संबंध हटते",
+          "en": "Attention decreases"
         },
         {
-          "hi": "T",
-          "en": "e"
+          "option_id": "D",
+          "hi": "केवल मनोरंजन",
+          "en": "Links removed"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "Forgetting may occur when retrieval cues are insufficient.",
-      "explanation_en": "Forgetting may occur when retrieval cues are insufficient.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -1127,193 +711,422 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_018",
+      "question_id": "V6-CDP-061-014",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
       "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "Mnemonic— उदाहरण में—",
-      "question_en": "In an example, A mnemonic—",
+      "question_hi": "भूलने की वक्र अवधारणा किससे जुड़ी?",
+      "question_en": "The forgetting curve is associated with?",
       "options": [
         {
-          "hi": "द",
-          "en": "ं",
-          "option_id": "A"
+          "option_id": "A",
+          "hi": "Maslow",
+          "en": "Maslow"
         },
         {
-          "hi": "P",
-          "en": "u",
-          "option_id": "B"
+          "option_id": "B",
+          "hi": "Ebbinghaus",
+          "en": "Ebbinghaus"
         },
         {
-          "hi": "भ",
-          "en": "ू",
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "Bandura",
+          "en": "Bandura"
         },
         {
-          "hi": "F",
-          "en": "o",
-          "option_id": "D"
-        },
-        {
-          "hi": "म",
-          "en": "ू"
-        },
-        {
-          "hi": "A",
-          "en": "s"
-        },
-        {
-          "hi": "स्मरण सहायक रणनीति",
-          "en": "Memory aid strategy"
-        }
-      ],
-      "correct_option": "D",
-      "correct_index": 3,
-      "explanation_hi": "Mnemonics provide cues for remembering.",
-      "explanation_en": "Mnemonics provide cues for remembering.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_019",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "Interference— उदाहरण में—",
-      "question_en": "In an example, Interference—",
-      "options": [
-        {
-          "hi": "A",
-          "en": "l",
-          "option_id": "A"
-        },
-        {
-          "hi": "ध",
-          "en": "्",
-          "option_id": "B"
-        },
-        {
-          "hi": "N",
-          "en": "o",
-          "option_id": "C"
-        },
-        {
-          "hi": "न",
-          "en": "ी",
-          "option_id": "D"
-        },
-        {
-          "hi": "S",
-          "en": "l"
-        },
-        {
-          "hi": "अन्य सीख स्मरण प्रभावित करे",
-          "en": "Other learning affects recall"
-        },
-        {
-          "hi": "स",
-          "en": "ह"
-        }
-      ],
-      "correct_option": "C",
-      "correct_index": 2,
-      "explanation_hi": "Interference can affect remembering.",
-      "explanation_en": "Interference can affect remembering.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_MEMORY_FORGETTING_V6_020",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "memory_forgetting",
-      "topic": "Memory & Forgetting",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "Recall— उदाहरण में—",
-      "question_en": "In an example, Recall—",
-      "options": [
-        {
-          "hi": "द",
-          "en": "े",
-          "option_id": "A"
-        },
-        {
-          "hi": "S",
-          "en": "e",
-          "option_id": "B"
-        },
-        {
-          "hi": "स",
-          "en": "ु",
-          "option_id": "C"
-        },
-        {
-          "hi": "H",
-          "en": "e",
-          "option_id": "D"
-        },
-        {
-          "hi": "बिना संकेत सूचना याद करना",
-          "en": "Remember without a prompt"
-        },
-        {
-          "hi": "प",
-          "en": "ह"
-        },
-        {
-          "hi": "R",
-          "en": "e"
+          "option_id": "D",
+          "hi": "Piaget",
+          "en": "Piaget"
         }
       ],
       "correct_option": "B",
       "correct_index": 1,
-      "explanation_hi": "Recall requires retrieving information without the item present.",
-      "explanation_en": "Recall requires retrieving information without the item present.",
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "explanation_hi": "Ebbinghaus studied forgetting over time.",
+      "explanation_en": "Ebbinghaus studied forgetting over time.",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-015",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "नींद स्मृति में कैसे मदद करती है?",
+      "question_en": "How can sleep help memory?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "ध्यान समाप्त",
+          "en": "Erases memory"
+        },
+        {
+          "option_id": "B",
+          "hi": "अधिगम रोकना",
+          "en": "Ends attention"
+        },
+        {
+          "option_id": "C",
+          "hi": "Consolidation को समर्थन",
+          "en": "Consolidation को समर्थन"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्मृति मिटाना",
+          "en": "Supports consolidation"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-016",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्मृति रणनीति कौन सी है?",
+      "question_en": "Which is a memory strategy?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड",
+          "en": "Mnemonics"
+        },
+        {
+          "option_id": "B",
+          "hi": "अलगाव",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "C",
+          "hi": "अनुमान",
+          "en": "Isolation"
+        },
+        {
+          "option_id": "D",
+          "hi": "Mnemonics",
+          "en": "Mnemonics"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-017",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पुनरावृत्ति कब प्रभावी होती है?",
+      "question_en": "When is repetition effective?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अंतराल और अर्थपूर्ण अभ्यास के साथ",
+          "en": "अंतराल और अर्थपूर्ण अभ्यास के साथ"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल लगातार रटना",
+          "en": "With spacing and meaningful practice"
+        },
+        {
+          "option_id": "C",
+          "hi": "बिना समझ",
+          "en": "Continuous rote only"
+        },
+        {
+          "option_id": "D",
+          "hi": "एक बार",
+          "en": "Without understanding"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-018",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सूचना अधिक होने पर कार्यशील स्मृति?",
+      "question_en": "When information overload occurs, working memory?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अप्रभावित",
+          "en": "Permanent"
+        },
+        {
+          "option_id": "B",
+          "hi": "अतिभारित हो सकती है",
+          "en": "अतिभारित हो सकती है"
+        },
+        {
+          "option_id": "C",
+          "hi": "असीमित",
+          "en": "Can be overloaded"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्थायी",
+          "en": "Unlimited"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-019",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में retrieval practice कैसे करें?",
+      "question_en": "How can retrieval practice be used in class?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंडात्मक प्रश्न",
+          "en": "Final exam only"
+        },
+        {
+          "option_id": "B",
+          "hi": "नोट कॉपी",
+          "en": "Punitive questions"
+        },
+        {
+          "option_id": "C",
+          "hi": "छोटे low-stakes quizzes",
+          "en": "छोटे low-stakes quizzes"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल अंतिम परीक्षा",
+          "en": "Short low-stakes quizzes"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-020",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भूलना हमेशा नकारात्मक है?",
+      "question_en": "Is forgetting always negative?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "हाँ",
+          "en": "No; filtering irrelevant information may be useful"
+        },
+        {
+          "option_id": "B",
+          "hi": "सीखना असंभव",
+          "en": "Yes"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल बीमारी",
+          "en": "Learning impossible"
+        },
+        {
+          "option_id": "D",
+          "hi": "नहीं, अप्रासंगिक सूचना हटना उपयोगी हो सकता है",
+          "en": "नहीं, अप्रासंगिक सूचना हटना उपयोगी हो सकता है"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-061-021",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Memory and Forgetting",
+      "topic_id": "memory_forgetting",
+      "topic": "Memory and Forgetting",
+      "subtopic_id": "memory_forgetting",
+      "subtopic": "Memory and Forgetting",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्मृति सुधार का सर्वोत्तम संयोजन?",
+      "question_en": "Best combination for memory improvement?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "समझ, spaced practice और retrieval",
+          "en": "समझ, spaced practice और retrieval"
+        },
+        {
+          "option_id": "B",
+          "hi": "रटने मात्र",
+          "en": "Understanding, spacing and retrieval"
+        },
+        {
+          "option_id": "C",
+          "hi": "नींद कम",
+          "en": "Rote only"
+        },
+        {
+          "option_id": "D",
+          "hi": "एक बार पढ़ना",
+          "en": "Less sleep"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
