@@ -1,0 +1,1145 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Vygotsky's Theory",
+  "batch_id": "V6-CDP-017",
+  "subject_id": "cdp",
+  "topic_id": "vygotsky",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_VYGOTSKY_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वाइगोत्स्की ने विकास में किसे प्रमुख माना?",
+      "question_en": "Vygotsky emphasised which in development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "सामाजिक-सांस्कृतिक अंतःक्रिया",
+            "Socio-cultural interaction",
+            "केवल जैविक परिपक्वता",
+            "Biological maturation only",
+            "दंड",
+            "Punishment",
+            "अकेला अभ्यास",
+            "Solo practice"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "वाइगोत्स्की ने सामाजिक अंतःक्रिया और संस्कृति की भूमिका पर बल दिया।",
+          "en": "Vygotsky emphasised social interaction and culture."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "ZPD का पूरा नाम क्या है?",
+      "question_en": "What does ZPD stand for?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "निकटस्थ विकास क्षेत्र",
+            "Zone of Proximal Development",
+            "प्राथमिक विकास क्षेत्र",
+            "Primary Development Zone",
+            "शून्य प्रदर्शन क्षेत्र",
+            "Zero Performance Zone",
+            "सामाजिक दूरी",
+            "Social Distance"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "ZPD स्वतंत्र क्षमता और सहायता से संभव क्षमता के बीच का क्षेत्र है।",
+          "en": "ZPD is the gap between independent and assisted performance."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "ZPD में विद्यार्थी क्या कर सकता है?",
+      "question_en": "Within the ZPD, a learner can—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "सहायता से कार्य पूरा करना",
+            "Complete a task with assistance",
+            "कुछ भी नहीं सीखना",
+            "Learn nothing",
+            "केवल स्वतंत्र कार्य",
+            "Only work independently",
+            "सभी कार्य बिना सहायता",
+            "Do everything unaided"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "ZPD उन कार्यों को दर्शाता है जो उचित सहायता से संभव हैं।",
+          "en": "ZPD includes tasks possible with appropriate assistance."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Scaffolding का अर्थ है—",
+      "question_en": "Scaffolding means—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "अस्थायी संरचित सहायता",
+            "Temporary structured support",
+            "स्थायी नियंत्रण",
+            "Permanent control",
+            "दंड",
+            "Punishment",
+            "केवल परीक्षा",
+            "Examination only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सहायता विद्यार्थी की क्षमता बढ़ने पर धीरे-धीरे कम की जाती है।",
+          "en": "Support is gradually reduced as competence increases."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "More Knowledgeable Other (MKO) कौन हो सकता है?",
+      "question_en": "Who may be a More Knowledgeable Other (MKO)?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "शिक्षक या सक्षम सहपाठी",
+            "Teacher or capable peer",
+            "केवल प्रधानाचार्य",
+            "Principal only",
+            "केवल माता-पिता",
+            "Parents only",
+            "कोई नहीं",
+            "No one"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "MKO वह व्यक्ति है जो किसी कार्य में अधिक ज्ञान या कौशल रखता है।",
+          "en": "An MKO has greater knowledge or skill in a task."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वाइगोत्स्की में भाषा की भूमिका—",
+      "question_en": "Language in Vygotsky's theory—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "चिंतन को व्यवस्थित करने का साधन",
+            "A tool for organising thought",
+            "विकास में अप्रासंगिक",
+            "Irrelevant",
+            "केवल संचार",
+            "Communication only",
+            "केवल लिखित",
+            "Written only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "भाषा सामाजिक संवाद से आत्म-नियमन और चिंतन का साधन बनती है।",
+          "en": "Language becomes a tool for thought and self-regulation."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Private speech क्या है?",
+      "question_en": "What is private speech?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "बच्चे का स्वयं से बोलना",
+            "A child talking to oneself",
+            "सार्वजनिक भाषण",
+            "Public speech",
+            "मौन",
+            "Silence",
+            "अनुकरण",
+            "Imitation"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Private speech बच्चे को कार्य निर्देशित और नियंत्रित करने में मदद कर सकती है।",
+          "en": "Private speech can help children guide and regulate actions."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वाइगोत्स्की के अनुसार सीखना—",
+      "question_en": "According to Vygotsky, learning—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "विकास को आगे बढ़ा सकता है",
+            "Can lead development forward",
+            "विकास के बाद ही संभव",
+            "Only after development",
+            "सामाजिकता से अलग",
+            "Separate from social life",
+            "केवल जैविक",
+            "Only biological"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सहायता और सामाजिक अधिगम विकास को आगे बढ़ा सकते हैं।",
+          "en": "Assisted and social learning can advance development."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहपाठी सहयोग का लाभ—",
+      "question_en": "A benefit of peer collaboration is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "विचार साझा और सहायता",
+            "Sharing ideas and support",
+            "सभी निर्भर हो जाते हैं",
+            "Everyone becomes dependent",
+            "प्रतिस्पर्धा ही",
+            "Competition only",
+            "सीखना रुकता है",
+            "Learning stops"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सहयोग संवाद और साझा समस्या समाधान के अवसर देता है।",
+          "en": "Collaboration creates opportunities for dialogue and problem-solving."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सांस्कृतिक उपकरणों का उदाहरण—",
+      "question_en": "An example of a cultural tool is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "भाषा और संख्या प्रणाली",
+            "Language and number systems",
+            "केवल खिलौना",
+            "Toy only",
+            "दंड",
+            "Punishment",
+            "शारीरिक वृद्धि",
+            "Physical growth"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "भाषा, प्रतीक और गणना प्रणालियाँ सांस्कृतिक उपकरण हैं।",
+          "en": "Language, symbols and number systems are cultural tools."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वाइगोत्स्की की दृष्टि से शिक्षक को—",
+      "question_en": "From Vygotsky's perspective, a teacher should—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "उचित सहायता और संवाद देना",
+            "Provide appropriate support and dialogue",
+            "सभी सहायता रोकना",
+            "Withhold all support",
+            "केवल व्याख्यान",
+            "Lecture only",
+            "उत्तर याद कराना",
+            "Make students memorise answers"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "शिक्षक सीखने को संवाद और सहारा देकर समर्थित करता है।",
+          "en": "Teachers support learning through dialogue and scaffolding."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "ZPD का आकलन कैसे उपयोगी है?",
+      "question_en": "How is ZPD assessment useful?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "अगला उपयुक्त सीखने का स्तर पहचानना",
+            "Identify the next learning level",
+            "केवल वर्तमान अंक",
+            "Only current marks",
+            "बच्चों की तुलना",
+            "Compare children",
+            "दंड तय करना",
+            "Determine punishment"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "ZPD विद्यार्थी को चुनौती देने वाले लेकिन सहायता से संभव कार्य पहचानता है।",
+          "en": "It identifies challenging tasks achievable with support."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वाइगोत्स्की में विकास पर संस्कृति का प्रभाव—",
+      "question_en": "Culture influences development in Vygotsky's theory by—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "उपकरण और संवाद के तरीके प्रदान करना",
+            "Providing tools and forms of interaction",
+            "कोई प्रभाव नहीं",
+            "No influence",
+            "केवल भोजन",
+            "Food only",
+            "केवल आनुवंशिकी",
+            "Genetics only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "संस्कृति सीखने के उपकरण, भाषा और सामाजिक अभ्यास प्रदान करती है।",
+          "en": "Culture provides tools, language and social practices."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहायता कब कम करनी चाहिए?",
+      "question_en": "When should scaffolding be reduced?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "क्षमता और स्वतंत्रता बढ़ने पर",
+            "As competence and independence increase",
+            "पहले दिन",
+            "On the first day",
+            "कभी नहीं",
+            "Never",
+            "असफलता पर",
+            "After failure"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सहायता धीरे-धीरे हटाकर स्वतंत्र प्रदर्शन बढ़ाया जाता है।",
+          "en": "Support is gradually withdrawn to increase independence."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वाइगोत्स्की में संवाद क्यों महत्वपूर्ण?",
+      "question_en": "Why is dialogue important in Vygotsky's theory?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "ज्ञान सह-निर्माण का माध्यम",
+            "A means of co-constructing knowledge",
+            "समय नष्ट करना",
+            "Waste time",
+            "केवल अनुशासन",
+            "Discipline only",
+            "विकास रोकना",
+            "Stop development"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "संवाद से विचार साझा होते हैं और अवधारणाएँ विकसित होती हैं।",
+          "en": "Dialogue shares ideas and develops concepts."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समूह कार्य ZPD में कैसे मदद करता है?",
+      "question_en": "How can group work support the ZPD?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "सक्षम साथियों से सहायता मिलती है",
+            "Learners receive help from capable peers",
+            "हर बच्चा अकेला",
+            "Everyone works alone",
+            "सभी उत्तर समान",
+            "All answers identical",
+            "कार्य हट जाता है",
+            "Task disappears"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सक्षम सहपाठी मॉडलिंग और सहायता प्रदान कर सकते हैं।",
+          "en": "Capable peers can provide modelling and assistance."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वाइगोत्स्की का सिद्धांत किस दृष्टिकोण का उदाहरण है?",
+      "question_en": "Vygotsky's theory exemplifies which approach?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "सामाजिक-सांस्कृतिक",
+            "Socio-cultural",
+            "व्यवहारवादी",
+            "Behaviourist",
+            "मनोविश्लेषणात्मक",
+            "Psychoanalytic",
+            "जैविक नियतिवाद",
+            "Biological determinism"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "यह सिद्धांत सीखने और विकास में संस्कृति तथा सामाजिक सहभागिता पर केंद्रित है।",
+          "en": "It focuses on culture and social interaction in learning and development."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में scaffolding का उदाहरण—",
+      "question_en": "An example of scaffolding in class is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "पहले संकेत, फिर सहायता कम करना",
+            "Give prompts, then gradually reduce help",
+            "सीधा उत्तर लिख देना",
+            "Write the answer directly",
+            "कार्य न देना",
+            "Give no task",
+            "दंड देना",
+            "Punish"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "संकेत और चरणबद्ध सहायता विद्यार्थी को स्वतंत्र समाधान की ओर ले जाती है।",
+          "en": "Prompts and gradual support move learners toward independent solving."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वाइगोत्स्की और पियाजे में एक अंतर—",
+      "question_en": "One difference between Vygotsky and Piaget is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "वाइगोत्स्की सामाजिक-सांस्कृतिक भूमिका पर अधिक बल देते हैं",
+            "Vygotsky emphasised socio-cultural roles more",
+            "दोनों केवल पुरस्कार",
+            "Both only rewards",
+            "पियाजे भाषा नहीं मानते",
+            "Piaget ignored language",
+            "दोनों विकास नकारते हैं",
+            "Both deny development"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "वाइगोत्स्की सामाजिक-सांस्कृतिक अंतःक्रिया पर विशेष जोर देते हैं।",
+          "en": "Vygotsky particularly emphasised socio-cultural interaction."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_VYGOTSKY_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "vygotsky",
+      "topic": "Vygotsky's Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहायता का लक्ष्य होना चाहिए—",
+      "question_en": "The goal of assistance should be—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "स्वतंत्र दक्षता",
+            "Independent competence",
+            "स्थायी निर्भरता",
+            "Permanent dependence",
+            "केवल सही उत्तर",
+            "Correct answers only",
+            "कार्य से बचना",
+            "Avoid tasks"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सहायता का अंतिम लक्ष्य आत्मनिर्भर सीखना है।",
+          "en": "The ultimate goal is independent learning."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
