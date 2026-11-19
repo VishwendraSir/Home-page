@@ -1,7 +1,7 @@
 {
   "schema_version": "6.0.0",
   "title": "EXAM BRAHMASTRA V6 — CDP Individual Differences",
-  "batch_id": "V6-CDP-010",
+  "batch_id": "V6-CDP-064",
   "subject_id": "cdp",
   "topic_id": "individual_differences",
   "minimum_questions": 20,
@@ -22,14 +22,14 @@
   },
   "records": [
     {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_001",
+      "question_id": "V6-CDP-064-001",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
       "topic_id": "individual_differences",
       "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
       "difficulty": "easy",
       "question_type": "Conceptual",
       "exam_tags": [
@@ -38,35 +38,35 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "व्यक्तिगत भिन्नता क्या है?",
-      "question_en": "व्यक्तिगत भिन्नता क्या है?",
+      "question_hi": "व्यक्तिगत भिन्नता का अर्थ?",
+      "question_en": "Individual differences mean?",
       "options": [
         {
           "option_id": "A",
-          "hi": "अलग गुण और क्षमताएँ",
-          "en": "Different traits and abilities"
+          "hi": "क्षमता, रुचि और गति में विविधता",
+          "en": "क्षमता, रुचि और गति में विविधता"
         },
         {
           "option_id": "B",
-          "hi": "सबका समान होना",
-          "en": "Everyone being identical"
+          "hi": "सभी समान",
+          "en": "Variation in abilities, interests and pace"
         },
         {
           "option_id": "C",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
+          "hi": "केवल अंक अंतर",
+          "en": "All identical"
         },
         {
           "option_id": "D",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
+          "hi": "अनुशासनहीनता",
+          "en": "Marks only"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -75,14 +75,120 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_002",
+      "question_id": "V6-CDP-064-002",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
       "topic_id": "individual_differences",
       "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विभेदित शिक्षण का उद्देश्य?",
+      "question_en": "Purpose of differentiated instruction?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "रैंक",
+          "en": "Low expectations"
+        },
+        {
+          "option_id": "B",
+          "hi": "जरूरत अनुसार शिक्षण अनुकूलित",
+          "en": "जरूरत अनुसार शिक्षण अनुकूलित"
+        },
+        {
+          "option_id": "C",
+          "hi": "सभी को अलग पाठ्यक्रम",
+          "en": "Adapt teaching to needs"
+        },
+        {
+          "option_id": "D",
+          "hi": "कम अपेक्षा",
+          "en": "Separate curriculum for all"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-064-003",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
+      "topic_id": "individual_differences",
+      "topic": "Individual Differences",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "easy",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सीखने की शैली सिद्धांत पर सावधानी क्यों?",
+      "question_en": "Why be cautious about learning-style claims?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सभी दृश्य",
+          "en": "Every style proven"
+        },
+        {
+          "option_id": "B",
+          "hi": "श्रव्य असंभव",
+          "en": "All visual"
+        },
+        {
+          "option_id": "C",
+          "hi": "स्थिर शैली के अनुसार पढ़ाने का मजबूत प्रमाण सीमित",
+          "en": "स्थिर शैली के अनुसार पढ़ाने का मजबूत प्रमाण सीमित"
+        },
+        {
+          "option_id": "D",
+          "hi": "हर शैली सिद्ध",
+          "en": "Strong evidence for fixed-style matching is limited"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-064-004",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
+      "topic_id": "individual_differences",
+      "topic": "Individual Differences",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
       "difficulty": "easy",
       "question_type": "Conceptual",
       "exam_tags": [
@@ -91,35 +197,35 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "भिन्नता किन क्षेत्रों में दिखती है?",
-      "question_en": "भिन्नता किन क्षेत्रों में दिखती है?",
+      "question_hi": "समावेशी कक्षा में विविधता?",
+      "question_en": "How is diversity treated in an inclusive classroom?",
       "options": [
         {
           "option_id": "A",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
+          "hi": "समस्या",
+          "en": "Normal and valuable"
         },
         {
           "option_id": "B",
-          "hi": "बुद्धि, रुचि, क्षमता और गति",
-          "en": "Intelligence, interest, ability and pace"
+          "hi": "अलगाव",
+          "en": "Problem"
         },
         {
           "option_id": "C",
-          "hi": "केवल वजन",
-          "en": "Weight only"
+          "hi": "अनदेखी",
+          "en": "Exclusion"
         },
         {
           "option_id": "D",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
+          "hi": "सामान्य और मूल्यवान",
+          "en": "सामान्य और मूल्यवान"
         }
       ],
       "correct_option": "D",
       "correct_index": 3,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -128,15 +234,121 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_003",
+      "question_id": "V6-CDP-064-005",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
       "topic_id": "individual_differences",
       "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
       "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "क्षमता समूह बनाना कब उचित?",
+      "question_en": "When can ability grouping be appropriate?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "लचीले, अस्थायी और उद्देश्यपूर्ण रूप में",
+          "en": "लचीले, अस्थायी और उद्देश्यपूर्ण रूप में"
+        },
+        {
+          "option_id": "B",
+          "hi": "स्थायी लेबल",
+          "en": "Flexible, temporary and purposeful"
+        },
+        {
+          "option_id": "C",
+          "hi": "जाति/लिंग आधार",
+          "en": "Permanent labels"
+        },
+        {
+          "option_id": "D",
+          "hi": "सार्वजनिक रैंक",
+          "en": "Caste/gender"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-064-006",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
+      "topic_id": "individual_differences",
+      "topic": "Individual Differences",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विद्यार्थी की ताकत पहचानना?",
+      "question_en": "Why identify learner strengths?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अंक घटाने",
+          "en": "Compare"
+        },
+        {
+          "option_id": "B",
+          "hi": "संसाधन और अवसर बनाने",
+          "en": "संसाधन और अवसर बनाने"
+        },
+        {
+          "option_id": "C",
+          "hi": "कमजोरी तय",
+          "en": "Create resources and opportunities"
+        },
+        {
+          "option_id": "D",
+          "hi": "तुलना",
+          "en": "Define weakness"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-064-007",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
+      "topic_id": "individual_differences",
+      "topic": "Individual Differences",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "moderate",
       "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
@@ -144,35 +356,35 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "शिक्षक विविध जरूरतों का कैसे उत्तर दे?",
-      "question_en": "शिक्षक विविध जरूरतों का कैसे उत्तर दे?",
+      "question_hi": "भाषाई विविधता का समर्थन?",
+      "question_en": "How support linguistic diversity?",
       "options": [
         {
           "option_id": "A",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
+          "hi": "उपहास",
+          "en": "Ban languages"
         },
         {
           "option_id": "B",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
+          "hi": "केवल एक भाषा में दंड",
+          "en": "Mock"
         },
         {
           "option_id": "C",
-          "hi": "विविध रणनीतियाँ और अवसर",
-          "en": "Varied strategies and opportunities"
+          "hi": "बहुभाषी संसाधन और सम्मान",
+          "en": "बहुभाषी संसाधन और सम्मान"
         },
         {
           "option_id": "D",
-          "hi": "एक ही विधि",
-          "en": "One method only"
+          "hi": "भाषा निषेध",
+          "en": "Multilingual resources and respect"
         }
       ],
       "correct_option": "C",
       "correct_index": 2,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -181,15 +393,121 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_004",
+      "question_id": "V6-CDP-064-008",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
       "topic_id": "individual_differences",
       "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "easy",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षार्थी की गति अलग हो तो?",
+      "question_en": "If learners progress at different rates?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "एक गति अनिवार्य",
+          "en": "Flexible time and support"
+        },
+        {
+          "option_id": "B",
+          "hi": "धीमे को दंड",
+          "en": "Same pace mandatory"
+        },
+        {
+          "option_id": "C",
+          "hi": "कार्य हटाना",
+          "en": "Punish slower learners"
+        },
+        {
+          "option_id": "D",
+          "hi": "लचीला समय और सहायता",
+          "en": "लचीला समय और सहायता"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-064-009",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
+      "topic_id": "individual_differences",
+      "topic": "Individual Differences",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "असमान अवसर का समाधान?",
+      "question_en": "Addressing unequal opportunities?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "समानता हेतु अतिरिक्त सहायता",
+          "en": "समानता हेतु अतिरिक्त सहायता"
+        },
+        {
+          "option_id": "B",
+          "hi": "समान संसाधन हमेशा पर्याप्त",
+          "en": "Additional support for equity"
+        },
+        {
+          "option_id": "C",
+          "hi": "दोषारोपण",
+          "en": "Same resources always enough"
+        },
+        {
+          "option_id": "D",
+          "hi": "उपेक्षा",
+          "en": "Blame"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-064-010",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
+      "topic_id": "individual_differences",
+      "topic": "Individual Differences",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "moderate",
       "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
@@ -197,35 +515,35 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "सीखने की गति कैसी हो सकती है?",
-      "question_en": "सीखने की गति कैसी हो सकती है?",
+      "question_hi": "व्यक्तिगत भिन्नता पर मूल्यांकन?",
+      "question_en": "Assessment of individual differences?",
       "options": [
         {
           "option_id": "A",
-          "hi": "समान होती है",
-          "en": "Is identical"
+          "hi": "स्थायी लेबल",
+          "en": "Public comparison"
         },
         {
           "option_id": "B",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
+          "hi": "विविध विधियों से",
+          "en": "विविध विधियों से"
         },
         {
           "option_id": "C",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
+          "hi": "एक टेस्ट मात्र",
+          "en": "Use varied methods"
         },
         {
           "option_id": "D",
-          "hi": "भिन्न हो सकती है",
-          "en": "May vary"
+          "hi": "सार्वजनिक तुलना",
+          "en": "One test only"
         }
       ],
       "correct_option": "B",
       "correct_index": 1,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -234,15 +552,121 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_005",
+      "question_id": "V6-CDP-064-011",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
       "topic_id": "individual_differences",
       "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "easy",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विशेष आवश्यकता वाले विद्यार्थी?",
+      "question_en": "Learners with special needs?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "कम अपेक्षा",
+          "en": "Always isolate"
+        },
+        {
+          "option_id": "B",
+          "hi": "अनदेखी",
+          "en": "Low expectations"
+        },
+        {
+          "option_id": "C",
+          "hi": "उचित अनुकूलन और सहभागिता",
+          "en": "उचित अनुकूलन और सहभागिता"
+        },
+        {
+          "option_id": "D",
+          "hi": "अलगाव हमेशा",
+          "en": "Appropriate adaptations and participation"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-064-012",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
+      "topic_id": "individual_differences",
+      "topic": "Individual Differences",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "रुचि आधारित विकल्प?",
+      "question_en": "Interest-based choices?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "समानता समाप्त",
+          "en": "Can increase engagement"
+        },
+        {
+          "option_id": "B",
+          "hi": "अनुशासन बिगाड़ते",
+          "en": "End equality"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल मनोरंजन",
+          "en": "Disrupt discipline"
+        },
+        {
+          "option_id": "D",
+          "hi": "सहभागिता बढ़ा सकते",
+          "en": "सहभागिता बढ़ा सकते"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-064-013",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
+      "topic_id": "individual_differences",
+      "topic": "Individual Differences",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "moderate",
       "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
@@ -250,35 +674,35 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "रुचि सीखने को कैसे प्रभावित करती है?",
-      "question_en": "रुचि सीखने को कैसे प्रभावित करती है?",
+      "question_hi": "शिक्षक पूर्वाग्रह का प्रभाव?",
+      "question_en": "Effect of teacher bias?",
       "options": [
         {
           "option_id": "A",
-          "hi": "सहभागिता बढ़ा सकती है",
-          "en": "May increase engagement"
+          "hi": "अपेक्षा और अवसर प्रभावित",
+          "en": "अपेक्षा और अवसर प्रभावित"
         },
         {
           "option_id": "B",
-          "hi": "हमेशा बाधा",
-          "en": "Always a barrier"
+          "hi": "कोई प्रभाव नहीं",
+          "en": "Can affect expectations and opportunities"
         },
         {
           "option_id": "C",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
+          "hi": "स्मृति बढ़ती",
+          "en": "No effect"
         },
         {
           "option_id": "D",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
+          "hi": "विकास समान",
+          "en": "Memory increases"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -287,14 +711,14 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_006",
+      "question_id": "V6-CDP-064-014",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
       "topic_id": "individual_differences",
       "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
       "difficulty": "moderate",
       "question_type": "Application-Based",
       "exam_tags": [
@@ -303,141 +727,35 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "क्षमता और उपलब्धि में अंतर क्या है?",
-      "question_en": "क्षमता और उपलब्धि में अंतर क्या है?",
+      "question_hi": "व्यक्तिगत लक्ष्य किस आधार पर?",
+      "question_en": "Individual goals should be based on?",
       "options": [
         {
           "option_id": "A",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
+          "hi": "केवल उम्र",
+          "en": "Fixed labels"
         },
         {
           "option_id": "B",
-          "hi": "अलग गुण और क्षमताएँ",
-          "en": "Different traits and abilities"
+          "hi": "वर्तमान स्तर और प्रगति",
+          "en": "वर्तमान स्तर और प्रगति"
         },
         {
           "option_id": "C",
-          "hi": "सबका समान होना",
-          "en": "Everyone being identical"
+          "hi": "दूसरों की रैंक",
+          "en": "Current level and progress"
         },
         {
           "option_id": "D",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
-        }
-      ],
-      "correct_option": "D",
-      "correct_index": 3,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_007",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "individual_differences",
-      "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "निष्पक्ष आकलन कैसे हो?",
-      "question_en": "निष्पक्ष आकलन कैसे हो?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
-        },
-        {
-          "option_id": "B",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
-        },
-        {
-          "option_id": "C",
-          "hi": "बुद्धि, रुचि, क्षमता और गति",
-          "en": "Intelligence, interest, ability and pace"
-        },
-        {
-          "option_id": "D",
-          "hi": "केवल वजन",
-          "en": "Weight only"
-        }
-      ],
-      "correct_option": "C",
-      "correct_index": 2,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_008",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "individual_differences",
-      "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "विविध शिक्षण क्यों उपयोगी है?",
-      "question_en": "विविध शिक्षण क्यों उपयोगी है?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "एक ही विधि",
-          "en": "One method only"
-        },
-        {
-          "option_id": "B",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
-        },
-        {
-          "option_id": "C",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
-        },
-        {
-          "option_id": "D",
-          "hi": "विविध रणनीतियाँ और अवसर",
-          "en": "Varied strategies and opportunities"
+          "hi": "स्थायी लेबल",
+          "en": "Others' rank"
         }
       ],
       "correct_option": "B",
       "correct_index": 1,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -446,15 +764,121 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_009",
+      "question_id": "V6-CDP-064-015",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
       "topic_id": "individual_differences",
       "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
       "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समानता और न्यायसंगतता में अंतर?",
+      "question_en": "Difference between equality and equity?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "न्यायसंगतता भेदभाव",
+          "en": "Same"
+        },
+        {
+          "option_id": "B",
+          "hi": "समानता सहायता नहीं",
+          "en": "Equity is discrimination"
+        },
+        {
+          "option_id": "C",
+          "hi": "न्यायसंगतता जरूरत के अनुसार सहायता",
+          "en": "न्यायसंगतता जरूरत के अनुसार सहायता"
+        },
+        {
+          "option_id": "D",
+          "hi": "दोनों समान",
+          "en": "Equity provides support according to need"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-064-016",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
+      "topic_id": "individual_differences",
+      "topic": "Individual Differences",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अभिभावक संवाद का उद्देश्य?",
+      "question_en": "Purpose of parent communication?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दोष देना",
+          "en": "Shared support plan"
+        },
+        {
+          "option_id": "B",
+          "hi": "तुलना",
+          "en": "Blame"
+        },
+        {
+          "option_id": "C",
+          "hi": "गोपनीयता तोड़ना",
+          "en": "Comparison"
+        },
+        {
+          "option_id": "D",
+          "hi": "साझा समर्थन योजना",
+          "en": "साझा समर्थन योजना"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-064-017",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
+      "topic_id": "individual_differences",
+      "topic": "Individual Differences",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "difficult",
       "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
@@ -462,35 +886,35 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "समान अवसर का अर्थ क्या है?",
-      "question_en": "समान अवसर का अर्थ क्या है?",
+      "question_hi": "विद्यार्थी की उपलब्धि समझते समय?",
+      "question_en": "When interpreting achievement?",
       "options": [
         {
           "option_id": "A",
-          "hi": "भिन्न हो सकती है",
-          "en": "May vary"
+          "hi": "संदर्भ और अवसर ध्यान में रखना",
+          "en": "संदर्भ और अवसर ध्यान में रखना"
         },
         {
           "option_id": "B",
-          "hi": "समान होती है",
-          "en": "Is identical"
+          "hi": "केवल क्षमता",
+          "en": "Consider context and opportunity"
         },
         {
           "option_id": "C",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
+          "hi": "केवल अंक",
+          "en": "Ability only"
         },
         {
           "option_id": "D",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
+          "hi": "स्थायी निर्णय",
+          "en": "Marks only"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -499,157 +923,51 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_010",
+      "question_id": "V6-CDP-064-018",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
       "topic_id": "individual_differences",
       "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "लचीले समूह क्यों बनाते हैं?",
-      "question_en": "लचीले समूह क्यों बनाते हैं?",
+      "question_hi": "समान सामग्री अलग तरीके से?",
+      "question_en": "Same content taught in different ways?",
       "options": [
         {
           "option_id": "A",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
+          "hi": "केवल मनोरंजन",
+          "en": "Weakens learning"
         },
         {
           "option_id": "B",
-          "hi": "सहभागिता बढ़ा सकती है",
-          "en": "May increase engagement"
+          "hi": "विभिन्न जरूरतों तक पहुंच",
+          "en": "विभिन्न जरूरतों तक पहुंच"
         },
         {
           "option_id": "C",
-          "hi": "हमेशा बाधा",
-          "en": "Always a barrier"
+          "hi": "अनुचित",
+          "en": "Access for diverse needs"
         },
         {
           "option_id": "D",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
-        }
-      ],
-      "correct_option": "D",
-      "correct_index": 3,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_011",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "individual_differences",
-      "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "बच्चों की तुलना का जोखिम क्या है?",
-      "question_en": "बच्चों की तुलना का जोखिम क्या है?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
-        },
-        {
-          "option_id": "B",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
-        },
-        {
-          "option_id": "C",
-          "hi": "अलग गुण और क्षमताएँ",
-          "en": "Different traits and abilities"
-        },
-        {
-          "option_id": "D",
-          "hi": "सबका समान होना",
-          "en": "Everyone being identical"
-        }
-      ],
-      "correct_option": "C",
-      "correct_index": 2,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_012",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "individual_differences",
-      "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "प्रगति-केंद्रित प्रतिक्रिया क्या है?",
-      "question_en": "प्रगति-केंद्रित प्रतिक्रिया क्या है?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "केवल वजन",
-          "en": "Weight only"
-        },
-        {
-          "option_id": "B",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
-        },
-        {
-          "option_id": "C",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
-        },
-        {
-          "option_id": "D",
-          "hi": "बुद्धि, रुचि, क्षमता और गति",
-          "en": "Intelligence, interest, ability and pace"
+          "hi": "सीखना कमजोर",
+          "en": "Unfair"
         }
       ],
       "correct_option": "B",
       "correct_index": 1,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -658,157 +976,51 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_013",
+      "question_id": "V6-CDP-064-019",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
       "topic_id": "individual_differences",
       "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "रचनात्मकता में भिन्नता कैसे दिखती है?",
-      "question_en": "रचनात्मकता में भिन्नता कैसे दिखती है?",
+      "question_hi": "व्यक्तिगत भिन्नता को चुनौती नहीं, क्या मानें?",
+      "question_en": "Treat individual differences as what rather than a problem?",
       "options": [
         {
           "option_id": "A",
-          "hi": "विविध रणनीतियाँ और अवसर",
-          "en": "Varied strategies and opportunities"
+          "hi": "लेबल",
+          "en": "Barrier"
         },
         {
           "option_id": "B",
-          "hi": "एक ही विधि",
-          "en": "One method only"
+          "hi": "दंड कारण",
+          "en": "Label"
         },
         {
           "option_id": "C",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
+          "hi": "शिक्षण डिजाइन का आधार",
+          "en": "शिक्षण डिजाइन का आधार"
         },
         {
           "option_id": "D",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_014",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "individual_differences",
-      "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "अवलोकन क्यों उपयोगी है?",
-      "question_en": "अवलोकन क्यों उपयोगी है?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
-        },
-        {
-          "option_id": "B",
-          "hi": "भिन्न हो सकती है",
-          "en": "May vary"
-        },
-        {
-          "option_id": "C",
-          "hi": "समान होती है",
-          "en": "Is identical"
-        },
-        {
-          "option_id": "D",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
-        }
-      ],
-      "correct_option": "D",
-      "correct_index": 3,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_015",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "individual_differences",
-      "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "अतिरिक्त समय कब उचित है?",
-      "question_en": "अतिरिक्त समय कब उचित है?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
-        },
-        {
-          "option_id": "B",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
-        },
-        {
-          "option_id": "C",
-          "hi": "सहभागिता बढ़ा सकती है",
-          "en": "May increase engagement"
-        },
-        {
-          "option_id": "D",
-          "hi": "हमेशा बाधा",
-          "en": "Always a barrier"
+          "hi": "अवरोध",
+          "en": "Basis for instructional design"
         }
       ],
       "correct_option": "C",
       "correct_index": 2,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
@@ -817,263 +1029,51 @@
       "created_at": "2026-11-19"
     },
     {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_016",
+      "question_id": "V6-CDP-064-020",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Individual Differences",
       "topic_id": "individual_differences",
       "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "individual_differences",
+      "subtopic": "Individual Differences",
       "difficulty": "difficult",
-      "question_type": "Analytical",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "बहुस्तरीय शिक्षण क्या है?",
-      "question_en": "बहुस्तरीय शिक्षण क्या है?",
+      "question_hi": "सर्वोत्तम शिक्षक दृष्टिकोण?",
+      "question_en": "Best teacher approach?",
       "options": [
         {
           "option_id": "A",
-          "hi": "सबका समान होना",
-          "en": "Everyone being identical"
+          "hi": "समान कठोर विधि",
+          "en": "High expectations, flexible support and respect"
         },
         {
           "option_id": "B",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
+          "hi": "स्थायी श्रेणी",
+          "en": "Rigid uniform method"
         },
         {
           "option_id": "C",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
+          "hi": "तुलना",
+          "en": "Permanent categories"
         },
         {
           "option_id": "D",
-          "hi": "अलग गुण और क्षमताएँ",
-          "en": "Different traits and abilities"
-        }
-      ],
-      "correct_option": "B",
-      "correct_index": 1,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_017",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "individual_differences",
-      "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "शिक्षण में लचीलापन क्या देता है?",
-      "question_en": "शिक्षण में लचीलापन क्या देता है?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "बुद्धि, रुचि, क्षमता और गति",
-          "en": "Intelligence, interest, ability and pace"
-        },
-        {
-          "option_id": "B",
-          "hi": "केवल वजन",
-          "en": "Weight only"
-        },
-        {
-          "option_id": "C",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
-        },
-        {
-          "option_id": "D",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_018",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "individual_differences",
-      "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "व्यक्तिगत जरूरत पहचानने का तरीका?",
-      "question_en": "व्यक्तिगत जरूरत पहचानने का तरीका?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
-        },
-        {
-          "option_id": "B",
-          "hi": "विविध रणनीतियाँ और अवसर",
-          "en": "Varied strategies and opportunities"
-        },
-        {
-          "option_id": "C",
-          "hi": "एक ही विधि",
-          "en": "One method only"
-        },
-        {
-          "option_id": "D",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
+          "hi": "उच्च अपेक्षा, लचीली सहायता और सम्मान",
+          "en": "उच्च अपेक्षा, लचीली सहायता और सम्मान"
         }
       ],
       "correct_option": "D",
       "correct_index": 3,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_019",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "individual_differences",
-      "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भिन्नता सामान्य क्यों है?",
-      "question_en": "भिन्नता सामान्य क्यों है?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
-        },
-        {
-          "option_id": "B",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
-        },
-        {
-          "option_id": "C",
-          "hi": "भिन्न हो सकती है",
-          "en": "May vary"
-        },
-        {
-          "option_id": "D",
-          "hi": "समान होती है",
-          "en": "Is identical"
-        }
-      ],
-      "correct_option": "C",
-      "correct_index": 2,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INDIVIDUAL_DIFFERENCES_V6_020",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "individual_differences",
-      "topic": "Individual Differences",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "सही शिक्षक दृष्टिकोण क्या है?",
-      "question_en": "सही शिक्षक दृष्टिकोण क्या है?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "हमेशा बाधा",
-          "en": "Always a barrier"
-        },
-        {
-          "option_id": "B",
-          "hi": "पर्यावरण और अनुभव",
-          "en": "Environment and experience"
-        },
-        {
-          "option_id": "C",
-          "hi": "संदर्भ पर निर्भर",
-          "en": "Depends on context"
-        },
-        {
-          "option_id": "D",
-          "hi": "सहभागिता बढ़ा सकती है",
-          "en": "May increase engagement"
-        }
-      ],
-      "correct_option": "B",
-      "correct_index": 1,
-      "explanation_hi": "यह प्रश्न Individual Differences की मूल अवधारणा पर आधारित है। सही विकल्प विषय की सामान्य शैक्षिक समझ दर्शाता है।",
-      "explanation_en": "This question tests a core concept of Individual Differences. The correct option reflects general educational understanding.",
-      "source_reference": "Original practice item; not official PYQ.",
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
