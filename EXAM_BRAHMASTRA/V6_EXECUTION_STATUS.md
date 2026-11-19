@@ -169,3 +169,16 @@ A topic is marked complete only when its minimum question count exists and passe
 - 5 topic packs, 100 records total; JSON structure was generated consistently.
 - Concept-based practice drafts; not official PYQs.
 - Independent factual review, translation quality, answer-key validation and distractor audit are pending. English option text may require translation cleanup before production use.
+
+
+| V6-CDP-060 | CDP | Learning Theories | 20 | Generated; QA pending |
+| V6-CDP-061 | CDP | Memory & Forgetting | 20 | Generated; QA pending |
+| V6-CDP-062 | CDP | Attention & Interest | 20 | Generated; QA pending |
+| V6-CDP-063 | CDP | Motivation | 20 | Generated; QA pending |
+| V6-CDP-064 | CDP | Individual Differences | 20 | Generated; QA pending |
+
+## Batch QA — V6-CDP-060–064
+- Five topic packs, 100 records total.
+- Concept-based practice drafts, not official PYQs.
+- Structural generation and answer-option rotation performed; independent factual, translation, answer-key and distractor review remains pending.
+- English option fields are not all fully translated into Hindi; bilingual editorial cleanup required before production use.
