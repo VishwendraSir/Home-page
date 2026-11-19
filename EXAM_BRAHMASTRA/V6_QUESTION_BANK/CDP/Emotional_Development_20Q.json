@@ -31,7 +31,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "Emotional development relates to what?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -44,37 +44,21 @@
         {
           "option_id": "A",
           "hi": "भावनाओं को पहचानना, व्यक्त करना और नियंत्रित करना",
-          "en": "भावनाओं को पहचानना, व्यक्त करना और नियंत्रित करना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Recognising, expressing and regulating emotions",
           "en": "Recognising, expressing and regulating emotions"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल ऊँचाई",
-          "en": "केवल ऊँचाई"
-        },
-        {
-          "option_id": "D",
-          "hi": "Height only",
           "en": "Height only"
         },
         {
+          "option_id": "C",
           "hi": "केवल स्मृति",
-          "en": "केवल स्मृति"
-        },
-        {
-          "hi": "Memory only",
           "en": "Memory only"
         },
         {
+          "option_id": "D",
           "hi": "केवल भाषा व्याकरण",
-          "en": "केवल भाषा व्याकरण"
-        },
-        {
-          "hi": "Grammar only",
           "en": "Grammar only"
         }
       ],
@@ -100,7 +84,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "Emotional regulation means—",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -113,37 +97,21 @@
         {
           "option_id": "A",
           "hi": "भावनाओं को परिस्थिति के अनुरूप संभालना",
-          "en": "भावनाओं को परिस्थिति के अनुरूप संभालना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Managing emotions appropriately to a situation",
           "en": "Managing emotions appropriately to a situation"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "भावनाएँ कभी न होना",
-          "en": "भावनाएँ कभी न होना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Never having emotions",
           "en": "Never having emotions"
         },
         {
+          "option_id": "C",
           "hi": "भावनाओं को हमेशा दबाना",
-          "en": "भावनाओं को हमेशा दबाना"
-        },
-        {
-          "hi": "Always suppressing emotions",
           "en": "Always suppressing emotions"
         },
         {
+          "option_id": "D",
           "hi": "दूसरों को दोष देना",
-          "en": "दूसरों को दोष देना"
-        },
-        {
-          "hi": "Blaming others",
           "en": "Blaming others"
         }
       ],
@@ -169,7 +137,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "What is empathy?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -182,37 +150,21 @@
         {
           "option_id": "A",
           "hi": "दूसरे की भावनाओं और दृष्टिकोण को समझना",
-          "en": "दूसरे की भावनाओं और दृष्टिकोण को समझना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Understanding another person's feelings and perspective",
           "en": "Understanding another person's feelings and perspective"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल अपनी भावना",
-          "en": "केवल अपनी भावना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Only one's own feeling",
           "en": "Only one's own feeling"
         },
         {
+          "option_id": "C",
           "hi": "दंड देना",
-          "en": "दंड देना"
-        },
-        {
-          "hi": "Punishing",
           "en": "Punishing"
         },
         {
+          "option_id": "D",
           "hi": "भावना छिपाना",
-          "en": "भावना छिपाना"
-        },
-        {
-          "hi": "Hiding emotion",
           "en": "Hiding emotion"
         }
       ],
@@ -238,7 +190,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "A good way to teach emotion recognition is—",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -251,37 +203,21 @@
         {
           "option_id": "A",
           "hi": "भावनाओं के नाम और परिस्थितियों पर चर्चा",
-          "en": "भावनाओं के नाम और परिस्थितियों पर चर्चा"
-        },
-        {
-          "option_id": "B",
-          "hi": "Discuss emotion labels and situations",
           "en": "Discuss emotion labels and situations"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "भावनाओं को गलत कहना",
-          "en": "भावनाओं को गलत कहना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Call emotions wrong",
           "en": "Call emotions wrong"
         },
         {
+          "option_id": "C",
           "hi": "बच्चों को चुप कराना",
-          "en": "बच्चों को चुप कराना"
-        },
-        {
-          "hi": "Silence children",
           "en": "Silence children"
         },
         {
+          "option_id": "D",
           "hi": "केवल परीक्षा",
-          "en": "केवल परीक्षा"
-        },
-        {
-          "hi": "Exam only",
           "en": "Exam only"
         }
       ],
@@ -307,7 +243,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "What may influence self-confidence?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -320,37 +256,21 @@
         {
           "option_id": "A",
           "hi": "अनुभव, समर्थन और उपलब्धियाँ",
-          "en": "अनुभव, समर्थन और उपलब्धियाँ"
-        },
-        {
-          "option_id": "B",
-          "hi": "Experiences, support and accomplishments",
           "en": "Experiences, support and accomplishments"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल उम्र",
-          "en": "केवल उम्र"
-        },
-        {
-          "option_id": "D",
-          "hi": "Age only",
           "en": "Age only"
         },
         {
+          "option_id": "C",
           "hi": "केवल ऊँचाई",
-          "en": "केवल ऊँचाई"
-        },
-        {
-          "hi": "Height only",
           "en": "Height only"
         },
         {
+          "option_id": "D",
           "hi": "किसी से नहीं",
-          "en": "किसी से नहीं"
-        },
-        {
-          "hi": "Nothing",
           "en": "Nothing"
         }
       ],
@@ -376,7 +296,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "A suitable teacher response when a child is frustrated is—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -389,37 +309,21 @@
         {
           "option_id": "A",
           "hi": "भावना स्वीकार कर रणनीति सिखाना",
-          "en": "भावना स्वीकार कर रणनीति सिखाना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Acknowledge the feeling and teach a coping strategy",
           "en": "Acknowledge the feeling and teach a coping strategy"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "उपहास करना",
-          "en": "उपहास करना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Mock the child",
           "en": "Mock the child"
         },
         {
+          "option_id": "C",
           "hi": "दंडित करना",
-          "en": "दंडित करना"
-        },
-        {
-          "hi": "Punish",
           "en": "Punish"
         },
         {
+          "option_id": "D",
           "hi": "अनदेखा करना",
-          "en": "अनदेखा करना"
-        },
-        {
-          "hi": "Ignore",
           "en": "Ignore"
         }
       ],
@@ -445,7 +349,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "The family's role in emotional development—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -458,37 +362,21 @@
         {
           "option_id": "A",
           "hi": "सुरक्षा, मॉडलिंग और समर्थन प्रदान करना",
-          "en": "सुरक्षा, मॉडलिंग और समर्थन प्रदान करना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Provide security, modelling and support",
           "en": "Provide security, modelling and support"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "कोई भूमिका नहीं",
-          "en": "कोई भूमिका नहीं"
-        },
-        {
-          "option_id": "D",
-          "hi": "No role",
           "en": "No role"
         },
         {
+          "option_id": "C",
           "hi": "केवल अंक देना",
-          "en": "केवल अंक देना"
-        },
-        {
-          "hi": "Give marks only",
           "en": "Give marks only"
         },
         {
+          "option_id": "D",
           "hi": "केवल नियंत्रण",
-          "en": "केवल नियंत्रण"
-        },
-        {
-          "hi": "Control only",
           "en": "Control only"
         }
       ],
@@ -514,7 +402,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Individual differences in emotional expression—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -527,37 +415,21 @@
         {
           "option_id": "A",
           "hi": "सामान्य और संदर्भ से प्रभावित",
-          "en": "सामान्य और संदर्भ से प्रभावित"
-        },
-        {
-          "option_id": "B",
-          "hi": "Normal and context-influenced",
           "en": "Normal and context-influenced"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "हमेशा समस्या",
-          "en": "हमेशा समस्या"
-        },
-        {
-          "option_id": "D",
-          "hi": "Always a problem",
           "en": "Always a problem"
         },
         {
+          "option_id": "C",
           "hi": "केवल उम्र पर निर्भर",
-          "en": "केवल उम्र पर निर्भर"
-        },
-        {
-          "hi": "Age only",
           "en": "Age only"
         },
         {
+          "option_id": "D",
           "hi": "समान होना आवश्यक",
-          "en": "समान होना आवश्यक"
-        },
-        {
-          "hi": "Must be identical",
           "en": "Must be identical"
         }
       ],
@@ -583,7 +455,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "How does a safe classroom support emotional development?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -596,37 +468,21 @@
         {
           "option_id": "A",
           "hi": "बच्चे भावनाएँ और विचार व्यक्त कर पाते हैं",
-          "en": "बच्चे भावनाएँ और विचार व्यक्त कर पाते हैं"
-        },
-        {
-          "option_id": "B",
-          "hi": "Children can express feelings and ideas",
           "en": "Children can express feelings and ideas"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "भय बढ़ाती है",
-          "en": "भय बढ़ाती है"
-        },
-        {
-          "option_id": "D",
-          "hi": "Increases fear",
           "en": "Increases fear"
         },
         {
+          "option_id": "C",
           "hi": "सहभागिता रोकती है",
-          "en": "सहभागिता रोकती है"
-        },
-        {
-          "hi": "Stops participation",
           "en": "Stops participation"
         },
         {
+          "option_id": "D",
           "hi": "केवल प्रतिस्पर्धा",
-          "en": "केवल प्रतिस्पर्धा"
-        },
-        {
-          "hi": "Competition only",
           "en": "Competition only"
         }
       ],
@@ -652,7 +508,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "What does emotional intelligence include?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -665,37 +521,21 @@
         {
           "option_id": "A",
           "hi": "भावनाओं को पहचानना और समझना",
-          "en": "भावनाओं को पहचानना और समझना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Recognising and understanding emotions",
           "en": "Recognising and understanding emotions"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल IQ",
-          "en": "केवल IQ"
-        },
-        {
-          "option_id": "D",
-          "hi": "IQ only",
           "en": "IQ only"
         },
         {
+          "option_id": "C",
           "hi": "केवल शारीरिक क्षमता",
-          "en": "केवल शारीरिक क्षमता"
-        },
-        {
-          "hi": "Physical ability only",
           "en": "Physical ability only"
         },
         {
+          "option_id": "D",
           "hi": "केवल लिखना",
-          "en": "केवल लिखना"
-        },
-        {
-          "hi": "Writing only",
           "en": "Writing only"
         }
       ],
@@ -721,7 +561,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "The purpose of teaching anger management is—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -734,37 +574,21 @@
         {
           "option_id": "A",
           "hi": "स्वस्थ प्रतिक्रिया और नियंत्रण विकसित करना",
-          "en": "स्वस्थ प्रतिक्रिया और नियंत्रण विकसित करना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Develop healthy responses and regulation",
           "en": "Develop healthy responses and regulation"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "क्रोध को अपराध मानना",
-          "en": "क्रोध को अपराध मानना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Treat anger as a crime",
           "en": "Treat anger as a crime"
         },
         {
+          "option_id": "C",
           "hi": "भावनाएँ समाप्त करना",
-          "en": "भावनाएँ समाप्त करना"
-        },
-        {
-          "hi": "Eliminate emotions",
           "en": "Eliminate emotions"
         },
         {
+          "option_id": "D",
           "hi": "बच्चे को अलग करना",
-          "en": "बच्चे को अलग करना"
-        },
-        {
-          "hi": "Isolate child",
           "en": "Isolate child"
         }
       ],
@@ -790,7 +614,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "How is emotional development appropriately assessed?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -803,37 +627,21 @@
         {
           "option_id": "A",
           "hi": "अवलोकन और विविध परिस्थितियों में व्यवहार",
-          "en": "अवलोकन और विविध परिस्थितियों में व्यवहार"
-        },
-        {
-          "option_id": "B",
-          "hi": "Observation across varied situations",
           "en": "Observation across varied situations"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "एक बार की परीक्षा",
-          "en": "एक बार की परीक्षा"
-        },
-        {
-          "option_id": "D",
-          "hi": "One-time test",
           "en": "One-time test"
         },
         {
+          "option_id": "C",
           "hi": "केवल अंक",
-          "en": "केवल अंक"
-        },
-        {
-          "hi": "Marks only",
           "en": "Marks only"
         },
         {
+          "option_id": "D",
           "hi": "सार्वजनिक तुलना",
-          "en": "सार्वजनिक तुलना"
-        },
-        {
-          "hi": "Public comparison",
           "en": "Public comparison"
         }
       ],
@@ -859,7 +667,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "A child names their feeling. What skill does this indicate?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -872,37 +680,21 @@
         {
           "option_id": "A",
           "hi": "भावनात्मक जागरूकता",
-          "en": "भावनात्मक जागरूकता"
-        },
-        {
-          "option_id": "B",
-          "hi": "Emotional awareness",
           "en": "Emotional awareness"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "स्थूल मोटर कौशल",
-          "en": "स्थूल मोटर कौशल"
-        },
-        {
-          "option_id": "D",
-          "hi": "Gross motor skill",
           "en": "Gross motor skill"
         },
         {
+          "option_id": "C",
           "hi": "वर्गीकरण मात्र",
-          "en": "वर्गीकरण मात्र"
-        },
-        {
-          "hi": "Classification only",
           "en": "Classification only"
         },
         {
+          "option_id": "D",
           "hi": "वस्तु स्थायित्व",
-          "en": "वस्तु स्थायित्व"
-        },
-        {
-          "hi": "Object permanence",
           "en": "Object permanence"
         }
       ],
@@ -928,7 +720,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Asking for help in emotional development—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -941,37 +733,21 @@
         {
           "option_id": "A",
           "hi": "उपयुक्त मुकाबला कौशल हो सकता है",
-          "en": "उपयुक्त मुकाबला कौशल हो सकता है"
-        },
-        {
-          "option_id": "B",
-          "hi": "Can be an appropriate coping skill",
           "en": "Can be an appropriate coping skill"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "हमेशा कमजोरी",
-          "en": "हमेशा कमजोरी"
-        },
-        {
-          "option_id": "D",
-          "hi": "Always weakness",
           "en": "Always weakness"
         },
         {
+          "option_id": "C",
           "hi": "अनुशासनहीनता",
-          "en": "अनुशासनहीनता"
-        },
-        {
-          "hi": "Misconduct",
           "en": "Misconduct"
         },
         {
+          "option_id": "D",
           "hi": "विकास में बाधा",
-          "en": "विकास में बाधा"
-        },
-        {
-          "hi": "Developmental barrier",
           "en": "Developmental barrier"
         }
       ],
@@ -997,7 +773,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "An emotionally responsive teacher—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1010,37 +786,21 @@
         {
           "option_id": "A",
           "hi": "बच्चों की भावनाओं को सुनता और सम्मान देता है",
-          "en": "बच्चों की भावनाओं को सुनता और सम्मान देता है"
-        },
-        {
-          "option_id": "B",
-          "hi": "Listens to and respects children's feelings",
           "en": "Listens to and respects children's feelings"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "भावनाओं का मजाक",
-          "en": "भावनाओं का मजाक"
-        },
-        {
-          "option_id": "D",
-          "hi": "Mocks feelings",
           "en": "Mocks feelings"
         },
         {
+          "option_id": "C",
           "hi": "केवल दंड",
-          "en": "केवल दंड"
-        },
-        {
-          "hi": "Only punishes",
           "en": "Only punishes"
         },
         {
+          "option_id": "D",
           "hi": "सबको चुप",
-          "en": "सबको चुप"
-        },
-        {
-          "hi": "Silences all",
           "en": "Silences all"
         }
       ],
@@ -1066,7 +826,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "Emotional and social development—",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1079,37 +839,21 @@
         {
           "option_id": "A",
           "hi": "एक-दूसरे को प्रभावित कर सकते हैं",
-          "en": "एक-दूसरे को प्रभावित कर सकते हैं"
-        },
-        {
-          "option_id": "B",
-          "hi": "Can influence each other",
           "en": "Can influence each other"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "असंबंधित हैं",
-          "en": "असंबंधित हैं"
-        },
-        {
-          "option_id": "D",
-          "hi": "Unrelated",
           "en": "Unrelated"
         },
         {
+          "option_id": "C",
           "hi": "केवल शारीरिक हैं",
-          "en": "केवल शारीरिक हैं"
-        },
-        {
-          "hi": "Physical only",
           "en": "Physical only"
         },
         {
+          "option_id": "D",
           "hi": "एक ही प्रक्रिया नहीं",
-          "en": "एक ही प्रक्रिया नहीं"
-        },
-        {
-          "hi": "Not the same process",
           "en": "Not the same process"
         }
       ],
@@ -1135,7 +879,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "Difference between emotion and behaviour—",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1148,37 +892,21 @@
         {
           "option_id": "A",
           "hi": "भावना अनुभव है; व्यवहार उसकी प्रतिक्रिया हो सकता है",
-          "en": "भावना अनुभव है; व्यवहार उसकी प्रतिक्रिया हो सकता है"
-        },
-        {
-          "option_id": "B",
-          "hi": "Emotion is an experience; behaviour may be a response",
           "en": "Emotion is an experience; behaviour may be a response"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "दोनों हमेशा समान",
-          "en": "दोनों हमेशा समान"
-        },
-        {
-          "option_id": "D",
-          "hi": "Always identical",
           "en": "Always identical"
         },
         {
+          "option_id": "C",
           "hi": "भावना केवल व्यवहार",
-          "en": "भावना केवल व्यवहार"
-        },
-        {
-          "hi": "Emotion is only behaviour",
           "en": "Emotion is only behaviour"
         },
         {
+          "option_id": "D",
           "hi": "व्यवहार का कोई कारण नहीं",
-          "en": "व्यवहार का कोई कारण नहीं"
-        },
-        {
-          "hi": "Behaviour has no cause",
           "en": "Behaviour has no cause"
         }
       ],
@@ -1204,7 +932,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "Contribution of play to emotional development—",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1217,37 +945,21 @@
         {
           "option_id": "A",
           "hi": "भावनाओं का अभ्यास और अभिव्यक्ति",
-          "en": "भावनाओं का अभ्यास और अभिव्यक्ति"
-        },
-        {
-          "option_id": "B",
-          "hi": "Practice and expression of emotions",
           "en": "Practice and expression of emotions"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल समय नष्ट",
-          "en": "केवल समय नष्ट"
-        },
-        {
-          "option_id": "D",
-          "hi": "Only wasting time",
           "en": "Only wasting time"
         },
         {
+          "option_id": "C",
           "hi": "भावना रोकना",
-          "en": "भावना रोकना"
-        },
-        {
-          "hi": "Stopping emotions",
           "en": "Stopping emotions"
         },
         {
+          "option_id": "D",
           "hi": "स्मृति हटाना",
-          "en": "स्मृति हटाना"
-        },
-        {
-          "hi": "Erasing memory",
           "en": "Erasing memory"
         }
       ],
@@ -1273,7 +985,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "Priority for an emotionally distressed child—",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1286,37 +998,21 @@
         {
           "option_id": "A",
           "hi": "सुरक्षा, सुनना और आवश्यक सहायता",
-          "en": "सुरक्षा, सुनना और आवश्यक सहायता"
-        },
-        {
-          "option_id": "B",
-          "hi": "Safety, listening and appropriate support",
           "en": "Safety, listening and appropriate support"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "तुरंत दोष",
-          "en": "तुरंत दोष"
-        },
-        {
-          "option_id": "D",
-          "hi": "Immediate blame",
           "en": "Immediate blame"
         },
         {
+          "option_id": "C",
           "hi": "सार्वजनिक आलोचना",
-          "en": "सार्वजनिक आलोचना"
-        },
-        {
-          "hi": "Public criticism",
           "en": "Public criticism"
         },
         {
+          "option_id": "D",
           "hi": "अनदेखी",
-          "en": "अनदेखी"
-        },
-        {
-          "hi": "Ignore",
           "en": "Ignore"
         }
       ],
@@ -1342,7 +1038,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "Correct statement about emotional development—",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1355,37 +1051,21 @@
         {
           "option_id": "A",
           "hi": "यह अनुभव और संबंधों से विकसित होता है",
-          "en": "यह अनुभव और संबंधों से विकसित होता है"
-        },
-        {
-          "option_id": "B",
-          "hi": "It develops through experience and relationships",
           "en": "It develops through experience and relationships"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "जन्म पर पूर्ण होता है",
-          "en": "जन्म पर पूर्ण होता है"
-        },
-        {
-          "option_id": "D",
-          "hi": "Complete at birth",
           "en": "Complete at birth"
         },
         {
+          "option_id": "C",
           "hi": "सभी बच्चों में समान",
-          "en": "सभी बच्चों में समान"
-        },
-        {
-          "hi": "Same in all children",
           "en": "Same in all children"
         },
         {
+          "option_id": "D",
           "hi": "केवल पाठ्यपुस्तक से",
-          "en": "केवल पाठ्यपुस्तक से"
-        },
-        {
-          "hi": "Only through textbooks",
           "en": "Only through textbooks"
         }
       ],
