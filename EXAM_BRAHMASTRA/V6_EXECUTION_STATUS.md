@@ -157,3 +157,15 @@ A topic is marked complete only when its minimum question count exists and passe
 - 5 topic packs, 100 records total. Two existing files were updated in this run.
 - Concept-based draft items; not official PYQs.
 - Independent fact review, bilingual quality, duplication and answer-key validation remain pending.
+
+
+| V6-CDP-055 | CDP | Heredity & Environment | 20 | Generated; QA pending |
+| V6-CDP-056 | CDP | Principles of Growth & Development | 20 | Generated; QA pending |
+| V6-CDP-057 | CDP | Developmental Stages & Milestones | 20 | Generated; QA pending |
+| V6-CDP-058 | CDP | Adolescence & Puberty | 20 | Generated; QA pending |
+| V6-CDP-059 | CDP | Child-Centred Pedagogy | 20 | Generated; QA pending |
+
+## Batch QA — V6-CDP-055–059
+- 5 topic packs, 100 records total; JSON structure was generated consistently.
+- Concept-based practice drafts; not official PYQs.
+- Independent factual review, translation quality, answer-key validation and distractor audit are pending. English option text may require translation cleanup before production use.
