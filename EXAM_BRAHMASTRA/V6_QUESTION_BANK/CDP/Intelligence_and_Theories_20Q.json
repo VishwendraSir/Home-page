@@ -1,0 +1,1325 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Intelligence & Intelligence Theories",
+  "batch_id": "V6-CDP-45",
+  "subject_id": "cdp",
+  "topic_id": "intelligence_theories",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Gardner का सिद्धांत—",
+      "question_en": "Gardner's theory—",
+      "options": [
+        {
+          "hi": "बहुविध बुद्धियों की अवधारणा",
+          "en": "Multiple intelligences",
+          "option_id": "A"
+        },
+        {
+          "hi": "ए",
+          "en": "क",
+          "option_id": "B"
+        },
+        {
+          "hi": "O",
+          "en": "n",
+          "option_id": "C"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "D"
+        },
+        {
+          "hi": "M",
+          "en": "e"
+        },
+        {
+          "hi": "क",
+          "en": "े"
+        },
+        {
+          "hi": "I",
+          "en": "Q"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Gardner proposed multiple forms of intelligence.",
+      "explanation_en": "Gardner proposed multiple forms of intelligence.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Sternberg का सिद्धांत—",
+      "question_en": "Sternberg's theory—",
+      "options": [
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "A"
+        },
+        {
+          "hi": "L",
+          "en": "i",
+          "option_id": "B"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "C"
+        },
+        {
+          "hi": "M",
+          "en": "e",
+          "option_id": "D"
+        },
+        {
+          "hi": "क",
+          "en": "े"
+        },
+        {
+          "hi": "S",
+          "en": "p"
+        },
+        {
+          "hi": "विश्लेषणात्मक, सृजनात्मक और व्यावहारिक बुद्धि",
+          "en": "Analytical, creative and practical intelligence"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Triarchic theory includes analytical, creative and practical aspects.",
+      "explanation_en": "Triarchic theory includes analytical, creative and practical aspects.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "IQ का पारंपरिक सूत्र—",
+      "question_en": "Traditional IQ formula—",
+      "options": [
+        {
+          "hi": "C",
+          "en": "h",
+          "option_id": "A"
+        },
+        {
+          "hi": "द",
+          "en": "ो",
+          "option_id": "B"
+        },
+        {
+          "hi": "A",
+          "en": "d",
+          "option_id": "C"
+        },
+        {
+          "hi": "आ",
+          "en": "य",
+          "option_id": "D"
+        },
+        {
+          "hi": "A",
+          "en": "g"
+        },
+        {
+          "hi": "मानसिक आयु ÷ वास्तविक आयु × 100",
+          "en": "Mental age ÷ chronological age × 100"
+        },
+        {
+          "hi": "व",
+          "en": "ा"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "This is the historical ratio IQ formula; modern tests use different norms.",
+      "explanation_en": "This is the historical ratio IQ formula; modern tests use different norms.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Spearman ने माना—",
+      "question_en": "Spearman proposed—",
+      "options": [
+        {
+          "hi": "भ",
+          "en": "ा",
+          "option_id": "A"
+        },
+        {
+          "hi": "E",
+          "en": "m",
+          "option_id": "B"
+        },
+        {
+          "hi": "क",
+          "en": "ो",
+          "option_id": "C"
+        },
+        {
+          "hi": "N",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "सामान्य g और विशिष्ट s कारक",
+          "en": "General g and specific s factors"
+        },
+        {
+          "hi": "क",
+          "en": "े"
+        },
+        {
+          "hi": "O",
+          "en": "n"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Spearman described general and specific factors.",
+      "explanation_en": "Spearman described general and specific factors.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Binet का योगदान—",
+      "question_en": "Binet's contribution—",
+      "options": [
+        {
+          "hi": "बच्चों की शैक्षिक जरूरत पहचानने हेतु परीक्षण",
+          "en": "Tests to identify educational needs",
+          "option_id": "A"
+        },
+        {
+          "hi": "व",
+          "en": "्",
+          "option_id": "B"
+        },
+        {
+          "hi": "P",
+          "en": "e",
+          "option_id": "C"
+        },
+        {
+          "hi": "प",
+          "en": "्",
+          "option_id": "D"
+        },
+        {
+          "hi": "M",
+          "en": "o"
+        },
+        {
+          "hi": "स",
+          "en": "ु"
+        },
+        {
+          "hi": "R",
+          "en": "e"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Binet developed early assessment intended to identify support needs.",
+      "explanation_en": "Binet developed early assessment intended to identify support needs.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भावनात्मक बुद्धि—",
+      "question_en": "Emotional intelligence—",
+      "options": [
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "A"
+        },
+        {
+          "hi": "C",
+          "en": "a",
+          "option_id": "B"
+        },
+        {
+          "hi": "श",
+          "en": "ा",
+          "option_id": "C"
+        },
+        {
+          "hi": "P",
+          "en": "h",
+          "option_id": "D"
+        },
+        {
+          "hi": "र",
+          "en": "ट"
+        },
+        {
+          "hi": "R",
+          "en": "o"
+        },
+        {
+          "hi": "भावनाओं को पहचानना और प्रबंधित करना",
+          "en": "Recognise and manage emotions"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Emotional intelligence concerns understanding and managing emotions.",
+      "explanation_en": "Emotional intelligence concerns understanding and managing emotions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बुद्धि परीक्षण में सांस्कृतिक पक्षपात—",
+      "question_en": "Cultural bias in intelligence tests—",
+      "options": [
+        {
+          "hi": "I",
+          "en": "m",
+          "option_id": "A"
+        },
+        {
+          "hi": "ह",
+          "en": "म",
+          "option_id": "B"
+        },
+        {
+          "hi": "A",
+          "en": "l",
+          "option_id": "C"
+        },
+        {
+          "hi": "ब",
+          "en": "ु",
+          "option_id": "D"
+        },
+        {
+          "hi": "P",
+          "en": "r"
+        },
+        {
+          "hi": "समान अवसर और संदर्भ को प्रभावित कर सकता",
+          "en": "May affect fairness and context"
+        },
+        {
+          "hi": "अ",
+          "en": "स"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Test context and culture can influence performance.",
+      "explanation_en": "Test context and culture can influence performance.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बुद्धि स्थिर मानना—",
+      "question_en": "Treating intelligence as fixed—",
+      "options": [
+        {
+          "hi": "स",
+          "en": "ह",
+          "option_id": "A"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "अ",
+          "en": "व",
+          "option_id": "C"
+        },
+        {
+          "hi": "O",
+          "en": "b",
+          "option_id": "D"
+        },
+        {
+          "hi": "विकास की संभावना उपेक्षित करता",
+          "en": "Neglects potential for development"
+        },
+        {
+          "hi": "स",
+          "en": "ह"
+        },
+        {
+          "hi": "S",
+          "en": "o"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "A fixed view may overlook learning and development.",
+      "explanation_en": "A fixed view may overlook learning and development.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक बुद्धि की विविधता—",
+      "question_en": "A teacher recognises diverse intelligence by—",
+      "options": [
+        {
+          "hi": "विविध गतिविधियाँ और अभिव्यक्ति देना",
+          "en": "Offer varied activities and expression",
+          "option_id": "A"
+        },
+        {
+          "hi": "ए",
+          "en": "क",
+          "option_id": "B"
+        },
+        {
+          "hi": "O",
+          "en": "n",
+          "option_id": "C"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "D"
+        },
+        {
+          "hi": "R",
+          "en": "o"
+        },
+        {
+          "hi": "त",
+          "en": "ु"
+        },
+        {
+          "hi": "C",
+          "en": "o"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Multiple approaches provide varied opportunities to demonstrate strengths.",
+      "explanation_en": "Multiple approaches provide varied opportunities to demonstrate strengths.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बुद्धि परीक्षण का उचित उपयोग—",
+      "question_en": "Appropriate use of intelligence assessment—",
+      "options": [
+        {
+          "hi": "अ",
+          "en": "ं",
+          "option_id": "A"
+        },
+        {
+          "hi": "P",
+          "en": "e",
+          "option_id": "B"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "C"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "D"
+        },
+        {
+          "hi": "क",
+          "en": "्"
+        },
+        {
+          "hi": "L",
+          "en": "i"
+        },
+        {
+          "hi": "अन्य जानकारी के साथ सावधानीपूर्वक",
+          "en": "Carefully alongside other information"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Assessment should inform support, not label a learner permanently.",
+      "explanation_en": "Assessment should inform support, not label a learner permanently.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Gardner का सिद्धांत—",
+      "question_en": "In the situation, what should the teacher understand? Gardner's theory—",
+      "options": [
+        {
+          "hi": "O",
+          "en": "n",
+          "option_id": "A"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "B"
+        },
+        {
+          "hi": "M",
+          "en": "e",
+          "option_id": "C"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "D"
+        },
+        {
+          "hi": "I",
+          "en": "Q"
+        },
+        {
+          "hi": "बहुविध बुद्धियों की अवधारणा",
+          "en": "Multiple intelligences"
+        },
+        {
+          "hi": "ए",
+          "en": "क"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Gardner proposed multiple forms of intelligence.",
+      "explanation_en": "Gardner proposed multiple forms of intelligence.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Sternberg का सिद्धांत—",
+      "question_en": "In the situation, what should the teacher understand? Sternberg's theory—",
+      "options": [
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "A"
+        },
+        {
+          "hi": "M",
+          "en": "e",
+          "option_id": "B"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "C"
+        },
+        {
+          "hi": "S",
+          "en": "p",
+          "option_id": "D"
+        },
+        {
+          "hi": "विश्लेषणात्मक, सृजनात्मक और व्यावहारिक बुद्धि",
+          "en": "Analytical, creative and practical intelligence"
+        },
+        {
+          "hi": "क",
+          "en": "े"
+        },
+        {
+          "hi": "L",
+          "en": "i"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Triarchic theory includes analytical, creative and practical aspects.",
+      "explanation_en": "Triarchic theory includes analytical, creative and practical aspects.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? IQ का पारंपरिक सूत्र—",
+      "question_en": "In the situation, what should the teacher understand? Traditional IQ formula—",
+      "options": [
+        {
+          "hi": "मानसिक आयु ÷ वास्तविक आयु × 100",
+          "en": "Mental age ÷ chronological age × 100",
+          "option_id": "A"
+        },
+        {
+          "hi": "व",
+          "en": "ा",
+          "option_id": "B"
+        },
+        {
+          "hi": "C",
+          "en": "h",
+          "option_id": "C"
+        },
+        {
+          "hi": "द",
+          "en": "ो",
+          "option_id": "D"
+        },
+        {
+          "hi": "A",
+          "en": "d"
+        },
+        {
+          "hi": "आ",
+          "en": "य"
+        },
+        {
+          "hi": "A",
+          "en": "g"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "This is the historical ratio IQ formula; modern tests use different norms.",
+      "explanation_en": "This is the historical ratio IQ formula; modern tests use different norms.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Spearman ने माना—",
+      "question_en": "In the situation, what should the teacher understand? Spearman proposed—",
+      "options": [
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "A"
+        },
+        {
+          "hi": "O",
+          "en": "n",
+          "option_id": "B"
+        },
+        {
+          "hi": "भ",
+          "en": "ा",
+          "option_id": "C"
+        },
+        {
+          "hi": "E",
+          "en": "m",
+          "option_id": "D"
+        },
+        {
+          "hi": "क",
+          "en": "ो"
+        },
+        {
+          "hi": "N",
+          "en": "o"
+        },
+        {
+          "hi": "सामान्य g और विशिष्ट s कारक",
+          "en": "General g and specific s factors"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Spearman described general and specific factors.",
+      "explanation_en": "Spearman described general and specific factors.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? Binet का योगदान—",
+      "question_en": "In the situation, what should the teacher understand? Binet's contribution—",
+      "options": [
+        {
+          "hi": "P",
+          "en": "e",
+          "option_id": "A"
+        },
+        {
+          "hi": "प",
+          "en": "्",
+          "option_id": "B"
+        },
+        {
+          "hi": "M",
+          "en": "o",
+          "option_id": "C"
+        },
+        {
+          "hi": "स",
+          "en": "ु",
+          "option_id": "D"
+        },
+        {
+          "hi": "R",
+          "en": "e"
+        },
+        {
+          "hi": "बच्चों की शैक्षिक जरूरत पहचानने हेतु परीक्षण",
+          "en": "Tests to identify educational needs"
+        },
+        {
+          "hi": "व",
+          "en": "्"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Binet developed early assessment intended to identify support needs.",
+      "explanation_en": "Binet developed early assessment intended to identify support needs.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? भावनात्मक बुद्धि—",
+      "question_en": "In the situation, what should the teacher understand? Emotional intelligence—",
+      "options": [
+        {
+          "hi": "श",
+          "en": "ा",
+          "option_id": "A"
+        },
+        {
+          "hi": "P",
+          "en": "h",
+          "option_id": "B"
+        },
+        {
+          "hi": "र",
+          "en": "ट",
+          "option_id": "C"
+        },
+        {
+          "hi": "R",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "भावनाओं को पहचानना और प्रबंधित करना",
+          "en": "Recognise and manage emotions"
+        },
+        {
+          "hi": "क",
+          "en": "े"
+        },
+        {
+          "hi": "C",
+          "en": "a"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Emotional intelligence concerns understanding and managing emotions.",
+      "explanation_en": "Emotional intelligence concerns understanding and managing emotions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? बुद्धि परीक्षण में सांस्कृतिक पक्षपात—",
+      "question_en": "In the situation, what should the teacher understand? Cultural bias in intelligence tests—",
+      "options": [
+        {
+          "hi": "समान अवसर और संदर्भ को प्रभावित कर सकता",
+          "en": "May affect fairness and context",
+          "option_id": "A"
+        },
+        {
+          "hi": "अ",
+          "en": "स",
+          "option_id": "B"
+        },
+        {
+          "hi": "I",
+          "en": "m",
+          "option_id": "C"
+        },
+        {
+          "hi": "ह",
+          "en": "म",
+          "option_id": "D"
+        },
+        {
+          "hi": "A",
+          "en": "l"
+        },
+        {
+          "hi": "ब",
+          "en": "ु"
+        },
+        {
+          "hi": "P",
+          "en": "r"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Test context and culture can influence performance.",
+      "explanation_en": "Test context and culture can influence performance.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? बुद्धि स्थिर मानना—",
+      "question_en": "In the situation, what should the teacher understand? Treating intelligence as fixed—",
+      "options": [
+        {
+          "hi": "स",
+          "en": "ह",
+          "option_id": "A"
+        },
+        {
+          "hi": "S",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "स",
+          "en": "ह",
+          "option_id": "C"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "अ",
+          "en": "व"
+        },
+        {
+          "hi": "O",
+          "en": "b"
+        },
+        {
+          "hi": "विकास की संभावना उपेक्षित करता",
+          "en": "Neglects potential for development"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "A fixed view may overlook learning and development.",
+      "explanation_en": "A fixed view may overlook learning and development.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? शिक्षक बुद्धि की विविधता—",
+      "question_en": "In the situation, what should the teacher understand? A teacher recognises diverse intelligence by—",
+      "options": [
+        {
+          "hi": "O",
+          "en": "n",
+          "option_id": "A"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "B"
+        },
+        {
+          "hi": "R",
+          "en": "o",
+          "option_id": "C"
+        },
+        {
+          "hi": "त",
+          "en": "ु",
+          "option_id": "D"
+        },
+        {
+          "hi": "C",
+          "en": "o"
+        },
+        {
+          "hi": "विविध गतिविधियाँ और अभिव्यक्ति देना",
+          "en": "Offer varied activities and expression"
+        },
+        {
+          "hi": "ए",
+          "en": "क"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Multiple approaches provide varied opportunities to demonstrate strengths.",
+      "explanation_en": "Multiple approaches provide varied opportunities to demonstrate strengths.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_INTELLIGENCE_THEORIES_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "intelligence_theories",
+      "topic": "Intelligence & Intelligence Theories",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्थिति में शिक्षक को क्या समझना चाहिए? बुद्धि परीक्षण का उचित उपयोग—",
+      "question_en": "In the situation, what should the teacher understand? Appropriate use of intelligence assessment—",
+      "options": [
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "A"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "B"
+        },
+        {
+          "hi": "क",
+          "en": "्",
+          "option_id": "C"
+        },
+        {
+          "hi": "L",
+          "en": "i",
+          "option_id": "D"
+        },
+        {
+          "hi": "अन्य जानकारी के साथ सावधानीपूर्वक",
+          "en": "Carefully alongside other information"
+        },
+        {
+          "hi": "अ",
+          "en": "ं"
+        },
+        {
+          "hi": "P",
+          "en": "e"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Assessment should inform support, not label a learner permanently.",
+      "explanation_en": "Assessment should inform support, not label a learner permanently.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
