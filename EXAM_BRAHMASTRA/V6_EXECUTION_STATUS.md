@@ -29,6 +29,11 @@
 | V6-CDP-007 | CDP | Social Development | 20 | Generated; structure repaired to 4 bilingual options; content review pending |
 | V6-CDP-008 | CDP | Moral Development | 20 | Generated; structure repaired to 4 bilingual options; content review pending |
 | V6-CDP-009 | CDP | Language Development | 20 | Generated; structure repaired to 4 bilingual options; content review pending |
+| V6-CDP-010 | CDP | Individual Differences | 20 | Generated; content and translation review pending |
+| V6-CDP-011 | CDP | Heredity & Environment | 20 | Generated; content and translation review pending |
+| V6-CDP-012 | CDP | Childhood | 20 | Generated; content and translation review pending |
+| V6-CDP-013 | CDP | Adolescence | 20 | Generated; content and translation review pending |
+| V6-CDP-014 | CDP | Educational Psychology | 20 | Generated; content and translation review pending |
 
 ## Batch QA — V6-CDP-001
 - Record count: 20.
