@@ -31,7 +31,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "Cognitive development relates to what?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -44,37 +44,21 @@
         {
           "option_id": "A",
           "hi": "सोच, स्मृति और समस्या समाधान",
-          "en": "सोच, स्मृति और समस्या समाधान"
-        },
-        {
-          "option_id": "B",
-          "hi": "Thinking, memory and problem-solving",
           "en": "Thinking, memory and problem-solving"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल शरीर की वृद्धि",
-          "en": "केवल शरीर की वृद्धि"
-        },
-        {
-          "option_id": "D",
-          "hi": "Physical growth only",
           "en": "Physical growth only"
         },
         {
+          "option_id": "C",
           "hi": "केवल सामाजिक व्यवहार",
-          "en": "केवल सामाजिक व्यवहार"
-        },
-        {
-          "hi": "Social behaviour only",
           "en": "Social behaviour only"
         },
         {
+          "option_id": "D",
           "hi": "केवल भावनाएँ",
-          "en": "केवल भावनाएँ"
-        },
-        {
-          "hi": "Emotions only",
           "en": "Emotions only"
         }
       ],
@@ -100,7 +84,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "Object permanence means—",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -113,37 +97,21 @@
         {
           "option_id": "A",
           "hi": "वस्तु दृष्टि से हटने पर भी अस्तित्व में रहती है",
-          "en": "वस्तु दृष्टि से हटने पर भी अस्तित्व में रहती है"
-        },
-        {
-          "option_id": "B",
-          "hi": "An object continues to exist when out of sight",
           "en": "An object continues to exist when out of sight"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "वस्तु हमेशा बदलती रहती है",
-          "en": "वस्तु हमेशा बदलती रहती है"
-        },
-        {
-          "option_id": "D",
-          "hi": "Objects always change",
           "en": "Objects always change"
         },
         {
+          "option_id": "C",
           "hi": "वस्तु केवल नाम से पहचानी जाती है",
-          "en": "वस्तु केवल नाम से पहचानी जाती है"
-        },
-        {
-          "hi": "Objects are identified only by name",
           "en": "Objects are identified only by name"
         },
         {
+          "option_id": "D",
           "hi": "वस्तु का वजन स्थिर रहता है",
-          "en": "वस्तु का वजन स्थिर रहता है"
-        },
-        {
-          "hi": "An object's weight stays constant",
           "en": "An object's weight stays constant"
         }
       ],
@@ -169,7 +137,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "Memory is an example of which cognitive process?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -182,37 +150,21 @@
         {
           "option_id": "A",
           "hi": "सूचना का संकेतन, संग्रह और पुनःप्राप्ति",
-          "en": "सूचना का संकेतन, संग्रह और पुनःप्राप्ति"
-        },
-        {
-          "option_id": "B",
-          "hi": "Encoding, storage and retrieval of information",
           "en": "Encoding, storage and retrieval of information"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल शारीरिक गति",
-          "en": "केवल शारीरिक गति"
-        },
-        {
-          "option_id": "D",
-          "hi": "Physical movement only",
           "en": "Physical movement only"
         },
         {
+          "option_id": "C",
           "hi": "केवल भावनात्मक प्रतिक्रिया",
-          "en": "केवल भावनात्मक प्रतिक्रिया"
-        },
-        {
-          "hi": "Emotional response only",
           "en": "Emotional response only"
         },
         {
+          "option_id": "D",
           "hi": "केवल सामाजिक संपर्क",
-          "en": "केवल सामाजिक संपर्क"
-        },
-        {
-          "hi": "Social interaction only",
           "en": "Social interaction only"
         }
       ],
@@ -238,7 +190,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "What is mainly required in problem-solving?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -251,37 +203,21 @@
         {
           "option_id": "A",
           "hi": "स्थिति का विश्लेषण और रणनीति चुनना",
-          "en": "स्थिति का विश्लेषण और रणनीति चुनना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Analysing a situation and selecting a strategy",
           "en": "Analysing a situation and selecting a strategy"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "बिना समझे नकल",
-          "en": "बिना समझे नकल"
-        },
-        {
-          "option_id": "D",
-          "hi": "Copying without understanding",
           "en": "Copying without understanding"
         },
         {
+          "option_id": "C",
           "hi": "केवल रटना",
-          "en": "केवल रटना"
-        },
-        {
-          "hi": "Rote memorisation only",
           "en": "Rote memorisation only"
         },
         {
+          "option_id": "D",
           "hi": "अनुमान लगाना ही",
-          "en": "अनुमान लगाना ही"
-        },
-        {
-          "hi": "Guessing only",
           "en": "Guessing only"
         }
       ],
@@ -307,7 +243,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "easy",
-      "question_type": "How does attention support cognition?",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
@@ -320,37 +256,21 @@
         {
           "option_id": "A",
           "hi": "प्रासंगिक सूचना पर मानसिक संसाधन केंद्रित करता है",
-          "en": "प्रासंगिक सूचना पर मानसिक संसाधन केंद्रित करता है"
-        },
-        {
-          "option_id": "B",
-          "hi": "Focuses mental resources on relevant information",
           "en": "Focuses mental resources on relevant information"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "स्मृति समाप्त करता है",
-          "en": "स्मृति समाप्त करता है"
-        },
-        {
-          "option_id": "D",
-          "hi": "Erases memory",
           "en": "Erases memory"
         },
         {
+          "option_id": "C",
           "hi": "विकास रोकता है",
-          "en": "विकास रोकता है"
-        },
-        {
-          "hi": "Stops development",
           "en": "Stops development"
         },
         {
+          "option_id": "D",
           "hi": "केवल गति बढ़ाता है",
-          "en": "केवल गति बढ़ाता है"
-        },
-        {
-          "hi": "Only increases speed",
           "en": "Only increases speed"
         }
       ],
@@ -376,7 +296,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "An example of classification is—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -389,37 +309,21 @@
         {
           "option_id": "A",
           "hi": "वस्तुओं को समान गुणों के आधार पर समूहित करना",
-          "en": "वस्तुओं को समान गुणों के आधार पर समूहित करना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Grouping objects by shared features",
           "en": "Grouping objects by shared features"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "बिना क्रम के लिखना",
-          "en": "बिना क्रम के लिखना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Writing randomly",
           "en": "Writing randomly"
         },
         {
+          "option_id": "C",
           "hi": "केवल चित्र बनाना",
-          "en": "केवल चित्र बनाना"
-        },
-        {
-          "hi": "Drawing only",
           "en": "Drawing only"
         },
         {
+          "option_id": "D",
           "hi": "ध्वनि दोहराना",
-          "en": "ध्वनि दोहराना"
-        },
-        {
-          "hi": "Repeating sounds",
           "en": "Repeating sounds"
         }
       ],
@@ -445,7 +349,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "What is seriation?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -458,37 +362,21 @@
         {
           "option_id": "A",
           "hi": "वस्तुओं को किसी क्रम में व्यवस्थित करना",
-          "en": "वस्तुओं को किसी क्रम में व्यवस्थित करना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Arranging objects in an order",
           "en": "Arranging objects in an order"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "वस्तु छिपाना",
-          "en": "वस्तु छिपाना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Hiding an object",
           "en": "Hiding an object"
         },
         {
+          "option_id": "C",
           "hi": "भावना पहचानना",
-          "en": "भावना पहचानना"
-        },
-        {
-          "hi": "Identifying emotion",
           "en": "Identifying emotion"
         },
         {
+          "option_id": "D",
           "hi": "शब्द बोलना",
-          "en": "शब्द बोलना"
-        },
-        {
-          "hi": "Speaking words",
           "en": "Speaking words"
         }
       ],
@@ -514,7 +402,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Understanding cause and effect is part of what?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -527,37 +415,21 @@
         {
           "option_id": "A",
           "hi": "संज्ञानात्मक विकास",
-          "en": "संज्ञानात्मक विकास"
-        },
-        {
-          "option_id": "B",
-          "hi": "Cognitive development",
           "en": "Cognitive development"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल शारीरिक विकास",
-          "en": "केवल शारीरिक विकास"
-        },
-        {
-          "option_id": "D",
-          "hi": "Physical development only",
           "en": "Physical development only"
         },
         {
+          "option_id": "C",
           "hi": "केवल भाषा उच्चारण",
-          "en": "केवल भाषा उच्चारण"
-        },
-        {
-          "hi": "Pronunciation only",
           "en": "Pronunciation only"
         },
         {
+          "option_id": "D",
           "hi": "केवल नैतिक भावना",
-          "en": "केवल नैतिक भावना"
-        },
-        {
-          "hi": "Moral emotion only",
           "en": "Moral emotion only"
         }
       ],
@@ -583,7 +455,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "How does prior knowledge affect learning?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -596,37 +468,21 @@
         {
           "option_id": "A",
           "hi": "नई जानकारी को समझने से जोड़ने में मदद करता है",
-          "en": "नई जानकारी को समझने से जोड़ने में मदद करता है"
-        },
-        {
-          "option_id": "B",
-          "hi": "Helps connect and interpret new information",
           "en": "Helps connect and interpret new information"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "सीखने में बाधा ही बनता है",
-          "en": "सीखने में बाधा ही बनता है"
-        },
-        {
-          "option_id": "D",
-          "hi": "Always obstructs learning",
           "en": "Always obstructs learning"
         },
         {
+          "option_id": "C",
           "hi": "कोई प्रभाव नहीं",
-          "en": "कोई प्रभाव नहीं"
-        },
-        {
-          "hi": "No effect",
           "en": "No effect"
         },
         {
+          "option_id": "D",
           "hi": "केवल याददाश्त मिटाता है",
-          "en": "केवल याददाश्त मिटाता है"
-        },
-        {
-          "hi": "Only erases memory",
           "en": "Only erases memory"
         }
       ],
@@ -652,7 +508,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Metacognition means—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -665,37 +521,21 @@
         {
           "option_id": "A",
           "hi": "अपने सोचने और सीखने पर विचार करना",
-          "en": "अपने सोचने और सीखने पर विचार करना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Thinking about one's thinking and learning",
           "en": "Thinking about one's thinking and learning"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल दूसरों का मूल्यांकन",
-          "en": "केवल दूसरों का मूल्यांकन"
-        },
-        {
-          "option_id": "D",
-          "hi": "Evaluating others only",
           "en": "Evaluating others only"
         },
         {
+          "option_id": "C",
           "hi": "शारीरिक व्यायाम",
-          "en": "शारीरिक व्यायाम"
-        },
-        {
-          "hi": "Physical exercise",
           "en": "Physical exercise"
         },
         {
+          "option_id": "D",
           "hi": "बिना उद्देश्य पढ़ना",
-          "en": "बिना उद्देश्य पढ़ना"
-        },
-        {
-          "hi": "Reading without purpose",
           "en": "Reading without purpose"
         }
       ],
@@ -721,7 +561,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "A learner checks understanding while reading. What is this?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -734,37 +574,21 @@
         {
           "option_id": "A",
           "hi": "मेटाकॉग्निटिव निगरानी",
-          "en": "मेटाकॉग्निटिव निगरानी"
-        },
-        {
-          "option_id": "B",
-          "hi": "Metacognitive monitoring",
           "en": "Metacognitive monitoring"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "अनुकरण",
-          "en": "अनुकरण"
-        },
-        {
-          "option_id": "D",
-          "hi": "Imitation",
           "en": "Imitation"
         },
         {
+          "option_id": "C",
           "hi": "प्रतिवर्ती क्रिया",
-          "en": "प्रतिवर्ती क्रिया"
-        },
-        {
-          "hi": "Reflex",
           "en": "Reflex"
         },
         {
+          "option_id": "D",
           "hi": "दंड",
-          "en": "दंड"
-        },
-        {
-          "hi": "Punishment",
           "en": "Punishment"
         }
       ],
@@ -790,7 +614,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Imagination is related to which process?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -803,37 +627,21 @@
         {
           "option_id": "A",
           "hi": "मानसिक रूप से नए चित्र या संभावनाएँ बनाना",
-          "en": "मानसिक रूप से नए चित्र या संभावनाएँ बनाना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Creating new mental images or possibilities",
           "en": "Creating new mental images or possibilities"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल प्रत्यक्ष संवेदना",
-          "en": "केवल प्रत्यक्ष संवेदना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Direct sensation only",
           "en": "Direct sensation only"
         },
         {
+          "option_id": "C",
           "hi": "केवल मांसपेशी नियंत्रण",
-          "en": "केवल मांसपेशी नियंत्रण"
-        },
-        {
-          "hi": "Muscle control only",
           "en": "Muscle control only"
         },
         {
+          "option_id": "D",
           "hi": "केवल नियम याद करना",
-          "en": "केवल नियम याद करना"
-        },
-        {
-          "hi": "Memorising rules only",
           "en": "Memorising rules only"
         }
       ],
@@ -859,7 +667,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "What does decision-making involve?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -872,37 +680,21 @@
         {
           "option_id": "A",
           "hi": "विकल्पों का मूल्यांकन और चयन",
-          "en": "विकल्पों का मूल्यांकन और चयन"
-        },
-        {
-          "option_id": "B",
-          "hi": "Evaluating and choosing among alternatives",
           "en": "Evaluating and choosing among alternatives"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल नकल",
-          "en": "केवल नकल"
-        },
-        {
-          "option_id": "D",
-          "hi": "Imitation only",
           "en": "Imitation only"
         },
         {
+          "option_id": "C",
           "hi": "विकास रोकना",
-          "en": "विकास रोकना"
-        },
-        {
-          "hi": "Stopping development",
           "en": "Stopping development"
         },
         {
+          "option_id": "D",
           "hi": "केवल याद करना",
-          "en": "केवल याद करना"
-        },
-        {
-          "hi": "Memorising only",
           "en": "Memorising only"
         }
       ],
@@ -928,7 +720,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Cognitive flexibility means—",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -941,37 +733,21 @@
         {
           "option_id": "A",
           "hi": "विचार या रणनीति बदलने की क्षमता",
-          "en": "विचार या रणनीति बदलने की क्षमता"
-        },
-        {
-          "option_id": "B",
-          "hi": "Ability to shift ideas or strategies",
           "en": "Ability to shift ideas or strategies"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "एक ही विचार पर अड़े रहना",
-          "en": "एक ही विचार पर अड़े रहना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Sticking to one idea",
           "en": "Sticking to one idea"
         },
         {
+          "option_id": "C",
           "hi": "सूचना भूलना",
-          "en": "सूचना भूलना"
-        },
-        {
-          "hi": "Forgetting information",
           "en": "Forgetting information"
         },
         {
+          "option_id": "D",
           "hi": "केवल गति",
-          "en": "केवल गति"
-        },
-        {
-          "hi": "Speed only",
           "en": "Speed only"
         }
       ],
@@ -997,7 +773,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "moderate",
-      "question_type": "Working memory helps with what?",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1010,37 +786,21 @@
         {
           "option_id": "A",
           "hi": "सूचना को थोड़े समय तक सक्रिय रखकर उपयोग करना",
-          "en": "सूचना को थोड़े समय तक सक्रिय रखकर उपयोग करना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Holding and using information briefly",
           "en": "Holding and using information briefly"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "दीर्घकालिक संग्रह ही",
-          "en": "दीर्घकालिक संग्रह ही"
-        },
-        {
-          "option_id": "D",
-          "hi": "Long-term storage only",
           "en": "Long-term storage only"
         },
         {
+          "option_id": "C",
           "hi": "भावनाओं का नियंत्रण ही",
-          "en": "भावनाओं का नियंत्रण ही"
-        },
-        {
-          "hi": "Emotion control only",
           "en": "Emotion control only"
         },
         {
+          "option_id": "D",
           "hi": "शारीरिक वृद्धि",
-          "en": "शारीरिक वृद्धि"
-        },
-        {
-          "hi": "Physical growth",
           "en": "Physical growth"
         }
       ],
@@ -1066,7 +826,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "A child adopts a new strategy when rules change. What does this indicate?",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1079,37 +839,21 @@
         {
           "option_id": "A",
           "hi": "संज्ञानात्मक लचीलापन",
-          "en": "संज्ञानात्मक लचीलापन"
-        },
-        {
-          "option_id": "B",
-          "hi": "Cognitive flexibility",
           "en": "Cognitive flexibility"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "वस्तु स्थायित्व",
-          "en": "वस्तु स्थायित्व"
-        },
-        {
-          "option_id": "D",
-          "hi": "Object permanence",
           "en": "Object permanence"
         },
         {
+          "option_id": "C",
           "hi": "केवल अनुकरण",
-          "en": "केवल अनुकरण"
-        },
-        {
-          "hi": "Imitation only",
           "en": "Imitation only"
         },
         {
+          "option_id": "D",
           "hi": "स्थिर प्रतिक्रिया",
-          "en": "स्थिर प्रतिक्रिया"
-        },
-        {
-          "hi": "Fixed response",
           "en": "Fixed response"
         }
       ],
@@ -1135,7 +879,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "How does concept formation occur?",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1148,37 +892,21 @@
         {
           "option_id": "A",
           "hi": "विशेषताओं और उदाहरणों से सामान्य विचार बनाना",
-          "en": "विशेषताओं और उदाहरणों से सामान्य विचार बनाना"
-        },
-        {
-          "option_id": "B",
-          "hi": "Forming general ideas from features and examples",
           "en": "Forming general ideas from features and examples"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल शब्द दोहराना",
-          "en": "केवल शब्द दोहराना"
-        },
-        {
-          "option_id": "D",
-          "hi": "Repeating words only",
           "en": "Repeating words only"
         },
         {
+          "option_id": "C",
           "hi": "सभी वस्तुओं को समान मानना",
-          "en": "सभी वस्तुओं को समान मानना"
-        },
-        {
-          "hi": "Treating all objects as identical",
           "en": "Treating all objects as identical"
         },
         {
+          "option_id": "D",
           "hi": "केवल चित्र याद करना",
-          "en": "केवल चित्र याद करना"
-        },
-        {
-          "hi": "Memorising pictures only",
           "en": "Memorising pictures only"
         }
       ],
@@ -1204,7 +932,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "What is the role of experience in cognitive development?",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1217,37 +945,21 @@
         {
           "option_id": "A",
           "hi": "अनुभव समझ और रणनीतियों को विकसित करने में योगदान देता है",
-          "en": "अनुभव समझ और रणनीतियों को विकसित करने में योगदान देता है"
-        },
-        {
-          "option_id": "B",
-          "hi": "Experience contributes to understanding and strategies",
           "en": "Experience contributes to understanding and strategies"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "अनुभव का कोई महत्व नहीं",
-          "en": "अनुभव का कोई महत्व नहीं"
-        },
-        {
-          "option_id": "D",
-          "hi": "Experience has no importance",
           "en": "Experience has no importance"
         },
         {
+          "option_id": "C",
           "hi": "केवल उम्र निर्णायक है",
-          "en": "केवल उम्र निर्णायक है"
-        },
-        {
-          "hi": "Age alone determines",
           "en": "Age alone determines"
         },
         {
+          "option_id": "D",
           "hi": "केवल आनुवंशिकता",
-          "en": "केवल आनुवंशिकता"
-        },
-        {
-          "hi": "Heredity only",
           "en": "Heredity only"
         }
       ],
@@ -1273,7 +985,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "What should a teacher do when assessing cognitive ability?",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1286,37 +998,21 @@
         {
           "option_id": "A",
           "hi": "विविध कार्य और संदर्भों का उपयोग",
-          "en": "विविध कार्य और संदर्भों का उपयोग"
-        },
-        {
-          "option_id": "B",
-          "hi": "Use varied tasks and contexts",
           "en": "Use varied tasks and contexts"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "केवल एक प्रश्न पर निर्णय",
-          "en": "केवल एक प्रश्न पर निर्णय"
-        },
-        {
-          "option_id": "D",
-          "hi": "Decide from one question only",
           "en": "Decide from one question only"
         },
         {
+          "option_id": "C",
           "hi": "बच्चों की तुलना सार्वजनिक रूप से",
-          "en": "बच्चों की तुलना सार्वजनिक रूप से"
-        },
-        {
-          "hi": "Publicly compare children",
           "en": "Publicly compare children"
         },
         {
+          "option_id": "D",
           "hi": "केवल गति मापना",
-          "en": "केवल गति मापना"
-        },
-        {
-          "hi": "Measure speed only",
           "en": "Measure speed only"
         }
       ],
@@ -1342,7 +1038,7 @@
       "subtopic_id": "core_concepts",
       "subtopic": "Core Concepts",
       "difficulty": "difficult",
-      "question_type": "Which statement about cognitive development is correct?",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
@@ -1355,37 +1051,21 @@
         {
           "option_id": "A",
           "hi": "यह अनुभव, परिपक्वता और सक्रिय सीखने से प्रभावित होता है",
-          "en": "यह अनुभव, परिपक्वता और सक्रिय सीखने से प्रभावित होता है"
-        },
-        {
-          "option_id": "B",
-          "hi": "It is influenced by experience, maturation and active learning",
           "en": "It is influenced by experience, maturation and active learning"
         },
         {
-          "option_id": "C",
+          "option_id": "B",
           "hi": "यह केवल रटने से होता है",
-          "en": "यह केवल रटने से होता है"
-        },
-        {
-          "option_id": "D",
-          "hi": "It occurs only through rote learning",
           "en": "It occurs only through rote learning"
         },
         {
+          "option_id": "C",
           "hi": "सभी बच्चों में समान होता है",
-          "en": "सभी बच्चों में समान होता है"
-        },
-        {
-          "hi": "It is identical in all children",
           "en": "It is identical in all children"
         },
         {
+          "option_id": "D",
           "hi": "विद्यालय से पहले नहीं होता",
-          "en": "विद्यालय से पहले नहीं होता"
-        },
-        {
-          "hi": "It does not occur before school",
           "en": "It does not occur before school"
         }
       ],
