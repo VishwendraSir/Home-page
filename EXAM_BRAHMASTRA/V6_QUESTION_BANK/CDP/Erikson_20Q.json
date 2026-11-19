@@ -43,28 +43,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "मनोसामाजिक विकास",
-            "Psychosocial development",
-            "केवल संज्ञान",
-            "Cognition only",
-            "अनुबंधन",
-            "Conditioning",
-            "भाषा",
-            "Language"
-          ],
-          "en": 0
+          "hi": "मनोसामाजिक विकास",
+          "en": "Psychosocial development"
         },
         {
           "option_id": "B",
-          "hi": "एरिक्सन ने जीवनभर के मनोसामाजिक विकास के चरण प्रस्तावित किए।",
-          "en": "Erikson proposed stages of psychosocial development across life."
+          "hi": "केवल संज्ञान",
+          "en": "Cognition only"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "अनुबंधन",
+          "en": "Conditioning"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "भाषा",
+          "en": "Language"
         }
       ],
       "correct_option": "A",
@@ -75,7 +70,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "एरिक्सन ने जीवनभर के मनोसामाजिक विकास के चरण प्रस्तावित किए।",
+      "explanation_en": "Erikson proposed stages of psychosocial development across life."
     },
     {
       "question_id": "CDP_ERIKSON_V6_002",
@@ -99,28 +96,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "8",
-            "Eight",
-            "4",
-            "Four",
-            "5",
-            "Five",
-            "12",
-            "Twelve"
-          ],
-          "en": 0
+          "hi": "8",
+          "en": "Eight"
         },
         {
           "option_id": "B",
-          "hi": "एरिक्सन के सिद्धांत में आठ चरण हैं।",
-          "en": "Erikson's theory contains eight stages."
+          "hi": "4",
+          "en": "Four"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "5",
+          "en": "Five"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "12",
+          "en": "Twelve"
         }
       ],
       "correct_option": "A",
@@ -131,7 +123,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "एरिक्सन के सिद्धांत में आठ चरण हैं।",
+      "explanation_en": "Erikson's theory contains eight stages."
     },
     {
       "question_id": "CDP_ERIKSON_V6_003",
@@ -155,28 +149,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "विश्वास बनाम अविश्वास",
-            "Trust vs. mistrust",
-            "स्वायत्तता बनाम शर्म",
-            "Autonomy vs. shame",
-            "पहचान बनाम भूमिका भ्रम",
-            "Identity vs. role confusion",
-            "उत्पादकता बनाम ठहराव",
-            "Generativity vs. stagnation"
-          ],
-          "en": 0
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
         },
         {
           "option_id": "B",
-          "hi": "शिशु देखभाल की विश्वसनीयता से विश्वास विकसित करता है।",
-          "en": "Reliable care helps infants develop trust."
+          "hi": "स्वायत्तता बनाम शर्म",
+          "en": "Autonomy vs. shame"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "पहचान बनाम भूमिका भ्रम",
+          "en": "Identity vs. role confusion"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "उत्पादकता बनाम ठहराव",
+          "en": "Generativity vs. stagnation"
         }
       ],
       "correct_option": "A",
@@ -187,7 +176,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "शिशु देखभाल की विश्वसनीयता से विश्वास विकसित करता है।",
+      "explanation_en": "Reliable care helps infants develop trust."
     },
     {
       "question_id": "CDP_ERIKSON_V6_004",
@@ -211,28 +202,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "स्वायत्तता बनाम शर्म और संदेह",
-            "Autonomy vs. shame and doubt",
-            "विश्वास बनाम अविश्वास",
-            "Trust vs. mistrust",
-            "उद्योग बनाम हीनता",
-            "Industry vs. inferiority",
-            "अखंडता बनाम निराशा",
-            "Integrity vs. despair"
-          ],
-          "en": 0
+          "hi": "स्वायत्तता बनाम शर्म और संदेह",
+          "en": "Autonomy vs. shame and doubt"
         },
         {
           "option_id": "B",
-          "hi": "इस चरण में बच्चा स्वतंत्र कार्य करने की क्षमता विकसित करता है।",
-          "en": "Children develop independence in this stage."
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "उद्योग बनाम हीनता",
+          "en": "Industry vs. inferiority"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अखंडता बनाम निराशा",
+          "en": "Integrity vs. despair"
         }
       ],
       "correct_option": "A",
@@ -243,7 +229,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "इस चरण में बच्चा स्वतंत्र कार्य करने की क्षमता विकसित करता है।",
+      "explanation_en": "Children develop independence in this stage."
     },
     {
       "question_id": "CDP_ERIKSON_V6_005",
@@ -267,28 +255,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "पहल बनाम अपराधबोध",
-            "Initiative vs. guilt",
-            "पहचान बनाम भ्रम",
-            "Identity vs. confusion",
-            "विश्वास बनाम अविश्वास",
-            "Trust vs. mistrust",
-            "अंतरंगता बनाम अलगाव",
-            "Intimacy vs. isolation"
-          ],
-          "en": 0
+          "hi": "पहल बनाम अपराधबोध",
+          "en": "Initiative vs. guilt"
         },
         {
           "option_id": "B",
-          "hi": "बच्चे पहल करते हैं; अत्यधिक रोक से अपराधबोध बढ़ सकता है।",
-          "en": "Children initiate activities; excessive restriction may foster guilt."
+          "hi": "पहचान बनाम भ्रम",
+          "en": "Identity vs. confusion"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अंतरंगता बनाम अलगाव",
+          "en": "Intimacy vs. isolation"
         }
       ],
       "correct_option": "A",
@@ -299,7 +282,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "बच्चे पहल करते हैं; अत्यधिक रोक से अपराधबोध बढ़ सकता है।",
+      "explanation_en": "Children initiate activities; excessive restriction may foster guilt."
     },
     {
       "question_id": "CDP_ERIKSON_V6_006",
@@ -323,28 +308,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "उद्योग बनाम हीनता",
-            "Industry vs. inferiority",
-            "स्वायत्तता बनाम शर्म",
-            "Autonomy vs. shame",
-            "अंतरंगता बनाम अलगाव",
-            "Intimacy vs. isolation",
-            "अखंडता बनाम निराशा",
-            "Integrity vs. despair"
-          ],
-          "en": 0
+          "hi": "उद्योग बनाम हीनता",
+          "en": "Industry vs. inferiority"
         },
         {
           "option_id": "B",
-          "hi": "कौशल और उपलब्धि से उद्योग-बोध विकसित होता है।",
-          "en": "Skills and achievement support a sense of industry."
+          "hi": "स्वायत्तता बनाम शर्म",
+          "en": "Autonomy vs. shame"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "अंतरंगता बनाम अलगाव",
+          "en": "Intimacy vs. isolation"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अखंडता बनाम निराशा",
+          "en": "Integrity vs. despair"
         }
       ],
       "correct_option": "A",
@@ -355,7 +335,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "कौशल और उपलब्धि से उद्योग-बोध विकसित होता है।",
+      "explanation_en": "Skills and achievement support a sense of industry."
     },
     {
       "question_id": "CDP_ERIKSON_V6_007",
@@ -379,28 +361,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "पहचान बनाम भूमिका भ्रम",
-            "Identity vs. role confusion",
-            "विश्वास बनाम अविश्वास",
-            "Trust vs. mistrust",
-            "उद्योग बनाम हीनता",
-            "Industry vs. inferiority",
-            "उत्पादकता बनाम ठहराव",
-            "Generativity vs. stagnation"
-          ],
-          "en": 0
+          "hi": "पहचान बनाम भूमिका भ्रम",
+          "en": "Identity vs. role confusion"
         },
         {
           "option_id": "B",
-          "hi": "किशोर अपनी पहचान, मूल्य और भविष्य की भूमिका खोजते हैं।",
-          "en": "Adolescents explore identity, values and future roles."
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "उद्योग बनाम हीनता",
+          "en": "Industry vs. inferiority"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "उत्पादकता बनाम ठहराव",
+          "en": "Generativity vs. stagnation"
         }
       ],
       "correct_option": "A",
@@ -411,7 +388,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "किशोर अपनी पहचान, मूल्य और भविष्य की भूमिका खोजते हैं।",
+      "explanation_en": "Adolescents explore identity, values and future roles."
     },
     {
       "question_id": "CDP_ERIKSON_V6_008",
@@ -435,28 +414,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "अंतरंगता बनाम अलगाव",
-            "Intimacy vs. isolation",
-            "पहल बनाम अपराधबोध",
-            "Initiative vs. guilt",
-            "पहचान बनाम भ्रम",
-            "Identity vs. confusion",
-            "स्वायत्तता बनाम शर्म",
-            "Autonomy vs. shame"
-          ],
-          "en": 0
+          "hi": "अंतरंगता बनाम अलगाव",
+          "en": "Intimacy vs. isolation"
         },
         {
           "option_id": "B",
-          "hi": "युवा वयस्क निकट संबंध स्थापित करने की चुनौती का सामना करते हैं।",
-          "en": "Young adults face the challenge of forming close relationships."
+          "hi": "पहल बनाम अपराधबोध",
+          "en": "Initiative vs. guilt"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "पहचान बनाम भ्रम",
+          "en": "Identity vs. confusion"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "स्वायत्तता बनाम शर्म",
+          "en": "Autonomy vs. shame"
         }
       ],
       "correct_option": "A",
@@ -467,7 +441,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "युवा वयस्क निकट संबंध स्थापित करने की चुनौती का सामना करते हैं।",
+      "explanation_en": "Young adults face the challenge of forming close relationships."
     },
     {
       "question_id": "CDP_ERIKSON_V6_009",
@@ -491,28 +467,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "उत्पादकता बनाम ठहराव",
-            "Generativity vs. stagnation",
-            "अंतरंगता बनाम अलगाव",
-            "Intimacy vs. isolation",
-            "विश्वास बनाम अविश्वास",
-            "Trust vs. mistrust",
-            "उद्योग बनाम हीनता",
-            "Industry vs. inferiority"
-          ],
-          "en": 0
+          "hi": "उत्पादकता बनाम ठहराव",
+          "en": "Generativity vs. stagnation"
         },
         {
           "option_id": "B",
-          "hi": "उत्पादकता अगली पीढ़ी और समाज के योगदान से जुड़ी है।",
-          "en": "Generativity concerns contributing to the next generation and society."
+          "hi": "अंतरंगता बनाम अलगाव",
+          "en": "Intimacy vs. isolation"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "उद्योग बनाम हीनता",
+          "en": "Industry vs. inferiority"
         }
       ],
       "correct_option": "A",
@@ -523,7 +494,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "उत्पादकता अगली पीढ़ी और समाज के योगदान से जुड़ी है।",
+      "explanation_en": "Generativity concerns contributing to the next generation and society."
     },
     {
       "question_id": "CDP_ERIKSON_V6_010",
@@ -547,28 +520,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "अखंडता बनाम निराशा",
-            "Integrity vs. despair",
-            "पहचान बनाम भ्रम",
-            "Identity vs. confusion",
-            "पहल बनाम अपराधबोध",
-            "Initiative vs. guilt",
-            "स्वायत्तता बनाम शर्म",
-            "Autonomy vs. shame"
-          ],
-          "en": 0
+          "hi": "अखंडता बनाम निराशा",
+          "en": "Integrity vs. despair"
         },
         {
           "option_id": "B",
-          "hi": "जीवन का मूल्यांकन संतोष या निराशा की भावना ला सकता है।",
-          "en": "Reviewing life may lead to integrity or despair."
+          "hi": "पहचान बनाम भ्रम",
+          "en": "Identity vs. confusion"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "पहल बनाम अपराधबोध",
+          "en": "Initiative vs. guilt"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "स्वायत्तता बनाम शर्म",
+          "en": "Autonomy vs. shame"
         }
       ],
       "correct_option": "A",
@@ -579,7 +547,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "जीवन का मूल्यांकन संतोष या निराशा की भावना ला सकता है।",
+      "explanation_en": "Reviewing life may lead to integrity or despair."
     },
     {
       "question_id": "CDP_ERIKSON_V6_011",
@@ -603,28 +573,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "विकास की चुनौती है",
-            "Is a developmental challenge",
-            "अनिवार्य रोग है",
-            "Is a disorder",
-            "केवल परीक्षा है",
-            "Is only an exam",
-            "सभी चरण समान",
-            "All stages are identical"
-          ],
-          "en": 0
+          "hi": "विकास की चुनौती है",
+          "en": "Is a developmental challenge"
         },
         {
           "option_id": "B",
-          "hi": "प्रत्येक चरण में सामाजिक-भावनात्मक चुनौती का समाधान विकास को प्रभावित करता है।",
-          "en": "Resolving each psychosocial challenge influences development."
+          "hi": "अनिवार्य रोग है",
+          "en": "Is a disorder"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल परीक्षा है",
+          "en": "Is only an exam"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "सभी चरण समान",
+          "en": "All stages are identical"
         }
       ],
       "correct_option": "A",
@@ -635,7 +600,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "प्रत्येक चरण में सामाजिक-भावनात्मक चुनौती का समाधान विकास को प्रभावित करता है।",
+      "explanation_en": "Resolving each psychosocial challenge influences development."
     },
     {
       "question_id": "CDP_ERIKSON_V6_012",
@@ -659,28 +626,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "अन्वेषण और सम्मान का अवसर देना",
-            "Provide opportunities for exploration and respect",
-            "एक पहचान थोपना",
-            "Impose one identity",
-            "तुलना करना",
-            "Compare students",
-            "प्रश्न रोकना",
-            "Stop questions"
-          ],
-          "en": 0
+          "hi": "अन्वेषण और सम्मान का अवसर देना",
+          "en": "Provide opportunities for exploration and respect"
         },
         {
           "option_id": "B",
-          "hi": "समर्थक वातावरण किशोरों को सुरक्षित अन्वेषण करने देता है।",
-          "en": "A supportive environment allows safe exploration."
+          "hi": "एक पहचान थोपना",
+          "en": "Impose one identity"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "तुलना करना",
+          "en": "Compare students"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "प्रश्न रोकना",
+          "en": "Stop questions"
         }
       ],
       "correct_option": "A",
@@ -691,7 +653,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "समर्थक वातावरण किशोरों को सुरक्षित अन्वेषण करने देता है।",
+      "explanation_en": "A supportive environment allows safe exploration."
     },
     {
       "question_id": "CDP_ERIKSON_V6_013",
@@ -715,28 +679,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "उचित चुनौती और उपलब्धि का अवसर",
-            "Appropriate challenge and achievement opportunities",
-            "लगातार तुलना",
-            "Constant comparison",
-            "कार्य से वंचित करना",
-            "Withhold tasks",
-            "केवल आलोचना",
-            "Only criticism"
-          ],
-          "en": 0
+          "hi": "उचित चुनौती और उपलब्धि का अवसर",
+          "en": "Appropriate challenge and achievement opportunities"
         },
         {
           "option_id": "B",
-          "hi": "उचित कार्य और मान्यता क्षमता-बोध बढ़ाते हैं।",
-          "en": "Appropriate tasks and recognition build competence."
+          "hi": "लगातार तुलना",
+          "en": "Constant comparison"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "कार्य से वंचित करना",
+          "en": "Withhold tasks"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "केवल आलोचना",
+          "en": "Only criticism"
         }
       ],
       "correct_option": "A",
@@ -747,7 +706,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "उचित कार्य और मान्यता क्षमता-बोध बढ़ाते हैं।",
+      "explanation_en": "Appropriate tasks and recognition build competence."
     },
     {
       "question_id": "CDP_ERIKSON_V6_014",
@@ -771,28 +732,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "उचित विकल्प देना",
-            "Offer appropriate choices",
-            "हर निर्णय लेना",
-            "Make every decision",
-            "गलतियों पर शर्मिंदा करना",
-            "Shame mistakes",
-            "नियंत्रण बढ़ाना",
-            "Increase control"
-          ],
-          "en": 0
+          "hi": "उचित विकल्प देना",
+          "en": "Offer appropriate choices"
         },
         {
           "option_id": "B",
-          "hi": "उचित विकल्प बच्चों को स्वतंत्रता और जिम्मेदारी विकसित करने देते हैं।",
-          "en": "Appropriate choices support independence and responsibility."
+          "hi": "हर निर्णय लेना",
+          "en": "Make every decision"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "गलतियों पर शर्मिंदा करना",
+          "en": "Shame mistakes"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "नियंत्रण बढ़ाना",
+          "en": "Increase control"
         }
       ],
       "correct_option": "A",
@@ -803,7 +759,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "उचित विकल्प बच्चों को स्वतंत्रता और जिम्मेदारी विकसित करने देते हैं।",
+      "explanation_en": "Appropriate choices support independence and responsibility."
     },
     {
       "question_id": "CDP_ERIKSON_V6_015",
@@ -827,28 +785,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "संगत और संवेदनशील देखभाल",
-            "Consistent and responsive care",
-            "अस्थिर प्रतिक्रिया",
-            "Inconsistent responses",
-            "उपेक्षा",
-            "Neglect",
-            "दंड",
-            "Punishment"
-          ],
-          "en": 0
+          "hi": "संगत और संवेदनशील देखभाल",
+          "en": "Consistent and responsive care"
         },
         {
           "option_id": "B",
-          "hi": "विश्वसनीय संवेदनशील देखभाल सुरक्षा और विश्वास बढ़ाती है।",
-          "en": "Reliable responsive care builds security and trust."
+          "hi": "अस्थिर प्रतिक्रिया",
+          "en": "Inconsistent responses"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "उपेक्षा",
+          "en": "Neglect"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Punishment"
         }
       ],
       "correct_option": "A",
@@ -859,7 +812,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "विश्वसनीय संवेदनशील देखभाल सुरक्षा और विश्वास बढ़ाती है।",
+      "explanation_en": "Reliable responsive care builds security and trust."
     },
     {
       "question_id": "CDP_ERIKSON_V6_016",
@@ -883,28 +838,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "मनोसामाजिक चरण सिद्धांत",
-            "Psychosocial stage theory",
-            "व्यवहारवादी",
-            "Behaviourist",
-            "शास्त्रीय अनुबंधन",
-            "Classical conditioning",
-            "केवल संज्ञानात्मक",
-            "Cognitive only"
-          ],
-          "en": 0
+          "hi": "मनोसामाजिक चरण सिद्धांत",
+          "en": "Psychosocial stage theory"
         },
         {
           "option_id": "B",
-          "hi": "यह सामाजिक संबंधों और मनोवैज्ञानिक चुनौतियों के चरणों का सिद्धांत है।",
-          "en": "It is a theory of stages involving social relations and psychological challenges."
+          "hi": "व्यवहारवादी",
+          "en": "Behaviourist"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "शास्त्रीय अनुबंधन",
+          "en": "Classical conditioning"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "केवल संज्ञानात्मक",
+          "en": "Cognitive only"
         }
       ],
       "correct_option": "A",
@@ -915,7 +865,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "यह सामाजिक संबंधों और मनोवैज्ञानिक चुनौतियों के चरणों का सिद्धांत है।",
+      "explanation_en": "It is a theory of stages involving social relations and psychological challenges."
     },
     {
       "question_id": "CDP_ERIKSON_V6_017",
@@ -939,28 +891,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "स्वयं की भूमिका और मूल्य तलाशना",
-            "Exploring one's roles and values",
-            "केवल शारीरिक वृद्धि",
-            "Physical growth only",
-            "विश्वास बनाना",
-            "Building trust",
-            "दंड सीखना",
-            "Learning punishment"
-          ],
-          "en": 0
+          "hi": "स्वयं की भूमिका और मूल्य तलाशना",
+          "en": "Exploring one's roles and values"
         },
         {
           "option_id": "B",
-          "hi": "किशोर पहचान के विभिन्न पहलुओं का अन्वेषण करते हैं।",
-          "en": "Adolescents explore different aspects of identity."
+          "hi": "केवल शारीरिक वृद्धि",
+          "en": "Physical growth only"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "विश्वास बनाना",
+          "en": "Building trust"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "दंड सीखना",
+          "en": "Learning punishment"
         }
       ],
       "correct_option": "A",
@@ -971,7 +918,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "किशोर पहचान के विभिन्न पहलुओं का अन्वेषण करते हैं।",
+      "explanation_en": "Adolescents explore different aspects of identity."
     },
     {
       "question_id": "CDP_ERIKSON_V6_018",
@@ -995,28 +944,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "चरणीय संकट समाधान में सहायक",
-            "Supports resolution of stage crises",
-            "अप्रासंगिक",
-            "Irrelevant",
-            "केवल पुरस्कार",
-            "Only rewards",
-            "विकास रोकता है",
-            "Stops development"
-          ],
-          "en": 0
+          "hi": "चरणीय संकट समाधान में सहायक",
+          "en": "Supports resolution of stage crises"
         },
         {
           "option_id": "B",
-          "hi": "सामाजिक संबंध चरणों की चुनौतियों को संभालने में महत्वपूर्ण हैं।",
-          "en": "Social relationships help manage developmental challenges."
+          "hi": "अप्रासंगिक",
+          "en": "Irrelevant"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल पुरस्कार",
+          "en": "Only rewards"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "विकास रोकता है",
+          "en": "Stops development"
         }
       ],
       "correct_option": "A",
@@ -1027,7 +971,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "सामाजिक संबंध चरणों की चुनौतियों को संभालने में महत्वपूर्ण हैं।",
+      "explanation_en": "Social relationships help manage developmental challenges."
     },
     {
       "question_id": "CDP_ERIKSON_V6_019",
@@ -1051,28 +997,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "जीवनभर विकास का वर्णन करते हैं",
-            "Describe development across the lifespan",
-            "केवल बचपन",
-            "Only childhood",
-            "केवल किशोरावस्था",
-            "Only adolescence",
-            "अधिगम से असंबंधित",
-            "Unrelated to learning"
-          ],
-          "en": 0
+          "hi": "जीवनभर विकास का वर्णन करते हैं",
+          "en": "Describe development across the lifespan"
         },
         {
           "option_id": "B",
-          "hi": "एरिक्सन ने शैशव से वृद्धावस्था तक विकास वर्णित किया।",
-          "en": "Erikson described development from infancy through old age."
+          "hi": "केवल बचपन",
+          "en": "Only childhood"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल किशोरावस्था",
+          "en": "Only adolescence"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अधिगम से असंबंधित",
+          "en": "Unrelated to learning"
         }
       ],
       "correct_option": "A",
@@ -1083,7 +1024,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "एरिक्सन ने शैशव से वृद्धावस्था तक विकास वर्णित किया।",
+      "explanation_en": "Erikson described development from infancy through old age."
     },
     {
       "question_id": "CDP_ERIKSON_V6_020",
@@ -1107,28 +1050,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "मार्गदर्शन और विविध अवसर देना",
-            "Offer guidance and varied opportunities",
-            "लेबल लगाना",
-            "Label them",
-            "दबाव डालना",
-            "Pressure them",
-            "उपेक्षा करना",
-            "Ignore"
-          ],
-          "en": 0
+          "hi": "मार्गदर्शन और विविध अवसर देना",
+          "en": "Offer guidance and varied opportunities"
         },
         {
           "option_id": "B",
-          "hi": "मार्गदर्शन, अवसर और सम्मान पहचान अन्वेषण में सहायक हैं।",
-          "en": "Guidance, opportunities and respect support identity exploration."
+          "hi": "लेबल लगाना",
+          "en": "Label them"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "दबाव डालना",
+          "en": "Pressure them"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "उपेक्षा करना",
+          "en": "Ignore"
         }
       ],
       "correct_option": "A",
@@ -1139,7 +1077,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "मार्गदर्शन, अवसर और सम्मान पहचान अन्वेषण में सहायक हैं।",
+      "explanation_en": "Guidance, opportunities and respect support identity exploration."
     },
     {
       "question_id": "CDP_ERIKSON_V6_021",
@@ -1163,28 +1103,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "संकट से संतुलित शक्ति विकसित होना",
-            "Developing a balanced strength from the crisis",
-            "संकट पूरी तरह गायब",
-            "Crisis disappears completely",
-            "कभी कठिनाई न होना",
-            "Never facing difficulty",
-            "एक ही व्यवहार",
-            "One behaviour"
-          ],
-          "en": 0
+          "hi": "संकट से संतुलित शक्ति विकसित होना",
+          "en": "Developing a balanced strength from the crisis"
         },
         {
           "option_id": "B",
-          "hi": "प्रत्येक संकट का संतुलित समाधान मनोसामाजिक शक्ति विकसित करता है।",
-          "en": "Balanced resolution of each crisis develops psychosocial strength."
+          "hi": "संकट पूरी तरह गायब",
+          "en": "Crisis disappears completely"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "कभी कठिनाई न होना",
+          "en": "Never facing difficulty"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "एक ही व्यवहार",
+          "en": "One behaviour"
         }
       ],
       "correct_option": "A",
@@ -1195,7 +1130,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "प्रत्येक संकट का संतुलित समाधान मनोसामाजिक शक्ति विकसित करता है।",
+      "explanation_en": "Balanced resolution of each crisis develops psychosocial strength."
     }
   ]
 }
