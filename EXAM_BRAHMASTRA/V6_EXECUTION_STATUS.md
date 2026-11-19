@@ -24,6 +24,11 @@
 |---|---|---|---:|---|
 | V6-CDP-001 | CDP | Growth and Development | 20 | Generated; structural checks passed; content review pending |
 | V6-CDP-002 | CDP | Principles of Development | 20 | Generated; structural checks passed; content review pending |\n| V6-CDP-003 | CDP | Developmental Stages | 20 | Generated; structural checks passed; content review pending |\n| V6-CDP-004 | CDP | Physical Development | 20 | Generated; structural checks passed; content review pending |
+| V6-CDP-005 | CDP | Cognitive Development | 20 | Generated; structure repaired to 4 bilingual options; content review pending |
+| V6-CDP-006 | CDP | Emotional Development | 20 | Generated; structure repaired to 4 bilingual options; content review pending |
+| V6-CDP-007 | CDP | Social Development | 20 | Generated; structure repaired to 4 bilingual options; content review pending |
+| V6-CDP-008 | CDP | Moral Development | 20 | Generated; structure repaired to 4 bilingual options; content review pending |
+| V6-CDP-009 | CDP | Language Development | 20 | Generated; structure repaired to 4 bilingual options; content review pending |
 
 ## Batch QA — V6-CDP-001
 - Record count: 20.
