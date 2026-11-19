@@ -1,0 +1,1325 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Socialisation & Social Development",
+  "batch_id": "V6-CDP-51",
+  "subject_id": "cdp",
+  "topic_id": "socialisation",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_SOCIALISATION_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समाजीकरण",
+      "question_en": "Socialisation",
+      "options": [
+        {
+          "en": "Learning norms, values and roles",
+          "hi": "मानदंड, मूल्य और भूमिकाएँ सीखना",
+          "option_id": "A"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "h",
+          "option_id": "D"
+        },
+        {
+          "en": "श",
+          "hi": "ा"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Socialisation involves learning to participate in society.",
+      "explanation_en": "Socialisation involves learning to participate in society.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्राथमिक एजेंट",
+      "question_en": "Primary agent",
+      "options": [
+        {
+          "en": "E",
+          "hi": "x",
+          "option_id": "A"
+        },
+        {
+          "en": "प",
+          "hi": "र",
+          "option_id": "B"
+        },
+        {
+          "en": "T",
+          "hi": "e",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Family often plays an early role",
+          "hi": "परिवार प्रारंभिक भूमिका निभाता"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Family is commonly an early socialisation context.",
+      "explanation_en": "Family is commonly an early socialisation context.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहपाठी समूह",
+      "question_en": "Peer group",
+      "options": [
+        {
+          "en": "प",
+          "hi": "्",
+          "option_id": "A"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "h",
+          "option_id": "D"
+        },
+        {
+          "en": "श",
+          "hi": "ा"
+        },
+        {
+          "en": "Can influence social behaviour and belonging",
+          "hi": "सामाजिक व्यवहार एवं अपनापन प्रभावित कर सकता"
+        },
+        {
+          "en": "N",
+          "hi": "o"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Peers provide social learning opportunities.",
+      "explanation_en": "Peers provide social learning opportunities.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विद्यालय समाजीकरण",
+      "question_en": "School socialisation",
+      "options": [
+        {
+          "en": "R",
+          "hi": "o",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "C"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "D"
+        },
+        {
+          "en": "Rules, cooperation and shared activities",
+          "hi": "नियम, सहयोग और साझा गतिविधियाँ"
+        },
+        {
+          "en": "I",
+          "hi": "s"
+        },
+        {
+          "en": "अ",
+          "hi": "ल"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "School provides formal and informal social experiences.",
+      "explanation_en": "School provides formal and informal social experiences.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "आदर्श अनुकरण",
+      "question_en": "Role modelling",
+      "options": [
+        {
+          "en": "Observe and imitate behaviours",
+          "hi": "व्यवहार देखकर अनुकरण",
+          "option_id": "A"
+        },
+        {
+          "en": "N",
+          "hi": "o",
+          "option_id": "B"
+        },
+        {
+          "en": "स",
+          "hi": "ी",
+          "option_id": "C"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "D"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Models can influence behaviour.",
+      "explanation_en": "Models can influence behaviour.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहकारी अधिगम",
+      "question_en": "Cooperative learning",
+      "options": [
+        {
+          "en": "C",
+          "hi": "o",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "C",
+          "hi": "o",
+          "option_id": "C"
+        },
+        {
+          "en": "न",
+          "hi": "क",
+          "option_id": "D"
+        },
+        {
+          "en": "I",
+          "hi": "s"
+        },
+        {
+          "en": "अ",
+          "hi": "ल"
+        },
+        {
+          "en": "Shared goal and individual contribution",
+          "hi": "साझा लक्ष्य एवं व्यक्तिगत योगदान"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Cooperation requires purposeful interaction.",
+      "explanation_en": "Cooperation requires purposeful interaction.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक दक्षता",
+      "question_en": "Social competence",
+      "options": [
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "A"
+        },
+        {
+          "en": "S",
+          "hi": "i",
+          "option_id": "B"
+        },
+        {
+          "en": "च",
+          "hi": "ु",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Communicate and work with others",
+          "hi": "संवाद और दूसरों के साथ कार्य"
+        },
+        {
+          "en": "O",
+          "hi": "n"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Social competence includes interaction skills.",
+      "explanation_en": "Social competence includes interaction skills.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सांस्कृतिक संदर्भ",
+      "question_en": "Cultural context",
+      "options": [
+        {
+          "en": "S",
+          "hi": "a",
+          "option_id": "A"
+        },
+        {
+          "en": "ह",
+          "hi": "र",
+          "option_id": "B"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "Shapes norms and experiences",
+          "hi": "मानदंड एवं अनुभव आकार देता"
+        },
+        {
+          "en": "I",
+          "hi": "r"
+        },
+        {
+          "en": "अ",
+          "hi": "प"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Social development occurs within cultural contexts.",
+      "explanation_en": "Social development occurs within cultural contexts.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक समावेशन",
+      "question_en": "Teacher inclusion",
+      "options": [
+        {
+          "en": "Ensure all learners participate",
+          "hi": "सभी विद्यार्थियों की भागीदारी",
+          "option_id": "A"
+        },
+        {
+          "en": "E",
+          "hi": "x",
+          "option_id": "B"
+        },
+        {
+          "en": "श",
+          "hi": "ा",
+          "option_id": "C"
+        },
+        {
+          "en": "L",
+          "hi": "a",
+          "option_id": "D"
+        },
+        {
+          "en": "ल",
+          "hi": "े"
+        },
+        {
+          "en": "I",
+          "hi": "g"
+        },
+        {
+          "en": "अ",
+          "hi": "न"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Inclusive participation supports social learning.",
+      "explanation_en": "Inclusive participation supports social learning.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक विकास",
+      "question_en": "Social development",
+      "options": [
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Changes in relationships and social skills",
+          "hi": "संबंधों एवं सामाजिक कौशल में परिवर्तन"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Social development includes interaction and relationship changes.",
+      "explanation_en": "Social development includes interaction and relationship changes.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में समाजीकरण का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Socialisation mean?",
+      "options": [
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "A"
+        },
+        {
+          "en": "P",
+          "hi": "h",
+          "option_id": "B"
+        },
+        {
+          "en": "श",
+          "hi": "ा",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Learning norms, values and roles",
+          "hi": "मानदंड, मूल्य और भूमिकाएँ सीखना"
+        },
+        {
+          "en": "O",
+          "hi": "n"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Socialisation involves learning to participate in society.",
+      "explanation_en": "Socialisation involves learning to participate in society.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में प्राथमिक एजेंट का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Primary agent mean?",
+      "options": [
+        {
+          "en": "T",
+          "hi": "e",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "C"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "D"
+        },
+        {
+          "en": "Family often plays an early role",
+          "hi": "परिवार प्रारंभिक भूमिका निभाता"
+        },
+        {
+          "en": "E",
+          "hi": "x"
+        },
+        {
+          "en": "प",
+          "hi": "र"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Family is commonly an early socialisation context.",
+      "explanation_en": "Family is commonly an early socialisation context.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में सहपाठी समूह का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Peer group mean?",
+      "options": [
+        {
+          "en": "Can influence social behaviour and belonging",
+          "hi": "सामाजिक व्यवहार एवं अपनापन प्रभावित कर सकता",
+          "option_id": "A"
+        },
+        {
+          "en": "N",
+          "hi": "o",
+          "option_id": "B"
+        },
+        {
+          "en": "प",
+          "hi": "्",
+          "option_id": "C"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "D"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "P",
+          "hi": "h"
+        },
+        {
+          "en": "श",
+          "hi": "ा"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Peers provide social learning opportunities.",
+      "explanation_en": "Peers provide social learning opportunities.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में विद्यालय समाजीकरण का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does School socialisation mean?",
+      "options": [
+        {
+          "en": "I",
+          "hi": "s",
+          "option_id": "A"
+        },
+        {
+          "en": "अ",
+          "hi": "ल",
+          "option_id": "B"
+        },
+        {
+          "en": "R",
+          "hi": "o",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Rules, cooperation and shared activities",
+          "hi": "नियम, सहयोग और साझा गतिविधियाँ"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "School provides formal and informal social experiences.",
+      "explanation_en": "School provides formal and informal social experiences.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में आदर्श अनुकरण का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Role modelling mean?",
+      "options": [
+        {
+          "en": "स",
+          "hi": "ी",
+          "option_id": "A"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Observe and imitate behaviours",
+          "hi": "व्यवहार देखकर अनुकरण"
+        },
+        {
+          "en": "N",
+          "hi": "o"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Models can influence behaviour.",
+      "explanation_en": "Models can influence behaviour.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में सहकारी अधिगम का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Cooperative learning mean?",
+      "options": [
+        {
+          "en": "C",
+          "hi": "o",
+          "option_id": "A"
+        },
+        {
+          "en": "न",
+          "hi": "क",
+          "option_id": "B"
+        },
+        {
+          "en": "I",
+          "hi": "s",
+          "option_id": "C"
+        },
+        {
+          "en": "अ",
+          "hi": "ल",
+          "option_id": "D"
+        },
+        {
+          "en": "Shared goal and individual contribution",
+          "hi": "साझा लक्ष्य एवं व्यक्तिगत योगदान"
+        },
+        {
+          "en": "C",
+          "hi": "o"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Cooperation requires purposeful interaction.",
+      "explanation_en": "Cooperation requires purposeful interaction.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में सामाजिक दक्षता का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Social competence mean?",
+      "options": [
+        {
+          "en": "Communicate and work with others",
+          "hi": "संवाद और दूसरों के साथ कार्य",
+          "option_id": "A"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "S",
+          "hi": "i",
+          "option_id": "D"
+        },
+        {
+          "en": "च",
+          "hi": "ु"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Social competence includes interaction skills.",
+      "explanation_en": "Social competence includes interaction skills.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में सांस्कृतिक संदर्भ का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Cultural context mean?",
+      "options": [
+        {
+          "en": "I",
+          "hi": "r",
+          "option_id": "A"
+        },
+        {
+          "en": "अ",
+          "hi": "प",
+          "option_id": "B"
+        },
+        {
+          "en": "S",
+          "hi": "a",
+          "option_id": "C"
+        },
+        {
+          "en": "ह",
+          "hi": "र",
+          "option_id": "D"
+        },
+        {
+          "en": "O",
+          "hi": "n"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "Shapes norms and experiences",
+          "hi": "मानदंड एवं अनुभव आकार देता"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Social development occurs within cultural contexts.",
+      "explanation_en": "Social development occurs within cultural contexts.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में शिक्षक समावेशन का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Teacher inclusion mean?",
+      "options": [
+        {
+          "en": "श",
+          "hi": "ा",
+          "option_id": "A"
+        },
+        {
+          "en": "L",
+          "hi": "a",
+          "option_id": "B"
+        },
+        {
+          "en": "ल",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "I",
+          "hi": "g",
+          "option_id": "D"
+        },
+        {
+          "en": "अ",
+          "hi": "न"
+        },
+        {
+          "en": "Ensure all learners participate",
+          "hi": "सभी विद्यार्थियों की भागीदारी"
+        },
+        {
+          "en": "E",
+          "hi": "x"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Inclusive participation supports social learning.",
+      "explanation_en": "Inclusive participation supports social learning.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIALISATION_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "socialisation",
+      "topic": "Socialisation & Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में सामाजिक विकास का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Social development mean?",
+      "options": [
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "C"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "D"
+        },
+        {
+          "en": "Changes in relationships and social skills",
+          "hi": "संबंधों एवं सामाजिक कौशल में परिवर्तन"
+        },
+        {
+          "en": "O",
+          "hi": "n"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Social development includes interaction and relationship changes.",
+      "explanation_en": "Social development includes interaction and relationship changes.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
