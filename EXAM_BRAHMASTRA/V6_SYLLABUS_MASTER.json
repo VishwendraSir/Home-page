@@ -1,0 +1,812 @@
+{
+  "schema_version": "6.0.0",
+  "project": "EXAM BRAHMASTRA V6",
+  "brand": "SCIENCE CENTRE LEARNING HUB — GUIDED BY VISHWENDRA SIR",
+  "question_policy": {
+    "minimum_per_topic": 20,
+    "difficulty_distribution": {
+      "easy": 5,
+      "moderate": 10,
+      "difficult": 5
+    },
+    "languages": [
+      "hi",
+      "en"
+    ],
+    "options_per_question": 4,
+    "one_correct_answer": true
+  },
+  "status_policy": [
+    "not_started",
+    "in_progress",
+    "generated",
+    "verified",
+    "published"
+  ],
+  "subjects": [
+    {
+      "subject_id": "cdp",
+      "name": "Child Development & Pedagogy",
+      "categories": [
+        {
+          "name": "Child Development",
+          "topics": [
+            "Growth and Development",
+            "Principles of Development",
+            "Developmental Stages",
+            "Physical Development",
+            "Cognitive Development",
+            "Emotional Development",
+            "Social Development",
+            "Moral Development",
+            "Language Development",
+            "Individual Differences",
+            "Heredity and Environment",
+            "Adolescence",
+            "Childhood"
+          ]
+        },
+        {
+          "name": "Educational Psychology",
+          "topics": [
+            "Learning Theories",
+            "Piaget",
+            "Vygotsky",
+            "Kohlberg",
+            "Erikson",
+            "Skinner",
+            "Pavlov",
+            "Thorndike",
+            "Bandura",
+            "Bruner",
+            "Gardner",
+            "Intelligence",
+            "Creativity",
+            "Motivation",
+            "Memory",
+            "Forgetting",
+            "Attention",
+            "Personality",
+            "Mental Health",
+            "Adjustment"
+          ]
+        },
+        {
+          "name": "Inclusive Education",
+          "topics": [
+            "Special Needs Education",
+            "Learning Disabilities",
+            "Dyslexia",
+            "Dysgraphia",
+            "Dyscalculia",
+            "ADHD",
+            "Autism Spectrum",
+            "Gifted Children",
+            "Slow Learners",
+            "Inclusive Classroom",
+            "Individual Differences"
+          ]
+        },
+        {
+          "name": "Teaching and Pedagogy",
+          "topics": [
+            "Teaching Methods",
+            "Child-Centred Education",
+            "Constructivism",
+            "Activity-Based Learning",
+            "Experiential Learning",
+            "Cooperative Learning",
+            "Classroom Management",
+            "Assessment",
+            "Evaluation",
+            "Formative Assessment",
+            "Summative Assessment",
+            "Diagnostic Assessment",
+            "Remedial Teaching"
+          ]
+        }
+      ]
+    },
+    {
+      "subject_id": "hindi",
+      "name": "Hindi Language",
+      "categories": [
+        {
+          "name": "Hindi Grammar",
+          "topics": [
+            " वर्ण एवं वर्णमाला",
+            "स्वर एवं व्यंजन",
+            "संधि",
+            "संधि-विच्छेद",
+            "समास",
+            "उपसर्ग",
+            "प्रत्यय",
+            "तत्सम एवं तद्भव",
+            "पर्यायवाची",
+            "विलोम",
+            "अनेकार्थी शब्द",
+            "अनेक शब्दों के लिए एक शब्द",
+            "मुहावरे",
+            "लोकोक्तियाँ",
+            "वाक्य शुद्धि",
+            "शब्द शुद्धि",
+            "लिंग",
+            "वचन",
+            "कारक",
+            "काल",
+            "क्रिया",
+            "विशेषण",
+            "सर्वनाम",
+            "संज्ञा",
+            "अव्यय",
+            "रस",
+            "छंद",
+            "अलंकार",
+            "शब्द शक्ति",
+            "वाक्य रचना",
+            "विराम चिह्न"
+          ]
+        },
+        {
+          "name": "Hindi Pedagogy",
+          "topics": [
+            "भाषा अर्जन",
+            "भाषा विकास",
+            "भाषा कौशल",
+            "सुनना",
+            "बोलना",
+            "पढ़ना",
+            "लिखना",
+            "भाषा शिक्षण विधियाँ",
+            "व्याकरण शिक्षण",
+            "भाषा मूल्यांकन",
+            "त्रुटि विश्लेषण",
+            "उपचारात्मक शिक्षण"
+          ]
+        }
+      ]
+    },
+    {
+      "subject_id": "english",
+      "name": "English Language",
+      "categories": [
+        {
+          "name": "Grammar",
+          "topics": [
+            "Parts of Speech",
+            "Noun",
+            "Pronoun",
+            "Verb",
+            "Adjective",
+            "Adverb",
+            "Preposition",
+            "Conjunction",
+            "Interjection",
+            "Articles",
+            "Tenses",
+            "Active and Passive Voice",
+            "Direct and Indirect Speech",
+            "Subject-Verb Agreement",
+            "Modals",
+            "Determiners",
+            "Conditional Sentences",
+            "Question Tags",
+            "Clauses",
+            "Phrases",
+            "Sentence Transformation",
+            "Sentence Correction",
+            "Error Detection",
+            "Punctuation"
+          ]
+        },
+        {
+          "name": "Vocabulary",
+          "topics": [
+            "Synonyms",
+            "Antonyms",
+            "One Word Substitution",
+            "Idioms",
+            "Phrases",
+            "Spellings",
+            "Homophones",
+            "Word Formation",
+            "Prefixes",
+            "Suffixes"
+          ]
+        },
+        {
+          "name": "Comprehension",
+          "topics": [
+            "Reading Comprehension",
+            "Unseen Passage",
+            "Cloze Test",
+            "Fill in the Blanks",
+            "Sentence Rearrangement"
+          ]
+        },
+        {
+          "name": "English Pedagogy",
+          "topics": [
+            "Language Acquisition",
+            "Language Learning",
+            "Teaching Methods",
+            "Language Skills",
+            "Grammar Teaching",
+            "Assessment",
+            "Remedial Teaching"
+          ]
+        }
+      ]
+    },
+    {
+      "subject_id": "mathematics",
+      "name": "Mathematics",
+      "categories": [
+        {
+          "name": "Arithmetic",
+          "topics": [
+            "Number System",
+            "Natural Numbers",
+            "Whole Numbers",
+            "Integers",
+            "Rational Numbers",
+            "Irrational Numbers",
+            "Fractions",
+            "Decimals",
+            "LCM",
+            "HCF",
+            "Divisibility Rules",
+            "Simplification",
+            "BODMAS",
+            "Square",
+            "Square Root",
+            "Cube",
+            "Cube Root",
+            "Percentage",
+            "Ratio and Proportion",
+            "Average",
+            "Profit and Loss",
+            "Discount",
+            "Simple Interest",
+            "Compound Interest",
+            "Time and Work",
+            "Pipes and Cisterns",
+            "Time Speed and Distance",
+            "Train Problems",
+            "Boat and Stream",
+            "Mixture and Alligation",
+            "Age Problems"
+          ]
+        },
+        {
+          "name": "Algebra",
+          "topics": [
+            "Algebraic Expressions",
+            "Identities",
+            "Linear Equations",
+            "Quadratic Equations",
+            "Polynomials",
+            "Factorisation",
+            "Arithmetic Progression",
+            "Algebraic Geometry"
+          ]
+        },
+        {
+          "name": "Geometry",
+          "topics": [
+            "Lines",
+            "Angles",
+            "Triangles",
+            "Quadrilaterals",
+            "Polygons",
+            "Circles",
+            "Coordinate Geometry",
+            "Congruence",
+            "Similarity"
+          ]
+        },
+        {
+          "name": "Mensuration",
+          "topics": [
+            "Perimeter",
+            "Area",
+            "Surface Area",
+            "Volume",
+            "2D Figures",
+            "3D Figures",
+            "Cube",
+            "Cuboid",
+            "Cylinder",
+            "Cone",
+            "Sphere",
+            "Hemisphere"
+          ]
+        },
+        {
+          "name": "Advanced Mathematics",
+          "topics": [
+            "Statistics",
+            "Probability",
+            "Data Interpretation",
+            "Graphs",
+            "Mean",
+            "Median",
+            "Mode"
+          ]
+        },
+        {
+          "name": "Mathematics Pedagogy",
+          "topics": [
+            "Mathematical Thinking",
+            "Problem Solving",
+            "Mathematical Reasoning",
+            "Teaching Methods",
+            "Error Analysis",
+            "Assessment",
+            "Remedial Teaching"
+          ]
+        }
+      ]
+    },
+    {
+      "subject_id": "science",
+      "name": "Science",
+      "categories": [
+        {
+          "name": "Physics",
+          "topics": [
+            "Measurement",
+            "Units",
+            "Motion",
+            "Speed",
+            "Velocity",
+            "Acceleration",
+            "Force",
+            "Newton's Laws",
+            "Gravitation",
+            "Work",
+            "Energy",
+            "Power",
+            "Pressure",
+            "Sound",
+            "Light",
+            "Reflection",
+            "Refraction",
+            "Mirrors",
+            "Lenses",
+            "Electricity",
+            "Electric Current",
+            "Resistance",
+            "Magnetism",
+            "Heat",
+            "Temperature",
+            "Thermodynamics",
+            "Simple Machines"
+          ]
+        },
+        {
+          "name": "Chemistry",
+          "topics": [
+            "Matter",
+            "States of Matter",
+            "Atom",
+            "Molecule",
+            "Elements",
+            "Compounds",
+            "Mixtures",
+            "Atomic Structure",
+            "Periodic Table",
+            "Chemical Reactions",
+            "Chemical Equations",
+            "Acids",
+            "Bases",
+            "Salts",
+            "Metals",
+            "Non-Metals",
+            "Carbon",
+            "Hydrocarbons",
+            "Combustion",
+            "Oxidation",
+            "Reduction",
+            "Separation of Mixtures"
+          ]
+        },
+        {
+          "name": "Biology",
+          "topics": [
+            "Cell",
+            "Cell Structure",
+            "Cell Organelles",
+            "Tissues",
+            "Plant Biology",
+            "Animal Biology",
+            "Nutrition",
+            "Respiration",
+            "Transportation",
+            "Excretion",
+            "Reproduction",
+            "Heredity",
+            "Evolution",
+            "Microorganisms",
+            "Diseases",
+            "Human Body",
+            "Digestive System",
+            "Respiratory System",
+            "Circulatory System",
+            "Nervous System",
+            "Endocrine System",
+            "Ecology",
+            "Environment",
+            "Food Chain",
+            "Food Web",
+            "Biodiversity"
+          ]
+        },
+        {
+          "name": "Science Pedagogy",
+          "topics": [
+            "Science Teaching Methods",
+            "Inquiry-Based Learning",
+            "Scientific Method",
+            "Experiments",
+            "Observation",
+            "Hypothesis",
+            "Laboratory Teaching",
+            "Scientific Attitude",
+            "Science Assessment",
+            "Science Curriculum",
+            "Remedial Teaching"
+          ]
+        }
+      ]
+    },
+    {
+      "subject_id": "social_science",
+      "name": "Social Science",
+      "categories": [
+        {
+          "name": "History",
+          "topics": [
+            "Ancient Indian History",
+            "Indus Valley Civilization",
+            "Vedic Civilization",
+            "Mahajanapadas",
+            "Maurya Empire",
+            "Gupta Empire",
+            "Medieval India",
+            "Delhi Sultanate",
+            "Mughal Empire",
+            "Modern India",
+            "British Rule",
+            "Revolt of 1857",
+            "Indian National Movement",
+            "Freedom Fighters",
+            "Independence",
+            "World History Basics"
+          ]
+        },
+        {
+          "name": "Geography",
+          "topics": [
+            "Earth",
+            "Solar System",
+            "Latitude",
+            "Longitude",
+            "Continents",
+            "Oceans",
+            "Mountains",
+            "Rivers",
+            "Climate",
+            "Weather",
+            "Natural Resources",
+            "Agriculture",
+            "Industries",
+            "Population",
+            "Indian Geography",
+            "World Geography",
+            "Maps",
+            "Environment"
+          ]
+        },
+        {
+          "name": "Political Science",
+          "topics": [
+            "Constitution",
+            "Preamble",
+            "Fundamental Rights",
+            "Fundamental Duties",
+            "Directive Principles",
+            "Parliament",
+            "President",
+            "Prime Minister",
+            "Judiciary",
+            "State Government",
+            "Local Government",
+            "Democracy",
+            "Elections",
+            "Citizenship",
+            "Political Parties"
+          ]
+        },
+        {
+          "name": "Economics",
+          "topics": [
+            "Basic Economics",
+            "Resources",
+            "Production",
+            "Consumption",
+            "Agriculture",
+            "Industries",
+            "Money",
+            "Banking",
+            "Budget",
+            "Poverty",
+            "Unemployment",
+            "Development",
+            "Economic Planning",
+            "Indian Economy"
+          ]
+        },
+        {
+          "name": "Social Science Pedagogy",
+          "topics": [
+            "Teaching Methods",
+            "Project-Based Learning",
+            "Maps and Charts",
+            "Historical Sources",
+            "Critical Thinking",
+            "Social Science Assessment",
+            "Classroom Activities"
+          ]
+        }
+      ]
+    },
+    {
+      "subject_id": "gk",
+      "name": "General Knowledge",
+      "categories": [
+        {
+          "name": "India GK",
+          "topics": [
+            "Indian History",
+            "Geography",
+            "Constitution",
+            "Polity",
+            "Economy",
+            "Culture",
+            "Important Places",
+            "National Symbols",
+            "Awards",
+            "Sports",
+            "Books and Authors",
+            "Important Days",
+            "Government Schemes"
+          ]
+        },
+        {
+          "name": "World GK",
+          "topics": [
+            "Countries",
+            "Capitals",
+            "Currencies",
+            "International Organizations",
+            "Continents",
+            "Oceans",
+            "World Geography",
+            "Important Events"
+          ]
+        },
+        {
+          "name": "General Science GK",
+          "topics": [
+            "Physics Facts",
+            "Chemistry Facts",
+            "Biology Facts",
+            "Space",
+            "Technology",
+            "Inventions",
+            "Discoveries"
+          ]
+        }
+      ]
+    },
+    {
+      "subject_id": "rajasthan_gk",
+      "name": "Rajasthan GK",
+      "categories": [
+        {
+          "name": "History",
+          "topics": [
+            "Ancient Rajasthan",
+            "Medieval Rajasthan",
+            "Modern Rajasthan",
+            "Rajput History",
+            "Freedom Movement",
+            "Historical Battles",
+            "Important Personalities"
+          ]
+        },
+        {
+          "name": "Geography",
+          "topics": [
+            "Districts",
+            "Divisions",
+            "Rivers",
+            "Lakes",
+            "Mountains",
+            "Desert",
+            "Climate",
+            "Soil",
+            "Minerals",
+            "Agriculture"
+          ]
+        },
+        {
+          "name": "Culture",
+          "topics": [
+            "Folk Dance",
+            "Folk Music",
+            "Festivals",
+            "Fairs",
+            "Art",
+            "Handicrafts",
+            "Traditional Dress",
+            "Cuisine",
+            "Language",
+            "Literature"
+          ]
+        },
+        {
+          "name": "Polity",
+          "topics": [
+            "State Constitution",
+            "Governor",
+            "Chief Minister",
+            "Legislature",
+            "Administration",
+            "Panchayati Raj",
+            "Local Government"
+          ]
+        },
+        {
+          "name": "Economy",
+          "topics": [
+            "Agriculture",
+            "Industries",
+            "Minerals",
+            "Tourism",
+            "Economic Development"
+          ]
+        }
+      ]
+    },
+    {
+      "subject_id": "computer",
+      "name": "Computer Knowledge",
+      "categories": [
+        {
+          "name": "Computer Fundamentals",
+          "topics": [
+            "Computer Fundamentals",
+            "Hardware",
+            "Software",
+            "Input Devices",
+            "Output Devices",
+            "Memory",
+            "Storage",
+            "Operating Systems",
+            "Windows",
+            "MS Word",
+            "MS Excel",
+            "MS PowerPoint",
+            "Internet",
+            "Networking",
+            "Cyber Security",
+            "Computer Virus",
+            "AI Basics",
+            "Digital India",
+            "ICT",
+            "Keyboard Shortcuts",
+            "Computer Generations",
+            "Number System",
+            "Binary",
+            "Database Basics"
+          ]
+        }
+      ]
+    },
+    {
+      "subject_id": "current_affairs",
+      "name": "Current Affairs",
+      "categories": [
+        {
+          "name": "National",
+          "topics": [
+            "National Current Affairs"
+          ]
+        },
+        {
+          "name": "International",
+          "topics": [
+            "International Current Affairs"
+          ]
+        },
+        {
+          "name": "Rajasthan",
+          "topics": [
+            "Rajasthan Current Affairs"
+          ]
+        },
+        {
+          "name": "Science and Technology",
+          "topics": [
+            "Science and Technology Current Affairs"
+          ]
+        },
+        {
+          "name": "Sports",
+          "topics": [
+            "Sports Current Affairs"
+          ]
+        },
+        {
+          "name": "Awards",
+          "topics": [
+            "Awards Current Affairs"
+          ]
+        },
+        {
+          "name": "Appointments",
+          "topics": [
+            "Appointments Current Affairs"
+          ]
+        },
+        {
+          "name": "Government Schemes",
+          "topics": [
+            "Government Schemes Current Affairs"
+          ]
+        },
+        {
+          "name": "Economy",
+          "topics": [
+            "Economy Current Affairs"
+          ]
+        },
+        {
+          "name": "Defence",
+          "topics": [
+            "Defence Current Affairs"
+          ]
+        },
+        {
+          "name": "Environment",
+          "topics": [
+            "Environment Current Affairs"
+          ]
+        },
+        {
+          "name": "Important Days",
+          "topics": [
+            "Important Days Current Affairs"
+          ]
+        },
+        {
+          "name": "Summits",
+          "topics": [
+            "Summits Current Affairs"
+          ]
+        },
+        {
+          "name": "Reports and Indexes",
+          "topics": [
+            "Reports and Indexes Current Affairs"
+          ]
+        }
+      ]
+    }
+  ],
+  "topic_count": 481,
+  "minimum_questions": 9620,
+  "execution_status": "registry_created; question generation not yet complete"
+}
