@@ -43,28 +43,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "सामाजिक-सांस्कृतिक अंतःक्रिया",
-            "Socio-cultural interaction",
-            "केवल जैविक परिपक्वता",
-            "Biological maturation only",
-            "दंड",
-            "Punishment",
-            "अकेला अभ्यास",
-            "Solo practice"
-          ],
-          "en": 0
+          "hi": "सामाजिक-सांस्कृतिक अंतःक्रिया",
+          "en": "Socio-cultural interaction"
         },
         {
           "option_id": "B",
-          "hi": "वाइगोत्स्की ने सामाजिक अंतःक्रिया और संस्कृति की भूमिका पर बल दिया।",
-          "en": "Vygotsky emphasised social interaction and culture."
+          "hi": "केवल जैविक परिपक्वता",
+          "en": "Biological maturation only"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Punishment"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अकेला अभ्यास",
+          "en": "Solo practice"
         }
       ],
       "correct_option": "A",
@@ -75,7 +70,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "वाइगोत्स्की ने सामाजिक अंतःक्रिया और संस्कृति की भूमिका पर बल दिया।",
+      "explanation_en": "Vygotsky emphasised social interaction and culture."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_002",
@@ -99,28 +96,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "निकटस्थ विकास क्षेत्र",
-            "Zone of Proximal Development",
-            "प्राथमिक विकास क्षेत्र",
-            "Primary Development Zone",
-            "शून्य प्रदर्शन क्षेत्र",
-            "Zero Performance Zone",
-            "सामाजिक दूरी",
-            "Social Distance"
-          ],
-          "en": 0
+          "hi": "निकटस्थ विकास क्षेत्र",
+          "en": "Zone of Proximal Development"
         },
         {
           "option_id": "B",
-          "hi": "ZPD स्वतंत्र क्षमता और सहायता से संभव क्षमता के बीच का क्षेत्र है।",
-          "en": "ZPD is the gap between independent and assisted performance."
+          "hi": "प्राथमिक विकास क्षेत्र",
+          "en": "Primary Development Zone"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "शून्य प्रदर्शन क्षेत्र",
+          "en": "Zero Performance Zone"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "सामाजिक दूरी",
+          "en": "Social Distance"
         }
       ],
       "correct_option": "A",
@@ -131,7 +123,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "ZPD स्वतंत्र क्षमता और सहायता से संभव क्षमता के बीच का क्षेत्र है।",
+      "explanation_en": "ZPD is the gap between independent and assisted performance."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_003",
@@ -155,28 +149,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "सहायता से कार्य पूरा करना",
-            "Complete a task with assistance",
-            "कुछ भी नहीं सीखना",
-            "Learn nothing",
-            "केवल स्वतंत्र कार्य",
-            "Only work independently",
-            "सभी कार्य बिना सहायता",
-            "Do everything unaided"
-          ],
-          "en": 0
+          "hi": "सहायता से कार्य पूरा करना",
+          "en": "Complete a task with assistance"
         },
         {
           "option_id": "B",
-          "hi": "ZPD उन कार्यों को दर्शाता है जो उचित सहायता से संभव हैं।",
-          "en": "ZPD includes tasks possible with appropriate assistance."
+          "hi": "कुछ भी नहीं सीखना",
+          "en": "Learn nothing"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल स्वतंत्र कार्य",
+          "en": "Only work independently"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "सभी कार्य बिना सहायता",
+          "en": "Do everything unaided"
         }
       ],
       "correct_option": "A",
@@ -187,7 +176,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "ZPD उन कार्यों को दर्शाता है जो उचित सहायता से संभव हैं।",
+      "explanation_en": "ZPD includes tasks possible with appropriate assistance."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_004",
@@ -211,28 +202,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "अस्थायी संरचित सहायता",
-            "Temporary structured support",
-            "स्थायी नियंत्रण",
-            "Permanent control",
-            "दंड",
-            "Punishment",
-            "केवल परीक्षा",
-            "Examination only"
-          ],
-          "en": 0
+          "hi": "अस्थायी संरचित सहायता",
+          "en": "Temporary structured support"
         },
         {
           "option_id": "B",
-          "hi": "सहायता विद्यार्थी की क्षमता बढ़ने पर धीरे-धीरे कम की जाती है।",
-          "en": "Support is gradually reduced as competence increases."
+          "hi": "स्थायी नियंत्रण",
+          "en": "Permanent control"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Punishment"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "केवल परीक्षा",
+          "en": "Examination only"
         }
       ],
       "correct_option": "A",
@@ -243,7 +229,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "सहायता विद्यार्थी की क्षमता बढ़ने पर धीरे-धीरे कम की जाती है।",
+      "explanation_en": "Support is gradually reduced as competence increases."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_005",
@@ -267,28 +255,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "शिक्षक या सक्षम सहपाठी",
-            "Teacher or capable peer",
-            "केवल प्रधानाचार्य",
-            "Principal only",
-            "केवल माता-पिता",
-            "Parents only",
-            "कोई नहीं",
-            "No one"
-          ],
-          "en": 0
+          "hi": "शिक्षक या सक्षम सहपाठी",
+          "en": "Teacher or capable peer"
         },
         {
           "option_id": "B",
-          "hi": "MKO वह व्यक्ति है जो किसी कार्य में अधिक ज्ञान या कौशल रखता है।",
-          "en": "An MKO has greater knowledge or skill in a task."
+          "hi": "केवल प्रधानाचार्य",
+          "en": "Principal only"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल माता-पिता",
+          "en": "Parents only"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "कोई नहीं",
+          "en": "No one"
         }
       ],
       "correct_option": "A",
@@ -299,7 +282,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "MKO वह व्यक्ति है जो किसी कार्य में अधिक ज्ञान या कौशल रखता है।",
+      "explanation_en": "An MKO has greater knowledge or skill in a task."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_006",
@@ -323,28 +308,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "चिंतन को व्यवस्थित करने का साधन",
-            "A tool for organising thought",
-            "विकास में अप्रासंगिक",
-            "Irrelevant",
-            "केवल संचार",
-            "Communication only",
-            "केवल लिखित",
-            "Written only"
-          ],
-          "en": 0
+          "hi": "चिंतन को व्यवस्थित करने का साधन",
+          "en": "A tool for organising thought"
         },
         {
           "option_id": "B",
-          "hi": "भाषा सामाजिक संवाद से आत्म-नियमन और चिंतन का साधन बनती है।",
-          "en": "Language becomes a tool for thought and self-regulation."
+          "hi": "विकास में अप्रासंगिक",
+          "en": "Irrelevant"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल संचार",
+          "en": "Communication only"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "केवल लिखित",
+          "en": "Written only"
         }
       ],
       "correct_option": "A",
@@ -355,7 +335,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "भाषा सामाजिक संवाद से आत्म-नियमन और चिंतन का साधन बनती है।",
+      "explanation_en": "Language becomes a tool for thought and self-regulation."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_007",
@@ -379,28 +361,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "बच्चे का स्वयं से बोलना",
-            "A child talking to oneself",
-            "सार्वजनिक भाषण",
-            "Public speech",
-            "मौन",
-            "Silence",
-            "अनुकरण",
-            "Imitation"
-          ],
-          "en": 0
+          "hi": "बच्चे का स्वयं से बोलना",
+          "en": "A child talking to oneself"
         },
         {
           "option_id": "B",
-          "hi": "Private speech बच्चे को कार्य निर्देशित और नियंत्रित करने में मदद कर सकती है।",
-          "en": "Private speech can help children guide and regulate actions."
+          "hi": "सार्वजनिक भाषण",
+          "en": "Public speech"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "मौन",
+          "en": "Silence"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अनुकरण",
+          "en": "Imitation"
         }
       ],
       "correct_option": "A",
@@ -411,7 +388,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "Private speech बच्चे को कार्य निर्देशित और नियंत्रित करने में मदद कर सकती है।",
+      "explanation_en": "Private speech can help children guide and regulate actions."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_008",
@@ -435,28 +414,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "विकास को आगे बढ़ा सकता है",
-            "Can lead development forward",
-            "विकास के बाद ही संभव",
-            "Only after development",
-            "सामाजिकता से अलग",
-            "Separate from social life",
-            "केवल जैविक",
-            "Only biological"
-          ],
-          "en": 0
+          "hi": "विकास को आगे बढ़ा सकता है",
+          "en": "Can lead development forward"
         },
         {
           "option_id": "B",
-          "hi": "सहायता और सामाजिक अधिगम विकास को आगे बढ़ा सकते हैं।",
-          "en": "Assisted and social learning can advance development."
+          "hi": "विकास के बाद ही संभव",
+          "en": "Only after development"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "सामाजिकता से अलग",
+          "en": "Separate from social life"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "केवल जैविक",
+          "en": "Only biological"
         }
       ],
       "correct_option": "A",
@@ -467,7 +441,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "सहायता और सामाजिक अधिगम विकास को आगे बढ़ा सकते हैं।",
+      "explanation_en": "Assisted and social learning can advance development."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_009",
@@ -491,28 +467,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "विचार साझा और सहायता",
-            "Sharing ideas and support",
-            "सभी निर्भर हो जाते हैं",
-            "Everyone becomes dependent",
-            "प्रतिस्पर्धा ही",
-            "Competition only",
-            "सीखना रुकता है",
-            "Learning stops"
-          ],
-          "en": 0
+          "hi": "विचार साझा और सहायता",
+          "en": "Sharing ideas and support"
         },
         {
           "option_id": "B",
-          "hi": "सहयोग संवाद और साझा समस्या समाधान के अवसर देता है।",
-          "en": "Collaboration creates opportunities for dialogue and problem-solving."
+          "hi": "सभी निर्भर हो जाते हैं",
+          "en": "Everyone becomes dependent"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "प्रतिस्पर्धा ही",
+          "en": "Competition only"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "सीखना रुकता है",
+          "en": "Learning stops"
         }
       ],
       "correct_option": "A",
@@ -523,7 +494,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "सहयोग संवाद और साझा समस्या समाधान के अवसर देता है।",
+      "explanation_en": "Collaboration creates opportunities for dialogue and problem-solving."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_010",
@@ -547,28 +520,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "भाषा और संख्या प्रणाली",
-            "Language and number systems",
-            "केवल खिलौना",
-            "Toy only",
-            "दंड",
-            "Punishment",
-            "शारीरिक वृद्धि",
-            "Physical growth"
-          ],
-          "en": 0
+          "hi": "भाषा और संख्या प्रणाली",
+          "en": "Language and number systems"
         },
         {
           "option_id": "B",
-          "hi": "भाषा, प्रतीक और गणना प्रणालियाँ सांस्कृतिक उपकरण हैं।",
-          "en": "Language, symbols and number systems are cultural tools."
+          "hi": "केवल खिलौना",
+          "en": "Toy only"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Punishment"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "शारीरिक वृद्धि",
+          "en": "Physical growth"
         }
       ],
       "correct_option": "A",
@@ -579,7 +547,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "भाषा, प्रतीक और गणना प्रणालियाँ सांस्कृतिक उपकरण हैं।",
+      "explanation_en": "Language, symbols and number systems are cultural tools."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_011",
@@ -603,28 +573,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "उचित सहायता और संवाद देना",
-            "Provide appropriate support and dialogue",
-            "सभी सहायता रोकना",
-            "Withhold all support",
-            "केवल व्याख्यान",
-            "Lecture only",
-            "उत्तर याद कराना",
-            "Make students memorise answers"
-          ],
-          "en": 0
+          "hi": "उचित सहायता और संवाद देना",
+          "en": "Provide appropriate support and dialogue"
         },
         {
           "option_id": "B",
-          "hi": "शिक्षक सीखने को संवाद और सहारा देकर समर्थित करता है।",
-          "en": "Teachers support learning through dialogue and scaffolding."
+          "hi": "सभी सहायता रोकना",
+          "en": "Withhold all support"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल व्याख्यान",
+          "en": "Lecture only"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "उत्तर याद कराना",
+          "en": "Make students memorise answers"
         }
       ],
       "correct_option": "A",
@@ -635,7 +600,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "शिक्षक सीखने को संवाद और सहारा देकर समर्थित करता है।",
+      "explanation_en": "Teachers support learning through dialogue and scaffolding."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_012",
@@ -659,28 +626,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "अगला उपयुक्त सीखने का स्तर पहचानना",
-            "Identify the next learning level",
-            "केवल वर्तमान अंक",
-            "Only current marks",
-            "बच्चों की तुलना",
-            "Compare children",
-            "दंड तय करना",
-            "Determine punishment"
-          ],
-          "en": 0
+          "hi": "अगला उपयुक्त सीखने का स्तर पहचानना",
+          "en": "Identify the next learning level"
         },
         {
           "option_id": "B",
-          "hi": "ZPD विद्यार्थी को चुनौती देने वाले लेकिन सहायता से संभव कार्य पहचानता है।",
-          "en": "It identifies challenging tasks achievable with support."
+          "hi": "केवल वर्तमान अंक",
+          "en": "Only current marks"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "बच्चों की तुलना",
+          "en": "Compare children"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "दंड तय करना",
+          "en": "Determine punishment"
         }
       ],
       "correct_option": "A",
@@ -691,7 +653,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "ZPD विद्यार्थी को चुनौती देने वाले लेकिन सहायता से संभव कार्य पहचानता है।",
+      "explanation_en": "It identifies challenging tasks achievable with support."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_013",
@@ -715,28 +679,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "उपकरण और संवाद के तरीके प्रदान करना",
-            "Providing tools and forms of interaction",
-            "कोई प्रभाव नहीं",
-            "No influence",
-            "केवल भोजन",
-            "Food only",
-            "केवल आनुवंशिकी",
-            "Genetics only"
-          ],
-          "en": 0
+          "hi": "उपकरण और संवाद के तरीके प्रदान करना",
+          "en": "Providing tools and forms of interaction"
         },
         {
           "option_id": "B",
-          "hi": "संस्कृति सीखने के उपकरण, भाषा और सामाजिक अभ्यास प्रदान करती है।",
-          "en": "Culture provides tools, language and social practices."
+          "hi": "कोई प्रभाव नहीं",
+          "en": "No influence"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल भोजन",
+          "en": "Food only"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "केवल आनुवंशिकी",
+          "en": "Genetics only"
         }
       ],
       "correct_option": "A",
@@ -747,7 +706,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "संस्कृति सीखने के उपकरण, भाषा और सामाजिक अभ्यास प्रदान करती है।",
+      "explanation_en": "Culture provides tools, language and social practices."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_014",
@@ -771,28 +732,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "क्षमता और स्वतंत्रता बढ़ने पर",
-            "As competence and independence increase",
-            "पहले दिन",
-            "On the first day",
-            "कभी नहीं",
-            "Never",
-            "असफलता पर",
-            "After failure"
-          ],
-          "en": 0
+          "hi": "क्षमता और स्वतंत्रता बढ़ने पर",
+          "en": "As competence and independence increase"
         },
         {
           "option_id": "B",
-          "hi": "सहायता धीरे-धीरे हटाकर स्वतंत्र प्रदर्शन बढ़ाया जाता है।",
-          "en": "Support is gradually withdrawn to increase independence."
+          "hi": "पहले दिन",
+          "en": "On the first day"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "कभी नहीं",
+          "en": "Never"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "असफलता पर",
+          "en": "After failure"
         }
       ],
       "correct_option": "A",
@@ -803,7 +759,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "सहायता धीरे-धीरे हटाकर स्वतंत्र प्रदर्शन बढ़ाया जाता है।",
+      "explanation_en": "Support is gradually withdrawn to increase independence."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_015",
@@ -827,28 +785,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "ज्ञान सह-निर्माण का माध्यम",
-            "A means of co-constructing knowledge",
-            "समय नष्ट करना",
-            "Waste time",
-            "केवल अनुशासन",
-            "Discipline only",
-            "विकास रोकना",
-            "Stop development"
-          ],
-          "en": 0
+          "hi": "ज्ञान सह-निर्माण का माध्यम",
+          "en": "A means of co-constructing knowledge"
         },
         {
           "option_id": "B",
-          "hi": "संवाद से विचार साझा होते हैं और अवधारणाएँ विकसित होती हैं।",
-          "en": "Dialogue shares ideas and develops concepts."
+          "hi": "समय नष्ट करना",
+          "en": "Waste time"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल अनुशासन",
+          "en": "Discipline only"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "विकास रोकना",
+          "en": "Stop development"
         }
       ],
       "correct_option": "A",
@@ -859,7 +812,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "संवाद से विचार साझा होते हैं और अवधारणाएँ विकसित होती हैं।",
+      "explanation_en": "Dialogue shares ideas and develops concepts."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_016",
@@ -883,28 +838,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "सक्षम साथियों से सहायता मिलती है",
-            "Learners receive help from capable peers",
-            "हर बच्चा अकेला",
-            "Everyone works alone",
-            "सभी उत्तर समान",
-            "All answers identical",
-            "कार्य हट जाता है",
-            "Task disappears"
-          ],
-          "en": 0
+          "hi": "सक्षम साथियों से सहायता मिलती है",
+          "en": "Learners receive help from capable peers"
         },
         {
           "option_id": "B",
-          "hi": "सक्षम सहपाठी मॉडलिंग और सहायता प्रदान कर सकते हैं।",
-          "en": "Capable peers can provide modelling and assistance."
+          "hi": "हर बच्चा अकेला",
+          "en": "Everyone works alone"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "सभी उत्तर समान",
+          "en": "All answers identical"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "कार्य हट जाता है",
+          "en": "Task disappears"
         }
       ],
       "correct_option": "A",
@@ -915,7 +865,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "सक्षम सहपाठी मॉडलिंग और सहायता प्रदान कर सकते हैं।",
+      "explanation_en": "Capable peers can provide modelling and assistance."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_017",
@@ -939,28 +891,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "सामाजिक-सांस्कृतिक",
-            "Socio-cultural",
-            "व्यवहारवादी",
-            "Behaviourist",
-            "मनोविश्लेषणात्मक",
-            "Psychoanalytic",
-            "जैविक नियतिवाद",
-            "Biological determinism"
-          ],
-          "en": 0
+          "hi": "सामाजिक-सांस्कृतिक",
+          "en": "Socio-cultural"
         },
         {
           "option_id": "B",
-          "hi": "यह सिद्धांत सीखने और विकास में संस्कृति तथा सामाजिक सहभागिता पर केंद्रित है।",
-          "en": "It focuses on culture and social interaction in learning and development."
+          "hi": "व्यवहारवादी",
+          "en": "Behaviourist"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "मनोविश्लेषणात्मक",
+          "en": "Psychoanalytic"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "जैविक नियतिवाद",
+          "en": "Biological determinism"
         }
       ],
       "correct_option": "A",
@@ -971,7 +918,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "यह सिद्धांत सीखने और विकास में संस्कृति तथा सामाजिक सहभागिता पर केंद्रित है।",
+      "explanation_en": "It focuses on culture and social interaction in learning and development."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_018",
@@ -995,28 +944,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "पहले संकेत, फिर सहायता कम करना",
-            "Give prompts, then gradually reduce help",
-            "सीधा उत्तर लिख देना",
-            "Write the answer directly",
-            "कार्य न देना",
-            "Give no task",
-            "दंड देना",
-            "Punish"
-          ],
-          "en": 0
+          "hi": "पहले संकेत, फिर सहायता कम करना",
+          "en": "Give prompts, then gradually reduce help"
         },
         {
           "option_id": "B",
-          "hi": "संकेत और चरणबद्ध सहायता विद्यार्थी को स्वतंत्र समाधान की ओर ले जाती है।",
-          "en": "Prompts and gradual support move learners toward independent solving."
+          "hi": "सीधा उत्तर लिख देना",
+          "en": "Write the answer directly"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "कार्य न देना",
+          "en": "Give no task"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "दंड देना",
+          "en": "Punish"
         }
       ],
       "correct_option": "A",
@@ -1027,7 +971,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "संकेत और चरणबद्ध सहायता विद्यार्थी को स्वतंत्र समाधान की ओर ले जाती है।",
+      "explanation_en": "Prompts and gradual support move learners toward independent solving."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_019",
@@ -1051,28 +997,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "वाइगोत्स्की सामाजिक-सांस्कृतिक भूमिका पर अधिक बल देते हैं",
-            "Vygotsky emphasised socio-cultural roles more",
-            "दोनों केवल पुरस्कार",
-            "Both only rewards",
-            "पियाजे भाषा नहीं मानते",
-            "Piaget ignored language",
-            "दोनों विकास नकारते हैं",
-            "Both deny development"
-          ],
-          "en": 0
+          "hi": "वाइगोत्स्की सामाजिक-सांस्कृतिक भूमिका पर अधिक बल देते हैं",
+          "en": "Vygotsky emphasised socio-cultural roles more"
         },
         {
           "option_id": "B",
-          "hi": "वाइगोत्स्की सामाजिक-सांस्कृतिक अंतःक्रिया पर विशेष जोर देते हैं।",
-          "en": "Vygotsky particularly emphasised socio-cultural interaction."
+          "hi": "दोनों केवल पुरस्कार",
+          "en": "Both only rewards"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "पियाजे भाषा नहीं मानते",
+          "en": "Piaget ignored language"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "दोनों विकास नकारते हैं",
+          "en": "Both deny development"
         }
       ],
       "correct_option": "A",
@@ -1083,7 +1024,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "वाइगोत्स्की सामाजिक-सांस्कृतिक अंतःक्रिया पर विशेष जोर देते हैं।",
+      "explanation_en": "Vygotsky particularly emphasised socio-cultural interaction."
     },
     {
       "question_id": "CDP_VYGOTSKY_V6_020",
@@ -1107,28 +1050,23 @@
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "स्वतंत्र दक्षता",
-            "Independent competence",
-            "स्थायी निर्भरता",
-            "Permanent dependence",
-            "केवल सही उत्तर",
-            "Correct answers only",
-            "कार्य से बचना",
-            "Avoid tasks"
-          ],
-          "en": 0
+          "hi": "स्वतंत्र दक्षता",
+          "en": "Independent competence"
         },
         {
           "option_id": "B",
-          "hi": "सहायता का अंतिम लक्ष्य आत्मनिर्भर सीखना है।",
-          "en": "The ultimate goal is independent learning."
+          "hi": "स्थायी निर्भरता",
+          "en": "Permanent dependence"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल सही उत्तर",
+          "en": "Correct answers only"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "कार्य से बचना",
+          "en": "Avoid tasks"
         }
       ],
       "correct_option": "A",
@@ -1139,7 +1077,9 @@
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-19",
+      "explanation_hi": "सहायता का अंतिम लक्ष्य आत्मनिर्भर सीखना है।",
+      "explanation_en": "The ultimate goal is independent learning."
     }
   ]
 }
