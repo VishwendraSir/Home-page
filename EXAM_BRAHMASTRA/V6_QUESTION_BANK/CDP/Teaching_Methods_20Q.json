@@ -1,0 +1,1125 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Teaching Methods",
+  "batch_id": "V6-CDP-025",
+  "subject_id": "cdp",
+  "topic_id": "teaching_methods",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षार्थी-केंद्रित शिक्षण में केंद्र कौन होता है?",
+      "question_en": "In learner-centred teaching, who is at the centre?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "विद्यार्थी",
+            "Learner",
+            "पाठ्यपुस्तक",
+            "Textbook",
+            "परीक्षा",
+            "Examination",
+            "शिक्षक का भाषण",
+            "Teacher lecture"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "शिक्षार्थी-केंद्रित दृष्टिकोण विद्यार्थियों की सक्रिय भूमिका को महत्व देता है।",
+          "en": "Learner-centred approaches value students' active role."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रोजेक्ट विधि किससे जुड़ी है?",
+      "question_en": "Project method is associated with—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "प्रोजेक्ट विधि सार्थक कार्य के माध्यम से सीखने पर बल देती है।",
+          "en": "The project method emphasises learning through meaningful tasks."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "वास्तविक जीवन के कार्य",
+            "Real-life tasks",
+            "केवल रटना",
+            "Rote memorisation only",
+            "व्याख्यान मात्र",
+            "Lecture only",
+            "दंड",
+            "Punishment"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समस्या-समाधान विधि का पहला चरण सामान्यतः—",
+      "question_en": "The first step in problem-solving is generally—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "समस्या की पहचान",
+            "Identify the problem",
+            "उत्तर याद करना",
+            "Memorise answer",
+            "अंक देना",
+            "Award marks",
+            "निष्कर्ष लिखना",
+            "Write conclusion"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "समस्या को स्पष्ट पहचानना समाधान प्रक्रिया का आरंभ है।",
+          "en": "Clearly identifying the problem begins the process."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Demonstration method विशेष रूप से उपयोगी है—",
+      "question_en": "Demonstration method is especially useful for—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "प्रक्रिया या कौशल दिखाना",
+            "Showing a process or skill",
+            "केवल कविता",
+            "Poetry only",
+            "मौन पठन",
+            "Silent reading",
+            "उपस्थिति",
+            "Attendance"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "प्रदर्शन से विद्यार्थी प्रक्रिया को प्रत्यक्ष देख सकते हैं।",
+          "en": "Demonstration allows learners to observe a process directly."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Discussion method में शिक्षक की भूमिका—",
+      "question_en": "In discussion method, the teacher should—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "संवाद को सुगम बनाना",
+            "Facilitate dialogue",
+            "सभी उत्तर स्वयं देना",
+            "Answer everything",
+            "बहस रोकना",
+            "Stop debate",
+            "केवल अंक देना",
+            "Only grade"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "शिक्षक चर्चा को दिशा और सहभागिता देता है।",
+          "en": "The teacher guides discussion and participation."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्याख्यान विधि की प्रमुख सीमा—",
+      "question_en": "A major limitation of lecture method is—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "लंबे व्याख्यान में विद्यार्थियों की सक्रियता कम हो सकती है।",
+          "en": "Long lectures may reduce active learner participation."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "निष्क्रिय सहभागिता हो सकती है",
+            "May involve passive participation",
+            "सामग्री प्रस्तुत नहीं कर सकती",
+            "Cannot present content",
+            "समय नहीं बचता",
+            "Never saves time",
+            "किसी विषय में उपयोगी नहीं",
+            "Never useful"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Inquiry-based learning में विद्यार्थी—",
+      "question_en": "In inquiry-based learning, students—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "प्रश्न पूछकर खोज करते हैं",
+            "Investigate by asking questions",
+            "केवल नोट लिखते हैं",
+            "Only take notes",
+            "उत्तर रटते हैं",
+            "Memorise answers",
+            "नकल करते हैं",
+            "Copy"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Inquiry में प्रश्न, खोज और प्रमाण आधारित समझ शामिल है।",
+          "en": "Inquiry involves questioning, investigation and evidence."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Cooperative learning की आवश्यक विशेषता—",
+      "question_en": "An essential feature of cooperative learning is—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "साझा लक्ष्य और पारस्परिक निर्भरता",
+            "Shared goal and interdependence",
+            "सिर्फ व्यक्तिगत अंक",
+            "Individual marks only",
+            "एक विद्यार्थी कार्य करे",
+            "One learner does all",
+            "समूह बिना भूमिका",
+            "Groups without roles"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सहकारी सीखने में समूह सदस्य साझा लक्ष्य हेतु योगदान देते हैं।",
+          "en": "Cooperative learning involves contributions toward a shared goal."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Flipped classroom में—",
+      "question_en": "In a flipped classroom—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "प्रारंभिक सामग्री घर पर, अभ्यास कक्षा में",
+            "Initial content at home, practice in class",
+            "सभी कार्य घर पर",
+            "All work at home",
+            "कक्षा में परीक्षा ही",
+            "Only tests in class",
+            "शिक्षक अनुपस्थित",
+            "Teacher absent"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Flipped approach कक्षा समय को सक्रिय अभ्यास हेतु उपयोग करता है।",
+          "en": "The flipped approach uses class time for active practice."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Microteaching का उद्देश्य—",
+      "question_en": "The purpose of microteaching is—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Microteaching सीमित कौशल का छोटे स्तर पर अभ्यास और feedback है।",
+          "en": "Microteaching practises a limited skill with feedback."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "विशिष्ट शिक्षण कौशल का अभ्यास",
+            "Practice a specific teaching skill",
+            "पूरा पाठ्यक्रम पढ़ाना",
+            "Teach whole syllabus",
+            "अंतिम परीक्षा",
+            "Final exam",
+            "अनुशासन दंड",
+            "Discipline punishment"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्तिगत शिक्षण में—",
+      "question_en": "Individualised instruction involves—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "विद्यार्थी की जरूरत अनुसार गति/सहायता",
+            "Pace/support according to learner need",
+            "एक गति सभी",
+            "Same pace for all",
+            "सभी कार्य समान",
+            "Same tasks",
+            "केवल समूह",
+            "Groups only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "व्यक्तिगत शिक्षण विद्यार्थी की जरूरत और प्रगति के अनुसार समायोजित होता है।",
+          "en": "Individualised instruction adjusts to learner needs and progress."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Role play किस कौशल में उपयोगी?",
+      "question_en": "Role play is useful for developing—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "सामाजिक और संप्रेषण कौशल",
+            "Social and communication skills",
+            "केवल गणना",
+            "Calculation only",
+            "लिखावट",
+            "Handwriting",
+            "स्मरण मात्र",
+            "Memorisation only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "भूमिका-अभिनय सामाजिक स्थितियों का अभ्यास देता है।",
+          "en": "Role play provides practice in social situations."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Brainstorming का नियम—",
+      "question_en": "A brainstorming rule is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "पहले विचारों का खुला उत्पादन",
+            "Generate ideas freely first",
+            "तुरंत आलोचना",
+            "Criticise immediately",
+            "केवल एक विचार",
+            "One idea only",
+            "उत्तर रटें",
+            "Memorise answers"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "प्रारंभिक brainstorming में विचार उत्पादन को आलोचना से अलग रखा जाता है।",
+          "en": "Initial brainstorming separates idea generation from criticism."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अनुभवात्मक अधिगम—",
+      "question_en": "Experiential learning emphasises—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "अनुभव पर चिंतन सीखने को अर्थपूर्ण बनाता है।",
+          "en": "Reflection on experience makes learning meaningful."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "अनुभव और reflection",
+            "Experience and reflection",
+            "केवल पाठ",
+            "Text only",
+            "दंड",
+            "Punishment",
+            "रटंत",
+            "Rote"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Peer teaching में—",
+      "question_en": "In peer teaching—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "विद्यार्थी एक-दूसरे को सिखाते हैं",
+            "Learners teach one another",
+            "केवल शिक्षक",
+            "Teacher only",
+            "कोई संवाद नहीं",
+            "No dialogue",
+            "परीक्षा रद्द",
+            "Cancel tests"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Peer teaching सहभागिता और समझ को मजबूत कर सकती है।",
+          "en": "Peer teaching can strengthen engagement and understanding."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Concept map उपयोगी है—",
+      "question_en": "A concept map is useful for—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "अवधारणाओं के संबंध दिखाना",
+            "Show relationships among concepts",
+            "केवल spelling",
+            "Spelling only",
+            "उपस्थिति",
+            "Attendance",
+            "दंड",
+            "Punishment"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Concept map विचारों के बीच संबंध दृश्य करता है।",
+          "en": "A concept map visualises relationships among ideas."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Teaching aid चुनते समय—",
+      "question_en": "When selecting a teaching aid—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "उद्देश्य और विद्यार्थियों से मेल",
+            "Match objectives and learners",
+            "केवल चमकीला",
+            "Only colourful",
+            "महँगा",
+            "Expensive",
+            "आकार बड़ा",
+            "Large size"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सहायक सामग्री सीखने के उद्देश्य और संदर्भ के अनुरूप होनी चाहिए।",
+          "en": "Teaching aids should match objectives and context."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अच्छे प्रश्न पूछने का उद्देश्य—",
+      "question_en": "The purpose of effective questioning is—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "प्रश्न विद्यार्थियों की समझ और उच्च स्तरीय सोच उजागर करते हैं।",
+          "en": "Questions reveal understanding and higher-order thinking."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "सोच और समझ को बढ़ाना",
+            "Promote thinking and understanding",
+            "डर पैदा करना",
+            "Create fear",
+            "समय भरना",
+            "Fill time",
+            "केवल याददाश्त",
+            "Memory only"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में ICT का उचित उपयोग—",
+      "question_en": "Appropriate ICT use in class—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "सीखने के उद्देश्य को समर्थन",
+            "Support learning objectives",
+            "तकनीक दिखाना मात्र",
+            "Show technology only",
+            "शिक्षक हटाना",
+            "Replace teacher",
+            "सभी सामग्री ऑनलाइन",
+            "Everything online"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "ICT का उपयोग उद्देश्यपूर्ण होना चाहिए, केवल प्रदर्शन के लिए नहीं।",
+          "en": "ICT should be purposeful, not merely for display."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_TEACHING_METHODS_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "teaching_methods",
+      "topic": "Teaching Methods",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "एक विधि चुनने का आधार—",
+      "question_en": "The basis for choosing a method is—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "उद्देश्य, विषय और विद्यार्थी",
+            "Objectives, content and learners",
+            "केवल शिक्षक पसंद",
+            "Teacher preference only",
+            "समय ही",
+            "Time only",
+            "परीक्षा का नाम",
+            "Exam name"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "विधि का चयन शिक्षण उद्देश्य, विषय और विद्यार्थियों की जरूरतों से होता है।",
+          "en": "Method selection depends on objectives, content and learner needs."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
