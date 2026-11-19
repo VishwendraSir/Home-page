@@ -34,6 +34,11 @@
 | V6-CDP-012 | CDP | Childhood | 20 | Generated; content and translation review pending |
 | V6-CDP-013 | CDP | Adolescence | 20 | Generated; content and translation review pending |
 | V6-CDP-014 | CDP | Educational Psychology | 20 | Generated; content and translation review pending |
+| V6-CDP-015 | CDP | Learning Theories | 20 | Generated; bilingual structure repaired; answer positions balanced; content review pending |
+| V6-CDP-016 | CDP | Piaget's Cognitive Development | 20 | Generated; bilingual structure repaired; answer positions balanced; content review pending |
+| V6-CDP-017 | CDP | Vygotsky's Theory | 20 | Generated; bilingual structure repaired; answer positions balanced; content review pending |
+| V6-CDP-018 | CDP | Kohlberg's Moral Development | 20 | Generated; bilingual structure repaired; answer positions balanced; content review pending |
+| V6-CDP-019 | CDP | Erikson's Psychosocial Theory | 20 | Generated; bilingual structure repaired; answer positions balanced; content review pending |
 
 ## Batch QA — V6-CDP-001
 - Record count: 20.
@@ -53,6 +58,15 @@
 - Correct-answer index and label consistency: passed.
 - Hindi/English question and explanation fields: passed.
 - Content correctness and translation quality: pending independent review.
+
+## Batch QA — V6-CDP-015–019
+- Five topic packs; 20 records each; 100 records total.
+- JSON structure and record counts: checked after repair.
+- Four bilingual options per record: checked.
+- Correct option/index consistency: checked.
+- Answer positions rotated across A–D.
+- English question and explanation fields populated.
+- Content correctness, distractor quality, and translation quality: independent review pending.
 
 ## Next steps
 1. Reconcile existing sources and duplicates without deleting source records.
