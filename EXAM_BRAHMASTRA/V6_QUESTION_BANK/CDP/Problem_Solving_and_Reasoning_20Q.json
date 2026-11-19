@@ -1,0 +1,1325 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Problem Solving & Reasoning",
+  "batch_id": "V6-CDP-42",
+  "subject_id": "cdp",
+  "topic_id": "problem_solving_reasoning",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Problem solving—",
+      "question_en": "Problem solving—",
+      "options": [
+        {
+          "hi": "समाधान हेतु रणनीति अपनाना",
+          "en": "Use strategies to reach a solution",
+          "option_id": "A"
+        },
+        {
+          "hi": "र",
+          "en": "ट",
+          "option_id": "B"
+        },
+        {
+          "hi": "M",
+          "en": "e",
+          "option_id": "C"
+        },
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "D"
+        },
+        {
+          "hi": "I",
+          "en": "g"
+        },
+        {
+          "hi": "द",
+          "en": "ं"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Problem solving involves strategies toward a goal.",
+      "explanation_en": "Problem solving involves strategies toward a goal.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Algorithm—",
+      "question_en": "Algorithm—",
+      "options": [
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "A"
+        },
+        {
+          "hi": "G",
+          "en": "u",
+          "option_id": "B"
+        },
+        {
+          "hi": "भ",
+          "en": "ा",
+          "option_id": "C"
+        },
+        {
+          "hi": "E",
+          "en": "m",
+          "option_id": "D"
+        },
+        {
+          "hi": "भ",
+          "en": "ू"
+        },
+        {
+          "hi": "F",
+          "en": "o"
+        },
+        {
+          "hi": "निश्चित चरणों की प्रक्रिया",
+          "en": "Procedure with defined steps"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "An algorithm follows a defined sequence.",
+      "explanation_en": "An algorithm follows a defined sequence.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Heuristic—",
+      "question_en": "Heuristic—",
+      "options": [
+        {
+          "hi": "P",
+          "en": "r",
+          "option_id": "A"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "B"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "C"
+        },
+        {
+          "hi": "न",
+          "en": "ि",
+          "option_id": "D"
+        },
+        {
+          "hi": "N",
+          "en": "o"
+        },
+        {
+          "hi": "अनुभव आधारित shortcut",
+          "en": "Experience-based shortcut"
+        },
+        {
+          "hi": "प",
+          "en": "ू"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Heuristics are shortcuts that may be useful but not guaranteed.",
+      "explanation_en": "Heuristics are shortcuts that may be useful but not guaranteed.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Trial and error—",
+      "question_en": "Trial and error—",
+      "options": [
+        {
+          "hi": "न",
+          "en": "क",
+          "option_id": "A"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "न",
+          "en": "ि",
+          "option_id": "C"
+        },
+        {
+          "hi": "P",
+          "en": "a",
+          "option_id": "D"
+        },
+        {
+          "hi": "विकल्प आजमाकर सीखना",
+          "en": "Try alternatives"
+        },
+        {
+          "hi": "र",
+          "en": "ट"
+        },
+        {
+          "hi": "R",
+          "en": "o"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Trial and error tests possible solutions.",
+      "explanation_en": "Trial and error tests possible solutions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Reasoning—",
+      "question_en": "Reasoning—",
+      "options": [
+        {
+          "hi": "तर्क से निष्कर्ष",
+          "en": "Draw conclusions logically",
+          "option_id": "A"
+        },
+        {
+          "hi": "भ",
+          "en": "ा",
+          "option_id": "B"
+        },
+        {
+          "hi": "E",
+          "en": "m",
+          "option_id": "C"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "D"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        },
+        {
+          "hi": "अ",
+          "en": "न"
+        },
+        {
+          "hi": "I",
+          "en": "g"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Reasoning uses relationships and evidence.",
+      "explanation_en": "Reasoning uses relationships and evidence.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Problem को विभाजित करना—",
+      "question_en": "Breaking a problem into parts—",
+      "options": [
+        {
+          "hi": "ज",
+          "en": "ट",
+          "option_id": "A"
+        },
+        {
+          "hi": "I",
+          "en": "n",
+          "option_id": "B"
+        },
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "C"
+        },
+        {
+          "hi": "U",
+          "en": "n",
+          "option_id": "D"
+        },
+        {
+          "hi": "भ",
+          "en": "ू"
+        },
+        {
+          "hi": "F",
+          "en": "o"
+        },
+        {
+          "hi": "समाधान सरल कर सकता",
+          "en": "Can simplify solution"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Decomposition makes complex tasks manageable.",
+      "explanation_en": "Decomposition makes complex tasks manageable.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Analogical reasoning—",
+      "question_en": "Analogical reasoning—",
+      "options": [
+        {
+          "hi": "U",
+          "en": "n",
+          "option_id": "A"
+        },
+        {
+          "hi": "र",
+          "en": "ट",
+          "option_id": "B"
+        },
+        {
+          "hi": "R",
+          "en": "o",
+          "option_id": "C"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "D"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        },
+        {
+          "hi": "समानता से समाधान",
+          "en": "Use similarities"
+        },
+        {
+          "hi": "अ",
+          "en": "स"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Analogies transfer structure from a known case.",
+      "explanation_en": "Analogies transfer structure from a known case.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Inductive reasoning—",
+      "question_en": "Inductive reasoning—",
+      "options": [
+        {
+          "hi": "न",
+          "en": "क",
+          "option_id": "A"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "भ",
+          "en": "ा",
+          "option_id": "C"
+        },
+        {
+          "hi": "E",
+          "en": "m",
+          "option_id": "D"
+        },
+        {
+          "hi": "उदाहरणों से सामान्य निष्कर्ष",
+          "en": "Generalise from examples"
+        },
+        {
+          "hi": "स",
+          "en": "ा"
+        },
+        {
+          "hi": "G",
+          "en": "e"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Induction builds generalisations from cases.",
+      "explanation_en": "Induction builds generalisations from cases.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Deductive reasoning—",
+      "question_en": "Deductive reasoning—",
+      "options": [
+        {
+          "hi": "नियम से विशेष निष्कर्ष",
+          "en": "Apply rule to case",
+          "option_id": "A"
+        },
+        {
+          "hi": "उ",
+          "en": "द",
+          "option_id": "B"
+        },
+        {
+          "hi": "C",
+          "en": "a",
+          "option_id": "C"
+        },
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "D"
+        },
+        {
+          "hi": "N",
+          "en": "o"
+        },
+        {
+          "hi": "द",
+          "en": "ं"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Deduction applies premises or rules to a case.",
+      "explanation_en": "Deduction applies premises or rules to a case.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समाधान जाँचना—",
+      "question_en": "Checking a solution—",
+      "options": [
+        {
+          "hi": "त",
+          "en": "ु",
+          "option_id": "A"
+        },
+        {
+          "hi": "S",
+          "en": "t",
+          "option_id": "B"
+        },
+        {
+          "hi": "न",
+          "en": "क",
+          "option_id": "C"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "द",
+          "en": "ं"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        },
+        {
+          "hi": "उत्तर और प्रक्रिया सत्यापित",
+          "en": "Verify answer and process"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Checking helps detect errors.",
+      "explanation_en": "Checking helps detect errors.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Problem solving— उदाहरण में—",
+      "question_en": "In an example, Problem solving—",
+      "options": [
+        {
+          "hi": "M",
+          "en": "e",
+          "option_id": "A"
+        },
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "B"
+        },
+        {
+          "hi": "I",
+          "en": "g",
+          "option_id": "C"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "D"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        },
+        {
+          "hi": "समाधान हेतु रणनीति अपनाना",
+          "en": "Use strategies to reach a solution"
+        },
+        {
+          "hi": "र",
+          "en": "ट"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Problem solving involves strategies toward a goal.",
+      "explanation_en": "Problem solving involves strategies toward a goal.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Algorithm— उदाहरण में—",
+      "question_en": "In an example, Algorithm—",
+      "options": [
+        {
+          "hi": "भ",
+          "en": "ा",
+          "option_id": "A"
+        },
+        {
+          "hi": "E",
+          "en": "m",
+          "option_id": "B"
+        },
+        {
+          "hi": "भ",
+          "en": "ू",
+          "option_id": "C"
+        },
+        {
+          "hi": "F",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "निश्चित चरणों की प्रक्रिया",
+          "en": "Procedure with defined steps"
+        },
+        {
+          "hi": "अ",
+          "en": "न"
+        },
+        {
+          "hi": "G",
+          "en": "u"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "An algorithm follows a defined sequence.",
+      "explanation_en": "An algorithm follows a defined sequence.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Heuristic— उदाहरण में—",
+      "question_en": "In an example, Heuristic—",
+      "options": [
+        {
+          "hi": "अनुभव आधारित shortcut",
+          "en": "Experience-based shortcut",
+          "option_id": "A"
+        },
+        {
+          "hi": "प",
+          "en": "ू",
+          "option_id": "B"
+        },
+        {
+          "hi": "P",
+          "en": "r",
+          "option_id": "C"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "D"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        },
+        {
+          "hi": "न",
+          "en": "ि"
+        },
+        {
+          "hi": "N",
+          "en": "o"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Heuristics are shortcuts that may be useful but not guaranteed.",
+      "explanation_en": "Heuristics are shortcuts that may be useful but not guaranteed.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Trial and error— उदाहरण में—",
+      "question_en": "In an example, Trial and error—",
+      "options": [
+        {
+          "hi": "र",
+          "en": "ट",
+          "option_id": "A"
+        },
+        {
+          "hi": "R",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "न",
+          "en": "क",
+          "option_id": "C"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "न",
+          "en": "ि"
+        },
+        {
+          "hi": "P",
+          "en": "a"
+        },
+        {
+          "hi": "विकल्प आजमाकर सीखना",
+          "en": "Try alternatives"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Trial and error tests possible solutions.",
+      "explanation_en": "Trial and error tests possible solutions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Reasoning— उदाहरण में—",
+      "question_en": "In an example, Reasoning—",
+      "options": [
+        {
+          "hi": "E",
+          "en": "m",
+          "option_id": "A"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "B"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "C"
+        },
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "D"
+        },
+        {
+          "hi": "I",
+          "en": "g"
+        },
+        {
+          "hi": "तर्क से निष्कर्ष",
+          "en": "Draw conclusions logically"
+        },
+        {
+          "hi": "भ",
+          "en": "ा"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Reasoning uses relationships and evidence.",
+      "explanation_en": "Reasoning uses relationships and evidence.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Problem को विभाजित करना— उदाहरण में—",
+      "question_en": "In an example, Breaking a problem into parts—",
+      "options": [
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "A"
+        },
+        {
+          "hi": "U",
+          "en": "n",
+          "option_id": "B"
+        },
+        {
+          "hi": "भ",
+          "en": "ू",
+          "option_id": "C"
+        },
+        {
+          "hi": "F",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "समाधान सरल कर सकता",
+          "en": "Can simplify solution"
+        },
+        {
+          "hi": "ज",
+          "en": "ट"
+        },
+        {
+          "hi": "I",
+          "en": "n"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Decomposition makes complex tasks manageable.",
+      "explanation_en": "Decomposition makes complex tasks manageable.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Analogical reasoning— उदाहरण में—",
+      "question_en": "In an example, Analogical reasoning—",
+      "options": [
+        {
+          "hi": "समानता से समाधान",
+          "en": "Use similarities",
+          "option_id": "A"
+        },
+        {
+          "hi": "अ",
+          "en": "स",
+          "option_id": "B"
+        },
+        {
+          "hi": "U",
+          "en": "n",
+          "option_id": "C"
+        },
+        {
+          "hi": "र",
+          "en": "ट",
+          "option_id": "D"
+        },
+        {
+          "hi": "R",
+          "en": "o"
+        },
+        {
+          "hi": "द",
+          "en": "ं"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Analogies transfer structure from a known case.",
+      "explanation_en": "Analogies transfer structure from a known case.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Inductive reasoning— उदाहरण में—",
+      "question_en": "In an example, Inductive reasoning—",
+      "options": [
+        {
+          "hi": "स",
+          "en": "ा",
+          "option_id": "A"
+        },
+        {
+          "hi": "G",
+          "en": "e",
+          "option_id": "B"
+        },
+        {
+          "hi": "न",
+          "en": "क",
+          "option_id": "C"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "भ",
+          "en": "ा"
+        },
+        {
+          "hi": "E",
+          "en": "m"
+        },
+        {
+          "hi": "उदाहरणों से सामान्य निष्कर्ष",
+          "en": "Generalise from examples"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Induction builds generalisations from cases.",
+      "explanation_en": "Induction builds generalisations from cases.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Deductive reasoning— उदाहरण में—",
+      "question_en": "In an example, Deductive reasoning—",
+      "options": [
+        {
+          "hi": "C",
+          "en": "a",
+          "option_id": "A"
+        },
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "B"
+        },
+        {
+          "hi": "N",
+          "en": "o",
+          "option_id": "C"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "D"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        },
+        {
+          "hi": "नियम से विशेष निष्कर्ष",
+          "en": "Apply rule to case"
+        },
+        {
+          "hi": "उ",
+          "en": "द"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Deduction applies premises or rules to a case.",
+      "explanation_en": "Deduction applies premises or rules to a case.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_PROBLEM_SOLVING_REASONING_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "problem_solving_reasoning",
+      "topic": "Problem Solving & Reasoning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समाधान जाँचना— उदाहरण में—",
+      "question_en": "In an example, Checking a solution—",
+      "options": [
+        {
+          "hi": "न",
+          "en": "क",
+          "option_id": "A"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "C"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "D"
+        },
+        {
+          "hi": "उत्तर और प्रक्रिया सत्यापित",
+          "en": "Verify answer and process"
+        },
+        {
+          "hi": "त",
+          "en": "ु"
+        },
+        {
+          "hi": "S",
+          "en": "t"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Checking helps detect errors.",
+      "explanation_en": "Checking helps detect errors.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
