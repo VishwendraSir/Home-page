@@ -195,3 +195,16 @@ A topic is marked complete only when its minimum question count exists and passe
 - Original concept-based drafts; not official PYQs.
 - Structure and answer positions generated programmatically; independent factual, translation, answer-key and distractor review remains pending.
 - Bilingual editorial review is required before production integration.
+
+
+| V6-CDP-065 | CDP | Assessment & Evaluation | 20 | Generated; QA pending |
+| V6-CDP-066 | CDP | Inclusive Education | 20 | Generated; QA pending |
+| V6-CDP-067 | CDP | Classroom Management | 20 | Generated; QA pending |
+| V6-CDP-068 | CDP | Teaching Methods | 20 | Generated; QA pending |
+| V6-CDP-069 | CDP | Constructivism & Active Learning | 20 | Generated; QA pending |
+
+## Batch QA — V6-CDP-065–069
+- Five topic packs, 100 records total.
+- Concept-based practice drafts; not official PYQs.
+- Structural generation and option rotation completed; independent factual, bilingual, answer-key and distractor review pending.
+- Some English option fields are not full translations of Hindi; editorial bilingual cleanup is required before production integration.
