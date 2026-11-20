@@ -182,3 +182,16 @@ A topic is marked complete only when its minimum question count exists and passe
 - Concept-based practice drafts, not official PYQs.
 - Structural generation and answer-option rotation performed; independent factual, translation, answer-key and distractor review remains pending.
 - English option fields are not all fully translated into Hindi; bilingual editorial cleanup required before production use.
+
+
+| V6-CDP-065 | CDP | Intelligence & Theories | 20 | Generated; QA pending |
+| V6-CDP-066 | CDP | Creativity & Divergent Thinking | 20 | Generated; QA pending |
+| V6-CDP-067 | CDP | Personality & Theories | 20 | Generated; QA pending |
+| V6-CDP-068 | CDP | Emotional Development | 20 | Generated; QA pending |
+| V6-CDP-069 | CDP | Adjustment & Mental Wellbeing | 20 | Generated; QA pending |
+
+## Batch QA — V6-CDP-065–069
+- Five topic packs, 100 records total.
+- Original concept-based drafts; not official PYQs.
+- Structure and answer positions generated programmatically; independent factual, translation, answer-key and distractor review remains pending.
+- Bilingual editorial review is required before production integration.
