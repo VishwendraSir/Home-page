@@ -1,7 +1,7 @@
 {
   "schema_version": "6.0.0",
   "title": "EXAM BRAHMASTRA V6 — CDP Emotional Development",
-  "batch_id": "V6-CDP-006",
+  "batch_id": "V6-CDP-068",
   "subject_id": "cdp",
   "topic_id": "emotional_development",
   "minimum_questions": 20,
@@ -22,14 +22,14 @@
   },
   "records": [
     {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_001",
+      "question_id": "V6-CDP-068-001",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
       "topic_id": "emotional_development",
       "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
       "difficulty": "easy",
       "question_type": "Conceptual",
       "exam_tags": [
@@ -38,528 +38,369 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "भावनात्मक विकास किससे संबंधित है?",
-      "question_en": "Emotional development relates to what?",
+      "question_hi": "भावनात्मक विकास में क्या शामिल?",
+      "question_en": "Emotional development includes?",
       "options": [
         {
           "option_id": "A",
-          "hi": "भावनाओं को पहचानना, व्यक्त करना और नियंत्रित करना",
-          "en": "Recognising, expressing and regulating emotions"
-        },
-        {
-          "option_id": "B",
-          "hi": "केवल ऊँचाई",
-          "en": "Height only"
-        },
-        {
-          "option_id": "C",
-          "hi": "केवल स्मृति",
-          "en": "Memory only"
-        },
-        {
-          "option_id": "D",
-          "hi": "केवल भाषा व्याकरण",
-          "en": "Grammar only"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "भावनात्मक विकास में भावनाओं की पहचान, अभिव्यक्ति और नियमन शामिल हैं।",
-      "explanation_en": "Emotional development includes recognising, expressing and regulating emotions.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_002",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "easy",
-      "question_type": "Conceptual",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भावनात्मक नियमन का अर्थ है—",
-      "question_en": "Emotional regulation means—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "भावनाओं को परिस्थिति के अनुरूप संभालना",
-          "en": "Managing emotions appropriately to a situation"
-        },
-        {
-          "option_id": "B",
-          "hi": "भावनाएँ कभी न होना",
-          "en": "Never having emotions"
-        },
-        {
-          "option_id": "C",
-          "hi": "भावनाओं को हमेशा दबाना",
-          "en": "Always suppressing emotions"
-        },
-        {
-          "option_id": "D",
-          "hi": "दूसरों को दोष देना",
-          "en": "Blaming others"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "भावनात्मक नियमन भावनाओं को समझकर उचित तरीके से संभालने की क्षमता है।",
-      "explanation_en": "Emotional regulation is managing emotions with understanding and appropriate responses.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_003",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "easy",
-      "question_type": "Conceptual",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "सहानुभूति (Empathy) क्या है?",
-      "question_en": "What is empathy?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "दूसरे की भावनाओं और दृष्टिकोण को समझना",
-          "en": "Understanding another person's feelings and perspective"
-        },
-        {
-          "option_id": "B",
-          "hi": "केवल अपनी भावना",
-          "en": "Only one's own feeling"
-        },
-        {
-          "option_id": "C",
-          "hi": "दंड देना",
-          "en": "Punishing"
-        },
-        {
-          "option_id": "D",
-          "hi": "भावना छिपाना",
-          "en": "Hiding emotion"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "सहानुभूति दूसरे व्यक्ति की स्थिति और भावनाओं को समझने से संबंधित है।",
-      "explanation_en": "Empathy involves understanding another person's situation and feelings.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_004",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "easy",
-      "question_type": "Conceptual",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भावनाओं की पहचान सिखाने का अच्छा तरीका है—",
-      "question_en": "A good way to teach emotion recognition is—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "भावनाओं के नाम और परिस्थितियों पर चर्चा",
-          "en": "Discuss emotion labels and situations"
-        },
-        {
-          "option_id": "B",
-          "hi": "भावनाओं को गलत कहना",
-          "en": "Call emotions wrong"
-        },
-        {
-          "option_id": "C",
-          "hi": "बच्चों को चुप कराना",
-          "en": "Silence children"
-        },
-        {
-          "option_id": "D",
-          "hi": "केवल परीक्षा",
-          "en": "Exam only"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "भावनाओं के नाम और संदर्भ पर चर्चा पहचान कौशल बढ़ा सकती है।",
-      "explanation_en": "Discussing emotion labels and contexts can build recognition skills.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_005",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "easy",
-      "question_type": "Conceptual",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "आत्मविश्वास किससे प्रभावित हो सकता है?",
-      "question_en": "What may influence self-confidence?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "अनुभव, समर्थन और उपलब्धियाँ",
-          "en": "Experiences, support and accomplishments"
-        },
-        {
-          "option_id": "B",
-          "hi": "केवल उम्र",
-          "en": "Age only"
-        },
-        {
-          "option_id": "C",
-          "hi": "केवल ऊँचाई",
-          "en": "Height only"
-        },
-        {
-          "option_id": "D",
-          "hi": "किसी से नहीं",
-          "en": "Nothing"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "आत्मविश्वास अनुभव, सामाजिक समर्थन और उपलब्धियों से प्रभावित हो सकता है।",
-      "explanation_en": "Self-confidence may be influenced by experience, support and accomplishments.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_006",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "बच्चा निराश होने पर शिक्षक का उचित कदम है—",
-      "question_en": "A suitable teacher response when a child is frustrated is—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "भावना स्वीकार कर रणनीति सिखाना",
-          "en": "Acknowledge the feeling and teach a coping strategy"
-        },
-        {
-          "option_id": "B",
-          "hi": "उपहास करना",
-          "en": "Mock the child"
-        },
-        {
-          "option_id": "C",
-          "hi": "दंडित करना",
-          "en": "Punish"
-        },
-        {
-          "option_id": "D",
-          "hi": "अनदेखा करना",
-          "en": "Ignore"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "भावना स्वीकारना और समस्या-सुलझाने की रणनीति सिखाना सहायक है।",
-      "explanation_en": "Acknowledging feelings and teaching coping strategies is helpful.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_007",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भावनात्मक विकास में परिवार की भूमिका—",
-      "question_en": "The family's role in emotional development—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "सुरक्षा, मॉडलिंग और समर्थन प्रदान करना",
-          "en": "Provide security, modelling and support"
-        },
-        {
-          "option_id": "B",
-          "hi": "कोई भूमिका नहीं",
-          "en": "No role"
-        },
-        {
-          "option_id": "C",
-          "hi": "केवल अंक देना",
-          "en": "Give marks only"
-        },
-        {
-          "option_id": "D",
-          "hi": "केवल नियंत्रण",
-          "en": "Control only"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "परिवार भावनात्मक सुरक्षा और व्यवहार के मॉडल प्रदान कर सकता है।",
-      "explanation_en": "Family can provide emotional security and behavioural models.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_008",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भावनाओं की अभिव्यक्ति में व्यक्तिगत भिन्नता—",
-      "question_en": "Individual differences in emotional expression—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "सामान्य और संदर्भ से प्रभावित",
-          "en": "Normal and context-influenced"
-        },
-        {
-          "option_id": "B",
-          "hi": "हमेशा समस्या",
-          "en": "Always a problem"
-        },
-        {
-          "option_id": "C",
-          "hi": "केवल उम्र पर निर्भर",
-          "en": "Age only"
-        },
-        {
-          "option_id": "D",
-          "hi": "समान होना आवश्यक",
-          "en": "Must be identical"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "भावनाओं की अभिव्यक्ति व्यक्ति, संस्कृति और परिस्थिति से प्रभावित हो सकती है।",
-      "explanation_en": "Emotional expression may vary by person, culture and context.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_009",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "सुरक्षित कक्षा भावनात्मक विकास में कैसे सहायक है?",
-      "question_en": "How does a safe classroom support emotional development?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "बच्चे भावनाएँ और विचार व्यक्त कर पाते हैं",
-          "en": "Children can express feelings and ideas"
-        },
-        {
-          "option_id": "B",
-          "hi": "भय बढ़ाती है",
-          "en": "Increases fear"
-        },
-        {
-          "option_id": "C",
-          "hi": "सहभागिता रोकती है",
-          "en": "Stops participation"
-        },
-        {
-          "option_id": "D",
-          "hi": "केवल प्रतिस्पर्धा",
-          "en": "Competition only"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "सुरक्षित वातावरण भावनात्मक अभिव्यक्ति और सहभागिता को प्रोत्साहित करता है।",
-      "explanation_en": "A safe environment encourages emotional expression and participation.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_010",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भावनात्मक बुद्धिमत्ता में क्या शामिल है?",
-      "question_en": "What does emotional intelligence include?",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "भावनाओं को पहचानना और समझना",
-          "en": "Recognising and understanding emotions"
+          "hi": "भावना पहचान, अभिव्यक्ति और नियमन",
+          "en": "भावना पहचान, अभिव्यक्ति और नियमन"
         },
         {
           "option_id": "B",
           "hi": "केवल IQ",
+          "en": "Recognising, expressing and regulating emotions"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल भाषा",
           "en": "IQ only"
         },
         {
-          "option_id": "C",
-          "hi": "केवल शारीरिक क्षमता",
-          "en": "Physical ability only"
-        },
-        {
           "option_id": "D",
-          "hi": "केवल लिखना",
-          "en": "Writing only"
+          "hi": "केवल वृद्धि",
+          "en": "Language only"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "भावनात्मक बुद्धिमत्ता में भावनाओं को पहचानना, समझना और उनका प्रबंधन शामिल है।",
-      "explanation_en": "Emotional intelligence includes recognising, understanding and managing emotions.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "explanation_hi": "Growth only",
+      "explanation_en": "Growth only",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_011",
+      "question_id": "V6-CDP-068-002",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
       "topic_id": "emotional_development",
       "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भावनात्मक नियमन क्या है?",
+      "question_en": "What is emotional regulation?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड",
+          "en": "No emotions"
+        },
+        {
+          "option_id": "B",
+          "hi": "भावनाओं को उपयुक्त ढंग से संभालना",
+          "en": "भावनाओं को उपयुक्त ढंग से संभालना"
+        },
+        {
+          "option_id": "C",
+          "hi": "भावना दबाना हमेशा",
+          "en": "Managing emotions appropriately"
+        },
+        {
+          "option_id": "D",
+          "hi": "भावना नहीं होना",
+          "en": "Always suppressing"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Punishment",
+      "explanation_en": "Punishment",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-003",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "easy",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बच्चे की भावना को मान्यता देना?",
+      "question_en": "Validating a child's emotion?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उपहास",
+          "en": "Accept all behaviour"
+        },
+        {
+          "option_id": "B",
+          "hi": "अनदेखी",
+          "en": "Mock"
+        },
+        {
+          "option_id": "C",
+          "hi": "सहानुभूति दिखाना",
+          "en": "सहानुभूति दिखाना"
+        },
+        {
+          "option_id": "D",
+          "hi": "व्यवहार हर बार स्वीकार",
+          "en": "Showing empathy"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Ignore",
+      "explanation_en": "Ignore",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-004",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भावनात्मक शब्दावली क्यों सिखाएँ?",
+      "question_en": "Why teach emotional vocabulary?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भावना रोकना",
+          "en": "Helps identify and communicate feelings"
+        },
+        {
+          "option_id": "B",
+          "hi": "अंक बढ़ाना",
+          "en": "Stop emotions"
+        },
+        {
+          "option_id": "C",
+          "hi": "अनुशासन",
+          "en": "Increase marks"
+        },
+        {
+          "option_id": "D",
+          "hi": "भाव पहचान और संवाद में मदद",
+          "en": "भाव पहचान और संवाद में मदद"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Discipline",
+      "explanation_en": "Discipline",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-005",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहानुभूति का अर्थ?",
+      "question_en": "Empathy means?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दूसरे के दृष्टिकोण/भाव समझना",
+          "en": "दूसरे के दृष्टिकोण/भाव समझना"
+        },
+        {
+          "option_id": "B",
+          "hi": "दया मात्र",
+          "en": "Understanding another's perspective or feelings"
+        },
+        {
+          "option_id": "C",
+          "hi": "नकल",
+          "en": "Pity only"
+        },
+        {
+          "option_id": "D",
+          "hi": "सहमति",
+          "en": "Imitation"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Agreement",
+      "explanation_en": "Agreement",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-006",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भावनात्मक सुरक्षा कक्षा में?",
+      "question_en": "Emotional safety in class?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भय",
+          "en": "Comparison"
+        },
+        {
+          "option_id": "B",
+          "hi": "बिना अपमान प्रश्न पूछ सकना",
+          "en": "बिना अपमान प्रश्न पूछ सकना"
+        },
+        {
+          "option_id": "C",
+          "hi": "गलती पर शर्म",
+          "en": "Ability to ask without humiliation"
+        },
+        {
+          "option_id": "D",
+          "hi": "तुलना",
+          "en": "Shame for mistakes"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Fear",
+      "explanation_en": "Fear",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-007",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "क्रोध के समय शिक्षक?",
+      "question_en": "Teacher response to anger?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सार्वजनिक दंड",
+          "en": "Respond angrily"
+        },
+        {
+          "option_id": "B",
+          "hi": "उपहास",
+          "en": "Public punishment"
+        },
+        {
+          "option_id": "C",
+          "hi": "शांत रहकर सुरक्षित रणनीति",
+          "en": "शांत रहकर सुरक्षित रणनीति"
+        },
+        {
+          "option_id": "D",
+          "hi": "क्रोध से जवाब",
+          "en": "Calm and use safe strategies"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Mock",
+      "explanation_en": "Mock",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-008",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
       "difficulty": "moderate",
       "question_type": "Application-Based",
       "exam_tags": [
@@ -568,105 +409,476 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "क्रोध प्रबंधन सिखाने का उद्देश्य—",
-      "question_en": "The purpose of teaching anger management is—",
+      "question_hi": "भावनात्मक विकास पर परिवार?",
+      "question_en": "Family influence on emotional development?",
       "options": [
         {
           "option_id": "A",
-          "hi": "स्वस्थ प्रतिक्रिया और नियंत्रण विकसित करना",
-          "en": "Develop healthy responses and regulation"
+          "hi": "कोई प्रभाव नहीं",
+          "en": "Relationships and modelling influence"
         },
         {
           "option_id": "B",
-          "hi": "क्रोध को अपराध मानना",
-          "en": "Treat anger as a crime"
+          "hi": "केवल स्कूल",
+          "en": "No effect"
         },
         {
           "option_id": "C",
-          "hi": "भावनाएँ समाप्त करना",
-          "en": "Eliminate emotions"
+          "hi": "केवल जीन",
+          "en": "School only"
         },
         {
           "option_id": "D",
-          "hi": "बच्चे को अलग करना",
-          "en": "Isolate child"
+          "hi": "संबंध और मॉडलिंग प्रभावी",
+          "en": "संबंध और मॉडलिंग प्रभावी"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "क्रोध प्रबंधन भावनाओं को सुरक्षित और रचनात्मक ढंग से संभालना सिखाता है।",
-      "explanation_en": "Anger management teaches safe and constructive handling of emotions.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Genes only",
+      "explanation_en": "Genes only",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_012",
+      "question_id": "V6-CDP-068-009",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
       "topic_id": "emotional_development",
       "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
       "difficulty": "moderate",
-      "question_type": "Application-Based",
+      "question_type": "Analytical",
       "exam_tags": [
         "CTET",
         "REET",
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "भावनात्मक विकास का आकलन किस प्रकार उचित है?",
-      "question_en": "How is emotional development appropriately assessed?",
+      "question_hi": "भावनाएँ सीखने को प्रभावित?",
+      "question_en": "Do emotions affect learning?",
       "options": [
         {
           "option_id": "A",
-          "hi": "अवलोकन और विविध परिस्थितियों में व्यवहार",
-          "en": "Observation across varied situations"
+          "hi": "हाँ, ध्यान और स्मृति पर",
+          "en": "हाँ, ध्यान और स्मृति पर"
         },
         {
           "option_id": "B",
-          "hi": "एक बार की परीक्षा",
-          "en": "One-time test"
+          "hi": "नहीं",
+          "en": "Yes, attention and memory"
         },
         {
           "option_id": "C",
           "hi": "केवल अंक",
+          "en": "No"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल शारीरिक",
+          "en": "Marks only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Physical only",
+      "explanation_en": "Physical only",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-010",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भावनात्मक बुद्धि में?",
+      "question_en": "Emotional intelligence includes?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "शारीरिक शक्ति",
+          "en": "IQ alone"
+        },
+        {
+          "option_id": "B",
+          "hi": "स्व और दूसरों की भावनाएँ समझना",
+          "en": "स्व और दूसरों की भावनाएँ समझना"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल गणित",
+          "en": "Understanding own and others' emotions"
+        },
+        {
+          "option_id": "D",
+          "hi": "IQ मात्र",
+          "en": "Math only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Strength",
+      "explanation_en": "Strength",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-011",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बच्चे के रोने पर उचित प्रतिक्रिया?",
+      "question_en": "Appropriate response to a crying child?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उपेक्षा हमेशा",
+          "en": "Punish"
+        },
+        {
+          "option_id": "B",
+          "hi": "मजाक",
+          "en": "Always ignore"
+        },
+        {
+          "option_id": "C",
+          "hi": "कारण समझें और सहारा दें",
+          "en": "कारण समझें और सहारा दें"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Understand cause and offer support"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Mock",
+      "explanation_en": "Mock",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-012",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भावनात्मक कौशल सिखाने का तरीका?",
+      "question_en": "How teach emotional skills?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल परिभाषा",
+          "en": "Role-play and discussion"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड",
+          "en": "Definitions only"
+        },
+        {
+          "option_id": "C",
+          "hi": "प्रतियोगिता",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "D",
+          "hi": "भूमिका अभिनय और चर्चा",
+          "en": "भूमिका अभिनय और चर्चा"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Competition",
+      "explanation_en": "Competition",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-013",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भावना और व्यवहार में अंतर?",
+      "question_en": "Difference between emotion and behaviour?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भावना स्वीकार, व्यवहार निर्देशित",
+          "en": "भावना स्वीकार, व्यवहार निर्देशित"
+        },
+        {
+          "option_id": "B",
+          "hi": "दोनों समान",
+          "en": "Feelings accepted; behaviour guided"
+        },
+        {
+          "option_id": "C",
+          "hi": "भावना दंडनीय",
+          "en": "Same"
+        },
+        {
+          "option_id": "D",
+          "hi": "व्यवहार अप्रासंगिक",
+          "en": "Emotion punishable"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Behaviour irrelevant",
+      "explanation_en": "Behaviour irrelevant",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-014",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "आत्म-जागरूकता क्या?",
+      "question_en": "What is self-awareness?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अनुकरण",
+          "en": "Rote"
+        },
+        {
+          "option_id": "B",
+          "hi": "अपनी भावना और प्रतिक्रिया पहचानना",
+          "en": "अपनी भावना और प्रतिक्रिया पहचानना"
+        },
+        {
+          "option_id": "C",
+          "hi": "दूसरे नियंत्रित",
+          "en": "Recognising one's feelings and responses"
+        },
+        {
+          "option_id": "D",
+          "hi": "रटने",
+          "en": "Control others"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Imitation",
+      "explanation_en": "Imitation",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-015",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सकारात्मक कक्षा संबंध?",
+      "question_en": "Positive classroom relationships?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "तुलना",
+          "en": "Fear"
+        },
+        {
+          "option_id": "B",
+          "hi": "उपेक्षा",
+          "en": "Comparison"
+        },
+        {
+          "option_id": "C",
+          "hi": "विश्वास और सम्मान",
+          "en": "विश्वास और सम्मान"
+        },
+        {
+          "option_id": "D",
+          "hi": "भय",
+          "en": "Trust and respect"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Ignore",
+      "explanation_en": "Ignore",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-016",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भावनात्मक संकट के संकेत?",
+      "question_en": "Signs of emotional distress?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "एक बार गलती",
+          "en": "Persistent behavioural change"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल अंक",
+          "en": "One mistake"
+        },
+        {
+          "option_id": "C",
+          "hi": "सामान्य प्रश्न",
           "en": "Marks only"
         },
         {
           "option_id": "D",
-          "hi": "सार्वजनिक तुलना",
-          "en": "Public comparison"
+          "hi": "व्यवहार में लगातार बदलाव",
+          "en": "व्यवहार में लगातार बदलाव"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "विविध परिस्थितियों में अवलोकन अधिक संदर्भपूर्ण जानकारी देता है।",
-      "explanation_en": "Observation across varied contexts provides more meaningful information.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Normal question",
+      "explanation_en": "Normal question",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_013",
+      "question_id": "V6-CDP-068-017",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
       "topic_id": "emotional_development",
       "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "difficult",
       "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
@@ -674,52 +886,158 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "बच्चा अपनी भावना का नाम बताता है। यह किस कौशल का संकेत है?",
-      "question_en": "A child names their feeling. What skill does this indicate?",
+      "question_hi": "शिक्षक अपनी भावना नियमन?",
+      "question_en": "Teacher's own emotion regulation?",
       "options": [
         {
           "option_id": "A",
-          "hi": "भावनात्मक जागरूकता",
-          "en": "Emotional awareness"
+          "hi": "बच्चों के लिए मॉडल बनता",
+          "en": "बच्चों के लिए मॉडल बनता"
         },
         {
           "option_id": "B",
-          "hi": "स्थूल मोटर कौशल",
-          "en": "Gross motor skill"
+          "hi": "अप्रासंगिक",
+          "en": "Models skills for children"
         },
         {
           "option_id": "C",
-          "hi": "वर्गीकरण मात्र",
-          "en": "Classification only"
+          "hi": "छिपाना ही",
+          "en": "Irrelevant"
         },
         {
           "option_id": "D",
-          "hi": "वस्तु स्थायित्व",
-          "en": "Object permanence"
+          "hi": "दंड",
+          "en": "Only hide"
         }
       ],
       "correct_option": "A",
       "correct_index": 0,
-      "explanation_hi": "भावना का नाम बताना भावनात्मक जागरूकता का हिस्सा है।",
-      "explanation_en": "Naming a feeling is part of emotional awareness.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "explanation_hi": "Punish",
+      "explanation_en": "Punish",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_014",
+      "question_id": "V6-CDP-068-018",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
       "topic_id": "emotional_development",
       "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "संघर्ष समाधान सिखाएँ?",
+      "question_en": "Teach conflict resolution?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अलगाव",
+          "en": "Punishment only"
+        },
+        {
+          "option_id": "B",
+          "hi": "संवाद और समस्या समाधान",
+          "en": "संवाद और समस्या समाधान"
+        },
+        {
+          "option_id": "C",
+          "hi": "दोषारोपण",
+          "en": "Dialogue and problem-solving"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड मात्र",
+          "en": "Blame"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Isolation",
+      "explanation_en": "Isolation",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-019",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भावनात्मक विविधता?",
+      "question_en": "Emotional diversity?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "रोग",
+          "en": "Weakness"
+        },
+        {
+          "option_id": "B",
+          "hi": "अनुशासन",
+          "en": "Illness"
+        },
+        {
+          "option_id": "C",
+          "hi": "सामान्य, व्यक्तियों में भिन्न",
+          "en": "सामान्य, व्यक्तियों में भिन्न"
+        },
+        {
+          "option_id": "D",
+          "hi": "कमजोरी",
+          "en": "Normal and variable"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Discipline",
+      "explanation_en": "Discipline",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-068-020",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Emotional Development",
+      "topic_id": "emotional_development",
+      "topic": "Emotional Development",
+      "subtopic_id": "emotional_development",
+      "subtopic": "Emotional Development",
+      "difficulty": "difficult",
       "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
@@ -727,359 +1045,41 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "सहायता माँगना भावनात्मक विकास में—",
-      "question_en": "Asking for help in emotional development—",
+      "question_hi": "सर्वोत्तम कथन?",
+      "question_en": "Best statement?",
       "options": [
         {
           "option_id": "A",
-          "hi": "उपयुक्त मुकाबला कौशल हो सकता है",
-          "en": "Can be an appropriate coping skill"
+          "hi": "जन्म से पूर्ण",
+          "en": "Emotional skills develop through practice and support"
         },
         {
           "option_id": "B",
-          "hi": "हमेशा कमजोरी",
-          "en": "Always weakness"
-        },
-        {
-          "option_id": "C",
-          "hi": "अनुशासनहीनता",
-          "en": "Misconduct"
-        },
-        {
-          "option_id": "D",
-          "hi": "विकास में बाधा",
-          "en": "Developmental barrier"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "सहायता माँगना जरूरत पहचानने और स्वस्थ सामना करने का तरीका हो सकता है।",
-      "explanation_en": "Seeking help can be a healthy coping response.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_015",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भावनात्मक रूप से संवेदनशील शिक्षक—",
-      "question_en": "An emotionally responsive teacher—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "बच्चों की भावनाओं को सुनता और सम्मान देता है",
-          "en": "Listens to and respects children's feelings"
-        },
-        {
-          "option_id": "B",
-          "hi": "भावनाओं का मजाक",
-          "en": "Mocks feelings"
-        },
-        {
-          "option_id": "C",
-          "hi": "केवल दंड",
-          "en": "Only punishes"
-        },
-        {
-          "option_id": "D",
-          "hi": "सबको चुप",
-          "en": "Silences all"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "संवेदनशील शिक्षक बच्चों की भावनाओं को स्वीकारते हुए सुरक्षित प्रतिक्रिया देता है।",
-      "explanation_en": "A responsive teacher acknowledges feelings and provides a safe response.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_016",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भावनात्मक विकास और सामाजिक विकास—",
-      "question_en": "Emotional and social development—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "एक-दूसरे को प्रभावित कर सकते हैं",
-          "en": "Can influence each other"
-        },
-        {
-          "option_id": "B",
-          "hi": "असंबंधित हैं",
-          "en": "Unrelated"
-        },
-        {
-          "option_id": "C",
-          "hi": "केवल शारीरिक हैं",
-          "en": "Physical only"
-        },
-        {
-          "option_id": "D",
-          "hi": "एक ही प्रक्रिया नहीं",
-          "en": "Not the same process"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "भावनाएँ संबंधों और सामाजिक सहभागिता को प्रभावित करती हैं तथा उनसे प्रभावित भी होती हैं।",
-      "explanation_en": "Emotions influence and are influenced by relationships and social interaction.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_017",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भावना और व्यवहार में अंतर—",
-      "question_en": "Difference between emotion and behaviour—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "भावना अनुभव है; व्यवहार उसकी प्रतिक्रिया हो सकता है",
-          "en": "Emotion is an experience; behaviour may be a response"
-        },
-        {
-          "option_id": "B",
-          "hi": "दोनों हमेशा समान",
-          "en": "Always identical"
-        },
-        {
-          "option_id": "C",
-          "hi": "भावना केवल व्यवहार",
-          "en": "Emotion is only behaviour"
-        },
-        {
-          "option_id": "D",
-          "hi": "व्यवहार का कोई कारण नहीं",
-          "en": "Behaviour has no cause"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "भावना आंतरिक अनुभव है; व्यवहार उस अनुभव की संभावित अभिव्यक्ति है।",
-      "explanation_en": "Emotion is an internal experience; behaviour may express it.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_018",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भावनात्मक विकास में खेल का योगदान—",
-      "question_en": "Contribution of play to emotional development—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "भावनाओं का अभ्यास और अभिव्यक्ति",
-          "en": "Practice and expression of emotions"
-        },
-        {
-          "option_id": "B",
-          "hi": "केवल समय नष्ट",
-          "en": "Only wasting time"
-        },
-        {
-          "option_id": "C",
-          "hi": "भावना रोकना",
-          "en": "Stopping emotions"
-        },
-        {
-          "option_id": "D",
-          "hi": "स्मृति हटाना",
-          "en": "Erasing memory"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "खेल बच्चों को भावनाएँ व्यक्त करने और सामाजिक स्थितियों का अभ्यास करने का अवसर देता है।",
-      "explanation_en": "Play offers opportunities to express emotions and practise social situations.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_019",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भावनात्मक रूप से परेशान बच्चे के लिए प्राथमिकता—",
-      "question_en": "Priority for an emotionally distressed child—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "सुरक्षा, सुनना और आवश्यक सहायता",
-          "en": "Safety, listening and appropriate support"
-        },
-        {
-          "option_id": "B",
-          "hi": "तुरंत दोष",
-          "en": "Immediate blame"
-        },
-        {
-          "option_id": "C",
-          "hi": "सार्वजनिक आलोचना",
-          "en": "Public criticism"
-        },
-        {
-          "option_id": "D",
-          "hi": "अनदेखी",
-          "en": "Ignore"
-        }
-      ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "पहले सुरक्षा और सहायक संवाद आवश्यक हैं; जरूरत पर उचित सहायता उपलब्ध कराएँ।",
-      "explanation_en": "Safety and supportive communication come first; provide appropriate help when needed.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_EMOTIONAL_DEVELOPMENT_V6_020",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Child Development",
-      "topic_id": "emotional_development",
-      "topic": "Emotional Development",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भावनात्मक विकास के बारे में सही कथन—",
-      "question_en": "Correct statement about emotional development—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": "यह अनुभव और संबंधों से विकसित होता है",
-          "en": "It develops through experience and relationships"
-        },
-        {
-          "option_id": "B",
-          "hi": "जन्म पर पूर्ण होता है",
+          "hi": "केवल परिवार",
           "en": "Complete at birth"
         },
         {
           "option_id": "C",
-          "hi": "सभी बच्चों में समान",
-          "en": "Same in all children"
+          "hi": "केवल दंड",
+          "en": "Family only"
         },
         {
           "option_id": "D",
-          "hi": "केवल पाठ्यपुस्तक से",
-          "en": "Only through textbooks"
+          "hi": "भावनात्मक कौशल अभ्यास और समर्थन से विकसित होते",
+          "en": "भावनात्मक कौशल अभ्यास और समर्थन से विकसित होते"
         }
       ],
-      "correct_option": "A",
-      "correct_index": 0,
-      "explanation_hi": "भावनात्मक विकास जीवनभर अनुभवों, संबंधों और परिपक्वता से प्रभावित होता है।",
-      "explanation_en": "Emotional development is influenced by experience, relationships and maturation throughout life.",
-      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Punishment only",
+      "explanation_en": "Punishment only",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     }
   ]
 }
