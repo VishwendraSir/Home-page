@@ -1,7 +1,7 @@
 {
   "schema_version": "6.0.0",
   "title": "EXAM BRAHMASTRA V6 — CDP Inclusive Education",
-  "batch_id": "V6-CDP-020",
+  "batch_id": "V6-CDP-066",
   "subject_id": "cdp",
   "topic_id": "inclusive_education",
   "minimum_questions": 20,
@@ -22,14 +22,14 @@
   },
   "records": [
     {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_001",
+      "question_id": "V6-CDP-066-001",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
       "topic_id": "inclusive_education",
       "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
       "difficulty": "easy",
       "question_type": "Conceptual",
       "exam_tags": [
@@ -38,53 +38,157 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "समावेशी शिक्षा का मुख्य उद्देश्य क्या है?",
-      "question_en": "What is the main aim of inclusive education?",
+      "question_hi": "समावेशी शिक्षा का मूल विचार?",
+      "question_en": "Core idea of inclusive education?",
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "सभी बच्चों की सहभागिता",
-            "Participation of all children",
-            "केवल प्रतिभाशाली बच्चों को पढ़ाना",
-            "Teach only gifted children",
-            "अलग-अलग विद्यालय बनाना",
-            "Create separate schools",
-            "परीक्षा हटाना",
-            "Remove examinations"
-          ],
-          "en": 0
+          "hi": "सभी शिक्षार्थियों की सार्थक भागीदारी",
+          "en": "सभी शिक्षार्थियों की सार्थक भागीदारी"
         },
         {
           "option_id": "B",
-          "hi": "समावेशी शिक्षा सभी विद्यार्थियों को समान अवसर और सहभागिता देती है।",
-          "en": "Inclusive education ensures opportunity and participation for all learners."
+          "hi": "अलगाव",
+          "en": "Meaningful participation of all learners"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "केवल तेज विद्यार्थी",
+          "en": "Segregation"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "एक समान बाधाएँ",
+          "en": "Fast learners only"
         }
       ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_002",
+      "question_id": "V6-CDP-066-002",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
       "topic_id": "inclusive_education",
       "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Universal Design for Learning किसे बढ़ावा देता?",
+      "question_en": "UDL promotes?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "समान गति",
+          "en": "One test"
+        },
+        {
+          "option_id": "B",
+          "hi": "विविध प्रस्तुति, सहभागिता और अभिव्यक्ति",
+          "en": "विविध प्रस्तुति, सहभागिता और अभिव्यक्ति"
+        },
+        {
+          "option_id": "C",
+          "hi": "एक तरीका",
+          "en": "Multiple means of representation, engagement and expression"
+        },
+        {
+          "option_id": "D",
+          "hi": "एक परीक्षा",
+          "en": "One method"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-066-003",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
+      "topic_id": "inclusive_education",
+      "topic": "Inclusive Education",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "easy",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "दृष्टिबाधित विद्यार्थी हेतु उचित सहायता?",
+      "question_en": "Appropriate support for a learner with visual impairment?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल मौखिक परीक्षा",
+          "en": "Ignore"
+        },
+        {
+          "option_id": "B",
+          "hi": "अलग बैठाना हमेशा",
+          "en": "Oral test only"
+        },
+        {
+          "option_id": "C",
+          "hi": "सुलभ पाठ और वर्णन",
+          "en": "सुलभ पाठ और वर्णन"
+        },
+        {
+          "option_id": "D",
+          "hi": "अनदेखी",
+          "en": "Accessible text and description"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-066-004",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
+      "topic_id": "inclusive_education",
+      "topic": "Inclusive Education",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
       "difficulty": "easy",
       "question_type": "Conceptual",
       "exam_tags": [
@@ -93,54 +197,158 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "समावेशी कक्षा में शिक्षक को किस पर ध्यान देना चाहिए?",
-      "question_en": "In an inclusive classroom, a teacher should focus on—",
+      "question_hi": "श्रवण बाधा वाले विद्यार्थी के लिए?",
+      "question_en": "Support for a learner with hearing impairment?",
       "options": [
         {
-          "option_id": "B",
-          "hi": "शिक्षण में लचीलेपन और विविध आवश्यकताओं का ध्यान आवश्यक है।",
-          "en": "Flexible teaching should address diverse needs."
-        },
-        {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        },
-        {
           "option_id": "A",
-          "hi": [
-            "विविध आवश्यकताओं के अनुसार शिक्षण",
-            "Teaching according to diverse needs",
-            "एक ही तरीका",
-            "One method only",
-            "कम अपेक्षाएँ",
-            "Low expectations",
-            "विद्यार्थियों को अलग करना",
-            "Segregating learners"
-          ],
-          "en": 0
+          "hi": "पीछे बैठाना",
+          "en": "Visual cues and appropriate communication"
+        },
+        {
+          "option_id": "B",
+          "hi": "तेज बोलना",
+          "en": "Seat at back"
+        },
+        {
+          "option_id": "C",
+          "hi": "सहायता रोकना",
+          "en": "Speak louder only"
+        },
+        {
+          "option_id": "D",
+          "hi": "दृश्य संकेत और उपयुक्त संचार",
+          "en": "दृश्य संकेत और उपयुक्त संचार"
         }
       ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_003",
+      "question_id": "V6-CDP-066-005",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
       "topic_id": "inclusive_education",
       "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
       "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विशेष आवश्यकता का आकलन?",
+      "question_en": "Assessment of special educational needs?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "व्यक्तिगत जरूरत और ताकत पहचानना",
+          "en": "व्यक्तिगत जरूरत और ताकत पहचानना"
+        },
+        {
+          "option_id": "B",
+          "hi": "स्थायी लेबल",
+          "en": "Identify individual needs and strengths"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Permanent label"
+        },
+        {
+          "option_id": "D",
+          "hi": "सार्वजनिक घोषणा",
+          "en": "Punishment"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-066-006",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
+      "topic_id": "inclusive_education",
+      "topic": "Inclusive Education",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Inclusive classroom में peer support?",
+      "question_en": "Peer support in an inclusive classroom?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अलगाव",
+          "en": "Dependence"
+        },
+        {
+          "option_id": "B",
+          "hi": "सहयोगपूर्ण सहभागिता",
+          "en": "सहयोगपूर्ण सहभागिता"
+        },
+        {
+          "option_id": "C",
+          "hi": "मजाक",
+          "en": "Collaborative participation"
+        },
+        {
+          "option_id": "D",
+          "hi": "निर्भरता",
+          "en": "Mockery"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-066-007",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
+      "topic_id": "inclusive_education",
+      "topic": "Inclusive Education",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "moderate",
       "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
@@ -148,54 +356,158 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "UDL का पूरा नाम क्या है?",
-      "question_en": "What is the full form of UDL?",
+      "question_hi": "समान अवसर और समान सहायता?",
+      "question_en": "Equal opportunity versus identical support?",
       "options": [
         {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        },
-        {
           "option_id": "A",
-          "hi": [
-            "Universal Design for Learning",
-            "Universal Design for Learning",
-            "Uniform Development of Learners",
-            "Uniform Development of Learners",
-            "Universal Discipline Law",
-            "Universal Discipline Law",
-            "Unique Daily Learning",
-            "Unique Daily Learning"
-          ],
-          "en": 0
+          "hi": "अतिरिक्त सहायता अनुचित",
+          "en": "Same support for all"
         },
         {
           "option_id": "B",
-          "hi": "UDL सीखने के लिए अनेक माध्यम, अभिव्यक्ति और सहभागिता के विकल्प देता है।",
-          "en": "UDL offers multiple means of engagement, representation and expression."
+          "hi": "भिन्नता हटाना",
+          "en": "Extra support unfair"
+        },
+        {
+          "option_id": "C",
+          "hi": "जरूरत अनुसार सहायता न्यायसंगत",
+          "en": "जरूरत अनुसार सहायता न्यायसंगत"
+        },
+        {
+          "option_id": "D",
+          "hi": "सभी को एक सहायता",
+          "en": "Support according to need is equitable"
         }
       ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_004",
+      "question_id": "V6-CDP-066-008",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
       "topic_id": "inclusive_education",
       "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "easy",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाधा-मुक्त वातावरण में क्या शामिल?",
+      "question_en": "What does a barrier-free environment include?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल सजावट",
+          "en": "Physical and communication access"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड नियम",
+          "en": "Decoration only"
+        },
+        {
+          "option_id": "C",
+          "hi": "रैंक",
+          "en": "Punishment rules"
+        },
+        {
+          "option_id": "D",
+          "hi": "भौतिक और संचार पहुंच",
+          "en": "भौतिक और संचार पहुंच"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-066-009",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
+      "topic_id": "inclusive_education",
+      "topic": "Inclusive Education",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक का सहयोगी रवैया?",
+      "question_en": "Collaborative teacher attitude?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "परिवार और विशेषज्ञों से संवाद",
+          "en": "परिवार और विशेषज्ञों से संवाद"
+        },
+        {
+          "option_id": "B",
+          "hi": "अकेले निर्णय",
+          "en": "Communicate with family and specialists"
+        },
+        {
+          "option_id": "C",
+          "hi": "दोषारोपण",
+          "en": "Decide alone"
+        },
+        {
+          "option_id": "D",
+          "hi": "गोपनीयता भंग",
+          "en": "Blame"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-066-010",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
+      "topic_id": "inclusive_education",
+      "topic": "Inclusive Education",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "moderate",
       "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
@@ -203,54 +515,158 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "विशेष आवश्यकता वाले विद्यार्थी के लिए उचित दृष्टिकोण—",
-      "question_en": "An appropriate approach for a learner with special needs is—",
+      "question_hi": "समावेशी मूल्यांकन में?",
+      "question_en": "Inclusive assessment?",
       "options": [
         {
-          "option_id": "D"
-        },
-        {
           "option_id": "A",
-          "hi": [
-            "आवश्यक अनुकूलन देना",
-            "Provide accommodations",
-            "उपेक्षा करना",
-            "Ignore",
-            "सभी कार्य हटाना",
-            "Remove all tasks",
-            "सहपाठियों से अलग रखना",
-            "Isolate from peers"
-          ],
-          "en": 0
+          "hi": "सहायता निषिद्ध",
+          "en": "One method"
         },
         {
           "option_id": "B",
-          "hi": "उचित अनुकूलन बाधाएँ कम करते हैं और सहभागिता बढ़ाते हैं।",
-          "en": "Appropriate accommodations reduce barriers and improve participation."
+          "hi": "उचित अनुकूलन",
+          "en": "उचित अनुकूलन"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "अनावश्यक बाधाएँ",
+          "en": "Appropriate accommodations"
+        },
+        {
+          "option_id": "D",
+          "hi": "एक ही तरीका",
+          "en": "Unnecessary barriers"
         }
       ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_005",
+      "question_id": "V6-CDP-066-011",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
       "topic_id": "inclusive_education",
       "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "easy",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषाई विविधता को?",
+      "question_en": "Linguistic diversity should be?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "निषिद्ध",
+          "en": "Defect"
+        },
+        {
+          "option_id": "B",
+          "hi": "उपहास",
+          "en": "Forbidden"
+        },
+        {
+          "option_id": "C",
+          "hi": "संसाधन मानना",
+          "en": "संसाधन मानना"
+        },
+        {
+          "option_id": "D",
+          "hi": "दोष",
+          "en": "Valued as a resource"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-066-012",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
+      "topic_id": "inclusive_education",
+      "topic": "Inclusive Education",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समावेशी कक्षा में अपेक्षाएँ?",
+      "question_en": "Expectations in an inclusive classroom?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "कम",
+          "en": "High and flexible"
+        },
+        {
+          "option_id": "B",
+          "hi": "एक जैसी सहायता",
+          "en": "Low"
+        },
+        {
+          "option_id": "C",
+          "hi": "स्थायी लेबल",
+          "en": "Same support"
+        },
+        {
+          "option_id": "D",
+          "hi": "उच्च और लचीली",
+          "en": "उच्च और लचीली"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-066-013",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
+      "topic_id": "inclusive_education",
+      "topic": "Inclusive Education",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "moderate",
       "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
@@ -258,53 +674,51 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "सहायक तकनीक का उदाहरण—",
-      "question_en": "An example of assistive technology is—",
+      "question_hi": "किससे stigma कम हो सकता?",
+      "question_en": "What may reduce stigma?",
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "स्क्रीन रीडर",
-            "Screen reader",
-            "दंड सूची",
-            "Punishment list",
-            "केवल पाठ्यपुस्तक",
-            "Textbook only",
-            "उपस्थिति रजिस्टर",
-            "Attendance register"
-          ],
-          "en": 0
+          "hi": "सामान्य कक्षा में सहयोग और सम्मान",
+          "en": "सामान्य कक्षा में सहयोग और सम्मान"
         },
         {
           "option_id": "B",
-          "hi": "स्क्रीन रीडर दृष्टिबाधित विद्यार्थियों को डिजिटल सामग्री तक पहुँच देता है।",
-          "en": "Screen readers provide access to digital content for visually impaired learners."
+          "hi": "सार्वजनिक पहचान",
+          "en": "Support and respect in ordinary classroom settings"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "उपहास",
+          "en": "Public identification"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "अलगाव",
+          "en": "Mockery"
         }
       ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_006",
+      "question_id": "V6-CDP-066-014",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
       "topic_id": "inclusive_education",
       "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
       "difficulty": "moderate",
       "question_type": "Application-Based",
       "exam_tags": [
@@ -313,54 +727,158 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "बाधा-मुक्त वातावरण का अर्थ—",
-      "question_en": "A barrier-free environment means—",
+      "question_hi": "सहायक तकनीक का उद्देश्य?",
+      "question_en": "Purpose of assistive technology?",
       "options": [
         {
-          "option_id": "B",
-          "hi": "सुलभता वातावरण और सामग्री को उपयोग योग्य बनाती है।",
-          "en": "Accessibility makes environments and materials usable."
-        },
-        {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        },
-        {
           "option_id": "A",
-          "hi": [
-            "सुलभ भौतिक और सीखने का वातावरण",
-            "Accessible physical and learning environment",
-            "केवल सुंदर कक्षा",
-            "Beautiful classroom only",
-            "सभी को समान गति",
-            "Same pace for all",
-            "कठिन कार्य हटाना",
-            "Remove challenging tasks"
-          ],
-          "en": 0
+          "hi": "रैंक",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "B",
+          "hi": "स्वतंत्रता और पहुंच बढ़ाना",
+          "en": "स्वतंत्रता और पहुंच बढ़ाना"
+        },
+        {
+          "option_id": "C",
+          "hi": "बदलाव रोकना",
+          "en": "Increase access and independence"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Prevent change"
         }
       ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_007",
+      "question_id": "V6-CDP-066-015",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
       "topic_id": "inclusive_education",
       "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
       "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहपाठी को disability पर क्या सिखाएँ?",
+      "question_en": "What should peers learn about disability?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "मजाक",
+          "en": "Pity only"
+        },
+        {
+          "option_id": "B",
+          "hi": "अलगाव",
+          "en": "Mockery"
+        },
+        {
+          "option_id": "C",
+          "hi": "सम्मान और विविधता",
+          "en": "सम्मान और विविधता"
+        },
+        {
+          "option_id": "D",
+          "hi": "दया मात्र",
+          "en": "Respect and diversity"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-066-016",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
+      "topic_id": "inclusive_education",
+      "topic": "Inclusive Education",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में sensory needs?",
+      "question_en": "How address sensory needs?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड",
+          "en": "Provide suitable quiet spaces and options"
+        },
+        {
+          "option_id": "B",
+          "hi": "उपेक्षा",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "C",
+          "hi": "शोर बढ़ाना",
+          "en": "Ignore"
+        },
+        {
+          "option_id": "D",
+          "hi": "उचित शांत स्थान और विकल्प",
+          "en": "उचित शांत स्थान और विकल्प"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-066-017",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
+      "topic_id": "inclusive_education",
+      "topic": "Inclusive Education",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
+      "difficulty": "difficult",
       "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
@@ -368,493 +886,51 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "समावेशी मूल्यांकन में—",
-      "question_en": "Inclusive assessment should—",
+      "question_hi": "समावेशी शिक्षण में flexible grouping?",
+      "question_en": "Flexible grouping in inclusive teaching?",
       "options": [
         {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        },
-        {
           "option_id": "A",
-          "hi": [
-            "उचित विकल्प और अनुकूलन देना",
-            "Provide appropriate options and accommodations",
-            "सभी को एक ही समय/तरीका",
-            "Same time and method for all",
-            "दृष्टिबाधितों को बाहर रखना",
-            "Exclude visually impaired learners",
-            "केवल मौखिक",
-            "Oral only"
-          ],
-          "en": 0
+          "hi": "कार्य और जरूरत के अनुसार बदलना",
+          "en": "कार्य और जरूरत के अनुसार बदलना"
         },
         {
           "option_id": "B",
-          "hi": "आवश्यक अनुकूलन के साथ विद्यार्थी अपनी क्षमता प्रदर्शित कर सकते हैं।",
-          "en": "Appropriate accommodations allow learners to demonstrate competence."
+          "hi": "स्थायी समूह",
+          "en": "Change according to task and needs"
+        },
+        {
+          "option_id": "C",
+          "hi": "लेबल",
+          "en": "Permanent groups"
+        },
+        {
+          "option_id": "D",
+          "hi": "रैंक",
+          "en": "Labels"
         }
       ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_008",
+      "question_id": "V6-CDP-066-018",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
       "topic_id": "inclusive_education",
       "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "सहपाठी सहयोग किसमें मदद करता है?",
-      "question_en": "Peer support helps with—",
-      "options": [
-        {
-          "option_id": "D"
-        },
-        {
-          "option_id": "A",
-          "hi": [
-            "सामाजिक सहभागिता और सीखना",
-            "Social participation and learning",
-            "अलगाव",
-            "Isolation",
-            "प्रतिस्पर्धा मात्र",
-            "Competition only",
-            "शिक्षक की भूमिका समाप्त",
-            "Eliminate teacher role"
-          ],
-          "en": 0
-        },
-        {
-          "option_id": "B",
-          "hi": "सहपाठी सहयोग सीखने और सामाजिक संबंधों को समर्थन देता है।",
-          "en": "Peer support can support learning and social relationships."
-        },
-        {
-          "option_id": "C"
-        }
-      ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_009",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "inclusive_education",
-      "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "दृष्टिबाधित विद्यार्थी के लिए उपयोगी सामग्री—",
-      "question_en": "Useful material for a visually impaired learner is—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": [
-            "ब्रेल या ऑडियो सामग्री",
-            "Braille or audio material",
-            "छोटा अक्षर",
-            "Small print",
-            "केवल रंग",
-            "Colour only",
-            "चित्र बिना वर्णन",
-            "Images without description"
-          ],
-          "en": 0
-        },
-        {
-          "option_id": "B",
-          "hi": "ब्रेल, ऑडियो और सुलभ डिजिटल सामग्री उपयोगी हैं।",
-          "en": "Braille, audio and accessible digital content are useful."
-        },
-        {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        }
-      ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_010",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "inclusive_education",
-      "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "श्रवण बाधित विद्यार्थी के लिए शिक्षक—",
-      "question_en": "For a learner with hearing impairment, a teacher should—",
-      "options": [
-        {
-          "option_id": "B",
-          "hi": "चेहरा दिखना, स्पष्ट बोलना और दृश्य संकेत सहायता करते हैं।",
-          "en": "Facing the learner, clear speech and visual cues help."
-        },
-        {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        },
-        {
-          "option_id": "A",
-          "hi": [
-            "चेहरा सामने रखकर स्पष्ट बोलना",
-            "Face the learner and speak clearly",
-            "पीठ करके बोलना",
-            "Speak facing away",
-            "केवल तेज आवाज",
-            "Loud voice only",
-            "संवाद बंद करना",
-            "Stop communication"
-          ],
-          "en": 0
-        }
-      ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_011",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "inclusive_education",
-      "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "भेदभाव रहित कक्षा का आधार—",
-      "question_en": "A non-discriminatory classroom is based on—",
-      "options": [
-        {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        },
-        {
-          "option_id": "A",
-          "hi": [
-            "सम्मान और समान अवसर",
-            "Respect and equal opportunity",
-            "लेबलिंग",
-            "Labelling",
-            "पक्षपात",
-            "Bias",
-            "बहिष्कार",
-            "Exclusion"
-          ],
-          "en": 0
-        },
-        {
-          "option_id": "B",
-          "hi": "सम्मानपूर्ण वातावरण सभी विद्यार्थियों को स्वीकार करता है।",
-          "en": "A respectful environment values all learners."
-        }
-      ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_012",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "inclusive_education",
-      "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "Differentiated instruction का अर्थ—",
-      "question_en": "Differentiated instruction means—",
-      "options": [
-        {
-          "option_id": "D"
-        },
-        {
-          "option_id": "A",
-          "hi": [
-            "विद्यार्थियों की जरूरत के अनुसार शिक्षण बदलना",
-            "Adjust teaching to learner needs",
-            "सभी को एक सामग्री",
-            "Same material for everyone",
-            "पाठ्यक्रम हटाना",
-            "Remove curriculum",
-            "केवल समूह शिक्षण",
-            "Group teaching only"
-          ],
-          "en": 0
-        },
-        {
-          "option_id": "B",
-          "hi": "सामग्री, प्रक्रिया या उत्पाद में जरूरत अनुसार बदलाव किया जा सकता है।",
-          "en": "Content, process or product may be adjusted to needs."
-        },
-        {
-          "option_id": "C"
-        }
-      ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_013",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "inclusive_education",
-      "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "IEP किसके लिए बनाया जाता है?",
-      "question_en": "An IEP is developed for—",
-      "options": [
-        {
-          "option_id": "A",
-          "hi": [
-            "विशिष्ट शैक्षिक जरूरत वाले विद्यार्थी",
-            "Learners with specific educational needs",
-            "सभी शिक्षक",
-            "All teachers",
-            "केवल प्रधानाचार्य",
-            "Principal only",
-            "विद्यालय भवन",
-            "School building"
-          ],
-          "en": 0
-        },
-        {
-          "option_id": "B",
-          "hi": "IEP व्यक्तिगत लक्ष्य और आवश्यक सहायता निर्धारित करता है।",
-          "en": "An IEP sets individual goals and required supports."
-        },
-        {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        }
-      ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_014",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "inclusive_education",
-      "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "समावेशन में अभिभावक सहभागिता—",
-      "question_en": "Parent participation in inclusion—",
-      "options": [
-        {
-          "option_id": "B",
-          "hi": "अभिभावक विद्यार्थी की जरूरतों और प्रगति की जानकारी साझा करते हैं।",
-          "en": "Parents share insights about needs and progress."
-        },
-        {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        },
-        {
-          "option_id": "A",
-          "hi": [
-            "सहयोगी योजना में उपयोगी",
-            "Helps collaborative planning",
-            "अनावश्यक",
-            "Unnecessary",
-            "केवल शिकायत",
-            "Complaints only",
-            "विद्यालय से बाहर",
-            "Outside school"
-          ],
-          "en": 0
-        }
-      ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_015",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "inclusive_education",
-      "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "moderate",
-      "question_type": "Application-Based",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "कक्षा में विविधता को कैसे देखें?",
-      "question_en": "How should classroom diversity be viewed?",
-      "options": [
-        {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        },
-        {
-          "option_id": "A",
-          "hi": [
-            "संसाधन और सीखने का अवसर",
-            "Resource and learning opportunity",
-            "समस्या",
-            "Problem",
-            "कमजोरी",
-            "Weakness",
-            "अवरोध",
-            "Barrier"
-          ],
-          "en": 0
-        },
-        {
-          "option_id": "B",
-          "hi": "विविधता विभिन्न दृष्टिकोणों और सीखने के अवसर देती है।",
-          "en": "Diversity offers perspectives and learning opportunities."
-        }
-      ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_016",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "inclusive_education",
-      "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
       "difficulty": "difficult",
       "question_type": "Analytical",
       "exam_tags": [
@@ -863,263 +939,147 @@
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "सामाजिक मॉडल disability को किससे जोड़ता है?",
-      "question_en": "The social model of disability relates disability to—",
+      "question_hi": "बच्चे की भागीदारी कैसे बढ़ाएँ?",
+      "question_en": "How increase learner participation?",
       "options": [
         {
-          "option_id": "D"
-        },
-        {
           "option_id": "A",
-          "hi": [
-            "पर्यावरणीय बाधाएँ",
-            "Environmental barriers",
-            "केवल व्यक्ति की कमी",
-            "Individual deficit only",
-            "दंड",
-            "Punishment",
-            "आयु",
-            "Age"
-          ],
-          "en": 0
+          "hi": "दंड",
+          "en": "Lecture only"
         },
         {
           "option_id": "B",
-          "hi": "सामाजिक मॉडल बाधाओं को समाज और वातावरण में पहचानता है।",
-          "en": "The social model identifies barriers in society and environment."
+          "hi": "सुलभ विकल्प और voice देना",
+          "en": "सुलभ विकल्प और voice देना"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "प्रश्न रोकना",
+          "en": "Accessible choices and learner voice"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल व्याख्यान",
+          "en": "Stop questions"
         }
       ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_017",
+      "question_id": "V6-CDP-066-019",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
       "topic_id": "inclusive_education",
       "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
       "difficulty": "difficult",
-      "question_type": "Analytical",
+      "question_type": "Conceptual",
       "exam_tags": [
         "CTET",
         "REET",
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "समावेशी शिक्षण सामग्री कैसी हो?",
-      "question_en": "Inclusive learning material should be—",
+      "question_hi": "समावेशन की सफलता का संकेत?",
+      "question_en": "Indicator of inclusion?",
       "options": [
         {
           "option_id": "A",
-          "hi": [
-            "विविध प्रतिनिधित्व वाली और सुलभ",
-            "Accessible and diverse in representation",
-            "पक्षपाती",
-            "Biased",
-            "केवल एक भाषा",
-            "One language only",
-            "छोटे अक्षर",
-            "Tiny text"
-          ],
-          "en": 0
+          "hi": "सजावट",
+          "en": "Attendance only"
         },
         {
           "option_id": "B",
-          "hi": "सुलभ सामग्री विविध अनुभवों और जरूरतों का प्रतिनिधित्व करती है।",
-          "en": "Accessible material represents diverse experiences and needs."
+          "hi": "एक परीक्षा",
+          "en": "Decoration"
         },
         {
-          "option_id": "C"
+          "option_id": "C",
+          "hi": "सभी की सीख और सहभागिता",
+          "en": "सभी की सीख और सहभागिता"
         },
         {
-          "option_id": "D"
+          "option_id": "D",
+          "hi": "केवल उपस्थिति",
+          "en": "Learning and participation of all"
         }
       ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     },
     {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_018",
+      "question_id": "V6-CDP-066-020",
       "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
+      "subject": "Child Development and Pedagogy",
+      "category": "Inclusive Education",
       "topic_id": "inclusive_education",
       "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
+      "subtopic_id": "inclusive_education",
+      "subtopic": "Inclusive Education",
       "difficulty": "difficult",
-      "question_type": "Analytical",
+      "question_type": "Application-Based",
       "exam_tags": [
         "CTET",
         "REET",
         "UPTET",
         "Teaching Exams"
       ],
-      "question_hi": "बच्चे की क्षमता पर उच्च लेकिन यथार्थ अपेक्षाएँ—",
-      "question_en": "High but realistic expectations for learners—",
+      "question_hi": "सर्वोत्तम कथन?",
+      "question_en": "Best statement?",
       "options": [
         {
-          "option_id": "B",
-          "hi": "उचित चुनौती और समर्थन प्रगति को बढ़ावा देते हैं।",
-          "en": "Appropriate challenge and support promote progress."
-        },
-        {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        },
-        {
           "option_id": "A",
-          "hi": [
-            "आत्मविश्वास और प्रगति बढ़ा सकती हैं",
-            "Can build confidence and progress",
-            "हानिकारक हमेशा",
-            "Always harmful",
-            "अनावश्यक",
-            "Unnecessary",
-            "सिर्फ अंक",
-            "Only marks"
-          ],
-          "en": 0
+          "hi": "एक बार का कार्यक्रम",
+          "en": "Ongoing process of removing barriers"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल विशेष विद्यालय",
+          "en": "One-time programme"
+        },
+        {
+          "option_id": "C",
+          "hi": "सभी समान",
+          "en": "Special school only"
+        },
+        {
+          "option_id": "D",
+          "hi": "समावेशन बाधाएँ हटाने की सतत प्रक्रिया",
+          "en": "समावेशन बाधाएँ हटाने की सतत प्रक्रिया"
         }
       ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
       "verification_status": "draft_needs_independent_review",
       "language": [
         "hi",
         "en"
       ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_019",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "inclusive_education",
-      "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "समावेशी कक्षा में बुलिंग रोकने का तरीका—",
-      "question_en": "A way to prevent bullying in an inclusive class—",
-      "options": [
-        {
-          "option_id": "C"
-        },
-        {
-          "option_id": "D"
-        },
-        {
-          "option_id": "A",
-          "hi": [
-            "स्पष्ट नियम और सहानुभूति",
-            "Clear norms and empathy",
-            "पीड़ित को दोष",
-            "Blame victim",
-            "अनदेखी",
-            "Ignore",
-            "दंड ही",
-            "Punishment only"
-          ],
-          "en": 0
-        },
-        {
-          "option_id": "B",
-          "hi": "स्पष्ट नियम, सहानुभूति और समय पर हस्तक्षेप जरूरी हैं।",
-          "en": "Clear norms, empathy and timely intervention matter."
-        }
-      ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
-    },
-    {
-      "question_id": "CDP_INCLUSIVE_EDUCATION_V6_020",
-      "subject_id": "cdp",
-      "subject": "Child Development & Pedagogy",
-      "category": "Educational Psychology",
-      "topic_id": "inclusive_education",
-      "topic": "Inclusive Education",
-      "subtopic_id": "core_concepts",
-      "subtopic": "Core Concepts",
-      "difficulty": "difficult",
-      "question_type": "Analytical",
-      "exam_tags": [
-        "CTET",
-        "REET",
-        "UPTET",
-        "Teaching Exams"
-      ],
-      "question_hi": "समावेशी शिक्षा की सफलता का संकेत—",
-      "question_en": "An indicator of inclusive education success is—",
-      "options": [
-        {
-          "option_id": "D"
-        },
-        {
-          "option_id": "A",
-          "hi": [
-            "सभी की सहभागिता और सीखने की प्रगति",
-            "Participation and learning progress of all",
-            "केवल उपस्थिति",
-            "Attendance only",
-            "अलग समूह",
-            "Separate groups",
-            "कम अपेक्षाएँ",
-            "Low expectations"
-          ],
-          "en": 0
-        },
-        {
-          "option_id": "B",
-          "hi": "सहभागिता, प्रगति और belongingness सफलता के संकेत हैं।",
-          "en": "Participation, progress and belonging indicate success."
-        },
-        {
-          "option_id": "C"
-        }
-      ],
-      "correct_index": null,
-      "source_reference": "Original concept-based practice item; not official PYQ.",
-      "verification_status": "draft_needs_independent_review",
-      "language": [
-        "hi",
-        "en"
-      ],
-      "created_at": "2026-11-19"
+      "created_at": "2026-11-20"
     }
   ]
 }
