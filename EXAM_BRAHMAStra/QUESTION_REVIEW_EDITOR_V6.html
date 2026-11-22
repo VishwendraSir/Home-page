@@ -21,4 +21,5 @@ function download(name,data,type){let b=new Blob([data],{type}),a=document.creat
 function exportAll(){download('EXAM_BRAHMAStra_V6_REVIEWED_DATABASE.json',JSON.stringify({database:'EXAM_BRAHMAStra_V6',schema:'V6',exportedAt:new Date().toISOString(),questions:bank},null,2),'application/json')}
 function reset(){if(confirm('Workspace reset होगा; unsaved edits खो जाएँगे. Continue?')){bank=[];selected=-1;edited=0;render();cancelEdit()}}
 render();
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
