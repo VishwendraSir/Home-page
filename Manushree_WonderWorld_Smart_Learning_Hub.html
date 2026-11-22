@@ -1624,15 +1624,18 @@
             <option value="share">💚 Share & Connect</option>
           </select>
         </label>
-        <label class="block text-sm font-bold text-purple-800">Your headline
-          <input id="wwPosterHeadline" class="mt-1 w-full rounded-xl border-2 border-purple-200 p-3" maxlength="90" value="Parents! बच्चों के लिए कुछ नया आ गया!">
+        <div class="rounded-xl bg-purple-50 p-3 text-sm text-purple-800"><strong>🔒 Admin-controlled information</strong><p>Poster की मुख्य जानकारी, branding और approved templates admin द्वारा तय किए गए हैं। आप केवल अपना personal detail जोड़ सकते हैं।</p></div>
+        <label class="block text-sm font-bold text-purple-800">Child / Parent Name (optional)
+          <input id="wwPosterName" class="mt-1 w-full rounded-xl border-2 border-purple-200 p-3" maxlength="40" placeholder="अपना नाम लिखें">
         </label>
-        <label class="block text-sm font-bold text-purple-800">Message
-          <textarea id="wwPosterMessage" class="mt-1 w-full rounded-xl border-2 border-purple-200 p-3" rows="3" maxlength="180">अब पढ़ाई सिर्फ किताबों में नहीं… एक पूरी WonderWorld में!</textarea>
+        <label class="block text-sm font-bold text-purple-800">Class (optional)
+          <input id="wwPosterAudience" class="mt-1 w-full rounded-xl border-2 border-purple-200 p-3" maxlength="30" placeholder="Class / Age group">
         </label>
-        <label class="block text-sm font-bold text-purple-800">Class / Audience
-          <input id="wwPosterAudience" class="mt-1 w-full rounded-xl border-2 border-purple-200 p-3" maxlength="40" value="Nursery to Class 8">
+        <label class="block text-sm font-bold text-purple-800">Personal Message (optional)
+          <textarea id="wwPosterPersonal" class="mt-1 w-full rounded-xl border-2 border-purple-200 p-3" rows="2" maxlength="100" placeholder="मैंने WonderWorld explore किया!"></textarea>
         </label>
+        <input id="wwPosterHeadline" type="hidden" value="Parents! बच्चों के लिए कुछ नया आ गया!">
+        <input id="wwPosterMessage" type="hidden" value="अब पढ़ाई सिर्फ किताबों में नहीं… एक पूरी WonderWorld में!">
         <label class="block text-sm font-bold text-purple-800">Poster Size
           <select id="wwPosterSize" class="mt-1 w-full rounded-xl border-2 border-purple-200 p-3">
             <option value="1080,1080">WhatsApp / Square (1080×1080)</option>
@@ -1642,9 +1645,11 @@
           </select>
         </label>
         <div class="flex flex-wrap gap-2">
-          <button id="wwPosterGenerate" class="rounded-xl bg-purple-700 px-5 py-3 text-white font-bold">✨ Generate Poster</button>
-          <button id="wwPosterDownload" class="rounded-xl bg-blue-600 px-5 py-3 text-white font-bold">⬇ Download PNG</button>
-          <button id="wwPosterShare" class="rounded-xl bg-green-600 px-5 py-3 text-white font-bold">📲 Share</button>
+          <button id="wwPosterGenerate" class="rounded-xl bg-purple-700 px-5 py-3 text-white font-bold">👀 Preview Poster</button>
+          <button id="wwPosterShareGate" class="rounded-xl bg-green-600 px-5 py-3 text-white font-bold">📲 Share to Group to Unlock</button>
+          <button id="wwPosterDownload" disabled class="rounded-xl bg-blue-600 px-5 py-3 text-white font-bold opacity-50">⬇ Download (Locked)</button>
+          <button id="wwPosterShare" disabled class="rounded-xl bg-gray-400 px-5 py-3 text-white font-bold opacity-50">📤 Share Poster (Locked)</button>
+          <p id="wwPosterGateStatus" class="w-full text-sm font-semibold text-orange-700">🔒 पहले WonderWorld का share link अपने WhatsApp group/family में भेजें।</p>
         </div>
         <p class="text-xs text-gray-500">Poster is generated on your device. Share support depends on your browser/device.</p>
       </div>
@@ -1689,16 +1694,21 @@
       t.features.forEach((f,i)=>{const col=i%3,row=Math.floor(i/3),x=90+col*boxW,y=startY+row*135;ctx.fillStyle='rgba(255,255,255,.92)';rounded(x,y,boxW-16,112,24);ctx.fill();ctx.fillStyle='#5b21b6';ctx.font='bold 30px system-ui';wrap(f,boxW-40,36,2).forEach((line,j)=>ctx.fillText(line,x+(boxW-16)/2,y+48+j*35));});
       const footerY=Math.max(startY+rows*135+45,H-190);
       ctx.fillStyle='#fff';ctx.font='bold 32px system-ui';ctx.fillText('Explore FREE Learning!',540,footerY);
+      const personalName=$('wwPosterName')?.value?.trim(),personalClass=$('wwPosterAudience')?.value?.trim(),personalMsg=$('wwPosterPersonal')?.value?.trim();
+      ctx.font='bold 26px system-ui';if(personalName)ctx.fillText('Made by: '+personalName,540,footerY-45);if(personalClass)ctx.fillText(personalClass,540,footerY-10);if(personalMsg)ctx.fillText(personalMsg,540,footerY+35);
       ctx.font='bold 26px system-ui';ctx.fillText('Guided by Vishwendra Sir • Science Centre Learning Hub',540,footerY+50);
       ctx.fillText('WhatsApp / Call: 6350248088',540,footerY+95);
       ctx.font='24px system-ui';ctx.fillText('vishwendrasir.github.io/Home-page/',540,footerY+140);
       ctx.fillStyle='rgba(255,255,255,.14)';rounded(40,H-40,1000,2,1);ctx.fill();
     }
+    let shareUnlocked=false;
+    function unlockAfterShare(){shareUnlocked=true;$('wwPosterDownload').disabled=false;$('wwPosterShare').disabled=false;$('wwPosterDownload').textContent='⬇ Download PNG';$('wwPosterShare').textContent='📤 Share Poster';$('wwPosterDownload').classList.remove('opacity-50');$('wwPosterShare').classList.remove('opacity-50');$('wwPosterGateStatus').textContent='✅ Share step completed. Poster download/share unlocked.';$('wwPosterGateStatus').className='w-full text-sm font-semibold text-green-700';}
+    $('wwPosterShareGate').onclick=async()=>{const shareUrl=location.origin+location.pathname;const text='🌈 Manushree’s WonderWorld — Smart Learning Hub for Kids!\\nLearn • Play • Explore • Grow\\n'+shareUrl+'\\nGuided by Vishwendra Sir | WhatsApp: 6350248088';try{if(navigator.share){await navigator.share({title:'Manushree’s WonderWorld',text,url:shareUrl});unlockAfterShare();}else{window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');unlockAfterShare();}}catch(e){if(e.name!=='AbortError')alert('Share was not completed. Try WhatsApp share again.');}};
     $('wwPosterGenerate').onclick=draw;
     $('wwPosterTemplate').onchange=()=>{const t=$('wwPosterTemplate').value;const defaults={announcement:['Parents! बच्चों के लिए कुछ नया आ गया!','अब पढ़ाई सिर्फ किताबों में नहीं… एक पूरी WonderWorld में!'],features:['Explore Smart Learning!','Interactive learning, games, science, maths, language and brain games.'],class:['Learn at Your Level!','Fun learning for Nursery to Class 8.'],parents:['Parents! Join the Learning Journey!','Explore smart learning with your child today.'],practice:['Practice. Play. Progress!','Quiz, worksheets, practice and test series.'],share:['Share WonderWorld!','Help more children learn, play and grow.']};$('wwPosterHeadline').value=defaults[t][0];$('wwPosterMessage').value=defaults[t][1];draw();};
-    $('wwPosterDownload').onclick=()=>{draw();const a=document.createElement('a');a.download='Manushree_WonderWorld_Poster.png';a.href=canvas.toDataURL('image/png');a.click();};
-    $('wwPosterShare').onclick=async()=>{draw();try{const blob=await new Promise(r=>canvas.toBlob(r,'image/png'));const file=new File([blob],'WonderWorld_Poster.png',{type:'image/png'});if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]}))await navigator.share({title:"Manushree's WonderWorld",text:'Explore our Smart Learning Hub!',files:[file]});else{const a=document.createElement('a');a.download='WonderWorld_Poster.png';a.href=canvas.toDataURL('image/png');a.click();alert('Poster downloaded. Share it from your gallery!');}}catch(e){if(e.name!=='AbortError')alert('Poster sharing not supported. Use Download PNG.');}};
-    ['wwPosterHeadline','wwPosterMessage','wwPosterAudience','wwPosterSize'].forEach(id=>$(id).addEventListener('input',draw));
+    $('wwPosterDownload').onclick=()=>{if(!shareUnlocked){alert('पहले Share to Group step पूरा करें।');return;}draw();const a=document.createElement('a');a.download='Manushree_WonderWorld_Poster.png';a.href=canvas.toDataURL('image/png');a.click();};
+    $('wwPosterShare').onclick=async()=>{if(!shareUnlocked){alert('पहले Share to Group step पूरा करें।');return;}draw();try{const blob=await new Promise(r=>canvas.toBlob(r,'image/png'));const file=new File([blob],'WonderWorld_Poster.png',{type:'image/png'});if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]}))await navigator.share({title:"Manushree's WonderWorld",text:'Explore our Smart Learning Hub!',files:[file]});else{const a=document.createElement('a');a.download='WonderWorld_Poster.png';a.href=canvas.toDataURL('image/png');a.click();alert('Poster downloaded. Share it from your gallery!');}}catch(e){if(e.name!=='AbortError')alert('Poster sharing not supported. Use Download PNG.');}};
+    ['wwPosterHeadline','wwPosterMessage','wwPosterAudience','wwPosterPersonal','wwPosterSize','wwPosterName'].forEach(id=>$(id).addEventListener('input',draw));
     draw();
   })();
   </script>
