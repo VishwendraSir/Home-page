@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Manushree's WonderWorld - Smart Learning Hub</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Fredoka (playful kid-friendly rounded font) & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* =====================================================================
+       CUSTOM STYLES: GLASSMORPHISM, 3D TACTILE BUTTONS, ANIMATIONS & GAMES
+       ===================================================================== */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #fdf2f8 0%, #eff6ff 45%, #ecfdf5 100%);
+    }
+
+    body {
+      font-family: 'Fredoka', 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    /* Glassmorphism panels */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.08);
+    }
+
+    /* Soft 3D Tactile Buttons */
+    .btn-3d {
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.15s ease;
+      box-shadow: 0 5px 0 rgba(0, 0, 0, 0.16), 0 8px 16px rgba(0, 0, 0, 0.08);
+    }
+    .btn-3d:hover {
+      filter: brightness(1.03);
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 rgba(0, 0, 0, 0.16), 0 12px 20px rgba(0, 0, 0, 0.1);
+    }
+    .btn-3d:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Floating Mascot Animation */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+    .animate-float {
+      animation: floatSlow 3.2s ease-in-out infinite;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      70% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop {
+      animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes floatBalloon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .balloon-float {
+      animation: floatBalloon 2.4s ease-in-out infinite;
+    }
+
+    @keyframes orbitSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: rgba(255,255,255,0.4); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.35); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(139, 92, 246, 0.55); }
+
+    /* Piano Key Styling */
+    .piano-key {
+      transition: transform 0.08s ease, filter 0.08s ease;
+      box-shadow: 0 6px 0 rgba(0,0,0,0.2);
+    }
+    .piano-key.active, .piano-key:active {
+      transform: translateY(5px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+      filter: brightness(1.15);
+    }
+
+    /* Canvas responsive container */
+    .responsive-canvas {
+      display: block;
+      width: 100%;
+      touch-action: none;
+    }
+
+    /* Memory Card Flip */
+    .memory-card {
+      perspective: 800px;
+    }
+    .memory-card-inner {
+      transition: transform 0.45s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .memory-card.flipped .memory-card-inner {
+      transform: rotateY(180deg);
+    }
+    .memory-front, .memory-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .memory-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Floating PiP Video Player */
+    #pipVideoContainer {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #pipVideoContainer.pip-minimized {
+      width: 280px !important;
+      max-width: 85vw !important;
+      bottom: 16px !important;
+      right: 16px !important;
+      left: auto !important;
+      top: auto !important;
+      transform: none !important;
+    }
+    #pipVideoContainer.pip-expanded {
+      width: 720px !important;
+      max-width: 94vw !important;
+      top: 50% !important;
+      left: 50% !important;
+      right: auto !important;
+      bottom: auto !important;
+      transform: translate(-50%, -50%) !important;
+    }
+  </style>
+</head>
+<body class="text-slate-800 pb-24">
+
+  <!-- Full-Screen Confetti Canvas -->
+  <canvas id="confettiCanvas" class="fixed inset-0 pointer-events-none z-50 w-full h-full"></canvas>
+
+  <!-- Toast Notification Banner (No alert() ever!) -->
+  <div id="toastBanner" class="fixed top-4 left-1/2 -translate-x-1/2 z-[70] hidden px-6 py-3 rounded-full shadow-2xl font-bold text-white text-base sm:text-lg items-center gap-2 transition-all">
+    <span id="toastIcon">🌟</span>
+    <span id="toastText">Great job, Manushree!</span>
+  </div>
+
+  <!-- =====================================================================
+       TOP NAVIGATION BAR
+       ===================================================================== -->
+  <header class="sticky top-0 z-40 glass-card border-b-2 border-white/80 px-3 py-2.5 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Brand & Personalized Greeting -->
+      <div class="flex items-center gap-2.5 cursor-pointer" onclick="goHome()">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 flex items-center justify-center text-2xl shadow-lg border-2 border-white">
+          🦄
+        </div>
+        <div>
+          <h1 class="text-lg sm:text-xl font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent leading-tight">
+            Manushree's WonderWorld
+          </h1>
+          <p id="navGreeting" class="text-xs sm:text-sm font-semibold text-purple-700">
+            Hi Manushree! 🌟
+          </p>
+        </div>
+      </div>
+
+      <!-- Controls: Class Switcher, Language, Sound, Parent Panel -->
+      <div class="flex flex-wrap items-center gap-2">
+        <!-- Class Switcher -->
+        <select id="classSwitcher" onchange="changeClassLevel(this.value)"
+          class="bg-white/95 border-2 border-purple-200 text-purple-800 font-bold text-xs sm:text-sm rounded-xl px-2.5 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400 cursor-pointer">
+          <option value="0">Play Group</option>
+          <option value="1">Nursery</option>
+          <option value="2">LKG</option>
+          <option value="3">UKG</option>
+          <option value="4">Class 1</option>
+          <option value="5">Class 2</option>
+          <option value="6">Class 3</option>
+          <option value="7">Class 4</option>
+          <option value="8">Class 5</option>
+        </select>
+
+        <!-- Bilingual Toggle (EN / HI) -->
+        <button id="langToggleBtn" onclick="toggleLanguage()"
+          class="btn-3d bg-gradient-to-r from-amber-400 to-orange-500 text-white font-bold text-xs sm:text-sm px-3 py-2 rounded-xl flex items-center gap-1">
+          <span>🌐</span> <span id="langLabel">EN / हिं</span>
+        </button>
+
+        <!-- Sound / Voice Mute Toggle -->
+        <button id="soundToggleBtn" onclick="toggleSound()" title="Toggle Voice & Sound"
+          class="btn-3d bg-white text-purple-700 border-2 border-purple-200 font-bold text-sm px-3 py-2 rounded-xl">
+          🔊
+        </button>
+
+        <!-- Parent Panel Button -->
+        <button onclick="openPinModal()"
+          class="btn-3d bg-gradient-to-r from-slate-700 to-slate-900 text-white font-bold text-xs sm:text-sm px-3 py-2 rounded-xl flex items-center gap-1">
+          <span>🔒</span> <span class="hidden sm:inline" data-i18n="parents">Parents</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Progress HUD Bar -->
+    <div class="max-w-7xl mx-auto mt-2 pt-2 border-t border-purple-100/80 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+      <div class="flex items-center gap-2 sm:gap-3">
+        <div class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+          <span>⭐</span> <span id="hudStars">0</span> <span data-i18n="stars">Stars</span>
+        </div>
+        <div class="bg-orange-100 text-orange-800 font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+          <span>🔥</span> <span id="hudStreak">1</span> <span data-i18n="streak">Day Streak</span>
+        </div>
+        <div class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm cursor-pointer" onclick="showBadgesModal()">
+          <span>🏆</span> <span id="hudBadges">0</span> <span data-i18n="badges">Badges</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="openPhotoFlashcards()"
+          class="bg-pink-100 hover:bg-pink-200 text-pink-700 font-bold px-3 py-1 rounded-full transition flex items-center gap-1">
+          <span>📸</span> <span data-i18n="myPhotos">My Photos</span>
+        </button>
+        <button onclick="scrollToVideoZone()"
+          class="bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-bold px-3 py-1 rounded-full transition flex items-center gap-1">
+          <span>🎬</span> <span data-i18n="videoZone">Video Zone</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       MAIN CONTENT AREA (HOME HUB OR ACTIVE GAME SCREEN)
+       ===================================================================== -->
+  <main class="max-w-7xl mx-auto px-3 sm:px-6 pt-5">
+
+    <!-- HOME HUB VIEW -->
+    <div id="homeView" class="space-y-6">
+      
+      <!-- Hero Welcome Banner -->
+      <section class="glass-card rounded-3xl p-5 sm:p-7 relative overflow-hidden bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-amber-500/10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
+          <div class="text-center md:text-left space-y-2">
+            <span id="heroClassBadge" class="inline-block bg-purple-600 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow">
+              🎓 Play Group Mode
+            </span>
+            <h2 id="heroTitle" class="text-2xl sm:text-4xl font-bold text-slate-800">
+              Welcome to Your Magic World, <span class="text-pink-600">Manushree!</span> ✨
+            </h2>
+            <p id="heroSubtitle" class="text-slate-600 text-sm sm:text-base max-w-2xl">
+              Tap any subject below to play fun games, watch learning videos, draw, and collect shining stars!
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="launchRandomGame()" class="btn-3d bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold px-5 py-3 rounded-2xl text-base sm:text-lg flex items-center gap-2">
+              <span>🎲</span> <span data-i18n="surpriseGame">Surprise Game!</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Filter Tabs -->
+      <section class="flex overflow-x-auto gap-2 pb-2 no-scrollbar" id="categoryTabs">
+        <!-- Populated by JS -->
+      </section>
+
+      <!-- Games Grid -->
+      <section id="gamesGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+        <!-- Populated dynamically by JS -->
+      </section>
+
+      <!-- SEAMLESS VIDEO LEARNING ZONE -->
+      <section id="videoLearningZone" class="glass-card rounded-3xl p-5 sm:p-6 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h3 class="text-xl sm:text-2xl font-bold text-indigo-800 flex items-center gap-2">
+              <span>🎬</span> <span data-i18n="videoLearningTitle">Video Learning Zone</span>
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600" data-i18n="videoLearningDesc">
+              Tap any video to auto-play in a floating player without leaving your screen!
+            </p>
+          </div>
+          <button onclick="openPinModal('videos')" class="btn-3d bg-indigo-500 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-xl">
+            ➕ <span data-i18n="addVideoBtn">Add Video Link</span>
+          </button>
+        </div>
+        <div id="videoCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </section>
+    </div>
+
+    <!-- ACTIVE GAME / MODULE SCREEN -->
+    <div id="gameView" class="hidden space-y-4 animate-pop">
+      <!-- Game Top Bar -->
+      <div class="glass-card rounded-2xl p-3 sm:p-4 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <button onclick="goHome()" class="btn-3d bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-4 py-2 rounded-xl flex items-center gap-1 text-sm sm:text-base">
+            ⬅️ <span data-i18n="backHome">Home</span>
+          </button>
+          <div>
+            <h2 id="activeGameTitle" class="text-lg sm:text-2xl font-bold text-purple-800 leading-tight">Game Title</h2>
+            <p id="activeGameSub" class="text-xs sm:text-sm text-slate-500">Category • Level</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <!-- Quick Floating Auto-Play Topic Video Button -->
+          <button onclick="playTopicVideo()" class="btn-3d bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold px-3.5 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1.5">
+            <span>🎬</span> <span data-i18n="watchTopicVideo">Watch Topic Video</span>
+          </button>
+          <button onclick="speakCurrentPrompt()" class="btn-3d bg-amber-400 text-slate-900 font-bold px-3.5 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-1">
+            <span>🗣️</span> <span data-i18n="listen">Listen</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Game Stage Container -->
+      <div id="gameStage" class="glass-card rounded-3xl p-4 sm:p-6 min-h-[420px] flex flex-col items-center justify-center relative">
+        <!-- Rendered by specific game engine -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- =====================================================================
+       FLOATING ANIMATED MASCOT COMPANION (OLLIE THE STAR OWL)
+       ===================================================================== -->
+  <div id="mascotWrapper" class="fixed bottom-4 left-4 z-30 flex items-end gap-2 pointer-events-none">
+    <button onclick="mascotTalk()" class="pointer-events-auto animate-float w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-amber-300 via-yellow-400 to-orange-400 border-4 border-white shadow-xl flex items-center justify-center text-3xl sm:text-4xl cursor-pointer hover:scale-110 transition">
+      🦉
+    </button>
+    <div id="mascotBubble" class="pointer-events-auto hidden bg-white/95 border-2 border-purple-200 text-purple-900 text-xs sm:text-sm font-bold px-3.5 py-2 rounded-2xl rounded-bl-none shadow-lg max-w-[220px] sm:max-w-[260px]">
+      You're doing amazing, Manushree! 🌟
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       SEAMLESS FLOATING AUTO-PLAY VIDEO PLAYER (NO SCENE CHANGE / PiP)
+       ===================================================================== -->
+  <div id="pipVideoContainer" class="hidden fixed z-[60] pip-expanded glass-card rounded-3xl shadow-2xl border-4 border-indigo-400 overflow-hidden bg-slate-900 text-white">
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2.5 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 truncate">
+        <span>🎬</span>
+        <span id="pipVideoTitle" class="font-bold text-sm sm:text-base truncate">Learning Video</span>
+      </div>
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button onclick="togglePipSize()" id="pipSizeBtn" title="Minimize / Expand"
+          class="bg-white/20 hover:bg-white/30 text-white font-bold px-2.5 py-1 rounded-lg text-xs">
+          🗕 Mini
+        </button>
+        <button onclick="closePipVideo()" title="Close Video"
+          class="bg-rose-500 hover:bg-rose-600 text-white font-bold px-2.5 py-1 rounded-lg text-xs">
+          ✕
+        </button>
+      </div>
+    </div>
+    <div id="pipVideoPlayerBody" class="w-full aspect-video bg-black flex items-center justify-center">
+      <!-- Iframe or <video> injected dynamically -->
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       PIN LOCK MODAL FOR PARENT PANEL
+       ===================================================================== -->
+  <div id="pinModal" class="hidden fixed inset-0 z-[65] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-card bg-white rounded-3xl p-6 w-full max-w-sm text-center space-y-4 animate-pop">
+      <div class="text-4xl">🔒</div>
+      <h3 class="text-xl font-bold text-slate-800">Parent Panel Access</h3>
+      <p class="text-xs text-slate-500">Enter 4-digit Parent PIN (Default: <b>1234</b>)</p>
+      <input id="pinInput" type="password" maxlength="4" inputmode="numeric" placeholder="••••"
+        class="w-full text-center text-3xl tracking-[0.5em] font-bold border-2 border-purple-300 rounded-2xl py-3 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+      <p id="pinError" class="hidden text-rose-600 text-xs font-bold">Incorrect PIN! Try again.</p>
+      <div class="flex gap-3">
+        <button onclick="closePinModal()" class="flex-1 py-2.5 rounded-xl bg-slate-200 font-bold text-slate-700">Cancel</button>
+        <button onclick="verifyPin()" class="flex-1 btn-3d py-2.5 rounded-xl bg-purple-600 font-bold text-white">Unlock</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       PARENT DASHBOARD MODAL
+       ===================================================================== -->
+  <div id="parentModal" class="hidden fixed inset-0 z-[65] bg-slate-900/65 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+    <div class="bg-white rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden animate-pop">
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-slate-800 to-indigo-900 text-white px-5 py-4 flex items-center justify-between">
+        <div>
+          <h3 class="text-lg sm:text-xl font-bold">👨‍👩‍👧 Parent Dashboard — Manushree Upadhyay</h3>
+          <p class="text-xs text-indigo-200">Manage videos, family flashcards, progress & settings</p>
+        </div>
+        <button onclick="closeParentModal()" class="bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-xl font-bold">✕ Close</button>
+      </div>
+
+      <!-- Parent Tabs -->
+      <div class="flex border-b border-slate-200 bg-slate-50 px-4 pt-2 gap-2 overflow-x-auto">
+        <button onclick="switchParentTab('report')" id="ptab-report" class="parent-tab px-4 py-2 font-bold text-sm rounded-t-xl bg-white text-indigo-700 border-t border-x border-slate-200">📊 Progress</button>
+        <button onclick="switchParentTab('videos')" id="ptab-videos" class="parent-tab px-4 py-2 font-bold text-sm rounded-t-xl text-slate-600 hover:bg-white/60">🎬 Video Manager</button>
+        <button onclick="switchParentTab('photos')" id="ptab-photos" class="parent-tab px-4 py-2 font-bold text-sm rounded-t-xl text-slate-600 hover:bg-white/60">📸 Custom Photos</button>
+        <button onclick="switchParentTab('settings')" id="ptab-settings" class="parent-tab px-4 py-2 font-bold text-sm rounded-t-xl text-slate-600 hover:bg-white/60">⚙️ Settings</button>
+      </div>
+
+      <!-- Tab Body -->
+      <div id="parentTabBody" class="p-5 overflow-y-auto flex-1 space-y-5">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       BADGES & REWARDS MODAL
+       ===================================================================== -->
+  <div id="badgesModal" class="hidden fixed inset-0 z-[65] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-6 w-full max-w-lg space-y-4 animate-pop">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xl font-bold text-purple-800">🏆 Manushree's Trophy Shelf</h3>
+        <button onclick="document.getElementById('badgesModal').classList.add('hidden')" class="bg-slate-100 px-3 py-1 rounded-xl font-bold">✕</button>
+      </div>
+      <div id="badgesGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-3"></div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       CUSTOM CONFIRMATION MODAL (Replaces confirm())
+       ===================================================================== -->
+  <div id="customConfirmModal" class="hidden fixed inset-0 z-[75] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-6 w-full max-w-sm text-center space-y-4 animate-pop">
+      <div class="text-4xl">⚠️</div>
+      <h3 id="confirmTitle" class="text-lg font-bold text-slate-800">Are you sure?</h3>
+      <p id="confirmMessage" class="text-sm text-slate-600">This action cannot be undone.</p>
+      <div class="flex gap-3">
+        <button onclick="closeConfirmModal()" class="flex-1 py-2.5 rounded-xl bg-slate-200 font-bold text-slate-700">Cancel</button>
+        <button id="confirmOkBtn" class="flex-1 py-2.5 rounded-xl bg-rose-600 font-bold text-white">Yes, Proceed</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MAIN APPLICATION JAVASCRIPT
+       ===================================================================== -->
+  <script>
+    /* =====================================================================
+       1. STATE MANAGEMENT & LOCALSTORAGE PERSISTENCE
+       ===================================================================== */
+    const STORAGE_KEY = 'manushree_wonderworld_v1';
+
+    const CLASS_NAMES = [
+      'Play Group', 'Nursery', 'LKG', 'UKG',
+      'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5'
+    ];
+
+    const DEFAULT_VIDEOS = [
+      { id: 'v1', title: 'ABC Phonics & Alphabet Song', category: 'language', url: 'https://www.youtube.com/watch?v=75p-N9YKqNo' },
+      { id: 'v2', title: 'Counting 1 to 20 Fun Song', category: 'math', url: 'https://www.youtube.com/watch?v=D0Ajq682yrA' },
+      { id: 'v3', title: 'Solar System Planets for Kids', category: 'science', url: 'https://www.youtube.com/watch?v=F2prtmPEjOc' },
+      { id: 'v4', title: 'Good Habits & Manners for Kids', category: 'habits', url: 'https://www.youtube.com/watch?v=5211x2G_o70' },
+      { id: 'v5', title: 'Hindi Varnamala Swar & Vyanjan', category: 'language', url: 'https://www.youtube.com/watch?v=K2aJTT28w2I' },
+      { id: 'v6', title: 'Colors & Shapes Fun Learning', category: 'brain', url: 'https://www.youtube.com/watch?v=lcl8uB2AWM0' }
+    ];
+
+    const DEFAULT_STATE = {
+      classLevel: 0, // 0 = Play Group ... 8 = Class 5
+      lang: 'en',    // 'en' or 'hi'
+      soundOn: true,
+      stars: 0,
+      streak: 1,
+      lastVisit: new Date().toDateString(),
+      completedGames: {}, // { gameId: count }
+      categoryStars: { math: 0, language: 0, science: 0, habits: 0, brain: 0 },
+      parentPin: '1234',
+      videos: DEFAULT_VIDEOS,
+      customPhotos: [] // { id, en, hi, dataUrl }
+    };
+
+    let appState = loadState();
+    let activeCategory = 'all';
+    let currentGame = null;
+    let currentPromptText = '';
+    let pendingParentTab = 'report';
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return JSON.parse(JSON.stringify(DEFAULT_STATE));
+        const parsed = JSON.parse(raw);
+        const merged = { ...JSON.parse(JSON.stringify(DEFAULT_STATE)), ...parsed };
+        // Update daily streak
+        const today = new Date().toDateString();
+        if (merged.lastVisit !== today) {
+          const last = new Date(merged.lastVisit);
+          const diffDays = Math.round((new Date(today) - last) / (1000 * 60 * 60 * 24));
+          merged.streak = diffDays === 1 ? (merged.streak || 1) + 1 : 1;
+          merged.lastVisit = today;
+        }
+        return merged;
+      } catch (e) {
+        console.error('State load error:', e);
+        return JSON.parse(JSON.stringify(DEFAULT_STATE));
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        showToast('Storage almost full! Try removing large custom photos.', '⚠️', 'bg-amber-600');
+      }
+      updateHUD();
+    }
+
+    /* =====================================================================
+       2. BILINGUAL DICTIONARY & WEB SPEECH / AUDIO ENGINE
+       ===================================================================== */
+    const I18N = {
+      en: {
+        greeting: 'Hi Manushree! 🌟',
+        parents: 'Parents',
+        stars: 'Stars',
+        streak: 'Day Streak',
+        badges: 'Badges',
+        myPhotos: 'My Photos',
+        videoZone: 'Video Zone',
+        heroTitle: 'Welcome to Your Magic World, <span class="text-pink-600">Manushree!</span> ✨',
+        heroSub: 'Tap any subject below to play fun games, watch learning videos, draw, and collect shining stars!',
+        surpriseGame: 'Surprise Game!',
+        videoLearningTitle: 'Video Learning Zone',
+        videoLearningDesc: 'Tap any video to auto-play in a floating player without leaving your screen!',
+        addVideoBtn: 'Add Video Link',
+        backHome: 'Home',
+        watchTopicVideo: 'Watch Topic Video',
+        listen: 'Listen',
+        allGames: '🌟 All Games',
+        cat_math: '🔢 Math Magic',
+        cat_language: '📚 Language Lab',
+        cat_science: '🌍 Science & GK',
+        cat_habits: '🏡 Good Habits',
+        cat_brain: '🧠 Brain & Art'
+      },
+      hi: {
+        greeting: 'नमस्ते मनुश्री! 🌟',
+        parents: 'माता-पिता',
+        stars: 'सितारे',
+        streak: 'दिन स्ट्रीक',
+        badges: 'बैज',
+        myPhotos: 'मेरी फ़ोटो',
+        videoZone: 'वीडियो ज़ोन',
+        heroTitle: 'आपकी जादुई दुनिया में स्वागत है, <span class="text-pink-600">मनुश्री!</span> ✨',
+        heroSub: 'मज़ेदार खेल खेलने, वीडियो देखने, चित्र बनाने और सितारे जीतने के लिए कोई भी विषय चुनें!',
+        surpriseGame: 'सरप्राइज़ गेम!',
+        videoLearningTitle: 'वीडियो लर्निंग ज़ोन',
+        videoLearningDesc: 'बिना स्क्रीन बदले फ्लोटिंग प्लेयर में वीडियो देखने के लिए टैप करें!',
+        addVideoBtn: 'वीडियो लिंक जोड़ें',
+        backHome: 'होम',
+        watchTopicVideo: 'वीडियो देखें',
+        listen: 'सुनें',
+        allGames: '🌟 सभी खेल',
+        cat_math: '🔢 गणित का जादू',
+        cat_language: '📚 भाषा प्रयोगशाला',
+        cat_science: '🌍 विज्ञान और GK',
+        cat_habits: '🏡 अच्छी आदतें',
+        cat_brain: '🧠 दिमागी कसरत'
+      }
+    };
+
+    function t(key) {
+      return (I18N[appState.lang] && I18N[appState.lang][key]) || I18N.en[key] || key;
+    }
+
+    // Web Audio API Sound Effects (Zero external sound URLs!)
+    let audioCtx = null;
+    function getAudioCtx() {
+      if (!audioCtx) {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) audioCtx = new Ctx();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
+
+    function playTone(freq, duration = 0.18, type = 'sine', vol = 0.2) {
+      if (!appState.soundOn) return;
+      try {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        gain.gain.setValueAtTime(vol, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function playSuccessSound() {
+      playTone(523.25, 0.12, 'triangle', 0.25); // C5
+      setTimeout(() => playTone(659.25, 0.12, 'triangle', 0.25), 110); // E5
+      setTimeout(() => playTone(783.99, 0.25, 'triangle', 0.28), 220); // G5
+    }
+
+    function playWrongSound() {
+      playTone(220, 0.18, 'sawtooth', 0.15);
+      setTimeout(() => playTone(180, 0.22, 'sawtooth', 0.15), 140);
+    }
+
+    function playClickSound() {
+      playTone(440, 0.06, 'sine', 0.12);
+    }
+
+    // Bilingual Web Speech API Narration
+    function speak(text, forceLang = null) {
+      if (!appState.soundOn || !('speechSynthesis' in window)) return;
+      try {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        const targetLang = forceLang || appState.lang;
+        utter.lang = targetLang === 'hi' ? 'hi-IN' : 'en-IN';
+        utter.rate = appState.classLevel <= 2 ? 0.9 : 0.98;
+        utter.pitch = 1.1;
+        window.speechSynthesis.speak(utter);
+      } catch (e) {}
+    }
+
+    function praiseManushree() {
+      const enPhrases = [
+        'Great job, Manushree!',
+        'Awesome work, Manushree!',
+        'You are a superstar, Manushree!',
+        'Brilliant answer, Manushree!',
+        'Yay! Way to go, Manushree!'
+      ];
+      const hiPhrases = [
+        'शाबाश मनुश्री!',
+        'बहुत बढ़िया मनुश्री!',
+        'वाह मनुश्री, आप सुपरस्टार हैं!',
+        'सही जवाब, मनुश्री!'
+      ];
+      const list = appState.lang === 'hi' ? hiPhrases : enPhrases;
+      const msg = list[Math.floor(Math.random() * list.length)];
+      speak(msg);
+      showMascotMessage(msg);
+      showToast(msg, '🌟', 'bg-gradient-to-r from-emerald-500 to-teal-500');
+    }
+
+    function encourageManushree() {
+      const msg = appState.lang === 'hi' ? 'कोई बात नहीं मनुश्री, फिर से कोशिश करो!' : 'Nice try, Manushree! Try again!';
+      speak(msg);
+      showMascotMessage(msg);
+      showToast(msg, '💡', 'bg-gradient-to-r from-amber-500 to-orange-500');
+    }
+
+    /* =====================================================================
+       3. CONFETTI CELEBRATION ENGINE (HTML5 CANVAS)
+       ===================================================================== */
+    const confettiCanvas = document.getElementById('confettiCanvas');
+    const cCtx = confettiCanvas.getContext('2d');
+    let confettiParticles = [];
+    let confettiAnimating = false;
+
+    function resizeConfetti() {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeConfetti);
+    resizeConfetti();
+
+    function launchConfetti() {
+      const colors = ['#ec4899', '#8b5cf6', '#f59e0b', '#10b981', '#3b82f6', '#ef4444'];
+      for (let i = 0; i < 85; i++) {
+        confettiParticles.push({
+          x: window.innerWidth * (0.2 + Math.random() * 0.6),
+          y: window.innerHeight * 0.35,
+          vx: (Math.random() - 0.5) * 14,
+          vy: (Math.random() - 1) * 14 - 3,
+          size: 6 + Math.random() * 7,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rot: Math.random() * 360,
+          vRot: (Math.random() - 0.5) * 12,
+          life: 1
+        });
+      }
+      if (!confettiAnimating) {
+        confettiAnimating = true;
+        animateConfetti();
+      }
+    }
+
+    function animateConfetti() {
+      cCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      confettiParticles = confettiParticles.filter(p => p.life > 0.02);
+      confettiParticles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.35; // gravity
+        p.rot += p.vRot;
+        p.life -= 0.012;
+        cCtx.save();
+        cCtx.globalAlpha = Math.max(0, p.life);
+        cCtx.translate(p.x, p.y);
+        cCtx.rotate((p.rot * Math.PI) / 180);
+        cCtx.fillStyle = p.color;
+        cCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+        cCtx.restore();
+      });
+      if (confettiParticles.length > 0) {
+        requestAnimationFrame(animateConfetti);
+      } else {
+        confettiAnimating = false;
+        cCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      }
+    }
+
+    /* =====================================================================
+       4. REAL PHOTO HELPER (HIGH-RES IMAGES WITH GRACEFUL FALLBACK)
+       ===================================================================== */
+    function realImgHTML(url, emoji, label, heightClass = 'h-32 sm:h-40') {
+      return `
+        <div class="relative w-full ${heightClass} rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-50 to-pink-50 flex items-center justify-center border-2 border-white shadow-inner">
+          <img src="${url}" alt="${label}" loading="lazy"
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div style="display:none" class="w-full h-full flex-col items-center justify-center bg-gradient-to-br from-purple-100 via-pink-100 to-amber-100">
+            <span class="text-5xl sm:text-6xl">${emoji}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    // Curated Real Photography Library (Unsplash reliable IDs with automatic emoji fallback)
+    const REAL_PHOTOS = {
+      apple:    { url: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&q=80', emoji: '🍎', en: 'Apple', hi: 'सेब' },
+      banana:   { url: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&q=80', emoji: '🍌', en: 'Banana', hi: 'केला' },
+      mango:    { url: 'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&q=80', emoji: '🥭', en: 'Mango', hi: 'आम' },
+      grapes:   { url: 'https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=400&q=80', emoji: '🍇', en: 'Grapes', hi: 'अंगूर' },
+      orange:   { url: 'https://images.unsplash.com/photo-1547514701-42782101795e?w=400&q=80', emoji: '🍊', en: 'Orange', hi: 'संतरा' },
+      carrot:   { url: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&q=80', emoji: '🥕', en: 'Carrot', hi: 'गाजर' },
+      tomato:   { url: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&q=80', emoji: '🍅', en: 'Tomato', hi: 'टमाटर' },
+      broccoli: { url: 'https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?w=400&q=80', emoji: '🥦', en: 'Broccoli', hi: 'ब्रोकली' },
+      potato:   { url: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400&q=80', emoji: '🥔', en: 'Potato', hi: 'आलू' },
+      lion:     { url: 'https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=400&q=80', emoji: '🦁', en: 'Lion', hi: 'शेर' },
+      elephant: { url: 'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=400&q=80', emoji: '🐘', en: 'Elephant', hi: 'हाथी' },
+      dog:      { url: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&q=80', emoji: '🐶', en: 'Dog', hi: 'कुत्ता' },
+      cat:      { url: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&q=80', emoji: '🐱', en: 'Cat', hi: 'बिल्ली' },
+      peacock:  { url: 'https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?w=400&q=80', emoji: '🦚', en: 'Peacock', hi: 'मोर' },
+      cow:      { url: 'https://images.unsplash.com/photo-1546445317-29f4545e9d53?w=400&q=80', emoji: '🐄', en: 'Cow', hi: 'गाय' },
+      car:      { url: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&q=80', emoji: '🚗', en: 'Car', hi: 'कार' },
+      train:    { url: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&q=80', emoji: '🚂', en: 'Train', hi: 'रेलगाड़ी' },
+      airplane: { url: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&q=80', emoji: '✈️', en: 'Airplane', hi: 'हवाई जहाज़' },
+      ship:     { url: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=400&q=80', emoji: '🚢', en: 'Ship', hi: 'जहाज़' },
+      bicycle:  { url: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&q=80', emoji: '🚲', en: 'Bicycle', hi: 'साइकिल' },
+      sun:      { url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&q=80', emoji: '☀️', en: 'Sun', hi: 'सूरज' },
+      ball:     { url: 'https://images.unsplash.com/photo-1614632537423-1e6c2e7e0aac?w=400&q=80', emoji: '⚽', en: 'Ball', hi: 'गेंद' },
+      book:     { url: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&q=80', emoji: '📖', en: 'Book', hi: 'किताब' },
+      house:    { url: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=400&q=80', emoji: '🏠', en: 'House', hi: 'घर' },
+      tree:     { url: 'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=400&q=80', emoji: '🌳', en: 'Tree', hi: 'पेड़' }
+    };
+
+    /* =====================================================================
+       5. CATALOG OF 30 FULLY PLAYABLE INTERACTIVE GAMES
+       ===================================================================== */
+    const GAMES = [
+      // 1. MATH MAGIC (6 Games)
+      { id: 'count_tap', cat: 'math', icon: '🔢', en: 'Count & Tap', hi: 'गिनो और टैप करो', color: 'from-pink-400 to-rose-500' },
+      { id: 'balloon_math', cat: 'math', icon: '🎈', en: 'Balloon Pop Math', hi: 'गुब्बारा गणित', color: 'from-rose-400 to-orange-500' },
+      { id: 'shape_match', cat: 'math', icon: '🔺', en: 'Shape & 3D Matcher', hi: 'आकार पहचानो', color: 'from-fuchsia-500 to-purple-600' },
+      { id: 'clock_master', cat: 'math', icon: '⏰', en: 'Clock & Time Master', hi: 'घड़ी और समय', color: 'from-amber-400 to-orange-500' },
+      { id: 'rupee_shop', cat: 'math', icon: '🪙', en: 'Rupee (₹) Shopkeeper', hi: 'रुपये की दुकान', color: 'from-emerald-400 to-teal-600' },
+      { id: 'tracing_pad', cat: 'math', icon: '✍️', en: 'Number & Letter Tracing', hi: 'अक्षर और अंक लेखन', color: 'from-sky-400 to-blue-600' },
+
+      // 2. LANGUAGE LAB (5 Games)
+      { id: 'phonics_az', cat: 'language', icon: '🔤', en: 'Phonics A-Z Explorer', hi: 'A-Z ध्वनि सीखो', color: 'from-indigo-400 to-purple-600' },
+      { id: 'hindi_varnamala', cat: 'language', icon: '🕉️', en: 'Hindi Varnamala (अ-ज्ञ)', hi: 'हिंदी वर्णमाला (अ-ज्ञ)', color: 'from-orange-400 to-red-500' },
+      { id: 'spelling_bee', cat: 'language', icon: '🐝', en: 'Missing Letter Bee', hi: 'स्पेलिंग पूरी करो', color: 'from-yellow-400 to-amber-500' },
+      { id: 'opposites_match', cat: 'language', icon: '🔄', en: 'Opposite Words Match', hi: 'विलोम शब्द मिलाओ', color: 'from-teal-400 to-cyan-600' },
+      { id: 'story_time', cat: 'language', icon: '📖', en: 'Interactive Story Time', hi: 'कहानी का समय', color: 'from-violet-500 to-purple-700' },
+
+      // 3. SCIENCE, NATURE & GK (6 Games)
+      { id: 'animal_safari', cat: 'science', icon: '🦁', en: 'Animal & Bird Safari', hi: 'जानवर और पक्षी सफारी', color: 'from-lime-500 to-green-600' },
+      { id: 'fruit_veg_sort', cat: 'science', icon: '🧺', en: 'Fruits & Veggies Sorter', hi: 'फल और सब्ज़ी छाँटो', color: 'from-green-400 to-emerald-600' },
+      { id: 'body_parts', cat: 'science', icon: '🧍', en: 'Human Body Parts', hi: 'शरीर के अंग', color: 'from-cyan-400 to-blue-500' },
+      { id: 'solar_system', cat: 'science', icon: '🪐', en: 'Solar System Explorer', hi: 'सौरमंडल की सैर', color: 'from-indigo-600 to-slate-800' },
+      { id: 'vehicles_sort', cat: 'science', icon: '✈️', en: 'Vehicles & Transport', hi: 'यातायात के साधन', color: 'from-blue-400 to-indigo-600' },
+      { id: 'india_gk', cat: 'science', icon: '🇮🇳', en: 'India GK & Festivals', hi: 'भारत सामान्य ज्ञान', color: 'from-orange-500 to-green-600' },
+
+      // 4. HOME, GOOD HABITS & LIFE SKILLS (6 Games)
+      { id: 'morning_routine', cat: 'habits', icon: '🌅', en: 'Morning Routine Order', hi: 'सुबह की दिनचर्या', color: 'from-amber-400 to-yellow-500' },
+      { id: 'good_bad_habit', cat: 'habits', icon: '👍', en: 'Good vs Bad Habit', hi: 'अच्छी और बुरी आदत', color: 'from-emerald-400 to-green-600' },
+      { id: 'healthy_plate', cat: 'habits', icon: '🥗', en: 'Healthy Food Thali', hi: 'स्वस्थ भोजन थाली', color: 'from-teal-400 to-emerald-500' },
+      { id: 'magic_words', cat: 'habits', icon: '✨', en: 'Magic Words Manners', hi: 'जादुई शिष्टाचार शब्द', color: 'from-pink-400 to-purple-500' },
+      { id: 'traffic_lights', cat: 'habits', icon: '🚦', en: 'Traffic Lights & Safety', hi: 'ट्रैफिक लाइट और सुरक्षा', color: 'from-red-500 to-amber-500' },
+      { id: 'community_helpers', cat: 'habits', icon: '👩‍⚕️', en: 'Community Helpers', hi: 'हमारे मददगार', color: 'from-sky-500 to-indigo-600' },
+
+      // 5. BRAIN GYM, LOGIC & CREATIVITY (7 Games)
+      { id: 'memory_flip', cat: 'brain', icon: '🃏', en: 'Memory Flip Cards', hi: 'मेमोरी कार्ड खेल', color: 'from-purple-500 to-pink-500' },
+      { id: 'pattern_train', cat: 'brain', icon: '🚂', en: 'Pattern Train', hi: 'पैटर्न ट्रेन', color: 'from-cyan-500 to-teal-600' },
+      { id: 'odd_one_out', cat: 'brain', icon: '🔍', en: 'Odd One Out', hi: 'अलग चीज़ पहचानो', color: 'from-rose-500 to-pink-600' },
+      { id: 'drawing_studio', cat: 'brain', icon: '🎨', en: 'Drawing & Coloring Studio', hi: 'ड्राइंग और रंग स्टूडियो', color: 'from-pink-500 to-amber-500' },
+      { id: 'piano_pad', cat: 'brain', icon: '🎹', en: 'Musical Piano Pad', hi: 'संगीत पियानो पैड', color: 'from-violet-500 to-fuchsia-500' },
+      { id: 'robot_coding', cat: 'brain', icon: '🤖', en: 'Coding: Move the Robot', hi: 'रोबोट कोडिंग खेल', color: 'from-blue-600 to-cyan-500' },
+      { id: 'color_mixing', cat: 'brain', icon: '🌈', en: 'Color Mixing Lab', hi: 'रंग मिलाने की लैब', color: 'from-red-400 via-yellow-400 to-blue-500' }
+    ];
+
+    /* =====================================================================
+       6. CORE UI RENDERING & NAVIGATION
+       ===================================================================== */
+    function initApp() {
+      document.getElementById('classSwitcher').value = appState.classLevel;
+      updateLanguageUI();
+      updateHUD();
+      renderCategoryTabs();
+      renderGamesGrid();
+      renderVideoZone();
+      setTimeout(() => {
+        showMascotMessage(appState.lang === 'hi' ? 'नमस्ते मनुश्री! चलो आज कुछ नया सीखें! 🌟' : 'Hi Manushree! Ready to play & learn? 🌟');
+      }, 600);
+    }
+
+    function updateHUD() {
+      document.getElementById('hudStars').textContent = appState.stars;
+      document.getElementById('hudStreak').textContent = appState.streak;
+      document.getElementById('hudBadges').textContent = getUnlockedBadges().length;
+      document.getElementById('soundToggleBtn').textContent = appState.soundOn ? '🔊' : '🔇';
+      document.getElementById('heroClassBadge').textContent = `🎓 ${CLASS_NAMES[appState.classLevel]} Mode`;
+    }
+
+    function updateLanguageUI() {
+      document.getElementById('navGreeting').textContent = t('greeting');
+      document.getElementById('heroTitle').innerHTML = t('heroTitle');
+      document.getElementById('heroSubtitle').textContent = t('heroSub');
+      document.getElementById('langLabel').textContent = appState.lang === 'en' ? 'EN → हिं' : 'हिं → EN';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = t(key);
+      });
+      renderCategoryTabs();
+      renderGamesGrid();
+      if (currentGame) {
+        loadGame(currentGame.id, true);
+      }
+    }
+
+    function toggleLanguage() {
+      playClickSound();
+      appState.lang = appState.lang === 'en' ? 'hi' : 'en';
+      saveState();
+      updateLanguageUI();
+      speak(appState.lang === 'hi' ? 'हिंदी मोड चालू है, मनुश्री!' : 'English mode is on, Manushree!');
+    }
+
+    function toggleSound() {
+      appState.soundOn = !appState.soundOn;
+      saveState();
+      if (appState.soundOn) playSuccessSound();
+      else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    }
+
+    function changeClassLevel(val) {
+      playClickSound();
+      appState.classLevel = parseInt(val, 10) || 0;
+      saveState();
+      showToast(`Switched to ${CLASS_NAMES[appState.classLevel]}!`, '🎓', 'bg-purple-600');
+      if (currentGame) loadGame(currentGame.id, true);
+    }
+
+    function renderCategoryTabs() {
+      const tabs = [
+        { id: 'all', label: t('allGames') },
+        { id: 'math', label: t('cat_math') },
+        { id: 'language', label: t('cat_language') },
+        { id: 'science', label: t('cat_science') },
+        { id: 'habits', label: t('cat_habits') },
+        { id: 'brain', label: t('cat_brain') }
+      ];
+      const container = document.getElementById('categoryTabs');
+      container.innerHTML = tabs.map(tab => `
+        <button onclick="selectCategory('${tab.id}')"
+          class="btn-3d shrink-0 px-4 py-2.5 rounded-2xl font-bold text-sm sm:text-base transition ${
+            activeCategory === tab.id
+              ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white'
+              : 'bg-white/90 text-slate-700 hover:bg-purple-50'
+          }">
+          ${tab.label}
+        </button>
+      `).join('');
+    }
+
+    function selectCategory(catId) {
+      playClickSound();
+      activeCategory = catId;
+      renderCategoryTabs();
+      renderGamesGrid();
+    }
+
+    function renderGamesGrid() {
+      const list = activeCategory === 'all' ? GAMES : GAMES.filter(g => g.cat === activeCategory);
+      const grid = document.getElementById('gamesGrid');
+      grid.innerHTML = list.map(g => {
+        const played = appState.completedGames[g.id] || 0;
+        const title = appState.lang === 'hi' ? g.hi : g.en;
+        return `
+          <button onclick="loadGame('${g.id}')"
+            class="btn-3d group text-left rounded-3xl p-4 bg-gradient-to-br ${g.color} text-white flex flex-col justify-between min-h-[140px] sm:min-h-[155px] relative overflow-hidden">
+            <div class="absolute -right-3 -bottom-3 text-7xl opacity-20 group-hover:scale-110 transition">${g.icon}</div>
+            <div class="flex items-start justify-between relative z-10">
+              <span class="text-4xl sm:text-5xl drop-shadow">${g.icon}</span>
+              ${played > 0 ? `<span class="bg-white/25 backdrop-blur px-2 py-0.5 rounded-full text-xs font-bold">⭐ ${played}</span>` : ''}
+            </div>
+            <div class="relative z-10 mt-3">
+              <h3 class="font-bold text-base sm:text-lg leading-snug drop-shadow-sm">${title}</h3>
+            </div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function goHome() {
+      playClickSound();
+      currentGame = null;
+      document.getElementById('gameView').classList.add('hidden');
+      document.getElementById('homeView').classList.remove('hidden');
+      renderGamesGrid();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function launchRandomGame() {
+      const random = GAMES[Math.floor(Math.random() * GAMES.length)];
+      loadGame(random.id);
+    }
+
+    function scrollToVideoZone() {
+      if (currentGame) goHome();
+      setTimeout(() => {
+        document.getElementById('videoLearningZone').scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+
+    function awardStar(gameId, cat, amount = 1) {
+      appState.stars += amount;
+      appState.completedGames[gameId] = (appState.completedGames[gameId] || 0) + 1;
+      if (cat && appState.categoryStars[cat] !== undefined) {
+        appState.categoryStars[cat] += amount;
+      }
+      saveState();
+      playSuccessSound();
+      launchConfetti();
+      praiseManushree();
+    }
+
+    /* =====================================================================
+       7. TOAST, MASCOT & BADGES
+       ===================================================================== */
+    let toastTimer = null;
+    function showToast(text, icon = '🌟', bgClass = 'bg-purple-600') {
+      const el = document.getElementById('toastBanner');
+      el.className = `fixed top-4 left-1/2 -translate-x-1/2 z-[70] flex px-5 py-3 rounded-full shadow-2xl font-bold text-white text-sm sm:text-base items-center gap-2 ${bgClass} animate-pop`;
+      document.getElementById('toastIcon').textContent = icon;
+      document.getElementById('toastText').textContent = text;
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.add('hidden'), 2600);
+    }
+
+    let mascotTimer = null;
+    function showMascotMessage(msg) {
+      const bubble = document.getElementById('mascotBubble');
+      bubble.textContent = msg;
+      bubble.classList.remove('hidden');
+      clearTimeout(mascotTimer);
+      mascotTimer = setTimeout(() => bubble.classList.add('hidden'), 4500);
+    }
+
+    function mascotTalk() {
+      playClickSound();
+      const cheers = appState.lang === 'hi'
+        ? [
+            'मनुश्री, आप बहुत होशियार हो! 🌟',
+            'चलो आज 5 और सितारे जीतते हैं! ⭐',
+            'अच्छी आदतें हमें सुपरहीरो बनाती हैं! 🦸‍♀️',
+            'गणित और विज्ञान बहुत मज़ेदार हैं! 🚀'
+          ]
+        : [
+            'Manushree, you are so smart! 🌟',
+            'Let us collect 5 more stars today! ⭐',
+            'Good habits make us superheroes! 🦸‍♀️',
