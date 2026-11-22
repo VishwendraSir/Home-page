@@ -208,6 +208,12 @@ select.ctrl,input.ctrl{padding:11px 12px;border-radius:14px;border:1px solid var
 </style>
 <script src="firebase-config.js"></script>
 <script>
+// Fallback Firebase config: protects against GitHub Pages path/cache issues.
+if(!window.SCIENCE_FIREBASE_CONFIG || !window.SCIENCE_FIREBASE_CONFIG.apiKey){
+ window.SCIENCE_FIREBASE_CONFIG={apiKey:"AIzaSyAYEjZDC3xcrT-CdqlO7FpfSDyTqF_o0BM",authDomain:"science-centre-learninghub-500.firebaseapp.com",projectId:"science-centre-learninghub-500",storageBucket:"science-centre-learninghub-500.firebasestorage.app",messagingSenderId:"81470212445",appId:"1:81470212445:web:b1a84f4a187bc3e38040b4",measurementId:"G-D68LL68P38"};
+}
+</script>
+<script>
 window.addEventListener('error',function(e){var p=document.getElementById('runtimeErrorPanel');if(!p){p=document.createElement('div');p.id='runtimeErrorPanel';p.style.cssText='position:fixed;z-index:999999;inset:10px;background:#fff;color:#111;padding:18px;border:3px solid #dc2626;border-radius:12px;font:16px sans-serif;overflow:auto';document.body.appendChild(p)}p.innerHTML='<b>App error detected</b><br>'+String(e.message||e.error||'Unknown error')+'<br><small>'+String(e.filename||'')+' : '+String(e.lineno||'')+'</small>'});
 window.addEventListener('unhandledrejection',function(e){var p=document.getElementById('runtimeErrorPanel');if(!p){p=document.createElement('div');p.id='runtimeErrorPanel';p.style.cssText='position:fixed;z-index:999999;inset:10px;background:#fff;color:#111;padding:18px;border:3px solid #dc2626;border-radius:12px;font:16px sans-serif;overflow:auto';document.body.appendChild(p)}p.innerHTML='<b>App promise error detected</b><br>'+String(e.reason||'Unknown error')});
 </script>
