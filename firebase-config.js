@@ -1,8 +1,10 @@
-// Firebase Web App configuration (public client config; not a secret).
-// Replace these values from Firebase Console > Project settings > Your apps.
-window.SCIENCE_FIREBASE_CONFIG = {
-  apiKey: "REPLACE_WITH_WEB_API_KEY",
-  authDomain: "REPLACE_WITH_PROJECT_ID.firebaseapp.com",
-  projectId: "REPLACE_WITH_PROJECT_ID",
-  appId: "REPLACE_WITH_APP_ID"
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAYEjZDC3xcrT-CdqlO7FpfSDyTqF_o0BM",
+  authDomain: "science-centre-learninghub-500.firebaseapp.com",
+  projectId: "science-centre-learninghub-500",
+  storageBucket: "science-centre-learninghub-500.firebasestorage.app",
+  messagingSenderId: "81470212445",
+  appId: "1:81470212445:web:b1a84f4a187bc3e38040b4",
+  measurementId: "G-D68LL68P38"
 };
