@@ -1,5 +1,5 @@
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+// Firebase Web App configuration (public client config; not a secret).
+window.SCIENCE_FIREBASE_CONFIG = {
   apiKey: "AIzaSyAYEjZDC3xcrT-CdqlO7FpfSDyTqF_o0BM",
   authDomain: "science-centre-learninghub-500.firebaseapp.com",
   projectId: "science-centre-learninghub-500",
