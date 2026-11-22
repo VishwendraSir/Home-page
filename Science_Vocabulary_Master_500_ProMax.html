@@ -1,0 +1,1426 @@
+<!doctype html>
+<html lang="hi"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Science Vocabulary Master 500 — Pro Max v2</title>
+<style>
+:root{
+  --bg:#f0f4ff; --surface:#ffffff; --surface2:#f7f9ff; --text:#0f172a; --muted:#64748b;
+  --primary:#2563eb; --secondary:#7c3aed; --accent:#10b981; --danger:#ef4444; --warn:#f59e0b;
+  --grad:linear-gradient(135deg,#1e3a8a 0%,#3b82f6 50%,#7c3aed 100%);
+  --shadow:0 10px 30px -10px rgba(30,58,138,.15);
+  --border:rgba(37,99,235,.15); --radius:20px; --nav-h:68px;
+}
+body[data-theme="smart"]{--bg:#f0f4ff;--surface:#fff;--surface2:#f7f9ff;--text:#0f172a;--muted:#64748b;--primary:#2563eb;--secondary:#7c3aed;--accent:#10b981;--grad:linear-gradient(135deg,#1e3a8a,#2563eb,#7c3aed)}
+body[data-theme="rainbow"]{--bg:#fff8f0;--surface:#fff;--surface2:#fff3e6;--text:#2e1a47;--muted:#7c6a8e;--primary:#f43f5e;--secondary:#8b5cf6;--accent:#14b8a6;--grad:linear-gradient(135deg,#ff6b6b,#f43f5e,#8b5cf6)}
+body[data-theme="neon"]{--bg:#060d18;--surface:#0f1c2e;--surface2:#16263d;--text:#e2f1ff;--muted:#8aa4bf;--primary:#00e5ff;--secondary:#c084fc;--accent:#34d399;--grad:linear-gradient(135deg,#081426,#172554,#4c1d95);--border:rgba(0,229,255,.22);--shadow:0 10px 30px -5px rgba(0,229,255,.15)}
+body[data-theme="clean"]{--bg:#f8fafc;--surface:#fff;--surface2:#f1f5f9;--text:#1e293b;--muted:#64748b;--primary:#0284c7;--secondary:#0d9488;--accent:#10b981;--grad:linear-gradient(135deg,#0369a1,#0284c7,#0d9488)}
+body[data-theme="galaxy"]{--bg:#0d0720;--surface:#1a1036;--surface2:#24174a;--text:#f3e8ff;--muted:#b49cd6;--primary:#a855f7;--secondary:#38bdf8;--accent:#fbbf24;--grad:linear-gradient(135deg,#1e1b4b,#581c87,#0c4a6e);--border:rgba(168,85,247,.25);--shadow:0 10px 30px -5px rgba(168,85,247,.2)}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding-bottom:calc(var(--nav-h) + 22px);transition:background .3s,color .3s;overflow-x:hidden}
+button,input,select{font:inherit;outline:none}
+
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--surface) 84%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:10px 16px}
+.topbar-in{max-width:1120px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;cursor:pointer}
+.brand-logo{width:40px;height:40px;border-radius:13px;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:21px;box-shadow:0 4px 14px color-mix(in srgb,var(--primary) 35%,transparent)}
+.brand-text b{display:block;font-size:15px;line-height:1.15}
+.brand-text small{font-size:11px;color:var(--muted);font-weight:600}
+.top-pills{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:6px 11px;border-radius:99px;background:var(--surface2);border:1px solid var(--border);font-size:13px;font-weight:800}
+.icon-btn{width:36px;height:36px;border-radius:12px;border:1px solid var(--border);background:var(--surface2);color:var(--text);display:grid;place-items:center;cursor:pointer;transition:.2s}
+.icon-btn:hover{border-color:var(--primary);color:var(--primary)}
+.theme-sel{padding:7px 10px;border-radius:12px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:12px;font-weight:700;cursor:pointer}
+
+/* Main */
+main{max-width:1120px;margin:auto;padding:16px}
+.view{display:none;animation:fadeUp .28s ease}
+.view.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.shake{animation:shake .28s ease}
+.pulse{animation:pulse 1s infinite}
+
+/* Hero */
+.hero{background:var(--grad);color:#fff;border-radius:26px;padding:clamp(20px,4vw,34px);position:relative;overflow:hidden;box-shadow:var(--shadow);display:grid;grid-template-columns:1.45fr .75fr;gap:18px;align-items:center;margin-bottom:20px}
+.hero::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.08);top:-90px;right:-60px;pointer-events:none}
+.hero::after{content:"⚛️ 🧬 🔭";position:absolute;right:18px;bottom:8px;font-size:clamp(34px,6vw,70px);opacity:.16;pointer-events:none}
+.hero-tag{display:inline-block;padding:5px 12px;border-radius:99px;background:rgba(255,255,255,.18);font-size:11px;font-weight:800;letter-spacing:.5px;backdrop-filter:blur(6px)}
+.hero h1{margin:10px 0 8px;font-size:clamp(24px,4.8vw,38px);line-height:1.12}
+.hero p{margin:0 0 16px;opacity:.92;font-size:14.5px;line-height:1.55;max-width:580px}
+.hero-btns{display:flex;gap:9px;flex-wrap:wrap}
+.hero-card{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.28);border-radius:22px;padding:18px;text-align:center;backdrop-filter:blur(10px);z-index:1}
+.hero-card b{font-size:42px;display:block;line-height:1}
+.hero-card span{font-size:13px;opacity:.92}
+
+/* Buttons & Cards */
+.btn{padding:10px 15px;border-radius:14px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:transform .15s,background .2s,border-color .2s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 6px 16px color-mix(in srgb,var(--primary) 28%,transparent)}
+.btn-accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-danger{background:var(--danger);color:#fff;border-color:var(--danger)}
+.btn-warn{background:var(--warn);color:#fff;border-color:var(--warn)}
+.btn-wa{background:#25D366;color:#fff;border-color:#25D366}
+.btn-white{background:#fff;color:#1e3a8a;border-color:#fff}
+.btn-ghost{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.32);backdrop-filter:blur(6px)}
+
+.sec-title{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:20px 0 12px;font-size:18px;font-weight:800}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);transition:transform .2s,border-color .2s}
+.tile{cursor:pointer;text-align:left}
+.tile:hover{transform:translateY(-3px);border-color:var(--primary)}
+.tile-ico{width:44px;height:44px;border-radius:14px;background:color-mix(in srgb,var(--primary) 12%,var(--surface));display:grid;place-items:center;font-size:22px;margin-bottom:10px}
+.tile strong{display:block;font-size:15.5px;margin-bottom:3px}
+.tile span{font-size:12.5px;color:var(--muted)}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:8px 14px;border-radius:99px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-weight:700;font-size:13px;cursor:pointer;transition:.2s}
+.chip:hover,.chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+.prog-bar{height:10px;background:var(--surface2);border-radius:99px;overflow:hidden;border:1px solid var(--border)}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--accent));width:0%;transition:width .4s ease;border-radius:99px}
+.stat-box{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:13px;text-align:center}
+.stat-box b{display:block;font-size:23px;color:var(--primary)}
+.stat-box small{font-size:12px;color:var(--muted);font-weight:600}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.badge{padding:7px 12px;border-radius:99px;font-size:12px;font-weight:700;border:1px solid var(--border);background:var(--surface2);opacity:.45;filter:grayscale(1)}
+.badge.unlocked{opacity:1;filter:none;background:color-mix(in srgb,var(--accent) 16%,var(--surface));border-color:var(--accent);color:var(--text)}
+
+/* Subject Mastery Bars */
+.mastery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.mastery-item{background:var(--surface2);border:1px solid var(--border);border-radius:15px;padding:12px;cursor:pointer;transition:.2s}
+.mastery-item:hover{border-color:var(--primary);transform:translateY(-2px)}
+.mastery-top{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:6px}
+
+/* Dictionary */
+.search-bar{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:9px;margin-bottom:14px}
+.search-wrap{position:relative;display:flex;align-items:center}
+.search-wrap input{width:100%;padding:11px 34px 11px 13px;border-radius:14px;border:1px solid var(--border);background:var(--surface);color:var(--text)}
+.search-wrap input:focus{border-color:var(--primary)}
+.clear-btn{position:absolute;right:9px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;display:none}
+select.ctrl,input.ctrl{padding:11px 12px;border-radius:14px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-weight:600}
+.word-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:12px}
+.w-card{display:flex;flex-direction:column;justify-content:space-between;gap:8px}
+.w-top{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.tag{font-size:11px;font-weight:700;padding:4px 9px;border-radius:99px;background:color-mix(in srgb,var(--primary) 12%,var(--surface));color:var(--primary)}
+.tag-cls{background:color-mix(in srgb,var(--secondary) 13%,var(--surface));color:var(--secondary)}
+.tag-custom{background:color-mix(in srgb,var(--warn) 18%,var(--surface));color:var(--warn)}
+.w-en{font-size:20px;font-weight:800;color:var(--text)}
+.w-pr{font-size:13.5px;color:var(--secondary);font-weight:600}
+.w-hi{font-size:17px;font-weight:700;color:var(--accent);margin:2px 0 4px}
+.w-acts{display:flex;gap:5px;border-top:1px solid var(--border);padding-top:10px}
+.w-acts button{flex:1;padding:7px 5px;border-radius:10px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-size:12px;font-weight:700;cursor:pointer;transition:.15s}
+.w-acts button.done{background:color-mix(in srgb,var(--accent) 18%,var(--surface));border-color:var(--accent);color:var(--accent)}
+.w-acts button.favd{background:color-mix(in srgb,var(--warn) 18%,var(--surface));border-color:var(--warn);color:var(--warn)}
+
+/* 3D Flashcards */
+.flash-wrap{max-width:580px;margin:10px auto;perspective:1200px}
+.flash-card{width:100%;min-height:315px;position:relative;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,.2,.2,1);cursor:pointer;touch-action:pan-y}
+.flash-card.flipped{transform:rotateY(180deg)}
+.flash-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--surface);border:2px solid var(--border);border-radius:26px;padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:var(--shadow)}
+.flash-back{transform:rotateY(180deg);background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--primary) 9%,var(--surface)))}
+.flash-word{font-size:clamp(28px,6vw,40px);font-weight:900;color:var(--primary);margin:12px 0 6px}
+.flash-pron{font-size:18px;color:var(--secondary);font-weight:600}
+.flash-meaning{font-size:clamp(26px,5vw,36px);font-weight:800;color:var(--accent);margin:10px 0}
+.flash-hint{font-size:12px;color:var(--muted);margin-top:16px}
+.flash-controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px}
+.mic-status{text-align:center;font-size:13.5px;font-weight:700;min-height:22px;margin-top:10px}
+
+/* Mini-Games */
+.game-panel{display:none;max-width:740px;margin:auto}
+.game-panel.active{display:block}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.match-col{display:flex;flex-direction:column;gap:9px}
+.m-btn{padding:13px 12px;border-radius:14px;border:2px solid var(--border);background:var(--surface2);color:var(--text);font-weight:700;font-size:15px;cursor:pointer;transition:.18s;text-align:center;min-height:54px;display:grid;place-items:center}
+.m-btn.sel{border-color:var(--primary);background:color-mix(in srgb,var(--primary) 16%,var(--surface));transform:scale(1.02)}
+.m-btn.matched{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 18%,var(--surface));opacity:.65;pointer-events:none}
+.m-btn.err{border-color:var(--danger);background:color-mix(in srgb,var(--danger) 18%,var(--surface))}
+
+.scramble-slots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;min-height:52px;padding:10px;border-radius:16px;background:var(--surface2);border:2px dashed var(--border);margin:14px 0}
+.letter-tile{min-width:40px;height:44px;padding:0 10px;border-radius:12px;border:2px solid var(--primary);background:var(--surface);color:var(--primary);font-size:19px;font-weight:900;cursor:pointer;display:grid;place-items:center;transition:.15s;box-shadow:0 3px 8px rgba(0,0,0,.06)}
+.letter-tile:active{transform:scale(.92)}
+.letter-tile.used{opacity:.25;pointer-events:none}
+.letter-bank{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:16px 0}
+
+/* Rapid Fire */
+.rf-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.rf-opt{padding:16px 12px;border-radius:16px;border:2px solid var(--border);background:var(--surface2);color:var(--text);font-size:16px;font-weight:800;cursor:pointer;transition:.15s;text-align:center}
+.rf-opt:hover{border-color:var(--primary)}
+.rf-opt.ok{background:color-mix(in srgb,var(--accent) 24%,var(--surface));border-color:var(--accent)}
+.rf-opt.no{background:color-mix(in srgb,var(--danger) 24%,var(--surface));border-color:var(--danger)}
+
+/* Quiz */
+.quiz-box{max-width:650px;margin:auto}
+.q-opt{width:100%;text-align:left;padding:13px 16px;margin:8px 0;border-radius:14px;border:2px solid var(--border);background:var(--surface);color:var(--text);font-size:16px;font-weight:700;cursor:pointer;transition:.15s;display:flex;align-items:center;gap:10px}
+.q-opt:hover:not(:disabled){border-color:var(--primary);background:var(--surface2)}
+.q-opt.correct{background:color-mix(in srgb,var(--accent) 18%,var(--surface));border-color:var(--accent)}
+.q-opt.wrong{background:color-mix(in srgb,var(--danger) 18%,var(--surface));border-color:var(--danger)}
+
+/* Certificate & Worksheet */
+.cert-canvas-wrap{width:100%;overflow:hidden;border-radius:18px;border:2px solid var(--border);box-shadow:var(--shadow);background:#fff;margin:14px 0}
+#certCanvas{width:100%;height:auto;display:block}
+
+.ws-sheet{background:#fff;color:#111;border-radius:18px;padding:24px;border:1px solid #cbd5e1;margin-top:14px}
+.ws-header{text-align:center;border-bottom:2px solid #1e3a8a;padding-bottom:12px;margin-bottom:14px}
+.ws-header h2{margin:0;color:#1e3a8a;font-size:22px}
+.ws-header p{margin:4px 0;font-size:13px;color:#475569}
+.ws-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;font-weight:700;margin-bottom:14px;padding:8px 12px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0}
+.ws-table{width:100%;border-collapse:collapse;font-size:14px}
+.ws-table th,.ws-table td{border:1px solid #cbd5e1;padding:9px 10px;text-align:left}
+.ws-table th{background:#eff6ff;color:#1e3a8a}
+
+/* Bottom Mobile Navigation */
+.bnav{position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);background:color-mix(in srgb,var(--surface) 93%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--border);display:flex;justify-content:space-around;align-items:center;z-index:60;padding:4px 6px}
+.bnav button{background:none;border:none;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:700;cursor:pointer;padding:6px 10px;border-radius:14px;transition:.2s;min-width:58px}
+.bnav button span.ico{font-size:20px;transition:.2s}
+.bnav button.active{color:var(--primary);background:color-mix(in srgb,var(--primary) 11%,transparent)}
+.bnav button.active span.ico{transform:translateY(-2px)}
+
+#toast{position:fixed;top:74px;left:50%;transform:translateX(-50%) translateY(-20px);background:var(--text);color:var(--surface);padding:10px 18px;border-radius:99px;font-size:13px;font-weight:700;opacity:0;pointer-events:none;transition:.3s;z-index:100;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:99}
+
+@media(max-width:860px){
+  .search-bar{grid-template-columns:1fr 1fr}
+  .search-wrap{grid-column:1/-1}
+}
+@media(max-width:720px){
+  .hero{grid-template-columns:1fr}.hero-card{display:flex;align-items:center;justify-content:space-between;text-align:left;padding:14px 18px}.hero-card b{font-size:32px}
+}
+@media(max-width:480px){
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .rf-opts{grid-template-columns:1fr}
+}
+
+@media print{
+  body{background:#fff!important;color:#000!important;padding:0!important}
+  .topbar,.bnav,#toast,#confetti,.no-print{display:none!important}
+  main{max-width:100%!important;padding:0!important}
+  .view{display:none!important}
+  #view-worksheet{display:block!important}
+  .ws-sheet{border:none!important;padding:0!important;margin:0!important;box-shadow:none!important}
+}
+</style>
+</head>
+<body data-theme="neon">
+
+<canvas id="confetti"></canvas>
+<div id="toast">Saved!</div>
+
+<!-- Sticky Glass Header -->
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brand" onclick="switchView('home')">
+      <div class="brand-logo">🔬</div>
+      <div class="brand-text">
+        <b>Science Vocab 500 Pro Max</b>
+        <small>SCIENCE CENTRE LEARNING HUB</small>
+      </div>
+    </div>
+    <div class="top-pills">
+      <div class="pill" title="XP Points">⭐ <span id="topXP">50</span></div>
+      <div class="pill" title="Day Streak">🔥 <span id="topStreak">1</span></div>
+      <button class="icon-btn" id="soundBtn" title="Toggle Sound">🔊</button>
+      <button class="icon-btn" onclick="shareAppFile()" title="Share HTML File">📤</button>
+      <button class="icon-btn" onclick="downloadSelfHTML()" title="Download HTML File">⬇️</button>
+      <select class="theme-sel" id="themeSelect" aria-label="Theme">
+        <option value="smart">✨ Smart</option>
+        <option value="rainbow">🌈 Rainbow</option>
+        <option value="neon">⚡ Neon</option>
+        <option value="clean">📘 Clean</option>
+        <option value="galaxy">🌌 Galaxy</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- VIEW 1: HOME -->
+  <section id="view-home" class="view active">
+    <div class="hero">
+      <div>
+        <span class="hero-tag">GUIDED BY VISHWENDRA SIR • v2 PRO MAX</span>
+        <h1>Explore Science.<br>Play, Speak &amp; Master.</h1>
+        <p>500+ Science Words • 3D Swipe &amp; Auto-Play Flashcards • Voice Pronunciation Check • 60s Rapid Fire • Custom Words • Certificate &amp; Worksheets.</p>
+        <div class="hero-btns">
+          <button class="btn btn-white" onclick="switchView('dictionary')">📚 Learn Words</button>
+          <button class="btn btn-ghost" onclick="openRapidFire()">⚡ 60s Rapid Fire</button>
+          <button class="btn btn-ghost" onclick="switchView('games')">🎮 Mini-Games</button>
+          <button class="btn btn-ghost" onclick="shareAppFile()">📤 Share App File</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div>
+          <b id="heroTotal">507</b>
+          <span>Science Words</span>
+        </div>
+        <div style="margin-top:8px;font-size:12.5px;font-weight:700">
+          <span id="heroLevel">🔭 Level 2: Science Seeker</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-title"><span>🚀 Power Features</span></div>
+    <div class="grid-4">
+      <div class="card tile" onclick="openRapidFire()"><div class="tile-ico">⚡</div><strong>60s Rapid Fire</strong><span id="rfBestHome">Best Score: 410</span></div>
+      <div class="card tile" onclick="openDaily20()"><div class="tile-ico">🎧</div><strong>Auto-Play Cards</strong><span>Hands-free + Mic Check</span></div>
+      <div class="card tile" onclick="switchView('certificate')"><div class="tile-ico">🏆</div><strong>Certificate</strong><span>Download PNG Award</span></div>
+      <div class="card tile" onclick="switchView('worksheet')"><div class="tile-ico">🖨️</div><strong>Print Test Sheet</strong><span>Homework PDF / Print</span></div>
+    </div>
+
+    <div class="sec-title">
+      <span>📊 Subject Mastery</span>
+      <button class="chip" onclick="switchView('custom')">➕ Add Words / Backup</button>
+    </div>
+    <div class="card">
+      <div class="mastery-grid" id="masteryGrid"><div class="mastery-item" onclick="setCategory('Physics')">
+      <div class="mastery-top"><span>⚡ Physics</span><span style="color:var(--primary)">0/104 (0%)</span></div>
+      <div class="prog-bar" style="height:8px"><div class="prog-fill" style="width:0%"></div></div>
+    </div><div class="mastery-item" onclick="setCategory('Chemistry')">
+      <div class="mastery-top"><span>🧪 Chemistry</span><span style="color:var(--primary)">0/95 (0%)</span></div>
+      <div class="prog-bar" style="height:8px"><div class="prog-fill" style="width:0%"></div></div>
+    </div><div class="mastery-item" onclick="setCategory('Biology')">
+      <div class="mastery-top"><span>🧬 Biology</span><span style="color:var(--primary)">0/166 (0%)</span></div>
+      <div class="prog-bar" style="height:8px"><div class="prog-fill" style="width:0%"></div></div>
+    </div><div class="mastery-item" onclick="setCategory('Environment')">
+      <div class="mastery-top"><span>🌍 Environment</span><span style="color:var(--primary)">0/74 (0%)</span></div>
+      <div class="prog-bar" style="height:8px"><div class="prog-fill" style="width:0%"></div></div>
+    </div><div class="mastery-item" onclick="setCategory('Space')">
+      <div class="mastery-top"><span>🚀 Space</span><span style="color:var(--primary)">0/50 (0%)</span></div>
+      <div class="prog-bar" style="height:8px"><div class="prog-fill" style="width:0%"></div></div>
+    </div><div class="mastery-item" onclick="setCategory('Science')">
+      <div class="mastery-top"><span>🔎 Science</span><span style="color:var(--primary)">0/18 (0%)</span></div>
+      <div class="prog-bar" style="height:8px"><div class="prog-fill" style="width:0%"></div></div>
+    </div></div>
+    </div>
+
+    <div class="sec-title">
+      <span>🎓 Student Dashboard</span>
+      <select id="classLevel" class="theme-sel">
+        <option value="All">All Classes</option>
+        <option value="6">Class 6</option><option value="7">Class 7</option>
+        <option value="8">Class 8</option><option value="9">Class 9</option>
+        <option value="10">Class 10</option>
+      </select>
+    </div>
+    <div class="card">
+      <div class="grid-4" style="margin-bottom:14px">
+        <div class="stat-box"><b id="stLearned">0</b><small>✓ Learned</small></div>
+        <div class="stat-box" style="cursor:pointer" onclick="switchView('favorites')"><b id="stFav">0</b><small>⭐ Favorites</small></div>
+        <div class="stat-box"><b id="stAcc">0%</b><small>🎯 Accuracy</small></div>
+        <div class="stat-box" style="cursor:pointer" onclick="openReview()"><b id="stRev">0</b><small>🔁 Revision</small></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:6px">
+        <span>Daily Learning Goal</span>
+        <span id="goalText">0 / 20 words</span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" id="goalProgress" style="width: 0%;"></div></div>
+      <div class="badges" id="badgeRow"><span class="badge ">🌱 First Steps</span><span class="badge ">📚 Collector (25)</span><span class="badge ">🧠 Quiz Pro (100 XP)</span><span class="badge unlocked">⚡ Speed Demon (100+)</span><span class="badge ">🔥 7-Day Streak</span><span class="badge ">🎯 Accuracy Ace</span></div>
+    </div>
+
+    <div style="text-align:center;margin-top:18px;font-size:12px;color:var(--muted)">
+      100% Offline-ready • SCIENCE CENTRE LEARNING HUB •
+      <a href="#" onclick="resetProgress();return false" style="color:var(--danger);font-weight:700;text-decoration:none">Reset Progress</a>
+    </div>
+  </section>
+
+  <!-- VIEW 2: DICTIONARY -->
+  <section id="view-dictionary" class="view">
+    <div class="sec-title" style="margin-top:4px">
+      <span>📚 Science Dictionary</span>
+      <span id="dictCount" style="font-size:13px;color:var(--muted);font-weight:600"></span>
+    </div>
+    <div class="search-bar">
+      <div class="search-wrap">
+        <input id="search" placeholder="Search English, Hindi or pronunciation...">
+        <button class="clear-btn" id="clearSearch">✕</button>
+      </div>
+      <select id="cat" class="ctrl">
+        <option value="All">All Subjects</option>
+        <option>Physics</option><option>Chemistry</option><option>Biology</option>
+        <option>Environment</option><option>Space</option><option>Science</option>
+      </select>
+      <select id="clsFilter" class="ctrl">
+        <option value="All">All Classes</option>
+        <option value="6">Class 6</option><option value="7">Class 7</option>
+        <option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option>
+      </select>
+      <select id="statusFilter" class="ctrl">
+        <option value="all">All Status</option>
+        <option value="unlearned">Unlearned</option>
+        <option value="learned">Learned ✓</option>
+        <option value="fav">Favorites ⭐</option>
+        <option value="custom">My Custom Words</option>
+      </select>
+      <select id="sort" class="ctrl">
+        <option value="az">Sort: A–Z</option>
+        <option value="za">Sort: Z–A</option>
+      </select>
+    </div>
+    <div id="wordList" class="word-grid"></div>
+    <div style="text-align:center;margin-top:16px">
+      <button id="loadMoreBtn" class="btn btn-primary" style="display:none">Load More Words</button>
+    </div>
+  </section>
+
+  <!-- VIEW 3: 3D FLASHCARDS (SWIPE + AUTO-PLAY + MIC CHECK) -->
+  <section id="view-flash" class="view">
+    <div class="sec-title" style="margin-top:4px">
+      <span>🃏 3D Flashcards</span>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="chip" id="autoPlayBtn" onclick="toggleAutoPlay()">▶️ Auto-Play</button>
+        <span id="fcount" style="font-size:13px;color:var(--muted)">Card 1 / 507</span>
+      </div>
+    </div>
+    <div class="prog-bar" style="max-width:580px;margin:0 auto 14px"><div class="prog-fill" id="flashProg"></div></div>
+    <div class="flash-wrap">
+      <div class="flash-card" id="flashCard" onclick="flipCard()">
+        <div class="flash-face flash-front">
+          <div style="display:flex;gap:6px"><span class="tag" id="fcat">Physics</span><span class="tag tag-cls" id="fcls">Class 6</span></div>
+          <div class="flash-word" id="fword">Matter</div>
+          <div class="flash-pron" id="fpron">मैटर</div>
+          <div class="flash-hint">👆 Tap to flip • 👈👉 Swipe left/right for next card</div>
+        </div>
+        <div class="flash-face flash-back">
+          <span class="tag" id="fcatBack">Physics</span>
+          <div class="flash-meaning" id="fmeaning">पदार्थ</div>
+          <div class="flash-pron" id="fwordBack" style="opacity:.82">Matter (मैटर)</div>
+          <div class="flash-hint">👆 Tap to flip back</div>
+        </div>
+      </div>
+
+      <div class="mic-status" id="micStatus"></div>
+
+      <div class="flash-controls">
+        <button class="btn" onclick="prevCard()">← Prev</button>
+        <button class="btn btn-primary" onclick="speakCurrent(1)">🔊 Listen</button>
+        <button class="btn" onclick="speakCurrent(0.65)" title="Slow Voice for Kids">🐢 Slow</button>
+        <button class="btn btn-warn" id="micBtn" onclick="startPronCheck()" title="Speak English word to test pronunciation">🎙️ Speak</button>
+        <button class="btn" id="fMarkBtn" onclick="toggleFlashLearn()">✓ Learned</button>
+        <button class="btn" id="fFavBtn" onclick="toggleFlashFav()">☆</button>
+        <button class="btn" onclick="nextCard()">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIEW 4: MINI-GAMES HUB -->
+  <section id="view-games" class="view">
+    <div class="sec-title" style="margin-top:4px">
+      <span>🎮 Play &amp; Learn Games</span>
+      <div class="chips">
+        <button class="chip active" id="gTabRapid" onclick="switchGame('rapid')">⚡ 60s Rapid Fire</button>
+        <button class="chip" id="gTabMatch" onclick="switchGame('match')">🔗 Match Pairs</button>
+        <button class="chip" id="gTabSpell" onclick="switchGame('spell')">✍️ Spelling Bee</button>
+        <button class="chip" id="gTabScram" onclick="switchGame('scram')">🧩 Word Scramble</button>
+      </div>
+    </div>
+
+    <!-- GAME 0: 60s RAPID FIRE -->
+    <div id="game-rapid" class="game-panel active card">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px">
+        <div>
+          <strong style="font-size:18px">⚡ 60-Second Rapid Fire</strong>
+          <div style="font-size:12.5px;color:var(--muted)">Answer fast! Build 3+ streak for 2x &amp; 3x combo points!</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="pill">🏆 Best: <span id="rfBest">410</span></span>
+          <span class="pill">🔥 <span id="rfCombo">x1</span></span>
+          <span class="pill" style="color:var(--primary)">⏱️ <span id="rfTime">60s</span></span>
+        </div>
+      </div>
+      <div class="prog-bar" style="margin-bottom:14px"><div class="prog-fill" id="rfBar" style="width:100%"></div></div>
+
+      <div id="rfStartScreen" style="text-align:center;padding:24px 10px">
+        <div style="font-size:48px;margin-bottom:8px">⚡🧠🔥</div>
+        <h3 style="margin:0 0 8px">Ready to beat your High Score?</h3>
+        <p style="color:var(--muted);font-size:14px;margin:0 0 18px">You have 60 seconds. Tap the right Hindi meaning as fast as you can!</p>
+        <button class="btn btn-primary" style="font-size:16px;padding:13px 26px" onclick="startRapidFire()">🚀 Start 60s Challenge</button>
+      </div>
+
+      <div id="rfPlayScreen" style="display:none">
+        <div style="text-align:center;padding:14px;background:var(--surface2);border-radius:18px;border:1px solid var(--border)">
+          <span class="tag" id="rfCat">Physics</span>
+          <div id="rfWord" style="font-size:clamp(26px,5vw,34px);font-weight:900;color:var(--primary);margin:6px 0 2px">Gravity</div>
+          <div id="rfPron" style="font-size:14px;color:var(--secondary);font-weight:700">ग्रैविटी</div>
+        </div>
+        <div class="rf-opts" id="rfOpts"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-weight:800">
+          <span>Score: <span id="rfScore" style="color:var(--accent);font-size:20px">0</span></span>
+          <button class="btn" onclick="stopRapidFire(true)">⏹️ Stop</button>
+        </div>
+      </div>
+
+      <div id="rfEndScreen" style="display:none;text-align:center;padding:20px 10px">
+        <div style="font-size:46px">🏆</div>
+        <h2 id="rfFinalTitle" style="margin:6px 0">Time's Up!</h2>
+        <p id="rfFinalStats" style="color:var(--muted);font-weight:600;margin:0 0 16px"></p>
+        <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="startRapidFire()">🔄 Play Again</button>
+          <button class="btn btn-wa" onclick="shareRapidWA()">📲 Share Score</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAME 1: MATCH THE FOLLOWING -->
+    <div id="game-match" class="game-panel card">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+        <div>
+          <strong style="font-size:17px">🔗 जोड़ी मिलाओ (Match the Following)</strong>
+          <div style="font-size:12.5px;color:var(--muted)">Tap an English word, then its matching Hindi meaning</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span class="pill">⏱️ <span id="mTimer">0s</span></span>
+          <button class="btn btn-primary" onclick="initMatchGame()">New Round</button>
+        </div>
+      </div>
+      <div class="match-grid">
+        <div class="match-col" id="mLeft"></div>
+        <div class="match-col" id="mRight"></div>
+      </div>
+      <div id="mStatus" style="text-align:center;font-weight:700;min-height:24px;color:var(--accent)"></div>
+    </div>
+
+    <!-- GAME 2: SPELLING BEE -->
+    <div id="game-spell" class="game-panel card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <strong style="font-size:17px">✍️ Spelling Bee (स्पेलिंग टेस्ट)</strong>
+        <span class="tag" id="spCat">Physics</span>
+      </div>
+      <div style="text-align:center;padding:16px;background:var(--surface2);border-radius:18px;border:1px solid var(--border)">
+        <div style="font-size:13px;color:var(--muted)">हिंदी अर्थ देखकर और आवाज़ सुनकर सही English स्पेलिंग लिखें:</div>
+        <div id="spHindi" style="font-size:28px;font-weight:900;color:var(--primary);margin:8px 0">पदार्थ</div>
+        <div id="spPron" style="font-size:15px;color:var(--secondary);font-weight:700;margin-bottom:12px">(मैटर)</div>
+        <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="speakSpell(1)">🔊 Listen</button>
+          <button class="btn" onclick="speakSpell(0.62)">🐢 Slow</button>
+          <button class="btn" onclick="hintSpell()">💡 Hint</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">
+        <input id="spInput" class="ctrl" style="flex:1;min-width:180px;font-size:17px;letter-spacing:1px" placeholder="Type English spelling..." autocomplete="off">
+        <button class="btn btn-accent" onclick="checkSpell()">Check ✓</button>
+        <button class="btn" onclick="nextSpell()">Skip →</button>
+      </div>
+      <div id="spMsg" style="margin-top:12px;font-weight:700;min-height:24px;text-align:center"></div>
+    </div>
+
+    <!-- GAME 3: WORD SCRAMBLE -->
+    <div id="game-scram" class="game-panel card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <strong style="font-size:17px">🧩 Word Scramble (अक्षर सुलझाओ)</strong>
+        <span class="tag" id="scCat">Biology</span>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:13px;color:var(--muted)">Clue (हिंदी अर्थ):</div>
+        <div id="scHindi" style="font-size:26px;font-weight:900;color:var(--accent);margin:6px 0">गुरुत्वाकर्षण</div>
+      </div>
+      <div class="scramble-slots" id="scSlots"></div>
+      <div class="letter-bank" id="scBank"></div>
+      <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap">
+        <button class="btn" onclick="clearScramble()">↩️ Clear</button>
+        <button class="btn" onclick="hintScramble()">💡 Hint</button>
+        <button class="btn btn-primary" onclick="initScramble()">Next Word →</button>
+      </div>
+      <div id="scMsg" style="margin-top:12px;font-weight:700;min-height:24px;text-align:center"></div>
+    </div>
+  </section>
+
+  <!-- VIEW 5: SMART QUIZ -->
+  <section id="view-quiz" class="view">
+    <div class="quiz-box">
+      <div class="sec-title" style="margin-top:4px">
+        <span>🧠 Vocabulary Quiz</span>
+        <span id="qScorePill" class="pill">Score: 0/10</span>
+      </div>
+      <div class="chips" style="margin-bottom:12px">
+        <button class="chip active" id="modeEN" onclick="setQuizMode('en2hi')">English → Hindi</button>
+        <button class="chip" id="modeHI" onclick="setQuizMode('hi2en')">Hindi → English</button>
+        <select id="qCat" class="theme-sel" onchange="startQuiz()">
+          <option value="All">All Subjects</option>
+          <option>Physics</option><option>Chemistry</option><option>Biology</option>
+          <option>Environment</option><option>Space</option><option>Science</option>
+        </select>
+        <button class="chip" onclick="startQuiz()">🔄 Restart</button>
+      </div>
+      <div class="card">
+        <div class="prog-bar" style="margin-bottom:14px"><div class="prog-fill" id="qProg"></div></div>
+        <div id="qTag" class="tag" style="margin-bottom:8px;display:inline-block">Physics</div>
+        <h2 id="qText" style="margin:6px 0 14px;font-size:21px">Loading...</h2>
+        <div id="qOpts"></div>
+        <p id="qFeedback" style="font-weight:700;min-height:22px;margin:12px 0"></p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button id="qNextBtn" class="btn btn-primary" onclick="nextQuestion()" style="flex:1">Next Question →</button>
+          <button id="qWaBtn" class="btn btn-wa" onclick="shareQuizWA()" style="display:none">📲 Share on WhatsApp</button>
+          <button id="qCertBtn" class="btn btn-accent" onclick="switchView('certificate')" style="display:none">🏆 Get Certificate</button>
+          <button id="qRevBtn" class="btn" onclick="openReview()" style="display:none">🔁 Revise</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIEW 6: FAVORITES -->
+  <section id="view-favorites" class="view">
+    <div class="sec-title" style="margin-top:4px">
+      <span>⭐ My Favorites</span>
+      <span id="favTotal" style="font-size:13px;color:var(--muted)">0 saved</span>
+    </div>
+    <div id="favList" class="word-grid"></div>
+  </section>
+
+  <!-- VIEW 7: DIGITAL CERTIFICATE -->
+  <section id="view-certificate" class="view">
+    <div class="sec-title" style="margin-top:4px">
+      <span>🏆 Instant Digital Certificate</span>
+      <button class="btn" onclick="switchView('home')">← Back</button>
+    </div>
+    <div class="card">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:12px">
+        <input id="certName" class="ctrl" placeholder="Student Name (e.g., Aarav Sharma)" oninput="drawCert()">
+        <select id="certClass" class="ctrl" onchange="drawCert()">
+          <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+          <option>Class 9</option><option>Class 10</option><option>Competitive Aspirant</option>
+        </select>
+        <button class="btn btn-primary" onclick="downloadCert()">⬇️ Download PNG</button>
+        <button class="btn btn-wa" onclick="shareCertWA()">📲 Share on WhatsApp</button>
+      </div>
+      <div class="cert-canvas-wrap">
+        <canvas id="certCanvas" width="1200" height="850"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIEW 8: PRINTABLE WORKSHEET -->
+  <section id="view-worksheet" class="view">
+    <div class="no-print">
+      <div class="sec-title" style="margin-top:4px">
+        <span>🖨️ Printable Homework &amp; Test Sheet</span>
+        <button class="btn" onclick="switchView('home')">← Back</button>
+      </div>
+      <div class="card" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <select id="wsCat" class="ctrl" onchange="buildWorksheet()">
+          <option value="All">All Subjects</option>
+          <option>Physics</option><option>Chemistry</option><option>Biology</option>
+          <option>Environment</option><option>Space</option><option>Science</option>
+        </select>
+        <select id="wsCls" class="ctrl" onchange="buildWorksheet()">
+          <option value="All">All Classes</option>
+          <option value="6">Class 6</option><option value="7">Class 7</option>
+          <option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option>
+        </select>
+        <select id="wsCount" class="ctrl" onchange="buildWorksheet()">
+          <option value="10">10 Words</option>
+          <option value="20" selected="">20 Words</option>
+          <option value="30">30 Words</option>
+        </select>
+        <label style="display:flex;align-items:center;gap:6px;font-weight:700;font-size:13px;cursor:pointer">
+          <input type="checkbox" id="wsAns" onchange="buildWorksheet()"> Show Answer Key
+        </label>
+        <button class="btn" onclick="buildWorksheet()">🔄 Shuffle</button>
+        <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+      </div>
+    </div>
+    <div class="ws-sheet" id="wsOutput"></div>
+  </section>
+
+  <!-- VIEW 9: CUSTOM WORDS & BACKUP (TEACHER / STUDENT TOOL) -->
+  <section id="view-custom" class="view">
+    <div class="sec-title" style="margin-top:4px">
+      <span>➕ Add Custom Words &amp; Backup</span>
+      <button class="btn" onclick="switchView('home')">← Back</button>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="margin:0 0 10px">📝 Add New Chapter Word</h3>
+        <div style="display:grid;gap:9px">
+          <input id="cwEn" class="ctrl" placeholder="English Word (e.g., Osmosis)">
+          <input id="cwPr" class="ctrl" placeholder="Hindi Pronunciation (e.g., ऑस्मोसिस)">
+          <input id="cwHi" class="ctrl" placeholder="Hindi Meaning (e.g., परासरण)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <select id="cwCat" class="ctrl">
+              <option>Physics</option><option>Chemistry</option><option>Biology</option>
+              <option>Environment</option><option>Space</option><option>Science</option>
+            </select>
+            <select id="cwCls" class="ctrl">
+              <option value="6">Class 6</option><option value="7">Class 7</option>
+              <option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="addCustomWord()">➕ Save Word</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 10px">💾 Backup &amp; Restore Progress</h3>
+        <p style="font-size:13px;color:var(--muted);margin:0 0 14px;line-height:1.5">
+          Save your XP, learned words, favorites, and custom words to a file — or restore them on a new phone anytime.
+        </p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-accent" onclick="exportBackup()">⬇️ Download Backup (.json)</button>
+          <label class="btn" style="cursor:pointer">
+            ⬆️ Restore Backup
+            <input type="file" accept=".json" style="display:none" onchange="importBackup(event)">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-title"><span>📋 My Custom Words (<span id="cwCount">0</span>)</span></div>
+    <div id="cwList" class="word-grid"></div>
+  </section>
+</main>
+
+<!-- Bottom Mobile Navigation -->
+<nav class="bnav">
+  <button class="active" data-view="home" onclick="switchView('home')"><span class="ico">🏠</span>Home</button>
+  <button data-view="dictionary" onclick="switchView('dictionary')"><span class="ico">📚</span>Words</button>
+  <button data-view="flash" onclick="switchView('flash')"><span class="ico">🃏</span>Cards</button>
+  <button data-view="games" onclick="switchView('games')"><span class="ico">🎮</span>Games</button>
+  <button data-view="quiz" onclick="switchView('quiz')"><span class="ico">🧠</span>Quiz</button>
+</nav>
+
+<script>
+const BASE_W = [["Matter", "मैटर", "पदार्थ", "Physics", 6], ["Mass", "मैस", "द्रव्यमान", "Physics", 6], ["Weight", "वेट", "भार", "Physics", 6], ["Volume", "वॉल्यूम", "आयतन", "Physics", 9], ["Density", "डेंसिटी", "घनत्व", "Physics", 9], ["Force", "फोर्स", "बल", "Physics", 8], ["Motion", "मोशन", "गति", "Physics", 7], ["Speed", "स्पीड", "चाल", "Physics", 7], ["Velocity", "वेलॉसिटी", "वेग", "Physics", 9], ["Acceleration", "एक्सेलेरेशन", "त्वरण", "Physics", 9], ["Distance", "डिस्टेंस", "दूरी", "Physics", 7], ["Displacement", "डिस्प्लेसमेंट", "विस्थापन", "Physics", 9], ["Friction", "फ्रिक्शन", "घर्षण", "Physics", 8], ["Gravity", "ग्रैविटी", "गुरुत्वाकर्षण", "Physics", 9], ["Inertia", "इनर्शिया", "जड़त्व", "Physics", 9], ["Momentum", "मोमेंटम", "संवेग", "Physics", 9], ["Pressure", "प्रेशर", "दाब", "Physics", 8], ["Work", "वर्क", "कार्य", "Physics", 9], ["Energy", "एनर्जी", "ऊर्जा", "Physics", 9], ["Power", "पावर", "शक्ति", "Physics", 9], ["Kinetic Energy", "काइनेटिक एनर्जी", "गतिज ऊर्जा", "Physics", 9], ["Potential Energy", "पोटेंशियल एनर्जी", "स्थितिज ऊर्जा", "Physics", 9], ["Mechanical Energy", "मैकेनिकल एनर्जी", "यांत्रिक ऊर्जा", "Physics", 9], ["Heat", "हीट", "ऊष्मा", "Physics", 7], ["Temperature", "टेम्परेचर", "तापमान", "Physics", 7], ["Thermometer", "थर्मामीटर", "तापमापी", "Physics", 7], ["Conduction", "कंडक्शन", "चालन", "Physics", 7], ["Convection", "कन्वेक्शन", "संवहन", "Physics", 7], ["Radiation", "रेडिएशन", "विकिरण", "Physics", 7], ["Insulator", "इन्सुलेटर", "कुचालक", "Physics", 7], ["Conductor", "कंडक्टर", "चालक", "Physics", 7], ["Expansion", "एक्सपैंशन", "प्रसार", "Physics", 9], ["Melting", "मेल्टिंग", "गलन", "Physics", 6], ["Freezing", "फ्रीजिंग", "जमना", "Physics", 6], ["Boiling", "बॉयलिंग", "उबलना", "Physics", 6], ["Evaporation", "इवैपोरेशन", "वाष्पीकरण", "Physics", 6], ["Condensation", "कंडेन्सेशन", "संघनन", "Physics", 6], ["Sublimation", "सब्लिमेशन", "उर्ध्वपातन", "Physics", 9], ["Wave", "वेव", "तरंग", "Physics", 9], ["Frequency", "फ्रीक्वेंसी", "आवृत्ति", "Physics", 8], ["Amplitude", "एम्प्लीट्यूड", "आयाम", "Physics", 8], ["Wavelength", "वेवलेंथ", "तरंगदैर्ध्य", "Physics", 9], ["Sound", "साउंड", "ध्वनि", "Physics", 8], ["Echo", "एको", "प्रतिध्वनि", "Physics", 9], ["Vibration", "वाइब्रेशन", "कंपन", "Physics", 8], ["Loudness", "लाउडनेस", "ध्वनि की प्रबलता", "Physics", 8], ["Pitch", "पिच", "तारत्व", "Physics", 8], ["Light", "लाइट", "प्रकाश", "Physics", 6], ["Reflection", "रिफ्लेक्शन", "परावर्तन", "Physics", 7], ["Refraction", "रिफ्रैक्शन", "अपवर्तन", "Physics", 9], ["Dispersion", "डिस्पर्शन", "वर्ण-विक्षेपण", "Physics", 8], ["Lens", "लेंस", "लेंस", "Physics", 7], ["Mirror", "मिरर", "दर्पण", "Physics", 6], ["Focus", "फोकस", "फोकस", "Physics", 7], ["Prism", "प्रिज्म", "प्रिज्म", "Physics", 7], ["Spectrum", "स्पेक्ट्रम", "वर्णक्रम", "Physics", 7], ["Electricity", "इलेक्ट्रिसिटी", "विद्युत", "Physics", 6], ["Current", "करंट", "विद्युत धारा", "Physics", 9], ["Voltage", "वोल्टेज", "विभवांतर", "Physics", 8], ["Resistance", "रेजिस्टेंस", "प्रतिरोध", "Physics", 9], ["Circuit", "सर्किट", "परिपथ", "Physics", 6], ["Battery", "बैटरी", "बैटरी", "Physics", 6], ["Cell", "सेल", "विद्युत सेल", "Physics", 8], ["Magnet", "मैग्नेट", "चुंबक", "Physics", 6], ["Magnetism", "मैग्नेटिज्म", "चुंबकत्व", "Physics", 8], ["Electromagnet", "इलेक्ट्रोमैग्नेट", "विद्युत चुंबक", "Physics", 7], ["Pole", "पोल", "ध्रुव", "Physics", 6], ["Induction", "इंडक्शन", "प्रेरण", "Physics", 9], ["Alternating Current", "अल्टरनेटिंग करंट", "प्रत्यावर्ती धारा", "Physics", 10], ["Direct Current", "डायरेक्ट करंट", "दिष्ट धारा", "Physics", 10], ["Electrostatic", "इलेक्ट्रोस्टैटिक", "स्थिर विद्युत", "Physics", 10], ["Machine", "मशीन", "यंत्र", "Physics", 6], ["Lever", "लीवर", "उत्तोलक", "Physics", 6], ["Pulley", "पुली", "चरखी", "Physics", 6], ["Wheel", "व्हील", "पहिया", "Physics", 6], ["Axle", "एक्सल", "धुरी", "Physics", 7], ["Inclined Plane", "इन्क्लाइंड प्लेन", "ढलवाँ तल", "Physics", 10], ["Screw", "स्क्रू", "पेंच", "Physics", 6], ["Mechanical Advantage", "मैकेनिकल एडवांटेज", "यांत्रिक लाभ", "Physics", 10], ["Efficiency", "एफिशिएंसी", "दक्षता", "Physics", 9], ["Fluid", "फ्लुइड", "द्रव", "Physics", 6], ["Buoyancy", "बॉयेंसी", "उत्प्लावन", "Physics", 9], ["Float", "फ्लोट", "तैरना", "Physics", 6], ["Sink", "सिंक", "डूबना", "Physics", 6], ["Atmospheric Pressure", "एटमॉस्फेरिक प्रेशर", "वायुमंडलीय दाब", "Physics", 10], ["Vacuum", "वैक्यूम", "निर्वात", "Physics", 7], ["Refraction Index", "रिफ्रैक्शन इंडेक्स", "अपवर्तनांक", "Physics", 10], ["Optics", "ऑप्टिक्स", "प्रकाशिकी", "Physics", 7], ["Ultrasound", "अल्ट्रासाउंड", "पराध्वनि", "Physics", 9], ["Infrasound", "इन्फ्रासाउंड", "अवश्रव्य ध्वनि", "Physics", 9], ["Sonar", "सोनार", "ध्वनि आधारित दूरी मापन", "Physics", 9], ["Radar", "रडार", "रेडियो तरंगों से पता लगाने की प्रणाली", "Physics", 7], ["Atom", "एटम", "परमाणु", "Physics", 9], ["Nucleus", "न्यूक्लियस", "नाभिक", "Physics", 8], ["Electron", "इलेक्ट्रॉन", "इलेक्ट्रॉन", "Physics", 8], ["Proton", "प्रोटॉन", "प्रोटॉन", "Physics", 7], ["Neutron", "न्यूट्रॉन", "न्यूट्रॉन", "Physics", 8], ["Photon", "फोटॉन", "प्रकाश कण", "Physics", 7], ["Radioactivity", "रेडियोएक्टिविटी", "रेडियोधर्मिता", "Physics", 10], ["Nuclear Energy", "न्यूक्लियर एनर्जी", "नाभिकीय ऊर्जा", "Physics", 10], ["Semiconductor", "सेमीकंडक्टर", "अर्धचालक", "Physics", 10], ["Element", "एलिमेंट", "तत्व", "Chemistry", 9], ["Compound", "कंपाउंड", "यौगिक", "Chemistry", 9], ["Mixture", "मिक्सचर", "मिश्रण", "Chemistry", 9], ["Solution", "सॉल्यूशन", "विलयन", "Chemistry", 9], ["Solute", "सोल्यूट", "विलेय", "Chemistry", 9], ["Solvent", "सॉल्वेंट", "विलायक", "Chemistry", 9], ["Solubility", "सॉल्युबिलिटी", "विलेयता", "Chemistry", 9], ["Suspension", "सस्पेंशन", "निलंबन", "Chemistry", 9], ["Colloid", "कोलॉइड", "कोलॉइड", "Chemistry", 9], ["Alloy", "अलॉय", "मिश्रधातु", "Chemistry", 6], ["Metal", "मेटल", "धातु", "Chemistry", 8], ["Non-metal", "नॉन-मेटल", "अधातु", "Chemistry", 8], ["Metalloid", "मेटलॉइड", "उपधातु", "Chemistry", 9], ["Ore", "ओर", "अयस्क", "Chemistry", 6], ["Mineral", "मिनरल", "खनिज", "Chemistry", 9], ["Molecule", "मॉलीक्यूल", "अणु", "Chemistry", 9], ["Atomic Number", "एटॉमिक नंबर", "परमाणु क्रमांक", "Chemistry", 9], ["Atomic Mass", "एटॉमिक मास", "परमाणु द्रव्यमान", "Chemistry", 9], ["Valency", "वैलेंसी", "संयोजकता", "Chemistry", 9], ["Chemical Bond", "केमिकल बॉन्ड", "रासायनिक बंध", "Chemistry", 10], ["Ionic Bond", "आयोनिक बॉन्ड", "आयनिक बंध", "Chemistry", 9], ["Covalent Bond", "कोवेलेंट बॉन्ड", "सहसंयोजक बंध", "Chemistry", 10], ["Chemical Reaction", "केमिकल रिएक्शन", "रासायनिक अभिक्रिया", "Chemistry", 10], ["Reactant", "रिएक्टेंट", "अभिकारक", "Chemistry", 8], ["Product", "प्रोडक्ट", "उत्पाद", "Chemistry", 9], ["Catalyst", "कैटेलिस्ट", "उत्प्रेरक", "Chemistry", 8], ["Oxidation", "ऑक्सिडेशन", "ऑक्सीकरण", "Chemistry", 9], ["Reduction", "रिडक्शन", "अपचयन", "Chemistry", 8], ["Combustion", "कंबशन", "दहन", "Chemistry", 8], ["Rust", "रस्ट", "जंग", "Chemistry", 7], ["Corrosion", "करोजन", "संक्षारण", "Chemistry", 9], ["Acid", "एसिड", "अम्ल", "Chemistry", 7], ["Base", "बेस", "क्षार", "Chemistry", 7], ["Alkali", "अल्कली", "क्षार", "Chemistry", 6], ["Salt", "सॉल्ट", "लवण", "Chemistry", 7], ["Neutralization", "न्यूट्रलाइजेशन", "उदासीनीकरण", "Chemistry", 7], ["Indicator", "इंडिकेटर", "सूचक", "Chemistry", 7], ["Litmus", "लिटमस", "लिटमस", "Chemistry", 7], ["pH", "पी-एच", "अम्लीयता/क्षारीयता का माप", "Chemistry", 7], ["Carbon", "कार्बन", "कार्बन", "Chemistry", 6], ["Oxygen", "ऑक्सीजन", "ऑक्सीजन", "Chemistry", 7], ["Hydrogen", "हाइड्रोजन", "हाइड्रोजन", "Chemistry", 8], ["Nitrogen", "नाइट्रोजन", "नाइट्रोजन", "Chemistry", 9], ["Sulphur", "सल्फर", "गंधक", "Chemistry", 8], ["Phosphorus", "फॉस्फोरस", "फॉस्फोरस", "Chemistry", 9], ["Chlorine", "क्लोरीन", "क्लोरीन", "Chemistry", 8], ["Sodium", "सोडियम", "सोडियम", "Chemistry", 7], ["Potassium", "पोटैशियम", "पोटैशियम", "Chemistry", 8], ["Calcium", "कैल्शियम", "कैल्शियम", "Chemistry", 9], ["Iron", "आयरन", "लोहा", "Chemistry", 6], ["Copper", "कॉपर", "तांबा", "Chemistry", 7], ["Zinc", "जिंक", "जस्ता", "Chemistry", 6], ["Silver", "सिल्वर", "चाँदी", "Chemistry", 7], ["Gold", "गोल्ड", "सोना", "Chemistry", 6], ["Mercury", "मरकरी", "पारा", "Chemistry", 6], ["Carbon Dioxide", "कार्बन डाइऑक्साइड", "कार्बन डाइऑक्साइड", "Chemistry", 10], ["Carbon Monoxide", "कार्बन मोनोऑक्साइड", "कार्बन मोनोऑक्साइड", "Chemistry", 10], ["Water", "वॉटर", "जल", "Chemistry", 6], ["Ammonia", "अमोनिया", "अमोनिया", "Chemistry", 9], ["Methane", "मीथेन", "मीथेन", "Chemistry", 8], ["Ethanol", "एथेनॉल", "एथिल अल्कोहल", "Chemistry", 9], ["Acetic Acid", "एसिटिक एसिड", "ऐसीटिक अम्ल", "Chemistry", 10], ["Baking Soda", "बेकिंग सोडा", "खाने का सोडा", "Chemistry", 10], ["Washing Soda", "वॉशिंग सोडा", "धोने का सोडा", "Chemistry", 10], ["Bleaching Powder", "ब्लीचिंग पाउडर", "विरंजक चूर्ण", "Chemistry", 10], ["Plaster of Paris", "प्लास्टर ऑफ पेरिस", "प्लास्टर ऑफ पेरिस", "Chemistry", 10], ["Cement", "सीमेंट", "सीमेंट", "Chemistry", 7], ["Glass", "ग्लास", "काँच", "Chemistry", 6], ["Ceramic", "सिरेमिक", "मृद्भांड/चीनी मिट्टी", "Chemistry", 9], ["Polymer", "पॉलिमर", "बहुलक", "Chemistry", 8], ["Plastic", "प्लास्टिक", "प्लास्टिक", "Chemistry", 8], ["Biodegradable", "बायोडिग्रेडेबल", "जैव अपघटनीय", "Chemistry", 10], ["Synthetic", "सिंथेटिक", "कृत्रिम", "Chemistry", 8], ["Organic", "ऑर्गेनिक", "कार्बनिक", "Chemistry", 8], ["Inorganic", "इनऑर्गेनिक", "अकार्बनिक", "Chemistry", 9], ["Chemical Formula", "केमिकल फॉर्मूला", "रासायनिक सूत्र", "Chemistry", 10], ["Periodic Table", "पीरियॉडिक टेबल", "आवर्त सारणी", "Chemistry", 10], ["Period", "पीरियड", "आवर्त", "Chemistry", 6], ["Group", "ग्रुप", "समूह", "Chemistry", 7], ["Isotope", "आइसोटोप", "समस्थानिक", "Chemistry", 9], ["Isobar", "आइसोबार", "समभारिक", "Chemistry", 9], ["Diffusion", "डिफ्यूजन", "विसरण", "Chemistry", 9], ["Crystallization", "क्रिस्टलाइजेशन", "क्रिस्टलीकरण", "Chemistry", 9], ["Filtration", "फिल्ट्रेशन", "छानना", "Chemistry", 6], ["Distillation", "डिस्टिलेशन", "आसवन", "Chemistry", 9], ["Evaporation", "इवैपोरेशन", "वाष्पीकरण", "Chemistry", 6], ["Decantation", "डिकैंटेशन", "निस्तारण", "Chemistry", 10], ["Chromatography", "क्रोमैटोग्राफी", "वर्णलेखन", "Chemistry", 9], ["Chemical Change", "केमिकल चेंज", "रासायनिक परिवर्तन", "Chemistry", 7], ["Physical Change", "फिजिकल चेंज", "भौतिक परिवर्तन", "Chemistry", 7], ["Exothermic", "एक्सोथर्मिक", "ऊष्माक्षेपी", "Chemistry", 9], ["Endothermic", "एंडोथर्मिक", "ऊष्माशोषी", "Chemistry", 10], ["Flammable", "फ्लेमेबल", "ज्वलनशील", "Chemistry", 9], ["Toxic", "टॉक्सिक", "विषैला", "Chemistry", 6], ["Laboratory", "लैबोरेटरी", "प्रयोगशाला", "Chemistry", 9], ["Cell", "सेल", "कोशिका", "Biology", 8], ["Tissue", "टिश्यू", "ऊतक", "Biology", 9], ["Organ", "ऑर्गन", "अंग", "Biology", 9], ["Organ System", "ऑर्गन सिस्टम", "अंग तंत्र", "Biology", 9], ["Organism", "ऑर्गेनिज्म", "जीव", "Biology", 8], ["Unicellular", "यूनिसेल्युलर", "एककोशिकीय", "Biology", 8], ["Multicellular", "मल्टीसेल्युलर", "बहुकोशिकीय", "Biology", 8], ["Nucleus", "न्यूक्लियस", "केंद्रक", "Biology", 8], ["Cytoplasm", "साइटोप्लाज्म", "कोशिका द्रव्य", "Biology", 8], ["Cell Membrane", "सेल मेम्ब्रेन", "कोशिका झिल्ली", "Biology", 8], ["Cell Wall", "सेल वॉल", "कोशिका भित्ति", "Biology", 8], ["Chloroplast", "क्लोरोप्लास्ट", "हरितलवक", "Biology", 8], ["Mitochondria", "माइटोकॉन्ड्रिया", "माइटोकॉन्ड्रिया", "Biology", 9], ["Vacuole", "वैक्यूल", "रिक्तिका", "Biology", 8], ["Ribosome", "राइबोसोम", "राइबोसोम", "Biology", 9], ["DNA", "डी-एन-ए", "डीएनए", "Biology", 7], ["Gene", "जीन", "जीन", "Biology", 6], ["Chromosome", "क्रोमोसोम", "गुणसूत्र", "Biology", 9], ["Heredity", "हेरिडिटी", "आनुवंशिकता", "Biology", 8], ["Variation", "वेरिएशन", "विविधता", "Biology", 9], ["Evolution", "इवोल्यूशन", "विकासवाद", "Biology", 8], ["Reproduction", "रिप्रोडक्शन", "प्रजनन", "Biology", 7], ["Asexual", "एसेक्सुअल", "अलैंगिक", "Biology", 8], ["Sexual", "सेक्सुअल", "लैंगिक", "Biology", 7], ["Fertilization", "फर्टिलाइजेशन", "निषेचन", "Biology", 8], ["Pollination", "पॉलिनेशन", "परागण", "Biology", 7], ["Seed", "सीड", "बीज", "Biology", 6], ["Germination", "जर्मिनेशन", "अंकुरण", "Biology", 6], ["Embryo", "एम्ब्रियो", "भ्रूण", "Biology", 8], ["Photosynthesis", "फोटोसिंथेसिस", "प्रकाश संश्लेषण", "Biology", 7], ["Chlorophyll", "क्लोरोफिल", "पर्णहरित", "Biology", 7], ["Respiration", "रेस्पिरेशन", "श्वसन", "Biology", 7], ["Transpiration", "ट्रांसपिरेशन", "वाष्पोत्सर्जन", "Biology", 10], ["Stomata", "स्टोमाटा", "रंध्र", "Biology", 7], ["Nutrition", "न्यूट्रिशन", "पोषण", "Biology", 7], ["Autotroph", "ऑटोट्रॉफ", "स्वपोषी", "Biology", 7], ["Heterotroph", "हेटेरोट्रॉफ", "परपोषी", "Biology", 7], ["Herbivore", "हर्बिवोर", "शाकाहारी", "Biology", 6], ["Carnivore", "कार्निवोर", "मांसाहारी", "Biology", 6], ["Omnivore", "ऑम्निवोर", "सर्वाहारी", "Biology", 6], ["Producer", "प्रोड्यूसर", "उत्पादक", "Biology", 8], ["Consumer", "कंज्यूमर", "उपभोक्ता", "Biology", 9], ["Decomposer", "डीकंपोजर", "अपघटक", "Biology", 8], ["Food Chain", "फूड चेन", "खाद्य श्रृंखला", "Biology", 6], ["Food Web", "फूड वेब", "खाद्य जाल", "Biology", 8], ["Ecosystem", "इकोसिस्टम", "पारिस्थितिकी तंत्र", "Biology", 9], ["Habitat", "हैबिटैट", "आवास", "Biology", 6], ["Biodiversity", "बायोडायवर्सिटी", "जैव विविधता", "Biology", 9], ["Adaptation", "एडाप्टेशन", "अनुकूलन", "Biology", 6], ["Biotic", "बायोटिक", "जैविक", "Biology", 7], ["Abiotic", "एबायोटिक", "अजैविक", "Biology", 8], ["Microorganism", "माइक्रोऑर्गेनिज्म", "सूक्ष्मजीव", "Biology", 8], ["Bacteria", "बैक्टीरिया", "जीवाणु", "Biology", 8], ["Virus", "वायरस", "विषाणु", "Biology", 8], ["Fungus", "फंगस", "कवक", "Biology", 8], ["Protozoa", "प्रोटोजोआ", "प्रोटोजोआ", "Biology", 8], ["Algae", "एल्गी", "शैवाल", "Biology", 8], ["Yeast", "यीस्ट", "खमीर", "Biology", 8], ["Fermentation", "फर्मेंटेशन", "किण्वन", "Biology", 8], ["Antibiotic", "एंटीबायोटिक", "प्रतिजैविक", "Biology", 8], ["Vaccine", "वैक्सीन", "टीका", "Biology", 8], ["Immunity", "इम्यूनिटी", "प्रतिरक्षा", "Biology", 9], ["Pathogen", "पैथोजन", "रोगजनक", "Biology", 9], ["Disease", "डिजीज", "रोग", "Biology", 9], ["Infection", "इन्फेक्शन", "संक्रमण", "Biology", 9], ["Antibody", "एंटीबॉडी", "प्रतिपिंड", "Biology", 9], ["Blood", "ब्लड", "रक्त", "Biology", 7], ["Plasma", "प्लाज्मा", "प्लाज्मा", "Biology", 7], ["Red Blood Cell", "रेड ब्लड सेल", "लाल रक्त कोशिका", "Biology", 10], ["White Blood Cell", "व्हाइट ब्लड सेल", "श्वेत रक्त कोशिका", "Biology", 10], ["Platelet", "प्लेटलेट", "रक्त प्लेटिका", "Biology", 8], ["Hemoglobin", "हीमोग्लोबिन", "हीमोग्लोबिन", "Biology", 9], ["Heart", "हार्ट", "हृदय", "Biology", 7], ["Artery", "आर्टरी", "धमनी", "Biology", 7], ["Vein", "वेन", "शिरा", "Biology", 7], ["Capillary", "कैपिलरी", "केशिका", "Biology", 9], ["Pulse", "पल्स", "नाड़ी", "Biology", 7], ["Lung", "लंग", "फेफड़ा", "Biology", 7], ["Alveoli", "एल्वियोली", "वायुकोष", "Biology", 8], ["Diaphragm", "डायफ्राम", "मध्यपट", "Biology", 9], ["Kidney", "किडनी", "गुर्दा", "Biology", 7], ["Nephron", "नेफ्रॉन", "वृक्क इकाई", "Biology", 9], ["Urine", "यूरिन", "मूत्र", "Biology", 6], ["Liver", "लिवर", "यकृत", "Biology", 7], ["Pancreas", "पैंक्रियास", "अग्न्याशय", "Biology", 8], ["Digestion", "डाइजेशन", "पाचन", "Biology", 7], ["Enzyme", "एंजाइम", "एंजाइम", "Biology", 6], ["Saliva", "सैलाइवा", "लार", "Biology", 7], ["Stomach", "स्टमक", "आमाशय", "Biology", 7], ["Intestine", "इंटेस्टाइन", "आंत", "Biology", 7], ["Nutrient", "न्यूट्रिएंट", "पोषक तत्व", "Biology", 6], ["Carbohydrate", "कार्बोहाइड्रेट", "कार्बोहाइड्रेट", "Biology", 6], ["Protein", "प्रोटीन", "प्रोटीन", "Biology", 6], ["Fat", "फैट", "वसा", "Biology", 6], ["Vitamin", "विटामिन", "विटामिन", "Biology", 6], ["Mineral", "मिनरल", "खनिज", "Biology", 9], ["Deficiency", "डिफिशिएंसी", "कमी", "Biology", 8], ["Balanced Diet", "बैलेंस्ड डाइट", "संतुलित आहार", "Biology", 6], ["Neuron", "न्यूरॉन", "तंत्रिका कोशिका", "Biology", 6], ["Brain", "ब्रेन", "मस्तिष्क", "Biology", 7], ["Spinal Cord", "स्पाइनल कॉर्ड", "मेरुरज्जु", "Biology", 10], ["Nerve", "नर्व", "तंत्रिका", "Biology", 7], ["Reflex", "रिफ्लेक्स", "प्रतिवर्त", "Biology", 6], ["Hormone", "हार्मोन", "हार्मोन", "Biology", 8], ["Endocrine", "एंडोक्राइन", "अंतःस्रावी", "Biology", 8], ["Adrenal", "एड्रिनल", "अधिवृक्क", "Biology", 9], ["Insulin", "इंसुलिन", "इंसुलिन", "Biology", 8], ["Thyroid", "थायरॉइड", "थायरॉइड", "Biology", 9], ["Skeleton", "स्केलेटन", "कंकाल", "Biology", 6], ["Bone", "बोन", "हड्डी", "Biology", 6], ["Joint", "जॉइंट", "जोड़", "Biology", 6], ["Muscle", "मसल", "मांसपेशी", "Biology", 6], ["Tendon", "टेंडन", "कंडरा", "Biology", 6], ["Ligament", "लिगामेंट", "स्नायुबंधन", "Biology", 9], ["Cartilage", "कार्टिलेज", "उपास्थि", "Biology", 8], ["Eye", "आई", "आँख", "Biology", 6], ["Retina", "रेटिना", "दृष्टिपटल", "Biology", 6], ["Iris", "आइरिस", "परितारिका", "Biology", 7], ["Pupil", "प्यूपिल", "पुतली", "Biology", 6], ["Ear", "ईयर", "कान", "Biology", 6], ["Eardrum", "ईयरड्रम", "कर्णपटल", "Biology", 8], ["Tongue", "टंग", "जीभ", "Biology", 6], ["Taste Bud", "टेस्ट बड", "स्वाद कलिका", "Biology", 8], ["Skin", "स्किन", "त्वचा", "Biology", 6], ["Sweat", "स्वेट", "पसीना", "Biology", 6], ["Environment", "एनवायरनमेंट", "पर्यावरण", "Environment", 6], ["Pollution", "पॉल्यूशन", "प्रदूषण", "Environment", 8], ["Air Pollution", "एयर पॉल्यूशन", "वायु प्रदूषण", "Environment", 6], ["Water Pollution", "वॉटर पॉल्यूशन", "जल प्रदूषण", "Environment", 6], ["Soil Pollution", "सॉइल पॉल्यूशन", "मृदा प्रदूषण", "Environment", 7], ["Noise Pollution", "नॉइज़ पॉल्यूशन", "ध्वनि प्रदूषण", "Environment", 8], ["Greenhouse Effect", "ग्रीनहाउस इफेक्ट", "ग्रीनहाउस प्रभाव", "Environment", 8], ["Global Warming", "ग्लोबल वार्मिंग", "वैश्विक तापन", "Environment", 8], ["Climate", "क्लाइमेट", "जलवायु", "Environment", 6], ["Weather", "वेदर", "मौसम", "Environment", 6], ["Ozone", "ओजोन", "ओजोन", "Environment", 7], ["Ozone Layer", "ओजोन लेयर", "ओजोन परत", "Environment", 8], ["Conservation", "कंजर्वेशन", "संरक्षण", "Environment", 10], ["Renewable", "रिन्यूएबल", "नवीकरणीय", "Environment", 8], ["Non-renewable", "नॉन-रिन्यूएबल", "अनवीकरणीय", "Environment", 10], ["Solar Energy", "सोलर एनर्जी", "सौर ऊर्जा", "Environment", 10], ["Wind Energy", "विंड एनर्जी", "पवन ऊर्जा", "Environment", 7], ["Hydropower", "हाइड्रोपावर", "जलविद्युत", "Environment", 8], ["Biomass", "बायोमास", "जैवभार", "Environment", 9], ["Fossil Fuel", "फॉसिल फ्यूल", "जीवाश्म ईंधन", "Environment", 8], ["Coal", "कोल", "कोयला", "Environment", 8], ["Petroleum", "पेट्रोलियम", "पेट्रोलियम", "Environment", 8], ["Natural Gas", "नेचुरल गैस", "प्राकृतिक गैस", "Environment", 8], ["Deforestation", "डिफॉरेस्टेशन", "वनों की कटाई", "Environment", 7], ["Afforestation", "अफॉरेस्टेशन", "वनरोपण", "Environment", 7], ["Reforestation", "रीफॉरेस्टेशन", "पुनर्वनीकरण", "Environment", 10], ["Waste", "वेस्ट", "कचरा", "Environment", 6], ["Recycling", "रीसाइक्लिंग", "पुनर्चक्रण", "Environment", 6], ["Compost", "कंपोस्ट", "खाद", "Environment", 6], ["Biodegradation", "बायोडिग्रेडेशन", "जैव अपघटन", "Environment", 10], ["Carbon Footprint", "कार्बन फुटप्रिंट", "कार्बन पदचिह्न", "Environment", 10], ["Ecology", "इकोलॉजी", "पारिस्थितिकी", "Environment", 8], ["Sustainable", "सस्टेनेबल", "सतत", "Environment", 10], ["Endangered", "एंडेंजर्ड", "संकटग्रस्त", "Environment", 8], ["Extinct", "एक्सटिंक्ट", "विलुप्त", "Environment", 8], ["Wildlife", "वाइल्डलाइफ", "वन्यजीव", "Environment", 8], ["Sanctuary", "सैंक्चुअरी", "अभयारण्य", "Environment", 8], ["National Park", "नेशनल पार्क", "राष्ट्रीय उद्यान", "Environment", 8], ["Biosphere", "बायोस्फीयर", "जीवमंडल", "Environment", 8], ["Water Cycle", "वॉटर साइकिल", "जल चक्र", "Environment", 6], ["Rainwater Harvesting", "रेनवॉटर हार्वेस्टिंग", "वर्षा जल संचयन", "Environment", 10], ["Groundwater", "ग्राउंडवॉटर", "भूजल", "Environment", 7], ["Aquifer", "एक्वीफर", "जलभृत", "Environment", 9], ["Erosion", "इरोशन", "अपरदन", "Environment", 9], ["Soil", "सॉइल", "मिट्टी", "Environment", 6], ["Humus", "ह्यूमस", "ह्यूमस", "Environment", 9], ["Fertilizer", "फर्टिलाइजर", "उर्वरक", "Environment", 8], ["Pesticide", "पेस्टिसाइड", "कीटनाशक", "Environment", 8], ["Organic Farming", "ऑर्गेनिक फार्मिंग", "जैविक खेती", "Environment", 9], ["Crop Rotation", "क्रॉप रोटेशन", "फसल चक्र", "Environment", 8], ["Irrigation", "इरिगेशन", "सिंचाई", "Environment", 8], ["Drought", "ड्रॉट", "सूखा", "Environment", 6], ["Flood", "फ्लड", "बाढ़", "Environment", 6], ["Cyclone", "साइक्लोन", "चक्रवात", "Environment", 7], ["Earthquake", "अर्थक्वेक", "भूकंप", "Environment", 8], ["Volcano", "वोल्केनो", "ज्वालामुखी", "Environment", 8], ["Tsunami", "सुनामी", "सुनामी", "Environment", 9], ["Disaster", "डिजास्टर", "आपदा", "Environment", 8], ["Natural Resource", "नेचुरल रिसोर्स", "प्राकृतिक संसाधन", "Environment", 10], ["Energy Conservation", "एनर्जी कंजर्वेशन", "ऊर्जा संरक्षण", "Environment", 10], ["Universe", "यूनिवर्स", "ब्रह्मांड", "Space", 9], ["Galaxy", "गैलेक्सी", "आकाशगंगा", "Space", 6], ["Milky Way", "मिल्की वे", "दुग्धमेखला", "Space", 9], ["Star", "स्टार", "तारा", "Space", 6], ["Planet", "प्लैनेट", "ग्रह", "Space", 6], ["Satellite", "सैटेलाइट", "उपग्रह", "Space", 8], ["Natural Satellite", "नेचुरल सैटेलाइट", "प्राकृतिक उपग्रह", "Space", 10], ["Artificial Satellite", "आर्टिफिशियल सैटेलाइट", "कृत्रिम उपग्रह", "Space", 8], ["Moon", "मून", "चंद्रमा", "Space", 6], ["Sun", "सन", "सूर्य", "Space", 6], ["Solar System", "सोलर सिस्टम", "सौरमंडल", "Space", 8], ["Asteroid", "एस्टेरॉयड", "क्षुद्रग्रह", "Space", 8], ["Comet", "कॉमेट", "धूमकेतु", "Space", 8], ["Meteor", "मीटर", "उल्का", "Space", 8], ["Meteorite", "मीटियोराइट", "उल्कापिंड", "Space", 8], ["Meteoroid", "मीटियोरॉइड", "उल्काभ", "Space", 8], ["Orbit", "ऑर्बिट", "कक्षा", "Space", 7], ["Rotation", "रोटेशन", "घूर्णन", "Space", 8], ["Revolution", "रेवोल्यूशन", "परिक्रमण", "Space", 9], ["Axis", "एक्सिस", "अक्ष", "Space", 6], ["Equator", "इक्वेटर", "भूमध्य रेखा", "Space", 9], ["Pole", "पोल", "ध्रुव", "Space", 6], ["Eclipse", "इक्लिप्स", "ग्रहण", "Space", 9], ["Solar Eclipse", "सोलर इक्लिप्स", "सूर्य ग्रहण", "Space", 10], ["Lunar Eclipse", "लूनर इक्लिप्स", "चंद्र ग्रहण", "Space", 10], ["Constellation", "कॉन्स्टेलेशन", "तारामंडल", "Space", 8], ["Astronomy", "एस्ट्रोनॉमी", "खगोल विज्ञान", "Space", 9], ["Astronaut", "एस्ट्रोनॉट", "अंतरिक्ष यात्री", "Space", 8], ["Cosmonaut", "कॉस्मोनॉट", "अंतरिक्ष यात्री", "Space", 9], ["Spacecraft", "स्पेसक्राफ्ट", "अंतरिक्ष यान", "Space", 8], ["Space Station", "स्पेस स्टेशन", "अंतरिक्ष स्टेशन", "Space", 10], ["Rocket", "रॉकेट", "रॉकेट", "Space", 6], ["Launch", "लॉन्च", "प्रक्षेपण", "Space", 7], ["Gravity", "ग्रैविटी", "गुरुत्वाकर्षण", "Space", 9], ["Black Hole", "ब्लैक होल", "कृष्ण विवर", "Space", 9], ["Light Year", "लाइट ईयर", "प्रकाश वर्ष", "Space", 8], ["Telescope", "टेलीस्कोप", "दूरबीन", "Space", 9], ["Hubble", "हबल", "हबल दूरबीन", "Space", 6], ["Mars", "मार्स", "मंगल", "Space", 6], ["Jupiter", "जूपिटर", "बृहस्पति", "Space", 6], ["Saturn", "सैटर्न", "शनि", "Space", 6], ["Venus", "वीनस", "शुक्र", "Space", 6], ["Mercury", "मर्करी", "बुध", "Space", 6], ["Earth", "अर्थ", "पृथ्वी", "Space", 6], ["Neptune", "नेप्च्यून", "वरुण", "Space", 9], ["Uranus", "युरेनस", "अरुण", "Space", 6], ["Pluto", "प्लूटो", "प्लूटो", "Space", 7], ["Astrobiology", "एस्ट्रोबायोलॉजी", "अंतरिक्ष में जीवन का अध्ययन", "Space", 10], ["Space Exploration", "स्पेस एक्सप्लोरेशन", "अंतरिक्ष अन्वेषण", "Space", 10], ["Crater", "क्रेटर", "गड्ढा", "Space", 6], ["Reflex Arc", "रिफ्लेक्स आर्क", "प्रतिवर्त चाप", "Biology", 9], ["Cerebellum", "सेरिबेलम", "अनुमस्तिष्क", "Biology", 8], ["Cerebrum", "सेरिब्रम", "प्रमस्तिष्क", "Biology", 9], ["Medulla", "मेडुला", "मस्तिष्क का भाग", "Biology", 8], ["Optic Nerve", "ऑप्टिक नर्व", "दृष्टि तंत्रिका", "Biology", 10], ["Ovary", "ओवरी", "अंडाशय", "Biology", 6], ["Testis", "टेस्टिस", "वृषण", "Biology", 7], ["Uterus", "यूटेरस", "गर्भाशय", "Biology", 6], ["Placenta", "प्लेसेंटा", "अपरा", "Biology", 9], ["Menstruation", "मेंस्ट्रुएशन", "मासिक धर्म", "Biology", 10], ["Puberty", "प्यूबर्टी", "किशोरावस्था में यौन परिपक्वता", "Biology", 8], ["Metamorphosis", "मेटामॉर्फोसिस", "कायांतरण", "Biology", 8], ["Larva", "लार्वा", "डिंभ", "Biology", 8], ["Pupa", "प्यूपा", "कोष", "Biology", 8], ["Pollutant", "पॉल्यूटेंट", "प्रदूषक", "Environment", 9], ["Smog", "स्मॉग", "धूम-कोहरा", "Environment", 8], ["Acid Rain", "एसिड रेन", "अम्लीय वर्षा", "Environment", 8], ["Particulate Matter", "पार्टिकुलेट मैटर", "सूक्ष्म कण", "Environment", 10], ["Wetland", "वेटलैंड", "आर्द्रभूमि", "Environment", 9], ["Mangrove", "मैंग्रोव", "मैंग्रोव वन", "Environment", 8], ["Food Pyramid", "फूड पिरामिड", "खाद्य पिरामिड", "Biology", 10], ["Trophic Level", "ट्रॉफिक लेवल", "पोषण स्तर", "Biology", 10], ["Biomagnification", "बायोमैग्निफिकेशन", "जैव आवर्धन", "Biology", 10], ["Nitrogen Cycle", "नाइट्रोजन साइकिल", "नाइट्रोजन चक्र", "Environment", 9], ["Carbon Cycle", "कार्बन साइकिल", "कार्बन चक्र", "Environment", 9], ["Oxygen Cycle", "ऑक्सीजन साइकिल", "ऑक्सीजन चक्र", "Environment", 9], ["Water Vapour", "वॉटर वेपर", "जलवाष्प", "Environment", 10], ["Precipitation", "प्रेसिपिटेशन", "वर्षण", "Environment", 10], ["Humidity", "ह्यूमिडिटी", "आर्द्रता", "Environment", 7], ["Barometer", "बैरोमीटर", "वायुदाबमापी", "Physics", 9], ["Anemometer", "एनीमोमीटर", "पवन वेगमापी", "Physics", 7], ["Hygrometer", "हाइग्रोमीटर", "आर्द्रतामापी", "Physics", 9], ["Seismograph", "सीस्मोग्राफ", "भूकंपलेखी", "Environment", 8], ["Tsunameter", "सुनामीमीटर", "सुनामी मापक", "Environment", 8], ["Fossil", "फॉसिल", "जीवाश्म", "Biology", 7], ["Paleontology", "पेलियॉन्टोलॉजी", "जीवाश्म विज्ञान", "Biology", 10], ["Species", "स्पीशीज", "प्रजाति", "Biology", 9], ["Population", "पॉपुलेशन", "जनसंख्या", "Biology", 8], ["Community", "कम्युनिटी", "समुदाय", "Biology", 9], ["Biome", "बायोम", "बृहद पारिस्थितिक क्षेत्र", "Biology", 6], ["Mutation", "म्यूटेशन", "उत्परिवर्तन", "Biology", 9], ["Natural Selection", "नेचुरल सिलेक्शन", "प्राकृतिक चयन", "Biology", 10], ["Genotype", "जीनोटाइप", "जीन संरचना", "Biology", 9], ["Phenotype", "फीनोटाइप", "प्रकट लक्षण", "Biology", 8], ["Dominant", "डॉमिनेंट", "प्रभावी", "Biology", 9], ["Recessive", "रिसेसिव", "अप्रभावी", "Biology", 8], ["Hybrid", "हाइब्रिड", "संकर", "Biology", 7], ["Cloning", "क्लोनिंग", "क्लोन बनाना", "Biology", 8], ["Biotechnology", "बायोटेक्नोलॉजी", "जैव प्रौद्योगिकी", "Biology", 10], ["Tissue Culture", "टिश्यू कल्चर", "ऊतक संवर्धन", "Biology", 10], ["Transplant", "ट्रांसप्लांट", "प्रत्यारोपण", "Biology", 9], ["Artificial", "आर्टिफिशियल", "कृत्रिम", "Science", 8], ["Microscope", "माइक्रोस्कोप", "सूक्ष्मदर्शी", "Biology", 9], ["Magnification", "मैग्निफिकेशन", "आवर्धन", "Biology", 10], ["Specimen", "स्पेसिमेन", "नमूना", "Biology", 9], ["Slide", "स्लाइड", "स्लाइड", "Biology", 6], ["Staining", "स्टेनिंग", "रंगना", "Biology", 9], ["Microscopic", "माइक्रोस्कोपिक", "सूक्ष्मदर्शीय", "Biology", 10], ["Macroscopic", "मैक्रोस्कोपिक", "स्थूलदर्शीय", "Biology", 10], ["Scientific Method", "साइंटिफिक मेथड", "वैज्ञानिक विधि", "Science", 10], ["Observation", "ऑब्जर्वेशन", "अवलोकन", "Science", 10], ["Hypothesis", "हाइपोथेसिस", "परिकल्पना", "Science", 8], ["Experiment", "एक्सपेरिमेंट", "प्रयोग", "Science", 9], ["Variable", "वेरिएबल", "चर", "Science", 8], ["Data", "डेटा", "आँकड़े", "Science", 7], ["Conclusion", "कन्क्लूजन", "निष्कर्ष", "Science", 8], ["Measurement", "मेज़रमेंट", "मापन", "Science", 6], ["SI Unit", "एस-आई यूनिट", "अंतरराष्ट्रीय इकाई", "Science", 8], ["Accuracy", "एक्यूरेसी", "शुद्धता", "Science", 9], ["Precision", "प्रिसिजन", "परिशुद्धता", "Science", 8], ["Safety", "सेफ्टी", "सुरक्षा", "Science", 6], ["Laboratory Glassware", "लैब ग्लासवेयर", "प्रयोगशाला काँच उपकरण", "Science", 10], ["Beaker", "बीकर", "बीकर", "Science", 6], ["Test Tube", "टेस्ट ट्यूब", "परखनली", "Science", 6], ["Bunsen Burner", "बन्सन बर्नर", "बन्सन बर्नर", "Science", 10], ["Scientific Theory", "साइंटिफिक थ्योरी", "वैज्ञानिक सिद्धांत", "Science", 10]];
+let customWords = JSON.parse(localStorage.getItem('svcustom')||'[]');
+let W = [...BASE_W, ...customWords];
+
+const $=id=>document.getElementById(id);
+let learned=new Set(JSON.parse(localStorage.getItem('svlearn')||'[]'));
+let fav=new Set(JSON.parse(localStorage.getItem('svfav')||'[]'));
+let st=Object.assign({xp:0,streak:0,lastPractice:'',correct:0,wrong:0,review:[],dailyLearned:0,dailyDate:'',classLevel:'All',sound:true,studentName:'',rfBest:0},JSON.parse(localStorage.getItem('svstudent')||'{}'));
+
+let filtered=[...W], deck=[...W], fi=0, pageLimit=40;
+let quiz=[], qi=0, qScore=0, qAnswered=false, qMode='en2hi';
+
+const todayKey=()=>new Date().toISOString().slice(0,10);
+
+/* Web Audio Sound FX */
+const AudioCtx=window.AudioContext||window.webkitAudioContext;
+let actx=null;
+function beep(type){
+  if(!st.sound||!AudioCtx)return;
+  if(!actx)actx=new AudioCtx();
+  const o=actx.createOscillator(), g=actx.createGain();
+  o.connect(g); g.connect(actx.destination);
+  if(type==='ok'){o.frequency.setValueAtTime(520,actx.currentTime);o.frequency.exponentialRampToValueAtTime(880,actx.currentTime+.12);g.gain.setValueAtTime(.12,actx.currentTime);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+.18);o.start();o.stop(actx.currentTime+.18)}
+  else if(type==='no'){o.type='sawtooth';o.frequency.setValueAtTime(220,actx.currentTime);o.frequency.linearRampToValueAtTime(140,actx.currentTime+.18);g.gain.setValueAtTime(.1,actx.currentTime);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+.2);o.start();o.stop(actx.currentTime+.2)}
+  else{o.frequency.setValueAtTime(660,actx.currentTime);g.gain.setValueAtTime(.06,actx.currentTime);g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+.08);o.start();o.stop(actx.currentTime+.08)}
+}
+
+let toastT;
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2300)}
+
+function rebuildWordList(){
+  W = [...BASE_W, ...customWords];
+  localStorage.setItem('svcustom', JSON.stringify(customWords));
+}
+
+function saveAll(){
+  localStorage.setItem('svlearn',JSON.stringify([...learned]));
+  localStorage.setItem('svfav',JSON.stringify([...fav]));
+  localStorage.setItem('svstudent',JSON.stringify(st));
+  syncUI();
+}
+function markPractice(){
+  const t=todayKey();
+  if(st.lastPractice!==t){
+    const d=new Date(); d.setDate(d.getDate()-1);
+    st.streak=(st.lastPractice===d.toISOString().slice(0,10))?st.streak+1:1;
+    st.lastPractice=t;
+  }
+}
+function getLevel(xp){
+  if(xp>=500)return '🚀 Level 5: Master Scientist';
+  if(xp>=250)return '⚛️ Level 4: Atom Expert';
+  if(xp>=120)return '🧪 Level 3: Lab Explorer';
+  if(xp>=40) return '🔭 Level 2: Science Seeker';
+  return '🌱 Level 1: Novice';
+}
+
+function renderMastery(){
+  const subs=[['Physics','⚡'],['Chemistry','🧪'],['Biology','🧬'],['Environment','🌍'],['Space','🚀'],['Science','🔎']];
+  $('masteryGrid').innerHTML=subs.map(([s,ico])=>{
+    const total=W.filter(w=>w[3]===s).length;
+    const done=W.filter(w=>w[3]===s&&learned.has(w[0])).length;
+    const pct=total?Math.round(done/total*100):0;
+    return `<div class="mastery-item" onclick="setCategory('${s}')">
+      <div class="mastery-top"><span>${ico} ${s}</span><span style="color:var(--primary)">${done}/${total} (${pct}%)</span></div>
+      <div class="prog-bar" style="height:8px"><div class="prog-fill" style="width:${pct}%"></div></div>
+    </div>`;
+  }).join('');
+}
+
+function syncUI(){
+  if(st.dailyDate!==todayKey()){st.dailyDate=todayKey();st.dailyLearned=0}
+  $('heroTotal').textContent=W.length;
+  $('heroLevel').textContent=getLevel(st.xp);
+  $('topXP').textContent=st.xp;
+  $('topStreak').textContent=st.streak;
+  $('stLearned').textContent=learned.size;
+  $('stFav').textContent=fav.size;
+  $('stRev').textContent=st.review.length;
+  $('rfBestHome').textContent='Best Score: '+(st.rfBest||0);
+  $('rfBest').textContent=st.rfBest||0;
+  const tot=st.correct+st.wrong;
+  $('stAcc').textContent=(tot?Math.round(st.correct/tot*100):0)+'%';
+  $('goalProgress').style.width=Math.min(100,st.dailyLearned/20*100)+'%';
+  $('goalText').textContent=st.dailyLearned+' / 20 words';
+  $('classLevel').value=st.classLevel||'All';
+  $('soundBtn').textContent=st.sound?'🔊':'🔇';
+  const bData=[
+    ['🌱 First Steps', learned.size>=1],
+    ['📚 Collector (25)', learned.size>=25],
+    ['🧠 Quiz Pro (100 XP)', st.xp>=100],
+    ['⚡ Speed Demon (100+)', (st.rfBest||0)>=100],
+    ['🔥 7-Day Streak', st.streak>=7],
+    ['🎯 Accuracy Ace', st.correct>=10]
+  ];
+  $('badgeRow').innerHTML=bData.map(b=>`<span class="badge ${b[1]?'unlocked':''}">${b[0]}</span>`).join('');
+  renderMastery();
+}
+
+/* Navigation */
+function switchView(v){
+  stopAutoPlay();
+  if(v!=='games')stopRapidFire(false);
+  document.querySelectorAll('.view').forEach(el=>el.classList.remove('active'));
+  $('view-'+v).classList.add('active');
+  document.querySelectorAll('.bnav button').forEach(b=>b.classList.toggle('active',b.dataset.view===v));
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(v==='dictionary')renderDict();
+  if(v==='flash')showFlash();
+  if(v==='games'){if(!mPairs.length)initMatchGame();if(!spWord)nextSpell();if(!scWord)initScramble();}
+  if(v==='quiz'&&!quiz.length)startQuiz();
+  if(v==='favorites')renderFavs();
+  if(v==='certificate'){if(st.studentName&&!$('certName').value)$('certName').value=st.studentName;drawCert();}
+  if(v==='worksheet')buildWorksheet();
+  if(v==='custom')renderCustomWords();
+}
+
+function openRapidFire(){switchView('games');switchGame('rapid');}
+
+/* Speech */
+function speak(w, rate=1){
+  if(!window.speechSynthesis){toast('Audio not supported on this device');return}
+  speechSynthesis.cancel();
+  const a=new SpeechSynthesisUtterance(w[0]); a.lang='en-IN'; a.rate=rate;
+  const b=new SpeechSynthesisUtterance(w[2]); b.lang='hi-IN'; b.rate=rate;
+  speechSynthesis.speak(a); speechSynthesis.speak(b);
+}
+function speakEnOnly(text, rate=1){
+  if(!window.speechSynthesis)return;
+  speechSynthesis.cancel();
+  const a=new SpeechSynthesisUtterance(text); a.lang='en-IN'; a.rate=rate;
+  speechSynthesis.speak(a);
+}
+function speakHiOnly(text, rate=1){
+  if(!window.speechSynthesis)return;
+  const b=new SpeechSynthesisUtterance(text); b.lang='hi-IN'; b.rate=rate;
+  speechSynthesis.speak(b);
+}
+
+/* Dictionary */
+function setCategory(c){$('cat').value=c;$('search').value='';$('clearSearch').style.display='none';pageLimit=40;switchView('dictionary')}
+function renderDict(){
+  const q=$('search').value.trim().toLowerCase(), c=$('cat').value, cls=$('clsFilter').value, sf=$('statusFilter').value;
+  $('clearSearch').style.display=q?'block':'none';
+  filtered=W.filter(w=>{
+    if(c!=='All'&&w[3]!==c)return false;
+    if(cls!=='All'&&String(w[4])!==cls)return false;
+    if(sf==='learned'&&!learned.has(w[0]))return false;
+    if(sf==='unlearned'&&learned.has(w[0]))return false;
+    if(sf==='fav'&&!fav.has(w[0]))return false;
+    if(sf==='custom'&&!w[5])return false;
+    return !q||w.slice(0,3).join(' ').toLowerCase().includes(q);
+  });
+  filtered.sort((a,b)=>$('sort').value==='za'?b[0].localeCompare(a[0]):a[0].localeCompare(b[0]));
+  $('dictCount').textContent=filtered.length+' words';
+  const slice=filtered.slice(0,pageLimit);
+  $('wordList').innerHTML=slice.map(w=>wordCardHTML(w)).join('')||'<p style="color:var(--muted)">No matching words found.</p>';
+  $('loadMoreBtn').style.display=filtered.length>pageLimit?'inline-flex':'none';
+}
+function wordCardHTML(w){
+  const en=JSON.stringify(w[0]), isL=learned.has(w[0]), isF=fav.has(w[0]);
+  return `<article class="card w-card">
+    <div>
+      <div class="w-top">
+        <span class="tag">${w[3]}</span>
+        <div style="display:flex;gap:4px">
+          ${w[5]?'<span class="tag tag-custom">Custom</span>':''}
+          <span class="tag tag-cls">Class ${w[4]}</span>
+        </div>
+      </div>
+      <div class="w-en">${w[0]}</div>
+      <div class="w-pr">${w[1]}</div>
+      <div class="w-hi">${w[2]}</div>
+    </div>
+    <div class="w-acts">
+      <button onclick='speak(W.find(x=>x[0]===${en}),1)' title="Listen">🔊</button>
+      <button onclick='speak(W.find(x=>x[0]===${en}),0.65)' title="Slow Voice">🐢</button>
+      <button class="${isL?'done':''}" onclick='toggleLearn(${en})'>${isL?'✓ Done':'Learn'}</button>
+      <button class="${isF?'favd':''}" onclick='toggleFav(${en})'>${isF?'★':'☆'}</button>
+    </div>
+  </article>`;
+}
+function toggleLearn(name){
+  if(learned.has(name)){learned.delete(name);toast('Removed from Learned')}
+  else{learned.add(name);st.review=st.review.filter(x=>x!==name);st.dailyDate=todayKey();st.dailyLearned++;st.xp+=5;markPractice();beep('ok');toast('✓ Learned! +5 XP')}
+  saveAll(); renderDict();
+}
+function toggleFav(name){
+  if(fav.has(name)){fav.delete(name);toast('Removed from Favorites')}
+  else{fav.add(name);beep('tap');toast('⭐ Saved to Favorites')}
+  saveAll(); renderDict(); renderFavs();
+}
+function renderFavs(){
+  const list=W.filter(w=>fav.has(w[0]));
+  $('favTotal').textContent=list.length+' saved';
+  $('favList').innerHTML=list.map(w=>wordCardHTML(w)).join('')||'<div class="card" style="grid-column:1/-1;text-align:center;color:var(--muted)">No favorite words yet. Tap ☆ on any word!</div>';
+}
+
+/* 3D Flashcards + Swipe + Auto-Play + Voice Check */
+function openDaily20(){deck=[...W].sort(()=>Math.random()-.5).slice(0,20);fi=0;switchView('flash');toast('📅 Daily 20 Cards loaded!')}
+function openReview(){
+  const words=W.filter(w=>st.review.includes(w[0]));
+  if(!words.length){toast('Revision Zone is empty! Great job 🎉');return}
+  deck=words; fi=0; switchView('flash'); toast('🔁 Revising '+words.length+' words');
+}
+function showFlash(){
+  if(!deck.length)deck=[...W];
+  const w=deck[fi%deck.length];
+  $('flashCard').classList.remove('flipped');
+  $('fcat').textContent=$('fcatBack').textContent=w[3];
+  $('fcls').textContent='Class '+w[4];
+  $('fword').textContent=w[0];
+  $('fpron').textContent=w[1];
+  $('fmeaning').textContent=w[2];
+  $('fwordBack').textContent=`${w[0]} (${w[1]})`;
+  $('fcount').textContent=`Card ${(fi%deck.length)+1} / ${deck.length}`;
+  $('flashProg').style.width=(((fi%deck.length)+1)/deck.length*100)+'%';
+  $('fMarkBtn').textContent=learned.has(w[0])?'✓ Learned':'Mark Learned';
+  $('fFavBtn').textContent=fav.has(w[0])?'★':'☆';
+  $('micStatus').textContent='';
+}
+function flipCard(){$('flashCard').classList.toggle('flipped');beep('tap')}
+function nextCard(){fi=(fi+1)%deck.length;showFlash()}
+function prevCard(){fi=(fi-1+deck.length)%deck.length;showFlash()}
+function speakCurrent(rate){speak(deck[fi%deck.length],rate)}
+function toggleFlashLearn(){toggleLearn(deck[fi%deck.length][0]);showFlash()}
+function toggleFlashFav(){toggleFav(deck[fi%deck.length][0]);showFlash()}
+
+/* Touch Swipe on Flashcards */
+let touchX=0;
+$('flashCard').addEventListener('touchstart',e=>{touchX=e.changedTouches[0].screenX},{passive:true});
+$('flashCard').addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].screenX-touchX;
+  if(Math.abs(dx)>55){stopAutoPlay();if(dx<0)nextCard();else prevCard();}
+},{passive:true});
+
+/* Auto-Play Hands-Free Mode */
+let autoOn=false, autoTimer1=null, autoTimer2=null;
+function toggleAutoPlay(){
+  if(autoOn){stopAutoPlay();toast('⏸️ Auto-Play paused')}
+  else{autoOn=true;$('autoPlayBtn').classList.add('active');$('autoPlayBtn').textContent='⏸️ Stop Auto';toast('🎧 Auto-Play started!');runAutoStep();}
+}
+function stopAutoPlay(){
+  autoOn=false; clearTimeout(autoTimer1); clearTimeout(autoTimer2);
+  if($('autoPlayBtn')){$('autoPlayBtn').classList.remove('active');$('autoPlayBtn').textContent='▶️ Auto-Play';}
+}
+function runAutoStep(){
+  if(!autoOn)return;
+  showFlash();
+  const w=deck[fi%deck.length];
+  speakEnOnly(w[0], 0.9);
+  autoTimer1=setTimeout(()=>{
+    if(!autoOn)return;
+    $('flashCard').classList.add('flipped');
+    speakHiOnly(w[2], 0.95);
+    autoTimer2=setTimeout(()=>{
+      if(!autoOn)return;
+      fi=(fi+1)%deck.length;
+      runAutoStep();
+    },2600);
+  },2200);
+}
+
+/* Voice Pronunciation Check (Web Speech Recognition) */
+function startPronCheck(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){$('micStatus').innerHTML='<span style="color:var(--warn)">🎙️ Voice check works best in Chrome on Android/Desktop.</span>';return}
+  stopAutoPlay();
+  const target=deck[fi%deck.length][0];
+  const rec=new SR(); rec.lang='en-IN'; rec.interimResults=false; rec.maxAlternatives=3;
+  $('micBtn').classList.add('pulse');
+  $('micStatus').innerHTML='<span style="color:var(--primary)">🎙️ Listening... Say "<b>'+target+'</b>"</span>';
+  rec.onresult=e=>{
+    $('micBtn').classList.remove('pulse');
+    const alts=Array.from(e.results[0]).map(r=>r.transcript.trim().toLowerCase());
+    const spoken=alts[0];
+    const cleanT=target.toLowerCase().replace(/[^a-z0-9 ]/g,'');
+    const matched=alts.some(a=>a.replace(/[^a-z0-9 ]/g,'').includes(cleanT)||cleanT.includes(a.replace(/[^a-z0-9 ]/g,'')));
+    if(matched){
+      st.xp+=5; markPractice(); saveAll(); beep('ok');
+      $('micStatus').innerHTML=`<span style="color:var(--accent)">✅ Great pronunciation! You said "${spoken}" (+5 XP)</span>`;
+    }else{
+      beep('no');
+      $('micStatus').innerHTML=`<span style="color:var(--danger)">❌ Heard "${spoken}". Tap 🐢 Slow and try again!</span>`;
+    }
+  };
+  rec.onerror=()=>{$('micBtn').classList.remove('pulse');$('micStatus').innerHTML='<span style="color:var(--muted)">🎙️ Could not hear clearly. Try again!</span>'};
+  rec.onend=()=>{$('micBtn').classList.remove('pulse')};
+  rec.start();
+}
+
+/* MINI-GAMES SWITCHER */
+function switchGame(g){
+  if(g!=='rapid')stopRapidFire(false);
+  ['rapid','match','spell','scram'].forEach(k=>{
+    $('game-'+k).classList.toggle('active',k===g);
+    $('gTab'+k[0].toUpperCase()+k.slice(1)).classList.toggle('active',k===g);
+  });
+}
+
+/* GAME 0: 60-SECOND RAPID FIRE */
+let rfInt=null, rfSec=60, rfScore=0, rfStreak=0, rfCorrectCnt=0, rfCurr=null, rfLocked=false;
+function startRapidFire(){
+  clearInterval(rfInt);
+  rfSec=60; rfScore=0; rfStreak=0; rfCorrectCnt=0; rfLocked=false;
+  $('rfStartScreen').style.display='none';
+  $('rfEndScreen').style.display='none';
+  $('rfPlayScreen').style.display='block';
+  $('rfScore').textContent='0';
+  $('rfCombo').textContent='x1';
+  $('rfTime').textContent='60s';
+  $('rfBar').style.width='100%';
+  nextRapidQ();
+  rfInt=setInterval(()=>{    rfSec--;
+    $('rfTime').textContent=rfSec+'s';
+    $('rfBar').style.width=(rfSec/60*100)+'%';
+    if(rfSec<=0)stopRapidFire(true);
+  },1000);
+}
+function nextRapidQ(){
+  rfLocked=false;
+  rfCurr=W[Math.floor(Math.random()*W.length)];
+  $('rfCat').textContent=rfCurr[3];
+  $('rfWord').textContent=rfCurr[0];
+  $('rfPron').textContent=rfCurr[1];
+  const cor=rfCurr[2];
+  const pool=W.filter(x=>x[2]!==cor).sort(()=>Math.random()-.5).slice(0,3).map(x=>x[2]);
+  const opts=[cor,...pool].sort(()=>Math.random()-.5);
+  $('rfOpts').innerHTML=opts.map(o=>`<button class="rf-opt" onclick='pickRapid(this,${JSON.stringify(o)},${JSON.stringify(cor)})'>${o}</button>`).join('');
+}
+function pickRapid(btn,val,cor){
+  if(rfLocked)return; rfLocked=true;
+  if(val===cor){
+    rfStreak++; rfCorrectCnt++;
+    const mult=rfStreak>=6?3:(rfStreak>=3?2:1);
+    rfScore+=10*mult;
+    $('rfCombo').textContent='x'+mult;
+    $('rfScore').textContent=rfScore;
+    btn.classList.add('ok'); beep('ok');
+  }else{
+    rfStreak=0; $('rfCombo').textContent='x1';
+    btn.classList.add('no','shake'); beep('no');
+    if(!st.review.includes(rfCurr[0]))st.review.push(rfCurr[0]);
+  }
+  setTimeout(()=>{if(rfSec>0&&rfInt)nextRapidQ()},240);
+}
+function stopRapidFire(showResult){
+  clearInterval(rfInt); rfInt=null;
+  if(!showResult){
+    $('rfPlayScreen').style.display='none';
+    $('rfEndScreen').style.display='none';
+    $('rfStartScreen').style.display='block';
+    return;
+  }
+  $('rfPlayScreen').style.display='none';
+  $('rfEndScreen').style.display='block';
+  const isNewBest=rfScore>(st.rfBest||0);
+  if(isNewBest){st.rfBest=rfScore; fireConfetti();}
+  const bonusXP=Math.min(50, Math.floor(rfScore/5));
+  st.xp+=bonusXP; markPractice(); saveAll();
+  $('rfFinalTitle').textContent=isNewBest?`🎉 NEW HIGH SCORE: ${rfScore}!`:`⚡ Final Score: ${rfScore}`;
+  $('rfFinalStats').textContent=`Correct Answers: ${rfCorrectCnt} • Earned +${bonusXP} XP • Best Record: ${st.rfBest}`;
+}
+function shareRapidWA(){
+  const txt=`⚡ *60-Second Rapid Fire Science Challenge!*\nI scored *${rfScore} points* (${rfCorrectCnt} correct)!\n🏆 High Score: ${st.rfBest}\nCan you beat my score?\n\n— SCIENCE CENTRE LEARNING HUB (Guided by Vishwendra Sir)`;
+  window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+}
+
+/* GAME 1: MATCH THE FOLLOWING */
+let mPairs=[], mSelL=null, mSelR=null, mMatched=0, mSec=0, mInt=null;
+function initMatchGame(){
+  clearInterval(mInt); mSec=0; mMatched=0; mSelL=null; mSelR=null;
+  $('mTimer').textContent='0s'; $('mStatus').textContent='';
+  mPairs=[...W].sort(()=>Math.random()-.5).slice(0,5);
+  const left=[...mPairs].sort(()=>Math.random()-.5);
+  const right=[...mPairs].sort(()=>Math.random()-.5);
+  $('mLeft').innerHTML=left.map(w=>`<button class="m-btn" data-en="${w[0].replace(/"/g,'&quot;')}" onclick="pickMatch('L',this)">${w[0]}</button>`).join('');
+  $('mRight').innerHTML=right.map(w=>`<button class="m-btn" data-en="${w[0].replace(/"/g,'&quot;')}" onclick="pickMatch('R',this)">${w[2]}</button>`).join('');
+  mInt=setInterval(()=>{mSec++;$('mTimer').textContent=mSec+'s'},1000);
+}
+function pickMatch(side,btn){
+  beep('tap');
+  if(side==='L'){document.querySelectorAll('#mLeft .m-btn').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');mSelL=btn;}
+  else{document.querySelectorAll('#mRight .m-btn').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');mSelR=btn;}
+  if(mSelL&&mSelR){
+    if(mSelL.dataset.en===mSelR.dataset.en){
+      mSelL.classList.remove('sel'); mSelR.classList.remove('sel');
+      mSelL.classList.add('matched'); mSelR.classList.add('matched');
+      mMatched++; beep('ok'); mSelL=null; mSelR=null;
+      if(mMatched===mPairs.length){
+        clearInterval(mInt); st.xp+=15; markPractice(); saveAll(); fireConfetti();
+        $('mStatus').textContent=`🎉 Awesome! All 5 matched in ${mSec}s! +15 XP`;
+      }
+    }else{
+      const a=mSelL, b=mSelR; mSelL=null; mSelR=null;
+      a.classList.add('err','shake'); b.classList.add('err','shake'); beep('no');
+      setTimeout(()=>{a.classList.remove('sel','err','shake');b.classList.remove('sel','err','shake')},450);
+    }
+  }
+}
+
+/* GAME 2: SPELLING BEE */
+let spWord=null, spHintIdx=0;
+function nextSpell(){
+  spWord=W[Math.floor(Math.random()*W.length)]; spHintIdx=0;
+  $('spCat').textContent=spWord[3]; $('spHindi').textContent=spWord[2];
+  $('spPron').textContent='('+spWord[1]+')'; $('spInput').value=''; $('spMsg').textContent='';
+}
+function speakSpell(r){if(spWord)speakEnOnly(spWord[0],r)}
+function hintSpell(){if(!spWord)return;spHintIdx=Math.min(spWord[0].length,spHintIdx+2);$('spInput').value=spWord[0].slice(0,spHintIdx);$('spInput').focus();}
+function checkSpell(){
+  if(!spWord)return;
+  const val=$('spInput').value.trim().toLowerCase(), target=spWord[0].toLowerCase();
+  if(val===target){
+    st.xp+=10; st.correct++; markPractice(); saveAll(); beep('ok');
+    $('spMsg').innerHTML=`<span style="color:var(--accent)">✅ Correct! "${spWord[0]}" • +10 XP</span>`;
+    setTimeout(nextSpell,1200);
+  }else{
+    st.wrong++; saveAll(); beep('no');
+    $('spMsg').innerHTML=`<span style="color:var(--danger)">❌ Try again! Starts with "${spWord[0][0]}" (${spWord[0].length} letters)</span>`;
+  }
+}
+$('spInput').addEventListener('keydown',e=>{if(e.key==='Enter')checkSpell()});
+
+/* GAME 3: WORD SCRAMBLE */
+let scWord=null, scLetters=[], scPicked=[];
+function initScramble(){
+  const pool=W.filter(w=>/^[A-Za-z]{4,10}$/.test(w[0]));
+  scWord=pool[Math.floor(Math.random()*pool.length)];
+  scLetters=scWord[0].toUpperCase().split('').map((ch,idx)=>({ch,idx})).sort(()=>Math.random()-.5);
+  scPicked=[]; $('scCat').textContent=scWord[3]; $('scHindi').textContent=scWord[2]; $('scMsg').textContent='';
+  renderScramble();
+}
+function renderScramble(){
+  $('scSlots').innerHTML=scPicked.map((p,i)=>`<button class="letter-tile" onclick="unpickScram(${i})">${p.ch}</button>`).join('')||'<span style="color:var(--muted);font-size:13px;align-self:center">Tap letters below to build the word</span>';
+  $('scBank').innerHTML=scLetters.map((item,i)=>{
+    const used=scPicked.some(p=>p.idx===item.idx);
+    return `<button class="letter-tile ${used?'used':''}" onclick="pickScram(${i})">${item.ch}</button>`;
+  }).join('');
+}
+function pickScram(bankIdx){
+  const item=scLetters[bankIdx]; if(scPicked.some(p=>p.idx===item.idx))return;
+  scPicked.push(item); beep('tap'); renderScramble();
+  const built=scPicked.map(p=>p.ch).join('');
+  if(built.length===scWord[0].length){
+    if(built===scWord[0].toUpperCase()){
+      st.xp+=10; markPractice(); saveAll(); beep('ok'); fireConfetti();
+      $('scMsg').innerHTML=`<span style="color:var(--accent)">🎉 Brilliant! ${scWord[0]} = ${scWord[2]} (+10 XP)</span>`;
+      setTimeout(initScramble,1400);
+    }else{beep('no');$('scMsg').innerHTML=`<span style="color:var(--danger)">❌ Not quite right! Tap a letter to undo or click Clear.</span>`;}
+  }
+}
+function unpickScram(i){scPicked.splice(i,1);$('scMsg').textContent='';renderScramble()}
+function clearScramble(){scPicked=[];$('scMsg').textContent='';renderScramble()}
+function hintScramble(){
+  const target=scWord[0].toUpperCase(), nextPos=scPicked.length;
+  if(nextPos>=target.length)return;
+  const idx=scLetters.findIndex(item=>item.ch===target[nextPos]&&!scPicked.some(p=>p.idx===item.idx));
+  if(idx>=0)pickScram(idx);
+}
+
+/* SMART QUIZ */
+function setQuizMode(m){qMode=m;$('modeEN').classList.toggle('active',m==='en2hi');$('modeHI').classList.toggle('active',m==='hi2en');startQuiz();}
+function startQuiz(){
+  const c=$('qCat').value;
+  const pool=c==='All'?W:W.filter(w=>w[3]===c);
+  quiz=[...pool].sort(()=>Math.random()-.5).slice(0,10);
+  qi=0; qScore=0;
+  $('qRevBtn').style.display='none'; $('qWaBtn').style.display='none'; $('qCertBtn').style.display='none';
+  showQuestion();
+}
+function showQuestion(){
+  $('qScorePill').textContent=`Score: ${qScore}/${quiz.length}`;
+  $('qProg').style.width=(qi/quiz.length*100)+'%';
+  if(qi>=quiz.length){
+    $('qTag').textContent='Quiz Complete';
+    $('qText').textContent=`🎉 You scored ${qScore} out of ${quiz.length}!`;
+    $('qOpts').innerHTML='';
+    $('qNextBtn').textContent='Play Again 🔄'; $('qNextBtn').onclick=startQuiz;
+    $('qWaBtn').style.display='inline-flex'; $('qCertBtn').style.display='inline-flex';
+    if(st.review.length)$('qRevBtn').style.display='inline-flex';
+    if(qScore>=7){st.xp+=25;saveAll();$('qFeedback').textContent='🏆 Super Star! Bonus +25 XP unlocked!';fireConfetti()}
+    else{$('qFeedback').textContent='Practice again to score 7+ for +25 XP bonus!'}
+    return;
+  }
+  const w=quiz[qi], isEN=qMode==='en2hi', correct=isEN?w[2]:w[0];
+  const pool=W.filter(x=>(isEN?x[2]:x[0])!==correct).sort(()=>Math.random()-.5).slice(0,3).map(x=>isEN?x[2]:x[0]);
+  const opts=[correct,...pool].sort(()=>Math.random()-.5);
+  qAnswered=false;
+  $('qTag').textContent=`Q${qi+1} • ${w[3]} • Class ${w[4]}`;
+  $('qText').textContent=isEN?`Hindi meaning of “${w[0]}”?`:`English word for “${w[2]}”?`;
+  $('qOpts').innerHTML=opts.map((o,i)=>`<button class="q-opt" onclick='pickOpt(this,${JSON.stringify(o)},${JSON.stringify(correct)})'><span>${String.fromCharCode(65+i)}.</span> ${o}</button>`).join('');
+  $('qFeedback').textContent=''; $('qNextBtn').textContent='Next Question →'; $('qNextBtn').onclick=nextQuestion;
+}
+function pickOpt(btn,val,cor){
+  if(qAnswered)return; qAnswered=true;
+  document.querySelectorAll('.q-opt').forEach(b=>{b.disabled=true;if(b.textContent.slice(3).trim()===cor)b.classList.add('correct');});
+  if(val===cor){qScore++;st.correct++;st.xp+=10;markPractice();beep('ok');$('qFeedback').textContent='✅ Correct! +10 XP';}
+  else{st.wrong++;btn.classList.add('wrong');beep('no');if(!st.review.includes(quiz[qi][0]))st.review.push(quiz[qi][0]);$('qFeedback').textContent=`❌ Correct: ${cor} (Added to Revision Zone)`;}
+  saveAll(); $('qScorePill').textContent=`Score: ${qScore}/${quiz.length}`;
+}
+function nextQuestion(){if(!qAnswered){toast('Please select an answer first');return}qi++;showQuestion()}
+function shareQuizWA(){
+  const txt=`🔬 *Science Vocabulary Master 500*\nI scored *${qScore}/${quiz.length}* in the Science Quiz!\n⭐ Total XP: ${st.xp} | 📚 Words Learned: ${learned.size}\n\n— SCIENCE CENTRE LEARNING HUB (Guided by Vishwendra Sir)`;
+  window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+}
+
+/* DIGITAL CERTIFICATE */
+function drawCert(){
+  const c=$('certCanvas'), ctx=c.getContext('2d');
+  const name=($('certName').value.trim()||'Brilliant Student'), cls=$('certClass').value;
+  if($('certName').value.trim()){st.studentName=$('certName').value.trim();localStorage.setItem('svstudent',JSON.stringify(st))}
+  const bg=ctx.createLinearGradient(0,0,1200,850);
+  bg.addColorStop(0,'#fffdf7'); bg.addColorStop(1,'#eef4ff');
+  ctx.fillStyle=bg; ctx.fillRect(0,0,1200,850);
+  ctx.strokeStyle='#1e3a8a'; ctx.lineWidth=18; ctx.strokeRect(24,24,1152,802);
+  ctx.strokeStyle='#d97706'; ctx.lineWidth=4; ctx.strokeRect(44,44,1112,762);
+  ctx.fillStyle='#d97706'; ctx.font='bold 28px serif'; ctx.textAlign='center';
+  [[68,78],[1132,78],[68,785],[1132,785]].forEach(([x,y])=>ctx.fillText('★',x,y));
+  ctx.fillStyle='#1e3a8a'; ctx.font='800 32px system-ui,sans-serif';
+  ctx.fillText('SCIENCE CENTRE LEARNING HUB',600,125);
+  ctx.fillStyle='#64748b'; ctx.font='700 19px system-ui,sans-serif';
+  ctx.fillText('SCIENCE VOCABULARY MASTER 500 • DIGITAL ACHIEVEMENT AWARD',600,160);
+  ctx.fillStyle='#b45309'; ctx.font='900 62px Georgia,serif';
+  ctx.fillText('Certificate of Excellence',600,255);
+  ctx.fillStyle='#334155'; ctx.font='600 24px system-ui,sans-serif';
+  ctx.fillText('This certificate is proudly presented to',600,320);
+  ctx.fillStyle='#1d4ed8'; ctx.font='900 56px Georgia,serif';
+  ctx.fillText(name,600,400);
+  ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(300,420); ctx.lineTo(900,420); ctx.stroke();
+  ctx.fillStyle='#1e293b'; ctx.font='700 24px system-ui,sans-serif'; ctx.fillText(`(${cls})`,600,462);
+  ctx.fillStyle='#334155'; ctx.font='500 23px system-ui,sans-serif';
+  ctx.fillText('for outstanding dedication and active progress in mastering Science Vocabulary.',600,515);
+  const pills=[`⭐ ${st.xp} XP Points`, `📚 ${learned.size} Words Learned`, `⚡ Best Fire: ${st.rfBest||0}`];
+  pills.forEach((p,i)=>{
+    const px=240+i*360;
+    ctx.fillStyle='#eff6ff'; ctx.strokeStyle='#3b82f6'; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.roundRect(px-135,550,270,54,27); ctx.fill(); ctx.stroke();
+    ctx.fillStyle='#1e3a8a'; ctx.font='800 21px system-ui,sans-serif'; ctx.fillText(p,px,585);
+  });
+  const dStr=new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  ctx.fillStyle='#1e293b'; ctx.font='700 20px system-ui,sans-serif'; ctx.fillText(dStr,240,720);
+  ctx.strokeStyle='#64748b'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(130,732); ctx.lineTo(350,732); ctx.stroke();
+  ctx.fillStyle='#64748b'; ctx.font='600 17px system-ui,sans-serif'; ctx.fillText('Date of Issue',240,760);
+  ctx.fillStyle='#f59e0b'; ctx.beginPath(); ctx.arc(600,715,54,0,Math.PI*2); ctx.fill();
+  ctx.strokeStyle='#fff'; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(600,715,44,0,Math.PI*2); ctx.stroke();
+  ctx.fillStyle='#fff'; ctx.font='900 16px system-ui,sans-serif'; ctx.fillText('VERIFIED',600,712);
+  ctx.font='700 13px system-ui,sans-serif'; ctx.fillText('STAR LEARNER',600,732);
+  ctx.fillStyle='#1e3a8a'; ctx.font='italic 700 26px Georgia,serif'; ctx.fillText('Vishwendra Sir',960,720);
+  ctx.strokeStyle='#64748b'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(830,732); ctx.lineTo(1090,732); ctx.stroke();
+  ctx.fillStyle='#64748b'; ctx.font='600 17px system-ui,sans-serif'; ctx.fillText('Founder & Guide',960,760);
+}
+function downloadCert(){
+  drawCert(); const a=document.createElement('a');
+  a.download='Science_Certificate_'+($('certName').value.trim()||'Student').replace(/\s+/g,'_')+'.png';
+  a.href=$('certCanvas').toDataURL('image/png'); a.click(); toast('🏆 Certificate Downloaded!');
+}
+function shareCertWA(){
+  const name=$('certName').value.trim()||'I';
+  const txt=`🏆 *Science Vocabulary Certificate Unlocked!*\nStudent: *${name}* (${$('certClass').value})\n⭐ XP: ${st.xp} | 📚 Learned: ${learned.size} Words | ${getLevel(st.xp)}\n\n— SCIENCE CENTRE LEARNING HUB (Guided by Vishwendra Sir)`;
+  window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+}
+
+/* PRINTABLE WORKSHEET */
+function buildWorksheet(){
+  const c=$('wsCat').value, cls=$('wsCls').value, n=parseInt($('wsCount').value,10), showAns=$('wsAns').checked;
+  let pool=W.filter(w=>(c==='All'||w[3]===c)&&(cls==='All'||String(w[4])===cls));
+  if(!pool.length)pool=[...W];
+  const list=[...pool].sort(()=>Math.random()-.5).slice(0,n);
+  $('wsOutput').innerHTML=`
+    <div class="ws-header">
+      <h2>SCIENCE CENTRE LEARNING HUB — Vocabulary Test Sheet</h2>
+      <p>Guided by Vishwendra Sir • Subject: ${c} • Level: ${cls==='All'?'All Classes':'Class '+cls}</p>
+    </div>
+    <div class="ws-meta">
+      <span>Student Name: ______________________</span>
+      <span>Class: _________</span>
+      <span>Date: ${new Date().toLocaleDateString('en-IN')}</span>
+      <span>Marks: ____ / ${list.length}</span>
+    </div>
+    <p style="font-size:13px;margin:0 0 10px"><b>Instructions:</b> Write the correct Hindi meaning (हिंदी अर्थ) for each Science vocabulary word below.</p>
+    <table class="ws-table">
+      <thead><tr><th style="width:45px">#</th><th>English Word</th><th>Pronunciation</th><th>Hindi Meaning (हिंदी अर्थ)</th></tr></thead>
+      <tbody>${list.map((w,i)=>`<tr><td>${i+1}</td><td><b>${w[0]}</b></td><td>${w[1]}</td><td>${showAns?`<b>${w[2]}</b>`:''}</td></tr>`).join('')}</tbody>
+    </table>`;
+}
+
+/* CUSTOM WORDS + JSON BACKUP */
+function addCustomWord(){
+  const en=$('cwEn').value.trim(), pr=$('cwPr').value.trim(), hi=$('cwHi').value.trim();
+  const cat=$('cwCat').value, cls=parseInt($('cwCls').value,10);
+  if(!en||!hi){toast('Please enter English word & Hindi meaning');return}
+  customWords.unshift([en, pr||en, hi, cat, cls, 1]);
+  rebuildWordList(); saveAll(); renderCustomWords();
+  $('cwEn').value=''; $('cwPr').value=''; $('cwHi').value='';
+  beep('ok'); toast('✅ Word added to your app!');
+}
+function deleteCustomWord(idx){
+  customWords.splice(idx,1);
+  rebuildWordList(); saveAll(); renderCustomWords();
+  toast('🗑️ Custom word removed');
+}
+function renderCustomWords(){
+  $('cwCount').textContent=customWords.length;
+  $('cwList').innerHTML=customWords.map((w,i)=>`<article class="card w-card">
+    <div>
+      <div class="w-top"><span class="tag">${w[3]}</span><span class="tag tag-cls">Class ${w[4]}</span></div>
+      <div class="w-en">${w[0]}</div>
+      <div class="w-pr">${w[1]}</div>
+      <div class="w-hi">${w[2]}</div>
+    </div>
+    <div class="w-acts">
+      <button onclick='speak(${JSON.stringify(w)},1)'>🔊 Listen</button>
+      <button style="color:var(--danger)" onclick="deleteCustomWord(${i})">🗑️ Delete</button>
+    </div>
+  </article>`).join('')||'<div class="card" style="grid-column:1/-1;text-align:center;color:var(--muted)">No custom words added yet. Add your school chapter words above!</div>';
+}
+function exportBackup(){
+  const data={learned:[...learned],fav:[...fav],student:st,custom:customWords,exportedAt:new Date().toISOString()};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='Science_Vocab_Backup_'+todayKey()+'.json'; a.click();
+  toast('💾 Backup downloaded!');
+}
+function importBackup(e){
+  const file=e.target.files[0]; if(!file)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const d=JSON.parse(r.result);
+      if(Array.isArray(d.learned))learned=new Set(d.learned);
+      if(Array.isArray(d.fav))fav=new Set(d.fav);
+      if(d.student)st=Object.assign(st,d.student);
+      if(Array.isArray(d.custom))customWords=d.custom;
+      rebuildWordList(); saveAll(); renderCustomWords();
+      toast('✅ Backup restored successfully!');
+    }catch{toast('❌ Invalid backup file')}
+  };
+  r.readAsText(file);
+}
+
+/* Confetti */
+function fireConfetti(){
+  const c=$('confetti'), ctx=c.getContext('2d');
+  c.width=innerWidth; c.height=innerHeight;
+  const p=Array.from({length:80},()=>({x:Math.random()*c.width,y:-20,vx:(Math.random()-.5)*6,vy:Math.random()*5+3,s:Math.random()*7+4,col:['#2563eb','#10b981','#f59e0b','#ef4444','#a855f7'][Math.floor(Math.random()*5)]}));
+  let frames=0;
+  (function loop(){
+    ctx.clearRect(0,0,c.width,c.height);
+    p.forEach(k=>{k.x+=k.vx;k.y+=k.vy;k.vy+=.12;ctx.fillStyle=k.col;ctx.fillRect(k.x,k.y,k.s,k.s)});
+    if(++frames<95)requestAnimationFrame(loop);else ctx.clearRect(0,0,c.width,c.height);
+  })();
+}
+
+function resetProgress(){
+  if(!confirm('Reset all XP, streak, learned words, high score and favorites?'))return;
+  localStorage.removeItem('svlearn'); localStorage.removeItem('svfav'); localStorage.removeItem('svstudent');
+  location.reload();
+}
+
+/* Events */
+$('search').oninput=()=>{pageLimit=40;renderDict()};
+$('clearSearch').onclick=()=>{$('search').value='';renderDict()};
+$('cat').onchange=()=>{pageLimit=40;renderDict()};
+$('clsFilter').onchange=()=>{pageLimit=40;renderDict()};
+$('statusFilter').onchange=()=>{pageLimit=40;renderDict()};
+$('sort').onchange=renderDict;
+$('loadMoreBtn').onclick=()=>{pageLimit+=40;renderDict()};
+$('classLevel').onchange=()=>{st.classLevel=$('classLevel').value;$('clsFilter').value=st.classLevel;saveAll()};
+$('soundBtn').onclick=()=>{st.sound=!st.sound;saveAll();toast(st.sound?'🔊 Sound On':'🔇 Sound Muted')};
+$('themeSelect').onchange=e=>{document.body.dataset.theme=e.target.value;localStorage.setItem('svtheme',e.target.value)};
+
+document.addEventListener('keydown',e=>{
+  if(!$('view-flash').classList.contains('active'))return;
+  if(e.code==='Space'){e.preventDefault();flipCard()}
+  if(e.code==='ArrowRight'){stopAutoPlay();nextCard()}
+  if(e.code==='ArrowLeft'){stopAutoPlay();prevCard()}
+});
+
+
+/* Share & Download Self HTML File */
+function getSelfHTMLBlob(){
+  const cleanHTML = '<!doctype html>\n' + document.documentElement.outerHTML;
+  return new Blob([cleanHTML], {type: 'text/html;charset=utf-8'});
+}
+function downloadSelfHTML(){
+  try{
+    const blob = getSelfHTMLBlob();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'Science_Vocabulary_Master_500_ProMax.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href), 1500);
+    toast('⬇️ HTML File Downloading...');
+  }catch(e){
+    toast('❌ Download blocked in this viewer');
+  }
+}
+async function shareAppFile(){
+  const fileName = 'Science_Vocabulary_Master_500_ProMax.html';
+  const blob = getSelfHTMLBlob();
+  const file = new File([blob], fileName, {type: 'text/html'});
+  if(navigator.canShare && navigator.canShare({files:[file]})){
+    try{
+      await navigator.share({
+        title: 'Science Vocabulary Master 500 — Pro Max',
+        text: '🔬 500+ Science Words (English + Hindi) • 3D Flashcards • Games • Quiz — SCIENCE CENTRE LEARNING HUB (Guided by Vishwendra Sir)',
+        files: [file]
+      });
+      toast('✅ File Shared!');
+      return;
+    }catch(err){
+      if(err && err.name === 'AbortError') return;
+    }
+  }
+  if(navigator.share){
+    try{
+      await navigator.share({
+        title: 'Science Vocabulary Master 500 — Pro Max',
+        text: '🔬 Science Vocabulary Master 500 — SCIENCE CENTRE LEARNING HUB (Guided by Vishwendra Sir)',
+        url: location.href
+      });
+      return;
+    }catch(err){
+      if(err && err.name === 'AbortError') return;
+    }
+  }
+  downloadSelfHTML();
+  toast('⬇️ File downloaded! Now share it on WhatsApp');
+}
+
+/* Init */
+const savedTheme=localStorage.getItem('svtheme')||'smart';
+document.body.dataset.theme=savedTheme; $('themeSelect').value=savedTheme;
+syncUI();
+</script>
+
+</body></html>
