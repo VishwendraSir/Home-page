@@ -409,7 +409,7 @@
 
       <!-- Parent Tabs -->
       <div class="flex border-b border-slate-200 bg-slate-50 px-4 pt-2 gap-2 overflow-x-auto">
-        <button onclick="switchParentTab('report')" id="ptab-report" class="parent-tab px-4 py-2 font-bold text-sm rounded-t-xl bg-white text-indigo-700 border-t border-x border-slate-200">📊 Progress</button>
+        <button onclick="switchParentTab('coach')" id="ptab-coach" class="parent-tab px-4 py-2 font-bold text-sm rounded-t-xl text-slate-600">🧠 Coach</button><button onclick="switchParentTab('planner')" id="ptab-planner" class="parent-tab px-4 py-2 font-bold text-sm rounded-t-xl text-slate-600">📅 Planner</button><button onclick="switchParentTab('report')" id="ptab-report" class="parent-tab px-4 py-2 font-bold text-sm rounded-t-xl bg-white text-indigo-700 border-t border-x border-slate-200">📊 Progress</button>
         <button onclick="switchParentTab('videos')" id="ptab-videos" class="parent-tab px-4 py-2 font-bold text-sm rounded-t-xl text-slate-600 hover:bg-white/60">🎬 Video Manager</button>
         <button onclick="switchParentTab('photos')" id="ptab-photos" class="parent-tab px-4 py-2 font-bold text-sm rounded-t-xl text-slate-600 hover:bg-white/60">📸 Custom Photos</button>
         <button onclick="switchParentTab('settings')" id="ptab-settings" class="parent-tab px-4 py-2 font-bold text-sm rounded-t-xl text-slate-600 hover:bg-white/60">⚙️ Settings</button>
@@ -485,7 +485,7 @@
       parentPin: '1234',
       videos: DEFAULT_VIDEOS,
       customPhotos: [], // { id, en, hi, dataUrl }
-      questionProgress: {}, questionSeeds: {}, answeredQuestions: {}, wrongAnswers: [], adaptiveStats: {}, dailyChallenge: {date:'',completed:0,score:0,startedAt:0,active:false}
+      questionProgress: {}, questionSeeds: {}, answeredQuestions: {}, wrongAnswers: [], adaptiveStats: {}, planProgress: {}, dailyChallenge: {date:'',completed:0,score:0,startedAt:0,active:false}
     };
 
     let appState = loadState();
@@ -1506,11 +1506,25 @@
     }
     function closeParentModal(){document.getElementById('parentModal').classList.add('hidden');}
     function switchParentTab(tab){pendingParentTab=tab;renderParentTab(tab);}
+    function renderCoachPlanner(tab,body){
+      const hi=appState.lang==='hi',mastery=getAdaptiveMastery(),weak=mastery.find(m=>m.attempts>=3),focus=weak?weak.category:'math';
+      const labels={math:hi?'गणित':'Math',language:hi?'भाषा':'Language',science:hi?'विज्ञान':'Science',habits:hi?'अच्छी आदतें':'Good Habits',brain:hi?'दिमागी खेल':'Brain Games'};
+      if(tab==='coach'){
+        body.innerHTML='<div class="rounded-3xl p-5 bg-gradient-to-br from-purple-100 to-emerald-100"><div class="text-5xl">🧑‍🏫</div><h3 class="text-2xl font-bold text-indigo-800">'+(hi?'मनुश्री की Learning Coach':'Learning Coach')+'</h3><p class="mt-2">'+(hi?'रोज़ थोड़ा अभ्यास तुम्हें सुपरस्टार बनाएगा!':'A little practice every day makes you a superstar!')+'</p></div><div class="rounded-2xl border p-4 bg-white"><h4 class="font-bold text-lg">🎯 '+(hi?'आज का सुझाव':'Today’s Focus')+'</h4><p>'+labels[focus]+' · '+(weak?weak.accuracy+'% accuracy':'Start practice to build your progress')+'</p><button onclick="startCoachFocus(\''+focus+'\')" class="mt-3 bg-indigo-600 text-white rounded-xl px-4 py-3 font-bold">🎮 '+(hi?'अभ्यास शुरू करें':'Start Practice')+'</button></div><h4 class="font-bold text-lg">📊 '+(hi?'विषय प्रगति':'Subject Progress')+'</h4>'+(mastery.length?mastery.map(m=>'<div class="p-3 bg-white rounded-xl border"><div class="flex justify-between font-bold"><span>'+labels[m.category]+'</span><span>'+m.accuracy+'%</span></div><div class="h-2 bg-slate-100 rounded-full"><div class="h-2 bg-indigo-500 rounded-full" style="width:'+m.accuracy+'%"></div></div></div>').join(''):'<p class="text-slate-500">Play games to see progress.</p>')+'<p class="p-3 bg-amber-50 rounded-xl">💡 '+(hi?'गलती होना सीखने का हिस्सा है। फिर कोशिश करो!':'Mistakes are part of learning. Try again!')+'</p><button onclick="switchParentTab(\'planner\')" class="w-full bg-emerald-600 text-white rounded-xl p-3 font-bold">📅 Weekly Planner</button>';
+      }else{
+        const start=new Date();start.setHours(0,0,0,0);start.setDate(start.getDate()-((start.getDay()+6)%7));
+        const days=hi?['सोम','मंगल','बुध','गुरु','शुक्र','शनि','रवि']:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+        const cats=['math','language','science','habits','brain'],progress=appState.planProgress||{},tasks=hi?['3 खेल खेलो','गलतियों का अभ्यास','एक प्रश्न सुनो']:['Play 3 games','Practice mistakes','Listen to a question'];
+        body.innerHTML='<div class="p-4 rounded-2xl bg-gradient-to-r from-indigo-100 to-green-100"><h3 class="text-xl font-bold">📅 7-Day Study Plan</h3><p>10–15 minutes daily · Check tasks when complete</p></div>'+Array.from({length:7},(_,i)=>{const d=new Date(start);d.setDate(start.getDate()+i);const key=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'),cat=cats[i%5],done=progress[key]||[];return '<div class="p-4 rounded-2xl border bg-white"><div class="flex justify-between font-bold"><span>'+days[i]+' · '+(d.getMonth()+1)+'/'+d.getDate()+'</span><span>'+labels[cat]+'</span></div>'+tasks.map((t,j)=>'<label class="flex items-center gap-2 py-2"><input type="checkbox" '+(done.includes(j)?'checked':'')+' onchange="togglePlanTask(\''+key+'\','+j+',this.checked)"><span>'+t+'</span></label>').join('')+'<button onclick="startCoachFocus(\''+cat+'\')" class="bg-indigo-600 text-white rounded-lg px-3 py-2 font-bold">Practice</button></div>';}).join('');
+      }
+    }
+    function togglePlanTask(date,task,checked){appState.planProgress=appState.planProgress||{};const a=appState.planProgress[date]||[];appState.planProgress[date]=checked?[...new Set([...a,task])]:a.filter(x=>x!==task);saveState();switchParentTab('planner');}
+    function startCoachFocus(category){const pool=GAMES.filter(g=>g.cat===category);if(!pool.length)return;closeParentModal();loadGame(pool[Math.floor(Math.random()*pool.length)].id);}
     function renderParentTab(tab){
       document.querySelectorAll('.parent-tab').forEach(b=>b.className='parent-tab px-4 py-2 font-bold text-sm rounded-t-xl text-slate-600 hover:bg-white/60');
       const active=document.getElementById('ptab-'+tab); if(active) active.className='parent-tab px-4 py-2 font-bold text-sm rounded-t-xl bg-white text-indigo-700 border-t border-x border-slate-200';
       const body=document.getElementById('parentTabBody');
-      if(tab==='report'){
+      if(tab==='coach'||tab==='planner'){renderCoachPlanner(tab,body);} else if(tab==='report'){
         const mastery=getAdaptiveMastery();body.innerHTML='<h4 class="text-lg font-bold">Progress Report</h4><p>⭐ Total stars: '+appState.stars+'</p><p>🔥 Streak: '+appState.streak+' days</p><p>🎮 Games played: '+Object.values(appState.completedGames).reduce((a,b)=>a+b,0)+'</p><p>📝 Mistakes to practice: '+(appState.wrongAnswers||[]).length+'</p><button onclick="practiceMistakes()" class="mt-3 bg-amber-500 text-white font-bold rounded-xl px-4 py-3">📝 Practice Mistakes</button><h4 class="font-bold mt-5 text-indigo-700">🧠 Smart Learning Insights</h4><p class="text-sm text-slate-600">Accuracy by category (based on recorded answers)</p><div class="space-y-2 mt-2">'+(mastery.length?mastery.map(m=>'<div class="p-3 bg-indigo-50 rounded-xl"><div class="flex justify-between font-bold capitalize"><span>'+m.category+'</span><span>'+m.accuracy+'% · '+m.attempts+' tries</span></div><div class="w-full h-2 bg-white rounded-full mt-2 overflow-hidden"><div class="h-2 bg-indigo-500 rounded-full" style="width:'+m.accuracy+'%"></div></div></div>').join(''):'<p class="text-sm text-slate-500">Play some games to unlock learning insights.</p>')+'<div class="p-3 mt-3 rounded-xl bg-amber-50 text-amber-800"><b>Recommended focus:</b> '+(mastery.length&&mastery[0].attempts>=3?mastery[0].category:'Play 3 questions in different subjects to identify a focus topic.')+'</div><div class="grid grid-cols-2 gap-3 mt-4">'+Object.entries(appState.categoryStars).map(([k,v])=>'<div class="p-3 bg-indigo-50 rounded-xl capitalize">'+k+': '+v+' ⭐</div>').join('')+'</div>';
       } else if(tab==='videos'){
         body.innerHTML='<h4 class="font-bold">Video Manager</h4><input id="newVidTitle" class="border rounded-xl p-2 w-full" placeholder="Video title"><input id="newVidUrl" class="border rounded-xl p-2 w-full mt-2" placeholder="YouTube URL"><button onclick="addParentVideo()" class="mt-2 bg-indigo-600 text-white rounded-xl px-4 py-2">Add Video</button><div class="mt-4 space-y-2">'+(appState.videos||[]).map(v=>'<div class="p-2 bg-slate-100 rounded-lg">'+v.title+' <button onclick="deleteParentVideo(\''+v.id+'\')" class="text-red-600 float-right">Delete</button></div>').join('')+'</div>';
