@@ -20,4 +20,5 @@ function importData(e){let f=e.target.files[0];if(!f)return;let reader=new FileR
 function clearAll(){if(confirm('Delete ALL tracker data from this browser?')){data=[];save()}}
 function download(txt,name,type){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-render();</script></body></html>
+render();</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
