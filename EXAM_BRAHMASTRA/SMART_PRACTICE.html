@@ -23,7 +23,7 @@ let repositoryBankLoaded=false,repositoryBankLoading=false;
 function extractRecords(x){if(Array.isArray(x))return x;for(const k of ['records','questions','items','questionBank','data'])if(Array.isArray(x?.[k]))return x[k];if(x?.data&&Array.isArray(x.data.records))return x.data.records;return []}
 function normRecord(q,i,source){
  const opts=q.options||q.options_hi||q.options_en||q.choices||q.option_list||[];
- let answer=q.correct_index??q.answer_index??q.correctAnswer??q.correct_answer??q.answer??q.correct_option??q.correct;
+ let answer=q.correct_index!==undefined?q.correct_index:q.answer_index!==undefined?q.answer_index:q.correctAnswer!==undefined?q.correctAnswer:q.correct_answer!==undefined?q.correct_answer:q.answer!==undefined?q.answer:q.correct_option!==undefined?q.correct_option:q.correct;
  if(typeof answer==='string'){const m=answer.trim().match(/^([A-D])$/i);if(m)answer=m[1].toUpperCase().charCodeAt(0)-65;else if(/^\d+$/.test(answer)){let n=Number(answer);answer=n>=1&&n<=opts.length?n-1:n}}
  if(typeof answer!=='number')answer=-1;
  let normalizedOptions=opts.map(o=>typeof o==='object'?{hi:o.hi||o.text_hi||o.text||o.label||o.value||'',en:o.en||o.text_en||o.text||o.label||o.value||''}: {hi:String(o),en:String(o)});
@@ -44,6 +44,19 @@ async function loadRepositoryBank(){
  $('message').textContent='✅ '+bank.length.toLocaleString()+' unique questions auto-loaded from repository master banks'+(failed.length?' • '+failed.length+' sources unavailable':'')+'. Master files hidden from learners.';
  updateRecords();autoFixFilters();
 }
+function autoFixFilters(){if(!bank.length)return;const subjects=[...new Set(bank.map(q=>q.subject).filter(Boolean))];if(!$('subject').value&&subjects.length===1)$('subject').value=subjects[0];$('message').textContent='Master bank ready: '+bank.length.toLocaleString()+' questions. Use filters or start mixed practice.'}
+function startPractice(){
+ if(!bank.length){$('message').textContent='Question bank अभी load हो रहा है—कृपया कुछ सेकंड प्रतीक्षा करें।';loadRepositoryBank();return}
+ const subject=$('subject').value.trim().toLowerCase(),chapter=$('chapter').value.trim().toLowerCase(),topic=$('topic').value.trim().toLowerCase(),level=$('level').value;
+ let filtered=bank.filter(q=>(!subject||String(q.subject).toLowerCase().includes(subject))&&(!chapter||String(q.chapter).toLowerCase().includes(chapter))&&(!topic||String(q.topic).toLowerCase().includes(topic))&&(level==='Mixed'||String(q.difficulty).toLowerCase().includes(level.toLowerCase())||level==='Basic'&&/easy|basic/.test(String(q.difficulty).toLowerCase())));
+ if(!filtered.length){$('message').textContent='इन filters से प्रश्न नहीं मिले। Filters हटाकर Mixed Practice चलाएँ।';return}
+ const count=$('count').value==='All imported'?filtered.length:Number($('count').value)||10;
+ filtered=filtered.sort(()=>Math.random()-.5).slice(0,count);
+ session=filtered;idx=0;answers={};checked={};reviews=[];$('result').classList.add('hide');$('practice').classList.remove('hide');renderQ();$('message').textContent='Practice started: '+session.length+' questions';
+}
+$('start').onclick=()=>{$('spShare').href='https://wa.me/?text='+encodeURIComponent('Practice this page: '+location.href);$('smartPracticeGate').style.display='flex'};
+$('spConfirm').onclick=()=>{$('smartPracticeGate').style.display='none';startPractice()};
+$('spCancel').onclick=()=>{$('smartPracticeGate').style.display='none'};
 function renderQ(){let q=session[idx];$('meta').textContent=[q.subject,q.chapter,q.difficulty,q.source_type||'SOURCE_PENDING'].filter(Boolean).join(' • ');$('counter').textContent=(idx+1)+' / '+session.length;$('progress').style.width=((idx+1)/session.length*100)+'%';$('q').textContent=getLang(q,'question');$('opts').innerHTML='';q.options.forEach((o,i)=>{let b=document.createElement('button');b.className='option'+(answers[idx]===i?' selected':'');b.textContent=typeof o==='string'?o:($('lang').value==='en'?(o.en||o.hi):$('lang').value==='both'?(o.hi||o.en)+' / '+(o.en||o.hi):(o.hi||o.en));b.onclick=()=>{if(checked[idx])return;answers[idx]=i;renderQ()};$('opts').appendChild(b)});$('feedback').innerHTML=checked[idx]?explain(q):'';$('bookmark').textContent=bookmarks.includes(q.id)?'★ Bookmarked':'☆ Bookmark';$('next').textContent=idx===session.length-1?'Finish':'Next →'}
 function explain(q){let correct=Number(q.answer),selected=answers[idx];$('opts').querySelectorAll('.option').forEach((b,i)=>b.classList.add(i===correct?'correct':i===selected?'wrong':''));return '<div class="explain"><b>'+(selected===correct?'Correct ✓':'Incorrect ✗')+'</b><p><b>Answer:</b> '+(typeof q.options[correct]==='string'?q.options[correct]:q.options[correct]?.hi||q.options[correct]?.en)+'</p><p>'+getLang(q,'explanation')+'</p><p class="muted">Source: '+(q.source_type||'SOURCE_VERIFICATION_PENDING')+' • Verified: '+(q.verified?'Yes':'No')+'</p></div>'}
 $('check').onclick=()=>{if(answers[idx]===undefined){$('feedback').textContent='उत्तर चुनें।';return}checked[idx]=true;renderQ()};$('next').onclick=()=>{if(idx<session.length-1){idx++;renderQ()}else finish()};$('bookmark').onclick=()=>{let id=session[idx].id;bookmarks=bookmarks.includes(id)?bookmarks.filter(x=>x!==id):bookmarks.concat(id);save();renderQ()};$('review').onclick=()=>{reviews[idx]=!reviews[idx];$('review').textContent=reviews[idx]?'⚑ Review Marked':'⚑ Mark Review'};
