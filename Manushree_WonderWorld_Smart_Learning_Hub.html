@@ -1702,6 +1702,12 @@
     draw();
   })();
   </script>
+\n
+  <!-- Share Template Maker is private-by-link: hidden on normal site visits -->
+  <style>#wonderworld-template-maker{display:none!important}#wonderworld-template-maker.wwMakerGate{display:block!important}</style>
+  <script>
+  (()=>{const p=new URLSearchParams(location.search);if(p.get('share-maker')==='1'){const s=document.getElementById('wonderworld-template-maker');if(s){s.classList.add('wwMakerGate');s.style.display='block';document.addEventListener('DOMContentLoaded',()=>s.scrollIntoView({behavior:'smooth',block:'start'}));}}})();
+  </script>
 \n  <!-- Share hook & ready-to-copy promotional caption -->
   <section id="wonderworld-share-caption" class="mx-4 my-8 rounded-3xl p-5 md:p-8 text-center text-white shadow-xl" style="background:linear-gradient(135deg,#ec4899,#7c3aed,#2563eb)">
     <div class="text-3xl mb-2">🚨 🌈 🚀</div>
