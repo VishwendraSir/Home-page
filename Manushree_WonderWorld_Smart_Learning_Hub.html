@@ -483,13 +483,16 @@
       categoryStars: { math: 0, language: 0, science: 0, habits: 0, brain: 0 },
       parentPin: '1234',
       videos: DEFAULT_VIDEOS,
-      customPhotos: [] // { id, en, hi, dataUrl }
+      customPhotos: [], // { id, en, hi, dataUrl }
+      questionProgress: {}, questionSeeds: {}, answeredQuestions: {}
     };
 
     let appState = loadState();
     let activeCategory = 'all';
     let currentGame = null;
-    const questionProgress = {};
+    const questionProgress = appState.questionProgress || (appState.questionProgress = {});
+    const questionSeeds = appState.questionSeeds || (appState.questionSeeds = {});
+    const answeredQuestions = appState.answeredQuestions || (appState.answeredQuestions = {});
     let currentPromptText = '';
     let pendingParentTab = 'report';
 
@@ -1358,9 +1361,47 @@
           {q:'Mix yellow and blue',visual:'🌈',a:['Green','Orange','Purple'],correct:'Green'}
         ]
       };
+      const extraBank = {
+        count_tap:[{q:'Count the moons / चाँद गिनो',visual:'🌙 🌙 🌙 🌙 🌙',a:['4','5','6'],correct:'5'},{q:'Count the butterflies / तितलियाँ गिनो',visual:'🦋 🦋 🦋 🦋',a:['3','4','5'],correct:'4'},{q:'How many oranges? / संतरे गिनो',visual:'🍊 🍊 🍊 🍊 🍊 🍊',a:['5','6','7'],correct:'6'}],
+        balloon_math:[{q:'4 + 2 = ?',visual:'🎈 🎈 🎈 🎈 + 🎈 🎈',a:['5','6','7'],correct:'6'},{q:'7 - 3 = ?',visual:'🎈 🎈 🎈 🎈 🎈 🎈 🎈',a:['3','4','5'],correct:'4'},{q:'5 + 2 = ?',visual:'🎈 🎈 🎈 🎈 🎈 + 🎈 🎈',a:['6','7','8'],correct:'7'}],
+        shape_match:[{q:'Which shape has 4 sides? / चार भुजाओं वाला आकार?',visual:'⬜',a:['Square','Circle','Triangle'],correct:'Square'},{q:'Which shape is like a ball? / गेंद जैसा आकार?',visual:'⚽',a:['Sphere','Cube','Cone'],correct:'Sphere'},{q:'Which shape has no sides? / बिना भुजा वाला आकार?',visual:'⭕',a:['Circle','Square','Triangle'],correct:'Circle'}],
+        clock_master:[{q:'How many days in a week? / सप्ताह में कितने दिन?',visual:'📅',a:['5','7','8'],correct:'7'},{q:'Which time is afternoon? / दोपहर का समय?',visual:'☀️',a:['1:00 PM','1:00 AM','6:00 AM'],correct:'1:00 PM'},{q:'How many seconds in a minute?',visual:'⏱️',a:['30','60','100'],correct:'60'}],
+        rupee_shop:[{q:'₹10 + ₹5 = ?',visual:'🪙',a:['₹12','₹15','₹20'],correct:'₹15'},{q:'₹20 - ₹5 = ?',visual:'💰',a:['₹10','₹15','₹25'],correct:'₹15'},{q:'A pencil costs ₹3. Buy 2 pencils?',visual:'✏️ ✏️',a:['₹5','₹6','₹7'],correct:'₹6'}],
+        tracing_pad:[{q:'Which letter comes after C?',visual:'A B C',a:['B','D','E'],correct:'D'},{q:'Which number comes after 8?',visual:'7️⃣ 8️⃣',a:['7','9','10'],correct:'9'},{q:'Choose the letter M',visual:'🌙',a:['N','M','W'],correct:'M'}],
+        phonics_az:[{q:'I is for…',visual:'🍦',a:['Ice cream','Ball','Cat'],correct:'Ice cream'},{q:'J is for…',visual:'🫙',a:['Jug','Apple','Dog'],correct:'Jug'},{q:'K is for…',visual:'🪁',a:['Kite','Fish','Sun'],correct:'Kite'}],
+        hindi_varnamala:[{q:'ई से क्या?',visual:'🦋',a:['ईख','इमली','आम'],correct:'ईख'},{q:'ख से क्या?',visual:'🐰',a:['खरगोश','कमल','घर'],correct:'खरगोश'},{q:'प से क्या?',visual:'🪔',a:['पतंग','पलंग','पपीता'],correct:'पतंग'}],
+        spelling_bee:[{q:'Complete: C A _',visual:'🐱',a:['T','R','P'],correct:'T'},{q:'Complete: B _ S',visual:'🚌',a:['U','A','E'],correct:'U'},{q:'Complete: R _ N',visual:'🏃',a:['U','A','E'],correct:'U'}],
+        opposites_match:[{q:'Opposite of tall?',visual:'↕️',a:['Short','Big','Fast'],correct:'Short'},{q:'Opposite of wet?',visual:'💧',a:['Dry','Cold','Soft'],correct:'Dry'},{q:'Opposite of open?',visual:'🚪',a:['Closed','Wide','Near'],correct:'Closed'}],
+        story_time:[{q:'The sun rises in the…',visual:'🌅',a:['East','West','North'],correct:'East'},{q:'A little bird can…',visual:'🐦',a:['Fly','Drive','Swim only'],correct:'Fly'},{q:'The rabbit likes to eat…',visual:'🐰',a:['Carrot','Stone','Paper'],correct:'Carrot'}],
+        animal_safari:[{q:'Which animal gives us wool?',visual:'🐑',a:['Sheep','Tiger','Fish'],correct:'Sheep'},{q:'Which animal has a long trunk?',visual:'🐘',a:['Elephant','Horse','Cat'],correct:'Elephant'},{q:'Which bird can mimic sounds?',visual:'🦜',a:['Parrot','Penguin','Ostrich'],correct:'Parrot'}],
+        fruit_veg_sort:[{q:'Which is a vegetable?',visual:'🥕',a:['Carrot','Mango','Apple'],correct:'Carrot'},{q:'Which fruit is yellow?',visual:'🍌',a:['Banana','Grapes','Strawberry'],correct:'Banana'},{q:'Which vegetable is leafy?',visual:'🥬',a:['Spinach','Potato','Onion'],correct:'Spinach'}],
+        body_parts:[{q:'We smell with our…',visual:'👃',a:['Nose','Eyes','Ears'],correct:'Nose'},{q:'We hear with our…',visual:'👂',a:['Ears','Hands','Feet'],correct:'Ears'},{q:'We walk with our…',visual:'🦶',a:['Legs','Eyes','Teeth'],correct:'Legs'}],
+        solar_system:[{q:'Which planet is closest to the Sun?',visual:'☀️',a:['Mercury','Earth','Neptune'],correct:'Mercury'},{q:'Which planet is known as the Red Planet?',visual:'🔴',a:['Mars','Venus','Jupiter'],correct:'Mars'},{q:'Which is our natural satellite?',visual:'🌙',a:['Moon','Sun','Mars'],correct:'Moon'}],
+        vehicles_sort:[{q:'Which vehicle travels on water?',visual:'🚢',a:['Ship','Car','Train'],correct:'Ship'},{q:'Which vehicle flies?',visual:'✈️',a:['Airplane','Bicycle','Bus'],correct:'Airplane'},{q:'Which vehicle runs on tracks?',visual:'🚆',a:['Train','Boat','Scooter'],correct:'Train'}],
+        india_gk:[{q:'What is the national animal of India?',visual:'🐅',a:['Tiger','Lion','Elephant'],correct:'Tiger'},{q:'What is the national bird of India?',visual:'🦚',a:['Peacock','Crow','Parrot'],correct:'Peacock'},{q:'Which festival is called the festival of lights?',visual:'🪔',a:['Diwali','Holi','Eid'],correct:'Diwali'}],
+        morning_routine:[{q:'What should we do after waking up?',visual:'🛏️',a:['Brush teeth','Eat candy','Watch TV'],correct:'Brush teeth'},{q:'What comes before breakfast?',visual:'🧼',a:['Wash hands','Go to bed','Play in mud'],correct:'Wash hands'},{q:'When should we get ready for school?',visual:'🎒',a:['In the morning','At midnight','After dinner'],correct:'In the morning'}],
+        good_bad_habit:[{q:'Which is a good habit?',visual:'🧹',a:['Keep room tidy','Throw litter','Skip bathing'],correct:'Keep room tidy'},{q:'We should cover our mouth when…',visual:'🤧',a:['Coughing','Playing','Reading'],correct:'Coughing'},{q:'After using the toilet we should…',visual:'🧼',a:['Wash hands','Skip washing','Touch food'],correct:'Wash hands'}],
+        healthy_plate:[{q:'Which food helps us grow?',visual:'🥚',a:['Egg','Candy','Chips'],correct:'Egg'},{q:'Which is a fruit?',visual:'🍉',a:['Watermelon','Bread','Rice'],correct:'Watermelon'},{q:'Which food helps keep us strong?',visual:'🥦',a:['Vegetables','Soda','Lollipop'],correct:'Vegetables'}],
+        magic_words:[{q:'What do we say when we receive a gift?',visual:'🎁',a:['Thank you','Give more','No'],correct:'Thank you'},{q:'What do we say before asking for help?',visual:'🙏',a:['Please','Move','Hey!'],correct:'Please'},{q:'When we make a mistake, say…',visual:'😊',a:['Sorry','Never','Go away'],correct:'Sorry'}],
+        traffic_lights:[{q:'Where should we walk?',visual:'🚶',a:['Footpath','Middle of road','Rail track'],correct:'Footpath'},{q:'What does a red light mean?',visual:'🔴',a:['Stop','Go','Run'],correct:'Stop'},{q:'Before crossing the road, look…',visual:'👀',a:['Right and left','At the sky','Only behind'],correct:'Right and left'}],
+        community_helpers:[{q:'Who grows food for us?',visual:'👨‍🌾',a:['Farmer','Pilot','Doctor'],correct:'Farmer'},{q:'Who puts out fires?',visual:'🚒',a:['Firefighter','Teacher','Tailor'],correct:'Firefighter'},{q:'Who repairs a car?',visual:'🔧',a:['Mechanic','Chef','Nurse'],correct:'Mechanic'}],
+        memory_flip:[{q:'Remember this: 🐘. Which animal?',visual:'🧠',a:['Elephant','Tiger','Dog'],correct:'Elephant'},{q:'Remember this colour: 🟢',visual:'🧠',a:['Green','Red','Blue'],correct:'Green'},{q:'Which shape was shown? 🔵',visual:'🧠',a:['Circle','Square','Triangle'],correct:'Circle'}],
+        pattern_train:[{q:'Complete: 2, 4, 6, …',visual:'🚂',a:['8','7','9'],correct:'8'},{q:'Complete: 🔺 🔵 🔺 …',visual:'🚂',a:['🔵','🟢','🔺'],correct:'🔵'},{q:'Complete: A, B, C, …',visual:'🚂',a:['D','A','E'],correct:'D'}],
+        odd_one_out:[{q:'Which is different?',visual:'',a:['🍎','🍐','🚲'],correct:'🚲'},{q:'Find the odd one out',visual:'',a:['🐟','🐠','🌳'],correct:'🌳'},{q:'Which does not belong?',visual:'',a:['Bus','Train','Banana'],correct:'Banana'}],
+        drawing_studio:[{q:'Mix blue and yellow to make…',visual:'🎨',a:['Green','Orange','Purple'],correct:'Green'},{q:'Which tool helps us draw?',visual:'🖍️',a:['Crayon','Fork','Cup'],correct:'Crayon'},{q:'Which colour is a tomato?',visual:'🍅',a:['Red','Blue','Black'],correct:'Red'}],
+        piano_pad:[{q:'Which sound is high?',visual:'🎵',a:['Bird chirp','Thunder','Drum'],correct:'Bird chirp'},{q:'Which instrument has strings?',visual:'🎸',a:['Guitar','Piano','Drum'],correct:'Guitar'},{q:'Which instrument do we blow?',visual:'🪈',a:['Flute','Drum','Piano'],correct:'Flute'}],
+        robot_coding:[{q:'Which arrow means left?',visual:'⬅️',a:['Left','Right','Up'],correct:'Left'},{q:'A sequence is…',visual:'🔢',a:['Steps in order','A random snack','A colour'],correct:'Steps in order'},{q:'Two steps forward means…',visual:'⬆️ ⬆️',a:['Move ahead twice','Turn back','Stop'],correct:'Move ahead twice'}],
+        color_mixing:[{q:'Blue + Red makes…',visual:'🎨',a:['Purple','Green','Orange'],correct:'Purple'},{q:'Red + White makes…',visual:'🖌️',a:['Pink','Grey','Black'],correct:'Pink'},{q:'Which is a primary colour?',visual:'🌈',a:['Blue','Brown','Pink'],correct:'Blue'}]
+      };
+      Object.keys(extraBank).forEach(id=>{ if(bank[id]) bank[id].push(...extraBank[id]); });
       const questions=bank[game.id]||bank.count_tap;
       const index=questionProgress[game.id]||0;
-      return questions[index%questions.length];
+      if(!questionSeeds[game.id]) questionSeeds[game.id]=Date.now()+Object.keys(questionSeeds).length*97;
+      const seed=questionSeeds[game.id];
+      const order=questions.map((_,i)=>i);
+      let state=seed>>>0;
+      for(let i=order.length-1;i>0;i--){state=(state*1664525+1013904223)>>>0;const j=state%(i+1);[order[i],order[j]]=[order[j],order[i]];}
+      return questions[order[index%order.length]];
     }
     function loadGame(id, keepView=false) {
       const game=GAMES.find(g=>g.id===id); if(!game) return;
@@ -1370,7 +1411,7 @@
         document.getElementById('gameView').classList.remove('hidden');
       }
       document.getElementById('activeGameTitle').textContent=appState.lang==='hi'?game.hi:game.en;
-      document.getElementById('activeGameSub').textContent=game.cat+' • '+CLASS_NAMES[appState.classLevel]+' • Question '+((questionProgress[id]||0)+1);
+      document.getElementById('activeGameSub').textContent=game.cat+' • '+CLASS_NAMES[appState.classLevel]+' • Question '+((questionProgress[id]||0)+1)+' / '+(8+3);
       const q=renderQuestionGame(game);
       const stage=document.getElementById('gameStage');
       stage.innerHTML='<div class="text-center w-full max-w-xl"><div class="text-6xl mb-4">'+game.icon+'</div><h3 class="text-xl sm:text-2xl font-bold mb-3">'+q.q+'</h3><div class="text-4xl my-4">'+q.visual+'</div><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">'+q.a.map(a=>'<button class="btn-3d bg-white border-2 border-purple-200 rounded-2xl p-4 font-bold text-lg hover:bg-purple-50" onclick="answerGame(\''+id+'\',\''+a.replace(/'/g,"\\'")+'\')">'+a+'</button>').join('')+'</div><p id="gameFeedback" class="font-bold text-lg mt-4 min-h-8"></p><button onclick="loadGame(\''+id+'\')" class="mt-4 bg-indigo-100 text-indigo-700 rounded-xl px-4 py-2 font-bold">🔄 Try Again</button></div>';
@@ -1379,11 +1420,13 @@
     function answerGame(id,answer) {
       const game=GAMES.find(g=>g.id===id); const q=renderQuestionGame(game);
       const fb=document.getElementById('gameFeedback');
-      if(answer===q.correct) { 
+      const answerKey=id+':'+(questionProgress[id]||0);
+      if(answer===q.correct && !answeredQuestions[answerKey]) { 
         fb.textContent=appState.lang==='hi'?'🎉 सही जवाब! शाबाश!':'🎉 Correct! Great job!';
         fb.className='font-bold text-lg mt-4 text-green-600 min-h-8';
+        answeredQuestions[answerKey]=true; appState.answeredQuestions=answeredQuestions; saveState();
+        document.querySelectorAll('#gameStage button').forEach(b=>{if(!b.classList.contains('next-question-btn')) b.disabled=true;});
         awardStar(id,game.cat,1);
-        document.querySelectorAll('.next-question-btn').forEach(b=>b.remove());
         const nextBtn=document.createElement('button');
         nextBtn.type='button';
         nextBtn.textContent=appState.lang==='hi'?'➡️ अगला प्रश्न':'➡️ Next Question';
@@ -1393,7 +1436,7 @@
         fb.parentNode.insertBefore(nextBtn,fb.nextSibling);
       } else { fb.textContent=appState.lang==='hi'?'फिर कोशिश करो!':'Try again!'; fb.className='font-bold text-lg mt-4 text-rose-600 min-h-8'; playWrongSound(); }
     }
-    function nextQuestion(id){ questionProgress[id]=(questionProgress[id]||0)+1; loadGame(id,true); }
+    function nextQuestion(id){ questionProgress[id]=(questionProgress[id]||0)+1; appState.questionProgress=questionProgress; saveState(); loadGame(id,true); }
     function speakCurrentPrompt(){ if(currentPromptText) speak(currentPromptText); }
 
     function openPinModal(tab='report') {
