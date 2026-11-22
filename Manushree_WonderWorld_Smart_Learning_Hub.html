@@ -1924,12 +1924,12 @@
     const BACKUP='wwDailyUsageBackup_v1',LAST='wwDailyUsageLastTick_v1';
     function safeWrite(s){save(s);try{localStorage.setItem(BACKUP,JSON.stringify(s));}catch(e){}}
     function usage(){
-      let s=read(),b={};
-      try{b=JSON.parse(localStorage.getItem(BACKUP)||'{}')}catch(e){}
+      let primary=read(),backup={};
+      try{backup=JSON.parse(localStorage.getItem(BACKUP)||'{}')}catch(e){}
       const day=today();
-      if(s.day!==day&&b.day===day)s=b;
-      if(s.day!==day)s={day,used:0};
-      s.used=Math.max(0,Math.min(FREE_MS,Number(s.used)||0));
+      const candidates=[primary,backup].filter(x=>x&&x.day===day);
+      let s=candidates.length?candidates.reduce((best,x)=>Math.max(Number(best.used)||0,Number(x.used)||0),{used:0}):{day,used:0};
+      s={day,used:Math.max(0,Math.min(FREE_MS,Number(s.used)||0))};
       safeWrite(s);return s;
     }
     let last=Date.now(),timerInterval=null;
@@ -1944,6 +1944,7 @@
     function persistTimer(){const now=Date.now();accountElapsed(now);try{localStorage.setItem(LAST,String(now));}catch(e){}updateAccessBadge();refreshParentTimeReport();}
     function tick(){accountElapsed(Date.now());updateAccessBadge();refreshParentTimeReport();}
     document.addEventListener('visibilitychange',()=>{persistTimer();});
+    window.addEventListener('storage',e=>{if(e.key===STORE||e.key===BACKUP){updateAccessBadge();refreshParentTimeReport();}});
     window.addEventListener('pagehide',persistTimer);
     window.addEventListener('beforeunload',persistTimer);
     if(!timerInterval)timerInterval=setInterval(tick,1000);
