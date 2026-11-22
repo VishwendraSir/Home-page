@@ -19,4 +19,5 @@ document.getElementById('demo').onclick=()=>{mergeRecord('Fractions',7,10);merge
 document.getElementById('export').onclick=()=>{let b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='exam-brahmastra-adaptive-data.json';a.click()};
 document.getElementById('reset').onclick=()=>{if(confirm('Adaptive data reset?')){data={topics:{},revision:[],days:{}};save()}};
 document.getElementById('mark').onclick=()=>{document.querySelectorAll('#queue input:checked').forEach(el=>{let item=data.revision[+el.dataset.i];if(item)data.revision.splice(+el.dataset.i,1)});save()};render();
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
