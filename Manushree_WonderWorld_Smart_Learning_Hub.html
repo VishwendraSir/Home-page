@@ -1909,23 +1909,26 @@
     function member(){try{return JSON.parse(localStorage.getItem(MEMBER)||'{}')}catch(e){return {}}}
     function refresh(){const m=member();status.textContent=localStorage.getItem(PREMIUM)==='1'?'💎 Premium Active (this device)':'Membership: '+(m.status||'Free Trial / Not subscribed');}
     req.href='#';req.onclick=(e)=>{e.preventDefault();const name=nameInput.value.trim(),phone=phoneInput.value.trim();if(!name||!/^[0-9+\\-\\s]{10,15}$/.test(phone)){alert('Parent name और valid mobile number भरें।');return;}const m={name,phone,plan:'₹49/month',status:'Request Sent',requestedAt:new Date().toISOString(),proofName:proof.files&&proof.files[0]?proof.files[0].name:''};try{localStorage.setItem(MEMBER,JSON.stringify(m));}catch(e){}const message='WonderWorld Premium Request\\nParent: '+name+'\\nMobile: '+phone+'\\nPlan: ₹49/month\\nPayment proof: '+(m.proofName||'Not attached')+'\\nPlease verify and activate.';window.open('https://wa.me/916350248088?text='+encodeURIComponent(message),'_blank','noopener');refresh();};
-    admin.onclick=()=>{const pin=prompt('Demo Admin PIN:');if(pin!=='1234'){alert('Incorrect PIN');return;}const m=member();if(!m.name){alert('No membership request found on this device.');return;}if(confirm('Approve ₹49/month Premium for '+m.name+' on THIS device?')){try{localStorage.setItem(PREMIUM,'1');m.status='Approved (Demo)';m.approvedAt=new Date().toISOString();localStorage.setItem(MEMBER,JSON.stringify(m));}catch(e){}refresh();alert('Demo Premium activated on this device.');}};
+    admin.onclick=()=>{const pin=prompt('Demo Admin PIN:');if(pin!=='1234'){alert('Incorrect PIN');return;}const m=member();if(!m.name){alert('No membership request found on this device.');return;}if(confirm('Approve ₹49/month Premium for '+m.name+' on THIS device?')){try{localStorage.setItem(PREMIUM,'1');m.status='Approved (Demo)';m.approvedAt=new Date().toISOString();localStorage.setItem(MEMBER,JSON.stringify(m));}catch(e){}refresh();gate.classList.remove('open');updateAccessBadge();alert('Demo Premium activated on this device.');}};
     close.onclick=()=>gate.classList.remove('open');refresh();
     function read(){try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}}
     function today(){const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
     function usage(){let s=read();if(s.day!==today()){s={day:today(),used:0};try{localStorage.setItem(STORE,JSON.stringify(s))}catch(e){}}return s}
-    function active(){return usage().used<FREE_MS}
+    function premiumActive(){return localStorage.getItem(PREMIUM)==='1'}
+    function active(){return premiumActive()||usage().used<FREE_MS}
     function save(s){try{localStorage.setItem(STORE,JSON.stringify(s))}catch(e){}}
+    function remaining(){return premiumActive()?FREE_MS:Math.max(0,FREE_MS-(usage().used||0))}
+    function updateAccessBadge(){const el=document.getElementById('wwAccessBadge');if(el)el.textContent=premiumActive()?'💎 Premium Unlimited':'⏳ Free time: '+Math.floor(remaining()/60000)+' min '+Math.floor(remaining()%60000/1000)+' sec';}
     let last=Date.now();
     setInterval(()=>{const now=Date.now(),delta=Math.max(0,Math.min(now-last,5000));last=now;
       const gv=document.getElementById('gameView');
-      if(gv&&!gv.classList.contains('hidden')&&active()){const s=usage();s.used=Math.min(FREE_MS,(s.used||0)+delta);save(s);if(s.used>=FREE_MS){gate.classList.add('open');if(window.currentGame){document.getElementById('gameView').classList.add('hidden');document.getElementById('homeView').classList.remove('hidden');}}}
+      if(gv&&!gv.classList.contains('hidden')&&!premiumActive()&&active()){const s=usage();s.used=Math.min(FREE_MS,(s.used||0)+delta);save(s);if(s.used>=FREE_MS){gate.classList.add('open');if(window.currentGame){document.getElementById('gameView').classList.add('hidden');document.getElementById('homeView').classList.remove('hidden');}}}updateAccessBadge();
     },1000);
-    window.wwFreeTimeRemaining=()=>Math.max(0,FREE_MS-(usage().used||0));
+    window.wwFreeTimeRemaining=()=>remaining();
     window.wwShowPremiumGate=()=>gate.classList.add('open');
     const oldCheck=window.quizShareGateCheck;
-    window.quizShareGateCheck=function(id){if(active()){gate.classList.remove('open');return true;}gate.classList.add('open');return false;};
-    window.wwPremiumStatusText=()=>{const ms=window.wwFreeTimeRemaining();return Math.floor(ms/60000)+' min '+Math.floor(ms%60000/1000)+' sec free remaining today';};
+    window.quizShareGateCheck=function(id){if(premiumActive()){gate.classList.remove('open');return true;}if(active()){gate.classList.remove('open');return oldCheck?oldCheck(id):true;}gate.classList.add('open');return false;};
+    window.wwPremiumStatusText=()=>premiumActive()?'Premium unlimited access active':Math.floor(remaining()/60000)+' min '+Math.floor(remaining()%60000/1000)+' sec free remaining today';
   })();
   </script>
 
