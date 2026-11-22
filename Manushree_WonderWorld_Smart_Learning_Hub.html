@@ -1078,7 +1078,7 @@
       }).join('')||'<p class="text-slate-500 col-span-full">No videos in this category.</p>';
     }
     function filterVideoCategory(category){activeVideoCategory=category;renderVideoZone();}
-    function extractYoutubeId(url){const m=String(url||'').match(/(?:youtube\\.com\\/(?:watch\\?v=|shorts\/|embed\/)|youtu\\.be\/)([A-Za-z0-9_-]{11})/);return m?m[1]:null;}
+    function extractYoutubeId(url){const m=String(url||'').match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);return m?m[1]:null;}
 
     function getVideoById(id) { return (appState.videos || []).find(v=>v.id===id); }
     function openVideo(id) {
