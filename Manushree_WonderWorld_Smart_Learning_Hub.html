@@ -998,3 +998,173 @@
             'Manushree, you are so smart! 🌟',
             'Let us collect 5 more stars today! ⭐',
             'Good habits make us superheroes! 🦸‍♀️',
+            'Good habits make us superheroes! 🦸‍♀️',
+            'Math and science are so much fun! 🚀'
+          ];
+      const msg = cheers[Math.floor(Math.random() * cheers.length)];
+      showMascotMessage(msg);
+      speak(msg);
+    }
+
+    // ===== SAFE, COMPLETE APP REPAIR LAYER =====
+    function getUnlockedBadges() {
+      const total = Object.values(appState.completedGames || {}).reduce((a,b)=>a+(Number(b)||0),0);
+      const badges = [];
+      if (appState.stars >= 1) badges.push({icon:'⭐',name:'First Star',desc:'Earn your first star'});
+      if (total >= 5) badges.push({icon:'🎮',name:'Game Explorer',desc:'Play 5 games'});
+      if (total >= 10) badges.push({icon:'🏆',name:'Super Learner',desc:'Play 10 games'});
+      if (appState.streak >= 3) badges.push({icon:'🔥',name:'3-Day Streak',desc:'Learn 3 days in a row'});
+      if (appState.stars >= 20) badges.push({icon:'🌟',name:'Star Collector',desc:'Earn 20 stars'});
+      return badges;
+    }
+
+    function renderVideoZone() {
+      const grid = document.getElementById('videoCardsGrid');
+      if (!grid) return;
+      const videos = Array.isArray(appState.videos) ? appState.videos : DEFAULT_VIDEOS;
+      grid.innerHTML = videos.map(v => {
+        const safeTitle = String(v.title || 'Learning Video').replace(/</g,'&lt;');
+        return '<button class="btn-3d text-left bg-white rounded-2xl p-4 border border-indigo-100 shadow-sm" onclick="openVideo(\''+String(v.id).replace(/'/g,'')+'\')"><div class="text-3xl mb-2">🎬</div><div class="font-bold text-indigo-800">'+safeTitle+'</div><div class="text-xs text-slate-500 mt-1">Tap to watch</div></button>';
+      }).join('');
+    }
+
+    function getVideoById(id) { return (appState.videos || []).find(v=>v.id===id); }
+    function openVideo(id) {
+      const video = getVideoById(id); if (!video) return;
+      const url = video.url || '';
+      const match = url.match(/(?:youtu\.be\/|youtube\.com\/.*[?&]v=)([\w-]+)/);
+      const embed = match ? 'https://www.youtube-nocookie.com/embed/'+match[1]+'?autoplay=1' : url;
+      document.getElementById('pipVideoTitle').textContent = video.title || 'Learning Video';
+      document.getElementById('pipVideoPlayerBody').innerHTML = '<iframe class="w-full h-full aspect-video" src="'+embed+'" title="Learning video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+      document.getElementById('pipVideoContainer').classList.remove('hidden');
+    }
+    function playTopicVideo() {
+      if (!currentGame) return;
+      const video = (appState.videos || []).find(v=>v.category===currentGame.cat) || appState.videos[0];
+      if (video) openVideo(video.id); else showToast('No video added yet','🎬');
+    }
+    function togglePipSize() {
+      const box=document.getElementById('pipVideoContainer');
+      const mini=box.classList.contains('pip-minimized');
+      box.classList.toggle('pip-minimized',!mini); box.classList.toggle('pip-expanded',mini);
+      document.getElementById('pipSizeBtn').textContent=mini?'🗕 Mini':'⬜ Expand';
+    }
+    function closePipVideo() {
+      document.getElementById('pipVideoContainer').classList.add('hidden');
+      document.getElementById('pipVideoPlayerBody').innerHTML='';
+    }
+    function renderQuestionGame(game) {
+      const lang=appState.lang;
+      const bank = {
+        count_tap:[{q:'How many stars? / कितने सितारे?',visual:'⭐ ⭐ ⭐',a:['2','3','4'],correct:'3'}],
+        balloon_math:[{q:'2 + 3 = ?',visual:'🎈 🎈 + 🎈 🎈 🎈',a:['4','5','6'],correct:'5'}],
+        shape_match:[{q:'Which shape has 3 sides? / 3 भुजाओं वाला आकार?',visual:'🔺',a:['Circle / वृत्त','Triangle / त्रिभुज','Square / वर्ग'],correct:'Triangle / त्रिभुज'}],
+        clock_master:[{q:'Which time is morning? / सुबह का समय?',visual:'🌅',a:['7:00 AM','7:00 PM','12:00 AM'],correct:'7:00 AM'}],
+        rupee_shop:[{q:'₹5 + ₹2 = ?',visual:'🪙',a:['₹6','₹7','₹8'],correct:'₹7'}],
+        phonics_az:[{q:'A is for…',visual:'🍎',a:['Apple','Ball','Cat'],correct:'Apple'}],
+        hindi_varnamala:[{q:'अ से क्या?',visual:'',a:['अनार','कमल','घर'],correct:'अनार'}],
+        spelling_bee:[{q:'Complete: C _ T',visual:'🐱',a:['A','O','U'],correct:'A'}],
+        opposites_match:[{q:'Opposite of BIG / बड़ा?',visual:'',a:['Small / छोटा','Tall / लंबा','Happy / खुश'],correct:'Small / छोटा'}],
+        story_time:[{q:'The sun shines in the…',visual:'☀️',a:['Day','Night','Ocean'],correct:'Day'}],
+        animal_safari:[{q:'Which animal says ROAR?',visual:'🦁',a:['Lion','Cow','Duck'],correct:'Lion'}],
+        fruit_veg_sort:[{q:'Which is a fruit?',visual:'',a:['🍎 Apple','🥕 Carrot','🥔 Potato'],correct:'🍎 Apple'}],
+        body_parts:[{q:'We see with our…',visual:'👀',a:['Eyes','Ears','Nose'],correct:'Eyes'}],
+        solar_system:[{q:'Which planet is our home?',visual:'🌍',a:['Earth','Mars','Jupiter'],correct:'Earth'}],
+        vehicles_sort:[{q:'Which vehicle flies?',visual:'✈️',a:['Car','Airplane','Bus'],correct:'Airplane'}],
+        india_gk:[{q:'India’s national animal?',visual:'🇮🇳',a:['Tiger','Lion','Elephant'],correct:'Tiger'}],
+        morning_routine:[{q:'What should we do first in the morning?',visual:'🌅',a:['Brush teeth','Sleep','Eat candy'],correct:'Brush teeth'}],
+        good_bad_habit:[{q:'Which is a good habit?',visual:'',a:['Wash hands','Litter','Fight'],correct:'Wash hands'}],
+        healthy_plate:[{q:'Which food is healthy?',visual:'🥗',a:['Fruit','Candy','Chips'],correct:'Fruit'}],
+        magic_words:[{q:'When someone helps you, say…',visual:'✨',a:['Thank you','Go away','No'],correct:'Thank you'}],
+        traffic_lights:[{q:'Red traffic light means…',visual:'🚦',a:['Stop','Go','Run'],correct:'Stop'}],
+        community_helpers:[{q:'Who helps sick people?',visual:'👩‍⚕️',a:['Doctor','Pilot','Chef'],correct:'Doctor'}],
+        memory_flip:[{q:'Which animal is a pet?',visual:'🃏',a:['🐶 Dog','🦁 Lion','🐘 Elephant'],correct:'🐶 Dog'}],
+        pattern_train:[{q:'Complete pattern: 🔴 🔵 🔴 …',visual:'🚂',a:['🔵','🟢','🟡'],correct:'🔵'}],
+        odd_one_out:[{q:'Which one is different?',visual:'',a:['🍎','🍌','🚗'],correct:'🚗'}],
+        drawing_studio:[{q:'Choose a colour to draw with!',visual:'🎨',a:['Red','Blue','Green'],correct:'Red'}],
+        piano_pad:[{q:'Tap a musical note!',visual:'🎹',a:['🎵 Do','🎵 Re','🎵 Mi'],correct:'🎵 Do'}],
+        robot_coding:[{q:'Which direction moves forward?',visual:'🤖',a:['⬆️ Up','⬇️ Down','⬅️ Left'],correct:'⬆️ Up'}],
+        color_mixing:[{q:'Red + Yellow makes…',visual:'🌈',a:['Orange','Green','Purple'],correct:'Orange'}]
+      };
+      const q=(bank[game.id]||bank.count_tap)[0];
+      return q;
+    }
+    function loadGame(id, keepView=false) {
+      const game=GAMES.find(g=>g.id===id); if(!game) return;
+      currentGame=game;
+      if(!keepView) {
+        document.getElementById('homeView').classList.add('hidden');
+        document.getElementById('gameView').classList.remove('hidden');
+      }
+      document.getElementById('activeGameTitle').textContent=appState.lang==='hi'?game.hi:game.en;
+      document.getElementById('activeGameSub').textContent=game.cat+' • '+CLASS_NAMES[appState.classLevel];
+      const q=renderQuestionGame(game);
+      const stage=document.getElementById('gameStage');
+      stage.innerHTML='<div class="text-center w-full max-w-xl"><div class="text-6xl mb-4">'+game.icon+'</div><h3 class="text-xl sm:text-2xl font-bold mb-3">'+q.q+'</h3><div class="text-4xl my-4">'+q.visual+'</div><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">'+q.a.map(a=>'<button class="btn-3d bg-white border-2 border-purple-200 rounded-2xl p-4 font-bold text-lg hover:bg-purple-50" onclick="answerGame(\''+id+'\',\''+a.replace(/'/g,"\\'")+'\')">'+a+'</button>').join('')+'</div><p id="gameFeedback" class="font-bold text-lg mt-4 min-h-8"></p><button onclick="loadGame(\''+id+'\')" class="mt-4 bg-indigo-100 text-indigo-700 rounded-xl px-4 py-2 font-bold">🔄 Try Again</button></div>';
+      currentPromptText=q.q+' '+q.visual;
+    }
+    function answerGame(id,answer) {
+      const game=GAMES.find(g=>g.id===id); const q=renderQuestionGame(game);
+      const fb=document.getElementById('gameFeedback');
+      if(answer===q.correct) { fb.textContent=appState.lang==='hi'?'🎉 सही जवाब! शाबाश!':'🎉 Correct! Great job!'; fb.className='font-bold text-lg mt-4 text-green-600 min-h-8'; awardStar(id,game.cat,1); }
+      else { fb.textContent=appState.lang==='hi'?'फिर कोशिश करो!':'Try again!'; fb.className='font-bold text-lg mt-4 text-rose-600 min-h-8'; playWrongSound(); }
+    }
+    function speakCurrentPrompt(){ if(currentPromptText) speak(currentPromptText); }
+
+    function openPinModal(tab='report') {
+      pendingParentTab=tab;
+      document.getElementById('pinInput').value='';
+      document.getElementById('pinError').classList.add('hidden');
+      document.getElementById('pinModal').classList.remove('hidden');
+    }
+    function closePinModal(){document.getElementById('pinModal').classList.add('hidden');}
+    function verifyPin(){
+      if(document.getElementById('pinInput').value===appState.parentPin){
+        closePinModal(); renderParentTab(pendingParentTab); document.getElementById('parentModal').classList.remove('hidden');
+      } else document.getElementById('pinError').classList.remove('hidden');
+    }
+    function closeParentModal(){document.getElementById('parentModal').classList.add('hidden');}
+    function switchParentTab(tab){pendingParentTab=tab;renderParentTab(tab);}
+    function renderParentTab(tab){
+      document.querySelectorAll('.parent-tab').forEach(b=>b.className='parent-tab px-4 py-2 font-bold text-sm rounded-t-xl text-slate-600 hover:bg-white/60');
+      const active=document.getElementById('ptab-'+tab); if(active) active.className='parent-tab px-4 py-2 font-bold text-sm rounded-t-xl bg-white text-indigo-700 border-t border-x border-slate-200';
+      const body=document.getElementById('parentTabBody');
+      if(tab==='report'){
+        body.innerHTML='<h4 class="text-lg font-bold">Progress Report</h4><p>⭐ Total stars: '+appState.stars+'</p><p>🔥 Streak: '+appState.streak+' days</p><p>🎮 Games played: '+Object.values(appState.completedGames).reduce((a,b)=>a+b,0)+'</p><div class="grid grid-cols-2 gap-3 mt-4">'+Object.entries(appState.categoryStars).map(([k,v])=>'<div class="p-3 bg-indigo-50 rounded-xl capitalize">'+k+': '+v+' ⭐</div>').join('')+'</div>';
+      } else if(tab==='videos'){
+        body.innerHTML='<h4 class="font-bold">Video Manager</h4><input id="newVidTitle" class="border rounded-xl p-2 w-full" placeholder="Video title"><input id="newVidUrl" class="border rounded-xl p-2 w-full mt-2" placeholder="YouTube URL"><button onclick="addParentVideo()" class="mt-2 bg-indigo-600 text-white rounded-xl px-4 py-2">Add Video</button><div class="mt-4 space-y-2">'+(appState.videos||[]).map(v=>'<div class="p-2 bg-slate-100 rounded-lg">'+v.title+' <button onclick="deleteParentVideo(\''+v.id+'\')" class="text-red-600 float-right">Delete</button></div>').join('')+'</div>';
+      } else if(tab==='photos'){
+        body.innerHTML='<h4 class="font-bold">Custom Photo Flashcards</h4><input id="photoWordEn" class="border rounded-xl p-2 w-full" placeholder="English word"><input id="photoWordHi" class="border rounded-xl p-2 w-full mt-2" placeholder="Hindi word"><input id="photoFile" type="file" accept="image/*" class="mt-3"><button onclick="addPhotoCard()" class="mt-2 bg-pink-600 text-white rounded-xl px-4 py-2">Add Photo Card</button><div class="mt-4 grid grid-cols-2 gap-2">'+(appState.customPhotos||[]).map(p=>'<div class="border rounded-xl p-2"><img src="'+p.dataUrl+'" class="w-full h-24 object-cover"><p>'+p.en+' / '+p.hi+'</p></div>').join('')+'</div>';
+      } else {
+        body.innerHTML='<h4 class="font-bold">Settings</h4><label class="block mt-3">Parent PIN (4 digits)</label><input id="newPin" maxlength="4" inputmode="numeric" class="border rounded-xl p-2" value="'+appState.parentPin+'"><button onclick="saveParentPin()" class="bg-indigo-600 text-white rounded-xl px-4 py-2 ml-2">Save PIN</button><button onclick="resetProgress()" class="bg-rose-600 text-white rounded-xl px-4 py-2 mt-4">Reset Progress</button>';
+      }
+    }
+    function addParentVideo(){
+      const title=document.getElementById('newVidTitle').value.trim(),url=document.getElementById('newVidUrl').value.trim();
+      if(!title||!url){showToast('Enter title and URL','⚠️');return;}
+      appState.videos.push({id:'v'+Date.now(),title,url,category:'brain'});saveState();renderVideoZone();renderParentTab('videos');showToast('Video added','🎬');
+    }
+    function deleteParentVideo(id){appState.videos=appState.videos.filter(v=>v.id!==id);saveState();renderVideoZone();renderParentTab('videos');}
+    function addPhotoCard(){
+      const en=document.getElementById('photoWordEn').value.trim(),hi=document.getElementById('photoWordHi').value.trim(),file=document.getElementById('photoFile').files[0];
+      if(!en||!hi||!file){showToast('Add words and choose a photo','⚠️');return;}
+      const reader=new FileReader();reader.onload=()=>{appState.customPhotos.push({id:'p'+Date.now(),en,hi,dataUrl:reader.result});saveState();renderParentTab('photos');showToast('Photo card saved','📸');};reader.readAsDataURL(file);
+    }
+    function openPhotoFlashcards(){
+      if(!(appState.customPhotos||[]).length){showToast('Add photos in Parent Panel first','📸');return;}
+      let i=0;const photos=appState.customPhotos;
+      const modal=document.getElementById('customConfirmModal');
+      document.getElementById('confirmTitle').textContent='My Photo Cards';
+      document.getElementById('confirmMessage').innerHTML='<img src="'+photos[i].dataUrl+'" class="w-40 h-40 object-cover mx-auto rounded-xl"><p class="mt-2 font-bold">'+photos[i].en+' / '+photos[i].hi+'</p>';
+      document.getElementById('confirmOkBtn').textContent='Next';
+      document.getElementById('confirmOkBtn').onclick=()=>{i=(i+1)%photos.length;document.getElementById('confirmMessage').innerHTML='<img src="'+photos[i].dataUrl+'" class="w-40 h-40 object-cover mx-auto rounded-xl"><p class="mt-2 font-bold">'+photos[i].en+' / '+photos[i].hi+'</p>';};
+      modal.classList.remove('hidden');
+    }
+    function closeConfirmModal(){document.getElementById('customConfirmModal').classList.add('hidden');}
+    function saveParentPin(){const pin=document.getElementById('newPin').value;if(/^\d{4}$/.test(pin)){appState.parentPin=pin;saveState();showToast('PIN updated','🔒');}else showToast('PIN must be 4 digits','⚠️');}
+    function resetProgress(){appState.stars=0;appState.streak=1;appState.completedGames={};appState.categoryStars={math:0,language:0,science:0,habits:0,brain:0};saveState();renderParentTab('report');showToast('Progress reset','🔄');}
+    function showBadgesModal(){const b=getUnlockedBadges();document.getElementById('badgesGrid').innerHTML=b.length?b.map(x=>'<div class="bg-amber-50 rounded-xl p-4 text-center"><div class="text-3xl">'+x.icon+'</div><b>'+x.name+'</b><p class="text-xs">'+x.desc+'</p></div>').join(''):'<p class="col-span-2 text-center">Play games to earn badges!</p>';document.getElementById('badgesModal').classList.remove('hidden');}
+    window.addEventListener('DOMContentLoaded',initApp);
+    </script>
+  </body>
+</html>
