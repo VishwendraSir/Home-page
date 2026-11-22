@@ -1034,9 +1034,8 @@ function nextRapidQ(){
   $('rfOpts').innerHTML=opts.map(o=>`<button class="rf-opt" onclick='pickRapid(this,${JSON.stringify(o)},${JSON.stringify(cor)})'>${o}</button>`).join('');
 }
 async function pickRapid(btn,val,cor){
-  if(rfLocked)return;
-  if(!window.consumeQuestionAttempt || !(await window.consumeQuestionAttempt('rapid:'+rfCurr[0]))) { rfLocked=true; clearInterval(rfInt); rfInt=null; stopRapidFire(false); return; }
-  rfLocked=true;
+  if(rfLocked)return; rfLocked=true;
+  if(!window.consumeQuestionAttempt || !(await window.consumeQuestionAttempt('rapid:'+rfCurr[0]))) { clearInterval(rfInt); rfInt=null; stopRapidFire(false); return; }
   if(val===cor){
     rfStreak++; rfCorrectCnt++;
     const mult=rfStreak>=6?3:(rfStreak>=3?2:1);
@@ -1203,9 +1202,8 @@ function showQuestion(){
   $('qFeedback').textContent=''; $('qNextBtn').textContent='Next Question →'; $('qNextBtn').onclick=nextQuestion;
 }
 async function pickOpt(btn,val,cor){
-  if(qAnswered)return;
-  if(!window.consumeQuestionAttempt || !(await window.consumeQuestionAttempt('quiz:'+quiz[qi][0]))) return;
-  qAnswered=true;
+  if(qAnswered)return; qAnswered=true;
+  if(!window.consumeQuestionAttempt || !(await window.consumeQuestionAttempt('quiz:'+quiz[qi][0]))){qAnswered=false;return;}
   document.querySelectorAll('.q-opt').forEach(b=>{b.disabled=true;if(b.textContent.slice(3).trim()===cor)b.classList.add('correct');});
   if(val===cor){qScore++;st.correct++;st.xp+=10;markPractice();beep('ok');$('qFeedback').textContent='✅ Correct! +10 XP';}
   else{st.wrong++;btn.classList.add('wrong');beep('no');if(!st.review.includes(quiz[qi][0]))st.review.push(quiz[qi][0]);$('qFeedback').textContent=`❌ Correct: ${cor} (Added to Revision Zone)`;}
@@ -1452,7 +1450,7 @@ syncUI();
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
 import {getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
-import {getFirestore, doc, getDoc, setDoc, updateDoc, collection, getDocs, query, where, orderBy, serverTimestamp, runTransaction, addDoc} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+import {getFirestore, doc, getDoc, setDoc, updateDoc, collection, getDocs, query, where, serverTimestamp, runTransaction, addDoc, onSnapshot} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 const cfg=window.SCIENCE_FIREBASE_CONFIG||{};
 const ready=cfg.apiKey&&!String(cfg.apiKey).startsWith("REPLACE_")&&cfg.projectId&&!String(cfg.projectId).startsWith("REPLACE_");
 const status=document.getElementById("accessStatus"), gate=document.getElementById("accessGate");
@@ -1474,6 +1472,7 @@ else {
   currentStudent=ss.data();studentPanel.style.display="block";
   if(isAdmin){status.textContent="Admin access active.";adminPanel.style.display="block";await renderAdmin();}
   else renderStudent();
+  onSnapshot(sref,snap=>{if(snap.exists()){currentStudent=snap.data();if(!isAdmin)renderStudent();}});
  });
 }
 function renderStudent(){
