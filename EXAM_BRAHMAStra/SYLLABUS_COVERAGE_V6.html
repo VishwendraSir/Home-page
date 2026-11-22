@@ -28,4 +28,5 @@ function del(i){state.topics.splice(i,1);save()}
 function clearTopics(){if(confirm('सभी topic सूची हटाएँ? Imported question bank भी सुरक्षित रहेगा.')){state.topics=[];save()}}
 function exportData(){let report=state.topics.map(t=>({...t,questionCount:count(t),status:count(t)>=(+t.target||1)?'TARGET_MET':'GAP'}));let blob=new Blob([JSON.stringify({app:'EXAM BRAHMAStra V6',generatedAt:new Date().toISOString(),totalQuestions:state.bank.length,coverage:report},null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='EXAM_BRAHMAStra_V6_Coverage_Report.json';a.click();URL.revokeObjectURL(a.href)}
 render();
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
