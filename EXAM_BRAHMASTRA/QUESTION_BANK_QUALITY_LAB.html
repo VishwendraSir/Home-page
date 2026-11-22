@@ -62,4 +62,5 @@ function render(){let lang=$('language').value,opts=optionsOf(current,lang),ai=a
 document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>check(+b.dataset.i));$('nextQ').onclick=next}
 function check(i){if(document.querySelector('.opt.correct'))return;attempts++;let ai=answerIndex(current),ok=i===ai;if(ok)correct++;$('attempted').textContent=attempts;document.querySelectorAll('.opt').forEach((b,j)=>{if(j===ai)b.classList.add('correct');if(j===i&&!ok)b.classList.add('wrong');b.disabled=true});let lang=$('language').value,exp=lang==='en'?(current.explanation_en||current.explanation||'Explanation not available'):(current.explanation_hi||current.explanation||'व्याख्या उपलब्ध नहीं');$('feedback').innerHTML='<div class="explain"><b>'+(ok?'Correct ✓':'Incorrect')+'</b><br>'+esc(exp)+'<br><small>Score: '+correct+'/'+attempts+'</small></div>'}
 $('start').onclick=next;$('reset').onclick=()=>{seen.clear();attempts=0;correct=0;$('attempted').textContent='0';$('practice').innerHTML='<p>Session reset. Start दबाएँ।</p>'};
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
