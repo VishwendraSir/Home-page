@@ -153,7 +153,7 @@ const SP_MISTAKE_KEY='science_centre_sp_mistakes_v13';
 let mistakeNotebook=JSON.parse(localStorage.getItem(SP_MISTAKE_KEY)||'[]');
 function saveMistakes(){try{localStorage.setItem(SP_MISTAKE_KEY,JSON.stringify(mistakeNotebook))}catch(e){}}
 function finish(){
- clearProgress();let correct=session.filter((q,i)=>checked[i]&&answers[i]===Number(q.answer)).length,attempted=Object.keys(answers).length,accuracy=attempted?correct/attempted*100:$('accuracy').textContent='0%';
+ clearProgress();let correct=session.filter((q,i)=>checked[i]&&answers[i]===Number(q.answer)).length,attempted=Object.keys(answers).length,accuracy=attempted?correct/attempted*100:0;
  $('practice').classList.add('hide');$('result').classList.remove('hide');$('score').textContent=correct+'/'+session.length;$('accuracy').textContent=accuracy.toFixed(1)+'%';$('mastery').textContent=accuracy>=80?'Mastered':accuracy>=60?'Improving':'Needs Revision';
  const topicStats={};session.forEach((q,i)=>{const topic=[q.subject||'General',q.chapter||'Topic',q.topic||'Practice'].join(' / ');topicStats[topic]??={correct:0,total:0};topicStats[topic].total++;if(checked[i]&&answers[i]===Number(q.answer))topicStats[topic].correct++});
  Object.entries(topicStats).forEach(([topic,s])=>{records[topic]??={correct:0,total:0};records[topic].correct+=s.correct;records[topic].total+=s.total});
