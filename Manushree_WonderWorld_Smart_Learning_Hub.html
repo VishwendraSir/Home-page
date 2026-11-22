@@ -1108,8 +1108,18 @@
     function answerGame(id,answer) {
       const game=GAMES.find(g=>g.id===id); const q=renderQuestionGame(game);
       const fb=document.getElementById('gameFeedback');
-      if(answer===q.correct) { fb.textContent=appState.lang==='hi'?'🎉 सही जवाब! शाबाश!':'🎉 Correct! Great job!'; fb.className='font-bold text-lg mt-4 text-green-600 min-h-8'; awardStar(id,game.cat,1);
-        const nextBtn=document.createElement('button'); nextBtn.textContent=appState.lang==='hi'?'➡️ अगला प्रश्न':'➡️ Next Question'; nextBtn.className='mt-4 bg-green-500 text-white rounded-xl px-6 py-3 font-bold text-lg shadow'; nextBtn.onclick=()=>nextQuestion(id); fb.after(nextBtn);
+      if(answer===q.correct) { 
+        fb.textContent=appState.lang==='hi'?'🎉 सही जवाब! शाबाश!':'🎉 Correct! Great job!';
+        fb.className='font-bold text-lg mt-4 text-green-600 min-h-8';
+        awardStar(id,game.cat,1);
+        document.querySelectorAll('.next-question-btn').forEach(b=>b.remove());
+        const nextBtn=document.createElement('button');
+        nextBtn.type='button';
+        nextBtn.textContent=appState.lang==='hi'?'➡️ अगला प्रश्न':'➡️ Next Question';
+        nextBtn.className='next-question-btn';
+        nextBtn.style.cssText='display:block!important;visibility:visible!important;opacity:1!important;margin:18px auto;padding:16px 28px;background:#16a34a;color:white;border-radius:16px;font-size:20px;font-weight:900;box-shadow:0 5px 0 #15803d;position:relative;z-index:20;';
+        nextBtn.onclick=function(){nextQuestion(id);};
+        fb.parentNode.insertBefore(nextBtn,fb.nextSibling);
       } else { fb.textContent=appState.lang==='hi'?'फिर कोशिश करो!':'Try again!'; fb.className='font-bold text-lg mt-4 text-rose-600 min-h-8'; playWrongSound(); }
     }
     function nextQuestion(id){ questionProgress[id]=(questionProgress[id]||0)+1; loadGame(id,true); }
