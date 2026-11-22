@@ -484,7 +484,7 @@
       parentPin: '1234',
       videos: DEFAULT_VIDEOS,
       customPhotos: [], // { id, en, hi, dataUrl }
-      questionProgress: {}, questionSeeds: {}, answeredQuestions: {}
+      questionProgress: {}, questionSeeds: {}, answeredQuestions: {}, wrongAnswers: []
     };
 
     let appState = loadState();
@@ -1414,8 +1414,8 @@
         document.getElementById('gameView').classList.remove('hidden');
       }
       document.getElementById('activeGameTitle').textContent=appState.lang==='hi'?game.hi:game.en;
-      document.getElementById('activeGameSub').textContent=game.cat+' • '+CLASS_NAMES[appState.classLevel]+' • Question '+((questionProgress[id]||0)+1)+' / '+q.totalCount;
       const q=renderQuestionGame(game);
+      document.getElementById('activeGameSub').textContent=game.cat+' • '+CLASS_NAMES[appState.classLevel]+' • Question '+((questionProgress[id]||0)+1)+' / '+q.totalCount;
       const stage=document.getElementById('gameStage');
       stage.innerHTML='<div class="text-center w-full max-w-xl"><div class="text-6xl mb-4">'+game.icon+'</div><h3 class="text-xl sm:text-2xl font-bold mb-3">'+q.q+'</h3><div class="text-4xl my-4">'+q.visual+'</div><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">'+q.a.map(a=>'<button class="btn-3d bg-white border-2 border-purple-200 rounded-2xl p-4 font-bold text-lg hover:bg-purple-50" onclick="answerGame(\''+id+'\',\''+a.replace(/'/g,"\\'")+'\')">'+a+'</button>').join('')+'</div><p id="gameFeedback" class="font-bold text-lg mt-4 min-h-8"></p><button onclick="loadGame(\''+id+'\')" class="mt-4 bg-indigo-100 text-indigo-700 rounded-xl px-4 py-2 font-bold">🔄 Try Again</button></div>';
       currentPromptText=q.q+' '+q.visual;
@@ -1427,7 +1427,8 @@
       if(answer===q.correct && !answeredQuestions[answerKey]) { 
         fb.textContent=appState.lang==='hi'?'🎉 सही जवाब! शाबाश!':'🎉 Correct! Great job!';
         fb.className='font-bold text-lg mt-4 text-green-600 min-h-8';
-        answeredQuestions[answerKey]=true; appState.answeredQuestions=answeredQuestions; saveState();
+        answeredQuestions[answerKey]=true; appState.answeredQuestions=answeredQuestions;
+        appState.wrongAnswers=(appState.wrongAnswers||[]).filter(m=>!(m.gameId===id&&m.index===(questionProgress[id]||0))); saveState();
         document.querySelectorAll('#gameStage button').forEach(b=>{if(!b.classList.contains('next-question-btn')) b.disabled=true;});
         awardStar(id,game.cat,1);
         const nextBtn=document.createElement('button');
@@ -1437,9 +1438,20 @@
         nextBtn.style.cssText='display:block!important;visibility:visible!important;opacity:1!important;margin:18px auto;padding:16px 28px;background:#16a34a;color:white;border-radius:16px;font-size:20px;font-weight:900;box-shadow:0 5px 0 #15803d;position:relative;z-index:20;';
         nextBtn.onclick=function(){nextQuestion(id);};
         fb.parentNode.insertBefore(nextBtn,fb.nextSibling);
-      } else { fb.textContent=appState.lang==='hi'?'फिर कोशिश करो!':'Try again!'; fb.className='font-bold text-lg mt-4 text-rose-600 min-h-8'; playWrongSound(); }
+      } else {
+        const mistake={gameId:id,index:questionProgress[id]||0,question:q.q,visual:q.visual,wrongAnswer:answer,correctAnswer:q.correct,lang:appState.lang,date:new Date().toISOString()};
+        appState.wrongAnswers=appState.wrongAnswers||[];
+        if(!appState.wrongAnswers.some(m=>m.gameId===id&&m.index===mistake.index)) appState.wrongAnswers.unshift(mistake);
+        appState.wrongAnswers=appState.wrongAnswers.slice(0,100); saveState();
+        fb.textContent=appState.lang==='hi'?'फिर कोशिश करो!':'Try again!'; fb.className='font-bold text-lg mt-4 text-rose-600 min-h-8'; playWrongSound();
+      }
     }
     function nextQuestion(id){ questionProgress[id]=(questionProgress[id]||0)+1; appState.questionProgress=questionProgress; saveState(); loadGame(id,true); }
+    function practiceMistakes(){
+      const mistakes=appState.wrongAnswers||[]; if(!mistakes.length){showToast('No mistakes to practice!','🎉','bg-green-600');return;}
+      const m=mistakes[0]; questionProgress[m.gameId]=m.index; appState.questionProgress=questionProgress; saveState(); closeParentModal(); loadGame(m.gameId);
+      showToast('Practice: '+m.question,'📝','bg-amber-600');
+    }
     function speakCurrentPrompt(){ if(currentPromptText) speak(currentPromptText); }
 
     function openPinModal(tab='report') {
@@ -1461,7 +1473,7 @@
       const active=document.getElementById('ptab-'+tab); if(active) active.className='parent-tab px-4 py-2 font-bold text-sm rounded-t-xl bg-white text-indigo-700 border-t border-x border-slate-200';
       const body=document.getElementById('parentTabBody');
       if(tab==='report'){
-        body.innerHTML='<h4 class="text-lg font-bold">Progress Report</h4><p>⭐ Total stars: '+appState.stars+'</p><p>🔥 Streak: '+appState.streak+' days</p><p>🎮 Games played: '+Object.values(appState.completedGames).reduce((a,b)=>a+b,0)+'</p><div class="grid grid-cols-2 gap-3 mt-4">'+Object.entries(appState.categoryStars).map(([k,v])=>'<div class="p-3 bg-indigo-50 rounded-xl capitalize">'+k+': '+v+' ⭐</div>').join('')+'</div>';
+        body.innerHTML='<h4 class="text-lg font-bold">Progress Report</h4><p>⭐ Total stars: '+appState.stars+'</p><p>🔥 Streak: '+appState.streak+' days</p><p>🎮 Games played: '+Object.values(appState.completedGames).reduce((a,b)=>a+b,0)+'</p><p>📝 Mistakes to practice: '+(appState.wrongAnswers||[]).length+'</p><button onclick="practiceMistakes()" class="mt-3 bg-amber-500 text-white font-bold rounded-xl px-4 py-3">📝 Practice Mistakes</button><div class="grid grid-cols-2 gap-3 mt-4">'+Object.entries(appState.categoryStars).map(([k,v])=>'<div class="p-3 bg-indigo-50 rounded-xl capitalize">'+k+': '+v+' ⭐</div>').join('')+'</div>';
       } else if(tab==='videos'){
         body.innerHTML='<h4 class="font-bold">Video Manager</h4><input id="newVidTitle" class="border rounded-xl p-2 w-full" placeholder="Video title"><input id="newVidUrl" class="border rounded-xl p-2 w-full mt-2" placeholder="YouTube URL"><button onclick="addParentVideo()" class="mt-2 bg-indigo-600 text-white rounded-xl px-4 py-2">Add Video</button><div class="mt-4 space-y-2">'+(appState.videos||[]).map(v=>'<div class="p-2 bg-slate-100 rounded-lg">'+v.title+' <button onclick="deleteParentVideo(\''+v.id+'\')" class="text-red-600 float-right">Delete</button></div>').join('')+'</div>';
       } else if(tab==='photos'){
