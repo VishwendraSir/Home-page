@@ -20,4 +20,5 @@ $('import').onclick=async()=>{let f=$('file').files[0];if(!f){alert('JSON file �
 $('demo').onclick=()=>{historyData=[{test_name:'Mathematics Practice',date:'2026-11-19',score:18,correct:18,wrong:2,unattempted:5,percentage:72,subjects:[{subject:'Mathematics',correct:18,wrong:2,total:20}],mistakes:[{topic:'Fractions'},{topic:'Percentage'}]},{test_name:'Science Mock',date:'2026-11-18',score:21,correct:21,wrong:4,unattempted:0,percentage:84,subjects:[{subject:'Science',correct:21,wrong:4,total:25}],mistakes:[{topic:'Human Body'}]}];localStorage.setItem(KEY,JSON.stringify(historyData));$('status').textContent='Demo data loaded.';render()};
 $('export').onclick=()=>{let b=new Blob([JSON.stringify({schema:'EBV6_DASHBOARD_HISTORY_1',history:historyData},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='exam-brahmastra-student-history.json';a.click()};
 $('clear').onclick=()=>{if(confirm('History delete करें?')){historyData=[];localStorage.removeItem(KEY);render()}};$('print').onclick=()=>print();render();
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
