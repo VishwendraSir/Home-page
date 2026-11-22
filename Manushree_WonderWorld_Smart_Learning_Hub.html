@@ -1850,16 +1850,27 @@
   <script>
   (()=> {
     const gate=document.getElementById('quizShareGate'),shareBtn=document.getElementById('quizShareWhatsApp'),continueBtn=document.getElementById('quizShareContinue'),cancelBtn=document.getElementById('quizShareCancel'),status=document.getElementById('quizShareGateStatus');
-    const KEY='wwQuizShareResume_v2';let pendingGameId=null,shareOpened=false,followOpened=false,unlocked=false;
+    const KEY='wwQuizShareResume_v2',DAILY_KEY='wwQuizShareLastAt_v1',COOLDOWN=24*60*60*1000;
+    let pendingGameId=null,shareOpened=false,followOpened=false,unlocked=false;
+    function getLastShare(){try{return Number(localStorage.getItem(DAILY_KEY)||0)||0;}catch(e){return 0;}}
+    function setLastShare(){try{localStorage.setItem(DAILY_KEY,String(Date.now()));}catch(e){}}
+    function sharedWithin24h(){const t=getLastShare();return t>0&&(Date.now()-t)<COOLDOWN;}
     function save(){try{sessionStorage.setItem(KEY,JSON.stringify({pendingGameId,shareOpened,followOpened,unlocked}));}catch(e){}}
     function restore(){try{const s=JSON.parse(sessionStorage.getItem(KEY)||'{}');pendingGameId=s.pendingGameId||pendingGameId;shareOpened=!!s.shareOpened;followOpened=!!s.followOpened;unlocked=!!s.unlocked;}catch(e){}}
     function enableContinue(){continueBtn.disabled=!shareOpened;continueBtn.classList.toggle('opacity-40',!shareOpened);continueBtn.classList.toggle('opacity-100',shareOpened);}
-    window.quizShareGateCheck=function(id){restore();if(unlocked)return true;pendingGameId=id;save();enableContinue();status.textContent=shareOpened?'✅ WhatsApp से वापस आ गए? अब Continue Practice दबाएँ।':'🔒 पहले WonderWorld link WhatsApp पर Share करें।';gate.classList.remove('hidden');return false;};
-    document.getElementById('quizShareFollow').onclick=()=>{window.open('https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q','_blank','noopener');followOpened=true;save();status.textContent='💚 Channel खुल गया। Follow करना optional है—Share के बाद Practice Continue कर सकते हैं।';};
-    shareBtn.onclick=()=>{const url=location.origin+location.pathname;const text='🌈 Manushree’s WonderWorld — Smart Learning Hub for Kids!\\nLearn • Play • Explore • Grow\\nComplete link: '+url+'\\nGuided by Vishwendra Sir | Science Centre Learning Hub';const wa='https://wa.me/?text='+encodeURIComponent(text);shareOpened=true;save();enableContinue();status.textContent='📲 WhatsApp खुल गया। Link भेजें, फिर WonderWorld में वापस आकर Continue Practice दबाएँ。';window.location.href=wa;};
+    window.quizShareGateCheck=function(id){
+      restore();
+      if(sharedWithin24h()){unlocked=true;pendingGameId=null;save();return true;}
+      if(unlocked)return true;
+      pendingGameId=id;shareOpened=false;save();enableContinue();
+      status.textContent='🔒 24 घंटे पूरे हो गए। आज का link WhatsApp पर share करें।';
+      gate.classList.remove('hidden');return false;
+    };
+    document.getElementById('quizShareFollow').onclick=()=>{window.open('https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q','_blank','noopener');followOpened=true;save();status.textContent='💚 Channel Follow वैकल्पिक है—आज का Share पूरा करें।';};
+    shareBtn.onclick=()=>{const url=location.origin+location.pathname;const text='🌈 Manushree’s WonderWorld — Smart Learning Hub for Kids!\\nLearn • Play • Explore • Grow\\nComplete link: '+url+'\\nGuided by Vishwendra Sir | Science Centre Learning Hub';const wa='https://wa.me/?text='+encodeURIComponent(text);shareOpened=true;setLastShare();save();enableContinue();status.textContent='📲 आज का Share दर्ज हो गया। WhatsApp में भेजें, वापस आकर Continue Practice दबाएँ।';window.location.href=wa;};
     continueBtn.onclick=()=>{restore();if(!shareOpened||!pendingGameId){status.textContent='पहले Share बटन दबाएँ और WhatsApp से वापस आएँ।';return;}unlocked=true;save();gate.classList.add('hidden');const id=pendingGameId;pendingGameId=null;window.loadGame(id);};
     cancelBtn.onclick=()=>{gate.classList.add('hidden');pendingGameId=null;shareOpened=false;followOpened=false;unlocked=false;try{sessionStorage.removeItem(KEY);}catch(e){}};
-    document.addEventListener('visibilitychange',()=>{if(!document.hidden){restore();if(!gate.classList.contains('hidden')&&shareOpened){status.textContent='✅ वापस आ गए! अब Continue Practice दबाएँ।';enableContinue();}}});
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden){restore();if(!gate.classList.contains('hidden')&&shareOpened){status.textContent='✅ आज का Share दर्ज है! वापस आ गए—Continue Practice दबाएँ।';enableContinue();}}});
   })();
   </script>
   <!-- END WHATSAPP SHARE GATE -->
