@@ -1,0 +1,1325 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Motivation & Learning",
+  "batch_id": "V6-CDP-48",
+  "subject_id": "cdp",
+  "topic_id": "motivation_learning",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "आंतरिक प्रेरणा",
+      "question_en": "Intrinsic motivation",
+      "options": [
+        {
+          "en": "Interest in the activity",
+          "hi": "कार्य में रुचि",
+          "option_id": "A"
+        },
+        {
+          "en": "E",
+          "hi": "x",
+          "option_id": "B"
+        },
+        {
+          "en": "ब",
+          "hi": "ा",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "M",
+          "hi": "a"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Intrinsic motivation comes from interest or satisfaction.",
+      "explanation_en": "Intrinsic motivation comes from interest or satisfaction.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाह्य प्रेरणा",
+      "question_en": "Extrinsic motivation",
+      "options": [
+        {
+          "en": "C",
+          "hi": "u",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "I",
+          "hi": "n",
+          "option_id": "C"
+        },
+        {
+          "en": "आ",
+          "hi": "ं",
+          "option_id": "D"
+        },
+        {
+          "en": "S",
+          "hi": "e"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "External outcomes or rewards",
+          "hi": "बाहरी परिणाम या पुरस्कार"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Extrinsic motivation is driven by external outcomes.",
+      "explanation_en": "Extrinsic motivation is driven by external outcomes.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्व-प्रभावकारिता",
+      "question_en": "Self-efficacy",
+      "options": [
+        {
+          "en": "स",
+          "hi": "ा",
+          "option_id": "A"
+        },
+        {
+          "en": "M",
+          "hi": "e",
+          "option_id": "B"
+        },
+        {
+          "en": "स",
+          "hi": "्",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Belief in capability for a task",
+          "hi": "कार्य करने की क्षमता का विश्वास"
+        },
+        {
+          "en": "G",
+          "hi": "e"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Self-efficacy is task-related belief in capability.",
+      "explanation_en": "Self-efficacy is task-related belief in capability.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रतिक्रिया",
+      "question_en": "Feedback",
+      "options": [
+        {
+          "en": "L",
+          "hi": "a",
+          "option_id": "A"
+        },
+        {
+          "en": "ल",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "N",
+          "hi": "o",
+          "option_id": "C"
+        },
+        {
+          "en": "म",
+          "hi": "ा",
+          "option_id": "D"
+        },
+        {
+          "en": "Specific and improvement-oriented",
+          "hi": "विशिष्ट और सुधारोन्मुख"
+        },
+        {
+          "en": "C",
+          "hi": "r"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Useful feedback guides improvement.",
+      "explanation_en": "Useful feedback guides improvement.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "लक्ष्य निर्धारण",
+      "question_en": "Goal setting",
+      "options": [
+        {
+          "en": "Clear attainable goals",
+          "hi": "स्पष्ट प्राप्त करने योग्य लक्ष्य",
+          "option_id": "A"
+        },
+        {
+          "en": "V",
+          "hi": "a",
+          "option_id": "B"
+        },
+        {
+          "en": "अ",
+          "hi": "स",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "C",
+          "hi": "o"
+        },
+        {
+          "en": "त",
+          "hi": "ु"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Clear goals help direct effort.",
+      "explanation_en": "Clear goals help direct effort.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अधिगमित असहायता",
+      "question_en": "Learned helplessness",
+      "options": [
+        {
+          "en": "C",
+          "hi": "u",
+          "option_id": "A"
+        },
+        {
+          "en": "ज",
+          "hi": "ि",
+          "option_id": "B"
+        },
+        {
+          "en": "C",
+          "hi": "o",
+          "option_id": "C"
+        },
+        {
+          "en": "आ",
+          "hi": "त",
+          "option_id": "D"
+        },
+        {
+          "en": "P",
+          "hi": "e"
+        },
+        {
+          "en": "ल",
+          "hi": "ग"
+        },
+        {
+          "en": "Giving up after repeated uncontrollable failure",
+          "hi": "बार-बार असफलता पर प्रयास छोड़ना"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Repeated uncontrollable failure may foster helplessness.",
+      "explanation_en": "Repeated uncontrollable failure may foster helplessness.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "निपुणता केंद्रित वातावरण",
+      "question_en": "Mastery climate",
+      "options": [
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "A"
+        },
+        {
+          "en": "F",
+          "hi": "e",
+          "option_id": "B"
+        },
+        {
+          "en": "भ",
+          "hi": "य",
+          "option_id": "C"
+        },
+        {
+          "en": "H",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "अ",
+          "hi": "प"
+        },
+        {
+          "en": "Focus on progress and learning",
+          "hi": "प्रगति और सीख पर ध्यान"
+        },
+        {
+          "en": "R",
+          "hi": "a"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Mastery climates emphasise improvement.",
+      "explanation_en": "Mastery climates emphasise improvement.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पुरस्कार",
+      "question_en": "Reward",
+      "options": [
+        {
+          "en": "T",
+          "hi": "o",
+          "option_id": "A"
+        },
+        {
+          "en": "र",
+          "hi": "ु",
+          "option_id": "B"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "C"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "D"
+        },
+        {
+          "en": "Use thoughtfully",
+          "hi": "विचारपूर्वक उपयोग"
+        },
+        {
+          "en": "F",
+          "hi": "o"
+        },
+        {
+          "en": "ह",
+          "hi": "र"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Rewards can affect motivation; use thoughtfully.",
+      "explanation_en": "Rewards can affect motivation; use thoughtfully.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विद्यार्थी स्वायत्तता",
+      "question_en": "Learner agency",
+      "options": [
+        {
+          "en": "Choice and responsibility",
+          "hi": "विकल्प और जिम्मेदारी",
+          "option_id": "A"
+        },
+        {
+          "en": "P",
+          "hi": "a",
+          "option_id": "B"
+        },
+        {
+          "en": "न",
+          "hi": "ि",
+          "option_id": "C"
+        },
+        {
+          "en": "C",
+          "hi": "o",
+          "option_id": "D"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Agency supports active participation.",
+      "explanation_en": "Agency supports active participation.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रेरणा समर्थन",
+      "question_en": "Motivation support",
+      "options": [
+        {
+          "en": "I",
+          "hi": "m",
+          "option_id": "A"
+        },
+        {
+          "en": "अ",
+          "hi": "स",
+          "option_id": "B"
+        },
+        {
+          "en": "H",
+          "hi": "u",
+          "option_id": "C"
+        },
+        {
+          "en": "अ",
+          "hi": "प",
+          "option_id": "D"
+        },
+        {
+          "en": "U",
+          "hi": "n"
+        },
+        {
+          "en": "अ",
+          "hi": "स"
+        },
+        {
+          "en": "Meaningful challenge and support",
+          "hi": "अर्थपूर्ण चुनौती और सहयोग"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Appropriate challenge and support can sustain effort.",
+      "explanation_en": "Appropriate challenge and support can sustain effort.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा की स्थिति में आंतरिक प्रेरणा का सही अर्थ क्या है?",
+      "question_en": "In a classroom situation, what does Intrinsic motivation mean?",
+      "options": [
+        {
+          "en": "ब",
+          "hi": "ा",
+          "option_id": "A"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "B"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "C"
+        },
+        {
+          "en": "M",
+          "hi": "a",
+          "option_id": "D"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "Interest in the activity",
+          "hi": "कार्य में रुचि"
+        },
+        {
+          "en": "E",
+          "hi": "x"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Intrinsic motivation comes from interest or satisfaction.",
+      "explanation_en": "Intrinsic motivation comes from interest or satisfaction.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा की स्थिति में बाह्य प्रेरणा का सही अर्थ क्या है?",
+      "question_en": "In a classroom situation, what does Extrinsic motivation mean?",
+      "options": [
+        {
+          "en": "I",
+          "hi": "n",
+          "option_id": "A"
+        },
+        {
+          "en": "आ",
+          "hi": "ं",
+          "option_id": "B"
+        },
+        {
+          "en": "S",
+          "hi": "e",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "External outcomes or rewards",
+          "hi": "बाहरी परिणाम या पुरस्कार"
+        },
+        {
+          "en": "C",
+          "hi": "u"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Extrinsic motivation is driven by external outcomes.",
+      "explanation_en": "Extrinsic motivation is driven by external outcomes.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा की स्थिति में स्व-प्रभावकारिता का सही अर्थ क्या है?",
+      "question_en": "In a classroom situation, what does Self-efficacy mean?",
+      "options": [
+        {
+          "en": "Belief in capability for a task",
+          "hi": "कार्य करने की क्षमता का विश्वास",
+          "option_id": "A"
+        },
+        {
+          "en": "G",
+          "hi": "e",
+          "option_id": "B"
+        },
+        {
+          "en": "स",
+          "hi": "ा",
+          "option_id": "C"
+        },
+        {
+          "en": "M",
+          "hi": "e",
+          "option_id": "D"
+        },
+        {
+          "en": "स",
+          "hi": "्"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Self-efficacy is task-related belief in capability.",
+      "explanation_en": "Self-efficacy is task-related belief in capability.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा की स्थिति में प्रतिक्रिया का सही अर्थ क्या है?",
+      "question_en": "In a classroom situation, what does Feedback mean?",
+      "options": [
+        {
+          "en": "C",
+          "hi": "r",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "L",
+          "hi": "a",
+          "option_id": "C"
+        },
+        {
+          "en": "ल",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "N",
+          "hi": "o"
+        },
+        {
+          "en": "म",
+          "hi": "ा"
+        },
+        {
+          "en": "Specific and improvement-oriented",
+          "hi": "विशिष्ट और सुधारोन्मुख"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Useful feedback guides improvement.",
+      "explanation_en": "Useful feedback guides improvement.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा की स्थिति में लक्ष्य निर्धारण का सही अर्थ क्या है?",
+      "question_en": "In a classroom situation, what does Goal setting mean?",
+      "options": [
+        {
+          "en": "अ",
+          "hi": "स",
+          "option_id": "A"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "B"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "C"
+        },
+        {
+          "en": "C",
+          "hi": "o",
+          "option_id": "D"
+        },
+        {
+          "en": "त",
+          "hi": "ु"
+        },
+        {
+          "en": "Clear attainable goals",
+          "hi": "स्पष्ट प्राप्त करने योग्य लक्ष्य"
+        },
+        {
+          "en": "V",
+          "hi": "a"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Clear goals help direct effort.",
+      "explanation_en": "Clear goals help direct effort.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा की स्थिति में अधिगमित असहायता का सही अर्थ क्या है?",
+      "question_en": "In a classroom situation, what does Learned helplessness mean?",
+      "options": [
+        {
+          "en": "C",
+          "hi": "o",
+          "option_id": "A"
+        },
+        {
+          "en": "आ",
+          "hi": "त",
+          "option_id": "B"
+        },
+        {
+          "en": "P",
+          "hi": "e",
+          "option_id": "C"
+        },
+        {
+          "en": "ल",
+          "hi": "ग",
+          "option_id": "D"
+        },
+        {
+          "en": "Giving up after repeated uncontrollable failure",
+          "hi": "बार-बार असफलता पर प्रयास छोड़ना"
+        },
+        {
+          "en": "C",
+          "hi": "u"
+        },
+        {
+          "en": "ज",
+          "hi": "ि"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Repeated uncontrollable failure may foster helplessness.",
+      "explanation_en": "Repeated uncontrollable failure may foster helplessness.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा की स्थिति में निपुणता केंद्रित वातावरण का सही अर्थ क्या है?",
+      "question_en": "In a classroom situation, what does Mastery climate mean?",
+      "options": [
+        {
+          "en": "Focus on progress and learning",
+          "hi": "प्रगति और सीख पर ध्यान",
+          "option_id": "A"
+        },
+        {
+          "en": "R",
+          "hi": "a",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "F",
+          "hi": "e",
+          "option_id": "D"
+        },
+        {
+          "en": "भ",
+          "hi": "य"
+        },
+        {
+          "en": "H",
+          "hi": "u"
+        },
+        {
+          "en": "अ",
+          "hi": "प"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Mastery climates emphasise improvement.",
+      "explanation_en": "Mastery climates emphasise improvement.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा की स्थिति में पुरस्कार का सही अर्थ क्या है?",
+      "question_en": "In a classroom situation, what does Reward mean?",
+      "options": [
+        {
+          "en": "F",
+          "hi": "o",
+          "option_id": "A"
+        },
+        {
+          "en": "ह",
+          "hi": "र",
+          "option_id": "B"
+        },
+        {
+          "en": "T",
+          "hi": "o",
+          "option_id": "C"
+        },
+        {
+          "en": "र",
+          "hi": "ु",
+          "option_id": "D"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Use thoughtfully",
+          "hi": "विचारपूर्वक उपयोग"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Rewards can affect motivation; use thoughtfully.",
+      "explanation_en": "Rewards can affect motivation; use thoughtfully.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा की स्थिति में विद्यार्थी स्वायत्तता का सही अर्थ क्या है?",
+      "question_en": "In a classroom situation, what does Learner agency mean?",
+      "options": [
+        {
+          "en": "न",
+          "hi": "ि",
+          "option_id": "A"
+        },
+        {
+          "en": "C",
+          "hi": "o",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Choice and responsibility",
+          "hi": "विकल्प और जिम्मेदारी"
+        },
+        {
+          "en": "P",
+          "hi": "a"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Agency supports active participation.",
+      "explanation_en": "Agency supports active participation.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MOTIVATION_LEARNING_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "motivation_learning",
+      "topic": "Motivation & Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा की स्थिति में प्रेरणा समर्थन का सही अर्थ क्या है?",
+      "question_en": "In a classroom situation, what does Motivation support mean?",
+      "options": [
+        {
+          "en": "H",
+          "hi": "u",
+          "option_id": "A"
+        },
+        {
+          "en": "अ",
+          "hi": "प",
+          "option_id": "B"
+        },
+        {
+          "en": "U",
+          "hi": "n",
+          "option_id": "C"
+        },
+        {
+          "en": "अ",
+          "hi": "स",
+          "option_id": "D"
+        },
+        {
+          "en": "Meaningful challenge and support",
+          "hi": "अर्थपूर्ण चुनौती और सहयोग"
+        },
+        {
+          "en": "I",
+          "hi": "m"
+        },
+        {
+          "en": "अ",
+          "hi": "स"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Appropriate challenge and support can sustain effort.",
+      "explanation_en": "Appropriate challenge and support can sustain effort.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}

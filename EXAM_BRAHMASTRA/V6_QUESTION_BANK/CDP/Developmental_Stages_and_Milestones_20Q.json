@@ -1,0 +1,1085 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Developmental Stages and Milestones",
+  "batch_id": "V6-CDP-057",
+  "subject_id": "cdp",
+  "topic_id": "developmental_stages_milestones",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "V6-CDP-057-001",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शैशवावस्था में कौन-सी क्षमता तेजी से विकसित होती है?",
+      "question_en": "Which ability develops rapidly during infancy?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "संवेदी-मोटर समन्वय",
+          "en": "संवेदी-मोटर समन्वय"
+        },
+        {
+          "option_id": "B",
+          "hi": "औपचारिक तर्क",
+          "en": "Sensory-motor coordination"
+        },
+        {
+          "option_id": "C",
+          "hi": "व्यावसायिक कौशल",
+          "en": "Formal reasoning"
+        },
+        {
+          "option_id": "D",
+          "hi": "राजनीतिक सोच",
+          "en": "Vocational skills"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-002",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रारंभिक बाल्यावस्था में खेल का महत्व क्या है?",
+      "question_en": "Why is play important in early childhood?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल प्रतिस्पर्धा",
+          "en": "A learning barrier"
+        },
+        {
+          "option_id": "B",
+          "hi": "भाषा, सामाजिक और संज्ञानात्मक सीख",
+          "en": "भाषा, सामाजिक और संज्ञानात्मक सीख"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल समय बिताना",
+          "en": "Language, social and cognitive learning"
+        },
+        {
+          "option_id": "D",
+          "hi": "सीखने में बाधा",
+          "en": "Just passing time"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-003",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "easy",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विद्यालयी आयु में बच्चे अक्सर किसमें प्रगति करते हैं?",
+      "question_en": "School-age children often progress in what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "शिशु निर्भरता",
+          "en": "Reflexes only"
+        },
+        {
+          "option_id": "B",
+          "hi": "अमूर्त दर्शन पूर्ण",
+          "en": "Infant dependency"
+        },
+        {
+          "option_id": "C",
+          "hi": "तर्क, नियम और सहयोग",
+          "en": "तर्क, नियम और सहयोग"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल प्रतिवर्त",
+          "en": "Reasoning, rules and cooperation"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-004",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किशोरावस्था का सामान्य परिवर्तन?",
+      "question_en": "A common adolescent change is what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "विकास रुकना",
+          "en": "Physical and social identity changes"
+        },
+        {
+          "option_id": "B",
+          "hi": "भाषा समाप्त होना",
+          "en": "Development stops"
+        },
+        {
+          "option_id": "C",
+          "hi": "खेल असंभव",
+          "en": "Language disappears"
+        },
+        {
+          "option_id": "D",
+          "hi": "शारीरिक और सामाजिक पहचान में परिवर्तन",
+          "en": "शारीरिक और सामाजिक पहचान में परिवर्तन"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-005",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Milestone का उपयोग कैसे करें?",
+      "question_en": "How should milestones be used?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सामान्य मार्गदर्शक, कठोर सीमा नहीं",
+          "en": "सामान्य मार्गदर्शक, कठोर सीमा नहीं"
+        },
+        {
+          "option_id": "B",
+          "hi": "निश्चित निदान",
+          "en": "As guides, not rigid cutoffs"
+        },
+        {
+          "option_id": "C",
+          "hi": "तुलना का हथियार",
+          "en": "As diagnosis"
+        },
+        {
+          "option_id": "D",
+          "hi": "सभी बच्चों पर समान समय",
+          "en": "For comparison"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-006",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकासात्मक देरी की चिंता हो तो?",
+      "question_en": "If developmental delay is suspected, what should be done?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सार्वजनिक घोषणा",
+          "en": "Ignore"
+        },
+        {
+          "option_id": "B",
+          "hi": "अवलोकन, अभिभावक संवाद और विशेषज्ञ संदर्भ",
+          "en": "अवलोकन, अभिभावक संवाद और विशेषज्ञ संदर्भ"
+        },
+        {
+          "option_id": "C",
+          "hi": "लेबल और दंड",
+          "en": "Observe, communicate and refer appropriately"
+        },
+        {
+          "option_id": "D",
+          "hi": "अनदेखा",
+          "en": "Label and punish"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-007",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कौन सा सामाजिक milestone है?",
+      "question_en": "Which is a social milestone?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दाँत निकलना",
+          "en": "Height gain"
+        },
+        {
+          "option_id": "B",
+          "hi": "रक्त समूह",
+          "en": "Teething"
+        },
+        {
+          "option_id": "C",
+          "hi": "साझा ध्यान और बारी लेना",
+          "en": "साझा ध्यान और बारी लेना"
+        },
+        {
+          "option_id": "D",
+          "hi": "ऊँचाई बढ़ना",
+          "en": "Joint attention and turn-taking"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-008",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा विकास में पहले क्या सामान्यतः आता है?",
+      "question_en": "What generally comes earlier in language development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "निबंध लेखन",
+          "en": "Babbling and sound exploration"
+        },
+        {
+          "option_id": "B",
+          "hi": "व्याकरण विश्लेषण",
+          "en": "Essay writing"
+        },
+        {
+          "option_id": "C",
+          "hi": "बहुभाषी अनुवाद",
+          "en": "Grammar analysis"
+        },
+        {
+          "option_id": "D",
+          "hi": "बबलिंग और ध्वनि प्रयोग",
+          "en": "बबलिंग और ध्वनि प्रयोग"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-009",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "मोटर विकास का उदाहरण?",
+      "question_en": "Which is an example of motor development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "बैठना, चलना और पकड़ना",
+          "en": "बैठना, चलना और पकड़ना"
+        },
+        {
+          "option_id": "B",
+          "hi": "नैतिक निर्णय",
+          "en": "Sitting, walking and grasping"
+        },
+        {
+          "option_id": "C",
+          "hi": "शब्द अर्थ",
+          "en": "Moral judgement"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्मृति रणनीति",
+          "en": "Word meaning"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-010",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किसमें संज्ञानात्मक milestone दिखता है?",
+      "question_en": "Which demonstrates a cognitive milestone?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भावनात्मक लगाव",
+          "en": "Running"
+        },
+        {
+          "option_id": "B",
+          "hi": "वस्तु स्थायित्व समझना",
+          "en": "वस्तु स्थायित्व समझना"
+        },
+        {
+          "option_id": "C",
+          "hi": "ऊँचाई",
+          "en": "Understanding object permanence"
+        },
+        {
+          "option_id": "D",
+          "hi": "दौड़ना",
+          "en": "Height"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-011",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल विकास को चरणों में बाँटना क्यों उपयोगी है?",
+      "question_en": "Why are developmental stages useful?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "विकास रोकना",
+          "en": "Making all children identical"
+        },
+        {
+          "option_id": "B",
+          "hi": "निश्चित भविष्य बताना",
+          "en": "Stopping development"
+        },
+        {
+          "option_id": "C",
+          "hi": "सामान्य जरूरतें समझने में",
+          "en": "सामान्य जरूरतें समझने में"
+        },
+        {
+          "option_id": "D",
+          "hi": "हर बच्चे को समान बनाना",
+          "en": "Understanding typical needs"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-012",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "एक milestone देर से होना क्या दर्शाता है?",
+      "question_en": "What does a late milestone necessarily indicate?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "निश्चित विकार",
+          "en": "Not a diagnosis by itself"
+        },
+        {
+          "option_id": "B",
+          "hi": "शिक्षक की विफलता",
+          "en": "Certain disorder"
+        },
+        {
+          "option_id": "C",
+          "hi": "बुद्धि कम",
+          "en": "Teacher failure"
+        },
+        {
+          "option_id": "D",
+          "hi": "अपने आप में निदान नहीं",
+          "en": "अपने आप में निदान नहीं"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-013",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "साथियों के साथ खेल किस कौशल को बढ़ा सकता है?",
+      "question_en": "Peer play can support which skill?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सहयोग और संघर्ष समाधान",
+          "en": "सहयोग और संघर्ष समाधान"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल शारीरिक वृद्धि",
+          "en": "Cooperation and conflict resolution"
+        },
+        {
+          "option_id": "C",
+          "hi": "पठन गति",
+          "en": "Physical growth only"
+        },
+        {
+          "option_id": "D",
+          "hi": "रक्त संचरण",
+          "en": "Reading speed"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-014",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकासात्मक अनुक्रम का उदाहरण?",
+      "question_en": "An example of developmental sequence?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सभी एक साथ",
+          "en": "Sequence uncertain"
+        },
+        {
+          "option_id": "B",
+          "hi": "बैठना सामान्यतः चलने से पहले",
+          "en": "बैठना सामान्यतः चलने से पहले"
+        },
+        {
+          "option_id": "C",
+          "hi": "चलना बैठने से पहले",
+          "en": "Sitting generally before walking"
+        },
+        {
+          "option_id": "D",
+          "hi": "क्रम अनिश्चित",
+          "en": "Walking before sitting"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-015",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल्यावस्था में आत्म-नियमन कैसे विकसित होता है?",
+      "question_en": "How does self-regulation develop in childhood?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "जन्म से पूर्ण",
+          "en": "Punishment alone"
+        },
+        {
+          "option_id": "B",
+          "hi": "सामाजिक संपर्क से दूर",
+          "en": "Fully present at birth"
+        },
+        {
+          "option_id": "C",
+          "hi": "अभ्यास, सह-नियमन और अनुभव से",
+          "en": "अभ्यास, सह-नियमन और अनुभव से"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड मात्र",
+          "en": "Practice, co-regulation and experience"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-016",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किसमें भावनात्मक विकास का संकेत है?",
+      "question_en": "Which indicates emotional development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल लंबाई",
+          "en": "Recognising and expressing emotions"
+        },
+        {
+          "option_id": "B",
+          "hi": "गणना गति",
+          "en": "Height only"
+        },
+        {
+          "option_id": "C",
+          "hi": "दृष्टि तीक्ष्णता",
+          "en": "Calculation speed"
+        },
+        {
+          "option_id": "D",
+          "hi": "भावना पहचान और व्यक्त करना",
+          "en": "भावना पहचान और व्यक्त करना"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-017",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बच्चों के विकास की तुलना कैसे करें?",
+      "question_en": "How should children's development be compared?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "व्यक्तिगत प्रगति और संदर्भ से",
+          "en": "व्यक्तिगत प्रगति और संदर्भ से"
+        },
+        {
+          "option_id": "B",
+          "hi": "सार्वजनिक रैंकिंग",
+          "en": "Individual progress and context"
+        },
+        {
+          "option_id": "C",
+          "hi": "एक ही मानक कठोरता से",
+          "en": "Public ranking"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल उम्र",
+          "en": "Rigid single standard"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-018",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकासात्मक क्षेत्र एक-दूसरे को कैसे प्रभावित करते हैं?",
+      "question_en": "How do developmental domains influence one another?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "कोई संबंध नहीं",
+          "en": "Physical only"
+        },
+        {
+          "option_id": "B",
+          "hi": "परस्पर प्रभाव",
+          "en": "परस्पर प्रभाव"
+        },
+        {
+          "option_id": "C",
+          "hi": "अलग-अलग",
+          "en": "Mutually influence each other"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल शारीरिक कारण",
+          "en": "Separate"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-019",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कौन सा विद्यालयी कार्य उम्र-अनुकूल है?",
+      "question_en": "Which school task is age-appropriate?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "बिना सहायता परीक्षा",
+          "en": "Uniform overly difficult task"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल रटने का दबाव",
+          "en": "Unsupported test"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास स्तर के अनुरूप चुनौती",
+          "en": "विकास स्तर के अनुरूप चुनौती"
+        },
+        {
+          "option_id": "D",
+          "hi": "बहुत कठिन समान कार्य",
+          "en": "Challenge matched to developmental level"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-057-020",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Developmental Stages and Milestones",
+      "topic_id": "developmental_stages_milestones",
+      "topic": "Developmental Stages and Milestones",
+      "subtopic_id": "developmental_stages_milestones",
+      "subtopic": "Developmental Stages and Milestones",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Milestones पर सबसे उचित शिक्षक दृष्टिकोण?",
+      "question_en": "Most appropriate teacher approach to milestones?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "कठोर समय सीमा",
+          "en": "Flexible observation and support"
+        },
+        {
+          "option_id": "B",
+          "hi": "निदान देना",
+          "en": "Rigid deadline"
+        },
+        {
+          "option_id": "C",
+          "hi": "लेबल लगाना",
+          "en": "Diagnose"
+        },
+        {
+          "option_id": "D",
+          "hi": "लचीला अवलोकन और सहायता",
+          "en": "लचीला अवलोकन और सहायता"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}

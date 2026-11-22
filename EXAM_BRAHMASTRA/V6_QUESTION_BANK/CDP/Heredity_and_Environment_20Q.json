@@ -1,0 +1,1085 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Heredity and Environment",
+  "batch_id": "V6-CDP-055",
+  "subject_id": "cdp",
+  "topic_id": "heredity_environment",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "V6-CDP-055-001",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वंशानुक्रम मुख्यतः किसके माध्यम से गुणों का संचरण करता है?",
+      "question_en": "Through what are hereditary traits primarily transmitted?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "Genes",
+          "en": "Genes"
+        },
+        {
+          "option_id": "B",
+          "hi": "पर्यावरण",
+          "en": "Environment"
+        },
+        {
+          "option_id": "C",
+          "hi": "विद्यालय",
+          "en": "School"
+        },
+        {
+          "option_id": "D",
+          "hi": "सहपाठी",
+          "en": "Peers"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Genes carry inherited information.",
+      "explanation_en": "Genes carry inherited information.",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-002",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बच्चे की उपलब्धि पर वंशानुक्रम और वातावरण का प्रभाव कैसा है?",
+      "question_en": "How do heredity and environment affect a child's achievement?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "इनमें से कोई नहीं",
+          "en": "Neither"
+        },
+        {
+          "option_id": "B",
+          "hi": "दोनों परस्पर क्रिया करते हैं",
+          "en": "दोनों परस्पर क्रिया करते हैं"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल वंशानुक्रम",
+          "en": "Only heredity"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल वातावरण",
+          "en": "Only environment"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Development reflects interaction between inherited potential and environment.",
+      "explanation_en": "Development reflects interaction between inherited potential and environment.",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-003",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "easy",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समान जुड़वाँ बच्चों में अंतर किससे हो सकता है?",
+      "question_en": "Differences between identical twins may arise from what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अलग प्रजाति",
+          "en": "Different genes"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल आयु",
+          "en": "Different species"
+        },
+        {
+          "option_id": "C",
+          "hi": "अलग अनुभव और वातावरण",
+          "en": "अलग अनुभव और वातावरण"
+        },
+        {
+          "option_id": "D",
+          "hi": "अलग जीन",
+          "en": "Different experiences and environments"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-004",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक को व्यक्तिगत भिन्नताओं का सम्मान क्यों करना चाहिए?",
+      "question_en": "Why should a teacher respect individual differences?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सभी बच्चे समान गति से सीखते हैं",
+          "en": "Children have different abilities and experiences"
+        },
+        {
+          "option_id": "B",
+          "hi": "भिन्नता अनुशासनहीनता है",
+          "en": "All learn at the same pace"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल परीक्षा अंक मायने रखते हैं",
+          "en": "Differences mean indiscipline"
+        },
+        {
+          "option_id": "D",
+          "hi": "हर बच्चे की क्षमता और अनुभव अलग होते हैं",
+          "en": "हर बच्चे की क्षमता और अनुभव अलग होते हैं"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-005",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वंशानुक्रम किसका आधार प्रदान करता है?",
+      "question_en": "Heredity provides the basis for what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "संभावित विकास क्षमता",
+          "en": "संभावित विकास क्षमता"
+        },
+        {
+          "option_id": "B",
+          "hi": "सभी व्यवहार निश्चित",
+          "en": "Potential developmental capacities"
+        },
+        {
+          "option_id": "C",
+          "hi": "सीखना असंभव",
+          "en": "All behaviour is fixed"
+        },
+        {
+          "option_id": "D",
+          "hi": "समान रुचियाँ",
+          "en": "Learning is impossible"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-006",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समृद्ध वातावरण का उदाहरण कौन सा है?",
+      "question_en": "Which is an example of an enriched environment?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "प्रश्न पूछने पर रोक",
+          "en": "Isolation"
+        },
+        {
+          "option_id": "B",
+          "hi": "पुस्तकें, संवाद और खोज के अवसर",
+          "en": "पुस्तकें, संवाद और खोज के अवसर"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल रटने का दबाव",
+          "en": "Books, dialogue and exploration"
+        },
+        {
+          "option_id": "D",
+          "hi": "बच्चे को अलग रखना",
+          "en": "Pressure to memorise only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-007",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वंचित वातावरण का प्रभाव कम करने में शिक्षक क्या कर सकता है?",
+      "question_en": "What can a teacher do to reduce environmental disadvantage?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उम्मीदें घटाकर अलग करना",
+          "en": "Blame the child"
+        },
+        {
+          "option_id": "B",
+          "hi": "उसे अनदेखा करना",
+          "en": "Isolate with low expectations"
+        },
+        {
+          "option_id": "C",
+          "hi": "सहायक संसाधन और अवसर देना",
+          "en": "सहायक संसाधन और अवसर देना"
+        },
+        {
+          "option_id": "D",
+          "hi": "बच्चे को दोष देना",
+          "en": "Provide supportive resources and opportunities"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-008",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "जीन और वातावरण का संबंध किस कथन से सही है?",
+      "question_en": "Which statement correctly describes genes and environment?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "एक दूसरे को पूरी तरह समाप्त करते हैं",
+          "en": "They jointly contribute to development"
+        },
+        {
+          "option_id": "B",
+          "hi": "वातावरण का कोई प्रभाव नहीं",
+          "en": "They cancel each other"
+        },
+        {
+          "option_id": "C",
+          "hi": "जीन अनुभव से बदलते ही नहीं",
+          "en": "Environment has no effect"
+        },
+        {
+          "option_id": "D",
+          "hi": "वे विकास में संयुक्त योगदान देते हैं",
+          "en": "वे विकास में संयुक्त योगदान देते हैं"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-009",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक बच्चे की पारिवारिक पृष्ठभूमि जानकर क्या करे?",
+      "question_en": "What should a teacher do after understanding a learner's family background?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "संदर्भानुकूल सहयोग",
+          "en": "संदर्भानुकूल सहयोग"
+        },
+        {
+          "option_id": "B",
+          "hi": "स्थायी लेबल लगाना",
+          "en": "Context-sensitive support"
+        },
+        {
+          "option_id": "C",
+          "hi": "क्षमता का अनुमान जाति/आय से लगाना",
+          "en": "Permanent labelling"
+        },
+        {
+          "option_id": "D",
+          "hi": "सार्वजनिक तुलना",
+          "en": "Infer ability from caste/income"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-010",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रकृति-पोषण बहस का आधुनिक दृष्टिकोण क्या है?",
+      "question_en": "What is the modern view of the nature–nurture debate?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "एक ही कारण सभी को समझाता है",
+          "en": "Nurture alone"
+        },
+        {
+          "option_id": "B",
+          "hi": "विकास में दोनों की अंतःक्रिया",
+          "en": "विकास में दोनों की अंतःक्रिया"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल प्रकृति",
+          "en": "Interaction of both"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल पोषण",
+          "en": "Nature alone"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-011",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किस स्थिति में शिक्षक का दृष्टिकोण पर्यावरण-केंद्रित है?",
+      "question_en": "Which teacher response reflects an environment-focused approach?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उसे अभ्यास से रोकना",
+          "en": "Call the child innately weak"
+        },
+        {
+          "option_id": "B",
+          "hi": "सिर्फ दंड देना",
+          "en": "Prevent practice"
+        },
+        {
+          "option_id": "C",
+          "hi": "सीखने के अवसर बदलकर प्रगति देखना",
+          "en": "सीखने के अवसर बदलकर प्रगति देखना"
+        },
+        {
+          "option_id": "D",
+          "hi": "बच्चे को जन्मजात कमजोर कहना",
+          "en": "Change learning opportunities and observe progress"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-012",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास की क्षमता को स्थिर मानना क्यों अनुचित है?",
+      "question_en": "Why is it inappropriate to treat developmental potential as fixed?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सभी गुण जन्म से पूर्ण हैं",
+          "en": "Experience and support influence development"
+        },
+        {
+          "option_id": "B",
+          "hi": "शिक्षण व्यर्थ है",
+          "en": "All traits are complete at birth"
+        },
+        {
+          "option_id": "C",
+          "hi": "बच्चे कभी नहीं बदलते",
+          "en": "Teaching is useless"
+        },
+        {
+          "option_id": "D",
+          "hi": "अनुभव और सहायता विकास को प्रभावित करते हैं",
+          "en": "अनुभव और सहायता विकास को प्रभावित करते हैं"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-013",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किस उदाहरण में वंशानुक्रम का प्रभाव दिखता है?",
+      "question_en": "Which example illustrates hereditary influence?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "रक्त समूह का आनुवंशिक संचरण",
+          "en": "रक्त समूह का आनुवंशिक संचरण"
+        },
+        {
+          "option_id": "B",
+          "hi": "कक्षा की भाषा",
+          "en": "Genetic transmission of blood group"
+        },
+        {
+          "option_id": "C",
+          "hi": "मित्र समूह",
+          "en": "Classroom language"
+        },
+        {
+          "option_id": "D",
+          "hi": "पुस्तकालय सुविधा",
+          "en": "Peer group"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-014",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किस उदाहरण में वातावरण का प्रभाव स्पष्ट है?",
+      "question_en": "Which example clearly shows environmental influence?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "जन्मजात जीन",
+          "en": "Blood group"
+        },
+        {
+          "option_id": "B",
+          "hi": "घर में पढ़ने की उपलब्ध सामग्री",
+          "en": "घर में पढ़ने की उपलब्ध सामग्री"
+        },
+        {
+          "option_id": "C",
+          "hi": "आँखों का प्राकृतिक रंग",
+          "en": "Availability of reading materials at home"
+        },
+        {
+          "option_id": "D",
+          "hi": "रक्त समूह",
+          "en": "Natural eye colour"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-015",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वंशानुक्रम को नियति मानने से क्या जोखिम है?",
+      "question_en": "What is the risk of treating heredity as destiny?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "लचीलापन बढ़ना",
+          "en": "Increasing support"
+        },
+        {
+          "option_id": "B",
+          "hi": "समान अवसर देना",
+          "en": "Increasing flexibility"
+        },
+        {
+          "option_id": "C",
+          "hi": "बच्चे की क्षमता को सीमित मान लेना",
+          "en": "बच्चे की क्षमता को सीमित मान लेना"
+        },
+        {
+          "option_id": "D",
+          "hi": "सहयोग बढ़ना",
+          "en": "Limiting a child's perceived potential"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-016",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पर्यावरण में कौन-सा घटक शामिल है?",
+      "question_en": "Which component is part of a child's environment?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल जीन",
+          "en": "Family, school and community"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल गुणसूत्र",
+          "en": "Genes only"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल जन्मजात प्रवृत्ति",
+          "en": "Chromosomes only"
+        },
+        {
+          "option_id": "D",
+          "hi": "परिवार, विद्यालय और समुदाय",
+          "en": "परिवार, विद्यालय और समुदाय"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-017",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अच्छा शिक्षक किस आधार पर शिक्षण अनुकूलित करता है?",
+      "question_en": "A good teacher adapts instruction based on what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अवलोकन और सीखने की जरूरतें",
+          "en": "अवलोकन और सीखने की जरूरतें"
+        },
+        {
+          "option_id": "B",
+          "hi": "वंशानुगत अनुमान",
+          "en": "Observation and learning needs"
+        },
+        {
+          "option_id": "C",
+          "hi": "एक ही विधि",
+          "en": "Hereditary assumptions"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्थिर लेबल",
+          "en": "One method for all"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-018",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "जीन अभिव्यक्ति पर वातावरण का प्रभाव किस अवधारणा से जुड़ता है?",
+      "question_en": "Environmental influence on gene expression is related to what concept?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड",
+          "en": "Reinforcement"
+        },
+        {
+          "option_id": "B",
+          "hi": "एपिजेनेटिक्स",
+          "en": "एपिजेनेटिक्स"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल अनुकरण",
+          "en": "Epigenetics"
+        },
+        {
+          "option_id": "D",
+          "hi": "सुदृढीकरण",
+          "en": "Imitation only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-019",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समावेशी कक्षा में पृष्ठभूमि भिन्नता को कैसे देखा जाता है?",
+      "question_en": "How are background differences viewed in an inclusive classroom?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अलगाव का कारण",
+          "en": "Proof of weakness"
+        },
+        {
+          "option_id": "B",
+          "hi": "असमान व्यवहार का आधार",
+          "en": "Reason for exclusion"
+        },
+        {
+          "option_id": "C",
+          "hi": "संसाधन और सीखने की विविधता",
+          "en": "संसाधन और सीखने की विविधता"
+        },
+        {
+          "option_id": "D",
+          "hi": "कमजोरी का प्रमाण",
+          "en": "Diversity of resources and learning"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-055-020",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Heredity and Environment",
+      "topic_id": "heredity_environment",
+      "topic": "Heredity and Environment",
+      "subtopic_id": "heredity_environment",
+      "subtopic": "Heredity and Environment",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सबसे उपयुक्त कथन चुनें।",
+      "question_en": "Choose the most appropriate statement.",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "विकास केवल जीन से तय है",
+          "en": "Development is a complex interaction of hereditary and environmental factors"
+        },
+        {
+          "option_id": "B",
+          "hi": "विकास केवल विद्यालय से होता है",
+          "en": "Genes alone determine development"
+        },
+        {
+          "option_id": "C",
+          "hi": "सभी बच्चे समान परिणाम देंगे",
+          "en": "School alone causes development"
+        },
+        {
+          "option_id": "D",
+          "hi": "विकास आनुवंशिक और पर्यावरणीय कारकों की जटिल प्रक्रिया है",
+          "en": "विकास आनुवंशिक और पर्यावरणीय कारकों की जटिल प्रक्रिया है"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}

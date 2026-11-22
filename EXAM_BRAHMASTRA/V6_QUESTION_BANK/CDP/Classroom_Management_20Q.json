@@ -1,0 +1,1085 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Classroom Management",
+  "batch_id": "V6-CDP-067",
+  "subject_id": "cdp",
+  "topic_id": "classroom_management",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "V6-CDP-067-001",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रभावी कक्षा प्रबंधन का लक्ष्य?",
+      "question_en": "Goal of effective classroom management?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सुरक्षित सीखने का वातावरण",
+          "en": "सुरक्षित सीखने का वातावरण"
+        },
+        {
+          "option_id": "B",
+          "hi": "भय",
+          "en": "Safe learning environment"
+        },
+        {
+          "option_id": "C",
+          "hi": "पूर्ण मौन",
+          "en": "Fear"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Absolute silence"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-002",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा नियम कैसे हों?",
+      "question_en": "Class rules should be?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल दंड",
+          "en": "Too many"
+        },
+        {
+          "option_id": "B",
+          "hi": "स्पष्ट, सकारात्मक और सीमित",
+          "en": "स्पष्ट, सकारात्मक और सीमित"
+        },
+        {
+          "option_id": "C",
+          "hi": "अस्पष्ट",
+          "en": "Clear, positive and limited"
+        },
+        {
+          "option_id": "D",
+          "hi": "बहुत अधिक",
+          "en": "Vague"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-003",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "easy",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रारंभिक रोकथाम का उदाहरण?",
+      "question_en": "Example of preventive management?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अनदेखी",
+          "en": "Punishment after error"
+        },
+        {
+          "option_id": "B",
+          "hi": "चिल्लाना",
+          "en": "Ignore"
+        },
+        {
+          "option_id": "C",
+          "hi": "दिनचर्या और स्पष्ट निर्देश",
+          "en": "दिनचर्या और स्पष्ट निर्देश"
+        },
+        {
+          "option_id": "D",
+          "hi": "गलती के बाद दंड",
+          "en": "Routines and clear instructions"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-004",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अवांछित व्यवहार पर उचित प्रतिक्रिया?",
+      "question_en": "Appropriate response to disruptive behaviour?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सार्वजनिक अपमान",
+          "en": "Calm, private and behaviour-focused"
+        },
+        {
+          "option_id": "B",
+          "hi": "लेबल",
+          "en": "Public humiliation"
+        },
+        {
+          "option_id": "C",
+          "hi": "क्रोध",
+          "en": "Label"
+        },
+        {
+          "option_id": "D",
+          "hi": "शांत, निजी और व्यवहार-केंद्रित",
+          "en": "शांत, निजी और व्यवहार-केंद्रित"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-005",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सकारात्मक अनुशासन?",
+      "question_en": "Positive discipline?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सीखने और जिम्मेदारी पर केंद्रित",
+          "en": "सीखने और जिम्मेदारी पर केंद्रित"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड मात्र",
+          "en": "Learning and responsibility focused"
+        },
+        {
+          "option_id": "C",
+          "hi": "भय",
+          "en": "Punishment only"
+        },
+        {
+          "option_id": "D",
+          "hi": "प्रतिशोध",
+          "en": "Fear"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-006",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा संक्रमण कैसे सहज?",
+      "question_en": "How make transitions smooth?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड",
+          "en": "Vague orders"
+        },
+        {
+          "option_id": "B",
+          "hi": "पूर्व संकेत और तैयारी",
+          "en": "पूर्व संकेत और तैयारी"
+        },
+        {
+          "option_id": "C",
+          "hi": "अचानक बदलाव",
+          "en": "Advance cues and preparation"
+        },
+        {
+          "option_id": "D",
+          "hi": "अस्पष्ट आदेश",
+          "en": "Sudden change"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-007",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समय प्रबंधन का उपाय?",
+      "question_en": "Time management strategy?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अव्यवस्था",
+          "en": "Long waiting"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल घंटी",
+          "en": "Disorder"
+        },
+        {
+          "option_id": "C",
+          "hi": "कार्य और समय स्पष्ट करना",
+          "en": "कार्य और समय स्पष्ट करना"
+        },
+        {
+          "option_id": "D",
+          "hi": "लंबे इंतजार",
+          "en": "Clarify tasks and time"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-008",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में engagement?",
+      "question_en": "Classroom engagement?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "निष्क्रिय बैठना",
+          "en": "Active varied activities"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड",
+          "en": "Passive sitting"
+        },
+        {
+          "option_id": "C",
+          "hi": "एकतरफा भाषण",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "D",
+          "hi": "सक्रिय और विविध गतिविधियाँ",
+          "en": "सक्रिय और विविध गतिविधियाँ"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-009",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यवहार के कारण समझना?",
+      "question_en": "Why understand causes of behaviour?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उचित हस्तक्षेप चुनना",
+          "en": "उचित हस्तक्षेप चुनना"
+        },
+        {
+          "option_id": "B",
+          "hi": "दोष देना",
+          "en": "Choose appropriate intervention"
+        },
+        {
+          "option_id": "C",
+          "hi": "अनदेखी",
+          "en": "Blame"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्थायी लेबल",
+          "en": "Ignore"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-010",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Conflict समाधान?",
+      "question_en": "Conflict resolution?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उपहास",
+          "en": "Bias"
+        },
+        {
+          "option_id": "B",
+          "hi": "संवाद और समाधान खोज",
+          "en": "संवाद और समाधान खोज"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Dialogue and problem-solving"
+        },
+        {
+          "option_id": "D",
+          "hi": "पक्षपात",
+          "en": "Punishment"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-011",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रशंसा का प्रभाव?",
+      "question_en": "Effect of praise?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "कोई प्रभाव नहीं",
+          "en": "Always harmful"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड",
+          "en": "No effect"
+        },
+        {
+          "option_id": "C",
+          "hi": "अपेक्षित व्यवहार मजबूत कर सकती",
+          "en": "अपेक्षित व्यवहार मजबूत कर सकती"
+        },
+        {
+          "option_id": "D",
+          "hi": "हमेशा नुकसान",
+          "en": "Can strengthen desired behaviour"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-012",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में शिक्षक की consistency?",
+      "question_en": "Teacher consistency?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "मनमाना व्यवहार",
+          "en": "Reliable application of rules"
+        },
+        {
+          "option_id": "B",
+          "hi": "पक्षपात",
+          "en": "Arbitrary behaviour"
+        },
+        {
+          "option_id": "C",
+          "hi": "नियम बदलना",
+          "en": "Bias"
+        },
+        {
+          "option_id": "D",
+          "hi": "नियमों का विश्वसनीय पालन",
+          "en": "नियमों का विश्वसनीय पालन"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-013",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विद्यार्थी की गरिमा?",
+      "question_en": "Learner dignity?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "हर प्रतिक्रिया में सम्मान",
+          "en": "हर प्रतिक्रिया में सम्मान"
+        },
+        {
+          "option_id": "B",
+          "hi": "सार्वजनिक शर्म",
+          "en": "Respect in every response"
+        },
+        {
+          "option_id": "C",
+          "hi": "व्यंग्य",
+          "en": "Public shame"
+        },
+        {
+          "option_id": "D",
+          "hi": "लेबल",
+          "en": "Sarcasm"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-014",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा की व्यवस्था?",
+      "question_en": "Classroom arrangement?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अलगाव",
+          "en": "Barriers"
+        },
+        {
+          "option_id": "B",
+          "hi": "कार्य और पहुंच के अनुरूप",
+          "en": "कार्य और पहुंच के अनुरूप"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल सजावट",
+          "en": "Aligned with tasks and access"
+        },
+        {
+          "option_id": "D",
+          "hi": "बाधाएँ",
+          "en": "Decoration only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-015",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक को व्यवधान पर?",
+      "question_en": "Teacher response to disruption?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "कक्षा रोकना",
+          "en": "Long lecture"
+        },
+        {
+          "option_id": "B",
+          "hi": "क्रोध",
+          "en": "Stop class"
+        },
+        {
+          "option_id": "C",
+          "hi": "कम से कम आवश्यक हस्तक्षेप",
+          "en": "कम से कम आवश्यक हस्तक्षेप"
+        },
+        {
+          "option_id": "D",
+          "hi": "लंबा भाषण",
+          "en": "Least necessary intervention"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-016",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समूह कार्य के नियम?",
+      "question_en": "Rules for group work?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "कोई भूमिका नहीं",
+          "en": "Clear roles and expectations"
+        },
+        {
+          "option_id": "B",
+          "hi": "अव्यवस्थित",
+          "en": "No roles"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल नेता",
+          "en": "Disorder"
+        },
+        {
+          "option_id": "D",
+          "hi": "भूमिका और अपेक्षाएँ स्पष्ट",
+          "en": "भूमिका और अपेक्षाएँ स्पष्ट"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-017",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "दंड की बजाय consequence?",
+      "question_en": "Instead of punishment, use?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "तार्किक और संबंधित परिणाम",
+          "en": "तार्किक और संबंधित परिणाम"
+        },
+        {
+          "option_id": "B",
+          "hi": "अपमान",
+          "en": "Logical related consequence"
+        },
+        {
+          "option_id": "C",
+          "hi": "असंबंधित सजा",
+          "en": "Humiliation"
+        },
+        {
+          "option_id": "D",
+          "hi": "धमकी",
+          "en": "Unrelated penalty"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-018",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक stress management?",
+      "question_en": "Teacher stress management?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अनदेखी",
+          "en": "Blame students"
+        },
+        {
+          "option_id": "B",
+          "hi": "योजना, सहयोग और विराम",
+          "en": "योजना, सहयोग और विराम"
+        },
+        {
+          "option_id": "C",
+          "hi": "क्रोध निकालना",
+          "en": "Planning, collaboration and breaks"
+        },
+        {
+          "option_id": "D",
+          "hi": "विद्यार्थी दोष",
+          "en": "Vent anger"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-019",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यवहार अपेक्षाएँ सिखाना?",
+      "question_en": "How teach behavioural expectations?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "मान लेना",
+          "en": "Punishment only"
+        },
+        {
+          "option_id": "B",
+          "hi": "उपहास",
+          "en": "Assume"
+        },
+        {
+          "option_id": "C",
+          "hi": "मॉडल, अभ्यास और प्रतिक्रिया",
+          "en": "मॉडल, अभ्यास और प्रतिक्रिया"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल दंड",
+          "en": "Model, practise and feedback"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-020",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Classroom Management",
+      "topic_id": "classroom_management",
+      "topic": "Classroom Management",
+      "subtopic_id": "classroom_management",
+      "subtopic": "Classroom Management",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सर्वोत्तम प्रबंधन?",
+      "question_en": "Best management approach?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड प्रधान",
+          "en": "Positive, preventive and relationship-based"
+        },
+        {
+          "option_id": "B",
+          "hi": "भय आधारित",
+          "en": "Punitive"
+        },
+        {
+          "option_id": "C",
+          "hi": "अव्यवस्थित",
+          "en": "Fear-based"
+        },
+        {
+          "option_id": "D",
+          "hi": "सकारात्मक, निवारक और संबंध आधारित",
+          "en": "सकारात्मक, निवारक और संबंध आधारित"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    }
+  ]
+}

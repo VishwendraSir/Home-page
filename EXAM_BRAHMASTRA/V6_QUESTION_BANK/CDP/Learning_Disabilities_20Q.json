@@ -1,0 +1,1125 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Learning Disabilities",
+  "batch_id": "V6-CDP-026",
+  "subject_id": "cdp",
+  "topic_id": "learning_disabilities",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Specific learning disability किससे संबंधित है?",
+      "question_en": "Specific learning disability relates to—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "विशिष्ट अकादमिक कौशल में कठिनाई",
+            "Difficulty in specific academic skills",
+            "सभी बुद्धि का अभाव",
+            "Absence of all intelligence",
+            "आलस्य",
+            "Laziness",
+            "अनुशासन",
+            "Discipline"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "SLD पढ़ने, लिखने या गणित जैसे विशिष्ट कौशल में कठिनाई हो सकती है।",
+          "en": "SLD may affect specific skills such as reading, writing or mathematics."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Dyslexia मुख्यतः प्रभावित करता है—",
+      "question_en": "Dyslexia primarily affects—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Dyslexia में पढ़ने, decoding और spelling में कठिनाई हो सकती है।",
+          "en": "Dyslexia may involve difficulty in reading, decoding and spelling."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "पठन और शब्द पहचान",
+            "Reading and word recognition",
+            "गणना ही",
+            "Calculation only",
+            "श्रवण",
+            "Hearing",
+            "सामाजिक व्यवहार",
+            "Social behaviour"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Dyscalculia संबंधित है—",
+      "question_en": "Dyscalculia is associated with—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "गणितीय संख्यात्मक कौशल",
+            "Mathematical numerical skills",
+            "पठन",
+            "Reading",
+            "सुनना",
+            "Listening",
+            "चित्रकारी",
+            "Drawing"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Dyscalculia संख्या और गणितीय अवधारणाओं में कठिनाई से जुड़ी है।",
+          "en": "Dyscalculia involves difficulty with number and mathematical concepts."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Dysgraphia में कठिनाई—",
+      "question_en": "Dysgraphia involves difficulty with—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "लिखित अभिव्यक्ति/लेखन",
+            "Written expression/handwriting",
+            "मौखिक सुनना",
+            "Oral listening",
+            "दौड़ना",
+            "Running",
+            "सामाजिक खेल",
+            "Social play"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Dysgraphia लेखन के विभिन्न पहलुओं को प्रभावित कर सकती है।",
+          "en": "Dysgraphia can affect aspects of writing."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "SLD वाले विद्यार्थी के लिए शिक्षक—",
+      "question_en": "For a learner with SLD, a teacher should—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "बहु-संवेदी और स्पष्ट शिक्षण",
+            "Explicit multisensory teaching",
+            "दंड",
+            "Punishment",
+            "कार्य से वंचित",
+            "Remove tasks",
+            "लेबल",
+            "Label"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "स्पष्ट और बहु-संवेदी निर्देश सीखने में सहायक हो सकते हैं।",
+          "en": "Explicit multisensory instruction may support learning."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Learning disability का अर्थ यह नहीं कि—",
+      "question_en": "A learning disability does not mean—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "SLD सामान्य या उच्च बुद्धि वाले विद्यार्थियों में भी हो सकती है।",
+          "en": "SLD can occur in learners with average or high intelligence."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "बुद्धि कम होना अनिवार्य",
+            "Intelligence must be low",
+            "विशिष्ट कठिनाई",
+            "Specific difficulty",
+            "समर्थन की जरूरत",
+            "Need for support",
+            "अलग रणनीति",
+            "Different strategy"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पठन कठिनाई पहचानने का संकेत—",
+      "question_en": "A sign of reading difficulty may be—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "अक्षर/ध्वनि जोड़ने में कठिनाई",
+            "Difficulty linking letters and sounds",
+            "हर विषय में असफलता",
+            "Failure in all subjects",
+            "अनुशासन",
+            "Discipline",
+            "उच्च खेल क्षमता",
+            "High sports ability"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "ध्वनि-अक्षर संबंध और decoding में कठिनाई एक संकेत हो सकती है।",
+          "en": "Difficulty with sound-letter links and decoding may be a sign."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहायता देने से पहले—",
+      "question_en": "Before providing support—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "कठिनाई और ताकत का आकलन",
+            "Assess difficulties and strengths",
+            "मान लें आलस्य",
+            "Assume laziness",
+            "दंड",
+            "Punish",
+            "सभी समान",
+            "Treat all alike"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "आकलन व्यक्तिगत जरूरतों और ताकतों की पहचान करता है।",
+          "en": "Assessment identifies individual needs and strengths."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Accommodation का उदाहरण—",
+      "question_en": "An example of accommodation is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "अतिरिक्त समय",
+            "Extra time",
+            "सीखने का लक्ष्य हटाना",
+            "Remove learning goal",
+            "परीक्षा न देना",
+            "No assessment",
+            "दंड",
+            "Punishment"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "अनुकूलन प्रदर्शन का तरीका बदल सकता है बिना लक्ष्य बदले।",
+          "en": "Accommodation may change access without changing the goal."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Remediation का उद्देश्य—",
+      "question_en": "The purpose of remediation is—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Remediation पहचानी गई कठिनाई पर केंद्रित अतिरिक्त शिक्षण है।",
+          "en": "Remediation provides targeted teaching for an identified difficulty."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "विशिष्ट कौशल की पुनः सहायता",
+            "Targeted support for a specific skill",
+            "लेबल देना",
+            "Label",
+            "अलग करना",
+            "Separate",
+            "अंक घटाना",
+            "Reduce marks"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पढ़ने के लिए phonological awareness—",
+      "question_en": "Phonological awareness supports reading by—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "ध्वनियों को पहचानना और बदलना",
+            "Recognising and manipulating sounds",
+            "चित्र रंगना",
+            "Colour pictures",
+            "गति",
+            "Speed",
+            "उपस्थिति",
+            "Attendance"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "ध्वनि जागरूकता शब्दों की ध्वनि संरचना समझने में सहायता करती है।",
+          "en": "Phonological awareness helps understand sound structure of words."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विद्यार्थी को सार्वजनिक रूप से शर्मिंदा करना—",
+      "question_en": "Publicly humiliating a learner—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "अनुचित है",
+            "Is inappropriate",
+            "उपयोगी उपचार",
+            "Useful therapy",
+            "आवश्यक",
+            "Necessary",
+            "सुधार का सर्वोत्तम तरीका",
+            "Best correction"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सम्मानजनक समर्थन आत्मविश्वास और सहभागिता को सुरक्षित रखता है।",
+          "en": "Respectful support protects confidence and participation."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "IEP में लक्ष्य—",
+      "question_en": "IEP goals should be—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "विशिष्ट और मापने योग्य",
+            "Specific and measurable",
+            "अस्पष्ट",
+            "Vague",
+            "केवल शिक्षक लक्ष्य",
+            "Teacher-only goals",
+            "स्थायी",
+            "Permanent"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "मापने योग्य लक्ष्य प्रगति की समीक्षा में मदद करते हैं।",
+          "en": "Measurable goals help review progress."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहायक तकनीक का उपयोग—",
+      "question_en": "Assistive technology may—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "तकनीक विद्यार्थी को सामग्री तक पहुंच या उत्तर देने का विकल्प देती है।",
+          "en": "Technology can provide access or response options."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "पहुंच और अभिव्यक्ति में मदद",
+            "Support access and expression",
+            "कठिनाई समाप्त निश्चित",
+            "Guarantee elimination",
+            "शिक्षक की जगह",
+            "Replace teacher",
+            "केवल मनोरंजन",
+            "Entertainment only"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "साथियों की मदद—",
+      "question_en": "Peer support should—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "सम्मानपूर्वक और स्वाभाविक हो",
+            "Be respectful and natural",
+            "विद्यार्थी को निर्भर बनाए",
+            "Create dependence",
+            "उपहास",
+            "Mock",
+            "कार्य पूरा कर दे",
+            "Do all work"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सहपाठी समर्थन सम्मान और सहभागिता के साथ होना चाहिए।",
+          "en": "Peer support should preserve respect and participation."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Learning disability पहचान—",
+      "question_en": "Identification of learning disability—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "योग्य विशेषज्ञ मूल्यांकन से",
+            "Through qualified assessment",
+            "केवल शिक्षक अनुमान",
+            "Teacher guess only",
+            "एक परीक्षा",
+            "One test",
+            "अंक देखकर",
+            "Marks only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "औपचारिक पहचान व्यापक और योग्य मूल्यांकन पर आधारित होती है।",
+          "en": "Formal identification relies on comprehensive qualified assessment."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कार्य को छोटे चरणों में बाँटना—",
+      "question_en": "Breaking tasks into smaller steps—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "कार्य को अधिक प्रबंधनीय बनाता है",
+            "Makes tasks manageable",
+            "सीखना रोकता",
+            "Stops learning",
+            "दंड",
+            "Punishment",
+            "अनावश्यक",
+            "Unnecessary"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "छोटे चरण कठिन कार्य में स्पष्टता और सफलता बढ़ा सकते हैं।",
+          "en": "Smaller steps can improve clarity and success."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सुधारात्मक feedback—",
+      "question_en": "Corrective feedback should be—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "स्पष्ट feedback विद्यार्थी को सुधार का तरीका बताता है।",
+          "en": "Clear feedback tells learners how to improve."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "स्पष्ट और तुरंत उपयोगी",
+            "Clear and actionable",
+            "अपमान",
+            "Humiliation",
+            "केवल गलत",
+            "Only wrong",
+            "अस्पष्ट",
+            "Vague"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कठिनाई के बावजूद ताकत पहचानना—",
+      "question_en": "Recognising strengths despite difficulty—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "आत्मविश्वास बढ़ाता है",
+            "Builds confidence",
+            "अनदेखी",
+            "Ignore",
+            "अनुचित",
+            "Inappropriate",
+            "समय नष्ट",
+            "Waste time"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "ताकत आधारित दृष्टिकोण आत्मविश्वास और प्रेरणा को समर्थन देता है।",
+          "en": "A strengths-based approach supports confidence and motivation."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LEARNING_DISABILITIES_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "learning_disabilities",
+      "topic": "Learning Disabilities",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Learning disability में उचित नीति—",
+      "question_en": "An appropriate policy for learning disability is—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "समर्थन, अनुकूलन और समावेशन",
+            "Support, accommodation and inclusion",
+            "बहिष्कार",
+            "Exclusion",
+            "दंड",
+            "Punishment",
+            "कम अवसर",
+            "Fewer opportunities"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "समावेश और उचित समर्थन विद्यार्थी की सीखने की पहुंच बढ़ाते हैं।",
+          "en": "Inclusion and support improve access to learning."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}

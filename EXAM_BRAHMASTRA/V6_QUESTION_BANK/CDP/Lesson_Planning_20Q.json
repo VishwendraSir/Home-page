@@ -1,0 +1,1125 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Lesson Planning",
+  "batch_id": "V6-CDP-034",
+  "subject_id": "cdp",
+  "topic_id": "lesson_planning",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Lesson plan का मुख्य उद्देश्य—",
+      "question_en": "The main purpose of a lesson plan—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "Organise teaching and learning",
+            "Organise teaching and learning",
+            "Replace flexibility",
+            "Replace flexibility",
+            "Only record marks",
+            "Only record marks",
+            "Punish",
+            "Punish"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Lesson planning organises objectives, activities, resources and assessment.",
+          "en": "Lesson planning organises objectives, activities, resources and assessment."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Learning objective should be—",
+      "question_en": "A learning objective should be—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Clear objectives describe intended learning.",
+          "en": "Clear objectives describe intended learning."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Clear and observable",
+            "Clear and observable",
+            "Vague",
+            "Vague",
+            "Unrelated",
+            "Unrelated",
+            "Impossible",
+            "Impossible"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Lesson introduction can—",
+      "question_en": "A lesson introduction can—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Activate prior knowledge",
+            "Activate prior knowledge",
+            "Confuse purpose",
+            "Confuse purpose",
+            "Replace practice",
+            "Replace practice",
+            "End learning",
+            "End learning"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "An introduction connects prior knowledge and sets context.",
+          "en": "An introduction connects prior knowledge and sets context."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Teaching activity should align with—",
+      "question_en": "Teaching activity should align with—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Learning objective",
+            "Learning objective",
+            "Decoration",
+            "Decoration",
+            "Teacher preference only",
+            "Teacher preference only",
+            "Attendance",
+            "Attendance"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Alignment ensures activities help achieve intended outcomes.",
+          "en": "Alignment ensures activities help achieve intended outcomes."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Lesson closure may include—",
+      "question_en": "Lesson closure may include—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "Summary and reflection",
+            "Summary and reflection",
+            "New unrelated topic",
+            "New unrelated topic",
+            "Punishment",
+            "Punishment",
+            "No review",
+            "No review"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Closure consolidates key learning and checks understanding.",
+          "en": "Closure consolidates key learning and checks understanding."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Teaching resources are selected based on—",
+      "question_en": "Teaching resources are selected based on—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Resources should support objectives and suit learners.",
+          "en": "Resources should support objectives and suit learners."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Purpose and learner needs",
+            "Purpose and learner needs",
+            "Price only",
+            "Price only",
+            "Colour only",
+            "Colour only",
+            "Availability only",
+            "Availability only"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "A lesson plan should be—",
+      "question_en": "A lesson plan should be—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Flexible",
+            "Flexible",
+            "Rigid always",
+            "Rigid always",
+            "Unchangeable",
+            "Unchangeable",
+            "Unrelated",
+            "Unrelated"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Teachers adapt plans based on learner responses.",
+          "en": "Teachers adapt plans based on learner responses."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Time allocation should consider—",
+      "question_en": "Time allocation should consider—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Activity complexity",
+            "Activity complexity",
+            "Only page count",
+            "Only page count",
+            "Random",
+            "Random",
+            "No practice",
+            "No practice"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Time should match the complexity and learning needs of activities.",
+          "en": "Time should match the complexity and learning needs of activities."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Assessment in a lesson plan helps—",
+      "question_en": "Assessment in a lesson plan helps—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "Check objective achievement",
+            "Check objective achievement",
+            "Decorate",
+            "Decorate",
+            "Avoid feedback",
+            "Avoid feedback",
+            "End participation",
+            "End participation"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Assessment evidence indicates whether objectives were achieved.",
+          "en": "Assessment evidence indicates whether objectives were achieved."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Differentiation in planning means—",
+      "question_en": "Differentiation in planning means—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Differentiation adjusts access, support or task complexity.",
+          "en": "Differentiation adjusts access, support or task complexity."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Adjusting support or tasks to learner needs",
+            "Adjusting support or tasks to learner needs",
+            "Same support always",
+            "Same support always",
+            "Excluding learners",
+            "Excluding learners",
+            "Removing objectives",
+            "Removing objectives"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "A lesson plan's prerequisite knowledge—",
+      "question_en": "A lesson plan's prerequisite knowledge—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Identifies what learners need beforehand",
+            "Identifies what learners need beforehand",
+            "Is irrelevant",
+            "Is irrelevant",
+            "Only homework",
+            "Only homework",
+            "Final answer",
+            "Final answer"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Prerequisites help teachers connect new learning to existing knowledge.",
+          "en": "Prerequisites help teachers connect new learning to existing knowledge."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Teaching sequence should be—",
+      "question_en": "Teaching sequence should be—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Logical and scaffolded",
+            "Logical and scaffolded",
+            "Random",
+            "Random",
+            "Only difficult first",
+            "Only difficult first",
+            "Unrelated",
+            "Unrelated"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Sequencing supports gradual development of understanding.",
+          "en": "Sequencing supports gradual development of understanding."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "A lesson plan can include questions to—",
+      "question_en": "A lesson plan can include questions to—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "Probe understanding",
+            "Probe understanding",
+            "Fill time",
+            "Fill time",
+            "Create fear",
+            "Create fear",
+            "Avoid dialogue",
+            "Avoid dialogue"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Planned questions can check understanding and stimulate thinking.",
+          "en": "Planned questions can check understanding and stimulate thinking."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Homework should be—",
+      "question_en": "Homework should be—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Homework should reinforce or extend learning appropriately.",
+          "en": "Homework should reinforce or extend learning appropriately."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Purposeful and manageable",
+            "Purposeful and manageable",
+            "Excessive",
+            "Excessive",
+            "Unrelated",
+            "Unrelated",
+            "Punitive",
+            "Punitive"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Teaching-learning materials should be prepared—",
+      "question_en": "Teaching-learning materials should be prepared—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Before the lesson",
+            "Before the lesson",
+            "After class only",
+            "After class only",
+            "Never",
+            "Never",
+            "Only during exam",
+            "Only during exam"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Preparation supports smooth and purposeful instruction.",
+          "en": "Preparation supports smooth and purposeful instruction."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Reflection after teaching helps—",
+      "question_en": "Reflection after teaching helps—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Improve future lessons",
+            "Improve future lessons",
+            "Avoid adaptation",
+            "Avoid adaptation",
+            "Blame learners",
+            "Blame learners",
+            "Repeat blindly",
+            "Repeat blindly"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Reflection identifies strengths and areas for improvement.",
+          "en": "Reflection identifies strengths and areas for improvement."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Lesson plan should consider classroom context—",
+      "question_en": "A lesson plan should consider classroom context—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "Yes, resources and learner diversity",
+            "Yes, resources and learner diversity",
+            "Never",
+            "Never",
+            "Only exam",
+            "Only exam",
+            "Only teacher",
+            "Only teacher"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Context affects the feasible and effective teaching approach.",
+          "en": "Context affects the feasible and effective teaching approach."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Learning outcomes differ from activities because outcomes—",
+      "question_en": "Learning outcomes differ from activities because outcomes—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Outcomes specify learner achievement, not merely teaching activity.",
+          "en": "Outcomes specify learner achievement, not merely teaching activity."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Describe what learners can demonstrate",
+            "Describe what learners can demonstrate",
+            "List teacher actions only",
+            "List teacher actions only",
+            "Describe resources",
+            "Describe resources",
+            "Set seating",
+            "Set seating"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Lesson plan evaluation may use—",
+      "question_en": "Lesson plan evaluation may use—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Evidence from learner responses",
+            "Evidence from learner responses",
+            "Teacher guess only",
+            "Teacher guess only",
+            "No evidence",
+            "No evidence",
+            "Attendance only",
+            "Attendance only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Learner responses and work provide evidence for evaluating instruction.",
+          "en": "Learner responses and work provide evidence for evaluating instruction."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LESSON_PLANNING_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "lesson_planning",
+      "topic": "Lesson Planning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Effective planning balances—",
+      "question_en": "Effective planning balances—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "Structure and responsiveness",
+            "Structure and responsiveness",
+            "Rote and punishment",
+            "Rote and punishment",
+            "Rigid timing",
+            "Rigid timing",
+            "No objectives",
+            "No objectives"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Planning gives structure while allowing responsiveness to learners.",
+          "en": "Planning gives structure while allowing responsiveness to learners."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}

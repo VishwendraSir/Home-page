@@ -1,0 +1,1085 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Social Development",
+  "batch_id": "V6-CDP-007",
+  "subject_id": "cdp",
+  "topic_id": "social_development",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक विकास किससे संबंधित है?",
+      "question_en": "Social development relates to what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दूसरों के साथ संबंध और सहभागिता",
+          "en": "Relationships and interaction with others"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल ऊँचाई",
+          "en": "Height only"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल स्मृति",
+          "en": "Memory only"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल गणना",
+          "en": "Calculation only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "सामाजिक विकास में संबंध, सहभागिता, सामाजिक कौशल और समूह में व्यवहार शामिल हैं।",
+      "explanation_en": "Social development includes relationships, interaction, social skills and group behaviour.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहयोग कौशल का उदाहरण—",
+      "question_en": "An example of cooperation—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "साझा कार्य में योगदान देना",
+          "en": "Contributing to a shared task"
+        },
+        {
+          "option_id": "B",
+          "hi": "साथी को रोकना",
+          "en": "Blocking a peer"
+        },
+        {
+          "option_id": "C",
+          "hi": "सामग्री छिपाना",
+          "en": "Hiding materials"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल अकेले काम",
+          "en": "Working alone only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "सहयोग में साझा लक्ष्य के लिए योगदान और समन्वय शामिल है।",
+      "explanation_en": "Cooperation involves contributing and coordinating toward a shared goal.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक नियम सीखने में कौन सहायक है?",
+      "question_en": "What helps children learn social rules?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "मॉडलिंग, अभ्यास और प्रतिक्रिया",
+          "en": "Modelling, practice and feedback"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल दंड",
+          "en": "Punishment only"
+        },
+        {
+          "option_id": "C",
+          "hi": "अलगाव",
+          "en": "Isolation"
+        },
+        {
+          "option_id": "D",
+          "hi": "अनदेखी",
+          "en": "Ignoring"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "मॉडलिंग, अभ्यास और प्रतिक्रिया सामाजिक नियम सीखने में मदद करते हैं।",
+      "explanation_en": "Modelling, practice and feedback help children learn social rules.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "साथियों के साथ खेल का महत्व—",
+      "question_en": "Importance of peer play—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सहयोग और संवाद का अभ्यास",
+          "en": "Practising cooperation and communication"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल प्रतिस्पर्धा",
+          "en": "Competition only"
+        },
+        {
+          "option_id": "C",
+          "hi": "सीखने में बाधा",
+          "en": "Barrier to learning"
+        },
+        {
+          "option_id": "D",
+          "hi": "कोई लाभ नहीं",
+          "en": "No benefit"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "साथियों के साथ खेल सामाजिक संवाद और सहयोग का अवसर देता है।",
+      "explanation_en": "Peer play offers opportunities for social communication and cooperation.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक कौशल में कौन शामिल है?",
+      "question_en": "Which is included in social skills?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सुनना और अपनी बात उचित ढंग से कहना",
+          "en": "Listening and expressing oneself appropriately"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल रटना",
+          "en": "Rote learning only"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल दौड़ना",
+          "en": "Running only"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल गणित",
+          "en": "Math only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "सुनना, संवाद और सम्मानपूर्ण अभिव्यक्ति सामाजिक कौशल हैं।",
+      "explanation_en": "Listening, communication and respectful expression are social skills.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समूह कार्य में शिक्षक क्या प्रोत्साहित करे?",
+      "question_en": "What should a teacher encourage in group work?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सभी सदस्यों की भागीदारी",
+          "en": "Participation of all members"
+        },
+        {
+          "option_id": "B",
+          "hi": "एक विद्यार्थी का नियंत्रण",
+          "en": "Control by one student"
+        },
+        {
+          "option_id": "C",
+          "hi": "कार्य बाँटने से बचना",
+          "en": "Avoid task sharing"
+        },
+        {
+          "option_id": "D",
+          "hi": "उपहास",
+          "en": "Mockery"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "समावेशी समूह कार्य में सभी विद्यार्थियों को योगदान का अवसर मिलता है।",
+      "explanation_en": "Inclusive group work gives all students opportunities to contribute.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक विकास में परिवार—",
+      "question_en": "Family in social development—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "प्रारंभिक सामाजिक अनुभव देता है",
+          "en": "Provides early social experiences"
+        },
+        {
+          "option_id": "B",
+          "hi": "अप्रासंगिक",
+          "en": "Irrelevant"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल अंक देता है",
+          "en": "Only gives marks"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल शारीरिक वृद्धि",
+          "en": "Only physical growth"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "परिवार बच्चों के प्रारंभिक संबंध और सामाजिक व्यवहार का महत्वपूर्ण संदर्भ है।",
+      "explanation_en": "Family is an important context for early relationships and social behaviour.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक स्वीकार्यता का स्वस्थ आधार—",
+      "question_en": "A healthy basis for social acceptance—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सम्मान और समान सहभागिता",
+          "en": "Respect and equal participation"
+        },
+        {
+          "option_id": "B",
+          "hi": "दबाव और डर",
+          "en": "Pressure and fear"
+        },
+        {
+          "option_id": "C",
+          "hi": "भेदभाव",
+          "en": "Discrimination"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल लोकप्रियता",
+          "en": "Popularity only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "सम्मान और सहभागिता सकारात्मक सामाजिक संबंधों का आधार हैं।",
+      "explanation_en": "Respect and participation support positive social relationships.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "संघर्ष समाधान में पहला उपयोगी कदम—",
+      "question_en": "A useful first step in conflict resolution—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दोनों पक्षों को सुनना",
+          "en": "Listen to both sides"
+        },
+        {
+          "option_id": "B",
+          "hi": "तुरंत दोष देना",
+          "en": "Blame immediately"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड तय करना",
+          "en": "Decide punishment"
+        },
+        {
+          "option_id": "D",
+          "hi": "बात रोकना",
+          "en": "Stop discussion"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "दोनों पक्षों को सुनना समस्या को समझने और निष्पक्ष समाधान खोजने में मदद करता है।",
+      "explanation_en": "Listening to both sides helps understand and resolve conflict fairly.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक विकास में अनुकरण की भूमिका—",
+      "question_en": "Role of imitation in social development—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दूसरों के व्यवहार से सीखना",
+          "en": "Learning from others' behaviour"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल स्मृति",
+          "en": "Memory only"
+        },
+        {
+          "option_id": "C",
+          "hi": "कोई भूमिका नहीं",
+          "en": "No role"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल शारीरिक वृद्धि",
+          "en": "Physical growth only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "बच्चे दूसरों के व्यवहार का अवलोकन और अनुकरण करके सामाजिक कौशल सीख सकते हैं।",
+      "explanation_en": "Children may learn social skills by observing and imitating others.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक जिम्मेदारी का उदाहरण—",
+      "question_en": "An example of social responsibility—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "साझा संसाधनों की देखभाल",
+          "en": "Caring for shared resources"
+        },
+        {
+          "option_id": "B",
+          "hi": "नियम तोड़ना",
+          "en": "Breaking rules"
+        },
+        {
+          "option_id": "C",
+          "hi": "दूसरों को बाहर करना",
+          "en": "Excluding others"
+        },
+        {
+          "option_id": "D",
+          "hi": "कार्य से बचना",
+          "en": "Avoiding tasks"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "साझा संसाधनों की देखभाल समूह के प्रति जिम्मेदारी दर्शाती है।",
+      "explanation_en": "Caring for shared resources shows responsibility toward the group.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक विकास का आकलन—",
+      "question_en": "Assessment of social development—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "विभिन्न सामाजिक परिस्थितियों में अवलोकन",
+          "en": "Observation across social situations"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल लिखित परीक्षा",
+          "en": "Written test only"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल उपस्थिति",
+          "en": "Attendance only"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल अंक",
+          "en": "Marks only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "विभिन्न परिस्थितियों में व्यवहार का अवलोकन सामाजिक कौशल की जानकारी देता है।",
+      "explanation_en": "Observing behaviour across situations informs social skills.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहपाठी दबाव का सकारात्मक उदाहरण—",
+      "question_en": "A positive example of peer influence—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "मित्र अध्ययन समूह में भाग लेने को प्रेरित करें",
+          "en": "Friends encourage joining a study group"
+        },
+        {
+          "option_id": "B",
+          "hi": "जोखिमपूर्ण कार्य के लिए दबाव",
+          "en": "Pressure for risky acts"
+        },
+        {
+          "option_id": "C",
+          "hi": "बहिष्कार",
+          "en": "Exclusion"
+        },
+        {
+          "option_id": "D",
+          "hi": "धमकी",
+          "en": "Threat"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "सहपाठी सकारात्मक व्यवहार और अध्ययन आदतों को प्रोत्साहित कर सकते हैं।",
+      "explanation_en": "Peers can encourage positive behaviour and study habits.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक विकास और भाषा—",
+      "question_en": "Social development and language—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "संवाद संबंधों को विकसित करने में मदद करता है",
+          "en": "Communication helps develop relationships"
+        },
+        {
+          "option_id": "B",
+          "hi": "असंबंधित",
+          "en": "Unrelated"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल लिखित भाषा",
+          "en": "Written language only"
+        },
+        {
+          "option_id": "D",
+          "hi": "सामाजिकता रोकता है",
+          "en": "Stops socialisation"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "भाषा संवाद और संबंध निर्माण में महत्वपूर्ण भूमिका निभाती है।",
+      "explanation_en": "Language plays an important role in communication and relationship building.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक विकास में विविधता का सम्मान—",
+      "question_en": "Respecting diversity in social development—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भिन्नताओं को स्वीकार करना और सम्मान देना",
+          "en": "Accepting and respecting differences"
+        },
+        {
+          "option_id": "B",
+          "hi": "सभी को समान पहचान देना",
+          "en": "Assigning identical identity"
+        },
+        {
+          "option_id": "C",
+          "hi": "भेदभाव",
+          "en": "Discrimination"
+        },
+        {
+          "option_id": "D",
+          "hi": "मजाक",
+          "en": "Mockery"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "विविधता का सम्मान सकारात्मक और समावेशी सामाजिक वातावरण बनाता है।",
+      "explanation_en": "Respect for diversity supports positive and inclusive social environments.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में सामाजिक सहभागिता बढ़ाने का तरीका—",
+      "question_en": "A way to increase social participation in class—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सहकारी गतिविधियाँ",
+          "en": "Cooperative activities"
+        },
+        {
+          "option_id": "B",
+          "hi": "अलगाव",
+          "en": "Isolation"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल व्यक्तिगत प्रतियोगिता",
+          "en": "Individual competition only"
+        },
+        {
+          "option_id": "D",
+          "hi": "संवाद निषेध",
+          "en": "No communication"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "सहकारी गतिविधियाँ सहभागिता और सामाजिक कौशल का अभ्यास बढ़ाती हैं।",
+      "explanation_en": "Cooperative activities increase participation and practise social skills.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक पहचान किससे जुड़ी है?",
+      "question_en": "Social identity is connected with what?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "समूह सदस्यता और स्वयं की सामाजिक समझ",
+          "en": "Group membership and social self-understanding"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल वजन",
+          "en": "Weight only"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल स्मृति",
+          "en": "Memory only"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल अंक",
+          "en": "Marks only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "सामाजिक पहचान समूहों और सामाजिक भूमिकाओं से जुड़ी स्वयं की समझ है।",
+      "explanation_en": "Social identity relates to self-understanding through groups and social roles.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक व्यवहार में संस्कृति का प्रभाव—",
+      "question_en": "Cultural influence on social behaviour—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "मानदंड और अपेक्षाएँ प्रभावित कर सकती हैं",
+          "en": "Norms and expectations may influence it"
+        },
+        {
+          "option_id": "B",
+          "hi": "कोई प्रभाव नहीं",
+          "en": "No effect"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल जैविक",
+          "en": "Biological only"
+        },
+        {
+          "option_id": "D",
+          "hi": "हर संस्कृति समान",
+          "en": "All cultures identical"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "संस्कृति सामाजिक नियमों, व्यवहार और अपेक्षाओं को प्रभावित कर सकती है।",
+      "explanation_en": "Culture may influence social norms, behaviour and expectations.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बच्चा बारी-बारी से खेलना सीखता है। यह किस कौशल का उदाहरण है?",
+      "question_en": "A child learns to take turns in a game. What skill is this?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सामाजिक सहभागिता",
+          "en": "Social interaction"
+        },
+        {
+          "option_id": "B",
+          "hi": "वस्तु स्थायित्व",
+          "en": "Object permanence"
+        },
+        {
+          "option_id": "C",
+          "hi": "सूक्ष्म मोटर",
+          "en": "Fine motor"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल स्मृति",
+          "en": "Memory only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "बारी लेना सामाजिक सहभागिता और नियमों का पालन करने का कौशल है।",
+      "explanation_en": "Turn-taking is a social interaction and rule-following skill.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_SOCIAL_DEVELOPMENT_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "social_development",
+      "topic": "Social Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक विकास के बारे में सही कथन—",
+      "question_en": "Correct statement about social development—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "यह संबंधों, संदर्भ और अनुभव से प्रभावित होता है",
+          "en": "It is influenced by relationships, context and experience"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल जन्मजात",
+          "en": "Innate only"
+        },
+        {
+          "option_id": "C",
+          "hi": "विद्यालय में ही होता है",
+          "en": "Only at school"
+        },
+        {
+          "option_id": "D",
+          "hi": "सभी में समान",
+          "en": "Identical in all"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "सामाजिक विकास विभिन्न संबंधों और अनुभवों से प्रभावित होता है।",
+      "explanation_en": "Social development is influenced by relationships and experiences.",
+      "source_reference": "Original concept-based practice questions; not official PYQs.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}

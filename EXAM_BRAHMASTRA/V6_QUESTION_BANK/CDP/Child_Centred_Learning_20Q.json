@@ -1,0 +1,1125 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Child-Centred Learning",
+  "batch_id": "V6-CDP-029",
+  "subject_id": "cdp",
+  "topic_id": "child_centred_learning",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल-केंद्रित शिक्षण में—",
+      "question_en": "In child-centred teaching—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "विद्यार्थी की जरूरत और रुचि",
+            "Learner needs and interests",
+            "केवल शिक्षक",
+            "Teacher only",
+            "पाठ्यपुस्तक मात्र",
+            "Textbook only",
+            "परीक्षा",
+            "Exam"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "बाल-केंद्रित शिक्षण विद्यार्थी की जरूरतों और रुचियों को महत्व देता है।",
+          "en": "Child-centred teaching values learners' needs and interests."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल-केंद्रित कक्षा में विद्यार्थी—",
+      "question_en": "In a child-centred classroom, learners—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "विद्यार्थियों को सीखने में सक्रिय भूमिका मिलती है।",
+          "en": "Learners take an active role in learning."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "सक्रिय सहभागिता करते हैं",
+            "Participate actively",
+            "केवल सुनते हैं",
+            "Only listen",
+            "निष्क्रिय रहते",
+            "Remain passive",
+            "कक्षा से बाहर",
+            "Stay outside"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक बाल-केंद्रित कक्षा में—",
+      "question_en": "The teacher in a child-centred classroom—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "मार्गदर्शक और facilitator",
+            "Guide and facilitator",
+            "एकमात्र वक्ता",
+            "Only speaker",
+            "नियंत्रक मात्र",
+            "Controller only",
+            "परीक्षक मात्र",
+            "Examiner only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "शिक्षक सीखने की गतिविधियों को व्यवस्थित और सुगम बनाता है।",
+          "en": "The teacher organises and facilitates learning activities."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल-केंद्रित शिक्षण में चुनाव—",
+      "question_en": "Choice in child-centred teaching—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "उचित विकल्पों से स्वायत्तता बढ़ाता",
+            "Supports autonomy through options",
+            "अनुशासन समाप्त",
+            "Ends discipline",
+            "सीखना रोकता",
+            "Stops learning",
+            "अनावश्यक",
+            "Unnecessary"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सीमित और उद्देश्यपूर्ण विकल्प विद्यार्थियों की स्वायत्तता बढ़ाते हैं।",
+          "en": "Purposeful choices can support learner autonomy."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पूर्व ज्ञान का उपयोग—",
+      "question_en": "Using prior knowledge—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "नई सीख को जोड़ता",
+            "Connects new learning",
+            "भूल बढ़ाता",
+            "Increases forgetting",
+            "केवल परीक्षा",
+            "Exam only",
+            "अनुचित",
+            "Inappropriate"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "पूर्व ज्ञान नई अवधारणाओं को समझने का आधार है।",
+          "en": "Prior knowledge provides a foundation for new concepts."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विद्यार्थी की रुचि जानने का तरीका—",
+      "question_en": "A way to learn learner interests—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "प्रश्न और अवलोकन रुचि और जरूरत पहचानने में मदद करते हैं।",
+          "en": "Questions and observation help identify interests and needs."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "प्रश्न और अवलोकन",
+            "Questions and observation",
+            "अनुमान",
+            "Guess",
+            "दंड",
+            "Punishment",
+            "तुलना",
+            "Comparison"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल-केंद्रित कक्षा में गलती—",
+      "question_en": "In a child-centred classroom, mistakes—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "सीखने का अवसर",
+            "Learning opportunity",
+            "शर्म का कारण",
+            "Cause for shame",
+            "दंड अनिवार्य",
+            "Require punishment",
+            "छिपानी चाहिए",
+            "Must be hidden"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "गलतियाँ feedback और सुधार के अवसर हैं।",
+          "en": "Mistakes are opportunities for feedback and improvement."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Choice-based activity का लाभ—",
+      "question_en": "A benefit of choice-based activity is—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "स्वामित्व और प्रेरणा",
+            "Ownership and motivation",
+            "सभी समान",
+            "Everyone identical",
+            "विचार रोकना",
+            "Stop thinking",
+            "केवल अंक",
+            "Marks only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "उचित चुनाव स्वामित्व और engagement बढ़ा सकते हैं।",
+          "en": "Appropriate choices can increase ownership and engagement."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल-केंद्रित मूल्यांकन—",
+      "question_en": "Child-centred assessment—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "विविध प्रगति प्रमाण",
+            "Varied evidence of progress",
+            "केवल वार्षिक परीक्षा",
+            "Annual exam only",
+            "दंड",
+            "Punishment",
+            "तुलना",
+            "Comparison"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "विविध प्रमाण विद्यार्थी की प्रगति की व्यापक तस्वीर देते हैं।",
+          "en": "Varied evidence gives a broader picture of progress."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहयोगी गतिविधि—",
+      "question_en": "Collaborative activity—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "सहयोग विद्यार्थियों को एक-दूसरे से सीखने देता है।",
+          "en": "Collaboration allows learners to learn from one another."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "साझा सीखने को बढ़ावा",
+            "Promotes shared learning",
+            "केवल प्रतियोगिता",
+            "Competition only",
+            "मौन",
+            "Silence",
+            "निष्क्रियता",
+            "Passivity"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बच्चे की आवाज का सम्मान—",
+      "question_en": "Respecting learner voice—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "विचार व्यक्त करने का अवसर",
+            "Opportunity to express ideas",
+            "चुप रहना",
+            "Stay silent",
+            "निर्णय थोपना",
+            "Impose decisions",
+            "केवल शिक्षक",
+            "Teacher only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "विद्यार्थी की आवाज सहभागिता और belongingness बढ़ाती है।",
+          "en": "Learner voice supports participation and belonging."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल-केंद्रित वातावरण में सामग्री—",
+      "question_en": "Materials in a child-centred environment—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "विविध और सुलभ",
+            "Varied and accessible",
+            "केवल एक प्रकार",
+            "One type only",
+            "छिपी",
+            "Hidden",
+            "अनुपयोगी",
+            "Irrelevant"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "विविध सामग्री अलग जरूरतों और सीखने के तरीकों को समर्थन देती है।",
+          "en": "Varied materials support different needs and learning approaches."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पाठ को जीवन से जोड़ना—",
+      "question_en": "Connecting lessons to life—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "अर्थपूर्ण सीख बढ़ाता",
+            "Promotes meaningful learning",
+            "अनावश्यक",
+            "Unnecessary",
+            "रटंत",
+            "Rote",
+            "परीक्षा रोकना",
+            "Stop exams"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "प्रासंगिक उदाहरण ज्ञान को वास्तविक परिस्थितियों से जोड़ते हैं।",
+          "en": "Relevant examples connect knowledge to real situations."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल-केंद्रित कक्षा में गति—",
+      "question_en": "Pace in a child-centred classroom—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "लचीली गति विद्यार्थियों की विविध जरूरतों का ध्यान रखती है।",
+          "en": "Flexible pacing accommodates diverse learner needs."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "जरूरत अनुसार लचीली",
+            "Flexible to needs",
+            "सभी के लिए समान",
+            "Same for all",
+            "बहुत तेज",
+            "Very fast",
+            "स्थिर",
+            "Fixed"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सक्रिय सीखने का उदाहरण—",
+      "question_en": "An example of active learning is—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "प्रयोग और चर्चा",
+            "Experiment and discussion",
+            "निष्क्रिय सुनना",
+            "Passive listening",
+            "नकल",
+            "Copying",
+            "केवल व्याख्यान",
+            "Lecture only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "प्रयोग और चर्चा विद्यार्थियों को सक्रिय रूप से ज्ञान बनाने में शामिल करते हैं।",
+          "en": "Experiment and discussion involve learners actively constructing knowledge."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल-केंद्रित शिक्षण का उद्देश्य—",
+      "question_en": "The aim of child-centred teaching is—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "समग्र विकास और स्वायत्तता",
+            "Holistic development and autonomy",
+            "केवल अंक",
+            "Marks only",
+            "आज्ञाकारिता",
+            "Obedience",
+            "समानता का अर्थ एकरूपता",
+            "Uniformity"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "यह समग्र विकास, agency और सीखने की जिम्मेदारी को बढ़ावा देता है।",
+          "en": "It promotes holistic development, agency and responsibility for learning."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विविध जरूरतों के लिए शिक्षक—",
+      "question_en": "For diverse needs, a teacher should—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "रणनीति में लचीलापन",
+            "Flexible strategies",
+            "एक तरीका",
+            "One method",
+            "भेदभाव",
+            "Discrimination",
+            "बहिष्कार",
+            "Exclusion"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "लचीली रणनीतियाँ विविध जरूरतों को पूरा कर सकती हैं।",
+          "en": "Flexible strategies can address diverse needs."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल-केंद्रित कक्षा में feedback—",
+      "question_en": "Feedback in a child-centred classroom—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Feedback विद्यार्थी को प्रगति और अगले कदम समझाता है।",
+          "en": "Feedback helps learners understand progress and next steps."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "प्रगति और अगले कदम पर",
+            "Progress and next steps",
+            "केवल अंक",
+            "Marks only",
+            "अपमान",
+            "Humiliation",
+            "तुलना",
+            "Comparison"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण योजना में विद्यार्थी की भागीदारी—",
+      "question_en": "Learner participation in planning—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "उचित रूप से शामिल करना",
+            "Include appropriately",
+            "हमेशा निषिद्ध",
+            "Always forbidden",
+            "शिक्षक हटाना",
+            "Remove teacher",
+            "पाठ्यक्रम छोड़ना",
+            "Drop curriculum"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "उचित भागीदारी रुचि और जिम्मेदारी बढ़ा सकती है।",
+          "en": "Appropriate participation can increase interest and responsibility."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_CHILD_CENTRED_LEARNING_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "child_centred_learning",
+      "topic": "Child-Centred Learning",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाल-केंद्रित शिक्षण में सफलता—",
+      "question_en": "Success in child-centred teaching—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "सक्रिय सीख और प्रगति",
+            "Active learning and progress",
+            "केवल मौन",
+            "Silence only",
+            "सभी समान उत्तर",
+            "Identical answers",
+            "दंड",
+            "Punishment"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सक्रिय सहभागिता, समझ और प्रगति महत्वपूर्ण संकेत हैं।",
+          "en": "Engagement, understanding and progress are important indicators."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}

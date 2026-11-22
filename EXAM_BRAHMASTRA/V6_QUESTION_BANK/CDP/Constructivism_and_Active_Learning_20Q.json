@@ -1,0 +1,1085 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Constructivism and Active Learning",
+  "batch_id": "V6-CDP-069",
+  "subject_id": "cdp",
+  "topic_id": "constructivism",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "V6-CDP-069-001",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "रचनावाद के अनुसार ज्ञान?",
+      "question_en": "According to constructivism, knowledge?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अनुभव से सक्रिय रूप से निर्मित",
+          "en": "अनुभव से सक्रिय रूप से निर्मित"
+        },
+        {
+          "option_id": "B",
+          "hi": "निष्क्रिय रूप से प्राप्त",
+          "en": "Actively constructed through experience"
+        },
+        {
+          "option_id": "C",
+          "hi": "जन्म से पूर्ण",
+          "en": "Passively received"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल शिक्षक देता",
+          "en": "Complete at birth"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-002",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पूर्वधारणाएँ सीखने को?",
+      "question_en": "Prior conceptions affect learning how?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल अंक",
+          "en": "Erase memory"
+        },
+        {
+          "option_id": "B",
+          "hi": "नए विचारों की व्याख्या प्रभावित",
+          "en": "नए विचारों की व्याख्या प्रभावित"
+        },
+        {
+          "option_id": "C",
+          "hi": "अप्रासंगिक",
+          "en": "Influence interpretation of new ideas"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्मृति मिटाती",
+          "en": "Irrelevant"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-003",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "easy",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Conceptual change कब?",
+      "question_en": "When does conceptual change occur?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड",
+          "en": "Memorisation only"
+        },
+        {
+          "option_id": "B",
+          "hi": "नकल",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "C",
+          "hi": "पुरानी समझ संशोधित होती",
+          "en": "पुरानी समझ संशोधित होती"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल याद",
+          "en": "Existing understanding is revised"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-004",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Active learning का उदाहरण?",
+      "question_en": "Example of active learning?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "निष्क्रिय सुनना",
+          "en": "Experiment and discussion"
+        },
+        {
+          "option_id": "B",
+          "hi": "नोट नकल",
+          "en": "Passive listening"
+        },
+        {
+          "option_id": "C",
+          "hi": "मौन",
+          "en": "Copy notes"
+        },
+        {
+          "option_id": "D",
+          "hi": "प्रयोग और चर्चा",
+          "en": "प्रयोग और चर्चा"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-005",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक constructivist कक्षा में?",
+      "question_en": "Teacher in a constructivist classroom?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "प्रश्न और scaffolding देता",
+          "en": "प्रश्न और scaffolding देता"
+        },
+        {
+          "option_id": "B",
+          "hi": "सभी उत्तर थोपता",
+          "en": "Questions and scaffolding"
+        },
+        {
+          "option_id": "C",
+          "hi": "सीख रोकता",
+          "en": "Impose all answers"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Stop learning"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-006",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "गलत धारणा पर?",
+      "question_en": "What to do with a misconception?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उत्तर रटना",
+          "en": "Ignore"
+        },
+        {
+          "option_id": "B",
+          "hi": "प्रमाण और गतिविधि से पुनर्विचार",
+          "en": "प्रमाण और गतिविधि से पुनर्विचार"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Use evidence and activities to reconsider"
+        },
+        {
+          "option_id": "D",
+          "hi": "अनदेखी",
+          "en": "Punishment"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-007",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहयोगी निर्माण?",
+      "question_en": "Collaborative construction?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "रैंक",
+          "en": "Isolation"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल व्याख्यान",
+          "en": "Rank"
+        },
+        {
+          "option_id": "C",
+          "hi": "संवाद से विचार विकसित",
+          "en": "संवाद से विचार विकसित"
+        },
+        {
+          "option_id": "D",
+          "hi": "अलगाव",
+          "en": "Develop ideas through dialogue"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-008",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "खुला प्रश्न?",
+      "question_en": "Open-ended question?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल हाँ/नहीं",
+          "en": "Multiple reasoned responses possible"
+        },
+        {
+          "option_id": "B",
+          "hi": "परिभाषा",
+          "en": "Yes/no only"
+        },
+        {
+          "option_id": "C",
+          "hi": "रटने",
+          "en": "Definition"
+        },
+        {
+          "option_id": "D",
+          "hi": "एकाधिक तर्कपूर्ण उत्तर संभव",
+          "en": "एकाधिक तर्कपूर्ण उत्तर संभव"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-009",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Reflection का उपयोग?",
+      "question_en": "Use of reflection?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सीख प्रक्रिया पर विचार",
+          "en": "सीख प्रक्रिया पर विचार"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल अंक",
+          "en": "Think about learning process"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Marks only"
+        },
+        {
+          "option_id": "D",
+          "hi": "नकल",
+          "en": "Punishment"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-010",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Metacognition?",
+      "question_en": "Metacognition?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अनुकरण",
+          "en": "Physical growth"
+        },
+        {
+          "option_id": "B",
+          "hi": "अपने सोचने की प्रक्रिया की निगरानी",
+          "en": "अपने सोचने की प्रक्रिया की निगरानी"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल स्मृति",
+          "en": "Monitoring one's thinking"
+        },
+        {
+          "option_id": "D",
+          "hi": "शारीरिक विकास",
+          "en": "Memory only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-011",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सक्रिय ज्ञान निर्माण में?",
+      "question_en": "In active knowledge construction?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "नकल",
+          "en": "Only listens"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड",
+          "en": "Copies"
+        },
+        {
+          "option_id": "C",
+          "hi": "विद्यार्थी प्रश्न और परीक्षण करता",
+          "en": "विद्यार्थी प्रश्न और परीक्षण करता"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल सुनता",
+          "en": "Learner questions and tests ideas"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-012",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अनुभव से सिद्धांत?",
+      "question_en": "Moving from experience to theory?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उत्तर रटना",
+          "en": "Derive concept from examples"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड",
+          "en": "Memorise answer"
+        },
+        {
+          "option_id": "C",
+          "hi": "रैंक",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "D",
+          "hi": "उदाहरण से अवधारणा निकालना",
+          "en": "उदाहरण से अवधारणा निकालना"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-013",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "संज्ञानात्मक संघर्ष?",
+      "question_en": "Cognitive conflict?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "नई जानकारी पुरानी धारणा को चुनौती",
+          "en": "नई जानकारी पुरानी धारणा को चुनौती"
+        },
+        {
+          "option_id": "B",
+          "hi": "भ्रम मात्र",
+          "en": "New information challenges prior belief"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Confusion only"
+        },
+        {
+          "option_id": "D",
+          "hi": "अप्रासंगिक",
+          "en": "Punishment"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-014",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा गतिविधि का उद्देश्य?",
+      "question_en": "Purpose of classroom activity?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड",
+          "en": "Exam"
+        },
+        {
+          "option_id": "B",
+          "hi": "अर्थपूर्ण अवधारणा निर्माण",
+          "en": "अर्थपूर्ण अवधारणा निर्माण"
+        },
+        {
+          "option_id": "C",
+          "hi": "व्यस्त रखना मात्र",
+          "en": "Meaningful concept construction"
+        },
+        {
+          "option_id": "D",
+          "hi": "परीक्षा",
+          "en": "Keep busy only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-015",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Constructivist assessment?",
+      "question_en": "Constructivist assessment?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "रैंक",
+          "en": "Recall only"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड",
+          "en": "Rank"
+        },
+        {
+          "option_id": "C",
+          "hi": "प्रक्रिया और समझ का प्रमाण",
+          "en": "प्रक्रिया और समझ का प्रमाण"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल याद",
+          "en": "Evidence of process and understanding"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-016",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विद्यार्थी के विचार सुनना?",
+      "question_en": "Listening to learner ideas?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "समय नष्ट",
+          "en": "Identify prior knowledge"
+        },
+        {
+          "option_id": "B",
+          "hi": "अनुशासन घटाना",
+          "en": "Waste time"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Reduce discipline"
+        },
+        {
+          "option_id": "D",
+          "hi": "पूर्वज्ञान पहचानने",
+          "en": "पूर्वज्ञान पहचानने"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-017",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "समस्या आधारित inquiry?",
+      "question_en": "Problem-based inquiry?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "प्रश्न से जांच और निष्कर्ष",
+          "en": "प्रश्न से जांच और निष्कर्ष"
+        },
+        {
+          "option_id": "B",
+          "hi": "उत्तर पहले",
+          "en": "Investigate and conclude from a question"
+        },
+        {
+          "option_id": "C",
+          "hi": "नकल",
+          "en": "Answer first"
+        },
+        {
+          "option_id": "D",
+          "hi": "मौन",
+          "en": "Copy"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-018",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Scaffolding का constructivism में उपयोग?",
+      "question_en": "Scaffolding in constructivism?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "कोई मदद नहीं",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "B",
+          "hi": "स्वतंत्रता तक अस्थायी सहायता",
+          "en": "स्वतंत्रता तक अस्थायी सहायता"
+        },
+        {
+          "option_id": "C",
+          "hi": "स्थायी नियंत्रण",
+          "en": "Temporary support toward independence"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Permanent control"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-019",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विद्यार्थी की agency?",
+      "question_en": "Learner agency?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "रैंक",
+          "en": "Passivity"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड",
+          "en": "Rank"
+        },
+        {
+          "option_id": "C",
+          "hi": "निर्णय और सीख में सक्रिय भूमिका",
+          "en": "निर्णय और सीख में सक्रिय भूमिका"
+        },
+        {
+          "option_id": "D",
+          "hi": "निष्क्रियता",
+          "en": "Active role in decisions and learning"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-069-020",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Constructivism and Active Learning",
+      "topic_id": "constructivism",
+      "topic": "Constructivism and Active Learning",
+      "subtopic_id": "constructivism",
+      "subtopic": "Constructivism and Active Learning",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सर्वोत्तम constructivist अभ्यास?",
+      "question_en": "Best constructivist practice?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल व्याख्यान",
+          "en": "Experience, dialogue, reflection and guidance"
+        },
+        {
+          "option_id": "B",
+          "hi": "रटने",
+          "en": "Lecture only"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Rote"
+        },
+        {
+          "option_id": "D",
+          "hi": "अनुभव, संवाद, चिंतन और शिक्षक सहायता",
+          "en": "अनुभव, संवाद, चिंतन और शिक्षक सहायता"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    }
+  ]
+}

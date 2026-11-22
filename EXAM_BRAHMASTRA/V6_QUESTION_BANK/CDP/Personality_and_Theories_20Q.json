@@ -1,0 +1,1085 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Personality and Theories",
+  "batch_id": "V6-CDP-067",
+  "subject_id": "cdp",
+  "topic_id": "personality",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "V6-CDP-067-001",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्तित्व किसका व्यापक स्वरूप?",
+      "question_en": "Personality is a broad pattern of?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "व्यवहार, विचार और भावनाएँ",
+          "en": "व्यवहार, विचार और भावनाएँ"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल ऊँचाई",
+          "en": "Behaviour, thoughts and emotions"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल अंक",
+          "en": "Height only"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल स्मृति",
+          "en": "Marks only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Memory only",
+      "explanation_en": "Memory only",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-002",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Freud का सिद्धांत किससे संबंधित?",
+      "question_en": "Freud's theory is associated with?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "व्यवहारवाद",
+          "en": "Social learning"
+        },
+        {
+          "option_id": "B",
+          "hi": "मनोविश्लेषण",
+          "en": "मनोविश्लेषण"
+        },
+        {
+          "option_id": "C",
+          "hi": "बहु-बुद्धि",
+          "en": "Psychoanalysis"
+        },
+        {
+          "option_id": "D",
+          "hi": "सामाजिक अधिगम",
+          "en": "Multiple intelligences"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Behaviourism",
+      "explanation_en": "Behaviourism",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-003",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "easy",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्तित्व को प्रभावित करने वाले कारक?",
+      "question_en": "Factors influencing personality?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल मित्र",
+          "en": "School only"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल उम्र",
+          "en": "Peers only"
+        },
+        {
+          "option_id": "C",
+          "hi": "वंशानुक्रम और वातावरण",
+          "en": "वंशानुक्रम और वातावरण"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल विद्यालय",
+          "en": "Heredity and environment"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Age only",
+      "explanation_en": "Age only",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-004",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्तित्व परीक्षण का उपयोग?",
+      "question_en": "Use of personality assessment?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "लेबल और चयन",
+          "en": "Carefully for understanding and support"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड",
+          "en": "Labels and selection"
+        },
+        {
+          "option_id": "C",
+          "hi": "सार्वजनिक तुलना",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "D",
+          "hi": "समझ और सहायता हेतु सावधानी से",
+          "en": "समझ और सहायता हेतु सावधानी से"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Public comparison",
+      "explanation_en": "Public comparison",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-005",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अंतर्मुखता का अर्थ?",
+      "question_en": "Introversion means?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अकेले/कम उत्तेजना में ऊर्जा पाना",
+          "en": "अकेले/कम उत्तेजना में ऊर्जा पाना"
+        },
+        {
+          "option_id": "B",
+          "hi": "सामाजिक कौशल नहीं",
+          "en": "Preferring lower stimulation or solitude"
+        },
+        {
+          "option_id": "C",
+          "hi": "कम बुद्धि",
+          "en": "No social skills"
+        },
+        {
+          "option_id": "D",
+          "hi": "भय",
+          "en": "Low intelligence"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Fear",
+      "explanation_en": "Fear",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-006",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बहिर्मुखता का सामान्य गुण?",
+      "question_en": "A common feature of extraversion?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अनुशासनहीनता",
+          "en": "Quietness"
+        },
+        {
+          "option_id": "B",
+          "hi": "सामाजिक सक्रियता",
+          "en": "सामाजिक सक्रियता"
+        },
+        {
+          "option_id": "C",
+          "hi": "अकेलापन हमेशा",
+          "en": "Social engagement"
+        },
+        {
+          "option_id": "D",
+          "hi": "कम बोलना",
+          "en": "Always solitude"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Indiscipline",
+      "explanation_en": "Indiscipline",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-007",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्तित्व स्थिर या बदलता?",
+      "question_en": "Is personality fixed or changing?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "हर दिन पूरी बदल",
+          "en": "Completely fixed"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल जन्मजात",
+          "en": "Changes fully daily"
+        },
+        {
+          "option_id": "C",
+          "hi": "कुछ स्थिरता, साथ में विकास",
+          "en": "कुछ स्थिरता, साथ में विकास"
+        },
+        {
+          "option_id": "D",
+          "hi": "पूर्ण स्थिर",
+          "en": "Some stability and development"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Innate only",
+      "explanation_en": "Innate only",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-008",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक व्यक्तित्व विविधता?",
+      "question_en": "Teacher response to personality diversity?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सभी को बोलना",
+          "en": "Varied participation options"
+        },
+        {
+          "option_id": "B",
+          "hi": "लेबल",
+          "en": "Force everyone to speak"
+        },
+        {
+          "option_id": "C",
+          "hi": "उपेक्षा",
+          "en": "Label"
+        },
+        {
+          "option_id": "D",
+          "hi": "भागीदारी के विविध तरीके",
+          "en": "भागीदारी के विविध तरीके"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Ignore",
+      "explanation_en": "Ignore",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-009",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Big Five में कौन सा गुण?",
+      "question_en": "Which trait belongs to the Big Five?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "Openness",
+          "en": "Openness"
+        },
+        {
+          "option_id": "B",
+          "hi": "Classical conditioning",
+          "en": "Classical conditioning"
+        },
+        {
+          "option_id": "C",
+          "hi": "IQ",
+          "en": "IQ"
+        },
+        {
+          "option_id": "D",
+          "hi": "Attachment",
+          "en": "Attachment"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Openness is one of the Big Five traits.",
+      "explanation_en": "Openness is one of the Big Five traits.",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-010",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्तित्व और व्यवहार में संबंध?",
+      "question_en": "Relationship between personality and behaviour?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "एक व्यवहार निदान",
+          "en": "Unrelated"
+        },
+        {
+          "option_id": "B",
+          "hi": "प्रवृत्ति प्रभावित, स्थिति भी महत्वपूर्ण",
+          "en": "प्रवृत्ति प्रभावित, स्थिति भी महत्वपूर्ण"
+        },
+        {
+          "option_id": "C",
+          "hi": "व्यक्तित्व सब तय",
+          "en": "Tendencies influence; situation also matters"
+        },
+        {
+          "option_id": "D",
+          "hi": "व्यवहार असंबंधित",
+          "en": "Personality determines all"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "One behaviour diagnoses",
+      "explanation_en": "One behaviour diagnoses",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-011",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किससे आत्म-अवधारणा बनती?",
+      "question_en": "What helps shape self-concept?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल परीक्षा",
+          "en": "Genes only"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल आयु",
+          "en": "Exams only"
+        },
+        {
+          "option_id": "C",
+          "hi": "अनुभव और प्रतिक्रिया",
+          "en": "अनुभव और प्रतिक्रिया"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल जीन",
+          "en": "Experiences and feedback"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Age only",
+      "explanation_en": "Age only",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-012",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "नकारात्मक लेबल का प्रभाव?",
+      "question_en": "Effect of negative labels?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "हमेशा सुधार",
+          "en": "May affect self-perception"
+        },
+        {
+          "option_id": "B",
+          "hi": "कोई प्रभाव नहीं",
+          "en": "Always improve"
+        },
+        {
+          "option_id": "C",
+          "hi": "स्मृति बढ़ती",
+          "en": "No effect"
+        },
+        {
+          "option_id": "D",
+          "hi": "आत्म-धारणा प्रभावित हो सकती",
+          "en": "आत्म-धारणा प्रभावित हो सकती"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Memory improves",
+      "explanation_en": "Memory improves",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-013",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्तित्व का सम्मान कैसे?",
+      "question_en": "How respect personality?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सुरक्षित और विविध अभिव्यक्ति",
+          "en": "सुरक्षित और विविध अभिव्यक्ति"
+        },
+        {
+          "option_id": "B",
+          "hi": "तुलना",
+          "en": "Safe and varied expression"
+        },
+        {
+          "option_id": "C",
+          "hi": "जबरन",
+          "en": "Comparison"
+        },
+        {
+          "option_id": "D",
+          "hi": "उपहास",
+          "en": "Force"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Mockery",
+      "explanation_en": "Mockery",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-014",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भावनात्मक स्थिरता का अर्थ?",
+      "question_en": "Emotional stability refers to?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड",
+          "en": "Always happy"
+        },
+        {
+          "option_id": "B",
+          "hi": "भावनाओं को संतुलित संभालना",
+          "en": "भावनाओं को संतुलित संभालना"
+        },
+        {
+          "option_id": "C",
+          "hi": "भावना नहीं होना",
+          "en": "Managing emotions relatively steadily"
+        },
+        {
+          "option_id": "D",
+          "hi": "सभी खुश",
+          "en": "No emotions"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Punishment",
+      "explanation_en": "Punishment",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-015",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्तित्व सिद्धांत का उपयोग?",
+      "question_en": "Use of personality theories?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भविष्य निश्चित",
+          "en": "Fixed category"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड",
+          "en": "Predict destiny"
+        },
+        {
+          "option_id": "C",
+          "hi": "व्यक्ति समझने हेतु, लेबल नहीं",
+          "en": "व्यक्ति समझने हेतु, लेबल नहीं"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्थायी श्रेणी",
+          "en": "Understand, not label"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Punish",
+      "explanation_en": "Punish",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-016",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "मॉडलिंग व्यक्तित्व विकास?",
+      "question_en": "Modelling and personality development?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "कोई प्रभाव नहीं",
+          "en": "Social experiences can influence"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल जीन",
+          "en": "No effect"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल किताब",
+          "en": "Genes only"
+        },
+        {
+          "option_id": "D",
+          "hi": "सामाजिक अनुभव प्रभाव डाल सकते",
+          "en": "सामाजिक अनुभव प्रभाव डाल सकते"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Books only",
+      "explanation_en": "Books only",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-017",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक आत्मविश्वास कैसे बढ़ाए?",
+      "question_en": "How can teacher support confidence?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उचित चुनौती और सकारात्मक प्रतिक्रिया",
+          "en": "उचित चुनौती और सकारात्मक प्रतिक्रिया"
+        },
+        {
+          "option_id": "B",
+          "hi": "उपहास",
+          "en": "Appropriate challenge and positive feedback"
+        },
+        {
+          "option_id": "C",
+          "hi": "तुलना",
+          "en": "Mockery"
+        },
+        {
+          "option_id": "D",
+          "hi": "असंभव लक्ष्य",
+          "en": "Comparison"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Impossible goals",
+      "explanation_en": "Impossible goals",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-018",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्तित्व का आकलन किसमें सावधानी?",
+      "question_en": "Where is caution needed in personality assessment?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सार्वजनिक",
+          "en": "Rank"
+        },
+        {
+          "option_id": "B",
+          "hi": "सांस्कृतिक संदर्भ",
+          "en": "सांस्कृतिक संदर्भ"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल प्रश्नपत्र",
+          "en": "Cultural context"
+        },
+        {
+          "option_id": "D",
+          "hi": "रैंक",
+          "en": "Question paper only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Public",
+      "explanation_en": "Public",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-019",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्तित्व और रुचि?",
+      "question_en": "Personality and interests?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "असंबंधित हमेशा",
+          "en": "Identical"
+        },
+        {
+          "option_id": "B",
+          "hi": "जन्मजात",
+          "en": "Always unrelated"
+        },
+        {
+          "option_id": "C",
+          "hi": "संबंध हो सकते, पर समान नहीं",
+          "en": "संबंध हो सकते, पर समान नहीं"
+        },
+        {
+          "option_id": "D",
+          "hi": "एक ही",
+          "en": "May relate but are not identical"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Innate",
+      "explanation_en": "Innate",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    },
+    {
+      "question_id": "V6-CDP-067-020",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Personality and Theories",
+      "topic_id": "personality",
+      "topic": "Personality and Theories",
+      "subtopic_id": "personality",
+      "subtopic": "Personality and Theories",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "संतुलित कथन?",
+      "question_en": "Balanced statement?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "एक गुण सब समझाता",
+          "en": "Personality is complex and multifactorial"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल जीन",
+          "en": "One trait explains all"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल अनुभव",
+          "en": "Genes only"
+        },
+        {
+          "option_id": "D",
+          "hi": "व्यक्तित्व जटिल और बहु-कारक है",
+          "en": "व्यक्तित्व जटिल और बहु-कारक है"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Experience only",
+      "explanation_en": "Experience only",
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-20"
+    }
+  ]
+}

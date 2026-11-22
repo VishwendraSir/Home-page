@@ -1,0 +1,1325 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Moral Development",
+  "batch_id": "V6-CDP-52",
+  "subject_id": "cdp",
+  "topic_id": "moral_development",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कोहलबर्ग",
+      "question_en": "Kohlberg",
+      "options": [
+        {
+          "en": "Stages of moral reasoning",
+          "hi": "नैतिक तर्क के चरण",
+          "option_id": "A"
+        },
+        {
+          "en": "I",
+          "hi": "Q",
+          "option_id": "B"
+        },
+        {
+          "en": "I",
+          "hi": "Q",
+          "option_id": "C"
+        },
+        {
+          "en": "L",
+          "hi": "a",
+          "option_id": "D"
+        },
+        {
+          "en": "भ",
+          "hi": "ा"
+        },
+        {
+          "en": "M",
+          "hi": "o"
+        },
+        {
+          "en": "ग",
+          "hi": "ा"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Kohlberg studied moral reasoning development.",
+      "explanation_en": "Kohlberg studied moral reasoning development.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पूर्व-परंपरागत तर्क",
+      "question_en": "Pre-conventional reasoning",
+      "options": [
+        {
+          "en": "S",
+          "hi": "o",
+          "option_id": "A"
+        },
+        {
+          "en": "स",
+          "hi": "ा",
+          "option_id": "B"
+        },
+        {
+          "en": "U",
+          "hi": "n",
+          "option_id": "C"
+        },
+        {
+          "en": "स",
+          "hi": "ा",
+          "option_id": "D"
+        },
+        {
+          "en": "A",
+          "hi": "b"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "Consequences and personal interests",
+          "hi": "परिणाम एवं व्यक्तिगत हित"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Pre-conventional reasoning often focuses on consequences.",
+      "explanation_en": "Pre-conventional reasoning often focuses on consequences.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "परंपरागत तर्क",
+      "question_en": "Conventional reasoning",
+      "options": [
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "A"
+        },
+        {
+          "en": "U",
+          "hi": "n",
+          "option_id": "B"
+        },
+        {
+          "en": "स",
+          "hi": "ा",
+          "option_id": "C"
+        },
+        {
+          "en": "N",
+          "hi": "o",
+          "option_id": "D"
+        },
+        {
+          "en": "न",
+          "hi": "ि"
+        },
+        {
+          "en": "Rules and social approval",
+          "hi": "नियम एवं सामाजिक स्वीकृति"
+        },
+        {
+          "en": "P",
+          "hi": "e"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Conventional reasoning considers norms and expectations.",
+      "explanation_en": "Conventional reasoning considers norms and expectations.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "उत्तर-परंपरागत",
+      "question_en": "Post-conventional",
+      "options": [
+        {
+          "en": "R",
+          "hi": "e",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "I",
+          "hi": "m",
+          "option_id": "C"
+        },
+        {
+          "en": "अ",
+          "hi": "न",
+          "option_id": "D"
+        },
+        {
+          "en": "Principles and rights",
+          "hi": "सिद्धांत एवं अधिकार"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Post-conventional reasoning considers principles.",
+      "explanation_en": "Post-conventional reasoning considers principles.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "नैतिक दुविधा",
+      "question_en": "Moral dilemma",
+      "options": [
+        {
+          "en": "Discuss reasons and perspectives",
+          "hi": "कारण एवं दृष्टिकोण चर्चा",
+          "option_id": "A"
+        },
+        {
+          "en": "G",
+          "hi": "i",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "M",
+          "hi": "e"
+        },
+        {
+          "en": "र",
+          "hi": "ट"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Dilemmas can encourage moral reasoning discussion.",
+      "explanation_en": "Dilemmas can encourage moral reasoning discussion.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "नैतिक व्यवहार",
+      "question_en": "Moral behaviour",
+      "options": [
+        {
+          "en": "A",
+          "hi": "l",
+          "option_id": "A"
+        },
+        {
+          "en": "ह",
+          "hi": "म",
+          "option_id": "B"
+        },
+        {
+          "en": "U",
+          "hi": "n",
+          "option_id": "C"
+        },
+        {
+          "en": "प",
+          "hi": "ू",
+          "option_id": "D"
+        },
+        {
+          "en": "O",
+          "hi": "n"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "Reasoning may not always predict action",
+          "hi": "तर्क हमेशा व्यवहार का अनुमान नहीं"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Moral reasoning and action may differ.",
+      "explanation_en": "Moral reasoning and action may differ.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहानुभूति",
+      "question_en": "Empathy",
+      "options": [
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "A"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "B"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "C"
+        },
+        {
+          "en": "C",
+          "hi": "o",
+          "option_id": "D"
+        },
+        {
+          "en": "प",
+          "hi": "्"
+        },
+        {
+          "en": "Consider others' feelings",
+          "hi": "दूसरों की भावनाओं पर विचार"
+        },
+        {
+          "en": "S",
+          "hi": "e"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Empathy can support prosocial decisions.",
+      "explanation_en": "Empathy can support prosocial decisions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा नियम",
+      "question_en": "Class rules",
+      "options": [
+        {
+          "en": "F",
+          "hi": "e",
+          "option_id": "A"
+        },
+        {
+          "en": "भ",
+          "hi": "य",
+          "option_id": "B"
+        },
+        {
+          "en": "H",
+          "hi": "u",
+          "option_id": "C"
+        },
+        {
+          "en": "अ",
+          "hi": "प",
+          "option_id": "D"
+        },
+        {
+          "en": "Explain fairness and rationale",
+          "hi": "न्याय एवं कारण समझाना"
+        },
+        {
+          "en": "A",
+          "hi": "r"
+        },
+        {
+          "en": "म",
+          "hi": "न"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Reasoned rules can support moral understanding.",
+      "explanation_en": "Reasoned rules can support moral understanding.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "नैतिक शिक्षा",
+      "question_en": "Moral education",
+      "options": [
+        {
+          "en": "Dialogue, reflection and role-taking",
+          "hi": "संवाद, चिंतन एवं भूमिका ग्रहण",
+          "option_id": "A"
+        },
+        {
+          "en": "R",
+          "hi": "o",
+          "option_id": "B"
+        },
+        {
+          "en": "र",
+          "hi": "ट",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "L",
+          "hi": "a"
+        },
+        {
+          "en": "ल",
+          "hi": "े"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Reflection and perspective-taking support moral learning.",
+      "explanation_en": "Reflection and perspective-taking support moral learning.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षक निष्पक्षता",
+      "question_en": "Teacher fairness",
+      "options": [
+        {
+          "en": "F",
+          "hi": "a",
+          "option_id": "A"
+        },
+        {
+          "en": "प",
+          "hi": "क",
+          "option_id": "B"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "C"
+        },
+        {
+          "en": "स",
+          "hi": "ा",
+          "option_id": "D"
+        },
+        {
+          "en": "B",
+          "hi": "i"
+        },
+        {
+          "en": "प",
+          "hi": "ू"
+        },
+        {
+          "en": "Consistent and respectful treatment",
+          "hi": "संगत एवं सम्मानपूर्ण व्यवहार"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Fair treatment models moral principles.",
+      "explanation_en": "Fair treatment models moral principles.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में कोहलबर्ग का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Kohlberg mean?",
+      "options": [
+        {
+          "en": "I",
+          "hi": "Q",
+          "option_id": "A"
+        },
+        {
+          "en": "L",
+          "hi": "a",
+          "option_id": "B"
+        },
+        {
+          "en": "भ",
+          "hi": "ा",
+          "option_id": "C"
+        },
+        {
+          "en": "M",
+          "hi": "o",
+          "option_id": "D"
+        },
+        {
+          "en": "ग",
+          "hi": "ा"
+        },
+        {
+          "en": "Stages of moral reasoning",
+          "hi": "नैतिक तर्क के चरण"
+        },
+        {
+          "en": "I",
+          "hi": "Q"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Kohlberg studied moral reasoning development.",
+      "explanation_en": "Kohlberg studied moral reasoning development.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में पूर्व-परंपरागत तर्क का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Pre-conventional reasoning mean?",
+      "options": [
+        {
+          "en": "U",
+          "hi": "n",
+          "option_id": "A"
+        },
+        {
+          "en": "स",
+          "hi": "ा",
+          "option_id": "B"
+        },
+        {
+          "en": "A",
+          "hi": "b",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "Consequences and personal interests",
+          "hi": "परिणाम एवं व्यक्तिगत हित"
+        },
+        {
+          "en": "S",
+          "hi": "o"
+        },
+        {
+          "en": "स",
+          "hi": "ा"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Pre-conventional reasoning often focuses on consequences.",
+      "explanation_en": "Pre-conventional reasoning often focuses on consequences.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में परंपरागत तर्क का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Conventional reasoning mean?",
+      "options": [
+        {
+          "en": "Rules and social approval",
+          "hi": "नियम एवं सामाजिक स्वीकृति",
+          "option_id": "A"
+        },
+        {
+          "en": "P",
+          "hi": "e",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "U",
+          "hi": "n",
+          "option_id": "D"
+        },
+        {
+          "en": "स",
+          "hi": "ा"
+        },
+        {
+          "en": "N",
+          "hi": "o"
+        },
+        {
+          "en": "न",
+          "hi": "ि"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Conventional reasoning considers norms and expectations.",
+      "explanation_en": "Conventional reasoning considers norms and expectations.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में उत्तर-परंपरागत का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Post-conventional mean?",
+      "options": [
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "R",
+          "hi": "e",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "I",
+          "hi": "m"
+        },
+        {
+          "en": "अ",
+          "hi": "न"
+        },
+        {
+          "en": "Principles and rights",
+          "hi": "सिद्धांत एवं अधिकार"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Post-conventional reasoning considers principles.",
+      "explanation_en": "Post-conventional reasoning considers principles.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में नैतिक दुविधा का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Moral dilemma mean?",
+      "options": [
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "A"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "B"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "C"
+        },
+        {
+          "en": "M",
+          "hi": "e",
+          "option_id": "D"
+        },
+        {
+          "en": "र",
+          "hi": "ट"
+        },
+        {
+          "en": "Discuss reasons and perspectives",
+          "hi": "कारण एवं दृष्टिकोण चर्चा"
+        },
+        {
+          "en": "G",
+          "hi": "i"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Dilemmas can encourage moral reasoning discussion.",
+      "explanation_en": "Dilemmas can encourage moral reasoning discussion.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में नैतिक व्यवहार का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Moral behaviour mean?",
+      "options": [
+        {
+          "en": "U",
+          "hi": "n",
+          "option_id": "A"
+        },
+        {
+          "en": "प",
+          "hi": "ू",
+          "option_id": "B"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "Reasoning may not always predict action",
+          "hi": "तर्क हमेशा व्यवहार का अनुमान नहीं"
+        },
+        {
+          "en": "A",
+          "hi": "l"
+        },
+        {
+          "en": "ह",
+          "hi": "म"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Moral reasoning and action may differ.",
+      "explanation_en": "Moral reasoning and action may differ.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में सहानुभूति का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Empathy mean?",
+      "options": [
+        {
+          "en": "Consider others' feelings",
+          "hi": "दूसरों की भावनाओं पर विचार",
+          "option_id": "A"
+        },
+        {
+          "en": "S",
+          "hi": "e",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "C",
+          "hi": "o"
+        },
+        {
+          "en": "प",
+          "hi": "्"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Empathy can support prosocial decisions.",
+      "explanation_en": "Empathy can support prosocial decisions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में कक्षा नियम का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Class rules mean?",
+      "options": [
+        {
+          "en": "A",
+          "hi": "r",
+          "option_id": "A"
+        },
+        {
+          "en": "म",
+          "hi": "न",
+          "option_id": "B"
+        },
+        {
+          "en": "F",
+          "hi": "e",
+          "option_id": "C"
+        },
+        {
+          "en": "भ",
+          "hi": "य",
+          "option_id": "D"
+        },
+        {
+          "en": "H",
+          "hi": "u"
+        },
+        {
+          "en": "अ",
+          "hi": "प"
+        },
+        {
+          "en": "Explain fairness and rationale",
+          "hi": "न्याय एवं कारण समझाना"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Reasoned rules can support moral understanding.",
+      "explanation_en": "Reasoned rules can support moral understanding.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में नैतिक शिक्षा का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Moral education mean?",
+      "options": [
+        {
+          "en": "र",
+          "hi": "ट",
+          "option_id": "A"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "L",
+          "hi": "a",
+          "option_id": "D"
+        },
+        {
+          "en": "ल",
+          "hi": "े"
+        },
+        {
+          "en": "Dialogue, reflection and role-taking",
+          "hi": "संवाद, चिंतन एवं भूमिका ग्रहण"
+        },
+        {
+          "en": "R",
+          "hi": "o"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Reflection and perspective-taking support moral learning.",
+      "explanation_en": "Reflection and perspective-taking support moral learning.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_MORAL_DEVELOPMENT_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "moral_development",
+      "topic": "Moral Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में शिक्षक निष्पक्षता का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Teacher fairness mean?",
+      "options": [
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "A"
+        },
+        {
+          "en": "स",
+          "hi": "ा",
+          "option_id": "B"
+        },
+        {
+          "en": "B",
+          "hi": "i",
+          "option_id": "C"
+        },
+        {
+          "en": "प",
+          "hi": "ू",
+          "option_id": "D"
+        },
+        {
+          "en": "Consistent and respectful treatment",
+          "hi": "संगत एवं सम्मानपूर्ण व्यवहार"
+        },
+        {
+          "en": "F",
+          "hi": "a"
+        },
+        {
+          "en": "प",
+          "hi": "क"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Fair treatment models moral principles.",
+      "explanation_en": "Fair treatment models moral principles.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}

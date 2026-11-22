@@ -1,0 +1,1138 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Erikson's Psychosocial Theory",
+  "batch_id": "V6-CDP-019",
+  "subject_id": "cdp",
+  "topic_id": "erikson",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_ERIKSON_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "एरिक्सन का सिद्धांत किस पर केंद्रित है?",
+      "question_en": "Erikson's theory focuses on—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "मनोसामाजिक विकास",
+          "en": "Psychosocial development"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल संज्ञान",
+          "en": "Cognition only"
+        },
+        {
+          "option_id": "C",
+          "hi": "अनुबंधन",
+          "en": "Conditioning"
+        },
+        {
+          "option_id": "D",
+          "hi": "भाषा",
+          "en": "Language"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "एरिक्सन ने जीवनभर के मनोसामाजिक विकास के चरण प्रस्तावित किए।",
+      "explanation_en": "Erikson proposed stages of psychosocial development across life."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "एरिक्सन ने कितने मनोसामाजिक चरण प्रस्तावित किए?",
+      "question_en": "How many psychosocial stages did Erikson propose?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "4",
+          "en": "Four"
+        },
+        {
+          "option_id": "B",
+          "hi": "5",
+          "en": "Five"
+        },
+        {
+          "option_id": "C",
+          "hi": "12",
+          "en": "Twelve"
+        },
+        {
+          "option_id": "D",
+          "hi": "8",
+          "en": "Eight"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "एरिक्सन के सिद्धांत में आठ चरण हैं।",
+      "explanation_en": "Erikson's theory contains eight stages."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शैशवावस्था का संकट—",
+      "question_en": "The infancy crisis is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "पहचान बनाम भूमिका भ्रम",
+          "en": "Identity vs. role confusion"
+        },
+        {
+          "option_id": "B",
+          "hi": "उत्पादकता बनाम ठहराव",
+          "en": "Generativity vs. stagnation"
+        },
+        {
+          "option_id": "C",
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्वायत्तता बनाम शर्म",
+          "en": "Autonomy vs. shame"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "शिशु देखभाल की विश्वसनीयता से विश्वास विकसित करता है।",
+      "explanation_en": "Reliable care helps infants develop trust."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "लगभग 1–3 वर्ष का संकट—",
+      "question_en": "The crisis around ages 1–3 is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अखंडता बनाम निराशा",
+          "en": "Integrity vs. despair"
+        },
+        {
+          "option_id": "B",
+          "hi": "स्वायत्तता बनाम शर्म और संदेह",
+          "en": "Autonomy vs. shame and doubt"
+        },
+        {
+          "option_id": "C",
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
+        },
+        {
+          "option_id": "D",
+          "hi": "उद्योग बनाम हीनता",
+          "en": "Industry vs. inferiority"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "इस चरण में बच्चा स्वतंत्र कार्य करने की क्षमता विकसित करता है।",
+      "explanation_en": "Children develop independence in this stage."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पूर्व-विद्यालय अवस्था का संकट—",
+      "question_en": "The preschool crisis is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "पहल बनाम अपराधबोध",
+          "en": "Initiative vs. guilt"
+        },
+        {
+          "option_id": "B",
+          "hi": "पहचान बनाम भ्रम",
+          "en": "Identity vs. confusion"
+        },
+        {
+          "option_id": "C",
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
+        },
+        {
+          "option_id": "D",
+          "hi": "अंतरंगता बनाम अलगाव",
+          "en": "Intimacy vs. isolation"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "बच्चे पहल करते हैं; अत्यधिक रोक से अपराधबोध बढ़ सकता है।",
+      "explanation_en": "Children initiate activities; excessive restriction may foster guilt."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्कूल आयु का संकट—",
+      "question_en": "The school-age crisis is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "स्वायत्तता बनाम शर्म",
+          "en": "Autonomy vs. shame"
+        },
+        {
+          "option_id": "B",
+          "hi": "अंतरंगता बनाम अलगाव",
+          "en": "Intimacy vs. isolation"
+        },
+        {
+          "option_id": "C",
+          "hi": "अखंडता बनाम निराशा",
+          "en": "Integrity vs. despair"
+        },
+        {
+          "option_id": "D",
+          "hi": "उद्योग बनाम हीनता",
+          "en": "Industry vs. inferiority"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "कौशल और उपलब्धि से उद्योग-बोध विकसित होता है।",
+      "explanation_en": "Skills and achievement support a sense of industry."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "किशोरावस्था का प्रमुख संकट—",
+      "question_en": "The major adolescent crisis is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उद्योग बनाम हीनता",
+          "en": "Industry vs. inferiority"
+        },
+        {
+          "option_id": "B",
+          "hi": "उत्पादकता बनाम ठहराव",
+          "en": "Generativity vs. stagnation"
+        },
+        {
+          "option_id": "C",
+          "hi": "पहचान बनाम भूमिका भ्रम",
+          "en": "Identity vs. role confusion"
+        },
+        {
+          "option_id": "D",
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "किशोर अपनी पहचान, मूल्य और भविष्य की भूमिका खोजते हैं।",
+      "explanation_en": "Adolescents explore identity, values and future roles."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "युवा वयस्कता का संकट—",
+      "question_en": "The young adulthood crisis is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "स्वायत्तता बनाम शर्म",
+          "en": "Autonomy vs. shame"
+        },
+        {
+          "option_id": "B",
+          "hi": "अंतरंगता बनाम अलगाव",
+          "en": "Intimacy vs. isolation"
+        },
+        {
+          "option_id": "C",
+          "hi": "पहल बनाम अपराधबोध",
+          "en": "Initiative vs. guilt"
+        },
+        {
+          "option_id": "D",
+          "hi": "पहचान बनाम भ्रम",
+          "en": "Identity vs. confusion"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "युवा वयस्क निकट संबंध स्थापित करने की चुनौती का सामना करते हैं।",
+      "explanation_en": "Young adults face the challenge of forming close relationships."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "मध्य वयस्कता का संकट—",
+      "question_en": "The middle adulthood crisis is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उत्पादकता बनाम ठहराव",
+          "en": "Generativity vs. stagnation"
+        },
+        {
+          "option_id": "B",
+          "hi": "अंतरंगता बनाम अलगाव",
+          "en": "Intimacy vs. isolation"
+        },
+        {
+          "option_id": "C",
+          "hi": "विश्वास बनाम अविश्वास",
+          "en": "Trust vs. mistrust"
+        },
+        {
+          "option_id": "D",
+          "hi": "उद्योग बनाम हीनता",
+          "en": "Industry vs. inferiority"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "उत्पादकता अगली पीढ़ी और समाज के योगदान से जुड़ी है।",
+      "explanation_en": "Generativity concerns contributing to the next generation and society."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वृद्धावस्था का संकट—",
+      "question_en": "The old-age crisis is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "पहचान बनाम भ्रम",
+          "en": "Identity vs. confusion"
+        },
+        {
+          "option_id": "B",
+          "hi": "पहल बनाम अपराधबोध",
+          "en": "Initiative vs. guilt"
+        },
+        {
+          "option_id": "C",
+          "hi": "स्वायत्तता बनाम शर्म",
+          "en": "Autonomy vs. shame"
+        },
+        {
+          "option_id": "D",
+          "hi": "अखंडता बनाम निराशा",
+          "en": "Integrity vs. despair"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "जीवन का मूल्यांकन संतोष या निराशा की भावना ला सकता है।",
+      "explanation_en": "Reviewing life may lead to integrity or despair."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "एरिक्सन में प्रत्येक संकट—",
+      "question_en": "In Erikson's theory, each crisis—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल परीक्षा है",
+          "en": "Is only an exam"
+        },
+        {
+          "option_id": "B",
+          "hi": "सभी चरण समान",
+          "en": "All stages are identical"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास की चुनौती है",
+          "en": "Is a developmental challenge"
+        },
+        {
+          "option_id": "D",
+          "hi": "अनिवार्य रोग है",
+          "en": "Is a disorder"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "प्रत्येक चरण में सामाजिक-भावनात्मक चुनौती का समाधान विकास को प्रभावित करता है।",
+      "explanation_en": "Resolving each psychosocial challenge influences development."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पहचान निर्माण में शिक्षक की भूमिका—",
+      "question_en": "A teacher's role in identity formation is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "प्रश्न रोकना",
+          "en": "Stop questions"
+        },
+        {
+          "option_id": "B",
+          "hi": "अन्वेषण और सम्मान का अवसर देना",
+          "en": "Provide opportunities for exploration and respect"
+        },
+        {
+          "option_id": "C",
+          "hi": "एक पहचान थोपना",
+          "en": "Impose one identity"
+        },
+        {
+          "option_id": "D",
+          "hi": "तुलना करना",
+          "en": "Compare students"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "समर्थक वातावरण किशोरों को सुरक्षित अन्वेषण करने देता है।",
+      "explanation_en": "A supportive environment allows safe exploration."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "उद्योग-बोध को कैसे बढ़ावा दें?",
+      "question_en": "How can industry be promoted?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उचित चुनौती और उपलब्धि का अवसर",
+          "en": "Appropriate challenge and achievement opportunities"
+        },
+        {
+          "option_id": "B",
+          "hi": "लगातार तुलना",
+          "en": "Constant comparison"
+        },
+        {
+          "option_id": "C",
+          "hi": "कार्य से वंचित करना",
+          "en": "Withhold tasks"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल आलोचना",
+          "en": "Only criticism"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "उचित कार्य और मान्यता क्षमता-बोध बढ़ाते हैं।",
+      "explanation_en": "Appropriate tasks and recognition build competence."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्वायत्तता का समर्थन—",
+      "question_en": "Supporting autonomy means—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "हर निर्णय लेना",
+          "en": "Make every decision"
+        },
+        {
+          "option_id": "B",
+          "hi": "गलतियों पर शर्मिंदा करना",
+          "en": "Shame mistakes"
+        },
+        {
+          "option_id": "C",
+          "hi": "नियंत्रण बढ़ाना",
+          "en": "Increase control"
+        },
+        {
+          "option_id": "D",
+          "hi": "उचित विकल्प देना",
+          "en": "Offer appropriate choices"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "उचित विकल्प बच्चों को स्वतंत्रता और जिम्मेदारी विकसित करने देते हैं।",
+      "explanation_en": "Appropriate choices support independence and responsibility."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विश्वास विकसित करने में सबसे महत्वपूर्ण—",
+      "question_en": "What is most important for developing trust?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उपेक्षा",
+          "en": "Neglect"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "C",
+          "hi": "संगत और संवेदनशील देखभाल",
+          "en": "Consistent and responsive care"
+        },
+        {
+          "option_id": "D",
+          "hi": "अस्थिर प्रतिक्रिया",
+          "en": "Inconsistent responses"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "विश्वसनीय संवेदनशील देखभाल सुरक्षा और विश्वास बढ़ाती है।",
+      "explanation_en": "Reliable responsive care builds security and trust."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "एरिक्सन का सिद्धांत किस प्रकार का है?",
+      "question_en": "Erikson's theory is primarily—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल संज्ञानात्मक",
+          "en": "Cognitive only"
+        },
+        {
+          "option_id": "B",
+          "hi": "मनोसामाजिक चरण सिद्धांत",
+          "en": "Psychosocial stage theory"
+        },
+        {
+          "option_id": "C",
+          "hi": "व्यवहारवादी",
+          "en": "Behaviourist"
+        },
+        {
+          "option_id": "D",
+          "hi": "शास्त्रीय अनुबंधन",
+          "en": "Classical conditioning"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "यह सामाजिक संबंधों और मनोवैज्ञानिक चुनौतियों के चरणों का सिद्धांत है।",
+      "explanation_en": "It is a theory of stages involving social relations and psychological challenges."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पहचान बनाम भूमिका भ्रम में क्या शामिल है?",
+      "question_en": "Identity vs. role confusion involves—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "स्वयं की भूमिका और मूल्य तलाशना",
+          "en": "Exploring one's roles and values"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल शारीरिक वृद्धि",
+          "en": "Physical growth only"
+        },
+        {
+          "option_id": "C",
+          "hi": "विश्वास बनाना",
+          "en": "Building trust"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड सीखना",
+          "en": "Learning punishment"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "किशोर पहचान के विभिन्न पहलुओं का अन्वेषण करते हैं।",
+      "explanation_en": "Adolescents explore different aspects of identity."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सामाजिक समर्थन एरिक्सन के अनुसार—",
+      "question_en": "Social support in Erikson's framework—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अप्रासंगिक",
+          "en": "Irrelevant"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल पुरस्कार",
+          "en": "Only rewards"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास रोकता है",
+          "en": "Stops development"
+        },
+        {
+          "option_id": "D",
+          "hi": "चरणीय संकट समाधान में सहायक",
+          "en": "Supports resolution of stage crises"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "सामाजिक संबंध चरणों की चुनौतियों को संभालने में महत्वपूर्ण हैं।",
+      "explanation_en": "Social relationships help manage developmental challenges."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "एरिक्सन के चरण—",
+      "question_en": "Erikson's stages—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल किशोरावस्था",
+          "en": "Only adolescence"
+        },
+        {
+          "option_id": "B",
+          "hi": "अधिगम से असंबंधित",
+          "en": "Unrelated to learning"
+        },
+        {
+          "option_id": "C",
+          "hi": "जीवनभर विकास का वर्णन करते हैं",
+          "en": "Describe development across the lifespan"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल बचपन",
+          "en": "Only childhood"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "एरिक्सन ने शैशव से वृद्धावस्था तक विकास वर्णित किया।",
+      "explanation_en": "Erikson described development from infancy through old age."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में भूमिका भ्रम से जूझ रहे किशोर के लिए—",
+      "question_en": "For an adolescent struggling with role confusion, a teacher should—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उपेक्षा करना",
+          "en": "Ignore"
+        },
+        {
+          "option_id": "B",
+          "hi": "मार्गदर्शन और विविध अवसर देना",
+          "en": "Offer guidance and varied opportunities"
+        },
+        {
+          "option_id": "C",
+          "hi": "लेबल लगाना",
+          "en": "Label them"
+        },
+        {
+          "option_id": "D",
+          "hi": "दबाव डालना",
+          "en": "Pressure them"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "मार्गदर्शन, अवसर और सम्मान पहचान अन्वेषण में सहायक हैं।",
+      "explanation_en": "Guidance, opportunities and respect support identity exploration."
+    },
+    {
+      "question_id": "CDP_ERIKSON_V6_021",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "erikson",
+      "topic": "Erikson's Psychosocial Theory",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "एरिक्सन में सकारात्मक समाधान का अर्थ—",
+      "question_en": "A positive resolution in Erikson means—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "संकट से संतुलित शक्ति विकसित होना",
+          "en": "Developing a balanced strength from the crisis"
+        },
+        {
+          "option_id": "B",
+          "hi": "संकट पूरी तरह गायब",
+          "en": "Crisis disappears completely"
+        },
+        {
+          "option_id": "C",
+          "hi": "कभी कठिनाई न होना",
+          "en": "Never facing difficulty"
+        },
+        {
+          "option_id": "D",
+          "hi": "एक ही व्यवहार",
+          "en": "One behaviour"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "प्रत्येक संकट का संतुलित समाधान मनोसामाजिक शक्ति विकसित करता है।",
+      "explanation_en": "Balanced resolution of each crisis develops psychosocial strength."
+    }
+  ]
+}

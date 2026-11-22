@@ -1,0 +1,1085 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Piaget's Cognitive Development",
+  "batch_id": "V6-CDP-016",
+  "subject_id": "cdp",
+  "topic_id": "piaget",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_PIAGET_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पियाजे के अनुसार ज्ञान-विकास में बच्चा—",
+      "question_en": "According to Piaget, the child—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सक्रिय ज्ञान निर्माता है",
+          "en": "Is an active constructor of knowledge"
+        },
+        {
+          "option_id": "B",
+          "hi": "निष्क्रिय ग्रहणकर्ता है",
+          "en": "Is a passive recipient"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल अनुकरण करता है",
+          "en": "Only imitates"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल पुरस्कार से सीखता है",
+          "en": "Learns only through rewards"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "पियाजे बच्चे को सक्रिय ज्ञान निर्माता मानते हैं।",
+      "explanation_en": "Piaget viewed the child as an active constructor of knowledge."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "संवेदी-गामक अवस्था की आयु सामान्यतः क्या है?",
+      "question_en": "What is the usual age range of the sensorimotor stage?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "2–7 वर्ष",
+          "en": "2–7 years"
+        },
+        {
+          "option_id": "B",
+          "hi": "7–11 वर्ष",
+          "en": "7–11 years"
+        },
+        {
+          "option_id": "C",
+          "hi": "11 वर्ष से आगे",
+          "en": "11 years onward"
+        },
+        {
+          "option_id": "D",
+          "hi": "0–2 वर्ष",
+          "en": "0–2 years"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "संवेदी-गामक अवस्था जन्म से लगभग दो वर्ष तक होती है।",
+      "explanation_en": "The sensorimotor stage spans birth to about age two."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "वस्तु स्थायित्व किस अवस्था में विकसित होता है?",
+      "question_en": "Object permanence develops during which stage?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "मूर्त संक्रियात्मक",
+          "en": "Concrete operational"
+        },
+        {
+          "option_id": "B",
+          "hi": "औपचारिक संक्रियात्मक",
+          "en": "Formal operational"
+        },
+        {
+          "option_id": "C",
+          "hi": "संवेदी-गामक",
+          "en": "Sensorimotor"
+        },
+        {
+          "option_id": "D",
+          "hi": "पूर्व-संक्रियात्मक",
+          "en": "Preoperational"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "वस्तु स्थायित्व संवेदी-गामक अवस्था में विकसित होता है।",
+      "explanation_en": "Object permanence develops in the sensorimotor stage."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पूर्व-संक्रियात्मक अवस्था की प्रमुख विशेषता है—",
+      "question_en": "A key feature of the preoperational stage is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "औपचारिक तर्क",
+          "en": "Formal reasoning"
+        },
+        {
+          "option_id": "B",
+          "hi": "प्रतीकात्मक चिंतन",
+          "en": "Symbolic thought"
+        },
+        {
+          "option_id": "C",
+          "hi": "वैज्ञानिक परिकल्पना",
+          "en": "Scientific hypothesis"
+        },
+        {
+          "option_id": "D",
+          "hi": "पूर्ण संरक्षण",
+          "en": "Full conservation"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "इस अवस्था में भाषा और प्रतीकात्मक चिंतन तेजी से बढ़ते हैं।",
+      "explanation_en": "Language and symbolic thought grow rapidly in this stage."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अहंकेंद्रिता का अर्थ है—",
+      "question_en": "Egocentrism means—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दूसरे दृष्टिकोण को समझने में कठिनाई",
+          "en": "Difficulty understanding another perspective"
+        },
+        {
+          "option_id": "B",
+          "hi": "स्वार्थी होना अनिवार्य",
+          "en": "Being selfish necessarily"
+        },
+        {
+          "option_id": "C",
+          "hi": "स्मृति का अभाव",
+          "en": "Lack of memory"
+        },
+        {
+          "option_id": "D",
+          "hi": "नैतिक विकास",
+          "en": "Moral development"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "पूर्व-संक्रियात्मक बच्चा दूसरों के दृष्टिकोण को समझने में कठिनाई अनुभव कर सकता है।",
+      "explanation_en": "A preoperational child may struggle to understand others' perspectives."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "संरक्षण की समझ सामान्यतः किस अवस्था में आती है?",
+      "question_en": "Conservation is generally understood in which stage?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "संवेदी-गामक",
+          "en": "Sensorimotor"
+        },
+        {
+          "option_id": "B",
+          "hi": "पूर्व-संक्रियात्मक",
+          "en": "Preoperational"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल किशोरावस्था",
+          "en": "Only adolescence"
+        },
+        {
+          "option_id": "D",
+          "hi": "मूर्त संक्रियात्मक",
+          "en": "Concrete operational"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "मूर्त संक्रियात्मक अवस्था में संरक्षण की समझ विकसित होती है।",
+      "explanation_en": "Conservation develops during the concrete operational stage."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "मूर्त संक्रियात्मक अवस्था की आयु है—",
+      "question_en": "The concrete operational stage is usually—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "2–7 वर्ष",
+          "en": "2–7 years"
+        },
+        {
+          "option_id": "B",
+          "hi": "15–20 वर्ष",
+          "en": "15–20 years"
+        },
+        {
+          "option_id": "C",
+          "hi": "7–11 वर्ष",
+          "en": "7–11 years"
+        },
+        {
+          "option_id": "D",
+          "hi": "0–2 वर्ष",
+          "en": "0–2 years"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "यह अवस्था लगभग 7 से 11 वर्ष तक मानी जाती है।",
+      "explanation_en": "This stage is generally considered about ages 7–11."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "औपचारिक संक्रियात्मक अवस्था में कौन-सी क्षमता विकसित होती है?",
+      "question_en": "Which ability develops in the formal operational stage?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "संवेदी प्रतिक्रिया",
+          "en": "Sensory response"
+        },
+        {
+          "option_id": "B",
+          "hi": "अमूर्त और काल्पनिक तर्क",
+          "en": "Abstract and hypothetical reasoning"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल वस्तु पहचान",
+          "en": "Object recognition only"
+        },
+        {
+          "option_id": "D",
+          "hi": "अनुकरण मात्र",
+          "en": "Imitation only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "औपचारिक संक्रियात्मक अवस्था में अमूर्त तथा परिकल्पनात्मक चिंतन संभव होता है।",
+      "explanation_en": "Abstract and hypothetical reasoning becomes possible."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "स्कीमा क्या है?",
+      "question_en": "What is a schema?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "ज्ञान का मानसिक ढाँचा",
+          "en": "A mental structure of knowledge"
+        },
+        {
+          "option_id": "B",
+          "hi": "दंड का प्रकार",
+          "en": "A type of punishment"
+        },
+        {
+          "option_id": "C",
+          "hi": "शारीरिक वृद्धि",
+          "en": "Physical growth"
+        },
+        {
+          "option_id": "D",
+          "hi": "सामाजिक नियम",
+          "en": "Social rule"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "स्कीमा अनुभव को व्यवस्थित करने वाले मानसिक ढाँचे हैं।",
+      "explanation_en": "Schemas are mental structures that organise experience."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Assimilation का अर्थ है—",
+      "question_en": "Assimilation means—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "स्कीमा बदलना",
+          "en": "Change schema"
+        },
+        {
+          "option_id": "B",
+          "hi": "ज्ञान भूलना",
+          "en": "Forget knowledge"
+        },
+        {
+          "option_id": "C",
+          "hi": "नकल करना",
+          "en": "Imitate"
+        },
+        {
+          "option_id": "D",
+          "hi": "नए अनुभव को मौजूदा स्कीमा में समाहित करना",
+          "en": "Fit new experience into existing schema"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "Assimilation में नया अनुभव मौजूदा मानसिक ढाँचे के अनुरूप समझा जाता है।",
+      "explanation_en": "Assimilation interprets new experience through existing schemas."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Accommodation का अर्थ है—",
+      "question_en": "Accommodation means—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "दंड देना",
+          "en": "Punish"
+        },
+        {
+          "option_id": "B",
+          "hi": "ध्यान हटाना",
+          "en": "Distract"
+        },
+        {
+          "option_id": "C",
+          "hi": "नए अनुभव के अनुसार स्कीमा बदलना",
+          "en": "Modify schemas for new experience"
+        },
+        {
+          "option_id": "D",
+          "hi": "पुराने ज्ञान को दोहराना",
+          "en": "Repeat old knowledge"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "Accommodation में मानसिक ढाँचे नए अनुभव के अनुसार बदलते हैं।",
+      "explanation_en": "Accommodation modifies schemas to fit new experiences."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Equilibration किस प्रक्रिया से जुड़ा है?",
+      "question_en": "Equilibration is associated with—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "भाषा विकास मात्र",
+          "en": "Language development only"
+        },
+        {
+          "option_id": "B",
+          "hi": "Assimilation और accommodation का संतुलन",
+          "en": "Balance of assimilation and accommodation"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल अनुकरण",
+          "en": "Imitation only"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड और पुरस्कार",
+          "en": "Punishment and reward"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "संज्ञानात्मक संतुलन दोनों प्रक्रियाओं के समन्वय से बनता है।",
+      "explanation_en": "Cognitive equilibrium involves coordinating both processes."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पियाजे के अनुसार विकास—",
+      "question_en": "According to Piaget, development—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "चरणबद्ध होता है",
+          "en": "Occurs in stages"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल सामाजिक पुरस्कार से होता है",
+          "en": "Only through social rewards"
+        },
+        {
+          "option_id": "C",
+          "hi": "सभी बच्चों में समान गति",
+          "en": "Same pace in all children"
+        },
+        {
+          "option_id": "D",
+          "hi": "सीखने से असंबंधित",
+          "en": "Unrelated to learning"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "पियाजे ने संज्ञानात्मक विकास के गुणात्मक चरण प्रस्तावित किए।",
+      "explanation_en": "Piaget proposed qualitatively distinct stages of cognitive development."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "तीन पहाड़ कार्य किस अवधारणा की जाँच करता है?",
+      "question_en": "The three-mountains task examines—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "संरक्षण",
+          "en": "Conservation"
+        },
+        {
+          "option_id": "B",
+          "hi": "पुनर्बलन",
+          "en": "Reinforcement"
+        },
+        {
+          "option_id": "C",
+          "hi": "नैतिकता",
+          "en": "Morality"
+        },
+        {
+          "option_id": "D",
+          "hi": "दृष्टिकोण ग्रहण और अहंकेंद्रिता",
+          "en": "Perspective-taking and egocentrism"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "यह कार्य बच्चे की दृष्टिकोण ग्रहण क्षमता का परीक्षण करता है।",
+      "explanation_en": "It tests children's perspective-taking ability."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पियाजे के सिद्धांत में खेल का महत्व—",
+      "question_en": "In Piaget's theory, play is important because—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "यह केवल शारीरिक व्यायाम",
+          "en": "It is only exercise"
+        },
+        {
+          "option_id": "B",
+          "hi": "यह दंड है",
+          "en": "It is punishment"
+        },
+        {
+          "option_id": "C",
+          "hi": "बच्चा अनुभवों को आत्मसात करता है",
+          "en": "Children assimilate experiences"
+        },
+        {
+          "option_id": "D",
+          "hi": "यह सीखना रोकता है",
+          "en": "It stops learning"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "खेल बच्चे को अनुभवों को अपने स्कीमा में समाहित करने में मदद करता है।",
+      "explanation_en": "Play helps children assimilate experiences into schemas."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पियाजे के अनुसार शिक्षक की भूमिका—",
+      "question_en": "According to Piaget, the teacher's role is to—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "त्रुटि पर दंड",
+          "en": "Punish errors"
+        },
+        {
+          "option_id": "B",
+          "hi": "अन्वेषण के अवसर देना",
+          "en": "Provide opportunities for exploration"
+        },
+        {
+          "option_id": "C",
+          "hi": "हर उत्तर बताना",
+          "en": "Tell every answer"
+        },
+        {
+          "option_id": "D",
+          "hi": "केवल व्याख्यान",
+          "en": "Lecture only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "शिक्षक सक्रिय खोज और उपयुक्त अनुभवों की व्यवस्था करता है।",
+      "explanation_en": "Teachers facilitate active exploration and suitable experiences."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विकास में readiness का अर्थ—",
+      "question_en": "Readiness in development means—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "कौशल सीखने के लिए उपयुक्त तैयारी",
+          "en": "Appropriate preparation to learn a skill"
+        },
+        {
+          "option_id": "B",
+          "hi": "सभी को एक ही पाठ",
+          "en": "Same lesson for all"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल उम्र",
+          "en": "Age alone"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड का डर",
+          "en": "Fear of punishment"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "सीखने का अनुभव बच्चे की विकासात्मक तैयारी के अनुरूप होना चाहिए।",
+      "explanation_en": "Learning experiences should match developmental readiness."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पियाजे के सिद्धांत की आलोचना क्या है?",
+      "question_en": "A criticism of Piaget's theory is that—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "बच्चे सोचते नहीं",
+          "en": "Children do not think"
+        },
+        {
+          "option_id": "B",
+          "hi": "विकास नहीं होता",
+          "en": "Development does not occur"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल भाषा महत्वपूर्ण",
+          "en": "Only language matters"
+        },
+        {
+          "option_id": "D",
+          "hi": "कुछ क्षमताएँ अपेक्षा से पहले दिख सकती हैं",
+          "en": "Some abilities may appear earlier than proposed"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "बाद के शोध में कुछ कार्यों के सरल रूप से क्षमताएँ पहले दिखाई गईं।",
+      "explanation_en": "Later research found some abilities earlier with simpler tasks."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "पियाजे में विकास और अधिगम का संबंध—",
+      "question_en": "In Piaget's view, development and learning are—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "असंबंधित",
+          "en": "Unrelated"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल पुरस्कार आधारित",
+          "en": "Reward-based only"
+        },
+        {
+          "option_id": "C",
+          "hi": "विकास सीखने की संभावनाओं को प्रभावित करता है",
+          "en": "Development influences learning possibilities"
+        },
+        {
+          "option_id": "D",
+          "hi": "पूरी तरह समान",
+          "en": "Exactly identical"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "विकासात्मक स्तर सीखने की उपलब्ध संभावनाओं को प्रभावित करता है।",
+      "explanation_en": "Developmental level influences what learning is possible."
+    },
+    {
+      "question_id": "CDP_PIAGET_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Child Development",
+      "topic_id": "piaget",
+      "topic": "Piaget's Cognitive Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में मूर्त सामग्री का उपयोग किस अवस्था के बच्चों के लिए विशेष उपयोगी?",
+      "question_en": "Concrete materials are especially useful for learners in which stage?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सभी में अनुपयोगी",
+          "en": "Useless for all"
+        },
+        {
+          "option_id": "B",
+          "hi": "मूर्त संक्रियात्मक",
+          "en": "Concrete operational"
+        },
+        {
+          "option_id": "C",
+          "hi": "औपचारिक संक्रियात्मक केवल",
+          "en": "Formal operational only"
+        },
+        {
+          "option_id": "D",
+          "hi": "संवेदी-गामक केवल",
+          "en": "Sensorimotor only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19",
+      "explanation_hi": "मूर्त उदाहरण इस अवस्था में तार्किक सोच को समर्थन देते हैं।",
+      "explanation_en": "Concrete examples support logical thinking at this stage."
+    }
+  ]
+}

@@ -1,0 +1,1325 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Language Development",
+  "batch_id": "V6-CDP-53",
+  "subject_id": "cdp",
+  "topic_id": "language_development",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा विकास",
+      "question_en": "Language development",
+      "options": [
+        {
+          "en": "Progress in understanding and using language",
+          "hi": "भाषा समझने एवं प्रयोग में प्रगति",
+          "option_id": "A"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "D"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Language development includes receptive and expressive skills.",
+      "explanation_en": "Language development includes receptive and expressive skills.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "ग्रहणात्मक भाषा",
+      "question_en": "Receptive language",
+      "options": [
+        {
+          "en": "S",
+          "hi": "p",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "W",
+          "hi": "r",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "I",
+          "hi": "m"
+        },
+        {
+          "en": "अ",
+          "hi": "न"
+        },
+        {
+          "en": "Understanding spoken or written language",
+          "hi": "बोली या लिखी भाषा समझना"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Receptive language involves comprehension.",
+      "explanation_en": "Receptive language involves comprehension.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "अभिव्यक्तात्मक भाषा",
+      "question_en": "Expressive language",
+      "options": [
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "A"
+        },
+        {
+          "en": "H",
+          "hi": "e",
+          "option_id": "B"
+        },
+        {
+          "en": "स",
+          "hi": "ु",
+          "option_id": "C"
+        },
+        {
+          "en": "M",
+          "hi": "e",
+          "option_id": "D"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "Communicating thoughts using language",
+          "hi": "भाषा से विचार व्यक्त करना"
+        },
+        {
+          "en": "U",
+          "hi": "n"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Expressive language involves communicating.",
+      "explanation_en": "Expressive language involves communicating.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शब्दावली",
+      "question_en": "Vocabulary",
+      "options": [
+        {
+          "en": "S",
+          "hi": "i",
+          "option_id": "A"
+        },
+        {
+          "en": "च",
+          "hi": "ु",
+          "option_id": "B"
+        },
+        {
+          "en": "C",
+          "hi": "o",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "Meaningful exposure and interaction",
+          "hi": "अर्थपूर्ण संपर्क एवं संवाद"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Rich interaction can support vocabulary growth.",
+      "explanation_en": "Rich interaction can support vocabulary growth.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "घर की भाषा",
+      "question_en": "Home language",
+      "options": [
+        {
+          "en": "Use as a learning resource",
+          "hi": "अधिगम संसाधन के रूप में उपयोग",
+          "option_id": "A"
+        },
+        {
+          "en": "B",
+          "hi": "a",
+          "option_id": "B"
+        },
+        {
+          "en": "प",
+          "hi": "्",
+          "option_id": "C"
+        },
+        {
+          "en": "I",
+          "hi": "g",
+          "option_id": "D"
+        },
+        {
+          "en": "अ",
+          "hi": "न"
+        },
+        {
+          "en": "L",
+          "hi": "a"
+        },
+        {
+          "en": "ल",
+          "hi": "े"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Home language can support understanding and identity.",
+      "explanation_en": "Home language can support understanding and identity.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा वातावरण",
+      "question_en": "Language environment",
+      "options": [
+        {
+          "en": "N",
+          "hi": "o",
+          "option_id": "A"
+        },
+        {
+          "en": "स",
+          "hi": "ं",
+          "option_id": "B"
+        },
+        {
+          "en": "R",
+          "hi": "o",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Talk, stories and responsive interaction",
+          "hi": "बातचीत, कहानी एवं प्रत्युत्तर"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Responsive language-rich environments support development.",
+      "explanation_en": "Responsive language-rich environments support development.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा त्रुटियाँ",
+      "question_en": "Errors",
+      "options": [
+        {
+          "en": "ह",
+          "hi": "म",
+          "option_id": "A"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "B"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "C"
+        },
+        {
+          "en": "S",
+          "hi": "t",
+          "option_id": "D"
+        },
+        {
+          "en": "ब",
+          "hi": "ो"
+        },
+        {
+          "en": "Can be part of learning",
+          "hi": "अधिगम का हिस्सा हो सकती"
+        },
+        {
+          "en": "A",
+          "hi": "l"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Errors can provide information about developing language.",
+      "explanation_en": "Errors can provide information about developing language.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "ध्वन्यात्मक जागरूकता",
+      "question_en": "Phonological awareness",
+      "options": [
+        {
+          "en": "M",
+          "hi": "e",
+          "option_id": "A"
+        },
+        {
+          "en": "स",
+          "hi": "्",
+          "option_id": "B"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "C"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "D"
+        },
+        {
+          "en": "Notice and manipulate sounds",
+          "hi": "ध्वनियों को पहचानना एवं बदलना"
+        },
+        {
+          "en": "G",
+          "hi": "r"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Phonological awareness concerns sound structures.",
+      "explanation_en": "Phonological awareness concerns sound structures.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "संवादी पठन",
+      "question_en": "Dialogic reading",
+      "options": [
+        {
+          "en": "Ask and discuss during reading",
+          "hi": "पठन के दौरान प्रश्न एवं चर्चा",
+          "option_id": "A"
+        },
+        {
+          "en": "S",
+          "hi": "i",
+          "option_id": "B"
+        },
+        {
+          "en": "म",
+          "hi": "ौ",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "C",
+          "hi": "o"
+        },
+        {
+          "en": "न",
+          "hi": "क"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Dialogic reading encourages interaction around text.",
+      "explanation_en": "Dialogic reading encourages interaction around text.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "भाषा एवं चिंतन",
+      "question_en": "Language and cognition",
+      "options": [
+        {
+          "en": "N",
+          "hi": "o",
+          "option_id": "A"
+        },
+        {
+          "en": "स",
+          "hi": "ं",
+          "option_id": "B"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "C"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "D"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Language can support thinking and communication",
+          "hi": "भाषा चिंतन एवं संवाद में सहायक"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Language is a tool for communication and thought.",
+      "explanation_en": "Language is a tool for communication and thought.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में भाषा विकास का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Language development mean?",
+      "options": [
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "A"
+        },
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Progress in understanding and using language",
+          "hi": "भाषा समझने एवं प्रयोग में प्रगति"
+        },
+        {
+          "en": "O",
+          "hi": "n"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Language development includes receptive and expressive skills.",
+      "explanation_en": "Language development includes receptive and expressive skills.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में ग्रहणात्मक भाषा का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Receptive language mean?",
+      "options": [
+        {
+          "en": "W",
+          "hi": "r",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "I",
+          "hi": "m",
+          "option_id": "C"
+        },
+        {
+          "en": "अ",
+          "hi": "न",
+          "option_id": "D"
+        },
+        {
+          "en": "Understanding spoken or written language",
+          "hi": "बोली या लिखी भाषा समझना"
+        },
+        {
+          "en": "S",
+          "hi": "p"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Receptive language involves comprehension.",
+      "explanation_en": "Receptive language involves comprehension.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में अभिव्यक्तात्मक भाषा का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Expressive language mean?",
+      "options": [
+        {
+          "en": "Communicating thoughts using language",
+          "hi": "भाषा से विचार व्यक्त करना",
+          "option_id": "A"
+        },
+        {
+          "en": "U",
+          "hi": "n",
+          "option_id": "B"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "C"
+        },
+        {
+          "en": "H",
+          "hi": "e",
+          "option_id": "D"
+        },
+        {
+          "en": "स",
+          "hi": "ु"
+        },
+        {
+          "en": "M",
+          "hi": "e"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Expressive language involves communicating.",
+      "explanation_en": "Expressive language involves communicating.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में शब्दावली का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Vocabulary mean?",
+      "options": [
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "A"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "B"
+        },
+        {
+          "en": "S",
+          "hi": "i",
+          "option_id": "C"
+        },
+        {
+          "en": "च",
+          "hi": "ु",
+          "option_id": "D"
+        },
+        {
+          "en": "C",
+          "hi": "o"
+        },
+        {
+          "en": "क",
+          "hi": "े"
+        },
+        {
+          "en": "Meaningful exposure and interaction",
+          "hi": "अर्थपूर्ण संपर्क एवं संवाद"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Rich interaction can support vocabulary growth.",
+      "explanation_en": "Rich interaction can support vocabulary growth.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में घर की भाषा का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Home language mean?",
+      "options": [
+        {
+          "en": "प",
+          "hi": "्",
+          "option_id": "A"
+        },
+        {
+          "en": "I",
+          "hi": "g",
+          "option_id": "B"
+        },
+        {
+          "en": "अ",
+          "hi": "न",
+          "option_id": "C"
+        },
+        {
+          "en": "L",
+          "hi": "a",
+          "option_id": "D"
+        },
+        {
+          "en": "ल",
+          "hi": "े"
+        },
+        {
+          "en": "Use as a learning resource",
+          "hi": "अधिगम संसाधन के रूप में उपयोग"
+        },
+        {
+          "en": "B",
+          "hi": "a"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Home language can support understanding and identity.",
+      "explanation_en": "Home language can support understanding and identity.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में भाषा वातावरण का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Language environment mean?",
+      "options": [
+        {
+          "en": "R",
+          "hi": "o",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "C"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "D"
+        },
+        {
+          "en": "Talk, stories and responsive interaction",
+          "hi": "बातचीत, कहानी एवं प्रत्युत्तर"
+        },
+        {
+          "en": "N",
+          "hi": "o"
+        },
+        {
+          "en": "स",
+          "hi": "ं"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Responsive language-rich environments support development.",
+      "explanation_en": "Responsive language-rich environments support development.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में भाषा त्रुटियाँ का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Errors mean?",
+      "options": [
+        {
+          "en": "Can be part of learning",
+          "hi": "अधिगम का हिस्सा हो सकती",
+          "option_id": "A"
+        },
+        {
+          "en": "A",
+          "hi": "l",
+          "option_id": "B"
+        },
+        {
+          "en": "ह",
+          "hi": "म",
+          "option_id": "C"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "D"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "S",
+          "hi": "t"
+        },
+        {
+          "en": "ब",
+          "hi": "ो"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Errors can provide information about developing language.",
+      "explanation_en": "Errors can provide information about developing language.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में ध्वन्यात्मक जागरूकता का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Phonological awareness mean?",
+      "options": [
+        {
+          "en": "G",
+          "hi": "r",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "M",
+          "hi": "e",
+          "option_id": "C"
+        },
+        {
+          "en": "स",
+          "hi": "्",
+          "option_id": "D"
+        },
+        {
+          "en": "P",
+          "hi": "u"
+        },
+        {
+          "en": "द",
+          "hi": "ं"
+        },
+        {
+          "en": "Notice and manipulate sounds",
+          "hi": "ध्वनियों को पहचानना एवं बदलना"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Phonological awareness concerns sound structures.",
+      "explanation_en": "Phonological awareness concerns sound structures.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में संवादी पठन का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Dialogic reading mean?",
+      "options": [
+        {
+          "en": "म",
+          "hi": "ौ",
+          "option_id": "A"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "B"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "C"
+        },
+        {
+          "en": "C",
+          "hi": "o",
+          "option_id": "D"
+        },
+        {
+          "en": "न",
+          "hi": "क"
+        },
+        {
+          "en": "Ask and discuss during reading",
+          "hi": "पठन के दौरान प्रश्न एवं चर्चा"
+        },
+        {
+          "en": "S",
+          "hi": "i"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Dialogic reading encourages interaction around text.",
+      "explanation_en": "Dialogic reading encourages interaction around text.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_LANGUAGE_DEVELOPMENT_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "language_development",
+      "topic": "Language Development",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "शिक्षण संदर्भ में भाषा एवं चिंतन का सही अर्थ क्या है?",
+      "question_en": "In a teaching context, what does Language and cognition mean?",
+      "options": [
+        {
+          "en": "O",
+          "hi": "n",
+          "option_id": "A"
+        },
+        {
+          "en": "क",
+          "hi": "े",
+          "option_id": "B"
+        },
+        {
+          "en": "P",
+          "hi": "u",
+          "option_id": "C"
+        },
+        {
+          "en": "द",
+          "hi": "ं",
+          "option_id": "D"
+        },
+        {
+          "en": "Language can support thinking and communication",
+          "hi": "भाषा चिंतन एवं संवाद में सहायक"
+        },
+        {
+          "en": "N",
+          "hi": "o"
+        },
+        {
+          "en": "स",
+          "hi": "ं"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Language is a tool for communication and thought.",
+      "explanation_en": "Language is a tool for communication and thought.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}

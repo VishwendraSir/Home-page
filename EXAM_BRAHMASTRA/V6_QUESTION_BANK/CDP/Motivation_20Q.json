@@ -1,0 +1,1085 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Motivation",
+  "batch_id": "V6-CDP-063",
+  "subject_id": "cdp",
+  "topic_id": "motivation",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "V6-CDP-063-001",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "आंतरिक प्रेरणा का उदाहरण?",
+      "question_en": "Example of intrinsic motivation?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "जिज्ञासा से विज्ञान प्रयोग करना",
+          "en": "जिज्ञासा से विज्ञान प्रयोग करना"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल अंक हेतु",
+          "en": "Doing a science experiment out of curiosity"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड से बचना",
+          "en": "For marks only"
+        },
+        {
+          "option_id": "D",
+          "hi": "पुरस्कार हेतु",
+          "en": "Avoid punishment"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-002",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बाह्य प्रेरणा किससे आती?",
+      "question_en": "Extrinsic motivation comes from?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "रुचि",
+          "en": "Self-satisfaction"
+        },
+        {
+          "option_id": "B",
+          "hi": "बाहरी पुरस्कार या परिणाम",
+          "en": "बाहरी पुरस्कार या परिणाम"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल जिज्ञासा",
+          "en": "External rewards or outcomes"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्वयं संतोष",
+          "en": "Curiosity only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-003",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "easy",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रेरणा सीखने में क्या करती?",
+      "question_en": "What does motivation do in learning?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "विकास रोकती",
+          "en": "Erases memory"
+        },
+        {
+          "option_id": "B",
+          "hi": "कोई भूमिका नहीं",
+          "en": "Stops development"
+        },
+        {
+          "option_id": "C",
+          "hi": "प्रयास और दिशा प्रभावित करती",
+          "en": "प्रयास और दिशा प्रभावित करती"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्मृति समाप्त",
+          "en": "Influences effort and direction"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-004",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Maslow के सिद्धांत में मूल जरूरतें?",
+      "question_en": "In Maslow's theory, basic needs?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल प्रतिष्ठा",
+          "en": "Safety and physiological needs"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल आत्मसिद्धि",
+          "en": "Esteem only"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल जिज्ञासा",
+          "en": "Self-actualisation only"
+        },
+        {
+          "option_id": "D",
+          "hi": "सुरक्षा और शारीरिक जरूरतें",
+          "en": "सुरक्षा और शारीरिक जरूरतें"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-005",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "easy",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "उपलब्धि प्रेरणा का संकेत?",
+      "question_en": "An indicator of achievement motivation?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "चुनौतीपूर्ण लक्ष्य चुनना",
+          "en": "चुनौतीपूर्ण लक्ष्य चुनना"
+        },
+        {
+          "option_id": "B",
+          "hi": "कार्य से बचना",
+          "en": "Choosing challenging goals"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल आसान काम",
+          "en": "Avoiding tasks"
+        },
+        {
+          "option_id": "D",
+          "hi": "असफलता से स्थायी डर",
+          "en": "Easy tasks only"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-006",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रशंसा कैसी होनी चाहिए?",
+      "question_en": "What should praise be like?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "तुलनात्मक",
+          "en": "Exaggerated"
+        },
+        {
+          "option_id": "B",
+          "hi": "विशिष्ट और प्रयास/रणनीति पर केंद्रित",
+          "en": "विशिष्ट और प्रयास/रणनीति पर केंद्रित"
+        },
+        {
+          "option_id": "C",
+          "hi": "व्यक्ति को स्थायी लेबल",
+          "en": "Specific and focused on effort/strategy"
+        },
+        {
+          "option_id": "D",
+          "hi": "अतिशयोक्ति",
+          "en": "Fixed label"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-007",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "असफलता के बाद प्रेरणा कैसे बढ़ाएँ?",
+      "question_en": "How to support motivation after failure?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "तुलना",
+          "en": "Blame"
+        },
+        {
+          "option_id": "B",
+          "hi": "उम्मीद छोड़ना",
+          "en": "Comparison"
+        },
+        {
+          "option_id": "C",
+          "hi": "सुधार योग्य रणनीति और छोटे लक्ष्य",
+          "en": "सुधार योग्य रणनीति और छोटे लक्ष्य"
+        },
+        {
+          "option_id": "D",
+          "hi": "दोषारोपण",
+          "en": "Adjust strategies and set small goals"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-008",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Self-efficacy का अर्थ?",
+      "question_en": "Self-efficacy means?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सामान्य आत्मसम्मान मात्र",
+          "en": "Task-specific belief in one's capability"
+        },
+        {
+          "option_id": "B",
+          "hi": "बुद्धि",
+          "en": "General self-esteem only"
+        },
+        {
+          "option_id": "C",
+          "hi": "रुचि",
+          "en": "Intelligence"
+        },
+        {
+          "option_id": "D",
+          "hi": "अपनी क्षमता पर कार्य-विशिष्ट विश्वास",
+          "en": "अपनी क्षमता पर कार्य-विशिष्ट विश्वास"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-009",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रेरणा बढ़ाने हेतु स्वायत्तता?",
+      "question_en": "Autonomy support for motivation?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "विकल्प और जिम्मेदारी देना",
+          "en": "विकल्प और जिम्मेदारी देना"
+        },
+        {
+          "option_id": "B",
+          "hi": "हर निर्णय थोपना",
+          "en": "Offer choices and responsibility"
+        },
+        {
+          "option_id": "C",
+          "hi": "दंड",
+          "en": "Impose every decision"
+        },
+        {
+          "option_id": "D",
+          "hi": "सभी विकल्प हटाना",
+          "en": "Punishment"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-010",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "लक्ष्य निर्धारण कैसा प्रभावी?",
+      "question_en": "Effective goal-setting is?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "बिना समय",
+          "en": "Impossible"
+        },
+        {
+          "option_id": "B",
+          "hi": "विशिष्ट और प्राप्त करने योग्य",
+          "en": "विशिष्ट और प्राप्त करने योग्य"
+        },
+        {
+          "option_id": "C",
+          "hi": "अस्पष्ट",
+          "en": "Specific and attainable"
+        },
+        {
+          "option_id": "D",
+          "hi": "असंभव",
+          "en": "Vague"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-011",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "दंड पर अत्यधिक निर्भरता?",
+      "question_en": "Overreliance on punishment?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "रुचि बढ़ाती ही",
+          "en": "Always best"
+        },
+        {
+          "option_id": "B",
+          "hi": "कोई प्रभाव नहीं",
+          "en": "Always increases interest"
+        },
+        {
+          "option_id": "C",
+          "hi": "आंतरिक प्रेरणा कमजोर कर सकती",
+          "en": "आंतरिक प्रेरणा कमजोर कर सकती"
+        },
+        {
+          "option_id": "D",
+          "hi": "हमेशा सर्वोत्तम",
+          "en": "May undermine intrinsic motivation"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-012",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रतिक्रिया प्रेरणा में कैसे मदद?",
+      "question_en": "How can feedback help motivation?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल अंक",
+          "en": "Clarifies progress and next steps"
+        },
+        {
+          "option_id": "B",
+          "hi": "अपमान",
+          "en": "Marks only"
+        },
+        {
+          "option_id": "C",
+          "hi": "भ्रम",
+          "en": "Humiliation"
+        },
+        {
+          "option_id": "D",
+          "hi": "प्रगति और अगला कदम स्पष्ट करती",
+          "en": "प्रगति और अगला कदम स्पष्ट करती"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-013",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "moderate",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहयोगी लक्ष्य किसमें सहायक?",
+      "question_en": "Collaborative goals help with?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "साझा जिम्मेदारी",
+          "en": "साझा जिम्मेदारी"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल प्रतियोगिता",
+          "en": "Shared responsibility"
+        },
+        {
+          "option_id": "C",
+          "hi": "अलगाव",
+          "en": "Competition only"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Isolation"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-014",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कौन सी प्रेरणा रणनीति उचित?",
+      "question_en": "Which motivational strategy is appropriate?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "सार्वजनिक शर्म",
+          "en": "Constant comparison"
+        },
+        {
+          "option_id": "B",
+          "hi": "अर्थपूर्ण कार्य और सकारात्मक प्रतिक्रिया",
+          "en": "अर्थपूर्ण कार्य और सकारात्मक प्रतिक्रिया"
+        },
+        {
+          "option_id": "C",
+          "hi": "डर",
+          "en": "Meaningful tasks and positive feedback"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्थायी तुलना",
+          "en": "Fear"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-015",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "moderate",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रेरणा और रुचि का संबंध?",
+      "question_en": "Relationship between motivation and interest?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "रुचि हमेशा घटती",
+          "en": "Unrelated"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल पुरस्कार",
+          "en": "Interest always declines"
+        },
+        {
+          "option_id": "C",
+          "hi": "रुचि प्रेरणा को समर्थन दे सकती",
+          "en": "रुचि प्रेरणा को समर्थन दे सकती"
+        },
+        {
+          "option_id": "D",
+          "hi": "असंबंधित",
+          "en": "Interest can support motivation"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-016",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में प्रतियोगिता का उपयोग?",
+      "question_en": "Use of competition in class?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "हर समय",
+          "en": "Balanced and inclusive"
+        },
+        {
+          "option_id": "B",
+          "hi": "कमजोर को हटाना",
+          "en": "Always"
+        },
+        {
+          "option_id": "C",
+          "hi": "रैंक ही उद्देश्य",
+          "en": "Exclude weaker learners"
+        },
+        {
+          "option_id": "D",
+          "hi": "संतुलित और समावेशी",
+          "en": "संतुलित और समावेशी"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-017",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रेरणा के अभाव का संकेत?",
+      "question_en": "Possible sign of low motivation?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "कार्य में कम प्रयास",
+          "en": "कार्य में कम प्रयास"
+        },
+        {
+          "option_id": "B",
+          "hi": "हमेशा कम बुद्धि",
+          "en": "Low effort on tasks"
+        },
+        {
+          "option_id": "C",
+          "hi": "निश्चित बीमारी",
+          "en": "Always low intelligence"
+        },
+        {
+          "option_id": "D",
+          "hi": "स्थायी असफलता",
+          "en": "Certain illness"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-018",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रेरणा बढ़ाने में शिक्षक क्या कर सकता?",
+      "question_en": "What can a teacher do to increase motivation?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "उपेक्षा",
+          "en": "Punishment"
+        },
+        {
+          "option_id": "B",
+          "hi": "प्रासंगिकता और सफलता के अवसर",
+          "en": "प्रासंगिकता और सफलता के अवसर"
+        },
+        {
+          "option_id": "C",
+          "hi": "सिर्फ गृहकार्य",
+          "en": "Relevance and opportunities for success"
+        },
+        {
+          "option_id": "D",
+          "hi": "दंड",
+          "en": "Homework only"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-019",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "difficult",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "बच्चे को लक्ष्य चुनने देना?",
+      "question_en": "Allowing learners to choose goals?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "अनुशासन समाप्त",
+          "en": "Stops learning"
+        },
+        {
+          "option_id": "B",
+          "hi": "हमेशा भ्रम",
+          "en": "Ends discipline"
+        },
+        {
+          "option_id": "C",
+          "hi": "स्वामित्व और स्वायत्तता बढ़ा सकता",
+          "en": "स्वामित्व और स्वायत्तता बढ़ा सकता"
+        },
+        {
+          "option_id": "D",
+          "hi": "सीखना रोकता",
+          "en": "Can increase ownership and autonomy"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "V6-CDP-063-020",
+      "subject_id": "cdp",
+      "subject": "Child Development and Pedagogy",
+      "category": "Motivation",
+      "topic_id": "motivation",
+      "topic": "Motivation",
+      "subtopic_id": "motivation",
+      "subtopic": "Motivation",
+      "difficulty": "difficult",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "संतुलित कथन?",
+      "question_en": "Balanced statement?",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": "केवल पुरस्कार",
+          "en": "Motivation is influenced by personal, social and contextual factors"
+        },
+        {
+          "option_id": "B",
+          "hi": "केवल दंड",
+          "en": "Reward only"
+        },
+        {
+          "option_id": "C",
+          "hi": "केवल जन्मजात",
+          "en": "Punishment only"
+        },
+        {
+          "option_id": "D",
+          "hi": "प्रेरणा व्यक्तिगत, सामाजिक और संदर्भगत कारकों से प्रभावित",
+          "en": "प्रेरणा व्यक्तिगत, सामाजिक और संदर्भगत कारकों से प्रभावित"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": 0,
+      "explanation_en": 0,
+      "source_reference": "Original concept-based practice item; not an official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}

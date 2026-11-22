@@ -1,0 +1,1325 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Attention & Perception",
+  "batch_id": "V6-CDP-41",
+  "subject_id": "cdp",
+  "topic_id": "attention_perception",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Selective attention—",
+      "question_en": "Selective attention—",
+      "options": [
+        {
+          "hi": "चुनिंदा सूचना पर ध्यान",
+          "en": "Attend to selected information",
+          "option_id": "A"
+        },
+        {
+          "hi": "स",
+          "en": "भ",
+          "option_id": "B"
+        },
+        {
+          "hi": "A",
+          "en": "l",
+          "option_id": "C"
+        },
+        {
+          "hi": "भ",
+          "en": "ू",
+          "option_id": "D"
+        },
+        {
+          "hi": "F",
+          "en": "o"
+        },
+        {
+          "hi": "न",
+          "en": "ी"
+        },
+        {
+          "hi": "S",
+          "en": "l"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Selective attention focuses on relevant stimuli.",
+      "explanation_en": "Selective attention focuses on relevant stimuli.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Attention प्रभावित हो सकता—",
+      "question_en": "Attention may be influenced by—",
+      "options": [
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "A"
+        },
+        {
+          "hi": "A",
+          "en": "g",
+          "option_id": "B"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "C"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "D"
+        },
+        {
+          "hi": "र",
+          "en": "ं"
+        },
+        {
+          "hi": "C",
+          "en": "o"
+        },
+        {
+          "hi": "रुचि और उद्देश्य",
+          "en": "Interest and purpose"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Interest and goals can influence attention.",
+      "explanation_en": "Interest and goals can influence attention.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Perception—",
+      "question_en": "Perception—",
+      "options": [
+        {
+          "hi": "S",
+          "en": "e",
+          "option_id": "A"
+        },
+        {
+          "hi": "स",
+          "en": "्",
+          "option_id": "B"
+        },
+        {
+          "hi": "E",
+          "en": "r",
+          "option_id": "C"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "D"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        },
+        {
+          "hi": "संवेदी सूचना की व्याख्या",
+          "en": "Interpret sensory information"
+        },
+        {
+          "hi": "क",
+          "en": "े"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Perception involves interpreting sensory input.",
+      "explanation_en": "Perception involves interpreting sensory input.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Figure-ground—",
+      "question_en": "Figure-ground—",
+      "options": [
+        {
+          "hi": "स",
+          "en": "्",
+          "option_id": "A"
+        },
+        {
+          "hi": "M",
+          "en": "e",
+          "option_id": "B"
+        },
+        {
+          "hi": "प",
+          "en": "्",
+          "option_id": "C"
+        },
+        {
+          "hi": "M",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "मुख्य वस्तु और पृष्ठभूमि अलग",
+          "en": "Separate figure from background"
+        },
+        {
+          "hi": "र",
+          "en": "ट"
+        },
+        {
+          "hi": "R",
+          "en": "o"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Figure-ground organisation distinguishes focal object from background.",
+      "explanation_en": "Figure-ground organisation distinguishes focal object from background.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Attention span बढ़ाने—",
+      "question_en": "To support attention span—",
+      "options": [
+        {
+          "hi": "छोटे विविध कार्य",
+          "en": "Short varied activities",
+          "option_id": "A"
+        },
+        {
+          "hi": "ल",
+          "en": "ं",
+          "option_id": "B"
+        },
+        {
+          "hi": "L",
+          "en": "o",
+          "option_id": "C"
+        },
+        {
+          "hi": "श",
+          "en": "ो",
+          "option_id": "D"
+        },
+        {
+          "hi": "N",
+          "en": "o"
+        },
+        {
+          "hi": "द",
+          "en": "ं"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Varied purposeful activities can sustain attention.",
+      "explanation_en": "Varied purposeful activities can sustain attention.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Perceptual constancy—",
+      "question_en": "Perceptual constancy—",
+      "options": [
+        {
+          "hi": "भ",
+          "en": "ू",
+          "option_id": "A"
+        },
+        {
+          "hi": "F",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "C"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "D"
+        },
+        {
+          "hi": "अ",
+          "en": "भ"
+        },
+        {
+          "hi": "P",
+          "en": "r"
+        },
+        {
+          "hi": "परिवर्तन के बावजूद स्थिर पहचान",
+          "en": "Stable perception despite changes"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Perceptual constancy supports recognising objects across conditions.",
+      "explanation_en": "Perceptual constancy supports recognising objects across conditions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Distractor—",
+      "question_en": "A distractor—",
+      "options": [
+        {
+          "hi": "H",
+          "en": "e",
+          "option_id": "A"
+        },
+        {
+          "hi": "उ",
+          "en": "त",
+          "option_id": "B"
+        },
+        {
+          "hi": "A",
+          "en": "n",
+          "option_id": "C"
+        },
+        {
+          "hi": "ल",
+          "en": "क",
+          "option_id": "D"
+        },
+        {
+          "hi": "G",
+          "en": "o"
+        },
+        {
+          "hi": "ध्यान भटकाने वाला stimulus",
+          "en": "Stimulus that diverts attention"
+        },
+        {
+          "hi": "स",
+          "en": "ह"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Distractors compete for attention.",
+      "explanation_en": "Distractors compete for attention.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Top-down perception—",
+      "question_en": "Top-down perception—",
+      "options": [
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "A"
+        },
+        {
+          "hi": "R",
+          "en": "e",
+          "option_id": "B"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "C"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "D"
+        },
+        {
+          "hi": "पूर्व ज्ञान व्याख्या प्रभावित करे",
+          "en": "Prior knowledge influences interpretation"
+        },
+        {
+          "hi": "स",
+          "en": "ं"
+        },
+        {
+          "hi": "N",
+          "en": "o"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Expectations and prior knowledge can shape perception.",
+      "explanation_en": "Expectations and prior knowledge can shape perception.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Bottom-up processing—",
+      "question_en": "Bottom-up processing—",
+      "options": [
+        {
+          "hi": "संवेदी सूचना से व्याख्या",
+          "en": "Interpretation from sensory input",
+          "option_id": "A"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "B"
+        },
+        {
+          "hi": "G",
+          "en": "u",
+          "option_id": "C"
+        },
+        {
+          "hi": "प",
+          "en": "ू",
+          "option_id": "D"
+        },
+        {
+          "hi": "B",
+          "en": "i"
+        },
+        {
+          "hi": "भ",
+          "en": "ू"
+        },
+        {
+          "hi": "F",
+          "en": "o"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Bottom-up processing begins with sensory information.",
+      "explanation_en": "Bottom-up processing begins with sensory information.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में ध्यान जाँच—",
+      "question_en": "Checking attention in class—",
+      "options": [
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "A"
+        },
+        {
+          "hi": "S",
+          "en": "i",
+          "option_id": "B"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "C"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "D"
+        },
+        {
+          "hi": "अ",
+          "en": "न"
+        },
+        {
+          "hi": "A",
+          "en": "b"
+        },
+        {
+          "hi": "प्रश्न और गतिविधि प्रतिक्रिया",
+          "en": "Questions and activity responses"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Responses provide evidence of attention and understanding.",
+      "explanation_en": "Responses provide evidence of attention and understanding.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Selective attention— उदाहरण में—",
+      "question_en": "In an example, Selective attention—",
+      "options": [
+        {
+          "hi": "A",
+          "en": "l",
+          "option_id": "A"
+        },
+        {
+          "hi": "भ",
+          "en": "ू",
+          "option_id": "B"
+        },
+        {
+          "hi": "F",
+          "en": "o",
+          "option_id": "C"
+        },
+        {
+          "hi": "न",
+          "en": "ी",
+          "option_id": "D"
+        },
+        {
+          "hi": "S",
+          "en": "l"
+        },
+        {
+          "hi": "चुनिंदा सूचना पर ध्यान",
+          "en": "Attend to selected information"
+        },
+        {
+          "hi": "स",
+          "en": "भ"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Selective attention focuses on relevant stimuli.",
+      "explanation_en": "Selective attention focuses on relevant stimuli.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Attention प्रभावित हो सकता— उदाहरण में—",
+      "question_en": "In an example, Attention may be influenced by—",
+      "options": [
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "A"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "B"
+        },
+        {
+          "hi": "र",
+          "en": "ं",
+          "option_id": "C"
+        },
+        {
+          "hi": "C",
+          "en": "o",
+          "option_id": "D"
+        },
+        {
+          "hi": "रुचि और उद्देश्य",
+          "en": "Interest and purpose"
+        },
+        {
+          "hi": "क",
+          "en": "े"
+        },
+        {
+          "hi": "A",
+          "en": "g"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Interest and goals can influence attention.",
+      "explanation_en": "Interest and goals can influence attention.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Perception— उदाहरण में—",
+      "question_en": "In an example, Perception—",
+      "options": [
+        {
+          "hi": "संवेदी सूचना की व्याख्या",
+          "en": "Interpret sensory information",
+          "option_id": "A"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "B"
+        },
+        {
+          "hi": "S",
+          "en": "e",
+          "option_id": "C"
+        },
+        {
+          "hi": "स",
+          "en": "्",
+          "option_id": "D"
+        },
+        {
+          "hi": "E",
+          "en": "r"
+        },
+        {
+          "hi": "द",
+          "en": "ं"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Perception involves interpreting sensory input.",
+      "explanation_en": "Perception involves interpreting sensory input.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Figure-ground— उदाहरण में—",
+      "question_en": "In an example, Figure-ground—",
+      "options": [
+        {
+          "hi": "र",
+          "en": "ट",
+          "option_id": "A"
+        },
+        {
+          "hi": "R",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "स",
+          "en": "्",
+          "option_id": "C"
+        },
+        {
+          "hi": "M",
+          "en": "e",
+          "option_id": "D"
+        },
+        {
+          "hi": "प",
+          "en": "्"
+        },
+        {
+          "hi": "M",
+          "en": "o"
+        },
+        {
+          "hi": "मुख्य वस्तु और पृष्ठभूमि अलग",
+          "en": "Separate figure from background"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Figure-ground organisation distinguishes focal object from background.",
+      "explanation_en": "Figure-ground organisation distinguishes focal object from background.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Attention span बढ़ाने— उदाहरण में—",
+      "question_en": "In an example, To support attention span—",
+      "options": [
+        {
+          "hi": "L",
+          "en": "o",
+          "option_id": "A"
+        },
+        {
+          "hi": "श",
+          "en": "ो",
+          "option_id": "B"
+        },
+        {
+          "hi": "N",
+          "en": "o",
+          "option_id": "C"
+        },
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "D"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        },
+        {
+          "hi": "छोटे विविध कार्य",
+          "en": "Short varied activities"
+        },
+        {
+          "hi": "ल",
+          "en": "ं"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Varied purposeful activities can sustain attention.",
+      "explanation_en": "Varied purposeful activities can sustain attention.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Perceptual constancy— उदाहरण में—",
+      "question_en": "In an example, Perceptual constancy—",
+      "options": [
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "A"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "B"
+        },
+        {
+          "hi": "अ",
+          "en": "भ",
+          "option_id": "C"
+        },
+        {
+          "hi": "P",
+          "en": "r",
+          "option_id": "D"
+        },
+        {
+          "hi": "परिवर्तन के बावजूद स्थिर पहचान",
+          "en": "Stable perception despite changes"
+        },
+        {
+          "hi": "भ",
+          "en": "ू"
+        },
+        {
+          "hi": "F",
+          "en": "o"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Perceptual constancy supports recognising objects across conditions.",
+      "explanation_en": "Perceptual constancy supports recognising objects across conditions.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Distractor— उदाहरण में—",
+      "question_en": "In an example, A distractor—",
+      "options": [
+        {
+          "hi": "ध्यान भटकाने वाला stimulus",
+          "en": "Stimulus that diverts attention",
+          "option_id": "A"
+        },
+        {
+          "hi": "स",
+          "en": "ह",
+          "option_id": "B"
+        },
+        {
+          "hi": "H",
+          "en": "e",
+          "option_id": "C"
+        },
+        {
+          "hi": "उ",
+          "en": "त",
+          "option_id": "D"
+        },
+        {
+          "hi": "A",
+          "en": "n"
+        },
+        {
+          "hi": "ल",
+          "en": "क"
+        },
+        {
+          "hi": "G",
+          "en": "o"
+        }
+      ],
+      "correct_option": "A",
+      "correct_index": 0,
+      "explanation_hi": "Distractors compete for attention.",
+      "explanation_en": "Distractors compete for attention.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Top-down perception— उदाहरण में—",
+      "question_en": "In an example, Top-down perception—",
+      "options": [
+        {
+          "hi": "स",
+          "en": "ं",
+          "option_id": "A"
+        },
+        {
+          "hi": "N",
+          "en": "o",
+          "option_id": "B"
+        },
+        {
+          "hi": "क",
+          "en": "े",
+          "option_id": "C"
+        },
+        {
+          "hi": "R",
+          "en": "e",
+          "option_id": "D"
+        },
+        {
+          "hi": "द",
+          "en": "ं"
+        },
+        {
+          "hi": "P",
+          "en": "u"
+        },
+        {
+          "hi": "पूर्व ज्ञान व्याख्या प्रभावित करे",
+          "en": "Prior knowledge influences interpretation"
+        }
+      ],
+      "correct_option": "D",
+      "correct_index": 3,
+      "explanation_hi": "Expectations and prior knowledge can shape perception.",
+      "explanation_en": "Expectations and prior knowledge can shape perception.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Bottom-up processing— उदाहरण में—",
+      "question_en": "In an example, Bottom-up processing—",
+      "options": [
+        {
+          "hi": "G",
+          "en": "u",
+          "option_id": "A"
+        },
+        {
+          "hi": "प",
+          "en": "ू",
+          "option_id": "B"
+        },
+        {
+          "hi": "B",
+          "en": "i",
+          "option_id": "C"
+        },
+        {
+          "hi": "भ",
+          "en": "ू",
+          "option_id": "D"
+        },
+        {
+          "hi": "F",
+          "en": "o"
+        },
+        {
+          "hi": "संवेदी सूचना से व्याख्या",
+          "en": "Interpretation from sensory input"
+        },
+        {
+          "hi": "क",
+          "en": "े"
+        }
+      ],
+      "correct_option": "C",
+      "correct_index": 2,
+      "explanation_hi": "Bottom-up processing begins with sensory information.",
+      "explanation_en": "Bottom-up processing begins with sensory information.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_ATTENTION_PERCEPTION_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "attention_perception",
+      "topic": "Attention & Perception",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कक्षा में ध्यान जाँच— उदाहरण में—",
+      "question_en": "In an example, Checking attention in class—",
+      "options": [
+        {
+          "hi": "द",
+          "en": "ं",
+          "option_id": "A"
+        },
+        {
+          "hi": "P",
+          "en": "u",
+          "option_id": "B"
+        },
+        {
+          "hi": "अ",
+          "en": "न",
+          "option_id": "C"
+        },
+        {
+          "hi": "A",
+          "en": "b",
+          "option_id": "D"
+        },
+        {
+          "hi": "प्रश्न और गतिविधि प्रतिक्रिया",
+          "en": "Questions and activity responses"
+        },
+        {
+          "hi": "क",
+          "en": "े"
+        },
+        {
+          "hi": "S",
+          "en": "i"
+        }
+      ],
+      "correct_option": "B",
+      "correct_index": 1,
+      "explanation_hi": "Responses provide evidence of attention and understanding.",
+      "explanation_en": "Responses provide evidence of attention and understanding.",
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}

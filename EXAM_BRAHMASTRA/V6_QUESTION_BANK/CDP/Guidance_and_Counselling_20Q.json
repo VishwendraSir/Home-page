@@ -1,0 +1,1125 @@
+{
+  "schema_version": "6.0.0",
+  "title": "EXAM BRAHMASTRA V6 — CDP Guidance & Counselling",
+  "batch_id": "V6-CDP-027",
+  "subject_id": "cdp",
+  "topic_id": "guidance_counselling",
+  "minimum_questions": 20,
+  "record_count": 20,
+  "difficulty_counts": {
+    "easy": 5,
+    "moderate": 10,
+    "difficult": 5
+  },
+  "languages": [
+    "hi",
+    "en"
+  ],
+  "provenance": {
+    "source_type": "original_concept_based_practice",
+    "official_pyq_claim": false,
+    "verification_status": "draft_needs_independent_review"
+  },
+  "records": [
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_001",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Guidance का व्यापक उद्देश्य—",
+      "question_en": "The broad purpose of guidance is—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "व्यक्ति को निर्णय और विकास में सहायता",
+            "Help decision-making and development",
+            "दंड देना",
+            "Punish",
+            "निर्णय थोपना",
+            "Impose decisions",
+            "केवल परीक्षा",
+            "Exams only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Guidance व्यक्ति को स्वयं निर्णय लेने में सहायता करती है।",
+          "en": "Guidance helps individuals make their own decisions."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_002",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Counselling में counsellor की भूमिका—",
+      "question_en": "The counsellor's role is—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Counsellor सहयोगी प्रक्रिया में व्यक्ति को समझने और विकल्प खोजने में मदद करता है।",
+          "en": "A counsellor helps clients understand and explore options."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "सुनना और सहयोग देना",
+            "Listen and support",
+            "निर्णय थोपना",
+            "Impose decisions",
+            "आलोचना",
+            "Criticise",
+            "गोपनीयता तोड़ना",
+            "Break confidentiality"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_003",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Active listening का उदाहरण—",
+      "question_en": "An example of active listening is—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "ध्यानपूर्वक सुनना और paraphrase",
+            "Listen and paraphrase",
+            "बीच में रोकना",
+            "Interrupt",
+            "सलाह तुरंत",
+            "Immediate advice",
+            "विषय बदलना",
+            "Change topic"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Active listening में ध्यान, प्रतिबिंब और स्पष्टता शामिल है।",
+          "en": "Active listening includes attention, reflection and clarification."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_004",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Counselling में confidentiality—",
+      "question_en": "Confidentiality in counselling—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "महत्वपूर्ण, सुरक्षा अपवादों सहित",
+            "Important, with safety exceptions",
+            "पूर्ण और बिना अपवाद",
+            "Absolute without exceptions",
+            "अनावश्यक",
+            "Unnecessary",
+            "सार्वजनिक",
+            "Public"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "गोपनीयता महत्वपूर्ण है, पर गंभीर सुरक्षा जोखिम में सीमाएँ हो सकती हैं।",
+          "en": "Confidentiality is important, but safety exceptions may apply."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_005",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "easy",
+      "question_type": "Conceptual",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "निर्णय लेने में सहायता—",
+      "question_en": "Guidance supports decision-making by—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "विकल्प और परिणाम समझना",
+            "Explore options and consequences",
+            "एक विकल्प थोपना",
+            "Impose one option",
+            "डराना",
+            "Threaten",
+            "सूचना छिपाना",
+            "Hide information"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सूचित निर्णय विकल्पों और संभावित परिणामों पर विचार से बनता है।",
+          "en": "Informed decisions consider options and possible consequences."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_006",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Career guidance में—",
+      "question_en": "Career guidance involves—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "Career guidance व्यक्ति और अवसरों के बीच मेल खोजती है।",
+          "en": "Career guidance explores fit between person and opportunities."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "रुचि, योग्यता और अवसरों का अन्वेषण",
+            "Explore interests, abilities and opportunities",
+            "केवल परिवार पसंद",
+            "Family preference only",
+            "एक नौकरी",
+            "One job",
+            "अंक मात्र",
+            "Marks only"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_007",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Referral कब आवश्यक?",
+      "question_en": "When is referral needed?",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "विशेषज्ञ सहायता की जरूरत हो",
+            "When specialised help is needed",
+            "हर प्रश्न पर",
+            "For every question",
+            "कभी नहीं",
+            "Never",
+            "दंड हेतु",
+            "For punishment"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "जटिल या विशेषज्ञ जरूरत में उपयुक्त सेवा को referral किया जाता है।",
+          "en": "Referral is appropriate when specialised support is needed."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_008",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Empathy का अर्थ—",
+      "question_en": "Empathy means—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "दूसरे के अनुभव को समझने का प्रयास",
+            "Try to understand another's experience",
+            "सहमति हमेशा",
+            "Always agree",
+            "दया मात्र",
+            "Pity only",
+            "आलोचना",
+            "Criticism"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Empathy दूसरे के दृष्टिकोण और भावों को समझने का प्रयास है।",
+          "en": "Empathy is an attempt to understand another's perspective and feelings."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_009",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Counselling संबंध की विशेषता—",
+      "question_en": "A counselling relationship is characterised by—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "विश्वास और सम्मान",
+            "Trust and respect",
+            "डर",
+            "Fear",
+            "पक्षपात",
+            "Bias",
+            "निर्णय",
+            "Judgement"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "विश्वास और सम्मान सहयोगी counselling संबंध की नींव हैं।",
+          "en": "Trust and respect are foundations of counselling."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_010",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्तिगत जानकारी रिकॉर्ड करते समय—",
+      "question_en": "When recording personal information—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "रिकॉर्ड आवश्यक, तथ्यात्मक और सुरक्षित होना चाहिए।",
+          "en": "Records should be necessary, factual and secure."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "आवश्यक और सुरक्षित रिकॉर्ड",
+            "Necessary and secure records",
+            "सभी को साझा",
+            "Share with everyone",
+            "अनुमान लिखना",
+            "Write guesses",
+            "सार्वजनिक",
+            "Public"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_011",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "विद्यालय guidance का क्षेत्र—",
+      "question_en": "School guidance may cover—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "शैक्षिक, व्यक्तिगत और व्यावसायिक",
+            "Educational, personal and vocational",
+            "केवल अंक",
+            "Marks only",
+            "केवल अनुशासन",
+            "Discipline only",
+            "केवल खेल",
+            "Sports only"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "विद्यालय guidance विभिन्न विकास क्षेत्रों को समर्थन देती है।",
+          "en": "School guidance supports multiple developmental areas."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_012",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Counselling में खुला प्रश्न—",
+      "question_en": "An open question in counselling—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "आप इस स्थिति को कैसे अनुभव करते हैं?",
+            "How do you experience this situation?",
+            "क्या आप ठीक हैं?",
+            "Are you fine?",
+            "हाँ/नहीं",
+            "Yes/no",
+            "आप गलत हैं",
+            "You are wrong"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "खुले प्रश्न व्यक्ति को विस्तृत अनुभव साझा करने का अवसर देते हैं।",
+          "en": "Open questions invite fuller sharing."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_013",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "व्यक्ति की autonomy—",
+      "question_en": "Client autonomy means—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "स्वयं निर्णय का अधिकार",
+            "Right to make own decisions",
+            "Counsellor निर्णय",
+            "Counsellor decides",
+            "परिवार आदेश",
+            "Family orders",
+            "निर्णय नहीं",
+            "No decisions"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Autonomy व्यक्ति के निर्णय अधिकार का सम्मान करती है।",
+          "en": "Autonomy respects the person's right to decide."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_014",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "कठिन परिस्थिति में विद्यार्थी—",
+      "question_en": "A learner facing difficulty should—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "सुरक्षित समर्थन समस्या समाधान और wellbeing को बढ़ावा देता है।",
+          "en": "Safe support promotes problem-solving and wellbeing."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "सुरक्षित सहायता और सुनवाई पाए",
+            "Receive safe support and be heard",
+            "दोषी माना जाए",
+            "Be blamed",
+            "अनदेखा",
+            "Ignored",
+            "बहिष्कृत",
+            "Excluded"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_015",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "moderate",
+      "question_type": "Application-Based",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Counselling का लक्ष्य—",
+      "question_en": "The goal of counselling is—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "स्व-समझ और coping कौशल",
+            "Self-understanding and coping skills",
+            "निर्भरता",
+            "Dependence",
+            "आज्ञाकारिता",
+            "Obedience",
+            "दंड",
+            "Punishment"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "Counselling आत्म-समझ और प्रभावी coping विकसित करने में मदद करती है।",
+          "en": "Counselling helps develop self-understanding and coping."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_016",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "गोपनीयता की सीमा बताना—",
+      "question_en": "Explaining confidentiality limits—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "प्रारंभ में उचित",
+            "Appropriate at the start",
+            "अनावश्यक",
+            "Unnecessary",
+            "छिपाना",
+            "Hide",
+            "केवल बाद में",
+            "Only later"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "सीमाएँ स्पष्ट करने से विश्वास और informed participation बढ़ती है।",
+          "en": "Clarifying limits supports trust and informed participation."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_017",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Counsellor को कब अपनी क्षमता सीमा पहचाननी चाहिए?",
+      "question_en": "A counsellor should recognise limits when—",
+      "options": [
+        {
+          "option_id": "A",
+          "hi": [
+            "मामला उनकी expertise से बाहर हो",
+            "Case is beyond expertise",
+            "सभी मामले",
+            "All cases",
+            "कभी नहीं",
+            "Never",
+            "विद्यार्थी प्रश्न करे",
+            "Learner asks"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "क्षमता सीमा में referral या supervision आवश्यक हो सकता है।",
+          "en": "Referral or supervision may be needed beyond competence."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_018",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "सहानुभूतिपूर्ण प्रतिक्रिया—",
+      "question_en": "An empathetic response is—",
+      "options": [
+        {
+          "option_id": "B",
+          "hi": "यह प्रतिक्रिया भावनाओं को मान्यता देती है।",
+          "en": "This response validates feelings."
+        },
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "आपके लिए यह कठिन रहा होगा",
+            "That must have been difficult for you",
+            "आप गलत",
+            "You are wrong",
+            "चुप रहें",
+            "Be quiet",
+            "मैं जानता बेहतर",
+            "I know better"
+          ],
+          "en": 0
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_019",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "Group guidance का लाभ—",
+      "question_en": "A benefit of group guidance is—",
+      "options": [
+        {
+          "option_id": "C"
+        },
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "साझा अनुभव और peer learning",
+            "Shared experiences and peer learning",
+            "गोपनीयता पूर्ण",
+            "Absolute privacy",
+            "कोई सहभागिता",
+            "No participation",
+            "एकतरफा भाषण",
+            "One-way lecture"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "समूह guidance साझा अनुभव और सामाजिक सीखने के अवसर देती है।",
+          "en": "Group guidance offers shared experience and social learning."
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    },
+    {
+      "question_id": "CDP_GUIDANCE_COUNSELLING_V6_020",
+      "subject_id": "cdp",
+      "subject": "Child Development & Pedagogy",
+      "category": "Educational Psychology",
+      "topic_id": "guidance_counselling",
+      "topic": "Guidance & Counselling",
+      "subtopic_id": "core_concepts",
+      "subtopic": "Core Concepts",
+      "difficulty": "difficult",
+      "question_type": "Analytical",
+      "exam_tags": [
+        "CTET",
+        "REET",
+        "UPTET",
+        "Teaching Exams"
+      ],
+      "question_hi": "प्रभावी guidance कार्यक्रम—",
+      "question_en": "An effective guidance programme—",
+      "options": [
+        {
+          "option_id": "D"
+        },
+        {
+          "option_id": "A",
+          "hi": [
+            "नियमित और जरूरत आधारित",
+            "Regular and needs-based",
+            "केवल संकट",
+            "Crisis only",
+            "अलग-थलग",
+            "Isolated",
+            "अनियोजित",
+            "Unplanned"
+          ],
+          "en": 0
+        },
+        {
+          "option_id": "B",
+          "hi": "नियमित जरूरत-आधारित कार्यक्रम सभी विद्यार्थियों तक सहायता पहुंचाते हैं।",
+          "en": "Regular needs-based programmes make support accessible."
+        },
+        {
+          "option_id": "C"
+        }
+      ],
+      "correct_index": null,
+      "source_reference": "Original concept-based practice item; not official PYQ.",
+      "verification_status": "draft_needs_independent_review",
+      "language": [
+        "hi",
+        "en"
+      ],
+      "created_at": "2026-11-19"
+    }
+  ]
+}
