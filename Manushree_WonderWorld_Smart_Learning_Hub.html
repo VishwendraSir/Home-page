@@ -1822,7 +1822,7 @@
       <p class="mt-2 text-sm text-slate-600">पहले नीचे Share बटन दबाएँ, WhatsApp में group/family को भेजें, फिर वापस आकर Continue दबाएँ।</p>
       <button id="quizShareWhatsApp" class="mt-4 w-full rounded-2xl bg-green-600 hover:bg-green-700 text-white font-black text-lg py-3 shadow-lg">💬 Share Complete Link on WhatsApp</button>
       <p id="quizShareGateStatus" class="mt-3 text-sm font-bold text-amber-700">🔒 Quiz अभी locked है।</p>
-      <button id="quizShareContinue" disabled class="mt-3 w-full rounded-2xl bg-purple-600 text-white font-black py-3 opacity-40">✅ I Shared — Start Quiz</button>
+      <button id="quizShareFollow" class="mt-3 w-full rounded-2xl bg-green-700 text-white font-black py-3">📲 Follow Science Centre WhatsApp Channel</button><button id="quizShareContinue" disabled class="mt-3 w-full rounded-2xl bg-purple-600 text-white font-black py-3 opacity-40">✅ Shared & Followed — Start Quiz</button>
       <button id="quizShareCancel" class="mt-3 w-full rounded-xl bg-slate-100 text-slate-700 font-bold py-2">Cancel</button>
       <p class="mt-2 text-xs text-slate-500">Note: Browser WhatsApp में message भेजने की पुष्टि नहीं कर सकता; Continue आपके confirmation पर unlock होगा।</p>
     </div>
@@ -1830,10 +1830,11 @@
   <script>
   (()=>{
     const gate=document.getElementById('quizShareGate'),shareBtn=document.getElementById('quizShareWhatsApp'),continueBtn=document.getElementById('quizShareContinue'),cancelBtn=document.getElementById('quizShareCancel'),status=document.getElementById('quizShareGateStatus');
-    let pendingGameId=null,shareOpened=false,unlocked=false;
-    window.quizShareGateCheck=function(id){if(unlocked)return true;pendingGameId=id;shareOpened=false;continueBtn.disabled=true;continueBtn.classList.add('opacity-40');continueBtn.classList.remove('opacity-100');status.textContent='🔒 Quiz अभी locked है।';gate.classList.remove('hidden');return false;};
+    let pendingGameId=null,shareOpened=false,followOpened=false,unlocked=false;
+    window.quizShareGateCheck=function(id){if(unlocked)return true;pendingGameId=id;shareOpened=false;followOpened=false;continueBtn.disabled=true;continueBtn.classList.add('opacity-40');continueBtn.classList.remove('opacity-100');status.textContent='🔒 Share और Channel Follow दोनों आवश्यक हैं।';gate.classList.remove('hidden');return false;};
+    document.getElementById('quizShareFollow').onclick=()=>{window.open('https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q','_blank','noopener');followOpened=true;status.textContent='📲 Channel खुल गया। Follow करने के बाद Share भी करें।';};
     shareBtn.onclick=()=>{const url=location.href;const text='🌈 Manushree’s WonderWorld — Smart Learning Hub for Kids!\nLearn • Play • Explore • Grow\nComplete link: '+url+'\nGuided by Vishwendra Sir | Science Centre Learning Hub';const wa='https://wa.me/?text='+encodeURIComponent(text);window.open(wa,'_blank','noopener');shareOpened=true;status.textContent='📲 WhatsApp खुल गया। Link अपने group/family में भेजें, फिर Continue दबाएँ।';continueBtn.disabled=false;continueBtn.classList.remove('opacity-40');continueBtn.classList.add('opacity-100');};
-    continueBtn.onclick=()=>{if(!shareOpened||!pendingGameId)return;unlocked=true;gate.classList.add('hidden');const id=pendingGameId;pendingGameId=null;window.loadGame(id);};
+    continueBtn.onclick=()=>{if(!shareOpened||!followOpened||!pendingGameId)return;unlocked=true;gate.classList.add('hidden');const id=pendingGameId;pendingGameId=null;window.loadGame(id);};
     cancelBtn.onclick=()=>{gate.classList.add('hidden');pendingGameId=null;};
   })();
   </script>
