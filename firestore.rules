@@ -2,19 +2,58 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
-    function isAdmin() { return signedIn() && request.auth.uid == "REPLACE_WITH_ADMIN_UID"; }
+    function isAdmin() {
+      return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+    function ownStudent(uid) { return signedIn() && request.auth.uid == uid; }
+
+    match /admins/{uid} {
+      allow read: if ownStudent(uid);
+      allow write: if false; // bootstrap admin document manually in Firebase Console
+    }
+
     match /students/{uid} {
-      allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
-      allow create: if signedIn() && request.auth.uid == uid
+      allow read: if ownStudent(uid) || isAdmin();
+      allow create: if ownStudent(uid)
         && request.resource.data.uid == uid
         && request.resource.data.status == "pending"
-        && request.resource.data.remaining == 0;
-      allow update, delete: if isAdmin();
+        && request.resource.data.remaining == 0
+        && request.resource.data.batchNumber == 0
+        && request.resource.data.email == request.auth.token.email
+        && request.resource.data.emailVerified == request.auth.token.email_verified;
+      allow update: if isAdmin() ||
+        (ownStudent(uid)
+          && resource.data.status == "approved"
+          && resource.data.remaining > 0
+          && request.resource.data.status == resource.data.status
+          && request.resource.data.batchNumber == resource.data.batchNumber
+          && request.resource.data.remaining == resource.data.remaining - 1
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["remaining","lastAttemptAt"]));
+      allow delete: if isAdmin();
     }
-    match /attempts/{attemptId} {
+
+    match /batchRequests/{requestId} {
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.status == "pending"
+        && request.resource.data.createdAt == request.time;
       allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
-      allow write: if false;
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
     }
-    match /{document=**} { allow read, write: if false; }
+
+    match /attempts/{attemptId} {
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.questionKey is string
+        && request.resource.data.questionKey.size() <= 160
+        && request.resource.data.createdAt == request.time
+        && get(/databases/$(database)/documents/students/$(request.auth.uid)).data.status == "approved"
+        && get(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining > 0
+        && getAfter(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining
+          == get(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining - 1;
+      allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
+      allow update, delete: if false;
+    }
   }
 }
