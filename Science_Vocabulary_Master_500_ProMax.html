@@ -206,7 +206,18 @@ select.ctrl,input.ctrl{padding:11px 12px;border-radius:14px;border:1px solid var
   .ws-sheet{border:none!important;padding:0!important;margin:0!important;box-shadow:none!important}
 }
 </style>
-<script src="firebase-config.js"></script>
+<script>
+// Inline Firebase config: avoids GitHub Pages relative-path and cache issues.
+window.SCIENCE_FIREBASE_CONFIG = {
+ apiKey: "AIzaSyAYEjZDC3xcrT-CdqlO7FpfSDyTqF_o0BM",
+ authDomain: "science-centre-learninghub-500.firebaseapp.com",
+ projectId: "science-centre-learninghub-500",
+ storageBucket: "science-centre-learninghub-500.firebasestorage.app",
+ messagingSenderId: "81470212445",
+ appId: "1:81470212445:web:b1a84f4a187bc3e38040b4",
+ measurementId: "G-D68LL68P38"
+};
+</script>
 <script>
 // Fallback Firebase config: protects against GitHub Pages path/cache issues.
 if(!window.SCIENCE_FIREBASE_CONFIG || !window.SCIENCE_FIREBASE_CONFIG.apiKey){
@@ -1462,7 +1473,7 @@ import {initializeApp} from "https://www.gstatic.com/firebasejs/11.10.0/firebase
 import {getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 import {getFirestore, doc, getDoc, setDoc, updateDoc, collection, getDocs, query, where, serverTimestamp, runTransaction, addDoc, onSnapshot} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 const cfg=window.SCIENCE_FIREBASE_CONFIG||{};
-const ready=cfg.apiKey&&!String(cfg.apiKey).startsWith("REPLACE_")&&cfg.projectId&&!String(cfg.projectId).startsWith("REPLACE_");
+const ready=!!(cfg.apiKey&&cfg.apiKey.length>20&&cfg.projectId==="science-centre-learninghub-500"&&cfg.authDomain);
 const status=document.getElementById("accessStatus"), gate=document.getElementById("accessGate");
 const login=document.getElementById("googleLoginBtn"), studentPanel=document.getElementById("studentPanel"), adminPanel=document.getElementById("adminPanel");
 let auth,db,currentUser,currentStudent,isAdmin=false;
