@@ -225,7 +225,7 @@ select.ctrl,input.ctrl{padding:11px 12px;border-radius:14px;border:1px solid var
   </div>
   <small style="display:block;margin-top:14px;color:#cbd5e1">SCIENCE CENTRE LEARNING HUB</small>
  </div>
-</div>>
+</div>
 
 
 <canvas id="confetti"></canvas>
@@ -1033,8 +1033,10 @@ function nextRapidQ(){
   const opts=[cor,...pool].sort(()=>Math.random()-.5);
   $('rfOpts').innerHTML=opts.map(o=>`<button class="rf-opt" onclick='pickRapid(this,${JSON.stringify(o)},${JSON.stringify(cor)})'>${o}</button>`).join('');
 }
-function pickRapid(btn,val,cor){
-  if(rfLocked)return; rfLocked=true;
+async function pickRapid(btn,val,cor){
+  if(rfLocked)return;
+  if(!window.consumeQuestionAttempt || !(await window.consumeQuestionAttempt('rapid:'+rfCurr[0]))) { rfLocked=true; clearInterval(rfInt); rfInt=null; stopRapidFire(false); return; }
+  rfLocked=true;
   if(val===cor){
     rfStreak++; rfCorrectCnt++;
     const mult=rfStreak>=6?3:(rfStreak>=3?2:1);
@@ -1083,11 +1085,12 @@ function initMatchGame(){
   $('mRight').innerHTML=right.map(w=>`<button class="m-btn" data-en="${w[0].replace(/"/g,'&quot;')}" onclick="pickMatch('R',this)">${w[2]}</button>`).join('');
   mInt=setInterval(()=>{mSec++;$('mTimer').textContent=mSec+'s'},1000);
 }
-function pickMatch(side,btn){
+async function pickMatch(side,btn){
   beep('tap');
   if(side==='L'){document.querySelectorAll('#mLeft .m-btn').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');mSelL=btn;}
   else{document.querySelectorAll('#mRight .m-btn').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');mSelR=btn;}
   if(mSelL&&mSelR){
+    if(!window.consumeQuestionAttempt || !(await window.consumeQuestionAttempt('match:'+mSelL.dataset.en))) { mSelL=null; mSelR=null; return; }
     if(mSelL.dataset.en===mSelR.dataset.en){
       mSelL.classList.remove('sel'); mSelR.classList.remove('sel');
       mSelL.classList.add('matched'); mSelR.classList.add('matched');
@@ -1113,8 +1116,9 @@ function nextSpell(){
 }
 function speakSpell(r){if(spWord)speakEnOnly(spWord[0],r)}
 function hintSpell(){if(!spWord)return;spHintIdx=Math.min(spWord[0].length,spHintIdx+2);$('spInput').value=spWord[0].slice(0,spHintIdx);$('spInput').focus();}
-function checkSpell(){
+async function checkSpell(){
   if(!spWord)return;
+  if(!window.consumeQuestionAttempt || !(await window.consumeQuestionAttempt('spell:'+spWord[0]))) return;
   const val=$('spInput').value.trim().toLowerCase(), target=spWord[0].toLowerCase();
   if(val===target){
     st.xp+=10; st.correct++; markPractice(); saveAll(); beep('ok');
@@ -1143,11 +1147,12 @@ function renderScramble(){
     return `<button class="letter-tile ${used?'used':''}" onclick="pickScram(${i})">${item.ch}</button>`;
   }).join('');
 }
-function pickScram(bankIdx){
+async function pickScram(bankIdx){
   const item=scLetters[bankIdx]; if(scPicked.some(p=>p.idx===item.idx))return;
   scPicked.push(item); beep('tap'); renderScramble();
   const built=scPicked.map(p=>p.ch).join('');
   if(built.length===scWord[0].length){
+    if(!window.consumeQuestionAttempt || !(await window.consumeQuestionAttempt('scramble:'+scWord[0]))) return;
     if(built===scWord[0].toUpperCase()){
       st.xp+=10; markPractice(); saveAll(); beep('ok'); fireConfetti();
       $('scMsg').innerHTML=`<span style="color:var(--accent)">🎉 Brilliant! ${scWord[0]} = ${scWord[2]} (+10 XP)</span>`;
@@ -1197,8 +1202,10 @@ function showQuestion(){
   $('qOpts').innerHTML=opts.map((o,i)=>`<button class="q-opt" onclick='pickOpt(this,${JSON.stringify(o)},${JSON.stringify(correct)})'><span>${String.fromCharCode(65+i)}.</span> ${o}</button>`).join('');
   $('qFeedback').textContent=''; $('qNextBtn').textContent='Next Question →'; $('qNextBtn').onclick=nextQuestion;
 }
-function pickOpt(btn,val,cor){
-  if(qAnswered)return; qAnswered=true;
+async function pickOpt(btn,val,cor){
+  if(qAnswered)return;
+  if(!window.consumeQuestionAttempt || !(await window.consumeQuestionAttempt('quiz:'+quiz[qi][0]))) return;
+  qAnswered=true;
   document.querySelectorAll('.q-opt').forEach(b=>{b.disabled=true;if(b.textContent.slice(3).trim()===cor)b.classList.add('correct');});
   if(val===cor){qScore++;st.correct++;st.xp+=10;markPractice();beep('ok');$('qFeedback').textContent='✅ Correct! +10 XP';}
   else{st.wrong++;btn.classList.add('wrong');beep('no');if(!st.review.includes(quiz[qi][0]))st.review.push(quiz[qi][0]);$('qFeedback').textContent=`❌ Correct: ${cor} (Added to Revision Zone)`;}
@@ -1486,7 +1493,7 @@ async function requestBatch(){
  status.textContent="Next batch request sent to Admin.";
 }
 async function renderAdmin(){
- const [students,requests]=await Promise.all([getDocs(collection(db,"students")),getDocs(query(collection(db,"batchRequests"),where("status","==","pending")))]); 
+ const [students,requests]=await Promise.all([getDocs(collection(db,"students")),getDocs(collection(db,"batchRequests"))]); 
  const root=document.getElementById("adminContent");
  root.innerHTML="";
  const p=students.docs.filter(x=>x.data().status==="pending"),approved=students.docs.filter(x=>x.data().status==="approved"),blocked=students.docs.filter(x=>["rejected","revoked"].includes(x.data().status));
@@ -1496,7 +1503,7 @@ async function renderAdmin(){
  if(d.status==="approved"&&d.remaining===0){const b=document.createElement("button");b.textContent="Grant next 50";b.onclick=()=>adminApprove(x.id,50);row.appendChild(b)}
  if(d.status==="approved"){const b=document.createElement("button");b.textContent="Revoke";b.onclick=()=>adminRevoke(x.id);row.appendChild(b)}
  root.appendChild(row)}
- if(requests.size){root.innerHTML+="<h4>Batch Requests</h4>";for(const x of requests.docs){const d=x.data();const row=document.createElement("div");row.style.cssText="padding:10px;margin:8px 0;background:#18345b;border-radius:10px";row.textContent=d.email+" • Batch "+d.batchNumber;const b=document.createElement("button");b.textContent="Approve 50";b.onclick=()=>adminApprove(d.uid,50,x.id);row.appendChild(b);root.appendChild(row)}}
+ const pendingRequests=requests.docs.filter(x=>x.data().status==="pending");if(pendingRequests.length){root.innerHTML+="<h4>Batch Requests</h4>";for(const x of pendingRequests){const d=x.data();const row=document.createElement("div");row.style.cssText="padding:10px;margin:8px 0;background:#18345b;border-radius:10px";row.textContent=d.email+" • Batch "+d.batchNumber;const b=document.createElement("button");b.textContent="Approve 50";b.onclick=()=>adminApprove(d.uid,50,x.id);row.appendChild(b);root.appendChild(row)}}
 }
 async function adminApprove(uid,n,requestId){
  const ref=doc(db,"students",uid);await runTransaction(db,async tx=>{const snap=await tx.get(ref);if(!snap.exists())throw Error("Student not found");const d=snap.data();tx.update(ref,{status:"approved",remaining:(d.remaining||0)+n,batchNumber:(d.batchNumber||0)+1,approvedAt:serverTimestamp()});if(requestId)tx.update(doc(db,"batchRequests",requestId),{status:"approved",reviewedAt:serverTimestamp()})});
