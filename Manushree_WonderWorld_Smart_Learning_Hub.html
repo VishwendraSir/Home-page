@@ -194,7 +194,9 @@
           <option value="5">Class 2</option>
           <option value="6">Class 3</option>
           <option value="7">Class 4</option>
-          <option value="8">Class 5</option>
+          <option value="8">Class 5 (Age 11)</option>
+          <option value="9">Class 6 (Age 11–12)</option>
+          <option value="10">Class 7 (Age 12)</option>
         </select>
 
         <!-- Bilingual Toggle (EN / HI) -->
@@ -300,6 +302,7 @@
             ➕ <span data-i18n="addVideoBtn">Add Video Link</span>
           </button>
         </div>
+        <div id="videoCategoryTabs" class="flex overflow-x-auto gap-2 pb-2"></div>
         <div id="videoCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <!-- Populated dynamically by JS -->
         </div>
@@ -360,6 +363,7 @@
         <span id="pipVideoTitle" class="font-bold text-sm sm:text-base truncate">Learning Video</span>
       </div>
       <div class="flex items-center gap-1.5 shrink-0">
+        <a id="pipExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="bg-red-600 text-white font-bold px-2.5 py-1 rounded-lg text-xs">▶ YouTube ↗</a>
         <button onclick="togglePipSize()" id="pipSizeBtn" title="Minimize / Expand"
           class="bg-white/20 hover:bg-white/30 text-white font-bold px-2.5 py-1 rounded-lg text-xs">
           🗕 Mini
@@ -459,18 +463,31 @@
        ===================================================================== */
     const STORAGE_KEY = 'manushree_wonderworld_v1';
 
-    const CLASS_NAMES = [
-      'Play Group', 'Nursery', 'LKG', 'UKG',
-      'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5'
-    ];
+    const VIDEO_CATALOG_VERSION = 3;
+    const CLASS_NAMES = ['Play Group','Nursery','LKG','UKG','Class 1','Class 2','Class 3','Class 4','Class 5','Class 6','Class 7'];
+    const CLASS_DEFAULT_AGE = [3,4,5,6,7,8,9,10,11,12,12];
 
     const DEFAULT_VIDEOS = [
-      { id: 'v1', title: 'ABC Phonics & Alphabet Song', category: 'language', url: 'https://www.youtube.com/watch?v=75p-N9YKqNo' },
-      { id: 'v2', title: 'Counting 1 to 20 Fun Song', category: 'math', url: 'https://www.youtube.com/watch?v=D0Ajq682yrA' },
-      { id: 'v3', title: 'Solar System Planets for Kids', category: 'science', url: 'https://www.youtube.com/watch?v=F2prtmPEjOc' },
-      { id: 'v4', title: 'Good Habits & Manners for Kids', category: 'habits', url: 'https://www.youtube.com/watch?v=5211x2G_o70' },
-      { id: 'v5', title: 'Hindi Varnamala Swar & Vyanjan', category: 'language', url: 'https://www.youtube.com/watch?v=K2aJTT28w2I' },
-      { id: 'v6', title: 'Colors & Shapes Fun Learning', category: 'brain', url: 'https://www.youtube.com/watch?v=lcl8uB2AWM0' }
+      {id:'v_m1',title:'Counting 1 to 20 Fun Song',category:'math',ageGroup:'3-6',url:'https://www.youtube.com/watch?v=D0Ajq682yrA'},
+      {id:'v_m2',title:'Addition & Subtraction for Kids',category:'math',ageGroup:'5-8',url:'https://www.youtube.com/watch?v=igcoDFokKzU'},
+      {id:'v_m3',title:'Multiplication Tables Made Easy',category:'math',ageGroup:'7-10',url:'https://www.youtube.com/watch?v=igoGDE5hLjw'},
+      {id:'v_m4',title:'Fractions & Decimals Explained',category:'math',ageGroup:'9-12',url:'https://www.youtube.com/watch?v=n0FZhQ_GkKw'},
+      {id:'v_m5',title:'Angles & Basic Geometry',category:'math',ageGroup:'10-12',url:'https://www.youtube.com/watch?v=NVuMULQjb3o'},
+      {id:'v_l1',title:'ABC Phonics & Alphabet Song',category:'language',ageGroup:'3-6',url:'https://www.youtube.com/watch?v=hq3yfQnllfQ'},
+      {id:'v_l2',title:'Hindi Varnamala Swar & Vyanjan',category:'language',ageGroup:'3-7',url:'https://www.youtube.com/watch?v=K2aJTT28w2I'},
+      {id:'v_l3',title:'Parts of Speech: Nouns, Verbs & Adjectives',category:'language',ageGroup:'7-11',url:'https://www.youtube.com/watch?v=0l69KEx7GQo'},
+      {id:'v_l4',title:'English Tenses Made Simple',category:'language',ageGroup:'9-12',url:'https://www.youtube.com/watch?v=84jVz0D-KkY'},
+      {id:'v_s1',title:'Solar System & Planets Explorer',category:'science',ageGroup:'5-12',url:'https://www.youtube.com/watch?v=Qd6nLM2QlWw'},
+      {id:'v_s2',title:'Human Body Systems for Kids',category:'science',ageGroup:'7-12',url:'https://www.youtube.com/watch?v=AHQGNb0zBgg'},
+      {id:'v_s3',title:'How Photosynthesis Works in Plants',category:'science',ageGroup:'8-12',url:'https://www.youtube.com/watch?v=UPBMG5EYydo'},
+      {id:'v_s4',title:'States of Matter',category:'science',ageGroup:'8-12',url:'https://www.youtube.com/watch?v=wclY8F-UoTE'},
+      {id:'v_s5',title:'Electricity & Magnets',category:'science',ageGroup:'9-12',url:'https://www.youtube.com/watch?v=oB1v-wh7EGU'},
+      {id:'v_s6',title:'Amazing India Geography & GK',category:'science',ageGroup:'8-12',url:'https://www.youtube.com/watch?v=S2kymvPgZVw'},
+      {id:'v_h1',title:'Good Habits & Daily Manners',category:'habits',ageGroup:'3-8',url:'https://www.youtube.com/watch?v=McxMU87236w'},
+      {id:'v_h2',title:'Road Safety & Traffic Rules',category:'habits',ageGroup:'5-12',url:'https://www.youtube.com/watch?v=aT61nwdMizU'},
+      {id:'v_h3',title:'Healthy Nutrition & Balanced Diet',category:'habits',ageGroup:'7-12',url:'https://www.youtube.com/watch?v=mMHVEFWNLMc'},
+      {id:'v_b1',title:'Colors & Shapes Fun Learning',category:'brain',ageGroup:'3-6',url:'https://www.youtube.com/watch?v=lcl8uB2AWM0'},
+      {id:'v_b2',title:'What is Coding? Computer Logic',category:'brain',ageGroup:'8-12',url:'https://www.youtube.com/watch?v=j-3eArinB7E'}
     ];
 
     const DEFAULT_STATE = {
@@ -484,6 +501,8 @@
       categoryStars: { math: 0, language: 0, science: 0, habits: 0, brain: 0 },
       parentPin: '1234',
       videos: DEFAULT_VIDEOS,
+      videoCatalogVersion: VIDEO_CATALOG_VERSION,
+      studentAge: 6,
       customPhotos: [], // { id, en, hi, dataUrl }
       questionProgress: {}, questionSeeds: {}, answeredQuestions: {}, wrongAnswers: [], adaptiveStats: {}, planProgress: {}, dailyChallenge: {date:'',completed:0,score:0,startedAt:0,active:false}
     };
@@ -511,6 +530,14 @@
           merged.streak = diffDays === 1 ? (merged.streak || 1) + 1 : 1;
           merged.lastVisit = today;
         }
+        if ((merged.videoCatalogVersion || 0) < VIDEO_CATALOG_VERSION) {
+          const oldIds = ['v1','v2','v3','v4','v5','v6'];
+          const customVideos = (merged.videos || []).filter(v => !oldIds.includes(v.id) && !DEFAULT_VIDEOS.some(d => d.id === v.id));
+          merged.videos = [...customVideos, ...DEFAULT_VIDEOS];
+          merged.videoCatalogVersion = VIDEO_CATALOG_VERSION;
+        }
+        merged.classLevel = Math.max(0, Math.min(10, Number(merged.classLevel)||0));
+        merged.studentAge = merged.studentAge || CLASS_DEFAULT_AGE[merged.classLevel] || 6;
         return merged;
       } catch (e) {
         console.error('State load error:', e);
@@ -880,10 +907,11 @@
 
     function changeClassLevel(val) {
       playClickSound();
-      appState.classLevel = parseInt(val, 10) || 0;
+      appState.classLevel=Math.max(0,Math.min(10,parseInt(val,10)||0));
+      appState.studentAge=CLASS_DEFAULT_AGE[appState.classLevel]||6;
       saveState();
-      showToast(`Switched to ${CLASS_NAMES[appState.classLevel]}!`, '🎓', 'bg-purple-600');
-      if (currentGame) loadGame(currentGame.id, true);
+      showToast(`Switched to ${CLASS_NAMES[appState.classLevel]} (Age ${appState.studentAge})!`,'🎓','bg-purple-600');
+      if(currentGame)loadGame(currentGame.id,true);
     }
 
     function renderCategoryTabs() {
@@ -1035,24 +1063,37 @@
       return badges;
     }
 
+    let activeVideoCategory = 'all';
     function renderVideoZone() {
-      const grid = document.getElementById('videoCardsGrid');
-      if (!grid) return;
-      const videos = Array.isArray(appState.videos) ? appState.videos : DEFAULT_VIDEOS;
-      grid.innerHTML = videos.map(v => {
-        const safeTitle = String(v.title || 'Learning Video').replace(/</g,'&lt;');
-        return '<button class="btn-3d text-left bg-white rounded-2xl p-4 border border-indigo-100 shadow-sm" onclick="openVideo(\''+String(v.id).replace(/'/g,'')+'\')"><div class="text-3xl mb-2">🎬</div><div class="font-bold text-indigo-800">'+safeTitle+'</div><div class="text-xs text-slate-500 mt-1">Tap to watch</div></button>';
-      }).join('');
+      const grid=document.getElementById('videoCardsGrid'),tabs=document.getElementById('videoCategoryTabs');
+      if(!grid)return;
+      const videos=Array.isArray(appState.videos)?appState.videos:DEFAULT_VIDEOS;
+      const cats=[['all','🌟 All'],['math','🔢 Math'],['language','📚 Language'],['science','🌍 Science'],['habits','🏡 Habits'],['brain','🧠 Brain']];
+      if(tabs)tabs.innerHTML=cats.map(([id,label])=>'<button onclick="filterVideoCategory(\''+id+'\')" class="shrink-0 rounded-full px-3 py-2 text-xs font-bold '+(activeVideoCategory===id?'bg-indigo-600 text-white':'bg-white text-indigo-700 border')+'">'+label+'</button>').join('');
+      const shown=activeVideoCategory==='all'?videos:videos.filter(v=>v.category===activeVideoCategory);
+      grid.innerHTML=shown.map(v=>{
+        const title=String(v.title||'Learning Video').replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+        const yt=extractYoutubeId(v.url),thumb=yt?'https://img.youtube.com/vi/'+yt+'/hqdefault.jpg':'';
+        return '<button class="btn-3d text-left bg-white rounded-2xl overflow-hidden border border-indigo-100 shadow-sm" onclick="openVideo(\''+String(v.id).replace(/'/g,'')+'\')"><div class="relative h-36 bg-slate-900">'+(thumb?'<img src="'+thumb+'" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display=\'none\'">':'<div class="h-full flex items-center justify-center text-4xl">🎬</div>')+'<span class="absolute inset-0 flex items-center justify-center text-3xl">▶️</span></div><div class="p-3"><div class="font-bold text-indigo-800">'+title+'</div><div class="text-xs text-slate-500 mt-1">'+(v.ageGroup?'Age '+v.ageGroup+' · ':'')+v.category+' · Tap to watch</div></div></button>';
+      }).join('')||'<p class="text-slate-500 col-span-full">No videos in this category.</p>';
     }
+    function filterVideoCategory(category){activeVideoCategory=category;renderVideoZone();}
+    function extractYoutubeId(url){const m=String(url||'').match(/(?:youtube\\.com\\/(?:watch\\?v=|shorts\/|embed\/)|youtu\\.be\/)([A-Za-z0-9_-]{11})/);return m?m[1]:null;}
 
     function getVideoById(id) { return (appState.videos || []).find(v=>v.id===id); }
     function openVideo(id) {
-      const video = getVideoById(id); if (!video) return;
-      const url = video.url || '';
-      const match = url.match(/(?:youtu\.be\/|youtube\.com\/.*[?&]v=)([\w-]+)/);
-      const embed = match ? 'https://www.youtube-nocookie.com/embed/'+match[1]+'?autoplay=1' : url;
-      document.getElementById('pipVideoTitle').textContent = video.title || 'Learning Video';
-      document.getElementById('pipVideoPlayerBody').innerHTML = '<iframe class="w-full h-full aspect-video" src="'+embed+'" title="Learning video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+      const video=getVideoById(id);if(!video)return;
+      const url=video.url||'',yt=extractYoutubeId(url),body=document.getElementById('pipVideoPlayerBody'),external=document.getElementById('pipExternalLink');
+      document.getElementById('pipVideoTitle').textContent=video.title||'Learning Video';
+      if(external){external.href=yt?'https://www.youtube.com/watch?v='+yt:url;external.textContent=yt?'▶ YouTube ↗':'↗ Open Video';external.style.display=url?'':'none';}
+      if(yt){
+        const embed='https://www.youtube-nocookie.com/embed/'+yt+'?autoplay=1&rel=0';
+        body.innerHTML='<iframe class="w-full h-full aspect-video" src="'+embed+'" title="Learning video" allow="autoplay; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="absolute bottom-1 right-1 text-xs text-white bg-black/50 px-1 rounded">If playback fails, use YouTube ↗</div>';
+      }else if(/\\.(mp4|webm|ogg)(?:[?#]|$)/i.test(url)){
+        body.innerHTML='<video src="'+url.replace(/"/g,'%22')+'" class="w-full h-full aspect-video" autoplay controls playsinline></video>';
+      }else{
+        body.innerHTML='<div class="p-4 text-center text-white"><p>Video cannot be embedded here.</p><a href="'+url+'" target="_blank" rel="noopener" class="inline-block bg-red-600 rounded-xl px-4 py-3 mt-3 font-bold">Open video externally ↗</a></div>';
+      }
       document.getElementById('pipVideoContainer').classList.remove('hidden');
     }
     function playTopicVideo() {
