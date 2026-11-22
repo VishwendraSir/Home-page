@@ -1727,7 +1727,7 @@
     <p class="mt-2 opacity-95">Learn • Play • Explore • Grow</p>
     <div class="mt-5 flex flex-wrap justify-center gap-3">
       <a href="https://wa.me/916350248088?text=Explore%20Manushree%27s%20WonderWorld%20Smart%20Learning%20Hub" target="_blank" rel="noopener" class="rounded-full bg-white text-purple-700 px-5 py-3 font-bold shadow">💬 Share on WhatsApp</a>
-      <button onclick="(async()=>{const caption='🚨 Parents! बच्चों के लिए कुछ नया आ गया! 🚀\\nअब पढ़ाई सिर्फ किताबों में नहीं… एक पूरी WonderWorld में! 🌈\\n🎮 Learn • Play • Explore • Grow\\n📚 Explore Manushree’s WonderWorld Smart Learning Hub:\\n'+location.href+'\\n📲 WhatsApp: 6350248088\\n👨‍🏫 Guided by Vishwendra Sir';try{await navigator.clipboard.writeText(caption);showToast('Caption copied! Share it with parents and friends','📋');}catch(e){prompt('Copy this caption:',caption);}})()" class="rounded-full bg-white/20 border border-white/40 px-5 py-3 font-bold">📋 Copy Share Caption</button>
+      <button onclick="(async()=>{const caption='🚨 Parents! बच्चों के लिए कुछ नया आ गया! 🚀\\nअब पढ़ाई सिर्फ किताबों में नहीं… एक पूरी WonderWorld में! 🌈\\n🎮 Learn • Play • Explore • Grow\\n📚 Explore Manushree’s WonderWorld Smart Learning Hub:\\n'+(location.origin+location.pathname)+'\\n📲 WhatsApp: 6350248088\\n👨‍🏫 Guided by Vishwendra Sir';try{await navigator.clipboard.writeText(caption);showToast('Caption copied! Share it with parents and friends','📋');}catch(e){prompt('Copy this caption:',caption);}})()" class="rounded-full bg-white/20 border border-white/40 px-5 py-3 font-bold">📋 Copy Share Caption</button>
     </div>
     <p class="mt-4 text-sm opacity-90">अपने बच्चों, parents और दोस्तों के साथ जरूर शेयर करें ❤️</p>
   </section>
@@ -1745,7 +1745,7 @@
         <a href="tel:+916350248088" class="rounded-2xl bg-white/15 hover:bg-white/25 p-4">
           <span class="block text-2xl mb-1">📞</span><strong>Call Us</strong><span class="block mt-1">6350248088</span>
         </a>
-        <button type="button" onclick="(async()=>{const u=location.href;try{if(navigator.share){await navigator.share({title:'Manushree’s WonderWorld',text:'Explore our Smart Learning Hub for kids!',url:u});}else if(navigator.clipboard){await navigator.clipboard.writeText(u);alert('Site link copied. Share it with family and friends!');}else{prompt('Copy this site link:',u);}}catch(e){if(e.name!=='AbortError')alert('Please copy the site link from your browser address bar.');}})()" class="rounded-2xl bg-white/15 hover:bg-white/25 p-4">
+        <button type="button" onclick="(async()=>{const u=location.origin+location.pathname;try{if(navigator.share){await navigator.share({title:'Manushree’s WonderWorld',text:'Explore our Smart Learning Hub for kids!',url:u});}else if(navigator.clipboard){await navigator.clipboard.writeText(u);alert('Site link copied. Share it with family and friends!');}else{prompt('Copy this site link:',u);}}catch(e){if(e.name!=='AbortError')alert('Please copy the site link from your browser address bar.');}})()" class="rounded-2xl bg-white/15 hover:bg-white/25 p-4">
           <span class="block text-2xl mb-1">🔗</span><strong>Share This Site</strong><span class="block mt-1">Send to parents & friends</span>
         </button>
       </div>
