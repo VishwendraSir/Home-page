@@ -1881,39 +1881,96 @@
     #wwPremiumGate.open{display:flex}
   </style>
   <div id="wwPremiumGate" role="dialog" aria-modal="true">
-    <div class="bg-white rounded-3xl shadow-2xl p-5 w-full max-w-md text-center max-h-[92vh] overflow-y-auto">
-      <div class="text-5xl mb-2">🌈🔒</div>
-      <h2 class="text-2xl font-black text-purple-800">WonderWorld Premium</h2>
-      <p class="mt-2 font-bold text-slate-700">आज का आपका 1 Hour Free Learning Time पूरा हो गया!</p>
-      <p class="mt-1 text-sm text-slate-600">पढ़ाई जारी रखने के लिए अपना Premium Plan चुनें।</p>
-      <div class="grid grid-cols-1 gap-3 my-4 text-left">
-        <button type="button" id="wwPlan49" class="border-2 border-pink-300 rounded-2xl p-3 bg-pink-50 text-left">
-          <div class="text-xl font-black text-pink-700">🌸 ₹49 / Month</div>
-          <div class="font-bold text-slate-800">Manushree Plan</div>
-          <div class="text-xs text-slate-600 mt-1">Manushree के साथ Unlimited Learning • Quiz • Games • Practice</div>
+    <div class="ww-premium-poster">
+      <button id="wwPremiumClose" class="ww-poster-close" type="button" aria-label="Close">✕</button>
+      <div class="ww-poster-top">
+        <div class="ww-poster-stars">✨ ⭐ 🌈 ✨</div>
+        <div class="ww-poster-mascot">🦄</div>
+        <div class="ww-poster-kicker">MANUSHREE'S WONDERWORLD</div>
+        <h2>Premium Learning<br><span>Adventure!</span></h2>
+        <div class="ww-time-pill">⏰ आज का आपका <b>1 Hour Free Learning Time</b> पूरा हो गया!</div>
+        <p class="ww-poster-desc">अपनी learning adventure जारी रखें — चुनें अपना special plan 💖</p>
+      </div>
+      <div class="ww-plan-cards">
+        <button type="button" id="wwPlan49" class="ww-plan-card ww-plan-pink">
+          <span class="ww-plan-ribbon">🌸 BEST FOR MANUSHREE</span>
+          <span class="ww-plan-price">₹49 <small>/ month</small></span>
+          <span class="ww-plan-name">Manushree Plan</span>
+          <span class="ww-plan-desc">Manushree के साथ Unlimited Learning</span>
+          <span class="ww-plan-benefits">🎮 Unlimited Games<br>🧠 Quiz & Practice<br>⏳ No Daily Time Limit</span>
+          <span class="ww-select-label">✨ SELECT PLAN</span>
         </button>
-        <button type="button" id="wwPlan99" class="border-2 border-purple-300 rounded-2xl p-3 bg-purple-50 text-left">
-          <div class="text-xl font-black text-purple-700">⭐ ₹99 / Month</div>
-          <div class="font-bold text-slate-800">My Choice Plan</div>
-          <div class="text-xs text-slate-600 mt-1">अपनी पसंद का नाम • Personalized Premium • Unlimited Learning</div>
+        <button type="button" id="wwPlan99" class="ww-plan-card ww-plan-purple">
+          <span class="ww-plan-ribbon">⭐ MAKE IT YOURS</span>
+          <span class="ww-plan-price">₹99 <small>/ month</small></span>
+          <span class="ww-plan-name">My Choice Plan</span>
+          <span class="ww-plan-desc">अपनी पसंद का नाम और profile</span>
+          <span class="ww-plan-benefits">🎨 Personalized Profile<br>🎮 Unlimited Games & Quiz<br>💎 Premium Badge</span>
+          <span class="ww-select-label">✨ SELECT PLAN</span>
         </button>
       </div>
-      <label id="wwChoiceNameWrap" class="hidden block text-left text-xs font-bold text-slate-700 mb-3">आप अपने Premium Plan का नाम रखें
-        <input id="wwChoiceName" class="mt-1 w-full border-2 border-purple-200 rounded-xl p-2" maxlength="30" placeholder="अपना पसंदीदा नाम लिखें">
+      <label id="wwChoiceNameWrap" class="ww-choice-name hidden">🌟 आपका WonderWorld नाम
+        <input id="wwChoiceName" maxlength="30" placeholder="अपना पसंदीदा नाम लिखें">
       </label>
-      <p id="wwSelectedPlan" class="text-sm font-black text-indigo-700">कृपया ऊपर से अपना Plan चुनें।</p>
-      <p class="text-xs text-slate-600 mt-2">Membership request Parent द्वारा भेजें। Admin verification/approval के बाद Premium activate होगा।</p>
-      <div class="mt-3 text-left space-y-2">
-        <label class="block text-xs font-bold text-slate-700">Parent Name <input id="wwParentName" class="mt-1 w-full border rounded-xl p-2" placeholder="Enter parent name"></label>
-        <label class="block text-xs font-bold text-slate-700">Mobile Number <input id="wwParentPhone" inputmode="tel" class="mt-1 w-full border rounded-xl p-2" placeholder="10-digit mobile number"></label>
-        <label class="block text-xs font-bold text-slate-700">Payment Screenshot (optional) <input id="wwPaymentProof" type="file" accept="image/*" class="mt-1 w-full text-xs"></label>
-        <p id="wwMembershipStatus" class="text-xs font-bold text-indigo-700">Membership: Free Trial / Not subscribed</p>
+      <div class="ww-parent-box">
+        <div class="ww-parent-title">👨‍👩‍👧 Parent Membership Request</div>
+        <div class="ww-parent-fields">
+          <label>Parent Name<input id="wwParentName" placeholder="Parent name"></label>
+          <label>Mobile Number<input id="wwParentPhone" inputmode="tel" placeholder="10-digit mobile number"></label>
+          <label class="ww-proof">Payment Screenshot (optional)<input id="wwPaymentProof" type="file" accept="image/*"></label>
+        </div>
+        <p id="wwSelectedPlan" class="ww-selected-plan">👇 ऊपर से अपना plan select करें</p>
+        <p id="wwMembershipStatus" class="ww-status">Membership: Free Trial / Not subscribed</p>
+        <button id="wwPremiumRequest" type="button" class="ww-request-btn">📲 WhatsApp Membership Request</button>
+        <button id="wwAdminApproval" type="button" class="ww-admin-btn">🔐 Admin Approval (Demo)</button>
       </div>
-      <button id="wwPremiumRequest" type="button" class="block w-full mt-4 rounded-2xl bg-green-600 text-white font-black py-3">📲 Send Membership Request on WhatsApp</button>
-      <button id="wwAdminApproval" type="button" class="mt-2 w-full rounded-xl border border-slate-300 text-slate-600 text-xs font-bold py-2">Admin Approval (Demo)</button>
-      <button id="wwPremiumClose" type="button" class="mt-3 w-full rounded-xl bg-slate-100 text-slate-700 font-bold py-3">Close</button>
+      <div class="ww-poster-footer">🔒 Admin verification के बाद Premium activate होगा<br>Science Centre Learning Hub • Guided by Vishwendra Sir</div>
     </div>
   </div>
+  <style>
+    #wwPremiumGate{position:fixed;inset:0;z-index:10020;background:linear-gradient(135deg,rgba(30,12,60,.88),rgba(15,23,42,.82));backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:10px}
+    #wwPremiumGate.open{display:flex}
+    .ww-premium-poster{position:relative;width:min(100%,470px);max-height:96vh;overflow:auto;border:4px solid white;border-radius:28px;background:linear-gradient(180deg,#fff8fc 0%,#f4f0ff 48%,#ecfdf5 100%);box-shadow:0 25px 80px #0005;text-align:center;padding:16px;color:#31234d}
+    .ww-poster-close{position:absolute;top:10px;right:10px;background:#ffffffd9;border:1px solid #e9d5ff;border-radius:50%;width:34px;height:34px;font-weight:900;color:#6b21a8;z-index:2}
+    .ww-poster-stars{font-size:20px;letter-spacing:3px}
+    .ww-poster-mascot{font-size:46px;line-height:1.1;animation:wwPosterFloat 2.5s ease-in-out infinite}
+    @keyframes wwPosterFloat{50%{transform:translateY(-5px) rotate(3deg)}}
+    .ww-poster-kicker{font-size:11px;font-weight:900;letter-spacing:2px;color:#9333ea;margin-top:5px}
+    .ww-poster-top h2{font-size:30px;line-height:1.05;font-weight:1000;margin:5px 0;background:linear-gradient(90deg,#ec4899,#8b5cf6,#4f46e5);background-clip:text;color:transparent}
+    .ww-poster-top h2 span{font-size:34px}
+    .ww-time-pill{display:inline-block;background:linear-gradient(90deg,#fef3c7,#fde68a);border:2px solid #f59e0b;border-radius:16px;padding:8px 10px;font-size:12px;font-weight:900;color:#92400e;margin:8px 0}
+    .ww-poster-desc{font-size:12px;font-weight:700;color:#6b21a8;margin:3px 0 10px}
+    .ww-plan-cards{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+    .ww-plan-card{position:relative;border:3px solid;border-radius:20px;padding:10px 8px 9px;text-align:center;display:flex;flex-direction:column;gap:5px;transition:.18s;cursor:pointer;box-shadow:0 4px 0 #0001}
+    .ww-plan-card:active{transform:scale(.98)}
+    .ww-plan-card.selected{box-shadow:0 0 0 4px #fbbf24,0 5px 0 #0001;transform:translateY(-2px)}
+    .ww-plan-pink{border-color:#f9a8d4;background:linear-gradient(145deg,#fff,#fdf2f8)}
+    .ww-plan-purple{border-color:#c4b5fd;background:linear-gradient(145deg,#fff,#f5f3ff)}
+    .ww-plan-ribbon{font-size:9px;font-weight:1000;letter-spacing:.5px}
+    .ww-plan-price{font-size:26px;font-weight:1000;line-height:1;color:#be185d}
+    .ww-plan-purple .ww-plan-price{color:#6d28d9}
+    .ww-plan-price small{font-size:10px}
+    .ww-plan-name{font-size:14px;font-weight:1000;color:#31234d}
+    .ww-plan-desc{font-size:10px;font-weight:700;min-height:26px}
+    .ww-plan-benefits{font-size:10px;line-height:1.5;font-weight:800;color:#5b476d}
+    .ww-select-label{border-radius:10px;background:#fce7f3;color:#9d174d;font-size:10px;font-weight:1000;padding:5px}
+    .ww-plan-purple .ww-select-label{background:#ede9fe;color:#5b21b6}
+    .ww-choice-name{display:block;text-align:left;font-size:11px;font-weight:900;margin:9px 0;background:#fff;border:2px solid #c4b5fd;border-radius:13px;padding:8px}
+    .ww-choice-name input{display:block;width:100%;padding:8px;border:1px solid #ddd6fe;border-radius:9px;margin-top:5px;outline:none}
+    .ww-parent-box{margin-top:10px;text-align:left;background:#ffffffd9;border:2px solid #a7f3d0;border-radius:18px;padding:10px}
+    .ww-parent-title{text-align:center;font-size:12px;font-weight:1000;color:#047857;margin-bottom:7px}
+    .ww-parent-fields{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+    .ww-parent-fields label{font-size:10px;font-weight:900;color:#475569}
+    .ww-parent-fields input{display:block;width:100%;margin-top:3px;padding:7px;border:1px solid #cbd5e1;border-radius:9px;font-size:12px;background:white}
+    .ww-proof{grid-column:1/-1}
+    .ww-proof input{font-size:10px}
+    .ww-selected-plan{text-align:center;font-size:11px;font-weight:1000;color:#6d28d9;margin:7px 0}
+    .ww-status{text-align:center;font-size:10px;font-weight:900;color:#4338ca;margin-bottom:5px}
+    .ww-request-btn{width:100%;background:linear-gradient(90deg,#16a34a,#059669);color:white;border-radius:13px;padding:10px;font-weight:1000;font-size:13px;box-shadow:0 4px 0 #047857}
+    .ww-admin-btn{width:100%;margin-top:6px;border:1px solid #cbd5e1;color:#64748b;border-radius:10px;padding:7px;font-size:10px;font-weight:900}
+    .ww-poster-footer{font-size:9px;font-weight:800;color:#64748b;margin-top:8px;line-height:1.4}
+    @media(max-height:720px){.ww-premium-poster{padding:10px}.ww-poster-mascot{font-size:32px}.ww-poster-top h2{font-size:25px}.ww-plan-card{padding:7px}.ww-parent-box{margin-top:7px;padding:7px}}
+  </style>
   <script>
   (()=> {
     if(window.__wwDailyFreePremiumV2)return;window.__wwDailyFreePremiumV2=true;
