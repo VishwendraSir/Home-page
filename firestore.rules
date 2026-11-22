@@ -19,8 +19,9 @@ service cloud.firestore {
         && request.resource.data.status == "pending"
         && request.resource.data.remaining == 0
         && request.resource.data.batchNumber == 0
+        && request.auth.token.email_verified == true
         && request.resource.data.email == request.auth.token.email
-        && request.resource.data.emailVerified == request.auth.token.email_verified;
+        && request.resource.data.emailVerified == true;
       allow update: if isAdmin() ||
         (ownStudent(uid)
           && resource.data.status == "approved"
@@ -36,10 +37,12 @@ service cloud.firestore {
       allow create: if signedIn()
         && request.resource.data.uid == request.auth.uid
         && request.resource.data.status == "pending"
-        && request.resource.data.createdAt == request.time;
+        && request.resource.data.createdAt == request.time
+        && get(/databases/$(database)/documents/students/$(request.auth.uid)).data.status == "approved"
+        && get(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining == 0
+        && request.resource.data.batchNumber == get(/databases/$(database)/documents/students/$(request.auth.uid)).data.batchNumber + 1;
       allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
-      allow update: if isAdmin();
-      allow delete: if isAdmin();
+      allow update, delete: if isAdmin();
     }
 
     match /attempts/{attemptId} {
@@ -48,6 +51,9 @@ service cloud.firestore {
         && request.resource.data.questionKey is string
         && request.resource.data.questionKey.size() <= 160
         && request.resource.data.createdAt == request.time
+        && request.resource.data.batchNumber == get(/databases/$(database)/documents/students/$(request.auth.uid)).data.batchNumber
+        && request.resource.data.remainingAfter == getAfter(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining
+        && attemptId == request.auth.uid + "_" + request.resource.data.batchNumber + "_" + request.resource.data.remainingAfter
         && get(/databases/$(database)/documents/students/$(request.auth.uid)).data.status == "approved"
         && get(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining > 0
         && getAfter(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining
