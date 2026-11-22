@@ -45,4 +45,5 @@ function exportFiltered(){download('EXAM_BRAHMAStra_V6_FILTERED.json',JSON.strin
 function exportCSV(){let qs=filtered(),keys=['id','exam','subject','topic','questionHi','questionEn','options','answer','difficulty','sourceType','sourceRef','qualityStatus'];let rows=[keys.join(',')].concat(qs.map(q=>keys.map(k=>{let v=k==='questionHi'?q.question.hi:k==='questionEn'?q.question.en:k==='options'?JSON.stringify(q.options):q[k]??'';return '"'+String(v).replace(/"/g,'""')+'"'}).join(',')));download('EXAM_BRAHMAStra_V6_MASTER.csv',rows.join('\n'),'text/csv')}
 function clearDB(){if(confirm('सभी Master Database records हटाएँ? पहले backup export करें।')){db={questions:[],duplicateSkipped:0};page=0;save()}}
 render();
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
