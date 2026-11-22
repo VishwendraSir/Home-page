@@ -1,36 +1,43 @@
-# Science Vocabulary 500 — Firebase Access Control (Spark-compatible)
+# Science Vocabulary Master 500 — Student Approval + 50-question Access
 
-This version uses Firebase Authentication + Firestore + Security Rules. It does not require Cloud Functions, so it can be used on Spark for the supported Firebase products.
+This version uses Firebase Authentication + Firestore + Security Rules and is intended to work with Firebase's Spark-compatible products. It does **not** deploy Cloud Functions.
 
-## 1. Create Firebase Web App
-Firebase Console → Project settings → Your apps → Add Web App. Copy the config values into `firebase-config.js`. The config is public client config; never add service account keys.
+## A. Firebase project setup (phone-friendly)
+1. Open Firebase Console → your project → Project settings → General.
+2. Under **Your apps**, add a Web App. Register any app nickname.
+3. Copy the Web App config values into `firebase-config.js` (apiKey, authDomain, projectId, appId). Do not use service-account/private keys.
+4. Authentication → Sign-in method → enable **Google**.
+5. Authentication → Settings → Authorized domains → add `vishwendrasir.github.io`.
+6. Firestore Database → Create database. Choose a location and start in production mode.
+7. Firestore → Rules: paste the contents of repository `firestore.rules` and Publish.
 
-## 2. Authentication
-Authentication → Sign-in method → enable Google. Add `vishwendrasir.github.io` under Authorized domains.
+## B. Make yourself Admin (one-time)
+1. Open the Vocabulary website and sign in with your Google account after Firebase config is set.
+2. Firebase Console → Authentication → Users → select your account and copy the **UID**.
+3. Firestore → Data → Start collection: `admins`.
+4. Document ID: paste your exact UID.
+5. Add fields: `role` (string) = `admin`; `createdAt` (timestamp) = current date/time.
+6. Refresh the website and sign in again. Admin Dashboard should appear.
 
-## 3. Firestore
-Create Firestore Database. Deploy `firestore.rules` in Firestore → Rules (or use Firebase CLI).
+Admin documents cannot be created from the app. This is a deliberate security bootstrap step.
 
-## 4. Bootstrap Admin (one-time)
-Sign in to the app with your Google account, then copy your Firebase Auth UID from Authentication → Users.
-Firestore → Data → create collection `admins`, document ID = your exact UID. Add fields:
-- `role`: string `admin`
-- `createdAt`: timestamp (current time)
+## C. Student access
+- New verified Google users register as Pending.
+- Admin approves with 50 attempts.
+- Admin can reject, revoke, or grant the next 50.
+- Student can request the next batch only after remaining attempts reaches 0.
+- Admin can approve or reject batch requests.
+- Quiz, Rapid Fire, Spelling, Matching, and completed Scramble submissions consume an attempt.
+- Firestore transaction decrements the remaining count and writes an immutable attempt record with deterministic ID. Security Rules validate the decrement and prevent duplicate sequence records.
+- Flashcards and dictionary browsing are not counted.
 
-Do not share or use another student's UID. Admin docs cannot be created from the app.
+## D. Android deployment
+- To update `firebase-config.js`: GitHub → repository → file → Edit (pencil) → replace placeholder config → Commit changes.
+- To deploy Rules without CLI: Firebase Console → Firestore Database → Rules → paste `firestore.rules` → Publish.
+- GitHub Pages deploys the updated HTML/config automatically after commits (wait a few minutes and refresh).
 
-## 5. Deploy
-If using Firebase CLI:
-`firebase deploy --only firestore:rules`
-Cloud Functions are not required for this Spark-compatible rules/transaction version.
-
-## Access policy
-- New Google users create a pending profile.
-- Admin approves initial access with 50 attempts.
-- Each question attempt is consumed using a Firestore transaction; rules require an approved profile and decrement by exactly one.
-- At zero, the student is locked until an admin grants the next 50.
-- Students may request the next batch; Admin approves/rejects in the dashboard.
-- Attempts are read-only and cannot be edited/deleted by students.
-
-## Notes
-Question-attempt accounting is applied to Quiz answers, Rapid Fire answers, Spelling submissions, Matching pair checks, and completed Scramble submissions. Flashcard viewing/dictionary browsing is not counted as a question attempt.
+## E. Security and limitations
+- Firestore rules protect profile status and attempt decrement; no Cloud Functions are needed for this version.
+- The vocabulary content is static in a GitHub Pages HTML file, so a determined visitor can download/view the source. This access gate is not DRM/content secrecy.
+- Admin is determined by the existence of `admins/{UID}`; never add a student's UID.
+- Never commit service-account keys or private secrets.
