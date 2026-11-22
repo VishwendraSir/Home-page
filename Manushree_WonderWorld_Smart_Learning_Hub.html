@@ -175,9 +175,10 @@
           <h1 class="text-lg sm:text-xl font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent leading-tight">
             Manushree's WonderWorld
           </h1>
-          <p id="navGreeting" class="text-xs sm:text-sm font-semibold text-purple-700">
-            Hi Manushree! 🌟
-          </p>
+          <div class="flex items-center gap-1">
+            <p id="navGreeting" class="text-xs sm:text-sm font-semibold text-purple-700">Hi Manushree! 🌟</p>
+            <button onclick="openNamePremium()" title="Change Parent / Child name" class="ml-1 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-700 px-2 py-1 text-xs font-bold shadow-sm">✏️ Edit Name</button>
+          </div>
         </div>
       </div>
 
@@ -457,7 +458,22 @@
   <!-- =====================================================================
        MAIN APPLICATION JAVASCRIPT
        ===================================================================== -->
-  <script>
+  
+  <!-- Direct Name Edit Premium Modal -->
+  <div id="wwNamePremiumModal" class="hidden fixed inset-0 z-[9999] bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-3">
+    <div class="w-full max-w-md rounded-3xl bg-white shadow-2xl p-5 max-h-[90vh] overflow-y-auto">
+      <div class="text-center"><div class="text-4xl">✨👨‍👩‍👧</div><h2 class="text-2xl font-extrabold text-purple-800 mt-2">Premium Name Change</h2><p class="text-slate-600 text-sm">Parent / Child name update</p><div class="my-3"><span class="line-through text-slate-500 text-lg">₹499</span><span class="ml-2 text-3xl font-black text-green-700">₹99</span><span class="text-green-700 font-bold"> / 30 days</span></div></div>
+      <div class="rounded-xl bg-purple-50 p-3 text-sm"><b>🎁 Offer: ₹99 only for 30 days</b><p class="mt-1">Maximum 2 accounts (Parent + Child). Admin approval required after payment verification.</p></div>
+      <div class="mt-3 rounded-xl bg-amber-100 p-3 text-sm text-amber-900"><b>Advertisement</b><p>Personalize your child's WonderWorld! Premium name change and family account setup.</p></div>
+      <label class="block font-bold mt-3">Current Name</label><input id="wwModalCurrentName" class="w-full border rounded-xl p-3 mt-1" placeholder="Current name">
+      <label class="block font-bold mt-3">New Name</label><input id="wwModalRequestedName" class="w-full border rounded-xl p-3 mt-1" placeholder="Enter new name">
+      <label class="block font-bold mt-3">Parent WhatsApp Number</label><input id="wwModalParentPhone" class="w-full border rounded-xl p-3 mt-1" inputmode="tel" placeholder="10-digit mobile number">
+      <button onclick="wwModalPremiumRequest()" class="w-full mt-4 rounded-xl bg-purple-700 text-white font-extrabold p-3">💳 Pay ₹99 & Request Approval</button>
+      <button onclick="closeNamePremium()" class="w-full mt-2 rounded-xl bg-slate-100 text-slate-700 font-bold p-3">Cancel</button>
+      <p class="text-xs text-slate-500 mt-3 text-center">Payment screenshot WhatsApp पर भेजें। Admin approval के बाद name update होगा।</p>
+    </div>
+  </div>
+<script>
     /* =====================================================================
        1. STATE MANAGEMENT & LOCALSTORAGE PERSISTENCE
        ===================================================================== */
@@ -1576,6 +1592,9 @@
         body.innerHTML='<h4 class="font-bold">⚙️ Settings</h4><label class="block mt-3">Parent PIN (4 digits)</label><input id="newPin" maxlength="4" inputmode="numeric" class="border rounded-xl p-2" value="'+appState.parentPin+'"><button onclick="saveParentPin()" class="bg-indigo-600 text-white rounded-xl px-4 py-2 ml-2">Save PIN</button><button onclick="resetProgress()" class="bg-rose-600 text-white rounded-xl px-4 py-2 mt-4">Reset Progress</button><section class="mt-6 rounded-2xl border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-pink-50 p-4"><div class="text-center"><div class="text-3xl">✨👨‍👩‍👧</div><h3 class="text-xl font-extrabold text-purple-800">Premium Name Change</h3><p class="text-sm text-slate-600 mt-1">Parent / Child name change request</p><div class="my-3"><span class="line-through text-slate-500 text-lg">₹499</span><span class="ml-2 text-3xl font-black text-green-700">₹99</span><span class="text-green-700 font-bold"> / 30 days</span></div><p class="font-bold text-purple-800">Special offer: ₹99 only for 30 days</p></div><div class="rounded-xl bg-white/80 p-3 mt-3 text-sm"><b>Included:</b> up to 2 accounts (Parent + Child) under one subscription. Name changes require admin approval after payment verification.<p class="mt-2 text-xs text-slate-500">Payment screenshot WhatsApp पर भेजें। Approval के बाद नाम update किया जाएगा।</p></div><label class="block font-bold mt-3">Current / Child Name</label><input id="wwCurrentName" class="w-full border rounded-xl p-3 mt-1" placeholder="Current name"><label class="block font-bold mt-3">Requested New Name</label><input id="wwRequestedName" class="w-full border rounded-xl p-3 mt-1" placeholder="New name"><label class="block font-bold mt-3">Parent WhatsApp Number</label><input id="wwParentPhone" class="w-full border rounded-xl p-3 mt-1" inputmode="tel" placeholder="10-digit mobile number"><button onclick="wwPremiumRequest()" class="w-full mt-4 rounded-xl bg-purple-700 text-white font-extrabold p-3">💳 Pay ₹99 & Send Approval Request</button><div class="mt-3 rounded-xl bg-amber-100 p-3 text-sm text-amber-900"><b>Advertisement</b><p>🌈 WonderWorld Premium — personalize your child’s learning world! Name change + Parent/Child account setup for ₹99 / 30 days.</p></div></section>';
       }
     }
+    window.openNamePremium=function(){const m=document.getElementById('wwNamePremiumModal');if(m)m.classList.remove('hidden');};
+    window.closeNamePremium=function(){const m=document.getElementById('wwNamePremiumModal');if(m)m.classList.add('hidden');};
+    window.wwModalPremiumRequest=function(){const current=document.getElementById('wwModalCurrentName').value.trim(),requested=document.getElementById('wwModalRequestedName').value.trim(),phone=document.getElementById('wwModalParentPhone').value.trim();if(!current||!requested||!phone){showToast('Fill all request details','⚠️');return;}if(!/^[0-9]{10}$/.test(phone)){showToast('Enter 10-digit WhatsApp number','⚠️');return;}const msg='WonderWorld Premium Name Change Request\\nCurrent Name: '+current+'\\nRequested Name: '+requested+'\\nParent WhatsApp: '+phone+'\\nPlan: ₹99 / 30 days (regular ₹499)\\nUPI: 6350248088@ybl\\nPlease verify payment screenshot and approve. Account limit: 2 (Parent + Child).';const wa='https://wa.me/916350248088?text='+encodeURIComponent(msg);const upi='upi://pay?pa=6350248088@ybl&pn=Science%20Centre%20Learning%20Hub&am=99&cu=INR&tn='+encodeURIComponent('WonderWorld Premium Name Change');window.open(wa,'_blank');window.location.href=upi;showToast('WhatsApp request तैयार—payment screenshot भेजें','💳');};
     window.wwPremiumRequest=function(){const current=document.getElementById('wwCurrentName').value.trim(),requested=document.getElementById('wwRequestedName').value.trim(),phone=document.getElementById('wwParentPhone').value.trim();if(!current||!requested||!phone){showToast('Fill all request details','⚠️');return;}if(!/^[0-9]{10}$/.test(phone)){showToast('Enter 10-digit WhatsApp number','⚠️');return;}const msg='WonderWorld Premium Name Change Request\\nCurrent Name: '+current+'\\nRequested Name: '+requested+'\\nParent WhatsApp: '+phone+'\\nPlan: ₹99 / 30 days (regular ₹499)\\nUPI: 6350248088@ybl\\nPlease verify payment screenshot and approve. Account limit: 2 (Parent + Child).';const wa='https://wa.me/916350248088?text='+encodeURIComponent(msg);const upi='upi://pay?pa=6350248088@ybl&pn=Science%20Centre%20Learning%20Hub&am=99&cu=INR&tn='+encodeURIComponent('WonderWorld Premium Name Change');window.open(wa,'_blank');window.location.href=upi;showToast('WhatsApp request तैयार—payment screenshot भेजें','💳');};
     function addParentVideo(){
       const title=document.getElementById('newVidTitle').value.trim(),url=document.getElementById('newVidUrl').value.trim();
