@@ -36,4 +36,5 @@ function download(name,text,type){let b=new Blob([text],{type}),a=document.creat
 function exportStandard(){if(!standard.length)return alert('पहले import और normalize करें');download('EXAM_BRAHMAStra_V6_Standard_Bank.json',JSON.stringify({app:'EXAM BRAHMAStra V6',schemaVersion:'V6',generatedAt:new Date().toISOString(),questions:standard},null,2),'application/json')}
 function exportAudit(){if(!audit.length)return alert('पहले audit करें');let csv='Index,ID,Subject,Topic,Status,Issues\n'+audit.map(a=>[a.index,a.id,a.subject,a.topic,a.status,a.issues].map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\n');download('V6_Question_Bank_Audit.csv',csv,'text/csv')}
 function resetAll(){if(confirm('Import और audit data reset करें?')){raw=[];standard=[];audit=[];$('file').value='';$('total').textContent='0';$('valid').textContent='0';$('review').textContent='0';$('dups').textContent='0';$('results').textContent='Import a JSON bank to begin.'}}
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
