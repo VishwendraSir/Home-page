@@ -1874,6 +1874,49 @@
   })();
   </script>
   <!-- END WHATSAPP SHARE GATE -->
+  <!-- DAILY FREE ACCESS + PREMIUM ₹49/MONTH -->
+  <style>
+    #wwPremiumGate{position:fixed;inset:0;z-index:10020;background:rgba(15,23,42,.78);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:16px}
+    #wwPremiumGate.open{display:flex}
+  </style>
+  <div id="wwPremiumGate" role="dialog" aria-modal="true">
+    <div class="bg-white rounded-3xl shadow-2xl p-6 w-full max-w-md text-center">
+      <div class="text-5xl mb-2">🌈🔒</div><h2 class="text-2xl font-black text-purple-800">WonderWorld Premium</h2>
+      <p class="mt-2 font-bold text-slate-700">आज का आपका Free Learning Time पूरा हो गया!</p>
+      <div class="my-4 rounded-2xl bg-gradient-to-r from-purple-100 to-pink-100 p-4">
+        <div class="text-4xl font-black text-purple-800">₹49 <span class="text-lg">/ month</span></div>
+        <p class="text-sm font-semibold mt-1">Unlimited Learning • Games • Practice • Quiz</p>
+      </div>
+      <p class="text-xs text-slate-600">Subscription request Parent द्वारा भेजें। Premium Admin confirmation के बाद activate होगा।</p>
+      <a id="wwPremiumRequest" target="_blank" rel="noopener" class="block mt-4 rounded-2xl bg-green-600 text-white font-black py-3">📲 Request Premium on WhatsApp</a>
+      <button id="wwPremiumClose" class="mt-3 w-full rounded-xl bg-slate-100 text-slate-700 font-bold py-3">Close</button>
+    </div>
+  </div>
+  <script>
+  (()=> {
+    if(window.__wwDailyFreePremiumV1)return;window.__wwDailyFreePremiumV1=true;
+    const FREE_MS=60*60*1000,DAY_MS=24*60*60*1000,STORE='wwDailyUsage_v1';
+    const gate=document.getElementById('wwPremiumGate'),close=document.getElementById('wwPremiumClose'),req=document.getElementById('wwPremiumRequest');
+    req.href='https://wa.me/916350248088?text='+encodeURIComponent('Namaste, I want Manushree WonderWorld Premium subscription for ₹49/month. Please share payment and activation details.');
+    close.onclick=()=>gate.classList.remove('open');
+    function read(){try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}}
+    function today(){const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
+    function usage(){let s=read();if(s.day!==today()){s={day:today(),used:0};try{localStorage.setItem(STORE,JSON.stringify(s))}catch(e){}}return s}
+    function active(){return usage().used<FREE_MS}
+    function save(s){try{localStorage.setItem(STORE,JSON.stringify(s))}catch(e){}}
+    let last=Date.now();
+    setInterval(()=>{const now=Date.now(),delta=Math.max(0,Math.min(now-last,5000));last=now;
+      const gv=document.getElementById('gameView');
+      if(gv&&!gv.classList.contains('hidden')&&active()){const s=usage();s.used=Math.min(FREE_MS,(s.used||0)+delta);save(s);if(s.used>=FREE_MS){gate.classList.add('open');if(window.currentGame){document.getElementById('gameView').classList.add('hidden');document.getElementById('homeView').classList.remove('hidden');}}}
+    },1000);
+    window.wwFreeTimeRemaining=()=>Math.max(0,FREE_MS-(usage().used||0));
+    window.wwShowPremiumGate=()=>gate.classList.add('open');
+    const oldCheck=window.quizShareGateCheck;
+    window.quizShareGateCheck=function(id){if(active()){gate.classList.remove('open');return true;}gate.classList.add('open');return false;};
+    window.wwPremiumStatusText=()=>{const ms=window.wwFreeTimeRemaining();return Math.floor(ms/60000)+' min '+Math.floor(ms%60000/1000)+' sec free remaining today';};
+  })();
+  </script>
+
 
 <script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=2"></script></body>
 </html>
