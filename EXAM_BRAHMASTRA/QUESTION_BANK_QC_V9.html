@@ -56,4 +56,5 @@ function loadSample(){$('json').value=JSON.stringify({questions:[{id:'DEMO-001',
 function exportReport(){let out=audited.map(a=>({...a.q,qc:{score:a.score,status:a.status,flags:a.flags,recommendations:a.recommend}}));download('question-bank-qc-report.json',JSON.stringify({generated_at:new Date().toISOString(),warning:'Heuristic audit only. Source authenticity and factual correctness require evidence review.',summary:{total:audited.length,approved:audited.filter(a=>a.status==='APPROVED').length,revise:audited.filter(a=>a.status==='REVISE').length,rejected:audited.filter(a=>a.status==='REJECT').length},questions:out},null,2),'application/json')}
 function exportCSV(){let lines=[['id','question','source','score','status','flags','recommendations'].join(',')];audited.forEach(a=>lines.push([a.q.id||a.i+1,textQ(a.q),a.q.source_type||a.q.source||'UNCLASSIFIED',a.score,a.status,a.flags.join(';'),a.recommend.join(';')].map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')));download('question-bank-qc.csv',lines.join('\n'),'text/csv')}
 function download(name,data,type){let b=new Blob([data],{type}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click();URL.revokeObjectURL(a.href)}
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
