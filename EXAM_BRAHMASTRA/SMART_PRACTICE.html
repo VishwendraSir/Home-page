@@ -36,7 +36,7 @@ async function loadRepositoryBank(){
  if(repositoryBankLoaded||repositoryBankLoading)return;
  repositoryBankLoading=true;$('message').textContent='🔄 Master Question Data auto-load हो रहा है…';
  const base='https://raw.githubusercontent.com/VishwendraSir/Home-page/main/';
- const fetched=await Promise.all(EB_MASTER_SOURCES.map(async p=>{try{const r=await fetch(base+p,{cache:'no-cache'});if(!r.ok)throw Error(r.status);return {path:p,data:await r.json()}}catch(e){return {path:p,error:true}}}));
+ const fetched=[];for(let b=0;b<EB_MASTER_SOURCES.length;b+=8){const batch=EB_MASTER_SOURCES.slice(b,b+8);fetched.push(...await Promise.all(batch.map(async p=>{try{const r=await fetch(base+p,{cache:'no-cache'});if(!r.ok)throw Error(r.status);return {path:p,data:await r.json()}}catch(e){return {path:p,error:true}}})));$('message').textContent='🔄 Master data loading '+Math.min(b+8,EB_MASTER_SOURCES.length)+' / '+EB_MASTER_SOURCES.length+' source files…';}
  let records=[],failed=[];
  fetched.forEach(f=>{if(f.error){failed.push(f.path);return}const arr=extractRecords(f.data);records.push(...arr.map((q,i)=>normRecord(q,i,f.path.split('/').pop().replace('.json',''))))});
  const seen=new Set();bank=records.filter(q=>q.question_hi&&q.options.length>=2&&q.answer>=0&&q.answer<q.options.length&&!seen.has(keyOf(q))&&seen.add(keyOf(q)));
