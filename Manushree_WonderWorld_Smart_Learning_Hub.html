@@ -1602,5 +1602,34 @@
     function showBadgesModal(){const b=getUnlockedBadges();document.getElementById('badgesGrid').innerHTML=b.length?b.map(x=>'<div class="bg-amber-50 rounded-xl p-4 text-center"><div class="text-3xl">'+x.icon+'</div><b>'+x.name+'</b><p class="text-xs">'+x.desc+'</p></div>').join(''):'<p class="col-span-2 text-center">Play games to earn badges!</p>';document.getElementById('badgesModal').classList.remove('hidden');}
     window.addEventListener('DOMContentLoaded',initApp);
     </script>
-  </body>
+  
+  <!-- Permanent WonderWorld contact & share footer (additive; keeps all existing modules intact) -->
+  <footer id="wonderworld-contact-footer" class="mt-12 px-4 pb-8 pt-8 text-center text-white" style="background:linear-gradient(135deg,#312e81,#6d28d9 55%,#2563eb);border-radius:28px 28px 0 0;">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-3xl mb-2">🌈 🚀 ✨</div>
+      <h2 class="text-2xl md:text-3xl font-bold">MANUSHREE'S WONDERWORLD</h2>
+      <p class="text-sm md:text-base mt-1 opacity-95">Smart Learning Hub • LEARN • PLAY • GROW</p>
+      <p class="text-sm mt-2 opacity-90">Guided by Vishwendra Sir</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6 text-sm">
+        <a href="https://wa.me/916350248088" target="_blank" rel="noopener" class="rounded-2xl bg-white/15 hover:bg-white/25 p-4">
+          <span class="block text-2xl mb-1">💬</span><strong>WhatsApp</strong><span class="block mt-1">6350248088</span>
+        </a>
+        <a href="tel:+916350248088" class="rounded-2xl bg-white/15 hover:bg-white/25 p-4">
+          <span class="block text-2xl mb-1">📞</span><strong>Call Us</strong><span class="block mt-1">6350248088</span>
+        </a>
+        <button type="button" onclick="(async()=>{const u=location.href;try{if(navigator.share){await navigator.share({title:'Manushree’s WonderWorld',text:'Explore our Smart Learning Hub for kids!',url:u});}else if(navigator.clipboard){await navigator.clipboard.writeText(u);alert('Site link copied. Share it with family and friends!');}else{prompt('Copy this site link:',u);}}catch(e){if(e.name!=='AbortError')alert('Please copy the site link from your browser address bar.');}})()" class="rounded-2xl bg-white/15 hover:bg-white/25 p-4">
+          <span class="block text-2xl mb-1">🔗</span><strong>Share This Site</strong><span class="block mt-1">Send to parents & friends</span>
+        </button>
+      </div>
+      <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm">
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="underline underline-offset-4">▶ YouTube</a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="underline underline-offset-4">f Facebook</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="underline underline-offset-4">◎ Instagram</a>
+      </div>
+      <p class="text-xs mt-6 opacity-80">© <span id="wonderworld-footer-year"></span> Manushree's WonderWorld • Science Centre Learning Hub</p>
+    </div>
+  </footer>
+  <script>document.getElementById('wonderworld-footer-year').textContent=new Date().getFullYear();</script>
+
+</body>
 </html>
