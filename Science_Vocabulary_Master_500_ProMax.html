@@ -1508,7 +1508,9 @@ async function adminApprove(uid,n,requestId){
  const ref=doc(db,"students",uid);await runTransaction(db,async tx=>{const snap=await tx.get(ref);if(!snap.exists())throw Error("Student not found");const d=snap.data();tx.update(ref,{status:"approved",remaining:(d.remaining||0)+n,batchNumber:(d.batchNumber||0)+1,approvedAt:serverTimestamp()});if(requestId)tx.update(doc(db,"batchRequests",requestId),{status:"approved",reviewedAt:serverTimestamp()})});
  await renderAdmin();status.textContent="Approval updated.";
 }
-async function adminRevoke(uid){await updateDoc(doc(db,"students",uid),{status:"revoked",remaining:0});await renderAdmin()}\nasync function adminRejectStudent(uid){await updateDoc(doc(db,"students",uid),{status:"rejected",remaining:0});await renderAdmin()}\nasync function adminRejectRequest(requestId){await updateDoc(doc(db,"batchRequests",requestId),{status:"rejected",reviewedAt:serverTimestamp()});await renderAdmin()}
+async function adminRevoke(uid){await updateDoc(doc(db,"students",uid),{status:"revoked",remaining:0});await renderAdmin();}
+async function adminRejectStudent(uid){await updateDoc(doc(db,"students",uid),{status:"rejected",remaining:0});await renderAdmin();}
+async function adminRejectRequest(requestId){await updateDoc(doc(db,"batchRequests",requestId),{status:"rejected",reviewedAt:serverTimestamp()});await renderAdmin();}
 window.openAccessDashboard=()=>{gate.style.display="flex";if(isAdmin)adminPanel.style.display="block";};
 window.consumeQuestionAttempt=async function(key){
  if(isAdmin)return true;
