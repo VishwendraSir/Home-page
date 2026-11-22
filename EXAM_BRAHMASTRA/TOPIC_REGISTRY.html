@@ -28,4 +28,5 @@ $('sample').onclick=()=>{let s=[['Mathematics','Class 6','Number System','Whole 
 $('import').onchange=async e=>{try{let x=JSON.parse(await e.target.files[0].text()),a=Array.isArray(x)?x:(x.topics||x.records||[]);topics=topics.concat(a.map(t=>({...t,id:t.id||'I-'+Date.now()+Math.random(),target:+t.target||100,batches:Math.ceil((+t.target||100)/20),status:t.status||'PLANNED'})));save()}catch(err){alert('Import error: '+err.message)}};
 $('export').onclick=()=>{let b=new Blob([JSON.stringify({schema:'EBV6_TOPIC_REGISTRY_1',topics},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='exam-brahmastra-topic-registry.json';a.click()};
 $('clear').onclick=()=>{if(confirm('Registry clear करें?')){topics=[];save()}};render();
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
