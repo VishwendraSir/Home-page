@@ -10,4 +10,5 @@ function render(){let f=$('filter').value,s=$('search').value.toLowerCase();let 
 function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function demo(){$('data').value=JSON.stringify({questions:[{id:'D1',question_en:'What is the SI unit of force?',topic:'Physics/Force'},{id:'D2',question_en:'What is SI unit for force?',topic:'Physics/Force'},{id:'D3',question_en:'Which planet is called the Red Planet?',topic:'Astronomy'}]},null,2);run()}
 function exportAudit(){let a={exported_at:new Date().toISOString(),notice:'Heuristic duplicate/concept audit; human review required.',summary:{total:qs.length,exact:results.filter(x=>x.status==='EXACT_DUPLICATE').length,similar:results.filter(x=>x.status==='HIGH_SIMILARITY').length,concept_repeat:results.filter(x=>x.status==='CONCEPT_REPEAT').length},records:results.map(x=>({id:x.q.id||x.i+1,status:x.status,matched_id:x.best.j>=0?(qs[x.best.j].id||x.best.j+1):null,similarity:x.best.sim,concept_tag:x.tag,question:text(x.q)}))};let el=document.createElement('a');el.href=URL.createObjectURL(new Blob([JSON.stringify(a,null,2)],{type:'application/json'}));el.download='duplicate-concept-audit-v11.json';el.click()}
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
