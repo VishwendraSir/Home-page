@@ -220,7 +220,7 @@ select.ctrl,input.ctrl{padding:11px 12px;border-radius:14px;border:1px solid var
    <button id="signOutBtn" style="margin-top:10px;padding:10px;border:0;border-radius:10px">Sign out</button>
   </div>
   <div id="adminPanel" style="display:none;text-align:left;margin-top:18px">
-   <h3>👑 Admin Dashboard</h3><div id="adminContent"></div>
+   <h3>👑 Admin Dashboard</h3><div id="adminContent"></div><button id="adminEnterAppBtn" style="margin-top:10px;padding:10px;border:0;border-radius:10px">Enter Learning App</button>
    <button id="adminRefreshBtn" style="margin-top:10px;padding:10px;border:0;border-radius:10px">Refresh</button>
   </div>
   <small style="display:block;margin-top:14px;color:#cbd5e1">SCIENCE CENTRE LEARNING HUB</small>
@@ -244,7 +244,7 @@ select.ctrl,input.ctrl{padding:11px 12px;border-radius:14px;border:1px solid var
     <div class="top-pills">
       <div class="pill" title="XP Points">⭐ <span id="topXP">50</span></div>
       <div class="pill" title="Day Streak">🔥 <span id="topStreak">1</span></div>
-      <button class="icon-btn" id="soundBtn" title="Toggle Sound">🔊</button>
+      <button class="icon-btn" id="soundBtn" title="Toggle Sound">🔊</button><button class="icon-btn" id="accessAdminBtn" title="Access Dashboard" style="display:none" onclick="window.openAccessDashboard()">🔐</button>
       <button class="icon-btn" onclick="shareAppFile()" title="Share HTML File">📤</button>
       <button class="icon-btn" onclick="downloadSelfHTML()" title="Download HTML File">⬇️</button>
       <select class="theme-sel" id="themeSelect" aria-label="Theme">
@@ -1470,7 +1470,7 @@ else {
   const sref=doc(db,"students",user.uid);let ss=await getDoc(sref);
   if(!ss.exists()){await setDoc(sref,{uid:user.uid,email:user.email||"",name:user.displayName||"",emailVerified:!!user.emailVerified,status:"pending",remaining:0,batchNumber:0,createdAt:serverTimestamp()});ss=await getDoc(sref)}
   currentStudent=ss.data();studentPanel.style.display="block";
-  if(isAdmin){status.textContent="Admin access active.";adminPanel.style.display="block";await renderAdmin();}
+  if(isAdmin){status.textContent="Admin access active.";adminPanel.style.display="block";document.getElementById("accessAdminBtn").style.display="inline-flex";document.getElementById("adminEnterAppBtn").onclick=()=>gate.style.display="none";await renderAdmin();}
   else renderStudent();
   onSnapshot(sref,snap=>{if(snap.exists()){currentStudent=snap.data();if(!isAdmin)renderStudent();}});
  });
@@ -1498,17 +1498,17 @@ async function renderAdmin(){
  const p=students.docs.filter(x=>x.data().status==="pending"),approved=students.docs.filter(x=>x.data().status==="approved"),blocked=students.docs.filter(x=>["rejected","revoked"].includes(x.data().status));
  root.innerHTML="<p>Students: "+students.size+" • Pending: "+p.length+" • Approved: "+approved.length+" • Blocked: "+blocked.length+"</p>";
  for(const x of students.docs){const d=x.data();const row=document.createElement("div");row.style.cssText="padding:10px;margin:8px 0;background:#18345b;border-radius:10px";row.innerHTML="<b>"+(d.name||d.email||x.id)+"</b><br><small>"+d.email+" • "+d.status+" • "+(d.remaining||0)+" remaining • Batch "+(d.batchNumber||0)+"</small>";
- if(d.status==="pending"||d.status==="rejected"||d.status==="revoked"){const b=document.createElement("button");b.textContent="Approve 50";b.onclick=()=>adminApprove(x.id,50);row.appendChild(b)}
+ if(d.status==="pending"||d.status==="rejected"||d.status==="revoked"){const b=document.createElement("button");b.textContent="Approve 50";b.onclick=()=>adminApprove(x.id,50);row.appendChild(b);if(d.status==="pending"){const rb=document.createElement("button");rb.textContent="Reject";rb.onclick=()=>adminRejectStudent(x.id);row.appendChild(rb)}}
  if(d.status==="approved"&&d.remaining===0){const b=document.createElement("button");b.textContent="Grant next 50";b.onclick=()=>adminApprove(x.id,50);row.appendChild(b)}
  if(d.status==="approved"){const b=document.createElement("button");b.textContent="Revoke";b.onclick=()=>adminRevoke(x.id);row.appendChild(b)}
  root.appendChild(row)}
- const pendingRequests=requests.docs.filter(x=>x.data().status==="pending");if(pendingRequests.length){root.innerHTML+="<h4>Batch Requests</h4>";for(const x of pendingRequests){const d=x.data();const row=document.createElement("div");row.style.cssText="padding:10px;margin:8px 0;background:#18345b;border-radius:10px";row.textContent=d.email+" • Batch "+d.batchNumber;const b=document.createElement("button");b.textContent="Approve 50";b.onclick=()=>adminApprove(d.uid,50,x.id);row.appendChild(b);root.appendChild(row)}}
+ const pendingRequests=requests.docs.filter(x=>x.data().status==="pending");if(pendingRequests.length){root.innerHTML+="<h4>Batch Requests</h4>";for(const x of pendingRequests){const d=x.data();const row=document.createElement("div");row.style.cssText="padding:10px;margin:8px 0;background:#18345b;border-radius:10px";row.textContent=d.email+" • Batch "+d.batchNumber;const b=document.createElement("button");b.textContent="Approve 50";b.onclick=()=>adminApprove(d.uid,50,x.id);row.appendChild(b);const rb=document.createElement("button");rb.textContent="Reject";rb.onclick=()=>adminRejectRequest(x.id);row.appendChild(rb);root.appendChild(row)}}
 }
 async function adminApprove(uid,n,requestId){
  const ref=doc(db,"students",uid);await runTransaction(db,async tx=>{const snap=await tx.get(ref);if(!snap.exists())throw Error("Student not found");const d=snap.data();tx.update(ref,{status:"approved",remaining:(d.remaining||0)+n,batchNumber:(d.batchNumber||0)+1,approvedAt:serverTimestamp()});if(requestId)tx.update(doc(db,"batchRequests",requestId),{status:"approved",reviewedAt:serverTimestamp()})});
  await renderAdmin();status.textContent="Approval updated.";
 }
-async function adminRevoke(uid){await updateDoc(doc(db,"students",uid),{status:"revoked",remaining:0});await renderAdmin()}
+async function adminRevoke(uid){await updateDoc(doc(db,"students",uid),{status:"revoked",remaining:0});await renderAdmin()}\nasync function adminRejectStudent(uid){await updateDoc(doc(db,"students",uid),{status:"rejected",remaining:0});await renderAdmin()}\nasync function adminRejectRequest(requestId){await updateDoc(doc(db,"batchRequests",requestId),{status:"rejected",reviewedAt:serverTimestamp()});await renderAdmin()}
 window.consumeQuestionAttempt=async function(key){
  if(!currentUser||!currentStudent||currentStudent.status!=="approved"||!(currentStudent.remaining>0)){gate.style.display="flex";status.textContent="Access locked. Approval or next batch required.";return false}
  try{
