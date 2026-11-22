@@ -1,24 +1,36 @@
-# Science Vocabulary Master 500 ProMax — Secure Access Setup
+# Science Vocabulary 500 — Firebase Access Control (Spark-compatible)
 
-The static app requires Firebase for secure Gmail authentication, admin approval and enforceable 50-question batches.
+This version uses Firebase Authentication + Firestore + Security Rules. It does not require Cloud Functions, so it can be used on Spark for the supported Firebase products.
 
-## One-time deployment
-1. Create a Firebase project and a Web App.
-2. Enable Authentication → Google. Add `vishwendrasir.github.io` as an authorized domain.
-3. Create Firestore.
-4. Copy the Web App config into `firebase-config.js`. This web config is public; never commit service-account JSON/private keys.
-5. Sign in once, copy your Firebase Auth UID from Authentication → Users, then replace `REPLACE_WITH_ADMIN_UID` in both `firestore.rules` and `functions/index.js`.
-6. Install Firebase CLI; from the repository root run `firebase deploy --only firestore:rules,functions` (install `functions` dependencies with `npm install` first).
-7. Configure and deploy the matching modular Firebase Web SDK integration in the app before removing the fail-closed setup gate.
+## 1. Create Firebase Web App
+Firebase Console → Project settings → Your apps → Add Web App. Copy the config values into `firebase-config.js`. The config is public client config; never add service account keys.
 
-## Policy
-- Google sign-in with verified email.
-- New student creates a pending request.
-- Only the configured admin UID can approve/reject/revoke students.
-- Each approval/grant authorizes 50 server-counted attempts.
-- Attempts are decremented transactionally by Cloud Function; Firestore client writes are denied.
-- At zero remaining, practice is blocked until admin grants another 50.
-- Admin operations are callable Cloud Functions, not client-side password checks.
+## 2. Authentication
+Authentication → Sign-in method → enable Google. Add `vishwendrasir.github.io` under Authorized domains.
 
-## Status
-The committed HTML gate is fail-closed and remains locked until Firebase client integration, project config, Admin UID and deployed backend are complete. Adding files to GitHub does not itself create/configure a Firebase project or grant Firebase permissions.
+## 3. Firestore
+Create Firestore Database. Deploy `firestore.rules` in Firestore → Rules (or use Firebase CLI).
+
+## 4. Bootstrap Admin (one-time)
+Sign in to the app with your Google account, then copy your Firebase Auth UID from Authentication → Users.
+Firestore → Data → create collection `admins`, document ID = your exact UID. Add fields:
+- `role`: string `admin`
+- `createdAt`: timestamp (current time)
+
+Do not share or use another student's UID. Admin docs cannot be created from the app.
+
+## 5. Deploy
+If using Firebase CLI:
+`firebase deploy --only firestore:rules`
+Cloud Functions are not required for this Spark-compatible rules/transaction version.
+
+## Access policy
+- New Google users create a pending profile.
+- Admin approves initial access with 50 attempts.
+- Each question attempt is consumed using a Firestore transaction; rules require an approved profile and decrement by exactly one.
+- At zero, the student is locked until an admin grants the next 50.
+- Students may request the next batch; Admin approves/rejects in the dashboard.
+- Attempts are read-only and cannot be edited/deleted by students.
+
+## Notes
+Question-attempt accounting is applied to Quiz answers, Rapid Fire answers, Spelling submissions, Matching pair checks, and completed Scramble submissions. Flashcard viewing/dictionary browsing is not counted as a question attempt.
