@@ -207,6 +207,10 @@ select.ctrl,input.ctrl{padding:11px 12px;border-radius:14px;border:1px solid var
 }
 </style>
 <script src="firebase-config.js"></script>
+<script>
+window.addEventListener('error',function(e){var p=document.getElementById('runtimeErrorPanel');if(!p){p=document.createElement('div');p.id='runtimeErrorPanel';p.style.cssText='position:fixed;z-index:999999;inset:10px;background:#fff;color:#111;padding:18px;border:3px solid #dc2626;border-radius:12px;font:16px sans-serif;overflow:auto';document.body.appendChild(p)}p.innerHTML='<b>App error detected</b><br>'+String(e.message||e.error||'Unknown error')+'<br><small>'+String(e.filename||'')+' : '+String(e.lineno||'')+'</small>'});
+window.addEventListener('unhandledrejection',function(e){var p=document.getElementById('runtimeErrorPanel');if(!p){p=document.createElement('div');p.id='runtimeErrorPanel';p.style.cssText='position:fixed;z-index:999999;inset:10px;background:#fff;color:#111;padding:18px;border:3px solid #dc2626;border-radius:12px;font:16px sans-serif;overflow:auto';document.body.appendChild(p)}p.innerHTML='<b>App promise error detected</b><br>'+String(e.reason||'Unknown error')});
+</script>
 </head>
 <body data-theme="neon">\n<div id="accessGate" style="position:fixed;inset:0;z-index:99999;background:#07152e;color:white;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;font-family:system-ui;overflow:auto">
  <div style="max-width:520px;width:100%;background:#10264a;border:1px solid #47628d;border-radius:22px;padding:22px;box-shadow:0 20px 60px #0008">
