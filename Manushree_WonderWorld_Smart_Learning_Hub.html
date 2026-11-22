@@ -1644,5 +1644,58 @@
   </footer>
   <script>document.getElementById('wonderworld-footer-year').textContent=new Date().getFullYear();</script>
 
+
+  <!-- WonderWorld Signature Background Music Studio: single additive module -->
+  <style>
+    #wwMusicPanel{position:fixed;right:14px;bottom:90px;z-index:9998;width:min(340px,calc(100vw - 28px));display:none;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border:1px solid #ddd6fe;border-radius:24px;padding:16px;box-shadow:0 18px 55px rgba(49,46,129,.25);color:#312e81}
+    #wwMusicPanel.open{display:block}
+    #wwMusicToggle{position:fixed;right:16px;bottom:18px;z-index:9999;border:0;border-radius:999px;background:linear-gradient(135deg,#7c3aed,#2563eb);color:white;padding:13px 17px;box-shadow:0 8px 24px #4338ca55;font-weight:700}
+    #wwMusicPanel button{border:0;border-radius:12px;padding:9px 12px;font-weight:600}
+    #wwMusicPanel .ww-mode{background:#f3e8ff;color:#5b21b6}
+    #wwMusicPanel .ww-mode.active{background:#6d28d9;color:white}
+  </style>
+  <div id="wonderworld-music-studio">
+    <button id="wwMusicToggle" type="button" aria-expanded="false">🎵 Music Studio</button>
+    <div id="wwMusicPanel" role="dialog" aria-label="WonderWorld Background Music">
+      <div class="flex items-center justify-between mb-2"><strong class="text-lg">🎵 WonderWorld Music</strong><button id="wwMusicClose" aria-label="Close" style="background:#f3f4f6">✕</button></div>
+      <p class="text-xs text-gray-600 mb-3">Refreshing, gentle background sound. Music starts only when you tap Play.</p>
+      <div class="grid grid-cols-2 gap-2 mb-3">
+        <button class="ww-mode active" data-mode="magical">✨ Magical</button>
+        <button class="ww-mode" data-mode="focus">🧘 Focus</button>
+        <button class="ww-mode" data-mode="nature">🌿 Nature</button>
+        <button class="ww-mode" data-mode="play">🎮 Play</button>
+      </div>
+      <div class="flex items-center gap-3"><button id="wwMusicPlay" style="background:#6d28d9;color:white">▶ Play</button><label class="text-sm font-semibold flex-1" for="wwMusicVolume">Volume</label><span id="wwMusicVolLabel" class="text-xs">20%</span></div>
+      <input id="wwMusicVolume" type="range" min="0" max="50" value="20" class="w-full mt-2" aria-label="Music volume">
+      <div class="text-xs text-gray-500 mt-2">🔇 Keep volume low during reading and spoken lessons.</div>
+    </div>
+  </div>
+  <script>
+  (() => {
+    if(window.__wonderworldMusicStudioLoaded)return;window.__wonderworldMusicStudioLoaded=true;
+    const panel=document.getElementById('wwMusicPanel'),toggle=document.getElementById('wwMusicToggle'),playBtn=document.getElementById('wwMusicPlay'),closeBtn=document.getElementById('wwMusicClose'),vol=document.getElementById('wwMusicVolume'),label=document.getElementById('wwMusicVolLabel');
+    let ctx=null,master=null,playing=false,mode='magical',timer=null,noiseSource=null,noiseGain=null,step=0;
+    const patterns={
+      magical:[[261.63,329.63,392],[293.66,349.23,440],[246.94,329.63,392],[261.63,349.23,440]],
+      focus:[[220,277.18,329.63],[196,246.94,293.66],[220,261.63,329.63],[174.61,220,261.63]],
+      play:[[261.63,329.63,392],[329.63,392,493.88],[293.66,349.23,440],[392,493.88,587.33]],
+      nature:[[174.61,220,261.63],[196,246.94,293.66],[174.61,220,261.63],[164.81,207.65,246.94]]
+    };
+    function setup(){if(!ctx){ctx=new(window.AudioContext||window.webkitAudioContext)();master=ctx.createGain();master.gain.value=Number(vol.value)/100;master.connect(ctx.destination);}if(ctx.state==='suspended')ctx.resume();}
+    function tone(freq,duration=3){if(!ctx||!master)return;const now=ctx.currentTime;const osc=ctx.createOscillator(),gain=ctx.createGain(),filter=ctx.createBiquadFilter();osc.type=mode==='play'?'triangle':'sine';osc.frequency.value=freq;filter.type='lowpass';filter.frequency.value=mode==='play'?900:650;gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(.035,now+.35);gain.gain.exponentialRampToValueAtTime(.0001,now+duration);osc.connect(filter);filter.connect(gain);gain.connect(master);osc.start(now);osc.stop(now+duration+.05);}
+    function makeNature(){if(noiseSource)return;const buffer=ctx.createBuffer(1,ctx.sampleRate*2,ctx.sampleRate),data=buffer.getChannelData(0);for(let i=0;i<data.length;i++)data[i]=(Math.random()*2-1)*.22;noiseSource=ctx.createBufferSource();noiseSource.buffer=buffer;noiseSource.loop=true;const filter=ctx.createBiquadFilter();filter.type='lowpass';filter.frequency.value=mode==='nature'?480:240;noiseGain=ctx.createGain();noiseGain.gain.value=mode==='nature'?.12:.035;noiseSource.connect(filter);filter.connect(noiseGain);noiseGain.connect(master);noiseSource.start();}
+    function tick(){if(!playing)return;const chord=patterns[mode][step%patterns[mode].length];chord.forEach((f,i)=>tone(f*(i===2&&mode==='magical'?2:1),i===0?3.2:2.7));if(mode==='nature')makeNature();step++;}
+    function start(){setup();playing=true;step=0;tick();timer=setInterval(tick,mode==='play'?2400:3800);playBtn.textContent='⏸ Pause';toggle.textContent='🎵 Music ON';}
+    function stop(){playing=false;if(timer){clearInterval(timer);timer=null;}if(noiseSource){try{noiseSource.stop();}catch(e){}noiseSource=null;noiseGain=null;}if(master&&ctx)master.gain.setTargetAtTime(0,ctx.currentTime,.08);playBtn.textContent='▶ Play';toggle.textContent='🎵 Music Studio';}
+    function changeMode(m){const was=playing;stop();mode=m;document.querySelectorAll('#wwMusicPanel .ww-mode').forEach(b=>b.classList.toggle('active',b.dataset.mode===m));if(master&&ctx)master.gain.setTargetAtTime(Number(vol.value)/100,ctx.currentTime,.15);if(was)start();}
+    toggle.onclick=()=>{const open=!panel.classList.contains('open');panel.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));};
+    closeBtn.onclick=()=>{panel.classList.remove('open');toggle.setAttribute('aria-expanded','false');};
+    playBtn.onclick=()=>playing?stop():start();
+    vol.oninput=()=>{label.textContent=vol.value+'%';if(master&&ctx)master.gain.setTargetAtTime(Number(vol.value)/100,ctx.currentTime,.1);};
+    document.querySelectorAll('#wwMusicPanel .ww-mode').forEach(b=>b.onclick=()=>changeMode(b.dataset.mode));
+    document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing)stop();});
+  })();
+  </script>
+
 </body>
 </html>
