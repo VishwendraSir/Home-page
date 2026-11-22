@@ -206,16 +206,26 @@ select.ctrl,input.ctrl{padding:11px 12px;border-radius:14px;border:1px solid var
   .ws-sheet{border:none!important;padding:0!important;margin:0!important;box-shadow:none!important}
 }
 </style>
+<script src="firebase-config.js"></script>
 </head>
-<body data-theme="neon">\n<div id="accessGate" style="position:fixed;inset:0;z-index:99999;background:#07152e;color:white;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font-family:system-ui">
- <div style="max-width:480px;background:#10264a;border:1px solid #47628d;border-radius:22px;padding:28px;box-shadow:0 20px 60px #0008">
-  <div style="font-size:42px">🔐</div><h2>Student Access Required</h2>
-  <p>Google sign-in and administrator approval are required. Each approval grants 50 question attempts.</p>
-  <p id="accessStatus" style="color:#fcd34d">Secure access setup is not complete yet.</p>
-  <button id="googleLoginBtn" disabled style="padding:12px 20px;border:0;border-radius:12px;font-weight:800;background:#64748b;color:white">Google Sign-in (Setup Required)</button>
-  <small style="display:block;margin-top:14px;color:#cbd5e1">Admin approval activates access after Firebase configuration and backend deployment.</small>
+<body data-theme="neon">\n<div id="accessGate" style="position:fixed;inset:0;z-index:99999;background:#07152e;color:white;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;font-family:system-ui;overflow:auto">
+ <div style="max-width:520px;width:100%;background:#10264a;border:1px solid #47628d;border-radius:22px;padding:22px;box-shadow:0 20px 60px #0008">
+  <div style="font-size:40px">🔐</div><h2 style="margin:8px 0">Science Vocabulary Access</h2>
+  <p>Google sign-in • Admin approval • 50 questions per batch</p>
+  <p id="accessStatus" style="color:#fcd34d">Checking Firebase setup…</p>
+  <button id="googleLoginBtn" style="padding:12px 20px;border:0;border-radius:12px;font-weight:800;background:#fff;color:#10264a">Continue with Google</button>
+  <div id="studentPanel" style="display:none;text-align:left;margin-top:16px">
+   <p id="studentInfo"></p><div id="studentProgress"></div>
+   <button id="requestBatchBtn" style="display:none;margin-top:10px;padding:10px;border:0;border-radius:10px">Request next 50 questions</button>
+   <button id="signOutBtn" style="margin-top:10px;padding:10px;border:0;border-radius:10px">Sign out</button>
+  </div>
+  <div id="adminPanel" style="display:none;text-align:left;margin-top:18px">
+   <h3>👑 Admin Dashboard</h3><div id="adminContent"></div>
+   <button id="adminRefreshBtn" style="margin-top:10px;padding:10px;border:0;border-radius:10px">Refresh</button>
+  </div>
+  <small style="display:block;margin-top:14px;color:#cbd5e1">SCIENCE CENTRE LEARNING HUB</small>
  </div>
-</div>
+</div>>
 
 
 <canvas id="confetti"></canvas>
@@ -1432,4 +1442,77 @@ document.body.dataset.theme=savedTheme; $('themeSelect').value=savedTheme;
 syncUI();
 </script>
 
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+import {getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+import {getFirestore, doc, getDoc, setDoc, updateDoc, collection, getDocs, query, where, orderBy, serverTimestamp, runTransaction, addDoc} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+const cfg=window.SCIENCE_FIREBASE_CONFIG||{};
+const ready=cfg.apiKey&&!String(cfg.apiKey).startsWith("REPLACE_")&&cfg.projectId&&!String(cfg.projectId).startsWith("REPLACE_");
+const status=document.getElementById("accessStatus"), gate=document.getElementById("accessGate");
+const login=document.getElementById("googleLoginBtn"), studentPanel=document.getElementById("studentPanel"), adminPanel=document.getElementById("adminPanel");
+let auth,db,currentUser,currentStudent,isAdmin=false;
+if(!ready){status.textContent="Firebase config missing. Edit firebase-config.js with your Web App config.";login.disabled=true;login.style.opacity=".5";}
+else {
+ const app=initializeApp(cfg);auth=getAuth(app);db=getFirestore(app);
+ login.onclick=async()=>{try{await signInWithPopup(auth,new GoogleAuthProvider())}catch(e){status.textContent=e.message}};
+ document.getElementById("signOutBtn").onclick=()=>signOut(auth);
+ document.getElementById("adminRefreshBtn").onclick=renderAdmin;
+ onAuthStateChanged(auth,async user=>{
+  currentUser=user;studentPanel.style.display="none";adminPanel.style.display="none";
+  if(!user){status.textContent="Sign in with your Google account to request access.";login.disabled=false;return}
+  login.disabled=true;login.textContent="Signed in";
+  const adminSnap=await getDoc(doc(db,"admins",user.uid));isAdmin=adminSnap.exists();
+  const sref=doc(db,"students",user.uid);let ss=await getDoc(sref);
+  if(!ss.exists()){await setDoc(sref,{uid:user.uid,email:user.email||"",name:user.displayName||"",emailVerified:!!user.emailVerified,status:"pending",remaining:0,batchNumber:0,createdAt:serverTimestamp()});ss=await getDoc(sref)}
+  currentStudent=ss.data();studentPanel.style.display="block";
+  if(isAdmin){status.textContent="Admin access active.";adminPanel.style.display="block";await renderAdmin();}
+  else renderStudent();
+ });
+}
+function renderStudent(){
+ const d=currentStudent;status.textContent=d.status==="approved"?"Access approved.":"Approval pending.";
+ document.getElementById("studentInfo").textContent=(currentUser.displayName||"Student")+" • "+currentUser.email;
+ document.getElementById("studentProgress").innerHTML="<b>Status:</b> "+d.status+"<br><b>Batch:</b> "+(d.batchNumber||0)+"<br><b>Remaining:</b> "+(d.remaining||0)+" / 50";
+ const btn=document.getElementById("requestBatchBtn");
+ btn.style.display=d.status==="approved"&&d.remaining===0?"inline-block":"none";
+ btn.onclick=requestBatch;
+ if(d.status==="approved"&&d.remaining>0){gate.style.display="none";}
+ else gate.style.display="flex";
+}
+async function requestBatch(){
+ const req=await getDocs(query(collection(db,"batchRequests"),where("uid","==",currentUser.uid),where("status","==","pending")));
+ if(!req.empty){status.textContent="A batch request is already pending.";return}
+ await addDoc(collection(db,"batchRequests"),{uid:currentUser.uid,email:currentUser.email,status:"pending",createdAt:serverTimestamp(),batchNumber:(currentStudent.batchNumber||0)+1});
+ status.textContent="Next batch request sent to Admin.";
+}
+async function renderAdmin(){
+ const [students,requests]=await Promise.all([getDocs(collection(db,"students")),getDocs(query(collection(db,"batchRequests"),where("status","==","pending")))]); 
+ const root=document.getElementById("adminContent");
+ root.innerHTML="";
+ const p=students.docs.filter(x=>x.data().status==="pending"),approved=students.docs.filter(x=>x.data().status==="approved"),blocked=students.docs.filter(x=>["rejected","revoked"].includes(x.data().status));
+ root.innerHTML="<p>Students: "+students.size+" • Pending: "+p.length+" • Approved: "+approved.length+" • Blocked: "+blocked.length+"</p>";
+ for(const x of students.docs){const d=x.data();const row=document.createElement("div");row.style.cssText="padding:10px;margin:8px 0;background:#18345b;border-radius:10px";row.innerHTML="<b>"+(d.name||d.email||x.id)+"</b><br><small>"+d.email+" • "+d.status+" • "+(d.remaining||0)+" remaining • Batch "+(d.batchNumber||0)+"</small>";
+ if(d.status==="pending"||d.status==="rejected"||d.status==="revoked"){const b=document.createElement("button");b.textContent="Approve 50";b.onclick=()=>adminApprove(x.id,50);row.appendChild(b)}
+ if(d.status==="approved"&&d.remaining===0){const b=document.createElement("button");b.textContent="Grant next 50";b.onclick=()=>adminApprove(x.id,50);row.appendChild(b)}
+ if(d.status==="approved"){const b=document.createElement("button");b.textContent="Revoke";b.onclick=()=>adminRevoke(x.id);row.appendChild(b)}
+ root.appendChild(row)}
+ if(requests.size){root.innerHTML+="<h4>Batch Requests</h4>";for(const x of requests.docs){const d=x.data();const row=document.createElement("div");row.style.cssText="padding:10px;margin:8px 0;background:#18345b;border-radius:10px";row.textContent=d.email+" • Batch "+d.batchNumber;const b=document.createElement("button");b.textContent="Approve 50";b.onclick=()=>adminApprove(d.uid,50,x.id);row.appendChild(b);root.appendChild(row)}}
+}
+async function adminApprove(uid,n,requestId){
+ const ref=doc(db,"students",uid);await runTransaction(db,async tx=>{const snap=await tx.get(ref);if(!snap.exists())throw Error("Student not found");const d=snap.data();tx.update(ref,{status:"approved",remaining:(d.remaining||0)+n,batchNumber:(d.batchNumber||0)+1,approvedAt:serverTimestamp()});if(requestId)tx.update(doc(db,"batchRequests",requestId),{status:"approved",reviewedAt:serverTimestamp()})});
+ await renderAdmin();status.textContent="Approval updated.";
+}
+async function adminRevoke(uid){await updateDoc(doc(db,"students",uid),{status:"revoked",remaining:0});await renderAdmin()}
+window.consumeQuestionAttempt=async function(key){
+ if(!currentUser||!currentStudent||currentStudent.status!=="approved"||!(currentStudent.remaining>0)){gate.style.display="flex";status.textContent="Access locked. Approval or next batch required.";return false}
+ try{
+  const studentRef=doc(db,"students",currentUser.uid),attemptRef=doc(collection(db,"attempts"));
+  await runTransaction(db,async tx=>{const snap=await tx.get(studentRef);const d=snap.data();if(d.status!=="approved"||d.remaining<=0)throw Error("Question batch exhausted");tx.update(studentRef,{remaining:d.remaining-1,lastAttemptAt:serverTimestamp()});tx.set(attemptRef,{uid:currentUser.uid,questionKey:String(key||"question").slice(0,160),createdAt:serverTimestamp(),batchNumber:d.batchNumber||1})});
+  currentStudent.remaining--;document.getElementById("studentProgress").innerHTML="<b>Status:</b> approved<br><b>Batch:</b> "+currentStudent.batchNumber+"<br><b>Remaining:</b> "+currentStudent.remaining+" / 50";
+  if(currentStudent.remaining<=0){gate.style.display="flex";status.textContent="50-question batch completed. Request approval for next batch."}
+  return true;
+ }catch(e){status.textContent=e.message||"Question access denied.";gate.style.display="flex";return false}
+}
+window.checkAccessGate=()=>currentStudent?.status==="approved"&&currentStudent.remaining>0;
+</script>
 </body></html>
