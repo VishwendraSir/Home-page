@@ -270,6 +270,7 @@
             <button onclick="launchRandomGame()" class="btn-3d bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold px-5 py-3 rounded-2xl text-base sm:text-lg flex items-center gap-2">
               <span>🎲</span> <span data-i18n="surpriseGame">Surprise Game!</span>
             </button>
+            <button onclick="startDailyChallenge()" id="dailyChallengeBtn" class="btn-3d bg-gradient-to-r from-amber-400 to-orange-500 text-white font-black px-5 py-3 rounded-2xl text-base sm:text-lg flex items-center gap-2"><span>🏆</span><span>Daily Challenge · 0/5</span></button>
           </div>
         </div>
       </section>
@@ -484,7 +485,7 @@
       parentPin: '1234',
       videos: DEFAULT_VIDEOS,
       customPhotos: [], // { id, en, hi, dataUrl }
-      questionProgress: {}, questionSeeds: {}, answeredQuestions: {}, wrongAnswers: []
+      questionProgress: {}, questionSeeds: {}, answeredQuestions: {}, wrongAnswers: [], dailyChallenge: {date:'',completed:0,score:0,startedAt:0,active:false}
     };
 
     let appState = loadState();
@@ -830,6 +831,7 @@
       updateHUD();
       renderCategoryTabs();
       renderGamesGrid();
+      updateDailyChallengeUI();
       renderVideoZone();
       setTimeout(() => {
         showMascotMessage(appState.lang === 'hi' ? 'नमस्ते मनुश्री! चलो आज कुछ नया सीखें! 🌟' : 'Hi Manushree! Ready to play & learn? 🌟');
@@ -1431,6 +1433,7 @@
         appState.wrongAnswers=(appState.wrongAnswers||[]).filter(m=>!(m.gameId===id&&m.index===(questionProgress[id]||0))); saveState();
         document.querySelectorAll('#gameStage button').forEach(b=>{if(!b.classList.contains('next-question-btn')) b.disabled=true;});
         awardStar(id,game.cat,1);
+        if(appState.dailyChallenge&&appState.dailyChallenge.active&&appState.dailyChallenge.date===getTodayKey()){appState.dailyChallenge.score++;saveState();updateDailyChallengeUI();}
         const nextBtn=document.createElement('button');
         nextBtn.type='button';
         nextBtn.textContent=appState.lang==='hi'?'➡️ अगला प्रश्न':'➡️ Next Question';
@@ -1446,7 +1449,30 @@
         fb.textContent=appState.lang==='hi'?'फिर कोशिश करो!':'Try again!'; fb.className='font-bold text-lg mt-4 text-rose-600 min-h-8'; playWrongSound();
       }
     }
-    function nextQuestion(id){ questionProgress[id]=(questionProgress[id]||0)+1; appState.questionProgress=questionProgress; saveState(); loadGame(id,true); }
+    function nextQuestion(id){
+      questionProgress[id]=(questionProgress[id]||0)+1; appState.questionProgress=questionProgress; saveState();
+      const d=appState.dailyChallenge;
+      if(d&&d.active&&d.date===getTodayKey()){
+        d.completed=Math.min(5,(d.completed||0)+1);saveState();updateDailyChallengeUI();
+        if(d.completed>=5){d.active=false;d.finishedAt=Date.now();saveState();goHome();showToast(appState.lang==='hi'?'🏆 दैनिक चुनौती पूरी! शानदार!':'🏆 Daily Challenge Complete! Amazing!', '🏆','bg-amber-500');return;}
+      }
+      loadGame(id,true);
+    }
+    function getTodayKey(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+    function updateDailyChallengeUI(){
+      const b=document.getElementById('dailyChallengeBtn');if(!b)return;
+      const d=appState.dailyChallenge||{};const today=getTodayKey();const count=d.date===today?(d.completed||0):0;
+      b.innerHTML='<span>🏆</span><span>'+(appState.lang==='hi'?'दैनिक चुनौती · ':'Daily Challenge · ')+count+'/5</span>';
+      if(count>=5){b.classList.remove('from-amber-400','to-orange-500');b.classList.add('from-emerald-500','to-green-600');}
+    }
+    function startDailyChallenge(){
+      const today=getTodayKey();let d=appState.dailyChallenge||{};
+      if(d.date!==today)d={date:today,completed:0,score:0,startedAt:Date.now(),active:false};
+      if(d.completed>=5){showToast(appState.lang==='hi'?'आज की चुनौती पूरी हो गई! कल फिर आएँ।':'Today’s challenge is complete! Come back tomorrow.','🏆','bg-amber-500');return;}
+      d.active=true;d.startedAt=d.startedAt||Date.now();appState.dailyChallenge=d;saveState();updateDailyChallengeUI();
+      const game=GAMES[Math.floor(Math.random()*GAMES.length)];loadGame(game.id);
+      showToast(appState.lang==='hi'?'दैनिक चुनौती शुरू! 5 प्रश्न पूरे करो।':'Daily Challenge started! Complete 5 questions.','🏆','bg-orange-500');
+    }
     function practiceMistakes(){
       const mistakes=appState.wrongAnswers||[]; if(!mistakes.length){showToast('No mistakes to practice!','🎉','bg-green-600');return;}
       const m=mistakes[0]; questionProgress[m.gameId]=m.index; appState.questionProgress=questionProgress; saveState(); closeParentModal(); loadGame(m.gameId);
