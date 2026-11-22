@@ -865,6 +865,7 @@
       appState.lang = appState.lang === 'en' ? 'hi' : 'en';
       saveState();
       updateLanguageUI();
+      if(currentGame) loadGame(currentGame.id,true);
       speak(appState.lang === 'hi' ? 'हिंदी मोड चालू है, मनुश्री!' : 'English mode is on, Manushree!');
     }
 
@@ -1401,7 +1402,9 @@
       const order=questions.map((_,i)=>i);
       let state=seed>>>0;
       for(let i=order.length-1;i>0;i--){state=(state*1664525+1013904223)>>>0;const j=state%(i+1);[order[i],order[j]]=[order[j],order[i]];}
-      return questions[order[index%order.length]];
+      const selected=questions[order[index%order.length]];
+      const displayQuestion=selected.q.includes('/')?selected.q.split('/')[appState.lang==='hi'?1:0].trim():selected.q;
+      return {...selected,q:displayQuestion,totalCount:questions.length};
     }
     function loadGame(id, keepView=false) {
       const game=GAMES.find(g=>g.id===id); if(!game) return;
@@ -1411,7 +1414,7 @@
         document.getElementById('gameView').classList.remove('hidden');
       }
       document.getElementById('activeGameTitle').textContent=appState.lang==='hi'?game.hi:game.en;
-      document.getElementById('activeGameSub').textContent=game.cat+' • '+CLASS_NAMES[appState.classLevel]+' • Question '+((questionProgress[id]||0)+1)+' / '+(8+3);
+      document.getElementById('activeGameSub').textContent=game.cat+' • '+CLASS_NAMES[appState.classLevel]+' • Question '+((questionProgress[id]||0)+1)+' / '+q.totalCount;
       const q=renderQuestionGame(game);
       const stage=document.getElementById('gameStage');
       stage.innerHTML='<div class="text-center w-full max-w-xl"><div class="text-6xl mb-4">'+game.icon+'</div><h3 class="text-xl sm:text-2xl font-bold mb-3">'+q.q+'</h3><div class="text-4xl my-4">'+q.visual+'</div><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">'+q.a.map(a=>'<button class="btn-3d bg-white border-2 border-purple-200 rounded-2xl p-4 font-bold text-lg hover:bg-purple-50" onclick="answerGame(\''+id+'\',\''+a.replace(/'/g,"\\'")+'\')">'+a+'</button>').join('')+'</div><p id="gameFeedback" class="font-bold text-lg mt-4 min-h-8"></p><button onclick="loadGame(\''+id+'\')" class="mt-4 bg-indigo-100 text-indigo-700 rounded-xl px-4 py-2 font-bold">🔄 Try Again</button></div>';
