@@ -207,7 +207,16 @@ select.ctrl,input.ctrl{padding:11px 12px;border-radius:14px;border:1px solid var
 }
 </style>
 </head>
-<body data-theme="neon">
+<body data-theme="neon">\n<div id="accessGate" style="position:fixed;inset:0;z-index:99999;background:#07152e;color:white;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font-family:system-ui">
+ <div style="max-width:480px;background:#10264a;border:1px solid #47628d;border-radius:22px;padding:28px;box-shadow:0 20px 60px #0008">
+  <div style="font-size:42px">🔐</div><h2>Student Access Required</h2>
+  <p>Google sign-in and administrator approval are required. Each approval grants 50 question attempts.</p>
+  <p id="accessStatus" style="color:#fcd34d">Secure access setup is not complete yet.</p>
+  <button id="googleLoginBtn" disabled style="padding:12px 20px;border:0;border-radius:12px;font-weight:800;background:#64748b;color:white">Google Sign-in (Setup Required)</button>
+  <small style="display:block;margin-top:14px;color:#cbd5e1">Admin approval activates access after Firebase configuration and backend deployment.</small>
+ </div>
+</div>
+
 
 <canvas id="confetti"></canvas>
 <div id="toast">Saved!</div>
