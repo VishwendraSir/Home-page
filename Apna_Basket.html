@@ -175,6 +175,7 @@ function printOrder(id){
  w.document.write(`<html><head><title>${esc(o.id)}</title><style>body{font:15px Arial;padding:24px}h2{margin-bottom:4px}hr{border:0;border-top:1px dashed #777}table{width:100%;border-collapse:collapse}td{padding:8px 0;border-bottom:1px solid #ddd}</style></head><body><h2>${esc(settings.name)}</h2><p>Order Receipt • ${esc(o.id)}</p><hr><p>Customer: ${esc(o.name)}<br>Phone: ${esc(o.phone)}<br>Address: ${esc(o.address)}<br>PIN: ${esc(o.pincode||"")}</p><hr><p>${esc(orderItemsText(o))}</p><hr><h3>Total: ${money(orderAmount(o))}</h3><p>Payment: ${esc(o.payment||"")}<br>Status: ${esc(o.status)}</p><script>window.onload=()=>window.print()<\\/script>
 
 
+<script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
 </body></html>`);w.document.close();
 }
 function applyCoupon(){
