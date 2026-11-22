@@ -13,4 +13,5 @@ const grid=document.getElementById("grid"),q=document.getElementById("q"),group=
 document.getElementById("total").textContent=files.length;
 function draw(){const term=q.value.trim().toLowerCase();const rows=files.filter(f=>(!term||(f.title+" "+f.path+" "+f.group).toLowerCase().includes(term))&&(!group.value||f.group===group.value)&&(!status.value||f.state===status.value));document.getElementById("shown").textContent=rows.length;document.getElementById("count").textContent=rows.length+" / "+files.length+" pages";document.getElementById("empty").style.display=rows.length?"none":"block";grid.innerHTML=rows.map(f=>{const p=enc(f.path),live=base+p,edit=repo+"/edit/main/"+p;return '<article class="item"><div class="meta"><span class="pill">'+f.group+'</span><span class="pill">'+f.state+'</span></div><h3>'+f.title+'</h3><div class="path">'+f.path+'</div><div class="actions"><a target="_blank" rel="noopener" href="'+live+'">↗ Live Page</a><a class="edit" target="_blank" rel="noopener" href="'+edit+'">✎ GitHub Edit</a></div></article>'}).join("")}
 [q,group,status].forEach(el=>el.addEventListener("input",draw));draw();
-</script></body></html>
+</script><script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=3"></script>
+</body></html>
