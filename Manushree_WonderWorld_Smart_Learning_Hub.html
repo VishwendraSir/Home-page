@@ -1881,81 +1881,75 @@
     #wwPremiumGate.open{display:flex}
   </style>
   <div id="wwPremiumGate" role="dialog" aria-modal="true">
-    <div class="bg-white rounded-3xl shadow-2xl p-6 w-full max-w-md text-center">
-      <div class="text-5xl mb-2">🌈🔒</div><h2 class="text-2xl font-black text-purple-800">WonderWorld Premium</h2>
-      <p class="mt-2 font-bold text-slate-700">आज का आपका Free Learning Time पूरा हो गया!</p>
-      <div class="my-4 rounded-2xl bg-gradient-to-r from-purple-100 to-pink-100 p-4">
-        <div class="text-4xl font-black text-purple-800">₹49 <span class="text-lg">/ month</span></div>
-        <p class="text-sm font-semibold mt-1">Unlimited Learning • Games • Practice • Quiz</p>
+    <div class="bg-white rounded-3xl shadow-2xl p-5 w-full max-w-md text-center max-h-[92vh] overflow-y-auto">
+      <div class="text-5xl mb-2">🌈🔒</div>
+      <h2 class="text-2xl font-black text-purple-800">WonderWorld Premium</h2>
+      <p class="mt-2 font-bold text-slate-700">आज का आपका 1 Hour Free Learning Time पूरा हो गया!</p>
+      <p class="mt-1 text-sm text-slate-600">पढ़ाई जारी रखने के लिए अपना Premium Plan चुनें।</p>
+      <div class="grid grid-cols-1 gap-3 my-4 text-left">
+        <button type="button" id="wwPlan49" class="border-2 border-pink-300 rounded-2xl p-3 bg-pink-50 text-left">
+          <div class="text-xl font-black text-pink-700">🌸 ₹49 / Month</div>
+          <div class="font-bold text-slate-800">Manushree Plan</div>
+          <div class="text-xs text-slate-600 mt-1">Manushree के साथ Unlimited Learning • Quiz • Games • Practice</div>
+        </button>
+        <button type="button" id="wwPlan99" class="border-2 border-purple-300 rounded-2xl p-3 bg-purple-50 text-left">
+          <div class="text-xl font-black text-purple-700">⭐ ₹99 / Month</div>
+          <div class="font-bold text-slate-800">My Choice Plan</div>
+          <div class="text-xs text-slate-600 mt-1">अपनी पसंद का नाम • Personalized Premium • Unlimited Learning</div>
+        </button>
       </div>
-      <p class="text-xs text-slate-600">Subscription request Parent द्वारा भेजें। Premium Admin confirmation के बाद activate होगा।</p>
-      <div class="mt-4 text-left space-y-2">
+      <label id="wwChoiceNameWrap" class="hidden block text-left text-xs font-bold text-slate-700 mb-3">आप अपने Premium Plan का नाम रखें
+        <input id="wwChoiceName" class="mt-1 w-full border-2 border-purple-200 rounded-xl p-2" maxlength="30" placeholder="अपना पसंदीदा नाम लिखें">
+      </label>
+      <p id="wwSelectedPlan" class="text-sm font-black text-indigo-700">कृपया ऊपर से अपना Plan चुनें।</p>
+      <p class="text-xs text-slate-600 mt-2">Membership request Parent द्वारा भेजें। Admin verification/approval के बाद Premium activate होगा।</p>
+      <div class="mt-3 text-left space-y-2">
         <label class="block text-xs font-bold text-slate-700">Parent Name <input id="wwParentName" class="mt-1 w-full border rounded-xl p-2" placeholder="Enter parent name"></label>
         <label class="block text-xs font-bold text-slate-700">Mobile Number <input id="wwParentPhone" inputmode="tel" class="mt-1 w-full border rounded-xl p-2" placeholder="10-digit mobile number"></label>
         <label class="block text-xs font-bold text-slate-700">Payment Screenshot (optional) <input id="wwPaymentProof" type="file" accept="image/*" class="mt-1 w-full text-xs"></label>
         <p id="wwMembershipStatus" class="text-xs font-bold text-indigo-700">Membership: Free Trial / Not subscribed</p>
       </div>
-      <a id="wwPremiumRequest" target="_blank" rel="noopener" class="block mt-4 rounded-2xl bg-green-600 text-white font-black py-3">📲 Send Membership Request</a>
-      <button id="wwAdminApproval" class="mt-2 w-full rounded-xl border border-slate-300 text-slate-600 text-xs font-bold py-2">Admin Approval (Demo)</button>
-      <button id="wwPremiumClose" class="mt-3 w-full rounded-xl bg-slate-100 text-slate-700 font-bold py-3">Close</button>
+      <button id="wwPremiumRequest" type="button" class="block w-full mt-4 rounded-2xl bg-green-600 text-white font-black py-3">📲 Send Membership Request on WhatsApp</button>
+      <button id="wwAdminApproval" type="button" class="mt-2 w-full rounded-xl border border-slate-300 text-slate-600 text-xs font-bold py-2">Admin Approval (Demo)</button>
+      <button id="wwPremiumClose" type="button" class="mt-3 w-full rounded-xl bg-slate-100 text-slate-700 font-bold py-3">Close</button>
     </div>
   </div>
   <script>
   (()=> {
-    if(window.__wwDailyFreePremiumV1)return;window.__wwDailyFreePremiumV1=true;
-    const FREE_MS=60*60*1000,DAY_MS=24*60*60*1000,STORE='wwDailyUsage_v1';
+    if(window.__wwDailyFreePremiumV2)return;window.__wwDailyFreePremiumV2=true;
+    const FREE_MS=60*60*1000,STORE='wwDailyUsage_v1';
     const gate=document.getElementById('wwPremiumGate'),close=document.getElementById('wwPremiumClose'),req=document.getElementById('wwPremiumRequest');
     const nameInput=document.getElementById('wwParentName'),phoneInput=document.getElementById('wwParentPhone'),proof=document.getElementById('wwPaymentProof'),status=document.getElementById('wwMembershipStatus'),admin=document.getElementById('wwAdminApproval');
-    const MEMBER='wwMembershipRequest_v1',PREMIUM='wwPremiumActive_v1';
+    const plan49=document.getElementById('wwPlan49'),plan99=document.getElementById('wwPlan99'),choiceWrap=document.getElementById('wwChoiceNameWrap'),choiceName=document.getElementById('wwChoiceName'),selectedPlan=document.getElementById('wwSelectedPlan');
+    const MEMBER='wwMembershipRequest_v2',PREMIUM='wwPremiumActive_v1';let selected='49';
     function member(){try{return JSON.parse(localStorage.getItem(MEMBER)||'{}')}catch(e){return {}}}
     function refresh(){const m=member();status.textContent=localStorage.getItem(PREMIUM)==='1'?'💎 Premium Active (this device)':'Membership: '+(m.status||'Free Trial / Not subscribed');}
-    req.href='#';req.onclick=(e)=>{e.preventDefault();const name=nameInput.value.trim(),phone=phoneInput.value.trim();if(!name||!/^[0-9+\\-\\s]{10,15}$/.test(phone)){alert('Parent name और valid mobile number भरें।');return;}const m={name,phone,plan:'₹49/month',status:'Request Sent',requestedAt:new Date().toISOString(),proofName:proof.files&&proof.files[0]?proof.files[0].name:''};try{localStorage.setItem(MEMBER,JSON.stringify(m));}catch(e){}const message='WonderWorld Premium Request\\nParent: '+name+'\\nMobile: '+phone+'\\nPlan: ₹49/month\\nPayment proof: '+(m.proofName||'Not attached')+'\\nPlease verify and activate.';window.open('https://wa.me/916350248088?text='+encodeURIComponent(message),'_blank','noopener');refresh();};
-    admin.onclick=()=>{const pin=prompt('Demo Admin PIN:');if(pin!=='1234'){alert('Incorrect PIN');return;}const m=member();if(!m.name){alert('No membership request found on this device.');return;}if(confirm('Approve ₹49/month Premium for '+m.name+' on THIS device?')){try{localStorage.setItem(PREMIUM,'1');m.status='Approved (Demo)';m.approvedAt=new Date().toISOString();localStorage.setItem(MEMBER,JSON.stringify(m));}catch(e){}refresh();gate.classList.remove('open');updateAccessBadge();alert('Demo Premium activated on this device.');}};
+    function selectPlan(p){selected=p;plan49.classList.toggle('ring-4',p==='49');plan99.classList.toggle('ring-4',p==='99');choiceWrap.classList.toggle('hidden',p!=='99');selectedPlan.textContent=p==='49'?'Selected: 🌸 Manushree Plan — ₹49/month':'Selected: ⭐ My Choice Plan — ₹99/month';req.textContent='📲 Request '+(p==='49'?'Manushree Plan':'My Choice Plan')+' on WhatsApp';}
+    plan49.onclick=()=>selectPlan('49');plan99.onclick=()=>selectPlan('99');selectPlan('49');
+    req.onclick=()=>{const parent=nameInput.value.trim(),phone=phoneInput.value.trim(),custom=choiceName.value.trim();if(!parent||!/^[0-9+\-\s]{10,15}$/.test(phone)){alert('Parent name और valid mobile number भरें।');return;}if(selected==='99'&&!custom){alert('₹99 My Choice Plan के लिए अपना पसंदीदा नाम लिखें।');choiceName.focus();return;}const plan=selected==='49'?'Manushree Plan (₹49/month)':'My Choice Plan (₹99/month)',m={name:parent,phone,plan,customName:selected==='99'?custom:'Manushree',status:'Request Sent',requestedAt:new Date().toISOString(),proofName:proof.files&&proof.files[0]?proof.files[0].name:''};try{localStorage.setItem(MEMBER,JSON.stringify(m));}catch(e){}const message='WonderWorld Premium Membership Request\nParent: '+parent+'\nMobile: '+phone+'\nPlan: '+plan+'\nPersonalized Name: '+(selected==='99'?custom:'Manushree')+'\nDaily 1-hour limit: Unlimited after admin approval\nPayment proof: '+(m.proofName||'Not attached')+'\nPlease verify and activate.';window.open('https://wa.me/916350248088?text='+encodeURIComponent(message),'_blank','noopener');refresh();};
+    admin.onclick=()=>{const pin=prompt('Demo Admin PIN:');if(pin!=='1234'){alert('Incorrect PIN');return;}const m=member();if(!m.name){alert('No membership request found on this device.');return;}if(confirm('Approve '+m.plan+' Premium for '+(m.customName||m.name)+' on THIS device?')){try{localStorage.setItem(PREMIUM,'1');m.status='Approved (Demo)';m.approvedAt=new Date().toISOString();localStorage.setItem(MEMBER,JSON.stringify(m));}catch(e){}refresh();gate.classList.remove('open');updateAccessBadge();alert('Demo Premium activated on this device.');}};
     close.onclick=()=>gate.classList.remove('open');refresh();
     function read(){try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch(e){return {}}}
     function today(){const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
     function usage(){let s=read();if(s.day!==today()){s={day:today(),used:0};try{localStorage.setItem(STORE,JSON.stringify(s))}catch(e){}}return s}
     function premiumActive(){return localStorage.getItem(PREMIUM)==='1'}
     function active(){return premiumActive()||usage().used<FREE_MS}
-    function save(s){try{localStorage.setItem(STORE,JSON.stringify(s))}catch(e){}}
     function remaining(){return premiumActive()?FREE_MS:Math.max(0,FREE_MS-(usage().used||0))}
     function updateAccessBadge(){const el=document.getElementById('wwAccessBadge');if(el)el.textContent=premiumActive()?'💎 Premium Unlimited':'⏳ Free time: '+Math.floor(remaining()/60000)+' min '+Math.floor(remaining()%60000/1000)+' sec';}
-    // Persistent daily timer: refresh/reopen never resets today's accumulated usage.
     const BACKUP='wwDailyUsageBackup_v1',LAST='wwDailyUsageLastTick_v1';
+    function save(s){try{localStorage.setItem(STORE,JSON.stringify(s))}catch(e){}}
     function safeWrite(s){save(s);try{localStorage.setItem(BACKUP,JSON.stringify(s));}catch(e){}}
-    function usage(){
-      let primary=read(),backup={};
-      try{backup=JSON.parse(localStorage.getItem(BACKUP)||'{}')}catch(e){}
-      const day=today();
-      const candidates=[primary,backup].filter(x=>x&&x.day===day);
-      let s=candidates.length?candidates.reduce((best,x)=>Math.max(Number(best.used)||0,Number(x.used)||0),{used:0}):{day,used:0};
-      s={day,used:Math.max(0,Math.min(FREE_MS,Number(s.used)||0))};
-      safeWrite(s);return s;
-    }
+    function usage(){let primary=read(),backup={};try{backup=JSON.parse(localStorage.getItem(BACKUP)||'{}')}catch(e){}const day=today(),candidates=[primary,backup].filter(x=>x&&x.day===day);let s=candidates.length?candidates.reduce((best,x)=>Math.max(Number(best.used)||0,Number(x.used)||0),{used:0}):{day,used:0};s={day,used:Math.max(0,Math.min(FREE_MS,Number(s.used)||0))};safeWrite(s);return s;}
     let last=Date.now(),timerInterval=null;
     function gameActive(){const gv=document.getElementById('gameView');return !!(gv&&!gv.classList.contains('hidden'));}
-    function accountElapsed(now){
-      const delta=Math.max(0,now-last);last=now;
-      if(delta&&gameActive()&&!premiumActive()){
-        const s=usage();s.used=Math.min(FREE_MS,(s.used||0)+delta);safeWrite(s);
-        if(s.used>=FREE_MS){gate.classList.add('open');if(window.currentGame){document.getElementById('gameView').classList.add('hidden');document.getElementById('homeView').classList.remove('hidden');}}
-      }
-    }
+    function accountElapsed(now){const delta=Math.max(0,now-last);last=now;if(delta&&gameActive()&&!premiumActive()){const s=usage();s.used=Math.min(FREE_MS,(s.used||0)+delta);safeWrite(s);if(s.used>=FREE_MS){gate.classList.add('open');if(window.currentGame){document.getElementById('gameView').classList.add('hidden');document.getElementById('homeView').classList.remove('hidden');}}}}
     function persistTimer(){const now=Date.now();accountElapsed(now);try{localStorage.setItem(LAST,String(now));}catch(e){}updateAccessBadge();refreshParentTimeReport();}
     function tick(){accountElapsed(Date.now());updateAccessBadge();refreshParentTimeReport();}
-    document.addEventListener('visibilitychange',()=>{persistTimer();});
-    window.addEventListener('storage',e=>{if(e.key===STORE||e.key===BACKUP){updateAccessBadge();refreshParentTimeReport();}});
-    window.addEventListener('pagehide',persistTimer);
-    window.addEventListener('beforeunload',persistTimer);
-    if(!timerInterval)timerInterval=setInterval(tick,1000);
+    document.addEventListener('visibilitychange',persistTimer);window.addEventListener('storage',e=>{if(e.key===STORE||e.key===BACKUP){updateAccessBadge();refreshParentTimeReport();}});window.addEventListener('pagehide',persistTimer);window.addEventListener('beforeunload',persistTimer);if(!timerInterval)timerInterval=setInterval(tick,1000);
     window.wwFreeTimeRemaining=()=>remaining();
-    window.wwExportParentReport=function(){const todayLabel=new Date().toLocaleDateString();const used=premiumActive()?0:Math.max(0,FREE_MS-remaining());const report='Manushree WonderWorld Parent Report\\nDate: '+todayLabel+'\\nAccess: '+(premiumActive()?'Premium (local demo)':'Free plan')+'\\nScreen time counted in game view: '+Math.floor(used/60000)+' minutes '+Math.floor(used%60000/1000)+' seconds\\nFree limit: 60 minutes/day\\nStars: '+appState.stars+'\\nStreak: '+appState.streak+' days\\nGames played: '+Object.values(appState.completedGames).reduce((a,b)=>a+b,0)+'\\nMistakes to practice: '+(appState.wrongAnswers||[]).length+'\\nNote: This report is stored on this device; it is not server verified.';const blob=new Blob([report],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='WonderWorld_Parent_Report.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};
+    window.wwExportParentReport=function(){const todayLabel=new Date().toLocaleDateString();const used=premiumActive()?0:Math.max(0,FREE_MS-remaining());const report='Manushree WonderWorld Parent Report\nDate: '+todayLabel+'\nAccess: '+(premiumActive()?'Premium (local demo)':'Free plan')+'\nScreen time counted in game view: '+Math.floor(used/60000)+' minutes '+Math.floor(used%60000/1000)+' seconds\nFree limit: 60 minutes/day\nStars: '+appState.stars+'\nStreak: '+appState.streak+' days\nGames played: '+Object.values(appState.completedGames).reduce((a,b)=>a+b,0)+'\nMistakes to practice: '+(appState.wrongAnswers||[]).length+'\nNote: This report is stored on this device; it is not server verified.';const blob=new Blob([report],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='WonderWorld_Parent_Report.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};
     function refreshParentTimeReport(){const el=document.getElementById('wwParentTimeReport');if(el){const used=premiumActive()?0:Math.max(0,FREE_MS-remaining());el.textContent=(premiumActive()?'💎 Premium active (local demo).':'⏳ Free time used today: '+Math.floor(used/60000)+' min '+Math.floor(used%60000/1000)+' sec • Remaining: '+Math.floor(remaining()/60000)+' min '+Math.floor(remaining()%60000/1000)+' sec')+' • Daily limit: 60 minutes';}}
-    setInterval(refreshParentTimeReport,1000);
-    window.wwShowPremiumGate=()=>gate.classList.add('open');
-    const oldCheck=window.quizShareGateCheck;
-    window.quizShareGateCheck=function(id){if(premiumActive()){gate.classList.remove('open');return true;}if(active()){gate.classList.remove('open');return oldCheck?oldCheck(id):true;}gate.classList.add('open');return false;};
-    window.wwPremiumStatusText=()=>premiumActive()?'Premium unlimited access active':Math.floor(remaining()/60000)+' min '+Math.floor(remaining()%60000/1000)+' sec free remaining today';
+    setInterval(refreshParentTimeReport,1000);window.wwShowPremiumGate=()=>gate.classList.add('open');const oldCheck=window.quizShareGateCheck;window.quizShareGateCheck=function(id){if(premiumActive()){gate.classList.remove('open');return true;}if(active()){gate.classList.remove('open');return oldCheck?oldCheck(id):true;}gate.classList.add('open');return false;};window.wwPremiumStatusText=()=>premiumActive()?'Premium unlimited access active':Math.floor(remaining()/60000)+' min '+Math.floor(remaining()%60000/1000)+' sec free remaining today';
   })();
   </script>
 
