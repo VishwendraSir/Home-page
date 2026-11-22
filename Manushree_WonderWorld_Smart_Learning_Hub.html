@@ -1932,21 +1932,21 @@
       s.used=Math.max(0,Math.min(FREE_MS,Number(s.used)||0));
       safeWrite(s);return s;
     }
-    let last=Date.now();
+    let last=Date.now(),timerInterval=null;
     function gameActive(){const gv=document.getElementById('gameView');return !!(gv&&!gv.classList.contains('hidden'));}
-    function persistTimer(){try{localStorage.setItem(LAST,String(Date.now()));}catch(e){}}
-    function tick(){
-      const now=Date.now(),delta=Math.max(0,Math.min(now-last,5000));last=now;
-      if(gameActive()&&!premiumActive()&&active()){
+    function accountElapsed(now){
+      const delta=Math.max(0,now-last);last=now;
+      if(delta&&gameActive()&&!premiumActive()){
         const s=usage();s.used=Math.min(FREE_MS,(s.used||0)+delta);safeWrite(s);
         if(s.used>=FREE_MS){gate.classList.add('open');if(window.currentGame){document.getElementById('gameView').classList.add('hidden');document.getElementById('homeView').classList.remove('hidden');}}
       }
-      updateAccessBadge();refreshParentTimeReport();
     }
-    document.addEventListener('visibilitychange',()=>{last=Date.now();persistTimer();});
+    function persistTimer(){const now=Date.now();accountElapsed(now);try{localStorage.setItem(LAST,String(now));}catch(e){}updateAccessBadge();refreshParentTimeReport();}
+    function tick(){accountElapsed(Date.now());updateAccessBadge();refreshParentTimeReport();}
+    document.addEventListener('visibilitychange',()=>{persistTimer();});
     window.addEventListener('pagehide',persistTimer);
     window.addEventListener('beforeunload',persistTimer);
-    setInterval(tick,1000);
+    if(!timerInterval)timerInterval=setInterval(tick,1000);
     window.wwFreeTimeRemaining=()=>remaining();
     window.wwExportParentReport=function(){const todayLabel=new Date().toLocaleDateString();const used=premiumActive()?0:Math.max(0,FREE_MS-remaining());const report='Manushree WonderWorld Parent Report\\nDate: '+todayLabel+'\\nAccess: '+(premiumActive()?'Premium (local demo)':'Free plan')+'\\nScreen time counted in game view: '+Math.floor(used/60000)+' minutes '+Math.floor(used%60000/1000)+' seconds\\nFree limit: 60 minutes/day\\nStars: '+appState.stars+'\\nStreak: '+appState.streak+' days\\nGames played: '+Object.values(appState.completedGames).reduce((a,b)=>a+b,0)+'\\nMistakes to practice: '+(appState.wrongAnswers||[]).length+'\\nNote: This report is stored on this device; it is not server verified.';const blob=new Blob([report],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='WonderWorld_Parent_Report.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};
     function refreshParentTimeReport(){const el=document.getElementById('wwParentTimeReport');if(el){const used=premiumActive()?0:Math.max(0,FREE_MS-remaining());el.textContent=(premiumActive()?'💎 Premium active (local demo).':'⏳ Free time used today: '+Math.floor(used/60000)+' min '+Math.floor(used%60000/1000)+' sec • Remaining: '+Math.floor(remaining()/60000)+' min '+Math.floor(remaining()%60000/1000)+' sec')+' • Daily limit: 60 minutes';}}
