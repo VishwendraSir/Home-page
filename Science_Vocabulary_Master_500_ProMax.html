@@ -1509,12 +1509,22 @@ async function adminApprove(uid,n,requestId){
  await renderAdmin();status.textContent="Approval updated.";
 }
 async function adminRevoke(uid){await updateDoc(doc(db,"students",uid),{status:"revoked",remaining:0});await renderAdmin()}\nasync function adminRejectStudent(uid){await updateDoc(doc(db,"students",uid),{status:"rejected",remaining:0});await renderAdmin()}\nasync function adminRejectRequest(requestId){await updateDoc(doc(db,"batchRequests",requestId),{status:"rejected",reviewedAt:serverTimestamp()});await renderAdmin()}
+window.openAccessDashboard=()=>{gate.style.display="flex";if(isAdmin)adminPanel.style.display="block";};
 window.consumeQuestionAttempt=async function(key){
+ if(isAdmin)return true;
  if(!currentUser||!currentStudent||currentStudent.status!=="approved"||!(currentStudent.remaining>0)){gate.style.display="flex";status.textContent="Access locked. Approval or next batch required.";return false}
  try{
-  const studentRef=doc(db,"students",currentUser.uid),attemptRef=doc(collection(db,"attempts"));
-  await runTransaction(db,async tx=>{const snap=await tx.get(studentRef);const d=snap.data();if(d.status!=="approved"||d.remaining<=0)throw Error("Question batch exhausted");tx.update(studentRef,{remaining:d.remaining-1,lastAttemptAt:serverTimestamp()});tx.set(attemptRef,{uid:currentUser.uid,questionKey:String(key||"question").slice(0,160),createdAt:serverTimestamp(),batchNumber:d.batchNumber||1})});
-  currentStudent.remaining--;document.getElementById("studentProgress").innerHTML="<b>Status:</b> approved<br><b>Batch:</b> "+currentStudent.batchNumber+"<br><b>Remaining:</b> "+currentStudent.remaining+" / 50";
+  const studentRef=doc(db,"students",currentUser.uid);
+  await runTransaction(db,async tx=>{
+   const snap=await tx.get(studentRef);const d=snap.data();
+   if(d.status!=="approved"||d.remaining<=0)throw Error("Question batch exhausted");
+   const nextRemaining=d.remaining-1,batch=d.batchNumber||1;
+   const attemptRef=doc(db,"attempts",currentUser.uid+"_"+batch+"_"+nextRemaining);
+   tx.update(studentRef,{remaining:nextRemaining,lastAttemptAt:serverTimestamp()});
+   tx.set(attemptRef,{uid:currentUser.uid,questionKey:String(key||"question").slice(0,160),createdAt:serverTimestamp(),batchNumber:batch,remainingAfter:nextRemaining});
+  });
+  currentStudent.remaining--;
+  document.getElementById("studentProgress").innerHTML="<b>Status:</b> approved<br><b>Batch:</b> "+currentStudent.batchNumber+"<br><b>Remaining:</b> "+currentStudent.remaining+" / 50";
   if(currentStudent.remaining<=0){gate.style.display="flex";status.textContent="50-question batch completed. Request approval for next batch."}
   return true;
  }catch(e){status.textContent=e.message||"Question access denied.";gate.style.display="flex";return false}
