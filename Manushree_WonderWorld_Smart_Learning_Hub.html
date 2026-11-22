@@ -489,6 +489,7 @@
     let appState = loadState();
     let activeCategory = 'all';
     let currentGame = null;
+    const questionProgress = {};
     let currentPromptText = '';
     let pendingParentTab = 'report';
 
@@ -1069,7 +1070,7 @@
         animal_safari:[{q:'Which animal says ROAR?',visual:'🦁',a:['Lion','Cow','Duck'],correct:'Lion'}],
         fruit_veg_sort:[{q:'Which is a fruit?',visual:'',a:['🍎 Apple','🥕 Carrot','🥔 Potato'],correct:'🍎 Apple'}],
         body_parts:[{q:'We see with our…',visual:'👀',a:['Eyes','Ears','Nose'],correct:'Eyes'}],
-        solar_system:[{q:'Which planet is our home?',visual:'🌍',a:['Earth','Mars','Jupiter'],correct:'Earth'}],
+        solar_system:[{q:'Which planet is our home?',visual:'🌍',a:['Earth','Mars','Jupiter'],correct:'Earth'},{q:'Which planet is known as the Red Planet?',visual:'🔴',a:['Venus','Mars','Saturn'],correct:'Mars'},{q:'Which planet is closest to the Sun?',visual:'☀️',a:['Mercury','Earth','Neptune'],correct:'Mercury'},{q:'Which planet has famous rings?',visual:'🪐',a:['Saturn','Mars','Earth'],correct:'Saturn'},{q:'Which is the largest planet?',visual:'🪐',a:['Jupiter','Venus','Mercury'],correct:'Jupiter'}],
         vehicles_sort:[{q:'Which vehicle flies?',visual:'✈️',a:['Car','Airplane','Bus'],correct:'Airplane'}],
         india_gk:[{q:'India’s national animal?',visual:'🇮🇳',a:['Tiger','Lion','Elephant'],correct:'Tiger'}],
         morning_routine:[{q:'What should we do first in the morning?',visual:'🌅',a:['Brush teeth','Sleep','Eat candy'],correct:'Brush teeth'}],
@@ -1086,8 +1087,9 @@
         robot_coding:[{q:'Which direction moves forward?',visual:'🤖',a:['⬆️ Up','⬇️ Down','⬅️ Left'],correct:'⬆️ Up'}],
         color_mixing:[{q:'Red + Yellow makes…',visual:'🌈',a:['Orange','Green','Purple'],correct:'Orange'}]
       };
-      const q=(bank[game.id]||bank.count_tap)[0];
-      return q;
+      const questions=bank[game.id]||bank.count_tap;
+      const index=questionProgress[game.id]||0;
+      return questions[index%questions.length];
     }
     function loadGame(id, keepView=false) {
       const game=GAMES.find(g=>g.id===id); if(!game) return;
@@ -1106,9 +1108,11 @@
     function answerGame(id,answer) {
       const game=GAMES.find(g=>g.id===id); const q=renderQuestionGame(game);
       const fb=document.getElementById('gameFeedback');
-      if(answer===q.correct) { fb.textContent=appState.lang==='hi'?'🎉 सही जवाब! शाबाश!':'🎉 Correct! Great job!'; fb.className='font-bold text-lg mt-4 text-green-600 min-h-8'; awardStar(id,game.cat,1); }
-      else { fb.textContent=appState.lang==='hi'?'फिर कोशिश करो!':'Try again!'; fb.className='font-bold text-lg mt-4 text-rose-600 min-h-8'; playWrongSound(); }
+      if(answer===q.correct) { fb.textContent=appState.lang==='hi'?'🎉 सही जवाब! शाबाश!':'🎉 Correct! Great job!'; fb.className='font-bold text-lg mt-4 text-green-600 min-h-8'; awardStar(id,game.cat,1);
+        const nextBtn=document.createElement('button'); nextBtn.textContent=appState.lang==='hi'?'➡️ अगला प्रश्न':'➡️ Next Question'; nextBtn.className='mt-4 bg-green-500 text-white rounded-xl px-6 py-3 font-bold text-lg shadow'; nextBtn.onclick=()=>nextQuestion(id); fb.after(nextBtn);
+      } else { fb.textContent=appState.lang==='hi'?'फिर कोशिश करो!':'Try again!'; fb.className='font-bold text-lg mt-4 text-rose-600 min-h-8'; playWrongSound(); }
     }
+    function nextQuestion(id){ questionProgress[id]=(questionProgress[id]||0)+1; loadGame(id,true); }
     function speakCurrentPrompt(){ if(currentPromptText) speak(currentPromptText); }
 
     function openPinModal(tab='report') {
