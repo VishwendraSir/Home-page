@@ -2806,6 +2806,32 @@
  window.activeSessionRole=a.role;document.getElementById('loginErrorMsg')?.classList.add('hidden');saveState();enterApp(a.role!=='student');return false;};
  const origLogout=window.logoutUser;
  window.logoutUser=function(){if(window.activeSessionRole==='student'&&window.appState)snapshots[norm(accounts.find(a=>a.role==='student'&&norm(a.username)===norm(document.getElementById('loginUsername')?.value))?.username||'manushree')]=appState;saveSnapshots();return origLogout();};
+ // LOGIN RECOVERY PATCH V2: restore default local accounts without touching learning progress.
+ window.WWAccounts.recoverDefaults=function(){
+  const defaults=[
+   {username:'manushree',password:'1234',role:'student',classLevel:2,enabled:true,name:'Manushree'},
+   {username:'student2',password:'1234',role:'student',classLevel:2,enabled:true,name:'Student 2'},
+   {username:'parent',password:'admin123',role:'parent',enabled:true,name:'Parent'},
+   {username:'admin',password:'Admin@123',role:'admin',enabled:true,name:'Administrator'}
+  ];
+  defaults.forEach(d=>{let a=accounts.find(x=>norm(x.username)===norm(d.username));if(a){a.password=d.password;a.enabled=true;a.role=d.role;if(d.role==='student')a.classLevel=d.classLevel;}else accounts.push(d);});
+  saveAccounts();return true;
+ };
+ // Repair missing/corrupt default account entries, but do not overwrite valid custom passwords.
+ if(!Array.isArray(accounts)){accounts=[];}
+ const seed=[{username:'manushree',password:'1234',role:'student',classLevel:2,enabled:true,name:'Manushree'},{username:'parent',password:'admin123',role:'parent',enabled:true,name:'Parent'},{username:'admin',password:'Admin@123',role:'admin',enabled:true,name:'Administrator'}];
+ seed.forEach(d=>{if(!accounts.some(a=>norm(a.username)===norm(d.username)))accounts.push(d);});
+ saveAccounts();
+ // Add visible recovery control to the login screen.
+ document.addEventListener('DOMContentLoaded',function(){
+  const hint=document.getElementById('loginHintBox');
+  if(hint&&!document.getElementById('wwLoginRecovery')){
+   const b=document.createElement('button');b.id='wwLoginRecovery';b.type='button';b.textContent='🛠️ Restore Default Login Accounts';
+   b.style.cssText='display:block;width:100%;margin-top:10px;padding:10px;border-radius:12px;background:#0f172a;color:white;font-weight:900';
+   b.onclick=function(){if(confirm('Restore default student and parent/admin accounts? Learning progress will NOT be deleted.')){WWAccounts.recoverDefaults();alert('Accounts restored. Try the default credentials shown above.');}};
+   hint.appendChild(b);
+  }
+ });
  // Ensure account panel is reachable and tab handler exists.
 })();
 </script>
