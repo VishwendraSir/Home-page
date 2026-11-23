@@ -1517,7 +1517,7 @@
       const game=GAMES.find(g=>g.id===id); const q=window.__wwCurrentQuestion && window.__wwCurrentQuestion.id===id ? window.__wwCurrentQuestion.question : renderQuestionGame(game);
       const fb=document.getElementById('gameFeedback');
       const answerKey=id+':'+(questionProgress[id]||0);
-      if(answer===q.correct && !answeredQuestions[answerKey]) { 
+      if(String(answer).trim()===String(q.correct).trim() && !answeredQuestions[answerKey]) { 
         fb.textContent=appState.lang==='hi'?'🎉 सही जवाब! शाबाश!':'🎉 Correct! Great job!';
         fb.className='font-bold text-lg mt-4 text-green-600 min-h-8';
         answeredQuestions[answerKey]=true; appState.answeredQuestions=answeredQuestions;
