@@ -997,4 +997,2425 @@
           return;
         }
         const firebaseConfig = typeof __firebase_config === "string" ? JSON.parse(__firebase_config) : __firebase_config;
-        const app = initializeApp(firebaseConfig);
+        const app = initializeApp(firebaseConfig);        auth = getAuth(app);
+        db = getFirestore(app);
+
+        // RULE 3: Auth BEFORE any Firestore queries
+        if (typeof __initial_auth_token !== "undefined" && __initial_auth_token) {
+          const cred = await signInWithCustomToken(auth, __initial_auth_token);
+          currentUser = cred.user;
+        } else {
+          const cred = await signInAnonymously(auth);
+          currentUser = cred.user;
+        }
+
+        if (!currentUser) return;
+        updateSyncBadge("Cloud Synced", "bg-emerald-400");
+
+        // RULE 1: Strict Path /artifacts/{appId}/users/{userId}/{collectionName}/{docId}
+        const profileRef = doc(db, "artifacts", appId, "users", currentUser.uid, "studentData", "profile");
+        const snap = await getDoc(profileRef);
+        if (snap.exists()) {
+          const cloudData = snap.data();
+          // Safe merge without overwriting defaults or resetting progress
+          state = {
+            ...DEFAULT_STATE,
+            ...cloudData,
+            wonderVersion: ["1","2","3","4"].includes(String(cloudData.wonderVersion)) ? String(cloudData.wonderVersion) : "1",
+            dafProfile: { ...DEFAULT_STATE.dafProfile, ...(cloudData.dafProfile || {}) },
+            personalNotes: { ...DEFAULT_STATE.personalNotes, ...(cloudData.personalNotes || {}) },
+            questionHistory: { ...(cloudData.questionHistory || {}) }
+          };
+          normalizeMasterData();
+          renderAll();
+        } else {
+          normalizeMasterData();
+          await saveStateToCloud();
+        }
+
+        // Listen for shared admin content from public path
+        const pubRef = collection(db, "artifacts", appId, "public", "data", "sharedContent");
+        onSnapshot(
+          pubRef,
+          (snapshot) => {
+            snapshot.forEach((d) => {
+              const item = d.data();
+              if (item.kind === "topic" && !state.customSyllabus.some(x => x.id === item.id)) {
+                state.customSyllabus.push(item);
+              } else if (item.kind === "question" && !state.customQuestions.some(x => x.id === item.id)) {
+                state.customQuestions.push(item);
+              } else if (item.kind === "ca" && !state.customCA.some(x => x.id === item.id)) {
+                state.customCA.push(item);
+              }
+            });
+          },
+          (err) => {
+            console.warn("Public snapshot warning:", err?.message);
+          }
+        );
+      } catch (err) {
+        console.warn("Firebase init fallback:", err?.message);
+        updateSyncBadge("Offline / Session Mode", "bg-amber-400");
+      }
+    }
+
+    async function saveStateToCloud() {
+      if (!db || !currentUser) return;
+      try {
+        const profileRef = doc(db, "artifacts", appId, "users", currentUser.uid, "studentData", "profile");
+        await setDoc(profileRef, {
+          ...state,
+          updatedAt: Date.now()
+        }, { merge: true });
+      } catch (err) {
+        console.warn("Cloud save skipped:", err?.message);
+      }
+    }
+
+    function updateSyncBadge(text, dotColor) {
+      const html = `<span class="w-2 h-2 rounded-full ${dotColor}"></span><span>${text}</span>`;
+      const d = document.getElementById("desktop-sync-status");
+      const m = document.getElementById("mobile-sync-status");
+      if (d) d.innerHTML = html;
+      if (m) m.innerHTML = html;
+    }
+
+    /* =========================================================================
+       7. GEMINI API HELPER (EXPONENTIAL BACKOFF, NO HARDCODED KEYS)
+       ========================================================================= */
+    async function callGeminiAPI(userPrompt, systemInstruction = "", useGrounding = false) {
+      const apiKey = ""; // Runtime-provided
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+      const payload = {
+        contents: [{ parts: [{ text: userPrompt }] }]
+      };
+      if (systemInstruction) {
+        payload.systemInstruction = { parts: [{ text: systemInstruction }] };
+      }
+      if (useGrounding) {
+        payload.tools = [{ google_search: {} }];
+      }
+
+      const delays = [1000, 2000, 4000];
+      for (let attempt = 0; attempt <= delays.length; attempt++) {
+        try {
+          const res = await fetch(apiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (text) return text;
+          throw new Error("Empty response");
+        } catch (err) {
+          if (attempt < delays.length) {
+            await new Promise(r => setTimeout(r, delays[attempt]));
+          } else {
+            return "⚠️ AI Mentor is temporarily busy or offline. Please check your connection and try again in a moment.";
+          }
+        }
+      }
+    }
+
+    /* =========================================================================
+       8. UTILITY FUNCTIONS (TOASTS, MODALS, SPACED REPETITION, ANALYTICS)
+       ========================================================================= */
+    function showToast(msg, type = "info") {
+      const colors = {
+        info: "bg-navy-900 text-white border-royal-600",
+        success: "bg-emerald-700 text-white border-emerald-400",
+        warning: "bg-amber-600 text-white border-amber-300",
+        error: "bg-rose-700 text-white border-rose-400"
+      };
+      const container = document.getElementById("toast-container");
+      const el = document.createElement("div");
+      el.className = `pointer-events-auto px-4 py-3 rounded-xl shadow-lg border-l-4 text-sm font-medium flex items-center justify-between gap-3 fade-in ${colors[type] || colors.info}`;
+      el.innerHTML = `<span>${msg}</span><button class="opacity-75 hover:opacity-100" onclick="this.parentElement.remove()"><i class="fa-solid fa-xmark"></i></button>`;
+      container.appendChild(el);
+      setTimeout(() => el.remove(), 4000);
+    }
+
+    function openModal(title, subtitle, bodyHtml, footerHtml = "") {
+      document.getElementById("modal-title").textContent = title;
+      document.getElementById("modal-subtitle").textContent = subtitle || "";
+      document.getElementById("modal-body").innerHTML = bodyHtml;
+      const footer = document.getElementById("modal-footer");
+      if (footerHtml) {
+        footer.innerHTML = footerHtml;
+        footer.classList.remove("hidden");
+      } else {
+        footer.innerHTML = "";
+        footer.classList.add("hidden");
+      }
+      document.getElementById("app-modal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("app-modal").classList.add("hidden");
+    }
+
+    function formatMarkdown(text) {
+      if (!text) return "";
+      return text
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-navy-900">$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/^### (.*$)/gim, '<h4 class="font-bold text-royal-800 text-base mt-3 mb-1">$1</h4>')
+        .replace(/^## (.*$)/gim, '<h3 class="font-extrabold text-navy-900 text-lg mt-4 mb-1.5">$1</h3>')
+        .replace(/^- (.*$)/gim, '<li class="ml-4 list-disc">$1</li>')
+        .replace(/\n/g, "<br>");
+    }
+
+    function getAllSyllabus() {
+      return [...INITIAL_SYLLABUS, ...(state.customSyllabus || [])];
+    }
+
+    function getAllQuestions() {
+      return [...INITIAL_QUESTIONS, ...(state.customQuestions || [])];
+    }
+
+    function getAllCA() {
+      return [...INITIAL_CURRENT_AFFAIRS, ...(state.customCA || [])];
+    }
+
+    /* =========================================================================
+       MASTER DATA / ONE FILE, ZERO DUPLICATES
+       ========================================================================= */
+    function normalizeMasterText(value) {
+      return String(value || "").toLowerCase().normalize("NFKC")
+        .replace(/[^\\p{L}\\p{N}]+/gu, " ").trim().replace(/\\s+/g, " ");
+    }
+    function recordFingerprint(kind, record) {
+      if (kind === "question") {
+        return normalizeMasterText(record.q || record.question) + "|" +
+          (record.options || []).map(normalizeMasterText).join("|");
+      }
+      if (kind === "topic") return normalizeMasterText(record.subject) + "|" + normalizeMasterText(record.title || record.hiTitle);
+      if (kind === "ca") return normalizeMasterText(record.title || record.headline) + "|" + normalizeMasterText(record.date || record.year || "");
+      return normalizeMasterText(record.title || record.name || record.id);
+    }
+    function escapeMasterHTML(value) {
+      return String(value ?? "").replace(/[&<>\"']/g, ch => {
+        if (ch === "&") return "&amp;";
+        if (ch === "<") return "&lt;";
+        if (ch === ">") return "&gt;";
+        if (ch === "\"") return "&quot;";
+        return "&#39;";
+      });
+    }
+    function masterDataRecords() {
+      return [
+        ...(state.customSyllabus || []).map(record => ({kind:"topic", record, title:record.title || record.hiTitle || "Untitled topic", subject:record.subject || "Unassigned", id:record.id})),
+        ...(state.customQuestions || []).map(record => ({kind:"question", record, title:record.q || record.question || "Untitled question", subject:record.subject || "Unassigned", id:record.id})),
+        ...(state.customCA || []).map(record => ({kind:"ca", record, title:record.title || record.headline || "Untitled current affair", subject:record.category || record.subject || "Current Affairs", id:record.id}))
+      ];
+    }
+    function masterDataHealth() {
+      const records = masterDataRecords();
+      const ids = records.map(x=>x.id).filter(Boolean);
+      const missingIds = records.filter(x=>!x.id).length;
+      const duplicateIds = ids.length - new Set(ids).size;
+      const incomplete = records.filter(x=>!String(x.title||"").trim() || !String(x.subject||"").trim()).length;
+      const archived = (state.masterDataMeta?.archived || []).length;
+      return {total:records.length, topics:(state.customSyllabus||[]).length, questions:(state.customQuestions||[]).length, currentAffairs:(state.customCA||[]).length, missingIds, duplicateIds, incomplete, archived};
+    }
+    function searchMasterData(query) {
+      const q = normalizeMasterText(query);
+      return masterDataRecords().filter(x => !q || normalizeMasterText([x.title,x.subject,x.id,x.kind,x.record.paper,x.record.topic,x.record.year].join(" ")).includes(q));
+    }
+    function dedupeRegistryFiles(files) {
+      const seen = new Set(); return (Array.isArray(files)?files:[]).filter(file=>{
+        const key=normalizeMasterText(file.hash || file.name || file.path || JSON.stringify(file));
+        if(!key || seen.has(key)) return false; seen.add(key); return true;
+      });
+    }
+
+    function dedupeMasterArray(items, kind) {
+      const seenIds = new Set(), seenFingerprints = new Set(), kept = [];
+      let removed = 0;
+      for (const item of (Array.isArray(items) ? items : [])) {
+        if (!item || typeof item !== "object") continue;
+        const id = String(item.id || "");
+        const fp = recordFingerprint(kind, item);
+        if ((id && seenIds.has(id)) || (fp && seenFingerprints.has(fp))) { removed++; continue; }
+        if (id) seenIds.add(id);
+        if (fp) seenFingerprints.add(fp);
+        kept.push(item);
+      }
+      return { items: kept, removed };
+    }
+    function normalizeMasterData({log=true}={}) {
+      state.customSyllabus = Array.isArray(state.customSyllabus) ? state.customSyllabus : [];
+      state.customQuestions = Array.isArray(state.customQuestions) ? state.customQuestions : [];
+      state.customCA = Array.isArray(state.customCA) ? state.customCA : [];
+      state.masterRegistry = state.masterRegistry && typeof state.masterRegistry === "object"
+        ? state.masterRegistry : { files: [], records: [], lastAuditAt: null };
+      state.masterRegistry.files = Array.isArray(state.masterRegistry.files) ? state.masterRegistry.files : [];
+      state.masterRegistry.records = Array.isArray(state.masterRegistry.records) ? state.masterRegistry.records : [];
+      state.duplicateAuditLog = Array.isArray(state.duplicateAuditLog) ? state.duplicateAuditLog : [];
+      state.masterDataMeta = state.masterDataMeta && typeof state.masterDataMeta === "object" ? state.masterDataMeta : { archived: [], versions: [], lastSearch: "" };
+      state.masterDataMeta.archived = Array.isArray(state.masterDataMeta.archived) ? state.masterDataMeta.archived : [];
+      state.masterDataMeta.versions = Array.isArray(state.masterDataMeta.versions) ? state.masterDataMeta.versions : [];
+      const topics = dedupeMasterArray(state.customSyllabus, "topic");
+      const questions = dedupeMasterArray(state.customQuestions, "question");
+      const ca = dedupeMasterArray(state.customCA, "ca");
+      state.customSyllabus = topics.items;
+      state.customQuestions = questions.items;
+      state.customCA = ca.items;
+      const removed = topics.removed + questions.removed + ca.removed;
+      if (log && removed) state.duplicateAuditLog.push({ at: Date.now(), action: "AUTO_DEDUPE", removed, details: { topics: topics.removed, questions: questions.removed, currentAffairs: ca.removed } });
+      return { topicsRemoved: topics.removed, questionsRemoved: questions.removed, caRemoved: ca.removed, totalRemoved: removed };
+    }
+    function runDuplicateAudit() {
+      const groups = [
+        {name:"Custom Syllabus Topics", kind:"topic", records:state.customSyllabus},
+        {name:"Custom Questions", kind:"question", records:state.customQuestions},
+        {name:"Current Affairs", kind:"ca", records:state.customCA}
+      ];
+      const duplicateGroups = [];
+      let duplicateCount = 0;
+      for (const group of groups) {
+        const map = new Map();
+        for (const record of group.records) {
+          const fp = recordFingerprint(group.kind, record);
+          if (!fp) continue;
+          if (!map.has(fp)) map.set(fp, []);
+          map.get(fp).push(record);
+        }
+        for (const [fingerprint, records] of map.entries()) {
+          if (records.length > 1) {
+            duplicateCount += records.length - 1;
+            duplicateGroups.push({ section: group.name, fingerprint, ids: records.map(x=>x.id), titles: records.map(x=>x.title || x.q || x.headline || "(untitled)") });
+          }
+        }
+      }
+      const report = { at: Date.now(), customTopics: state.customSyllabus.length, customQuestions: state.customQuestions.length, customCA: state.customCA.length, registeredFiles: state.masterRegistry.files.length, duplicateGroups, duplicateCount };
+      state.masterRegistry.lastAuditAt = report.at;
+      state.duplicateAuditLog.push({ at: report.at, action: "AUDIT", duplicateCount, duplicateGroups: duplicateGroups.length });
+      return report;
+    }
+    function mergeImportedArray(existing, incoming, kind) {
+      const current = dedupeMasterArray(existing, kind).items;
+      const imported = Array.isArray(incoming) ? incoming : [];
+      const byId = new Map(current.filter(x=>x.id).map(x=>[String(x.id),x]));
+      const fingerprints = new Set(current.map(x=>recordFingerprint(kind,x)));
+      let added=0, skipped=0, updated=0;
+      for (const item of imported) {
+        if (!item || typeof item !== "object") { skipped++; continue; }
+        const id = String(item.id || "");
+        const fp = recordFingerprint(kind,item);
+        if (id && byId.has(id)) { skipped++; continue; }
+        if (fp && fingerprints.has(fp)) { skipped++; continue; }
+        current.push(item); if(id)byId.set(id,item); if(fp)fingerprints.add(fp); added++;
+      }
+      return {items:current, added, skipped, updated};
+    }
+
+    function addXP(points, reason) {
+      state.xp += points;
+      updateHeaderStats();
+      saveStateToCloud();
+      if (reason) showToast(`+${points} XP — ${reason}`, "success");
+    }
+
+    // Spaced Repetition Intervals (ms): 1h, 1d, 5d, 7d, 14d, 21d
+    const SR_INTERVALS_MS = [
+      1 * 3600 * 1000,
+      24 * 3600 * 1000,
+      5 * 24 * 3600 * 1000,
+      7 * 24 * 3600 * 1000,
+      14 * 24 * 3600 * 1000,
+      21 * 24 * 3600 * 1000
+    ];
+    const SR_LABELS = ["1 Hour", "1 Day", "5 Days", "7 Days", "14 Days", "21 Days"];
+
+    function recordQuestionAttempt(qId, isCorrect) {
+      const prev = state.questionHistory[qId] || { attempts: 0, correct: 0, stageIdx: 0 };
+      const attempts = prev.attempts + 1;
+      const correct = prev.correct + (isCorrect ? 1 : 0);
+      // Wrong answers reset to earlier revision (1 Hour); Correct advances along 1h->1d->5d->7d->14d->21d
+      const stageIdx = isCorrect ? Math.min(prev.stageIdx + 1, SR_INTERVALS_MS.length - 1) : 0;
+      const nextReviewAt = Date.now() + SR_INTERVALS_MS[stageIdx];
+
+      state.questionHistory[qId] = {
+        attempts, correct, stageIdx, nextReviewAt, lastWrong: !isCorrect, lastAttemptAt: Date.now()
+      };
+      sessionSeenQuestions.add(qId);
+      addXP(isCorrect ? 15 : 5);
+      saveStateToCloud();
+    }
+
+    function getDueRevisions() {
+      const now = Date.now();
+      return getAllQuestions().filter(q => {
+        const h = state.questionHistory[q.id];
+        return h && (h.lastWrong || h.nextReviewAt <= now);
+      });
+    }
+
+    function getWeakTopics() {
+      const map = {};
+      getAllQuestions().forEach(q => {
+        const h = state.questionHistory[q.id];
+        if (h && h.attempts > 0) {
+          if (!map[q.subject]) map[q.subject] = { attempts: 0, correct: 0 };
+          map[q.subject].attempts += h.attempts;
+          map[q.subject].correct += h.correct;
+        }
+      });
+      const weak = Object.entries(map)
+        .filter(([, v]) => (v.correct / v.attempts) < 0.7)
+        .map(([subj, v]) => ({ subject: subj, accuracy: Math.round((v.correct / v.attempts) * 100) }));
+      return weak.length ? weak : [{ subject: "Economy", accuracy: 58 }, { subject: "Environment", accuracy: 64 }];
+    }
+
+    function getOverallPrepPercent() {
+      const total = getAllSyllabus().length;
+      const done = state.completedTopics.length;
+      const sylPct = total ? (done / total) * 60 : 0;
+      const stagePct = (state.currentStage / 10) * 25;
+      const qCount = Object.keys(state.questionHistory).length;
+      const qPct = Math.min(15, (qCount / Math.max(1, getAllQuestions().length)) * 15);
+      return Math.min(100, Math.round(sylPct + stagePct + qPct));
+    }
+
+    function getBadges() {
+      const qAttempted = Object.keys(state.questionHistory).length;
+      return [
+        { icon: "fa-landmark", name: "Constitution Master", unlocked: state.completedTopics.includes("pol-fnd-1"), color: "text-royal-700 bg-royal-50 border-royal-200" },
+        { icon: "fa-scroll", name: "History Explorer", unlocked: state.completedTopics.includes("his-anc-1"), color: "text-amber-700 bg-amber-50 border-amber-200" },
+        { icon: "fa-earth-asia", name: "Geography Champion", unlocked: state.completedTopics.includes("geo-phy-1"), color: "text-emerald-700 bg-emerald-50 border-emerald-200" },
+        { icon: "fa-fire", name: "21-Day Revision Streak", unlocked: state.streak >= 21, color: "text-rose-700 bg-rose-50 border-rose-200" },
+        { icon: "fa-trophy", name: "Prelims Warrior", unlocked: qAttempted >= 5 || state.mockHistory.length >= 2, color: "text-purple-700 bg-purple-50 border-purple-200" }
+      ];
+    }
+
+    /* =========================================================================
+       9. NAVIGATION & HEADER RENDERING
+       ========================================================================= */
+    const NAV_ITEMS = [
+      { id: "dashboard", icon: "fa-gauge-high", key: "dashboard" },
+      { id: "syllabus", icon: "fa-book-open", key: "syllabus" },
+      { id: "maps", icon: "fa-map-location-dot", key: "maps" },
+      { id: "currentAffairs", icon: "fa-newspaper", key: "currentAffairs" },
+      { id: "prelims", icon: "fa-list-check", key: "prelims" },
+      { id: "mains", icon: "fa-pen-nib", key: "mains" },
+      { id: "interview", icon: "fa-user-tie", key: "interview" },
+      { id: "mentor", icon: "fa-robot", key: "mentor" },
+      { id: "studyPlan", icon: "fa-calendar-days", key: "studyPlan" },
+      { id: "admin", icon: "fa-screwdriver-wrench", key: "admin" }
+    ];
+
+    function applyWonderVersion(version, rerender = false) {
+      const allowed = ["1", "2", "3", "4"];
+      const v = allowed.includes(String(version)) ? String(version) : "1";
+      state.wonderVersion = v;
+      document.body.setAttribute("data-wonder-version", v);
+      const selector = document.getElementById("wonder-version-control");
+      if (selector) selector.value = v;
+      const label = document.getElementById("wonder-version-label");
+      if (label) label.textContent = `V${v}`;
+      const names = { "1":"Classic", "2":"Ocean", "3":"Midnight", "4":"Minimal" };
+      if (selector) selector.title = `Version ${v} — ${names[v]}`;
+      if (rerender) renderAll();
+      return v;
+    }
+
+    function renderNavigation() {
+      const t = UI_STRINGS[state.lang];
+      const navHtml = NAV_ITEMS.map(item => {
+        const active = state.activeTab === item.id;
+        return `
+          <button onclick="W.navigate('${item.id}')"
+            class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition ${
+              active
+                ? "bg-royal-700 text-white shadow-md shadow-royal-900/40"
+                : "text-slate-300 hover:bg-slate-800 hover:text-white"
+            }">
+            <i class="fa-solid ${item.icon} w-5 text-center ${active ? "text-gold-400" : "text-slate-400"}"></i>
+            <span class="truncate">${t[item.key]}</span>
+          </button>
+        `;
+      }).join("");
+
+      document.getElementById("desktop-sidebar-nav").innerHTML = navHtml;
+      document.getElementById("mobile-drawer-nav").innerHTML = navHtml;
+
+      document.querySelectorAll(".mob-nav-btn").forEach(btn => {
+        const active = btn.dataset.nav === state.activeTab;
+        btn.className = `mob-nav-btn flex flex-col items-center justify-center py-1 px-2 rounded-xl text-[11px] font-semibold transition ${
+          active ? "text-royal-800 bg-royal-50" : "text-slate-500"
+        }`;
+      });
+    }
+
+    function updateHeaderStats() {
+      document.getElementById("header-streak").textContent = state.streak;
+      document.getElementById("header-xp").textContent = `${state.xp} XP`;
+      document.getElementById("sidebar-stage-num").textContent = `Stage ${state.currentStage}/10`;
+      document.getElementById("sidebar-stage-bar").style.width = `${state.currentStage * 10}%`;
+
+      ["en", "hi", "bi"].forEach(l => {
+        const btn = document.getElementById(`lang-btn-${l}`);
+        if (btn) {
+          btn.className = l === state.lang
+            ? "px-2 sm:px-2.5 py-1.5 rounded-lg bg-royal-800 text-white shadow-sm transition"
+            : "px-2 sm:px-2.5 py-1.5 rounded-lg text-slate-600 hover:text-navy-900 transition";
+        }
+      });
+
+      const roleBtn = document.getElementById("role-toggle-btn");
+      const roleLbl = document.getElementById("role-toggle-label");
+      if (state.adminMode) {
+        roleBtn.className = "px-2.5 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold flex items-center gap-1.5 transition";
+        roleLbl.textContent = "Admin";
+      } else {
+        roleBtn.className = "px-2.5 py-1.5 rounded-xl bg-royal-800 hover:bg-royal-900 text-white text-xs font-semibold flex items-center gap-1.5 transition";
+        roleLbl.textContent = "Student";
+      }
+    }
+
+    function destroyCharts() {
+      activeCharts.forEach(c => { try { c.destroy(); } catch {} });
+      activeCharts = [];
+    }
+
+    /* =========================================================================
+       10. VIEW 1: STUDENT DASHBOARD & ANALYTICS
+       ========================================================================= */
+    function renderDashboard() {
+      const t = UI_STRINGS[state.lang];
+      const prepPct = getOverallPrepPercent();
+      const dueRevs = getDueRevisions();
+      const weakTopics = getWeakTopics();
+      const badges = getBadges();
+      const totalTopics = getAllSyllabus().length;
+      const stageObj = STAGES[state.currentStage - 1];
+
+      const html = `
+        <!-- Hero Banner -->
+        <section class="hero-gradient rounded-2xl p-5 sm:p-7 text-white shadow-xl relative overflow-hidden">
+          <div class="absolute right-0 top-0 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+          <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+            <div class="space-y-2">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-gold-400">
+                <i class="fa-solid fa-crown"></i>
+                <span>${t.tagline}</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">${t.welcome}</h2>
+              <p class="text-sm text-slate-300 max-w-2xl">
+                Active Stage: <strong class="text-white">Stage ${stageObj.id} — ${state.lang === 'hi' ? stageObj.hi : stageObj.en}</strong>
+                • Target: <strong class="text-gold-400">${state.targetExam}</strong>
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+              <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-3 text-center min-w-[110px]">
+                <div class="text-2xl font-black text-gold-400">${prepPct}%</div>
+                <div class="text-[11px] text-slate-300 font-medium">Overall Prep</div>
+              </div>
+              <button onclick="W.navigate('syllabus')" class="px-5 py-3 rounded-xl gold-gradient text-navy-900 font-bold text-sm shadow-lg hover:brightness-105 transition flex items-center gap-2">
+                <i class="fa-solid fa-play"></i> Continue Learning
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10-Stage Student Journey Tracker -->
+        <section class="glass-card rounded-2xl p-5 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <div>
+              <h3 class="font-extrabold text-navy-900 text-base sm:text-lg flex items-center gap-2">
+                <i class="fa-solid fa-route text-royal-700"></i> 10-Stage Civil Services Journey
+              </h3>
+              <p class="text-xs text-slate-500">Tap any stage to update your current preparation milestone</p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-royal-50 text-royal-800 text-xs font-bold border border-royal-200">
+              Stage ${state.currentStage} of 10
+            </span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+            ${STAGES.map(st => {
+              const isDone = st.id < state.currentStage;
+              const isCurr = st.id === state.currentStage;
+              return `
+                <button onclick="W.setStage(${st.id})"
+                  class="text-left p-3 rounded-xl border transition relative ${
+                    isCurr
+                      ? "bg-royal-800 text-white border-royal-900 shadow-md ring-2 ring-gold-400"
+                      : isDone
+                        ? "bg-emerald-50 border-emerald-200 text-emerald-900 hover:bg-emerald-100"
+                        : "bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100"
+                  }">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-[11px] font-extrabold uppercase tracking-wider ${isCurr ? 'text-gold-400' : isDone ? 'text-emerald-700' : 'text-slate-400'}">Stage ${st.id}</span>
+                    ${isDone ? '<i class="fa-solid fa-circle-check text-emerald-600 text-xs"></i>' : isCurr ? '<i class="fa-solid fa-location-dot text-gold-400 text-xs"></i>' : ''}
+                  </div>
+                  <div class="text-xs font-bold leading-snug">${state.lang === 'hi' ? st.hi : st.en}</div>
+                </button>
+              `;
+            }).join("")}
+          </div>
+        </section>
+
+        <!-- KPI Summary Row -->
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div class="glass-card rounded-2xl p-4 shadow-sm flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-royal-100 text-royal-800 flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-book-bookmark"></i></div>
+            <div>
+              <div class="text-xl font-extrabold text-navy-900">${state.completedTopics.length}/${totalTopics}</div>
+              <div class="text-xs text-slate-500 font-medium">Syllabus Completed</div>
+            </div>
+          </div>
+          <div class="glass-card rounded-2xl p-4 shadow-sm flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <div>
+              <div class="text-xl font-extrabold text-navy-900">${dueRevs.length} Due</div>
+              <div class="text-xs text-slate-500 font-medium">Spaced Revision</div>
+            </div>
+          </div>
+          <div class="glass-card rounded-2xl p-4 shadow-sm flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-stopwatch"></i></div>
+            <div>
+              <div class="text-xl font-extrabold text-navy-900">${state.studyHours} hrs</div>
+              <div class="text-xs text-slate-500 font-medium">Study Hours Logged</div>
+            </div>
+          </div>
+          <div class="glass-card rounded-2xl p-4 shadow-sm flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-lg shrink-0"><i class="fa-solid fa-bolt"></i></div>
+            <div>
+              <div class="text-xl font-extrabold text-navy-900">${state.xp} XP</div>
+              <div class="text-xs text-slate-500 font-medium">Streak: ${state.streak} Days</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick Action Hub -->
+        <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          ${[
+            { tab: "currentAffairs", icon: "fa-newspaper", label: "Current Affairs", color: "bg-royal-50 text-royal-800 border-royal-200" },
+            { tab: "prelims", icon: "fa-bullseye", label: "Prelims Practice", color: "bg-emerald-50 text-emerald-800 border-emerald-200" },
+            { tab: "mains", icon: "fa-pen-fancy", label: "Mains Writing", color: "bg-purple-50 text-purple-800 border-purple-200" },
+            { tab: "maps", icon: "fa-map", label: "Maps & Mind Maps", color: "bg-amber-50 text-amber-800 border-amber-200" },
+            { tab: "interview", icon: "fa-microphone-lines", label: "AI Interview", color: "bg-indigo-50 text-indigo-800 border-indigo-200" },
+            { tab: "studyPlan", icon: "fa-calendar-check", label: "Study Planner", color: "bg-teal-50 text-teal-800 border-teal-200" }
+          ].map(q => `
+            <button onclick="W.navigate('${q.tab}')" class="p-3.5 rounded-2xl border ${q.color} hover:shadow-md transition flex flex-col items-center justify-center gap-2 text-center">
+              <i class="fa-solid ${q.icon} text-xl"></i>
+              <span class="text-xs font-bold">${q.label}</span>
+            </button>
+          `).join("")}
+        </section>
+
+        <!-- Today's Target + Weak Topics & Revision Due -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <!-- Today's Target Checklist -->
+          <div class="glass-card rounded-2xl p-5 shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-bold text-navy-900 flex items-center gap-2"><i class="fa-solid fa-list-check text-emerald-600"></i> Today's Target</h3>
+              <button onclick="W.logStudyHour()" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100">+0.5 Hr Logged</button>
+            </div>
+            <div class="space-y-2.5">
+              ${state.dailyTargets.map(item => `
+                <label class="flex items-center gap-3 p-3 rounded-xl border ${item.done ? 'bg-emerald-50/70 border-emerald-200' : 'bg-slate-50 border-slate-200'} cursor-pointer">
+                  <input type="checkbox" ${item.done ? 'checked' : ''} onchange="W.toggleDailyTarget('${item.id}')" class="w-4 h-4 accent-emerald-600 rounded" />
+                  <span class="text-sm font-medium ${item.done ? 'line-through text-slate-400' : 'text-slate-700'}">${item.text}</span>
+                </label>
+              `).join("")}
+            </div>
+          </div>
+
+          <!-- Weak Topics & Revision Alerts -->
+          <div class="glass-card rounded-2xl p-5 shadow-sm flex flex-col justify-between gap-4">
+            <div>
+              <h3 class="font-bold text-navy-900 flex items-center gap-2 mb-3"><i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Weak Topics & Revision Radar</h3>
+              <div class="space-y-2.5">
+                ${weakTopics.map(w => `
+                  <div class="flex items-center justify-between p-3 rounded-xl bg-amber-50/70 border border-amber-200">
+                    <div>
+                      <div class="text-sm font-bold text-navy-900">${w.subject}</div>
+                      <div class="text-xs text-amber-700">Accuracy: ${w.accuracy}% — Needs targeted revision</div>
+                    </div>
+                    <button onclick="W.askMentorQuick('Create a 3-day revision crash plan for my weak subject: ${w.subject}')" class="px-3 py-1.5 rounded-lg bg-royal-800 text-white text-xs font-semibold hover:bg-royal-900">Fix with AI</button>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-royal-50 border border-royal-200 flex items-center justify-between gap-3">
+              <div>
+                <div class="text-xs font-bold text-royal-900">Spaced Repetition Engine (1h → 21d)</div>
+                <div class="text-xs text-royal-700">${dueRevs.length} question(s) scheduled for active recall</div>
+              </div>
+              <button onclick="W.navigate('prelims')" class="px-3.5 py-2 rounded-xl bg-royal-800 text-white text-xs font-bold shrink-0">Revise Now</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Analytics Charts (Chart.js) -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <div class="glass-card rounded-2xl p-5 shadow-sm">
+            <h3 class="font-bold text-navy-900 text-sm mb-3"><i class="fa-solid fa-chart-column text-royal-700 mr-1.5"></i> Subject Mastery (%)</h3>
+            <div class="h-56"><canvas id="chart-subject-mastery"></canvas></div>
+          </div>
+          <div class="glass-card rounded-2xl p-5 shadow-sm">
+            <h3 class="font-bold text-navy-900 text-sm mb-3"><i class="fa-solid fa-chart-line text-emerald-600 mr-1.5"></i> Mock Test Score Trend</h3>
+            <div class="h-56"><canvas id="chart-mock-trend"></canvas></div>
+          </div>
+          <div class="glass-card rounded-2xl p-5 shadow-sm">
+            <h3 class="font-bold text-navy-900 text-sm mb-3"><i class="fa-solid fa-chart-pie text-purple-600 mr-1.5"></i> UPSC Prelims PYQ Weightage</h3>
+            <div class="h-56"><canvas id="chart-pyq-weightage"></canvas></div>
+          </div>
+        </section>
+
+        <!-- Gamification: Badges & Leaderboard -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <div class="lg:col-span-2 glass-card rounded-2xl p-5 shadow-sm">
+            <h3 class="font-bold text-navy-900 mb-3 flex items-center gap-2"><i class="fa-solid fa-medal text-gold-500"></i> Achievement Badges</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              ${badges.map(b => `
+                <div class="p-3 rounded-xl border flex items-center gap-3 ${b.unlocked ? b.color : 'bg-slate-50 border-slate-200 opacity-55 grayscale'}">
+                  <div class="w-9 h-9 rounded-lg bg-white/80 flex items-center justify-center shrink-0"><i class="fa-solid ${b.icon}"></i></div>
+                  <div class="min-w-0">
+                    <div class="text-xs font-bold truncate">${b.name}</div>
+                    <div class="text-[10px] font-semibold">${b.unlocked ? 'Unlocked' : 'Locked'}</div>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+          <div class="glass-card rounded-2xl p-5 shadow-sm">
+            <h3 class="font-bold text-navy-900 mb-3 flex items-center gap-2"><i class="fa-solid fa-ranking-star text-purple-600"></i> Weekly Leaderboard</h3>
+            <div class="space-y-2 text-xs">
+              ${[
+                { name: "Aarav Sharma (UPSC)", xp: 1480 },
+                { name: "Priya Verma (UPPSC)", xp: 1210 },
+                { name: `${state.dafProfile.name} (You)`, xp: state.xp, isMe: true },
+                { name: "Rohan Das (BPSC)", xp: 95 }
+              ].sort((a,b) => b.xp - a.xp).map((u, idx) => `
+                <div class="flex items-center justify-between p-2.5 rounded-xl ${u.isMe ? 'bg-royal-50 border border-royal-200 font-bold text-royal-900' : 'bg-slate-50 text-slate-700'}">
+                  <div class="flex items-center gap-2">
+                    <span class="w-5 h-5 rounded-full bg-navy-900 text-white flex items-center justify-center text-[10px] font-bold">${idx + 1}</span>
+                    <span>${u.name}</span>
+                  </div>
+                  <span class="font-bold text-purple-700">${u.xp} XP</span>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </section>
+      `;
+
+      document.getElementById("app-content").innerHTML = html;
+      initDashboardCharts();
+    }
+
+    function initDashboardCharts() {
+      destroyCharts();
+      const subjects = ["History", "Geography", "Polity", "Economy", "Environment", "Science & Tech", "Ethics (GS-IV)"];
+      const masteryData = subjects.map(s => {
+        const list = getAllSyllabus().filter(t => t.subject === s);
+        const done = list.filter(t => state.completedTopics.includes(t.id)).length;
+        return list.length ? Math.round((done / list.length) * 100) : 0;
+      });
+
+      const c1 = new Chart(document.getElementById("chart-subject-mastery"), {
+        type: "bar",
+        data: {
+          labels: subjects.map(s => s.replace(" (GS-IV)", "")),
+          datasets: [{ label: "Mastery %", data: masteryData, backgroundColor: "#1e3a8a", borderRadius: 6 }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100 } }, plugins: { legend: { display: false } } }
+      });
+
+      const c2 = new Chart(document.getElementById("chart-mock-trend"), {
+        type: "line",
+        data: {
+          labels: state.mockHistory.map(m => m.date),
+          datasets: [{
+            label: "Accuracy %",
+            data: state.mockHistory.map(m => m.accuracy),
+            borderColor: "#059669",
+            backgroundColor: "rgba(5, 150, 105, 0.12)",
+            fill: true,
+            tension: 0.35
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100 } } }
+      });
+
+      const c3 = new Chart(document.getElementById("chart-pyq-weightage"), {
+        type: "doughnut",
+        data: {
+          labels: ["Polity", "Economy", "Environment", "History", "Geography", "Sci-Tech & IR"],
+          datasets: [{
+            data: [18, 18, 17, 16, 15, 16],
+            backgroundColor: ["#1e3a8a", "#059669", "#10b981", "#d97706", "#7c3aed", "#0284c7"]
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: "bottom", labels: { boxWidth: 10, font: { size: 10 } } } } }
+      });
+
+      activeCharts.push(c1, c2, c3);
+    }
+
+    /* =========================================================================
+       11. VIEW 2: COMPLETE UPSC SYLLABUS MAP, NOTES & OPTIONAL SUBJECTS
+       ========================================================================= */
+    let syllabusFilter = { subject: "ALL", search: "", showOptionals: false };
+
+    function renderSyllabus() {
+      const all = getAllSyllabus();
+      const subjects = ["ALL", ...new Set(all.map(t => t.subject))];
+      const filtered = all.filter(t => {
+        const matchSubj = syllabusFilter.subject === "ALL" || t.subject === syllabusFilter.subject;
+        const q = syllabusFilter.search.toLowerCase();
+        const matchQ = !q || t.title.toLowerCase().includes(q) || t.hiTitle.toLowerCase().includes(q) || t.category.toLowerCase().includes(q) || t.subject.toLowerCase().includes(q);
+        return matchSubj && matchQ;
+      });
+
+      const html = `
+        <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-navy-900">Complete UPSC & State PCS Syllabus Map</h2>
+            <p class="text-xs sm:text-sm text-slate-500">Zero-to-Advanced structured lessons, bilingual notes, Ethics case studies & 10 Optionals</p>
+          </div>
+          <div class="inline-flex rounded-xl bg-white p-1 border border-slate-200 shadow-xs self-start">
+            <button onclick="W.setSyllabusMode(false)" class="px-3.5 py-1.5 rounded-lg text-xs font-bold ${!syllabusFilter.showOptionals ? 'bg-royal-800 text-white' : 'text-slate-600'}">GS & Ethics (I–IV)</button>
+            <button onclick="W.setSyllabusMode(true)" class="px-3.5 py-1.5 rounded-lg text-xs font-bold ${syllabusFilter.showOptionals ? 'bg-purple-700 text-white' : 'text-slate-600'}">Optional Subjects (10)</button>
+          </div>
+        </section>
+
+        ${syllabusFilter.showOptionals ? renderOptionalsSection() : `
+          <!-- Filter Bar -->
+          <div class="glass-card rounded-2xl p-4 shadow-sm space-y-3">
+            <div class="flex flex-wrap gap-2">
+              ${subjects.map(s => `
+                <button onclick="W.filterSyllabusSubject('${s}')"
+                  class="px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+                    syllabusFilter.subject === s ? 'bg-royal-800 text-white shadow' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                  }">${s}</button>
+              `).join("")}
+            </div>
+            <input type="text" value="${syllabusFilter.search}" oninput="W.filterSyllabusSearch(this.value)"
+              placeholder="Filter topics by title, Hindi keyword, or category..."
+              class="w-full px-4 py-2 text-sm rounded-xl bg-slate-50 border border-slate-200 focus:border-royal-600 outline-none" />
+          </div>
+
+          <!-- Syllabus Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${filtered.map(topic => {
+              const isDone = state.completedTopics.includes(topic.id);
+              const isBookmarked = state.bookmarks.includes(topic.id);
+              return `
+                <div class="glass-card rounded-2xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between gap-4 border-l-4 ${isDone ? 'border-l-emerald-500' : 'border-l-royal-700'}">
+                  <div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                      <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="px-2.5 py-0.5 rounded-full bg-royal-50 text-royal-800 text-[11px] font-bold">${topic.subject}</span>
+                        <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-semibold">${topic.paper}</span>
+                        <span class="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[11px] font-semibold">${topic.level}</span>
+                      </div>
+                      <button onclick="W.toggleBookmark('${topic.id}')" class="text-slate-400 hover:text-gold-500 transition" title="Bookmark">
+                        <i class="fa-${isBookmarked ? 'solid text-gold-500' : 'regular'} fa-bookmark"></i>
+                      </button>
+                    </div>
+                    <h3 class="font-extrabold text-navy-900 text-base leading-snug">${state.lang === 'hi' ? topic.hiTitle : topic.title}</h3>
+                    ${state.lang === 'bi' ? `<p class="text-xs font-semibold text-royal-700 mt-0.5">${topic.hiTitle}</p>` : ''}
+                    <p class="text-xs text-slate-600 mt-2 line-clamp-2">${state.lang === 'hi' ? topic.hiNotes : topic.quickNotes}</p>
+                  </div>
+                  <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-100">
+                    <div class="flex items-center gap-3 text-[11px] text-slate-500 font-medium">
+                      <span><i class="fa-regular fa-clock mr-1"></i>${topic.estTime}</span>
+                      <button onclick="W.toggleTopicComplete('${topic.id}')" class="font-bold ${isDone ? 'text-emerald-600' : 'text-slate-500 hover:text-royal-700'}">
+                        <i class="fa-solid ${isDone ? 'fa-circle-check' : 'fa-circle'} mr-1"></i>${isDone ? 'Completed' : 'Mark Done'}
+                      </button>
+                    </div>
+                    <button onclick="W.openTopicViewer('${topic.id}')" class="px-3.5 py-1.5 rounded-xl bg-royal-800 hover:bg-royal-900 text-white text-xs font-bold transition">
+                      Open Lesson & Notes <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                  </div>
+                </div>
+              `;
+            }).join("")}
+          </div>
+        `}
+      `;
+      document.getElementById("app-content").innerHTML = html;
+    }
+
+    function renderOptionalsSection() {
+      return `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          ${OPTIONAL_SUBJECTS.map(opt => `
+            <div class="glass-card rounded-2xl p-5 shadow-sm border-t-4 border-t-purple-600 flex flex-col justify-between gap-3">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h3 class="font-extrabold text-navy-900 text-base">${opt.name} <span class="text-xs font-semibold text-purple-700">(${opt.hiName})</span></h3>
+                  <span class="px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 text-[11px] font-bold">500 Marks</span>
+                </div>
+                <div class="mt-3 space-y-2 text-xs text-slate-600">
+                  <div class="p-2.5 rounded-xl bg-slate-50"><strong class="text-navy-900">Paper I:</strong> ${opt.p1}</div>
+                  <div class="p-2.5 rounded-xl bg-slate-50"><strong class="text-navy-900">Paper II:</strong> ${opt.p2}</div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <button onclick="W.practiceOptionalAnswer('${opt.name}', \`${opt.prompt}\`)" class="px-3.5 py-2 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-xs font-bold">
+                  <i class="fa-solid fa-pen-nib mr-1"></i> Write Optional Answer
+                </button>
+                <button onclick="W.askMentorQuick('Give me a structured 6-month strategy and standard booklist for ${opt.name} Optional Paper I & II.')" class="px-3.5 py-2 rounded-xl bg-royal-50 text-royal-800 hover:bg-royal-100 text-xs font-bold">
+                  <i class="fa-solid fa-robot mr-1"></i> AI Strategy
+                </button>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function openTopicViewer(topicId) {
+      const topic = getAllSyllabus().find(t => t.id === topicId);
+      if (!topic) return;
+      const savedNote = state.personalNotes[topic.id] || "";
+      const ethicsHtml = topic.ethicsPack ? `
+        <div class="p-4 rounded-2xl bg-purple-50 border border-purple-200 space-y-2.5">
+          <h4 class="font-extrabold text-purple-900 text-sm flex items-center gap-2"><i class="fa-solid fa-scale-balanced"></i> GS-IV Ethics Framework & Case Study</h4>
+          <div class="text-xs space-y-1.5 text-slate-700">
+            <p><strong>Definition:</strong> ${topic.ethicsPack.definition}</p>
+            <p><strong>Real-Life Example:</strong> ${topic.ethicsPack.realLifeExample}</p>
+            <p><strong>Civil Service Example:</strong> ${topic.ethicsPack.civilServiceExample}</p>
+            <div class="p-3 rounded-xl bg-white border border-purple-200 mt-2">
+              <div class="font-bold text-purple-900 mb-1">Case Study Scenario:</div>
+              <p>${topic.ethicsPack.caseStudy}</p>
+            </div>
+            <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+              <div class="font-bold text-emerald-900 mb-1">Structured Model Approach:</div>
+              <p>${topic.ethicsPack.modelAnswer}</p>
+            </div>
+          </div>
+        </div>
+      ` : "";
+
+      const body = `
+        <div class="space-y-4">
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-lg bg-royal-50 text-royal-800 font-bold">${topic.subject} • ${topic.category}</span>
+            <span class="px-2.5 py-1 rounded-lg bg-amber-50 text-amber-800 font-bold">${topic.level}</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 font-semibold">Prerequisite: ${topic.prereq}</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-royal-50/70 border border-royal-200">
+            <h4 class="font-bold text-royal-900 text-sm mb-1.5"><i class="fa-solid fa-bolt mr-1.5 text-gold-500"></i>Quick Revision Summary</h4>
+            <p class="text-sm text-slate-700 leading-relaxed">${topic.quickNotes}</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-white border border-slate-200">
+            <h4 class="font-bold text-navy-900 text-sm mb-1.5"><i class="fa-solid fa-book-open mr-1.5 text-royal-700"></i>Detailed Conceptual Notes (English)</h4>
+            <p class="text-sm text-slate-700 leading-relaxed">${topic.detailedNotes}</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200">
+            <h4 class="font-bold text-amber-900 text-sm mb-1.5"><i class="fa-solid fa-language mr-1.5"></i>हिन्दी नोट्स (Natural Bilingual Explanation)</h4>
+            <p class="text-sm text-slate-800 leading-relaxed">${topic.hiNotes}</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200">
+              <h4 class="font-bold text-emerald-900 text-sm mb-2">High-Yield Prelims Facts</h4>
+              <ul class="list-disc ml-4 text-xs text-slate-700 space-y-1">
+                ${topic.keyFacts.map(f => `<li>${f}</li>`).join("")}
+              </ul>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+              <h4 class="font-bold text-navy-900 text-sm mb-2">UPSC PYQ Connections</h4>
+              <p class="text-xs text-slate-700 leading-relaxed">${topic.pyqConn}</p>
+            </div>
+          </div>
+
+          ${ethicsHtml}
+
+          <!-- Personal Notes Pad -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-bold text-navy-900 text-sm"><i class="fa-solid fa-note-sticky text-gold-500 mr-1.5"></i>My Personal Notes (Auto-Saved)</h4>
+              <button onclick="W.savePersonalNote('${topic.id}')" class="px-3 py-1 rounded-lg bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700">Save Note</button>
+            </div>
+            <textarea id="personal-note-input" rows="3" class="w-full p-3 rounded-xl border border-slate-300 text-sm outline-none focus:border-royal-600" placeholder="Add your own mnemonics, current affairs linkages, or revision points...">${savedNote}</textarea>
+          </div>
+        </div>
+      `;
+
+      const footer = `
+        <button onclick="window.print()" class="px-3.5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-navy-900 text-xs font-bold"><i class="fa-solid fa-print mr-1"></i> Print / PDF</button>
+        <button onclick="W.closeModal(); W.askMentorQuick('Explain ${topic.title} from zero level with simple examples and 2 UPSC practice questions.')" class="px-3.5 py-2 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-xs font-bold"><i class="fa-solid fa-robot mr-1"></i> Ask AI Mentor</button>
+        <button onclick="W.closeModal(); W.navigate('prelims');" class="px-3.5 py-2 rounded-xl bg-royal-800 hover:bg-royal-900 text-white text-xs font-bold"><i class="fa-solid fa-list-check mr-1"></i> Practice MCQs</button>
+      `;
+
+      openModal(topic.title, topic.hiTitle, body, footer);
+    }
+
+    /* =========================================================================
+       12. VIEW 3: INTERACTIVE MAPS & MIND MAPS
+       ========================================================================= */
+    let mapState = { mode: "india", selectedPin: INDIA_MAP_PINS[0], activeMindMap: "constitution", selectedNode: null };
+
+    function renderMaps() {
+      const pins = mapState.mode === "india" ? INDIA_MAP_PINS : WORLD_MAP_PINS;
+      const mm = MIND_MAPS[mapState.activeMindMap];
+
+      const html = `
+        <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-navy-900">Interactive Map Learning & Visual Mind Maps</h2>
+            <p class="text-xs sm:text-sm text-slate-500">Tap geographic markers & mind-map nodes for instant UPSC high-yield briefs</p>
+          </div>
+        </section>
+
+        <!-- Interactive Map Module -->
+        <section class="glass-card rounded-2xl p-5 shadow-sm space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="font-extrabold text-navy-900 flex items-center gap-2"><i class="fa-solid fa-earth-asia text-emerald-600"></i> Interactive Geography Atlas</h3>
+            <div class="inline-flex rounded-xl bg-slate-100 p-1 text-xs font-bold">
+              <button onclick="W.setMapMode('india')" class="px-3.5 py-1.5 rounded-lg ${mapState.mode === 'india' ? 'bg-royal-800 text-white' : 'text-slate-600'}">India Map</button>
+              <button onclick="W.setMapMode('world')" class="px-3.5 py-1.5 rounded-lg ${mapState.mode === 'world' ? 'bg-royal-800 text-white' : 'text-slate-600'}">World Map</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
+            <!-- SVG Map Canvas -->
+            <div class="lg:col-span-2 bg-gradient-to-br from-sky-50 to-blue-100 rounded-2xl border border-sky-200 p-3 relative overflow-hidden">
+              ${mapState.mode === "india" ? `
+                <svg viewBox="0 0 400 380" class="w-full h-auto max-h-[380px] mx-auto">
+                  <!-- Stylized India Outline -->
+                  <path d="M145,28 L180,38 L195,62 L178,86 L205,112 L245,126 L278,125 L318,118 L335,148 L312,175 L292,168 L272,195 L258,215 L232,235 L208,268 L182,302 L162,348 L145,356 L128,325 L112,280 L102,238 L78,218 L66,192 L85,175 L72,155 L95,122 L115,92 L125,52 Z"
+                    fill="#fefce8" stroke="#1e3a8a" stroke-width="2.5" />
+                  <!-- Andaman & Lakshadweep -->
+                  <circle cx="88" cy="315" r="4" fill="#93c5fd" stroke="#1e3a8a" stroke-width="1" />
+                  <ellipse cx="325" cy="305" rx="5" ry="18" fill="#fefce8" stroke="#1e3a8a" stroke-width="1.5" />
+                  <!-- Labels -->
+                  <text x="20" y="295" font-size="11" fill="#0369a1" font-weight="700">Arabian Sea</text>
+                  <text x="255" y="280" font-size="11" fill="#0369a1" font-weight="700">Bay of Bengal</text>
+                  <text x="140" y="372" font-size="11" fill="#0369a1" font-weight="700">Indian Ocean</text>                  ${pins.map(p => `
+                    <g class="map-pin" onclick="W.selectMapPin('${p.id}')">
+                      <circle cx="${p.x}" cy="${p.y}" r="${mapState.selectedPin?.id === p.id ? 9 : 6.5}"
+                        fill="${p.type === 'River' ? '#2563eb' : p.type === 'National Park' ? '#059669' : '#d97706'}"
+                        stroke="#ffffff" stroke-width="2" />
+                    </g>
+                  `).join("")}
+                </svg>
+              ` : `
+                <svg viewBox="0 0 440 240" class="w-full h-auto max-h-[340px] mx-auto">
+                  <!-- Stylized Continents -->
+                  <path d="M30,45 L115,35 L125,88 L95,112 L65,98 L42,72 Z" fill="#fefce8" stroke="#1e3a8a" stroke-width="1.8" />
+                  <path d="M88,125 L125,132 L135,178 L112,218 L92,192 Z" fill="#fefce8" stroke="#1e3a8a" stroke-width="1.8" />
+                  <path d="M168,42 L235,38 L242,88 L175,92 Z" fill="#fefce8" stroke="#1e3a8a" stroke-width="1.8" />
+                  <path d="M168,100 L225,102 L238,155 L205,205 L178,170 L160,132 Z" fill="#fefce8" stroke="#1e3a8a" stroke-width="1.8" />
+                  <path d="M238,40 L375,45 L382,118 L335,148 L295,140 L265,122 L238,95 Z" fill="#fefce8" stroke="#1e3a8a" stroke-width="1.8" />
+                  <path d="M335,168 L392,165 L398,205 L345,208 Z" fill="#fefce8" stroke="#1e3a8a" stroke-width="1.8" />
+                  ${pins.map(p => `
+                    <g class="map-pin" onclick="W.selectMapPin('${p.id}')">
+                      <circle cx="${p.x}" cy="${p.y}" r="${mapState.selectedPin?.id === p.id ? 8 : 6}"
+                        fill="${p.type === 'Strait' ? '#dc2626' : p.type === 'Mountain' ? '#d97706' : '#059669'}"
+                        stroke="#ffffff" stroke-width="2" />
+                    </g>
+                  `).join("")}
+                </svg>
+              `}
+              <div class="flex flex-wrap gap-3 justify-center text-[11px] font-semibold text-slate-600 mt-2">
+                <span><span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-600 mr-1"></span>Mountains</span>
+                <span><span class="inline-block w-2.5 h-2.5 rounded-full bg-blue-600 mr-1"></span>Rivers</span>
+                <span><span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-600 mr-1"></span>National Parks</span>
+                <span><span class="inline-block w-2.5 h-2.5 rounded-full bg-red-600 mr-1"></span>Straits</span>
+              </div>
+            </div>
+
+            <!-- Selected Pin Inspector -->
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 space-y-3">
+              <div class="text-xs font-bold uppercase tracking-wider text-royal-700">${mapState.selectedPin?.type || "Location"}</div>
+              <h4 class="font-extrabold text-navy-900 text-lg">${mapState.selectedPin?.name || "Select a Pin"}</h4>
+              <p class="text-sm text-slate-700 leading-relaxed">${mapState.selectedPin?.fact || ""}</p>
+              <div class="pt-2 border-t border-slate-200">
+                <div class="text-xs font-bold text-slate-500 mb-2">Quick Jump Locations:</div>
+                <div class="flex flex-wrap gap-1.5">
+                  ${pins.map(p => `
+                    <button onclick="W.selectMapPin('${p.id}')" class="px-2.5 py-1 rounded-lg text-[11px] font-semibold ${mapState.selectedPin?.id === p.id ? 'bg-royal-800 text-white' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">${p.name.split('(')[0].trim()}</button>
+                  `).join("")}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Mind Map Viewer -->
+        <section class="glass-card rounded-2xl p-5 shadow-sm space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="font-extrabold text-navy-900 flex items-center gap-2"><i class="fa-solid fa-diagram-project text-purple-600"></i> Interactive Mind Maps</h3>
+            <div class="flex flex-wrap gap-1.5">
+              ${Object.entries(MIND_MAPS).map(([k, v]) => `
+                <button onclick="W.setMindMap('${k}')" class="px-3 py-1.5 rounded-xl text-xs font-bold ${mapState.activeMindMap === k ? 'bg-purple-700 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}">${v.title.replace(' Mind Map','')}</button>
+              `).join("")}
+            </div>
+          </div>
+
+          <div class="p-4 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-5">
+            <div class="flex justify-center">
+              <div class="px-6 py-3 rounded-2xl hero-gradient text-white font-extrabold text-sm sm:text-base shadow-lg border-2 border-gold-400">
+                ${mm.center}
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              ${mm.branches.map(br => `
+                <div class="bg-white rounded-2xl border border-slate-200 p-3.5 shadow-xs space-y-2.5">
+                  <div class="${br.color} text-white px-3 py-1.5 rounded-xl text-xs font-bold text-center">${br.title}</div>
+                  <div class="space-y-2">
+                    ${br.items.map(node => `
+                      <button onclick="W.openMindNode('${node.label.replace(/'/g, "\\'")}', '${node.note.replace(/'/g, "\\'")}')"
+                        class="mind-node w-full text-left p-2.5 rounded-xl bg-slate-50 hover:bg-royal-50 border border-slate-200 hover:border-royal-300 text-xs font-semibold text-navy-900 flex items-center justify-between gap-2">
+                        <span>${node.label}</span>
+                        <i class="fa-solid fa-circle-info text-royal-600 shrink-0"></i>
+                      </button>
+                    `).join("")}
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </section>
+      `;
+      document.getElementById("app-content").innerHTML = html;
+    }
+
+    /* =========================================================================
+       13. VIEW 4: CURRENT AFFAIRS ENGINE
+       ========================================================================= */
+    let caCategory = "ALL";
+
+    function renderCurrentAffairs() {
+      const all = getAllCA();
+      const cats = ["ALL", ...new Set(all.map(c => c.category))];
+      const list = caCategory === "ALL" ? all : all.filter(c => c.category === caCategory);
+
+      const html = `
+        <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-navy-900">Daily Current Affairs Engine</h2>
+            <p class="text-xs sm:text-sm text-slate-500">Authentic institutional sources (PIB, RBI, ISRO, Supreme Court, UN) mapped to UPSC Syllabus</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            ${cats.map(c => `
+              <button onclick="W.setCACategory('${c}')" class="px-3 py-1.5 rounded-xl text-xs font-bold ${caCategory === c ? 'bg-royal-800 text-white' : 'bg-white border border-slate-200 text-slate-700'}">${c}</button>
+            `).join("")}
+          </div>
+        </section>
+
+        <div class="space-y-4">
+          ${list.map(ca => `
+            <article class="glass-card rounded-2xl p-5 shadow-sm space-y-3 border-l-4 border-l-gold-500">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex flex-wrap items-center gap-2 text-xs">
+                  <span class="px-2.5 py-0.5 rounded-full bg-royal-800 text-white font-bold">${ca.category}</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold"><i class="fa-solid fa-shield-check mr-1"></i>Source: ${ca.source}</span>
+                  <span class="text-slate-500 font-semibold">${ca.date}</span>
+                </div>
+                <button onclick="W.explainCAWithAI('${ca.id}')" class="px-3 py-1.5 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-xs font-bold flex items-center gap-1.5">
+                  <i class="fa-solid fa-sparkles"></i> AI Deep Explainer
+                </button>
+              </div>
+
+              <div>
+                <h3 class="font-extrabold text-navy-900 text-lg">${state.lang === 'hi' ? ca.hiHeadline : ca.headline}</h3>
+                ${state.lang === 'bi' ? `<p class="text-xs font-semibold text-royal-700 mt-0.5">${ca.hiHeadline}</p>` : ''}
+                <p class="text-xs font-semibold text-amber-700 mt-1"><i class="fa-solid fa-sitemap mr-1"></i>${ca.syllabus}</p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                  <div class="font-bold text-navy-900">Background & Why Important</div>
+                  <p class="text-slate-700 leading-relaxed">${ca.background} ${ca.whyImportant}</p>
+                  <div class="font-bold text-emerald-800 pt-1">Prelims Facts:</div>
+                  <ul class="list-disc ml-4 text-slate-700 space-y-0.5">${ca.prelimsFacts.map(f => `<li>${f}</li>`).join("")}</ul>
+                </div>
+                <div class="p-3.5 rounded-xl bg-royal-50/60 border border-royal-200 space-y-1.5">
+                  <div class="font-bold text-royal-900">Mains Analysis</div>
+                  <p class="text-slate-700 leading-relaxed">${ca.mainsAnalysis}</p>
+                  <div class="flex flex-wrap gap-1 pt-1">
+                    ${ca.keywords.map(k => `<span class="px-2 py-0.5 rounded-md bg-white border border-royal-200 text-royal-800 font-semibold">#${k}</span>`).join("")}
+                  </div>
+                  <div class="pt-1.5 text-navy-900 font-semibold"><strong>Possible Mains Q:</strong> ${ca.possibleQ}</div>
+                </div>
+              </div>
+              <div id="ca-ai-${ca.id}" class="hidden p-4 rounded-xl bg-purple-50 border border-purple-200 text-sm text-slate-800"></div>
+            </article>
+          `).join("")}
+        </div>
+      `;
+      document.getElementById("app-content").innerHTML = html;
+    }
+
+    /* =========================================================================
+       14. VIEW 5: PRELIMS, CSAT, PYQ, SPACED ROTATION & MOCK TEST ENGINE
+       ========================================================================= */
+    let prelimsState = { subTab: "practice", subject: "ALL", currentQ: null, selectedOpt: null, revealed: false };
+
+    function getNextRotatedQuestion(subj = "ALL") {
+      const pool = getAllQuestions().filter(q => subj === "ALL" || q.subject === subj);
+      if (!pool.length) return null;
+      // Priority 1: Due revision questions not seen in current session
+      const now = Date.now();
+      let candidates = pool.filter(q => {
+        const h = state.questionHistory[q.id];
+        return !sessionSeenQuestions.has(q.id) && h && (h.lastWrong || h.nextReviewAt <= now);
+      });
+      // Priority 2: Brand new unseen questions
+      if (!candidates.length) {
+        candidates = pool.filter(q => !sessionSeenQuestions.has(q.id) && !state.questionHistory[q.id]);
+      }
+      // Priority 3: Any question not seen this session
+      if (!candidates.length) {
+        candidates = pool.filter(q => !sessionSeenQuestions.has(q.id));
+      }
+      // Reset session tracker if exhausted
+      if (!candidates.length) {
+        sessionSeenQuestions.clear();
+        candidates = pool;
+      }
+      return candidates[Math.floor(Math.random() * candidates.length)];
+    }
+
+    function renderPrelims() {
+      if (activeMock) {
+        renderActiveMockTest();
+        return;
+      }
+      const allQ = getAllQuestions();
+      const subjects = ["ALL", ...new Set(allQ.map(q => q.subject))];
+      if (!prelimsState.currentQ) prelimsState.currentQ = getNextRotatedQuestion(prelimsState.subject);
+      const q = prelimsState.currentQ;
+      const dueList = getDueRevisions();
+
+      const authBadge = (a) => {
+        if (a === "OFFICIAL PYQ") return "bg-emerald-100 text-emerald-800 border-emerald-300";
+        if (a === "AI-GENERATED QUESTION") return "bg-purple-100 text-purple-800 border-purple-300";
+        return "bg-royal-100 text-royal-800 border-royal-300";
+      };
+
+      const html = `
+        <section class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-navy-900">Prelims, CSAT, PYQs & Mock Tests</h2>
+            <p class="text-xs sm:text-sm text-slate-500">Smart Question Rotation • Spaced Revision (1h→21d) • UPSC +2 / -0.66 Scoring</p>
+          </div>
+          <div class="inline-flex rounded-xl bg-white p-1 border border-slate-200 text-xs font-bold self-start">
+            <button onclick="W.setPrelimsTab('practice')" class="px-3 py-1.5 rounded-lg ${prelimsState.subTab === 'practice' ? 'bg-royal-800 text-white' : 'text-slate-600'}">Smart Practice</button>
+            <button onclick="W.setPrelimsTab('mocks')" class="px-3 py-1.5 rounded-lg ${prelimsState.subTab === 'mocks' ? 'bg-royal-800 text-white' : 'text-slate-600'}">Mock Tests</button>
+            <button onclick="W.setPrelimsTab('revision')" class="px-3 py-1.5 rounded-lg ${prelimsState.subTab === 'revision' ? 'bg-royal-800 text-white' : 'text-slate-600'}">Revision (${dueList.length})</button>
+          </div>
+        </section>
+
+        ${prelimsState.subTab === "practice" ? `
+          <div class="glass-card rounded-2xl p-4 shadow-sm flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5">
+              ${subjects.map(s => `
+                <button onclick="W.setPrelimsSubject('${s}')" class="px-3 py-1.5 rounded-xl text-xs font-bold ${prelimsState.subject === s ? 'bg-royal-800 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}">${s}</button>
+              `).join("")}
+            </div>
+            <button onclick="W.generateAIMCQ()" id="gen-ai-mcq-btn" class="px-3.5 py-2 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-xs font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Fresh AI UPSC MCQ
+            </button>
+          </div>
+
+          ${q ? `
+            <div class="glass-card rounded-2xl p-5 sm:p-6 shadow-sm space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2 text-xs">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded-full border font-extrabold ${authBadge(q.authenticity)}">${q.authenticity}</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold">${q.subject} • ${q.year}</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800 font-semibold">${q.type}</span>
+                </div>
+                <span class="text-slate-400 font-mono text-[11px]">${q.level}</span>
+              </div>
+
+              <div class="text-sm sm:text-base font-bold text-navy-900 whitespace-pre-line leading-relaxed">${state.lang === 'hi' && q.hiQ ? q.hiQ : q.q}</div>
+              ${state.lang === 'bi' && q.hiQ ? `<div class="text-xs sm:text-sm font-medium text-royal-800 bg-royal-50/60 p-3 rounded-xl whitespace-pre-line">${q.hiQ}</div>` : ''}
+
+              <div class="space-y-2.5">
+                ${q.options.map((opt, idx) => {
+                  let cls = "bg-white border-slate-200 hover:border-royal-500 text-slate-800";
+                  if (prelimsState.revealed) {
+                    if (idx === q.answer) cls = "bg-emerald-50 border-emerald-500 text-emerald-900 font-bold";
+                    else if (idx === prelimsState.selectedOpt) cls = "bg-rose-50 border-rose-500 text-rose-900";
+                  } else if (idx === prelimsState.selectedOpt) {
+                    cls = "bg-royal-50 border-royal-600 text-royal-900 font-bold";
+                  }
+                  return `
+                    <button onclick="W.selectPracticeOption(${idx})" ${prelimsState.revealed ? 'disabled' : ''}
+                      class="w-full text-left p-3.5 rounded-xl border-2 text-sm transition flex items-start gap-3 ${cls}">
+                      <span class="w-6 h-6 rounded-lg bg-slate-100 text-navy-900 font-bold text-xs flex items-center justify-center shrink-0">${String.fromCharCode(65 + idx)}</span>
+                      <span>${opt}</span>
+                    </button>
+                  `;
+                }).join("")}
+              </div>
+
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+                ${!prelimsState.revealed ? `
+                  <button onclick="W.submitPracticeAnswer()" class="px-5 py-2.5 rounded-xl bg-royal-800 hover:bg-royal-900 text-white text-sm font-bold">Check Answer</button>
+                ` : `
+                  <button onclick="W.nextPracticeQuestion()" class="px-5 py-2.5 rounded-xl gold-gradient text-navy-900 text-sm font-extrabold">Next Rotated Question <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                `}
+                <button onclick="W.nextPracticeQuestion()" class="text-xs font-bold text-slate-500 hover:text-royal-800">Skip Question</button>
+              </div>
+
+              ${prelimsState.revealed ? `
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs sm:text-sm fade-in">
+                  <div class="font-extrabold ${prelimsState.selectedOpt === q.answer ? 'text-emerald-700' : 'text-rose-700'}">
+                    ${prelimsState.selectedOpt === q.answer ? '✅ Correct! Scheduled for next Spaced Repetition interval.' : `❌ Incorrect. Correct Answer: (${String.fromCharCode(65 + q.answer)}) — Scheduled for 1-Hour Early Revision.`}
+                  </div>
+                  <p><strong>Why Correct:</strong> ${q.whyCorrect}</p>
+                  <p><strong>Why Others Wrong:</strong> ${q.whyWrong}</p>
+                  <p><strong>Core Concept:</strong> ${q.concept}</p>
+                  <div class="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 font-semibold"><i class="fa-solid fa-lightbulb mr-1"></i> Memory Trick: ${q.trick}</div>
+                </div>
+              ` : ''}
+            </div>
+          ` : ''}
+        ` : prelimsState.subTab === "mocks" ? `
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            ${[
+              { id: "full-gs", title: "UPSC Prelims GS Full Sprint", filter: "GS", mins: 15, desc: "Mixed GS Paper I (Polity, History, Geo, Economy, Env, Sci-Tech, IR) with +2 / -0.66 negative marking." },
+              { id: "csat-mock", title: "CSAT Qualifying Mini-Mock", filter: "CSAT", mins: 10, desc: "Quantitative Aptitude, Logical Reasoning & Reading Comprehension (33% qualifying standard)." },
+              { id: "pyq-mock", title: "Official UPSC PYQ Simulator", filter: "PYQ", mins: 12, desc: "Strictly curated authentic UPSC Previous Year Questions for real exam calibration." }
+            ].map(m => `
+              <div class="glass-card rounded-2xl p-5 shadow-sm flex flex-col justify-between gap-4 border-t-4 border-t-royal-800">
+                <div>
+                  <span class="px-2.5 py-0.5 rounded-full bg-royal-50 text-royal-800 text-[11px] font-bold">${m.mins} Mins • Negative Marking</span>
+                  <h3 class="font-extrabold text-navy-900 text-base mt-2">${m.title}</h3>
+                  <p class="text-xs text-slate-600 mt-1.5">${m.desc}</p>
+                </div>
+                <button onclick="W.startMockTest('${m.title}', '${m.filter}', ${m.mins})" class="w-full py-2.5 rounded-xl bg-royal-800 hover:bg-royal-900 text-white text-xs font-bold">
+                  <i class="fa-solid fa-play mr-1.5"></i> Start Timed Mock Test
+                </button>
+              </div>
+            `).join("")}
+          </div>
+
+          <div class="glass-card rounded-2xl p-5 shadow-sm">
+            <h3 class="font-bold text-navy-900 text-sm mb-3">Recent Mock Test History</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left">
+                <thead class="bg-slate-100 text-slate-600 uppercase">
+                  <tr><th class="p-2.5 rounded-l-lg">Date</th><th class="p-2.5">Test</th><th class="p-2.5">Score</th><th class="p-2.5 rounded-r-lg">Accuracy</th></tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                  ${state.mockHistory.map(m => `
+                    <tr>
+                      <td class="p-2.5 font-medium">${m.date}</td>
+                      <td class="p-2.5 font-bold text-navy-900">${m.title}</td>
+                      <td class="p-2.5 font-bold text-royal-800">${m.score} / ${m.maxScore}</td>
+                      <td class="p-2.5 font-bold text-emerald-700">${m.accuracy}%</td>
+                    </tr>
+                  `).join("")}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ` : `
+          <!-- Spaced Revision Dashboard -->
+          <div class="glass-card rounded-2xl p-5 shadow-sm space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 class="font-extrabold text-navy-900">Spaced Revision Schedule (1 Hr → 1d → 5d → 7d → 14d → 21d)</h3>
+                <p class="text-xs text-slate-500">Incorrect questions are automatically pushed to the 1-Hour high-priority queue.</p>
+              </div>
+            </div>
+            ${dueList.length === 0 ? `
+              <div class="p-6 text-center rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold">
+                🎉 All caught up! Practice more questions in Smart Practice to populate your spaced repetition queue.
+              </div>
+            ` : `
+              <div class="space-y-2.5">
+                ${dueList.map(dq => {
+                  const h = state.questionHistory[dq.id];
+                  return `
+                    <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200 flex flex-wrap items-center justify-between gap-3">
+                      <div class="min-w-0 flex-1">
+                        <div class="text-xs font-bold text-amber-800">${dq.subject} • Interval: ${SR_LABELS[h.stageIdx]} ${h.lastWrong ? '(Missed Previously)' : ''}</div>
+                        <div class="text-sm font-bold text-navy-900 truncate">${dq.q}</div>
+                      </div>
+                      <button onclick="W.loadSpecificQuestion('${dq.id}')" class="px-3.5 py-2 rounded-xl bg-royal-800 text-white text-xs font-bold shrink-0">Revise Now</button>
+                    </div>
+                  `;
+                }).join("")}
+              </div>
+            `}
+          </div>
+        `}
+      `;
+      document.getElementById("app-content").innerHTML = html;
+    }
+
+    function renderActiveMockTest() {
+      const q = activeMock.questions[activeMock.idx];
+      const mins = Math.floor(activeMock.remainingSec / 60);
+      const secs = String(activeMock.remainingSec % 60).padStart(2, "0");
+
+      const html = `
+        <div class="glass-card rounded-2xl p-4 sm:p-6 shadow-md space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-200">
+            <div>
+              <h2 class="font-extrabold text-navy-900 text-base sm:text-lg">${activeMock.title}</h2>
+              <p class="text-xs text-slate-500">Question ${activeMock.idx + 1} of ${activeMock.questions.length} • +2.0 / -0.66 Marks</p>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <div id="mock-timer-display" class="px-3.5 py-1.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 font-mono font-extrabold text-sm">
+                <i class="fa-regular fa-clock mr-1"></i>${mins}:${secs}
+              </div>
+              <button onclick="W.submitMockTest()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold">Submit Test</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-5">
+            <div class="lg:col-span-3 space-y-4">
+              <div class="flex items-center gap-2 text-xs">
+                <span class="px-2.5 py-0.5 rounded-full bg-royal-50 text-royal-800 font-bold">${q.subject}</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-semibold">${q.authenticity}</span>
+              </div>
+              <div class="text-sm sm:text-base font-bold text-navy-900 whitespace-pre-line">${q.q}</div>
+              <div class="space-y-2">
+                ${q.options.map((opt, i) => `
+                  <button onclick="W.answerMockQuestion(${i})"
+                    class="w-full text-left p-3.5 rounded-xl border-2 text-sm flex items-start gap-3 transition ${
+                      activeMock.answers[activeMock.idx] === i ? 'bg-royal-50 border-royal-700 font-bold text-royal-900' : 'bg-white border-slate-200 hover:border-slate-400'
+                    }">
+                    <span class="w-6 h-6 rounded-lg bg-slate-100 font-bold text-xs flex items-center justify-center shrink-0">${String.fromCharCode(65 + i)}</span>
+                    <span>${opt}</span>
+                  </button>
+                `).join("")}
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-2 pt-2">
+                <div class="flex gap-2">
+                  <button onclick="W.toggleMarkForReview()" class="px-3.5 py-2 rounded-xl bg-purple-100 text-purple-800 text-xs font-bold">
+                    <i class="fa-solid fa-flag mr-1"></i>${activeMock.review.has(activeMock.idx) ? 'Unmark Review' : 'Mark for Review'}
+                  </button>
+                  <button onclick="W.clearMockAnswer()" class="px-3.5 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold">Clear</button>
+                </div>
+                <div class="flex gap-2">
+                  <button onclick="W.jumpMockQuestion(${activeMock.idx - 1})" ${activeMock.idx === 0 ? 'disabled' : ''} class="px-4 py-2 rounded-xl bg-slate-200 text-navy-900 text-xs font-bold disabled:opacity-40">Prev</button>
+                  <button onclick="W.jumpMockQuestion(${activeMock.idx + 1})" ${activeMock.idx === activeMock.questions.length - 1 ? 'disabled' : ''} class="px-4 py-2 rounded-xl bg-royal-800 text-white text-xs font-bold disabled:opacity-40">Next</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question Palette -->
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200">
+              <div class="text-xs font-bold text-navy-900 mb-3">Question Palette</div>
+              <div class="grid grid-cols-5 gap-2">
+                ${activeMock.questions.map((_, i) => {
+                  const isAns = activeMock.answers[i] !== undefined;
+                  const isRev = activeMock.review.has(i);
+                  const isCurr = i === activeMock.idx;
+                  let cls = "bg-white border-slate-300 text-slate-700";
+                  if (isRev) cls = "bg-purple-600 text-white border-purple-700";
+                  else if (isAns) cls = "bg-emerald-600 text-white border-emerald-700";
+                  return `<button onclick="W.jumpMockQuestion(${i})" class="h-9 rounded-lg border text-xs font-bold ${cls} ${isCurr ? 'ring-2 ring-gold-500' : ''}">${i + 1}</button>`;
+                }).join("")}
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById("app-content").innerHTML = html;
+    }
+
+    /* =========================================================================
+       15. VIEW 6: MAINS ANSWER WRITING ACADEMY & ESSAY MASTERCLASS (GEMINI AI)
+       ========================================================================= */
+    const MAINS_PROMPTS = [
+      { id: "m1", paper: "GS-II Polity", marks: 10, words: 150, q: "Discuss the significance of the Basic Structure Doctrine in preserving constitutional supremacy in India." },
+      { id: "m2", paper: "GS-III Economy", marks: 15, words: 250, q: "Examine how India's Digital Public Infrastructure (DPI) promotes inclusive growth. What challenges must be addressed?" },
+      { id: "m3", paper: "GS-IV Ethics Case Study", marks: 20, words: 250, q: "As District Collector during severe floods, an influential MLA demands diverting relief supplies to his unaffected ward. Identify ethical dilemmas and outline your course of action." },
+      { id: "m4", paper: "UPSC Essay Masterclass", marks: 125, words: 1000, q: "Philosophical Essay: 'A ship in harbor is safe, but that is not what ships are built for.' Explore with Indian & global examples." }
+    ];
+    let selectedMainsPrompt = MAINS_PROMPTS[0];
+
+    function renderMains() {
+      const html = `
+        <section>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-navy-900">Mains Answer Writing Academy & Essay Masterclass</h2>
+          <p class="text-xs sm:text-sm text-slate-500">Structured UPSC Frameworks • Live Word Counter • Instant Gemini AI Evaluation & Model Answers</p>
+        </section>
+
+        <!-- Structure Frameworks -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div class="glass-card rounded-2xl p-4 border-t-4 border-t-royal-800">
+            <h4 class="font-bold text-navy-900 text-sm">1. Introduction (15%)</h4>
+            <p class="text-xs text-slate-600 mt-1">Start with a crisp definition, constitutional article, recent RBI/NITI data, or historical context.</p>
+          </div>
+          <div class="glass-card rounded-2xl p-4 border-t-4 border-t-emerald-600">
+            <h4 class="font-bold text-navy-900 text-sm">2. Multi-Dimensional Body (70%)</h4>
+            <p class="text-xs text-slate-600 mt-1">Use PESTEL (Political, Economic, Social, Tech, Env, Legal) subheadings, diagrams, and Supreme Court judgments.</p>
+          </div>
+          <div class="glass-card rounded-2xl p-4 border-t-4 border-t-gold-500">
+            <h4 class="font-bold text-navy-900 text-sm">3. Way Forward Conclusion (15%)</h4>
+            <p class="text-xs text-slate-600 mt-1">Futuristic, balanced conclusion citing 2nd ARC, SDGs, or Viksit Bharat 2047 vision.</p>
+          </div>
+        </section>
+
+        <!-- Prompt Selector + Writing Pad -->
+        <section class="glass-card rounded-2xl p-5 shadow-sm space-y-4">
+          <div class="flex flex-wrap gap-2">
+            ${MAINS_PROMPTS.map(p => `
+              <button onclick="W.selectMainsPrompt('${p.id}')" class="px-3 py-1.5 rounded-xl text-xs font-bold ${selectedMainsPrompt.id === p.id ? 'bg-royal-800 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}">
+                ${p.paper} (${p.marks}M)
+              </button>
+            `).join("")}
+          </div>
+
+          <div class="p-4 rounded-xl bg-royal-50 border border-royal-200">
+            <div class="flex items-center justify-between text-xs font-bold text-royal-800 mb-1">
+              <span>${selectedMainsPrompt.paper}</span>
+              <span>${selectedMainsPrompt.marks} Marks • Target: ${selectedMainsPrompt.words} words</span>
+            </div>
+            <p id="mains-active-question" class="text-sm sm:text-base font-extrabold text-navy-900">${selectedMainsPrompt.q}</p>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between text-xs font-semibold text-slate-600 mb-1.5">
+              <span>Write your structured answer below (English or Hindi):</span>
+              <span id="mains-word-count" class="px-2.5 py-0.5 rounded-lg bg-slate-100 font-bold text-navy-900">0 words</span>
+            </div>
+            <textarea id="mains-answer-input" rows="8" oninput="W.updateMainsWordCount()"
+              class="w-full p-4 rounded-2xl border border-slate-300 focus:border-royal-700 outline-none text-sm leading-relaxed"
+              placeholder="Write your Introduction, structured Body points (with articles/examples), and Way Forward Conclusion..."></textarea>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <button onclick="W.evaluateMainsAnswer()" id="eval-mains-btn" class="px-5 py-2.5 rounded-xl bg-royal-800 hover:bg-royal-900 text-white text-sm font-bold flex items-center gap-2">
+              <i class="fa-solid fa-sparkles text-gold-400"></i> Evaluate with AI Examiner
+            </button>
+            <button onclick="W.generateMainsModel()" id="model-mains-btn" class="px-4 py-2.5 rounded-xl bg-purple-700 hover:bg-purple-800 text-white text-sm font-bold flex items-center gap-2">
+              <i class="fa-solid fa-file-lines"></i> Generate Model Answer
+            </button>
+          </div>
+
+          <div id="mains-ai-output" class="hidden p-5 rounded-2xl bg-slate-50 border border-slate-200 text-sm space-y-2"></div>
+        </section>
+      `;
+      document.getElementById("app-content").innerHTML = html;
+    }
+
+    /* =========================================================================
+       16. VIEW 7: INTERVIEW PREPARATION & AI BOARD SIMULATOR
+       ========================================================================= */
+    function renderInterview() {
+      const d = state.dafProfile;
+      const html = `
+        <section>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-navy-900">UPSC Interview Preparation & AI Board Simulator</h2>
+          <p class="text-xs sm:text-sm text-slate-500">DAF-based Question Generator • Voice/Text Mock Board • Balanced Opinion Feedback</p>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <!-- DAF Form -->
+          <div class="glass-card rounded-2xl p-5 shadow-sm space-y-3">
+            <h3 class="font-extrabold text-navy-900 text-sm flex items-center gap-2"><i class="fa-solid fa-id-card text-royal-700"></i> Detailed Application Form (DAF)</h3>
+            ${[
+              { key: "name", label: "Candidate Name" },
+              { key: "homeState", label: "Home State" },
+              { key: "district", label: "Home District" },
+              { key: "education", label: "Graduation / Stream" },
+              { key: "optional", label: "Optional Subject" },
+              { key: "hobbies", label: "Hobbies & Interests" }
+            ].map(f => `
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">${f.label}</label>
+                <input id="daf-${f.key}" type="text" value="${d[f.key] || ''}" class="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-royal-600 outline-none" />
+              </div>
+            `).join("")}
+            <button onclick="W.saveDAF()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold">Save DAF & Personalize Board</button>
+          </div>
+
+          <!-- AI Mock Interview Chat -->
+          <div class="lg:col-span-2 glass-card rounded-2xl p-5 shadow-sm flex flex-col h-[540px]">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center"><i class="fa-solid fa-user-tie"></i></div>
+                <div>
+                  <div class="font-extrabold text-navy-900 text-sm">UPSC Personality Test Board (AI)</div>
+                  <div class="text-[11px] text-emerald-600 font-semibold">Live DAF-Aware Evaluation</div>
+                </div>
+              </div>
+              <button onclick="W.resetInterview()" class="text-xs font-bold text-slate-500 hover:text-royal-800">Restart Board</button>
+            </div>
+
+            <div id="interview-chat-box" class="flex-1 overflow-y-auto py-4 space-y-3">
+              ${interviewMessages.map(m => `
+                <div class="flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}">
+                  <div class="max-w-[85%] p-3.5 rounded-2xl text-sm leading-relaxed ${
+                    m.role === 'user' ? 'bg-royal-800 text-white rounded-br-none' : 'bg-slate-100 text-slate-800 rounded-bl-none'
+                  }">${formatMarkdown(m.text)}</div>
+                </div>
+              `).join("")}
+            </div>
+
+            <div class="pt-3 border-t border-slate-200 flex items-center gap-2">
+              <button onclick="W.startVoiceInput('interview-input')" class="w-10 h-10 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-800 flex items-center justify-center shrink-0" title="Speak Answer (Voice Input)">
+                <i class="fa-solid fa-microphone"></i>
+              </button>
+              <input id="interview-input" type="text" onkeydown="if(event.key==='Enter') W.sendInterviewResponse()"
+                placeholder="Type or speak your response to the UPSC Board..."
+                class="flex-1 px-4 py-2.5 rounded-xl bg-slate-100 focus:bg-white border border-transparent focus:border-royal-600 text-sm outline-none" />
+              <button onclick="W.sendInterviewResponse()" class="px-4 py-2.5 rounded-xl bg-royal-800 hover:bg-royal-900 text-white text-sm font-bold shrink-0">Send</button>
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById("app-content").innerHTML = html;
+      const box = document.getElementById("interview-chat-box");
+      if (box) box.scrollTop = box.scrollHeight;
+    }
+
+    /* =========================================================================
+       17. VIEW 8: AI PERSONAL MENTOR (CONTEXT-AWARE)
+       ========================================================================= */
+    function renderMentor() {
+      const chips = [
+        "Explain Fiscal Deficit from zero level",
+        "Explain Fundamental Rights in simple Hindi",
+        "Make quick revision notes on Revolt of 1857",
+        "Generate 3 UPSC Prelims MCQs on Environment",
+        "Give a Mains answer structure on Cooperative Federalism",
+        "Create a 7-day revision plan for my weak topics"
+      ];
+
+      const html = `
+        <section class="glass-card rounded-2xl p-4 sm:p-5 shadow-sm flex flex-col h-[calc(100vh-11rem)] min-h-[500px]">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl hero-gradient text-gold-400 flex items-center justify-center text-lg shadow"><i class="fa-solid fa-robot"></i></div>
+              <div>
+                <h2 class="font-extrabold text-navy-900 text-base">WONDER IAS Personal AI Mentor</h2>
+                <p class="text-xs text-slate-500">Context: Stage ${state.currentStage}/10 • ${state.targetExam} • Language: ${state.lang.toUpperCase()}</p>
+              </div>
+            </div>
+            <button onclick="W.clearMentorChat()" class="text-xs font-bold text-slate-500 hover:text-rose-600">Clear Chat</button>
+          </div>
+
+          <!-- Quick Action Chips -->
+          <div class="flex gap-2 overflow-x-auto py-2.5 shrink-0">
+            ${chips.map(c => `
+              <button onclick="W.askMentorQuick('${c}')" class="px-3 py-1.5 rounded-full bg-royal-50 hover:bg-royal-100 border border-royal-200 text-royal-800 text-xs font-semibold whitespace-nowrap shrink-0">${c}</button>
+            `).join("")}
+          </div>
+
+          <div id="mentor-chat-box" class="flex-1 overflow-y-auto py-3 space-y-3">
+            ${mentorMessages.map(m => `
+              <div class="flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}">
+                <div class="max-w-[88%] p-3.5 rounded-2xl text-sm leading-relaxed ${
+                  m.role === 'user' ? 'bg-royal-800 text-white rounded-br-none' : 'bg-slate-100 text-slate-800 rounded-bl-none'
+                }">${formatMarkdown(m.text)}</div>
+              </div>
+            `).join("")}
+          </div>
+
+          <div class="pt-3 border-t border-slate-200 flex items-center gap-2">
+            <input id="mentor-input" type="text" onkeydown="if(event.key==='Enter') W.sendMentorMessage()"
+              placeholder="Ask anything in English or Hindi (e.g., Explain Article 356 from zero)..."
+              class="flex-1 px-4 py-2.5 rounded-xl bg-slate-100 focus:bg-white border border-transparent focus:border-royal-600 text-sm outline-none" />
+            <button onclick="W.sendMentorMessage()" class="px-5 py-2.5 rounded-xl bg-royal-800 hover:bg-royal-900 text-white text-sm font-bold shrink-0">Ask</button>
+          </div>
+        </section>
+      `;
+      document.getElementById("app-content").innerHTML = html;
+      const box = document.getElementById("mentor-chat-box");
+      if (box) box.scrollTop = box.scrollHeight;
+    }
+
+    /* =========================================================================
+       18. VIEW 9: PERSONALIZED STUDY PLAN GENERATOR
+       ========================================================================= */
+    function renderStudyPlan() {
+      const plan = state.savedStudyPlan;
+      const html = `
+        <section>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-navy-900">Personalized Study Plan Generator</h2>
+          <p class="text-xs sm:text-sm text-slate-500">Balances NCERTs, Standard Books, Current Affairs, Spaced Revision & Mock Tests</p>
+        </section>
+
+        <section class="glass-card rounded-2xl p-5 shadow-sm grid grid-cols-1 sm:grid-cols-4 gap-4 items-end">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Target Exam</label>
+            <select id="plan-exam" class="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm font-semibold">
+              <option value="UPSC CSE">UPSC Civil Services (IAS/IPS)</option>
+              <option value="State PCS">State PCS (UPPSC/BPSC/MPPSC/RAS)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Duration</label>
+            <select id="plan-duration" class="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm font-semibold">
+              <option value="3 Months">3 Months (Intensive)</option>
+              <option value="6 Months">6 Months (Fast-Track)</option>
+              <option value="1 Year" selected>1 Year (Standard UPSC)</option>
+              <option value="2 Years">2 Years (College Foundation)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 mb-1">Daily Study Hours</label>
+            <select id="plan-hours" class="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm font-semibold">
+              <option value="2">2 Hours / Day</option>
+              <option value="4">4 Hours / Day</option>
+              <option value="6" selected>6 Hours / Day</option>
+              <option value="8">8 Hours / Day</option>
+              <option value="10">10 Hours / Day</option>
+            </select>
+          </div>
+          <button onclick="W.generateStudyPlan()" class="py-2.5 px-4 rounded-xl gold-gradient text-navy-900 font-extrabold text-sm shadow hover:brightness-105">
+            <i class="fa-solid fa-wand-sparkles mr-1"></i> Generate Plan
+          </button>
+        </section>
+
+        ${plan ? `
+          <section class="glass-card rounded-2xl p-5 shadow-sm space-y-5 fade-in">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200">
+              <div>
+                <h3 class="font-extrabold text-navy-900 text-lg">${plan.exam} — ${plan.duration} Roadmap (${plan.hours} hrs/day)</h3>
+                <p class="text-xs text-slate-500">Tailored for Stage ${state.currentStage} • Weak Focus: ${plan.weakFocus}</p>
+              </div>
+              <button onclick="window.print()" class="px-3.5 py-2 rounded-xl bg-royal-800 text-white text-xs font-bold"><i class="fa-solid fa-print mr-1"></i> Print Schedule</button>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-royal-800 text-sm mb-2">Daily Time Allocation (${plan.hours} Hours)</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                ${plan.dailyBlocks.map(b => `
+                  <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="text-xs font-extrabold text-royal-700">${b.time}</div>
+                    <div class="font-bold text-navy-900 text-sm mt-0.5">${b.title}</div>
+                    <div class="text-xs text-slate-600 mt-1">${b.desc}</div>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-emerald-800 text-sm mb-2">Phase-wise Milestone Calendar</h4>
+              <div class="space-y-2.5">
+                ${plan.phases.map((p, i) => `
+                  <div class="p-3.5 rounded-xl bg-emerald-50/50 border border-emerald-200 flex items-start gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-emerald-700 text-white font-bold text-xs flex items-center justify-center shrink-0">P${i+1}</span>
+                    <div>
+                      <div class="font-bold text-navy-900 text-sm">${p.title}</div>
+                      <div class="text-xs text-slate-700 mt-0.5">${p.tasks}</div>
+                    </div>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+          </section>
+        ` : `
+          <div class="glass-card rounded-2xl p-8 text-center text-slate-500 text-sm">
+            Select your target exam, duration, and daily hours above, then click <strong>Generate Plan</strong>.
+          </div>
+        `}
+      `;
+      document.getElementById("app-content").innerHTML = html;
+    }
+
+    /* =========================================================================
+       19. VIEW 10: TEACHER / ADMIN CONTENT MANAGER & DATA EXPORT/IMPORT
+       ========================================================================= */
+    function renderAdmin() {
+      const html = `
+        <section class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-navy-900">Teacher / Admin Content Studio & Data Backup</h2>
+            <p class="text-xs sm:text-sm text-slate-500">Add new syllabus topics, practice MCQs, current affairs, or Export/Import full JSON backup</p>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="W.exportDataJSON()" class="px-3.5 py-2 rounded-xl bg-royal-800 text-white text-xs font-bold"><i class="fa-solid fa-download mr-1"></i> Export JSON</button>
+            <label class="px-3.5 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold cursor-pointer">
+              <i class="fa-solid fa-upload mr-1"></i> Import JSON
+              <input type="file" accept=".json" onchange="W.importDataJSON(event)" class="hidden" />
+            </label>
+          </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <!-- Add Syllabus Topic -->
+          <div class="glass-card rounded-2xl p-5 shadow-sm space-y-3">
+            <h3 class="font-extrabold text-navy-900 text-sm"><i class="fa-solid fa-plus-circle text-royal-700 mr-1.5"></i> Add New Syllabus Topic</h3>
+            <div class="grid grid-cols-2 gap-2.5">
+              <input id="adm-t-subj" type="text" placeholder="Subject (e.g., Polity)" class="p-2.5 rounded-xl border border-slate-200 text-xs" />
+              <input id="adm-t-paper" type="text" placeholder="Paper (e.g., GS-II)" class="p-2.5 rounded-xl border border-slate-200 text-xs" />
+            </div>
+            <input id="adm-t-title" type="text" placeholder="Topic Title (English)" class="w-full p-2.5 rounded-xl border border-slate-200 text-xs" />
+            <input id="adm-t-hi" type="text" placeholder="शीर्षक (Hindi Title)" class="w-full p-2.5 rounded-xl border border-slate-200 text-xs" />
+            <textarea id="adm-t-notes" rows="3" placeholder="Quick & Detailed Notes..." class="w-full p-2.5 rounded-xl border border-slate-200 text-xs"></textarea>
+            <button onclick="W.adminAddTopic()" class="w-full py-2.5 rounded-xl bg-royal-800 hover:bg-royal-900 text-white text-xs font-bold">Publish Topic to Syllabus</button>
+          </div>
+
+          <!-- Add Practice MCQ -->
+          <div class="glass-card rounded-2xl p-5 shadow-sm space-y-3">
+            <h3 class="font-extrabold text-navy-900 text-sm"><i class="fa-solid fa-circle-question text-emerald-600 mr-1.5"></i> Add Question to Smart Bank</h3>
+            <div class="grid grid-cols-2 gap-2.5">
+              <input id="adm-q-subj" type="text" placeholder="Subject (e.g., Economy)" class="p-2.5 rounded-xl border border-slate-200 text-xs" />
+              <select id="adm-q-auth" class="p-2.5 rounded-xl border border-slate-200 text-xs">
+                <option value="PRACTICE QUESTION">PRACTICE QUESTION</option>
+                <option value="OFFICIAL PYQ">OFFICIAL PYQ</option>
+              </select>
+            </div>
+            <textarea id="adm-q-text" rows="2" placeholder="Question text..." class="w-full p-2.5 rounded-xl border border-slate-200 text-xs"></textarea>
+            <div class="grid grid-cols-2 gap-2">
+              <input id="adm-q-o0" type="text" placeholder="Option A" class="p-2 rounded-xl border border-slate-200 text-xs" />
+              <input id="adm-q-o1" type="text" placeholder="Option B" class="p-2 rounded-xl border border-slate-200 text-xs" />
+              <input id="adm-q-o2" type="text" placeholder="Option C" class="p-2 rounded-xl border border-slate-200 text-xs" />
+              <input id="adm-q-o3" type="text" placeholder="Option D" class="p-2 rounded-xl border border-slate-200 text-xs" />
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <select id="adm-q-ans" class="p-2 rounded-xl border border-slate-200 text-xs">
+                <option value="0">Correct: Option A</option>
+                <option value="1">Correct: Option B</option>
+                <option value="2">Correct: Option C</option>
+                <option value="3">Correct: Option D</option>
+              </select>
+              <input id="adm-q-exp" type="text" placeholder="Short Explanation" class="p-2 rounded-xl border border-slate-200 text-xs" />
+            </div>
+            <button onclick="W.adminAddQuestion()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold">Add Question to Bank</button>
+          </div>
+        </div>
+
+        <!-- Permanent One File / Zero Duplicate Registry -->
+        <section class="glass-card rounded-2xl p-5 shadow-sm space-y-4">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <h3 class="font-extrabold text-navy-900"><i class="fa-solid fa-database text-purple-600 mr-2"></i>One File — Zero Duplicate Data Registry</h3>
+              <p class="text-xs text-slate-500 mt-1">One master record, multiple references. Import is merge-only; existing IDs and records are preserved.</p>
+            </div>
+            <button onclick="W.runMasterAudit()" class="px-3 py-2 rounded-xl bg-purple-700 text-white text-xs font-bold"><i class="fa-solid fa-magnifying-glass-chart mr-1"></i> Run Duplicate Audit</button>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <div class="p-3 rounded-xl bg-blue-50 border border-blue-100"><div class="text-[10px] text-blue-700 font-bold">CUSTOM TOPICS</div><div id="master-topics-count" class="text-xl font-extrabold text-blue-900">${(state.customSyllabus||[]).length}</div></div>
+            <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-100"><div class="text-[10px] text-emerald-700 font-bold">CUSTOM QUESTIONS</div><div id="master-questions-count" class="text-xl font-extrabold text-emerald-900">${(state.customQuestions||[]).length}</div></div>
+            <div class="p-3 rounded-xl bg-amber-50 border border-amber-100"><div class="text-[10px] text-amber-700 font-bold">CURRENT AFFAIRS</div><div id="master-ca-count" class="text-xl font-extrabold text-amber-900">${(state.customCA||[]).length}</div></div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200"><div class="text-[10px] text-slate-600 font-bold">REGISTERED FILES</div><div id="master-files-count" class="text-xl font-extrabold text-slate-900">${(state.masterRegistry?.files||[]).length}</div></div>
+          </div>
+          <div id="master-audit-result" class="text-xs text-slate-600 bg-slate-50 rounded-xl p-3">Audit not yet run in this session. Run the audit to inspect duplicates and registry health.</div>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="W.exportMasterRegistry()" class="px-3 py-2 rounded-xl border border-slate-300 bg-white text-xs font-bold"><i class="fa-solid fa-file-export mr-1"></i> Export Registry</button>
+            <button onclick="W.repairMasterDuplicates()" class="px-3 py-2 rounded-xl bg-emerald-700 text-white text-xs font-bold"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Safe Deduplicate</button>
+          </div>
+        </section>
+
+        <!-- V2 Smart Master Data Control Center -->
+        <section class="glass-card rounded-2xl p-5 shadow-sm space-y-4">
+          <div class="flex flex-wrap justify-between items-center gap-3">
+            <div><h3 class="font-extrabold text-navy-900"><i class="fa-solid fa-layer-group text-blue-600 mr-2"></i>Smart Master Data Control Center — V2</h3><p class="text-xs text-slate-500 mt-1">Search once, use master records everywhere. Archive instead of deleting; preserve IDs.</p></div>
+            <button onclick="W.exportMasterDataBackup()" class="px-3 py-2 rounded-xl bg-blue-700 text-white text-xs font-bold"><i class="fa-solid fa-box-archive mr-1"></i> V2 Backup</button>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2" id="master-health-cards">
+            ${(() => { const h=masterDataHealth(); return [ ["TOTAL MASTER RECORDS",h.total,"blue"],["TOPICS",h.topics,"indigo"],["QUESTIONS",h.questions,"emerald"],["CURRENT AFFAIRS",h.currentAffairs,"amber"],["MISSING IDs",h.missingIds,"rose"],["DUPLICATE IDs",h.duplicateIds,"rose"],["INCOMPLETE",h.incomplete,"orange"],["ARCHIVED",h.archived,"slate"] ].map(([label,value,color])=>`<div class="p-3 rounded-xl bg-${color}-50 border border-${color}-100"><div class="text-[10px] font-bold text-${color}-700">${label}</div><div class="text-xl font-extrabold text-${color}-900">${value}</div></div>`).join(""); })()}
+          </div>
+          <div class="flex gap-2"><input id="master-search" oninput="W.searchMasterDataUI(this.value)" type="search" placeholder="Search title, subject, ID, paper, topic..." class="flex-1 p-3 rounded-xl border border-slate-200 text-sm"/><button onclick="W.searchMasterDataUI(document.getElementById('master-search').value)" class="px-4 rounded-xl bg-slate-800 text-white text-xs font-bold">Search</button></div>
+          <div id="master-search-results" class="space-y-2 text-sm"><div class="text-slate-500 text-xs">Start typing to search your custom master records.</div></div>
+          <div class="text-[11px] text-slate-500">V2 metadata: permanent ID • version • status • tags • created/updated timestamps. Existing data is retained.</div>
+        </section>
+      `;
+      document.getElementById("app-content").innerHTML = html;
+    }
+
+    /* =========================================================================
+       20. MAIN ROUTER & PUBLIC WINDOW.W ACTIONS
+       ========================================================================= */
+    function renderCurrentView() {
+      destroyCharts();
+      switch (state.activeTab) {
+        case "dashboard": renderDashboard(); break;
+        case "syllabus": renderSyllabus(); break;
+        case "maps": renderMaps(); break;
+        case "currentAffairs": renderCurrentAffairs(); break;
+        case "prelims": renderPrelims(); break;
+        case "mains": renderMains(); break;
+        case "interview": renderInterview(); break;
+        case "mentor": renderMentor(); break;
+        case "studyPlan": renderStudyPlan(); break;
+        case "admin": renderAdmin(); break;
+        default: renderDashboard();
+      }
+    }
+
+    function renderAll() {
+      applyWonderVersion(state.wonderVersion || "1", false);
+      renderNavigation();
+      updateHeaderStats();
+      renderCurrentView();
+    }
+
+    window.W = {
+      setVersion(version) { applyWonderVersion(version, true); saveStateToCloud(); showToast(`Visual version changed to V${state.wonderVersion}.`, "success"); },
+      navigate(tab) {
+        if (activeMock && tab !== "prelims") {
+          showToast("Please submit or finish your active mock test first.", "warning");
+          return;
+        }
+        state.activeTab = tab;
+        this.toggleMobileDrawer(false);
+        renderAll();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      },
+      toggleMobileDrawer(open) {
+        const d = document.getElementById("mobile-drawer");
+        const o = document.getElementById("mobile-drawer-overlay");
+        if (open) {
+          d.classList.remove("-translate-x-full");
+          o.classList.remove("hidden");
+        } else {
+          d.classList.add("-translate-x-full");
+          o.classList.add("hidden");
+        }
+      },
+      setLanguage(l) {
+        state.lang = l;
+        saveStateToCloud();
+        renderAll();
+        showToast(`Language switched to ${l === 'en' ? 'English' : l === 'hi' ? 'हिन्दी' : 'Bilingual'}`, "info");
+      },
+      toggleAdminMode() {
+        state.adminMode = !state.adminMode;
+        updateHeaderStats();
+        if (state.adminMode) this.navigate("admin");
+        else showToast("Switched to Student Mode", "info");
+      },
+      setStage(stageId) {
+        state.currentStage = stageId;
+        addXP(20, `Moved to Stage ${stageId}: ${STAGES[stageId - 1].en}`);
+        renderAll();
+      },
+      toggleDailyTarget(id) {
+        const t = state.dailyTargets.find(x => x.id === id);
+        if (t) {
+          t.done = !t.done;
+          if (t.done) addXP(25, "Daily Target Completed!");
+          saveStateToCloud();
+          renderDashboard();
+        }
+      },
+      logStudyHour() {
+        state.studyHours = Math.round((state.studyHours + 0.5) * 10) / 10;
+        addXP(15, "Logged +0.5 Study Hour");
+        renderDashboard();
+      },
+      handleGlobalSearch(val) {
+        const dd = document.getElementById("global-search-dropdown");
+        const q = val.trim().toLowerCase();
+        if (!q) { dd.classList.add("hidden"); return; }
+        const topics = getAllSyllabus().filter(t => t.title.toLowerCase().includes(q) || t.hiTitle.toLowerCase().includes(q) || t.subject.toLowerCase().includes(q)).slice(0, 5);
+        const cas = getAllCA().filter(c => c.headline.toLowerCase().includes(q)).slice(0, 3);
+        if (!topics.length && !cas.length) {
+          dd.innerHTML = `<div class="p-3 text-xs text-slate-500">No matches found for "${val}"</div>`;
+        } else {
+          dd.innerHTML = [
+            ...topics.map(t => `<button onclick="document.getElementById('global-search-dropdown').classList.add('hidden'); W.openTopicViewer('${t.id}')" class="w-full text-left px-4 py-2.5 hover:bg-royal-50 border-b border-slate-100 text-xs"><div class="font-bold text-navy-900">${t.title}</div><div class="text-slate-500">${t.subject} • ${t.paper}</div></button>`),
+            ...cas.map(c => `<button onclick="document.getElementById('global-search-dropdown').classList.add('hidden'); W.navigate('currentAffairs')" class="w-full text-left px-4 py-2.5 hover:bg-amber-50 border-b border-slate-100 text-xs"><div class="font-bold text-amber-900">${c.headline}</div><div class="text-slate-500">Current Affairs • ${c.category}</div></button>`)
+          ].join("");
+        }
+        dd.classList.remove("hidden");
+      },
+
+      /* Syllabus Actions */
+      setSyllabusMode(showOpt) { syllabusFilter.showOptionals = showOpt; renderSyllabus(); },
+      filterSyllabusSubject(s) { syllabusFilter.subject = s; renderSyllabus(); },
+      filterSyllabusSearch(val) { syllabusFilter.search = val; renderSyllabus(); },
+      toggleTopicComplete(id) {
+        const idx = state.completedTopics.indexOf(id);
+        if (idx === -1) { state.completedTopics.push(id); addXP(30, "Syllabus Topic Completed!"); }
+        else state.completedTopics.splice(idx, 1);
+        saveStateToCloud();
+        renderSyllabus();
+      },
+      toggleBookmark(id) {
+        const idx = state.bookmarks.indexOf(id);
+        if (idx === -1) { state.bookmarks.push(id); showToast("Topic Bookmarked", "info"); }
+        else state.bookmarks.splice(idx, 1);
+        saveStateToCloud();
+        renderSyllabus();
+      },
+      openTopicViewer,
+      savePersonalNote(id) {
+        const val = document.getElementById("personal-note-input").value;
+        state.personalNotes[id] = val;
+        saveStateToCloud();
+        showToast("Personal note saved!", "success");
+      },
+      practiceOptionalAnswer(name, prompt) {
+        selectedMainsPrompt = { id: "opt-custom", paper: `${name} Optional`, marks: 15, words: 250, q: prompt };
+        this.navigate("mains");
+      },
+
+      /* Maps & Mind Maps */
+      setMapMode(m) {
+        mapState.mode = m;
+        mapState.selectedPin = m === "india" ? INDIA_MAP_PINS[0] : WORLD_MAP_PINS[0];
+        renderMaps();
+      },
+      selectMapPin(id) {
+        const pins = mapState.mode === "india" ? INDIA_MAP_PINS : WORLD_MAP_PINS;
+        mapState.selectedPin = pins.find(p => p.id === id) || pins[0];
+        renderMaps();
+      },
+      setMindMap(key) { mapState.activeMindMap = key; renderMaps(); },
+      openMindNode(label, note) {
+        openModal(label, "Interactive Mind Map Concept", `<p class="text-sm text-slate-700 leading-relaxed">${note}</p>`,
+          `<button onclick="W.closeModal(); W.askMentorQuick('Explain ${label} in detail for UPSC Prelims and Mains.')" class="px-4 py-2 rounded-xl bg-royal-800 text-white text-xs font-bold">Deep-Dive with AI Mentor</button>`);
+      },
+
+      /* Current Affairs */
+      setCACategory(c) { caCategory = c; renderCurrentAffairs(); },
+      async explainCAWithAI(id) {
+        const ca = getAllCA().find(x => x.id === id);
+        if (!ca) return;
+        const box = document.getElementById(`ca-ai-${id}`);
+        box.classList.remove("hidden");
+        box.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i>Generating UPSC Prelims & Mains AI analysis...`;
+        const resp = await callGeminiAPI(
+          `Provide a crisp UPSC Prelims + Mains explainer on "${ca.headline}" (${ca.syllabus}). Language mode: ${state.lang}. Include 3 Prelims pointers, 3 Mains dimensions, and 1 Way Forward.`,
+          "You are a senior UPSC CSE faculty member. Keep explanations accurate, neutral, and structured."
+        );
+        box.innerHTML = formatMarkdown(resp);
+        addXP(10);
+      },
+
+      /* Prelims, CSAT & Mock Tests */
+      setPrelimsTab(t) { prelimsState.subTab = t; renderPrelims(); },
+      setPrelimsSubject(s) {
+        prelimsState.subject = s;
+        prelimsState.currentQ = getNextRotatedQuestion(s);
+        prelimsState.selectedOpt = null;
+        prelimsState.revealed = false;
+        renderPrelims();
+      },
+      selectPracticeOption(i) { prelimsState.selectedOpt = i; renderPrelims(); },      submitPracticeAnswer() {
+        if (prelimsState.selectedOpt === null) { showToast("Please select an option first.", "warning"); return; }
+        prelimsState.revealed = true;
+        recordQuestionAttempt(prelimsState.currentQ.id, prelimsState.selectedOpt === prelimsState.currentQ.answer);
+        renderPrelims();
+      },
+      nextPracticeQuestion() {
+        prelimsState.currentQ = getNextRotatedQuestion(prelimsState.subject);
+        prelimsState.selectedOpt = null;
+        prelimsState.revealed = false;
+        renderPrelims();
+      },
+      loadSpecificQuestion(id) {
+        const q = getAllQuestions().find(x => x.id === id);
+        if (q) {
+          prelimsState.subTab = "practice";
+          prelimsState.currentQ = q;
+          prelimsState.selectedOpt = null;
+          prelimsState.revealed = false;
+          renderPrelims();
+        }
+      },
+      async generateAIMCQ() {
+        const btn = document.getElementById("gen-ai-mcq-btn");
+        btn.disabled = true;
+        btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Crafting UPSC MCQ...`;
+        const subj = prelimsState.subject === "ALL" ? "Indian Polity or Economy" : prelimsState.subject;
+        const prompt = `Create 1 original UPSC Prelims-standard multiple-choice question on ${subj}. Return ONLY valid JSON with keys: "q", "hiQ", "options" (array of 4 strings), "answer" (0-3 integer), "whyCorrect", "whyWrong", "concept", "trick". No markdown fences.`;
+        const raw = await callGeminiAPI(prompt, "You are a UPSC Prelims Question Setter. Output strict JSON only.");
+        try {
+          const cleaned = raw.replace(/```json|```/g, "").trim();
+          const parsed = JSON.parse(cleaned);
+          const newQ = {
+            id: "q-ai-" + Date.now(),
+            subject: prelimsState.subject === "ALL" ? "Polity" : prelimsState.subject,
+            topic: "AI Practice", paper: "Prelims GS", type: "Standard MCQ",
+            level: "LEVEL 5 — UPSC STANDARD", authenticity: "AI-GENERATED QUESTION", year: "Gemini AI",
+            ...parsed
+          };
+          state.customQuestions.push(newQ);
+          prelimsState.currentQ = newQ;
+          prelimsState.selectedOpt = null;
+          prelimsState.revealed = false;
+          saveStateToCloud();
+          showToast("Generated a fresh AI-GENERATED QUESTION!", "success");
+        } catch {
+          showToast("Could not parse AI MCQ. Please try again.", "error");
+        }
+        renderPrelims();
+      },
+      startMockTest(title, filter, mins) {
+        let qs = getAllQuestions();
+        if (filter === "CSAT") qs = qs.filter(q => q.subject === "CSAT");
+        else if (filter === "PYQ") qs = qs.filter(q => q.authenticity === "OFFICIAL PYQ");
+        else qs = qs.filter(q => q.subject !== "CSAT");
+        if (!qs.length) { showToast("No questions available for this mock.", "warning"); return; }
+
+        activeMock = {
+          title, questions: qs, idx: 0, answers: {}, review: new Set(),
+          totalSec: mins * 60, remainingSec: mins * 60
+        };
+        clearInterval(mockTimerInterval);
+        mockTimerInterval = setInterval(() => {
+          if (!activeMock) return;
+          activeMock.remainingSec--;
+          const el = document.getElementById("mock-timer-display");
+          if (el) {
+            const m = Math.floor(activeMock.remainingSec / 60);
+            const s = String(activeMock.remainingSec % 60).padStart(2, "0");
+            el.innerHTML = `<i class="fa-regular fa-clock mr-1"></i>${m}:${s}`;
+          }
+          if (activeMock.remainingSec <= 0) W.submitMockTest();
+        }, 1000);
+        renderActiveMockTest();
+      },
+      answerMockQuestion(optIdx) { activeMock.answers[activeMock.idx] = optIdx; renderActiveMockTest(); },
+      clearMockAnswer() { delete activeMock.answers[activeMock.idx]; renderActiveMockTest(); },
+      toggleMarkForReview() {
+        if (activeMock.review.has(activeMock.idx)) activeMock.review.delete(activeMock.idx);
+        else activeMock.review.add(activeMock.idx);
+        renderActiveMockTest();
+      },
+      jumpMockQuestion(i) {
+        if (i >= 0 && i < activeMock.questions.length) { activeMock.idx = i; renderActiveMockTest(); }
+      },
+      submitMockTest() {
+        clearInterval(mockTimerInterval);
+        let correct = 0, wrong = 0, unattempted = 0;
+        activeMock.questions.forEach((q, i) => {
+          const ans = activeMock.answers[i];
+          if (ans === undefined) unattempted++;
+          else if (ans === q.answer) { correct++; recordQuestionAttempt(q.id, true); }
+          else { wrong++; recordQuestionAttempt(q.id, false); }
+        });
+        const score = Math.round((correct * 2 - wrong * 0.66) * 100) / 100;
+        const maxScore = activeMock.questions.length * 2;
+        const accuracy = (correct + wrong) ? Math.round((correct / (correct + wrong)) * 100) : 0;
+        const timeUsed = activeMock.totalSec - activeMock.remainingSec;
+
+        state.mockHistory.push({
+          date: new Date().toLocaleDateString("en-IN", { day: "2-digit", month: "short" }),
+          title: activeMock.title, score, maxScore, accuracy, timeSec: timeUsed
+        });
+        addXP(50, "Mock Test Completed!");
+        const completedMock = activeMock;
+        activeMock = null;
+        saveStateToCloud();
+
+        openModal(
+          "Mock Test Performance Report",
+          completedMock.title,
+          `
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+              <div class="p-3 rounded-xl bg-royal-50"><div class="text-xl font-black text-royal-800">${score}/${maxScore}</div><div class="text-xs text-slate-600">UPSC Score</div></div>
+              <div class="p-3 rounded-xl bg-emerald-50"><div class="text-xl font-black text-emerald-700">${accuracy}%</div><div class="text-xs text-slate-600">Accuracy</div></div>
+              <div class="p-3 rounded-xl bg-amber-50"><div class="text-xl font-black text-amber-700">${correct} / ${wrong}</div><div class="text-xs text-slate-600">Right / Wrong</div></div>
+              <div class="p-3 rounded-xl bg-purple-50"><div class="text-xl font-black text-purple-700">${Math.ceil(timeUsed/60)} min</div><div class="text-xs text-slate-600">Time Taken</div></div>
+            </div>
+            <div class="space-y-2 pt-2">
+              <h4 class="font-bold text-navy-900 text-sm">Question-wise Review:</h4>
+              ${completedMock.questions.map((q, i) => `
+                <div class="p-3 rounded-xl border text-xs ${completedMock.answers[i] === q.answer ? 'bg-emerald-50/50 border-emerald-200' : 'bg-rose-50/50 border-rose-200'}">
+                  <div class="font-bold text-navy-900">Q${i+1}: ${q.q}</div>
+                  <div class="mt-1 text-slate-700"><strong>Correct:</strong> (${String.fromCharCode(65 + q.answer)}) ${q.options[q.answer]} — ${q.whyCorrect}</div>
+                </div>
+              `).join("")}
+            </div>
+          `
+        );
+        renderPrelims();
+      },
+
+      /* Mains & Essay Actions */
+      selectMainsPrompt(id) {
+        selectedMainsPrompt = MAINS_PROMPTS.find(p => p.id === id) || MAINS_PROMPTS[0];
+        renderMains();
+      },
+      updateMainsWordCount() {
+        const text = document.getElementById("mains-answer-input").value.trim();
+        const words = text ? text.split(/\s+/).length : 0;
+        document.getElementById("mains-word-count").textContent = `${words} words`;
+      },
+      async evaluateMainsAnswer() {
+        const ans = document.getElementById("mains-answer-input").value.trim();
+        if (ans.length < 30) { showToast("Please write at least a short structured answer before evaluating.", "warning"); return; }
+        const out = document.getElementById("mains-ai-output");
+        out.classList.remove("hidden");
+        out.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i>UPSC AI Examiner is evaluating your answer...`;
+        const resp = await callGeminiAPI(
+          `Evaluate this UPSC Mains answer.\nQuestion (${selectedMainsPrompt.marks} Marks): ${selectedMainsPrompt.q}\nStudent Answer: ${ans}\n\nProvide:\n1. Estimated Score out of ${selectedMainsPrompt.marks}\n2. Evaluation on Relevance, Structure (Intro-Body-Conclusion), Content, Examples/Articles, Keywords\n3. 3 Specific Improvement Suggestions\n4. Crisp Suggested Structure.`,
+          "You are a strict yet encouraging UPSC Mains Examiner. Respond in " + (state.lang === 'hi' ? 'Hindi with English UPSC terms' : 'English') + "."
+        );
+        out.innerHTML = `<h4 class="font-extrabold text-royal-800">AI Examiner Evaluation Report</h4>` + formatMarkdown(resp);
+        addXP(40, "Mains Answer Evaluated!");
+      },
+      async generateMainsModel() {
+        const out = document.getElementById("mains-ai-output");
+        out.classList.remove("hidden");
+        out.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i>Drafting Topper-Quality Model Answer...`;
+        const resp = await callGeminiAPI(
+          `Write a UPSC topper-level structured Model Answer (${selectedMainsPrompt.words} words) for:\n"${selectedMainsPrompt.q}"\nInclude Introduction, Subheaded Body with Constitutional Articles/Data/Examples, and Way Forward Conclusion.`,
+          "You are a UPSC Topper & Mentor. Language preference: " + state.lang
+        );
+        out.innerHTML = `<h4 class="font-extrabold text-purple-800">Topper Model Answer</h4>` + formatMarkdown(resp);
+      },
+
+      /* Interview Actions */
+      saveDAF() {
+        ["name", "homeState", "district", "education", "optional", "hobbies"].forEach(k => {
+          state.dafProfile[k] = document.getElementById(`daf-${k}`).value.trim();
+        });
+        saveStateToCloud();
+        showToast("DAF Profile saved! Board questions will now adapt to your profile.", "success");
+      },
+      resetInterview() {
+        interviewMessages = [interviewMessages[0]];
+        renderInterview();
+      },
+      async sendInterviewResponse() {
+        const inp = document.getElementById("interview-input");
+        const text = inp.value.trim();
+        if (!text) return;
+        inp.value = "";
+        interviewMessages.push({ role: "user", text });
+        interviewMessages.push({ role: "model", text: "Evaluating your response..." });
+        renderInterview();
+
+        const d = state.dafProfile;
+        const resp = await callGeminiAPI(
+          `Candidate DAF: State=${d.homeState}, District=${d.district}, Education=${d.education}, Optional=${d.optional}, Hobbies=${d.hobbies}.\nCandidate's Answer: "${text}"\n\nGive concise feedback on (1) Communication & Clarity, (2) Balanced Opinion, then ask the next penetrating UPSC Interview follow-up question (DAF, Situational, or Ethical).`,
+          "You are the Chairperson of the UPSC Civil Services Personality Test Board. Be dignified, analytical, and constructive."
+        );
+        interviewMessages[interviewMessages.length - 1] = { role: "model", text: resp };
+        addXP(25);
+        renderInterview();
+      },
+      startVoiceInput(inputId) {
+        const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SR) { showToast("Voice recognition is not supported in this browser.", "warning"); return; }
+        const recog = new SR();
+        recog.lang = state.lang === "hi" ? "hi-IN" : "en-IN";
+        showToast("Listening... Speak now.", "info");
+        recog.onresult = (e) => {
+          const transcript = e.results[0][0].transcript;
+          const el = document.getElementById(inputId);
+          if (el) el.value = transcript;
+        };
+        recog.onerror = () => showToast("Could not capture audio. Try typing.", "warning");
+        recog.start();
+      },
+
+      /* AI Personal Mentor Actions */
+      askMentorQuick(prompt) {
+        state.activeTab = "mentor";
+        renderAll();
+        document.getElementById("mentor-input").value = prompt;
+        this.sendMentorMessage();
+      },
+      clearMentorChat() {
+        mentorMessages = [mentorMessages[0]];
+        renderMentor();
+      },
+      async sendMentorMessage() {
+        const inp = document.getElementById("mentor-input");
+        const text = inp.value.trim();
+        if (!text) return;
+        inp.value = "";
+        mentorMessages.push({ role: "user", text });
+        mentorMessages.push({ role: "model", text: "Thinking..." });
+        renderMentor();
+
+        const weak = getWeakTopics().map(w => w.subject).join(", ");
+        const sys = `You are WONDER IAS Personal AI Mentor. Student Context: Stage ${state.currentStage}/10 (${STAGES[state.currentStage - 1].en}), Target Exam: ${state.targetExam}, Weak Subjects: ${weak}, Preferred Language: ${state.lang === 'hi' ? 'Natural Hindi with English UPSC terms' : state.lang === 'bi' ? 'Bilingual English + Hindi' : 'Clear English'}. Adapt depth to student's stage and never overwhelm beginners.`;
+        const resp = await callGeminiAPI(text, sys);
+        mentorMessages[mentorMessages.length - 1] = { role: "model", text: resp };
+        addXP(10);
+        renderMentor();
+      },
+
+      /* Study Plan Generator */
+      generateStudyPlan() {
+        const exam = document.getElementById("plan-exam").value;
+        const duration = document.getElementById("plan-duration").value;
+        const hours = Number(document.getElementById("plan-hours").value);
+        const weakFocus = getWeakTopics().map(w => w.subject).join(" & ");
+
+        const coreHrs = Math.max(1, Math.round(hours * 0.45 * 10) / 10);
+        const caHrs = Math.max(0.5, Math.round(hours * 0.2 * 10) / 10);
+        const pracHrs = Math.max(0.5, Math.round(hours * 0.2 * 10) / 10);
+        const revHrs = Math.max(0.5, Math.round((hours - coreHrs - caHrs - pracHrs) * 10) / 10);
+
+        state.targetExam = exam;
+        state.savedStudyPlan = {
+          exam, duration, hours, weakFocus,
+          dailyBlocks: [
+            { time: `${coreHrs} hrs`, title: "Core GS & Optional", desc: `Focus on NCERTs -> Standard Books & weak areas (${weakFocus})` },
+            { time: `${caHrs} hrs`, title: "Daily Current Affairs", desc: "PIB, Newspaper Editorials & Syllabus-mapped notes" },
+            { time: `${pracHrs} hrs`, title: "Prelims MCQ / Mains Writing", desc: "15 Prelims MCQs + 1 timed Mains answer / CSAT practice" },
+            { time: `${revHrs} hrs`, title: "Spaced Revision", desc: "1h → 1d → 5d → 7d → 14d → 21d active recall cycle" }
+          ],
+          phases: [
+            { title: "Phase 1: Foundation & NCERT Mastery", tasks: "Complete Class 6–12 NCERTs (Polity, History, Geography, Economy) + Daily Current Affairs habit." },
+            { title: "Phase 2: Standard Books & Optional Paper I–II", tasks: "Laxmikanth, Spectrum, Shankar IAS, Economy Survey + Ethics GS-IV Case Studies + Weekly Answer Writing." },
+            { title: "Phase 3: Prelims & CSAT Intensive Sprint", tasks: "Full-Length Mock Tests (+2/-0.66), PYQ Analysis (10 years), Map Drills & Spaced Revision." },
+            { title: "Phase 4: Mains Simulation & Interview Board", tasks: "Timed 3-hour Mains papers, Essay Masterclass, DAF analysis & AI Mock Interviews." }
+          ]
+        };
+        saveStateToCloud();
+        addXP(20, "Personalized Study Plan Created!");
+        renderStudyPlan();
+      },
+
+      /* Admin & Data Export/Import */
+      adminAddTopic() {
+        const subject = document.getElementById("adm-t-subj").value.trim() || "Polity";
+        const paper = document.getElementById("adm-t-paper").value.trim() || "GS-II";
+        const title = document.getElementById("adm-t-title").value.trim();
+        const hiTitle = document.getElementById("adm-t-hi").value.trim() || title;
+        const notes = document.getElementById("adm-t-notes").value.trim();
+        if (!title || !notes) { showToast("Please enter Topic Title and Notes.", "warning"); return; }
+
+        const newTopic = {
+          id: "TOP-" + Date.now().toString(36).toUpperCase(), subject, category: "Custom Module", paper, title, hiTitle,
+          level: "Stage 4: Standard", estTime: "30 min", prereq: "Foundation",
+          quickNotes: notes, detailedNotes: notes, hiNotes: notes,
+          keyFacts: ["Added via Admin Studio"], pyqConn: "Teacher-curated high-yield topic"
+        };
+        const fingerprint = recordFingerprint("topic", newTopic);
+        if (state.customSyllabus.some(x => recordFingerprint("topic", x) === fingerprint)) {
+          showToast("Duplicate topic detected. Existing master record was kept.", "warning"); return;
+        }
+        state.customSyllabus.push(newTopic);
+        normalizeMasterData();
+        saveStateToCloud();
+        showToast("New Syllabus Topic Published!", "success");
+        renderAdmin();
+      },
+      adminAddQuestion() {
+        const subject = document.getElementById("adm-q-subj").value.trim() || "Polity";
+        const authenticity = document.getElementById("adm-q-auth").value;
+        const q = document.getElementById("adm-q-text").value.trim();
+        const options = [0,1,2,3].map(i => document.getElementById(`adm-q-o${i}`).value.trim());
+        const answer = Number(document.getElementById("adm-q-ans").value);
+        const exp = document.getElementById("adm-q-exp").value.trim() || "Verified explanation.";
+        if (!q || options.some(o => !o)) { showToast("Please fill the question and all 4 options.", "warning"); return; }
+
+        const newQuestion = {
+          id: "QUE-" + Date.now().toString(36).toUpperCase(), subject, topic: "Admin Curated", paper: "Prelims GS",
+          type: "Standard MCQ", level: "LEVEL 4 — ADVANCED", authenticity, year: "Admin Bank",
+          q, hiQ: q, options, answer, whyCorrect: exp, whyWrong: "Other options do not match standard UPSC facts.",
+          concept: subject, trick: "Revise key terms carefully."
+        };
+        const qFingerprint = recordFingerprint("question", newQuestion);
+        if (state.customQuestions.some(x => recordFingerprint("question", x) === qFingerprint)) {
+          showToast("Duplicate question detected. Existing master record was kept.", "warning"); return;
+        }
+        state.customQuestions.push(newQuestion);
+        normalizeMasterData();
+        saveStateToCloud();
+        showToast("Question added to Smart Question Bank!", "success");
+        renderAdmin();
+      },
+      exportDataJSON() {
+        const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `wonder-ias-backup-${new Date().toISOString().slice(0,10)}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast("Student & Admin backup exported!", "success");
+      },
+      importDataJSON(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const imported = JSON.parse(reader.result);
+            if (!imported || typeof imported !== "object") throw new Error("Invalid backup");
+            const backupBefore = JSON.stringify(state);
+            const topics = mergeImportedArray(state.customSyllabus, imported.customSyllabus, "topic");
+            const questions = mergeImportedArray(state.customQuestions, imported.customQuestions, "question");
+            const ca = mergeImportedArray(state.customCA, imported.customCA, "ca");
+            state = {
+              ...state,
+              ...Object.fromEntries(Object.entries(imported).filter(([k]) => !["customSyllabus","customQuestions","customCA","masterRegistry","masterDataMeta","duplicateAuditLog"].includes(k))),
+              customSyllabus: topics.items,
+              customQuestions: questions.items,
+              customCA: ca.items,
+              masterRegistry: { ...(state.masterRegistry||{}), ...(imported.masterRegistry||{}), files: dedupeRegistryFiles([...(state.masterRegistry?.files||[]), ...(imported.masterRegistry?.files||[])]), records: [...(state.masterRegistry?.records||[]), ...(imported.masterRegistry?.records||[])] },
+              masterDataMeta: { ...(state.masterDataMeta||{}), ...(imported.masterDataMeta||{}), archived: [...(state.masterDataMeta?.archived||[]), ...(imported.masterDataMeta?.archived||[])], versions: [...(state.masterDataMeta?.versions||[]), ...(imported.masterDataMeta?.versions||[])] },
+              duplicateAuditLog: [...(state.duplicateAuditLog||[]), ...(imported.duplicateAuditLog||[]), {at:Date.now(),action:"IMPORT_MERGE",added:{topics:topics.added,questions:questions.added,currentAffairs:ca.added},skipped:{topics:topics.skipped,questions:questions.skipped,currentAffairs:ca.skipped}}]
+            };
+            normalizeMasterData();
+            saveStateToCloud();
+            renderAll();
+            showToast(`Import merged safely: ${topics.added} topics, ${questions.added} questions, ${ca.added} current affairs added; duplicates skipped.`, "success");
+          } catch {
+            showToast("Invalid JSON backup file.", "error");
+          }
+        };
+        reader.readAsText(file);
+      },
+      searchMasterDataUI(query) {
+        const out=document.getElementById("master-search-results"); if(!out)return;
+        const results=searchMasterData(query).slice(0,100);
+        if(!results.length){out.innerHTML='<div class="text-xs text-slate-500 p-3">No matching master records.</div>';return;}
+        out.innerHTML=results.map(x=>`<div class="p-3 rounded-xl border border-slate-200 bg-white flex flex-wrap justify-between gap-2"><div class="min-w-0"><div class="text-[10px] uppercase font-bold text-blue-700">${escapeMasterHTML(x.kind)} • ${escapeMasterHTML(x.subject)} • ${escapeMasterHTML(x.id||"MISSING ID")}</div><div class="font-semibold text-slate-800 break-words">${escapeMasterHTML(x.title)}</div><div class="text-[10px] text-slate-500">${escapeMasterHTML(x.record.paper||x.record.topic||x.record.year||"")}</div></div><div class="flex items-center gap-1"><button onclick="W.archiveMasterRecord('${escapeMasterHTML(x.kind)}','${escapeMasterHTML(x.id||"")}')" class="px-2 py-1 rounded-lg border text-[10px] font-bold">Archive</button></div></div>`).join("");
+      },
+      archiveMasterRecord(kind,id) {
+        if(!id){showToast("This record has no ID and cannot be safely archived.","warning");return;}
+        const key=kind==="topic"?"customSyllabus":kind==="question"?"customQuestions":"customCA";
+        const index=state[key].findIndex(x=>String(x.id)===String(id)); if(index<0)return;
+        const record=state[key].splice(index,1)[0];
+        state.masterDataMeta.archived.push({kind,record,archivedAt:Date.now(),archivedBy:"admin"});
+        state.duplicateAuditLog.push({at:Date.now(),action:"ARCHIVE_RECORD",kind,id});
+        saveStateToCloud();renderAdmin();showToast("Record archived safely. It remains in backup and archive metadata.","success");
+      },
+      exportMasterDataBackup() {
+        const payload={schemaVersion:2,exportedAt:new Date().toISOString(),state:{customSyllabus:state.customSyllabus,customQuestions:state.customQuestions,customCA:state.customCA,masterRegistry:state.masterRegistry,masterDataMeta:state.masterDataMeta,duplicateAuditLog:state.duplicateAuditLog}};
+        const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=`wonder-ias-master-data-v2-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);showToast("V2 Master Data backup exported.","success");
+      },
+      runMasterAudit() {
+        const report = runDuplicateAudit();
+        const out = document.getElementById("master-audit-result");
+        if (out) {
+          out.innerHTML = `<div class="font-bold text-navy-900 mb-1">Audit completed: ${report.duplicateCount} duplicate record(s) across ${report.duplicateGroups.length} group(s).</div>
+            <div>Topics: ${report.customTopics} • Questions: ${report.customQuestions} • Current Affairs: ${report.customCA} • Registered Files: ${report.registeredFiles}</div>
+            ${report.duplicateGroups.length ? `<ul class="mt-2 space-y-1">${report.duplicateGroups.map(g=>`<li class="text-rose-700"><strong>${g.section}:</strong> ${g.titles.join(" / ")}</li>`).join("")}</ul>` : `<div class="mt-2 text-emerald-700 font-semibold">No duplicate custom records detected.</div>`}`;
+        }
+        saveStateToCloud();
+        showToast("Master data audit completed.", report.duplicateCount ? "warning" : "success");
+        return report;
+      },
+      repairMasterDuplicates() {
+        const result = normalizeMasterData();
+        state.duplicateAuditLog.push({at:Date.now(),action:"SAFE_DEDUPE",removed:result.totalRemoved,details:result});
+        saveStateToCloud();
+        renderAdmin();
+        showToast(`Safe deduplication complete. ${result.totalRemoved} duplicate(s) removed; master IDs preserved.`, result.totalRemoved ? "success" : "info");
+        return result;
+      },
+      exportMasterRegistry() {
+        const registry = { schemaVersion: 1, exportedAt: new Date().toISOString(), registry: state.masterRegistry, auditLog: state.duplicateAuditLog };
+        const blob = new Blob([JSON.stringify(registry,null,2)],{type:"application/json"});
+        const url = URL.createObjectURL(blob);
+        const a=document.createElement("a");a.href=url;a.download=`wonder-ias-master-registry-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);
+        showToast("Master registry exported.", "success");
+      },
+      closeModal
+    };
+
+    /* =========================================================================
+       21. INITIALIZE APPLICATION ON LOAD
+       ========================================================================= */
+    window.addEventListener("DOMContentLoaded", () => {
+      normalizeMasterData();
+      renderAll();
+      initFirebase();
+    });
+  </script>
+</body>
+</html>
