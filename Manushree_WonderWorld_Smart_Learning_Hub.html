@@ -2900,5 +2900,41 @@
 </script>
 <!-- END APR MODERN UPGRADE -->
 
+
+<!-- WONDERWORLD 3 CHILD PROFILE + PERSONAL VOICE PATCH -->
+<script>
+(function(){
+ const ACC='WW_MULTI_ACCOUNTS_V1',SNAP='WW_USER_SNAPSHOTS_V1',ACTIVE='WW_ACTIVE_CHILD_V1';
+ const norm=s=>String(s||'').trim().toLowerCase();
+ const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}catch(e){return d}};
+ const profiles=[
+  {username:'manushree',password:'1234',role:'student',classLevel:2,enabled:true,name:'Manushree',voiceProfile:'girl',pitch:1.25,rate:0.88},
+  {username:'shree',password:'1234',role:'student',classLevel:2,enabled:true,name:'Shree',voiceProfile:'girl',pitch:1.25,rate:0.88},
+  {username:'ram',password:'1234',role:'student',classLevel:2,enabled:true,name:'Ram',voiceProfile:'boy',pitch:0.88,rate:0.90},
+  {username:'parent',password:'admin123',role:'parent',enabled:true,name:'Parent'},
+  {username:'admin',password:'Admin@123',role:'admin',enabled:true,name:'Administrator'}
+ ];
+ let accounts=read(ACC,[]);if(!Array.isArray(accounts))accounts=[];
+ profiles.forEach(p=>{let a=accounts.find(x=>norm(x.username)===norm(p.username));if(!a)accounts.push({...p});else{a.enabled=true;a.role=p.role;a.name=p.name;a.voiceProfile=p.voiceProfile||a.voiceProfile;a.pitch=p.pitch||a.pitch;a.rate=p.rate||a.rate;if(!a.password)a.password=p.password;}});
+ localStorage.setItem(ACC,JSON.stringify(accounts));
+ let snaps=read(SNAP,{});if(!snaps||typeof snaps!=='object')snaps={};localStorage.setItem(SNAP,JSON.stringify(snaps));
+ window.WWChildProfile={current(){return read(ACTIVE,{username:'manushree',name:'Manushree',voiceProfile:'girl',pitch:1.25,rate:.88});},set(a){const p={username:a.username,name:a.name||a.username,voiceProfile:a.voiceProfile||'girl',pitch:a.pitch||1.2,rate:a.rate||.9};localStorage.setItem(ACTIVE,JSON.stringify(p));return p;},profiles(){return profiles.map(p=>({...p,password:undefined}));}};
+ // Profile-specific progress: save and restore the complete app state for each student.
+ const originalLogin=window.handleLoginSubmit;
+ window.handleLoginSubmit=function(e){if(e)e.preventDefault();const u=document.getElementById('loginUsername')?.value||'',p=document.getElementById('loginPassword')?.value||'',role=window.loginMode||'student';const a=accounts.find(x=>x.enabled!==false&&norm(x.username)===norm(u)&&x.password===p&&(role==='parent'?['parent','admin'].includes(x.role):x.role==='student'));
+  const err=document.getElementById('loginErrorMsg');if(!a){err?.classList.remove('hidden');return false;}err?.classList.add('hidden');
+  // Save prior child's state only when a child session is active.
+  const prior=window.WWChildProfile.current();if(window.activeSessionRole==='student'&&window.appState){snaps[norm(prior.username)]=JSON.parse(JSON.stringify(window.appState));localStorage.setItem(SNAP,JSON.stringify(snaps));}
+  if(a.role==='student'){const key=norm(a.username);window.WWChildProfile.set(a);if(snaps[key]){window.appState=snaps[key];}else{window.appState=JSON.parse(JSON.stringify(window.DEFAULT_STATE||window.appState));}window.appState.classLevel=a.classLevel||2;window.appState.session={loggedInRole:document.getElementById('loginRemember')?.checked?'student':null,remember:!!document.getElementById('loginRemember')?.checked};}
+  else{window.WWChildProfile.set({username:a.username,name:a.name||a.username,voiceProfile:'adult',pitch:1,rate:1});window.appState.session={loggedInRole:null,remember:false};}
+  window.activeSessionRole=a.role;try{localStorage.setItem('WW_ACTIVE_CHILD_V1',JSON.stringify(window.WWChildProfile.current()));localStorage.setItem('WW_STATE_V1',JSON.stringify(window.appState));}catch(_){ }
+  if(typeof window.saveState==='function')window.saveState();window.enterApp(a.role!=='student');return false;};
+ // Voice selection: prefer matching installed voice; pitch/rate remain child-specific fallbacks.
+ const originalSpeak=window.speak;window.speak=function(text,forceLang=null){if(!window.appState?.soundOn||!('speechSynthesis'in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(String(text));u.lang=(forceLang||window.appState.lang)==='hi'?'hi-IN':'en-IN';const p=window.WWChildProfile.current();u.pitch=p.pitch||1;u.rate=p.rate||.9;const voices=speechSynthesis.getVoices()||[];const gender=p.voiceProfile==='boy'?'male':'female';const preferred=voices.find(v=>v.lang.toLowerCase().startsWith(u.lang.toLowerCase())&&new RegExp(gender,'i').test(v.name+' '+v.voiceURI));if(preferred)u.voice=preferred;speechSynthesis.speak(u);}catch(_){if(originalSpeak)originalSpeak(text,forceLang);}};
+ window.praiseManushree=function(){const n=window.WWChildProfile.current().name;const list=window.appState.lang==='hi'?[ 'शाबाश '+n+'!','बहुत बढ़िया '+n+'!','वाह '+n+', आप सुपरस्टार हैं!','सही जवाब, '+n+'!']:['Great job, '+n+'!','Awesome work, '+n+'!','You are a superstar, '+n+'!','Brilliant answer, '+n+'!'];const msg=list[Math.floor(Math.random()*list.length)];window.speak(msg);if(window.showMascotMessage)showMascotMessage(msg);if(window.showToast)showToast(msg,'🌟','bg-gradient-to-r from-emerald-500 to-teal-500);};
+ // Visible active-child indicator.
+ document.addEventListener('DOMContentLoaded',()=>{const p=window.WWChildProfile.current();const badge=document.createElement('div');badge.id='wwActiveChildBadge';badge.textContent='👤 '+p.name+' · '+(p.voiceProfile==='boy'?'👦 Boy Voice':'👧 Girl Voice');badge.style.cssText='position:fixed;top:8px;left:8px;z-index:80;background:#fff;color:#4c1d95;padding:6px 10px;border-radius:999px;font-weight:900;font-size:12px;box-shadow:0 2px 8px #0002';document.body.appendChild(badge);});
+})();
+</script>
 </body>
 </html>
