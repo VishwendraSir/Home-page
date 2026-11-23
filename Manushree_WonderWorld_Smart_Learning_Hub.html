@@ -147,7 +147,13 @@
       bottom: auto !important;
       transform: translate(-50%, -50%) !important;
     }
-  </style>
+  
+    /* Auto Quiz Fullscreen */
+    #gameView.quiz-auto-fullscreen{position:fixed!important;inset:0!important;z-index:99999!important;background:linear-gradient(135deg,#eef2ff,#fdf4ff);overflow-y:auto!important;padding:12px!important;margin:0!important;width:100vw!important;height:100dvh!important;max-width:none!important;border-radius:0!important}
+    #gameView.quiz-auto-fullscreen #gameStage{min-height:calc(100dvh - 130px);display:flex;align-items:center;justify-content:center}
+    #gameView.quiz-auto-fullscreen .quiz-fullscreen-exit{display:inline-flex!important}
+    .quiz-fullscreen-exit{display:none!important}
+</style>
 </head>
 <body class="text-slate-800 pb-24">
 
@@ -1476,6 +1482,17 @@
       const displayQuestion=selected.q.includes('/')?selected.q.split('/')[appState.lang==='hi'?1:0].trim():selected.q;
       return {...selected,q:displayQuestion,totalCount:questions.length};
     }
+    function quizEnterFullscreen(){
+      const view=document.getElementById('gameView');
+      if(!view)return;
+      view.classList.add('quiz-auto-fullscreen');
+      try{if(view.requestFullscreen && !document.fullscreenElement){const p=view.requestFullscreen();if(p&&p.catch)p.catch(()=>{});}}catch(e){}
+    }
+    function quizExitFullscreen(){
+      const view=document.getElementById('gameView');
+      if(view)view.classList.remove('quiz-auto-fullscreen');
+      try{if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(()=>{});}catch(e){}
+    }
     function loadGame(id, keepView=false) {
       // Direct topic launch: do not allow any legacy share/premium gate to block learning.
       // All learning gates removed: direct quiz/game access.
@@ -1486,6 +1503,8 @@
         document.getElementById('homeView').classList.add('hidden');
         document.getElementById('gameView').classList.remove('hidden');
       }
+      // Every topic/game key launches directly into fullscreen quiz mode.
+      quizEnterFullscreen();
       document.getElementById('activeGameTitle').textContent=appState.lang==='hi'?game.hi:game.en;
       const q=renderQuestionGame(game);
       document.getElementById('activeGameSub').textContent=game.cat+' • '+CLASS_NAMES[appState.classLevel]+' • Question '+((questionProgress[id]||0)+1)+' / '+q.totalCount;
@@ -1628,7 +1647,7 @@
     // FIX: expose inline-handler functions globally so buttons work outside the private script scope.
     const __wwInlineHandlers=['goHome','openNamePremium','toggleLanguage','toggleSound','openPinModal','showBadgesModal','openPhotoFlashcards','scrollToVideoZone','launchRandomGame','startDailyChallenge','playTopicVideo','speakCurrentPrompt','mascotTalk','togglePipSize','closePipVideo','closePinModal','verifyPin','closeParentModal','switchParentTab','closeConfirmModal','wwModalPremiumRequest','closeNamePremium','selectCategory','loadGame','filterVideoCategory','openVideo','answerGame','startCoachFocus','wwExportParentReport','practiceMistakes','addParentVideo','deleteParentVideo','addPhotoCard','saveParentPin','resetProgress','wwPremiumRequest','wwCopySiteLink','wwShareSiteLink'];
     __wwInlineHandlers.forEach(name=>{try{if(typeof window[name]!=='function'&&typeof eval(name)==='function')window[name]=eval(name);}catch(e){}});
-    window.loadGame=loadGame; window.answerGame=answerGame;
+    window.loadGame=loadGame; window.answerGame=answerGame; window.quizExitFullscreen=quizExitFullscreen;
     window.addEventListener('DOMContentLoaded',initApp);
     </script>
   
