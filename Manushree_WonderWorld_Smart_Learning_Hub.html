@@ -2014,7 +2014,45 @@
   </script>
 
 
-<script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=2"></script></body>
+<script defer src="/Home-page/SCIENCE_CENTRE_GLOBAL.js?v=2"></script>
+<!-- WonderWorld Auto 5-Theme + 5-Homepage Layout Rotation -->
+<style id="ww-auto-theme-layout">
+ body.ww-theme-1{--ww-accent:#ec4899;--ww-accent2:#8b5cf6;--ww-bg:linear-gradient(135deg,#fff1f2,#fdf4ff,#eff6ff)}
+ body.ww-theme-2{--ww-accent:#0ea5e9;--ww-accent2:#14b8a6;--ww-bg:linear-gradient(135deg,#ecfeff,#eff6ff,#f0fdf4)}
+ body.ww-theme-3{--ww-accent:#f59e0b;--ww-accent2:#f97316;--ww-bg:linear-gradient(135deg,#fffbeb,#fff7ed,#fef3c7)}
+ body.ww-theme-4{--ww-accent:#22c55e;--ww-accent2:#16a34a;--ww-bg:linear-gradient(135deg,#f0fdf4,#ecfccb,#dcfce7)}
+ body.ww-theme-5{--ww-accent:#6366f1;--ww-accent2:#7c3aed;--ww-bg:linear-gradient(135deg,#eef2ff,#f5f3ff,#e0e7ff)}
+ body[class*="ww-theme-"]{background:var(--ww-bg)!important;transition:background .5s ease}
+ body[class*="ww-theme-"] .glass-card{border-color:color-mix(in srgb,var(--ww-accent) 22%,white);box-shadow:0 10px 30px color-mix(in srgb,var(--ww-accent) 10%,transparent)}
+ body[class*="ww-theme-"] #heroClassBadge{background:var(--ww-accent)!important}
+ body[class*="ww-theme-"] #heroTitle span{color:var(--ww-accent)!important}
+ body[class*="ww-theme-"] .btn-3d{filter:saturate(1.05)}
+ body[class*="ww-theme-"] #homeView{display:flex;flex-direction:column}
+ body.ww-layout-1 #homeView>section:nth-child(1){order:1} body.ww-layout-1 #categoryTabs{order:2} body.ww-layout-1 #gamesGrid{order:3} body.ww-layout-1 #videoLearningZone{order:4}
+ body.ww-layout-2 #homeView>section:nth-child(1){order:1} body.ww-layout-2 #gamesGrid{order:2} body.ww-layout-2 #categoryTabs{order:3} body.ww-layout-2 #videoLearningZone{order:4}
+ body.ww-layout-3 #homeView>section:nth-child(1){order:3} body.ww-layout-3 #categoryTabs{order:1} body.ww-layout-3 #gamesGrid{order:2} body.ww-layout-3 #videoLearningZone{order:4}
+ body.ww-layout-4 #homeView>section:nth-child(1){order:1} body.ww-layout-4 #videoLearningZone{order:2} body.ww-layout-4 #categoryTabs{order:3} body.ww-layout-4 #gamesGrid{order:4}
+ body.ww-layout-5 #homeView>section:nth-child(1){order:2} body.ww-layout-5 #gamesGrid{order:1} body.ww-layout-5 #categoryTabs{order:3} body.ww-layout-5 #videoLearningZone{order:4}
+ body.ww-layout-2 #gamesGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ body.ww-layout-3 #gamesGrid{grid-template-columns:repeat(1,minmax(0,1fr))!important}
+ body.ww-layout-4 #gamesGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ body.ww-layout-5 #gamesGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ @media(min-width:640px){body.ww-layout-3 #gamesGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important}body.ww-layout-4 #gamesGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important}body.ww-layout-5 #gamesGrid{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+ #wwAutoStyleBadge{position:fixed;right:10px;top:82px;z-index:48;max-width:150px;background:rgba(255,255,255,.88);color:#334155;border:1px solid rgba(148,163,184,.25);backdrop-filter:blur(10px);border-radius:999px;padding:6px 10px;font-size:11px;font-weight:800;box-shadow:0 4px 16px #0001;pointer-events:none}
+</style>
+<script id="ww-auto-theme-layout-script">
+(function(){try{
+ const themes=['🌸 Pink Dream','🌊 Ocean Fresh','☀️ Sunshine','🌿 Nature Green','💜 Magic Purple'];
+ const layouts=['Classic','Games First','Explore First','Video First','Compact Grid'];
+ let n=Number(localStorage.getItem('wwAutoDesignIndex')||0);if(!Number.isFinite(n))n=0;
+ n=(n+1)%5;localStorage.setItem('wwAutoDesignIndex',String(n));
+ document.body.classList.add('ww-theme-'+(n+1),'ww-layout-'+(n+1));
+ const badge=document.createElement('div');badge.id='wwAutoStyleBadge';badge.textContent=themes[n]+' • '+layouts[n];document.body.appendChild(badge);
+ window.WW_AUTO_DESIGN={theme:n+1,layout:n+1,name:themes[n],layoutName:layouts[n]};
+}catch(e){console.warn('WonderWorld auto design fallback',e)}})();
+</script>
+
+</body>
 </html>
 
 <script>
