@@ -1523,9 +1523,12 @@
     function nextQuestion(id){
       questionProgress[id]=(questionProgress[id]||0)+1; appState.questionProgress=questionProgress; saveState();
       const d=appState.dailyChallenge;
-      if(d&&d.active&&d.date===getTodayKey()){
+      if(d&&d.active&&d.date===getTodayKey()&&d.gameId===id){
         d.completed=Math.min(5,(d.completed||0)+1);saveState();updateDailyChallengeUI();
-        if(d.completed>=5){d.active=false;d.finishedAt=Date.now();saveState();goHome();showToast(appState.lang==='hi'?'🏆 दैनिक चुनौती पूरी! शानदार!':'🏆 Daily Challenge Complete! Amazing!', '🏆','bg-amber-500');return;}
+        if(d.completed>=5){d.active=false;d.gameId='';d.finishedAt=Date.now();saveState();goHome();showToast(appState.lang==='hi'?'🏆 दैनिक चुनौती पूरी! शानदार!':'🏆 Daily Challenge Complete! Amazing!', '🏆','bg-amber-500');return;}
+        const nextGame=GAMES[Math.floor(Math.random()*GAMES.length)];
+        d.gameId=nextGame.id;saveState();
+        loadGame(nextGame.id,true);return;
       }
       loadGame(id,true);
     }
@@ -1540,8 +1543,10 @@
       const today=getTodayKey();let d=appState.dailyChallenge||{};
       if(d.date!==today)d={date:today,completed:0,score:0,startedAt:Date.now(),active:false};
       if(d.completed>=5){showToast(appState.lang==='hi'?'आज की चुनौती पूरी हो गई! कल फिर आएँ।':'Today’s challenge is complete! Come back tomorrow.','🏆','bg-amber-500');return;}
-      d.active=true;d.startedAt=d.startedAt||Date.now();appState.dailyChallenge=d;saveState();updateDailyChallengeUI();
-      const game=GAMES[Math.floor(Math.random()*GAMES.length)];loadGame(game.id);
+      d.active=true;d.startedAt=d.startedAt||Date.now();
+      const challengeGame=(d.gameId&&GAMES.find(g=>g.id===d.gameId))||GAMES[Math.floor(Math.random()*GAMES.length)];
+      d.gameId=challengeGame.id;appState.dailyChallenge=d;saveState();updateDailyChallengeUI();
+      loadGame(challengeGame.id);
       showToast(appState.lang==='hi'?'दैनिक चुनौती शुरू! 5 प्रश्न पूरे करो।':'Daily Challenge started! Complete 5 questions.','🏆','bg-orange-500');
     }
     function practiceMistakes(){
