@@ -2688,5 +2688,69 @@
 })();
 </script>
 <!-- END V2.1 SMART LEARNING UPGRADE -->
+
+<!-- LOGIN RECOVERY PATCH: resilient Student and Parent/Admin login -->
+<script>
+(function(){
+  function byId(id){return document.getElementById(id);}
+  function show(el){if(el){el.style.display='';el.style.visibility='visible';el.classList.remove('hidden');}}
+  window.switchLoginTab=function(mode){
+    window.loginMode = mode==='parent'?'parent':'student';
+    const student=byId('loginTabStudent'), parent=byId('loginTabParent');
+    const form=byId('loginScreen')?.querySelector('form');
+    const user=byId('loginUsername'), pass=byId('loginPassword'), submit=byId('loginSubmitBtn'), remember=byId('rememberMeRow'), error=byId('loginErrorMsg');
+    show(form); show(user); show(pass); show(submit);
+    if(error) error.classList.add('hidden');
+    if(user){user.value='';user.placeholder=window.loginMode==='parent'?'Enter Parent/Admin username':'Enter student username';}
+    if(pass){pass.value='';pass.type='password';pass.placeholder=window.loginMode==='parent'?'Enter Parent/Admin password':'Enter password';}
+    if(student) student.className=window.loginMode==='student'?'py-2.5 rounded-xl font-bold text-sm transition bg-white text-purple-700 shadow':'py-2.5 rounded-xl font-bold text-sm transition text-slate-600 hover:text-purple-700';
+    if(parent) parent.className=window.loginMode==='parent'?'py-2.5 rounded-xl font-bold text-sm transition bg-white text-indigo-700 shadow':'py-2.5 rounded-xl font-bold text-sm transition text-slate-600 hover:text-purple-700';
+    if(submit) submit.textContent=window.loginMode==='parent'?'🔐 Open Parent Dashboard':"🚀 Let's Start Learning!";
+    if(remember) remember.classList.toggle('hidden',window.loginMode==='parent');
+  };
+  window.handleLoginSubmit=function(e){
+    if(e)e.preventDefault();
+    const user=(byId('loginUsername')?.value||'').trim();
+    const pass=(byId('loginPassword')?.value||'').trim();
+    const err=byId('loginErrorMsg');
+    const creds=(window.appState&&appState.credentials)||{};
+    const mode=window.loginMode||'student';
+    const studentUser=creds.studentUser||'manushree', studentPass=creds.studentPass||'1234';
+    const parentUser=creds.parentUser||'parent', parentPass=creds.parentPass||'admin123';
+    const ok=mode==='parent'?(user.toLowerCase()===parentUser.toLowerCase()&&pass===parentPass):(user.toLowerCase()===studentUser.toLowerCase()&&pass===studentPass);
+    if(!ok){if(err)err.classList.remove('hidden');return false;}
+    if(err)err.classList.add('hidden');
+    window.activeSessionRole=mode;
+    if(window.appState){
+      appState.session={loggedInRole:mode==='student'&&byId('loginRemember')?.checked?'student':null,remember:mode==='student'&&!!byId('loginRemember')?.checked};
+      if(typeof saveState==='function')saveState();
+    }
+    if(typeof enterApp==='function')enterApp(mode==='parent');
+    else {byId('loginScreen')?.classList.add('hidden');byId('appShell')?.classList.remove('hidden');}
+    return false;
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    const screen=byId('loginScreen');
+    if(screen){screen.style.display='';screen.style.visibility='visible';}
+    const form=screen?.querySelector('form');
+    if(form){form.onsubmit=window.handleLoginSubmit;}
+    const s=byId('loginTabStudent'),p=byId('loginTabParent');
+    if(s)s.onclick=function(){window.switchLoginTab('student');};
+    if(p)p.onclick=function(){window.switchLoginTab('parent');};
+    window.switchLoginTab('student');
+  });
+  // Also repair immediately when script executes after DOM is already ready.
+  if(document.readyState!=='loading'){
+    const screen=byId('loginScreen'),form=screen?.querySelector('form');
+    if(screen){screen.style.display='';screen.style.visibility='visible';}
+    if(form)form.onsubmit=window.handleLoginSubmit;
+    const s=byId('loginTabStudent'),p=byId('loginTabParent');
+    if(s)s.onclick=function(){window.switchLoginTab('student');};
+    if(p)p.onclick=function(){window.switchLoginTab('parent');};
+    window.switchLoginTab('student');
+  }
+})();
+</script>
+
 </body>
 </html>
