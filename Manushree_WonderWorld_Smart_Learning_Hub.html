@@ -2597,5 +2597,51 @@
 })();
 </script>
 
+
+<!-- AUDIT FIXES: personalization integration + robust Free access guard -->
+<script>
+(function(){
+ const getPrefs=()=>{try{return JSON.parse(localStorage.getItem('Manushree_WonderWorld_V2_FullUpgrade')||'{}')}catch(e){return {}}};
+ const originalSpeak=window.speak;
+ window.speak=function(text,forceLang=null){
+   const p=getPrefs(), name=(p.profile&&p.profile.name)||'Manushree';
+   let t=String(text||'').replace(/Manushree/gi,name);
+   return originalSpeak(t,forceLang);
+ };
+ const originalEnter=window.enterApp;
+ window.enterApp=function(openParentImmediately=false){
+   originalEnter(openParentImmediately);
+   const p=getPrefs(), name=(p.profile&&p.profile.name)||'Manushree';
+   const greet=document.getElementById('navGreeting');
+   if(greet)greet.textContent=(appState.lang==='hi'?'नमस्ते ':'Hi ')+name+'! 🌟';
+   if(!openParentImmediately)showMascotMessage(appState.lang==='hi'?'स्वागत है '+name+'! चलो सीखते हैं!':'Welcome, '+name+'! Let’s learn and play!');
+ };
+ // Guard both direct game launch and random game selection, including free mode.
+ const premiumIds=new Set(GAMES.slice(20).map(g=>g.id));
+ const originalLoad=window.loadGame;
+ window.loadGame=function(id,silent=false){
+   const p=getPrefs();
+   if((p.mode||'free')==='free'&&premiumIds.has(id)){
+     showToast('Premium game locked — switch to Premium Demo','⭐','bg-amber-600');
+     window.WWUpgrade?.open();return false;
+   }
+   return originalLoad(id,silent);
+ };
+ window.launchRandomGame=function(){
+   const p=getPrefs(), pool=(p.mode||'free')==='free'?GAMES.slice(0,20):GAMES;
+   if(pool.length)window.loadGame(pool[Math.floor(Math.random()*pool.length)].id);
+ };
+ // Keep profile class and language in the app's existing state as well.
+ const profileSave=window.WWUpgrade.saveProfile;
+ window.WWUpgrade.saveProfile=function(){
+   profileSave();
+   const p=getPrefs();
+   const classMap={'Nursery':0,'LKG':0,'UKG':0,'Class 1':1,'Class 2':2,'Class 3':3,'Class 4':4,'Class 5':5,'Class 6':6,'Class 7':7,'Class 8':8};
+   if(p.profile){appState.lang=p.profile.lang||appState.lang;appState.classLevel=classMap[p.profile.className]??appState.classLevel;saveState();updateHUD();document.getElementById('classSwitcher').value=appState.classLevel;}
+   const g=document.getElementById('navGreeting');if(g)g.textContent=(appState.lang==='hi'?'नमस्ते ':'Hi ')+(p.profile?.name||'Manushree')+'! 🌟';
+ };
+})();
+</script>
+
 </body>
 </html>
