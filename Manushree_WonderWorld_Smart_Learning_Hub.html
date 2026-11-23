@@ -1625,6 +1625,10 @@
     function saveParentPin(){const pin=document.getElementById('newPin').value;if(/^\d{4}$/.test(pin)){appState.parentPin=pin;saveState();showToast('PIN updated','🔒');}else showToast('PIN must be 4 digits','⚠️');}
     function resetProgress(){appState.stars=0;appState.streak=1;appState.completedGames={};appState.categoryStars={math:0,language:0,science:0,habits:0,brain:0};saveState();renderParentTab('report');showToast('Progress reset','🔄');}
     function showBadgesModal(){const b=getUnlockedBadges();document.getElementById('badgesGrid').innerHTML=b.length?b.map(x=>'<div class="bg-amber-50 rounded-xl p-4 text-center"><div class="text-3xl">'+x.icon+'</div><b>'+x.name+'</b><p class="text-xs">'+x.desc+'</p></div>').join(''):'<p class="col-span-2 text-center">Play games to earn badges!</p>';document.getElementById('badgesModal').classList.remove('hidden');}
+    // FIX: expose inline-handler functions globally so buttons work outside the private script scope.
+    const __wwInlineHandlers=['goHome','openNamePremium','toggleLanguage','toggleSound','openPinModal','showBadgesModal','openPhotoFlashcards','scrollToVideoZone','launchRandomGame','startDailyChallenge','playTopicVideo','speakCurrentPrompt','mascotTalk','togglePipSize','closePipVideo','closePinModal','verifyPin','closeParentModal','switchParentTab','closeConfirmModal','wwModalPremiumRequest','closeNamePremium','selectCategory','loadGame','filterVideoCategory','openVideo','answerGame','startCoachFocus','wwExportParentReport','practiceMistakes','addParentVideo','deleteParentVideo','addPhotoCard','saveParentPin','resetProgress','wwPremiumRequest','wwCopySiteLink','wwShareSiteLink'];
+    __wwInlineHandlers.forEach(name=>{try{if(typeof window[name]!=='function'&&typeof eval(name)==='function')window[name]=eval(name);}catch(e){}});
+    window.loadGame=loadGame; window.answerGame=answerGame;
     window.addEventListener('DOMContentLoaded',initApp);
     </script>
   
