@@ -2966,6 +2966,26 @@
   window.WWPersonalHub={open(n){const cat=h.categories[n%h.categories.length];if(typeof window.setCategory==='function')window.setCategory(cat);else{window.activeCategory=cat;renderCategoryTabs();renderGamesGrid();}document.getElementById('gamesGrid')?.scrollIntoView({behavior:'smooth',block:'start'});}};
  }
 
+
+ // LOGIN REMOVAL: profile selection replaces username/password authentication.
+ const chooser=document.createElement('div');chooser.id='wwChildChooser';chooser.style.cssText='position:fixed;inset:0;z-index:1000;background:linear-gradient(135deg,#fce7f3,#ede9fe,#dbeafe);display:flex;align-items:center;justify-content:center;padding:18px;font-family:inherit';
+ chooser.innerHTML='<div style="background:#fff;border-radius:28px;padding:22px;max-width:520px;width:100%;box-shadow:0 20px 60px #0002;text-align:center"><div style="font-size:42px">🌈</div><h2 style="font-size:25px;font-weight:1000;color:#6d28d9;margin:4px 0">WonderWorld</h2><p style="font-weight:800;color:#64748b;margin-bottom:18px">Who is ready to learn today?</p><div style="display:grid;grid-template-columns:1fr;gap:12px"><button data-child="manushree" style="padding:16px;border-radius:18px;background:linear-gradient(90deg,#ec4899,#8b5cf6);color:white;font-size:18px;font-weight:900">🦄 Manushree · Candy Garden</button><button data-child="shree" style="padding:16px;border-radius:18px;background:linear-gradient(90deg,#06b6d4,#2563eb);color:white;font-size:18px;font-weight:900">🐬 Shree · Ocean Discovery</button><button data-child="ram" style="padding:16px;border-radius:18px;background:linear-gradient(90deg,#65a30d,#f97316);color:white;font-size:18px;font-weight:900">🚀 Ram · Dino & Space Quest</button></div><p style="font-size:12px;color:#64748b;margin-top:14px">No username or password needed. Progress is kept separately for each profile on this device.</p></div>';
+ document.body.appendChild(chooser);
+ function activateChild(key){
+  const account=accounts.find(a=>norm(a.username)===norm(key))||profiles.find(a=>norm(a.username)===norm(key));if(!account)return;
+  const previous=window.WWChildProfile.current();if(activeSessionRole==='student'&&appState){snaps[norm(previous.username)]=JSON.parse(JSON.stringify(appState));localStorage.setItem(SNAP,JSON.stringify(snaps));}
+  window.WWChildProfile.set(account);appState=snaps[norm(key)]||JSON.parse(JSON.stringify(DEFAULT_STATE));appState.classLevel=account.classLevel||2;appState.session={loggedInRole:null,remember:false};activeSessionRole='student';
+  localStorage.setItem(SNAP,JSON.stringify(snaps));saveState();chooser.style.display='none';
+  document.getElementById('loginScreen')?.classList.add('hidden');enterApp(false);applyPersonalHub();
+  const switchBtn=document.getElementById('wwSwitchChild');if(switchBtn)switchBtn.style.display='block';
+ }
+ chooser.querySelectorAll('[data-child]').forEach(b=>b.addEventListener('click',()=>activateChild(b.dataset.child)));
+ document.addEventListener('DOMContentLoaded',()=>{document.getElementById('loginScreen')?.classList.add('hidden');document.getElementById('appShell')?.classList.add('hidden');});
+ window.logoutUser=function(){if(activeSessionRole==='student'&&appState){const who=window.WWChildProfile.current();snaps[norm(who.username)]=JSON.parse(JSON.stringify(appState));localStorage.setItem(SNAP,JSON.stringify(snaps));}activeSessionRole=null;document.getElementById('appShell')?.classList.add('hidden');chooser.style.display='flex';};
+ const switchBtn=document.createElement('button');switchBtn.id='wwSwitchChild';switchBtn.textContent='👥 Switch Child';switchBtn.style.cssText='display:none;position:fixed;bottom:12px;left:12px;z-index:90;background:#fff;color:#6d28d9;font-weight:900;padding:10px 14px;border-radius:999px;box-shadow:0 4px 16px #0002';switchBtn.onclick=()=>window.logoutUser();document.body.appendChild(switchBtn);
+ // Ensure old login UI is never shown; child picker is the new entry point.
+ document.addEventListener('DOMContentLoaded',()=>{document.getElementById('loginScreen')?.classList.add('hidden');chooser.style.display='flex';});
+
  // Visible active-child indicator.
  document.addEventListener('DOMContentLoaded',()=>{const p=window.WWChildProfile.current();applyPersonalHub();const badge=document.createElement('div');badge.id='wwActiveChildBadge';badge.textContent='👤 '+p.name+' · '+(p.voiceProfile==='boy'?'👦 Boy Voice':'👧 Girl Voice');badge.style.cssText='position:fixed;top:8px;left:8px;z-index:80;background:#fff;color:#4c1d95;padding:6px 10px;border-radius:999px;font-weight:900;font-size:12px;box-shadow:0 2px 8px #0002';document.body.appendChild(badge);});
 })();
