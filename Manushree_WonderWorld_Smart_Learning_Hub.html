@@ -1507,13 +1507,14 @@
       quizEnterFullscreen();
       document.getElementById('activeGameTitle').textContent=appState.lang==='hi'?game.hi:game.en;
       const q=renderQuestionGame(game);
+      window.__wwCurrentQuestion={id,question:q};
       document.getElementById('activeGameSub').textContent=game.cat+' • '+CLASS_NAMES[appState.classLevel]+' • Question '+((questionProgress[id]||0)+1)+' / '+q.totalCount;
       const stage=document.getElementById('gameStage');
       stage.innerHTML='<div class="text-center w-full max-w-xl"><div class="text-6xl mb-4">'+game.icon+'</div><h3 class="text-xl sm:text-2xl font-bold mb-3">'+q.q+'</h3><div class="text-4xl my-4">'+q.visual+'</div><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">'+q.a.map(a=>'<button class="btn-3d bg-white border-2 border-purple-200 rounded-2xl p-4 font-bold text-lg hover:bg-purple-50" onclick="answerGame(\''+id+'\',\''+a.replace(/'/g,"\\'")+'\')">'+a+'</button>').join('')+'</div><p id="gameFeedback" class="font-bold text-lg mt-4 min-h-8"></p><button onclick="loadGame(\''+id+'\')" class="mt-4 bg-indigo-100 text-indigo-700 rounded-xl px-4 py-2 font-bold">🔄 Try Again</button></div>';
       currentPromptText=q.q+' '+q.visual;
     }
     function answerGame(id,answer) {
-      const game=GAMES.find(g=>g.id===id); const q=renderQuestionGame(game);
+      const game=GAMES.find(g=>g.id===id); const q=window.__wwCurrentQuestion && window.__wwCurrentQuestion.id===id ? window.__wwCurrentQuestion.question : renderQuestionGame(game);
       const fb=document.getElementById('gameFeedback');
       const answerKey=id+':'+(questionProgress[id]||0);
       if(answer===q.correct && !answeredQuestions[answerKey]) { 
