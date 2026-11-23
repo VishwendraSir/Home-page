@@ -1477,9 +1477,11 @@
       return {...selected,q:displayQuestion,totalCount:questions.length};
     }
     function loadGame(id, keepView=false) {
-      if(!window.quizShareGateCheck(id)) return;
+      // Direct topic launch: do not allow any legacy share/premium gate to block learning.
+      try{if(window.quizShareGateCheck)window.quizShareGateCheck(id);}catch(e){console.warn('Optional gate bypassed',e)}
       const game=GAMES.find(g=>g.id===id); if(!game) return;
       currentGame=game;
+      window.loadGame=loadGame;
       if(!keepView) {
         document.getElementById('homeView').classList.add('hidden');
         document.getElementById('gameView').classList.remove('hidden');
