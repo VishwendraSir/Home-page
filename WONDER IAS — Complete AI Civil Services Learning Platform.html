@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>WONDER IAS — Zero to Civil Services AI Learning Platform | Master Data Edition</title>
+
+  <!-- Google Fonts: Inter & Noto Sans Devanagari for crisp English + Hindi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans Devanagari', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            royal: { 50: '#eff6ff', 100: '#dbeafe', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e3a8a', 900: '#172554' },
+            navy: { 800: '#1e293b', 900: '#0f172a', 950: '#020617' },
+            gold: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+            emeraldBrand: { 500: '#10b981', 600: '#059669' },
+            purpleBrand: { 500: '#8b5cf6', 600: '#7c3aed' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body { overflow-x: hidden; background-color: #f1f5f9; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #312e81 100%);
+    }
+    .gold-gradient {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+    .map-pin {
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .map-pin:hover {
+      transform: scale(1.25);
+      filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.9));
+    }
+    .mind-node {
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .mind-node:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -5px rgba(30, 58, 138, 0.25);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeIn 0.25s ease-out forwards; }
+
+    @media print {
+      #desktop-sidebar, #top-header, #mobile-bottom-nav, #toast-container, .no-print { display: none !important; }
+      #main-wrapper { margin-left: 0 !important; padding: 0 !important; }
+      body { background: white !important; }
+    }
+
+    /* WONDER IAS VERSION / THEME SWITCHER */
+    body[data-wonder-version="1"] { --wonder-bg:#f1f5f9; --wonder-panel:#ffffff; --wonder-accent:#1e3a8a; --wonder-text:#1e293b; }
+    body[data-wonder-version="2"] { --wonder-bg:#eaf6ff; --wonder-panel:#f8fdff; --wonder-accent:#0369a1; --wonder-text:#0c334a; }
+    body[data-wonder-version="3"] { --wonder-bg:#0b1220; --wonder-panel:#111c2e; --wonder-accent:#8b5cf6; --wonder-text:#e5e7eb; color:var(--wonder-text); }
+    body[data-wonder-version="4"] { --wonder-bg:#f8fafc; --wonder-panel:#ffffff; --wonder-accent:#0f766e; --wonder-text:#334155; }
+    body[data-wonder-version] { background:var(--wonder-bg) !important; color:var(--wonder-text); transition:background .25s ease,color .25s ease; }
+    body[data-wonder-version="2"] #top-header { background:rgba(240,249,255,.96) !important; border-color:#bae6fd !important; }
+    body[data-wonder-version="2"] .hero-gradient { background:linear-gradient(135deg,#082f49 0%,#0369a1 55%,#0e7490 100%) !important; }
+    body[data-wonder-version="2"] .glass-card { background:rgba(248,253,255,.97) !important; border-color:#bae6fd !important; }
+    body[data-wonder-version="3"] #top-header { background:rgba(15,23,42,.96) !important; border-color:#334155 !important; color:#e5e7eb !important; }
+    body[data-wonder-version="3"] #desktop-sidebar { background:#0b1220 !important; border-color:#273449 !important; }
+    body[data-wonder-version="3"] #app-content .bg-white, body[data-wonder-version="3"] #app-content .glass-card { background:#111c2e !important; color:#e5e7eb !important; border-color:#334155 !important; }
+    body[data-wonder-version="3"] #app-content .bg-slate-50, body[data-wonder-version="3"] #app-content .bg-slate-100 { background:#172338 !important; color:#e5e7eb !important; }
+    body[data-wonder-version="3"] #app-content .text-slate-800, body[data-wonder-version="3"] #app-content .text-slate-700 { color:#e5e7eb !important; }
+    body[data-wonder-version="3"] #app-content .text-slate-500, body[data-wonder-version="3"] #app-content .text-slate-400 { color:#a8b4c7 !important; }
+    body[data-wonder-version="3"] input, body[data-wonder-version="3"] textarea, body[data-wonder-version="3"] select { background:#0b1220 !important; color:#e5e7eb !important; border-color:#475569 !important; }
+    body[data-wonder-version="4"] #top-header { box-shadow:0 1px 8px rgba(15,23,42,.05); }
+    body[data-wonder-version="4"] .glass-card { border-radius:12px !important; box-shadow:none !important; border-color:#e2e8f0 !important; }
+    body[data-wonder-version="4"] #app-content { gap:1rem !important; }
+    body[data-wonder-version="4"] #app-content .rounded-2xl { border-radius:12px !important; }
+    body[data-wonder-version="4"] #app-content .shadow-xl, body[data-wonder-version="4"] #app-content .shadow-2xl { box-shadow:0 2px 8px rgba(15,23,42,.05) !important; }
+    #wonder-version-control { max-width:118px; }
+    @media (max-width:420px) { #wonder-version-control { max-width:92px; } #wonder-version-label { display:none; } }
+  </style>
+</head>
+<body class="font-sans text-slate-800 antialiased">
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed top-4 right-4 z-[100] flex flex-col gap-2 max-w-sm w-[calc(100%-2rem)] pointer-events-none"></div>
+
+  <!-- Custom Modal Overlay -->
+  <div id="app-modal" class="fixed inset-0 z-[90] hidden bg-navy-900/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+    <div id="app-modal-box" class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden border border-slate-200 fade-in">
+      <div class="flex items-center justify-between px-5 py-4 bg-navy-900 text-white shrink-0">
+        <div class="min-w-0 pr-3">
+          <h3 id="modal-title" class="text-base sm:text-lg font-bold truncate">Modal Title</h3>
+          <p id="modal-subtitle" class="text-xs text-slate-300 truncate"></p>
+        </div>
+        <button onclick="W.closeModal()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-white shrink-0" aria-label="Close">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+      <div id="modal-body" class="p-4 sm:p-6 overflow-y-auto flex-1 space-y-4"></div>
+      <div id="modal-footer" class="px-5 py-3 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-end gap-2 shrink-0 hidden"></div>
+    </div>
+  </div>
+
+  <!-- Mobile Slide-Out Drawer -->
+  <div id="mobile-drawer-overlay" onclick="W.toggleMobileDrawer(false)" class="fixed inset-0 z-[70] bg-navy-900/60 backdrop-blur-xs hidden lg:hidden"></div>
+  <aside id="mobile-drawer" class="fixed top-0 left-0 bottom-0 w-72 bg-navy-900 text-white z-[80] transform -translate-x-full transition-transform duration-300 lg:hidden flex flex-col">
+    <div class="p-4 border-b border-slate-800 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl gold-gradient flex items-center justify-center text-navy-900 font-extrabold shadow">W</div>
+        <div>
+          <div class="font-extrabold tracking-tight text-white leading-tight">WONDER IAS</div>
+          <div class="text-[10px] text-gold-400 font-semibold">ZERO TO CIVIL SERVICES</div>
+        </div>
+      </div>
+      <button onclick="W.toggleMobileDrawer(false)" class="p-2 text-slate-400 hover:text-white">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+    <nav id="mobile-drawer-nav" class="flex-1 overflow-y-auto p-3 space-y-1"></nav>
+    <div class="p-3 border-t border-slate-800 text-xs text-slate-400">
+      <div id="mobile-sync-status" class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span>Cloud Sync Ready</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Desktop Left Sidebar -->
+  <aside id="desktop-sidebar" class="hidden lg:flex lg:flex-col fixed top-0 left-0 bottom-0 w-64 bg-navy-900 text-slate-100 z-40 border-r border-slate-800">
+    <div class="p-5 border-b border-slate-800">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center text-navy-900 font-black text-lg shadow-lg">W</div>
+        <div>
+          <h1 class="font-extrabold text-lg tracking-tight text-white leading-none">WONDER IAS</h1>
+          <p class="text-[10px] text-gold-400 font-semibold tracking-wider mt-1">ZERO TO CIVIL SERVICES</p>
+        </div>
+      </div>
+      <p class="text-[11px] text-slate-400 mt-2.5">Learn • Understand • Practice • Revise • Master</p>
+    </div>
+
+    <nav id="desktop-sidebar-nav" class="flex-1 overflow-y-auto p-3 space-y-1"></nav>
+
+    <div class="p-4 border-t border-slate-800 bg-navy-950/60">
+      <div class="flex items-center justify-between text-xs mb-1.5">
+        <span class="text-slate-400 font-medium">Current Stage</span>
+        <span id="sidebar-stage-num" class="text-gold-400 font-bold">Stage 1/10</span>
+      </div>
+      <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+        <div id="sidebar-stage-bar" class="h-full gold-gradient rounded-full transition-all duration-500" style="width: 10%"></div>
+      </div>
+      <div id="desktop-sync-status" class="mt-3 flex items-center gap-2 text-[11px] text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Initializing Sync...</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Wrapper -->
+  <div id="main-wrapper" class="lg:ml-64 min-h-screen flex flex-col pb-20 lg:pb-6">
+
+    <!-- Top Sticky Header -->
+    <header id="top-header" class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 px-3 sm:px-6 py-2.5">
+      <div class="flex items-center justify-between gap-2 max-w-7xl mx-auto">
+        <!-- Left: Hamburger + Brand (Mobile) / Search -->
+        <div class="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+          <button onclick="W.toggleMobileDrawer(true)" class="lg:hidden w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-navy-900 shrink-0" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="lg:hidden flex items-center gap-2 shrink-0">
+            <div class="w-8 h-8 rounded-lg gold-gradient flex items-center justify-center text-navy-900 font-black text-sm">W</div>
+            <span class="font-extrabold text-navy-900 text-sm tracking-tight hidden xs:inline">WONDER IAS</span>
+          </div>
+          <!-- Global Search -->
+          <div class="relative flex-1 max-w-md hidden sm:block">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+            <input id="global-search-input" type="text" placeholder="Search syllabus, topics, PYQs, current affairs..."
+              oninput="W.handleGlobalSearch(this.value)"
+              class="w-full pl-9 pr-4 py-2 text-sm bg-slate-100 border border-transparent focus:border-royal-600 focus:bg-white rounded-xl outline-none transition" />
+            <div id="global-search-dropdown" class="hidden absolute left-0 right-0 top-full mt-1.5 bg-white rounded-xl shadow-xl border border-slate-200 max-h-80 overflow-y-auto z-50"></div>
+          </div>
+        </div>
+
+        <!-- Right Controls -->
+        <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+          <!-- Visual Version Switcher -->
+          <div class="flex items-center gap-1 rounded-xl border border-slate-200 bg-slate-100 px-1.5 py-1">
+            <span id="wonder-version-label" class="text-[10px] font-extrabold text-slate-500">V1</span>
+            <select id="wonder-version-control" aria-label="Change app version theme and layout" onchange="W.setVersion(this.value)" class="bg-transparent text-[11px] sm:text-xs font-bold outline-none border-0 text-slate-700 cursor-pointer">
+              <option value="1">Classic</option><option value="2">Ocean</option><option value="3">Midnight</option><option value="4">Minimal</option>
+            </select>
+          </div>
+
+          <!-- Language Switcher -->
+          <div class="inline-flex rounded-xl bg-slate-100 p-0.5 border border-slate-200 text-xs font-semibold">
+            <button onclick="W.setLanguage('en')" id="lang-btn-en" class="px-2 sm:px-2.5 py-1.5 rounded-lg transition">EN</button>
+            <button onclick="W.setLanguage('hi')" id="lang-btn-hi" class="px-2 sm:px-2.5 py-1.5 rounded-lg transition">हिन्दी</button>
+            <button onclick="W.setLanguage('bi')" id="lang-btn-bi" class="px-2 sm:px-2.5 py-1.5 rounded-lg transition">Bi</button>
+          </div>
+
+          <!-- Streak Badge -->
+          <button onclick="W.navigate('dashboard')" class="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold" title="Study Streak">
+            <i class="fa-solid fa-fire text-amber-500"></i>
+            <span id="header-streak">1</span>
+          </button>
+
+          <!-- XP Badge -->
+          <button onclick="W.navigate('dashboard')" class="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 text-xs font-bold" title="XP Points">
+            <i class="fa-solid fa-bolt text-purple-600"></i>
+            <span id="header-xp">120 XP</span>
+          </button>
+
+          <!-- Role Toggle (Student / Admin) -->
+          <button onclick="W.toggleAdminMode()" id="role-toggle-btn" class="px-2.5 py-1.5 rounded-xl bg-royal-800 hover:bg-royal-900 text-white text-xs font-semibold flex items-center gap-1.5 transition" title="Switch Student / Admin Mode">
+            <i class="fa-solid fa-user-shield"></i>
+            <span class="hidden md:inline" id="role-toggle-label">Student</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Dynamic View Container -->
+    <main id="app-content" class="flex-1 p-3 sm:p-6 max-w-7xl w-full mx-auto space-y-6"></main>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav id="mobile-bottom-nav" class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 px-1 py-1.5 flex items-center justify-around shadow-lg">
+    <button onclick="W.navigate('dashboard')" data-nav="dashboard" class="mob-nav-btn flex flex-col items-center justify-center py-1 px-2 rounded-xl text-[11px] font-semibold text-slate-500">
+      <i class="fa-solid fa-house text-base mb-0.5"></i><span>Home</span>
+    </button>
+    <button onclick="W.navigate('syllabus')" data-nav="syllabus" class="mob-nav-btn flex flex-col items-center justify-center py-1 px-2 rounded-xl text-[11px] font-semibold text-slate-500">
+      <i class="fa-solid fa-book-open text-base mb-0.5"></i><span>Syllabus</span>
+    </button>
+    <button onclick="W.navigate('prelims')" data-nav="prelims" class="mob-nav-btn flex flex-col items-center justify-center py-1 px-2 rounded-xl text-[11px] font-semibold text-slate-500">
+      <i class="fa-solid fa-list-check text-base mb-0.5"></i><span>Prelims</span>
+    </button>
+    <button onclick="W.navigate('mains')" data-nav="mains" class="mob-nav-btn flex flex-col items-center justify-center py-1 px-2 rounded-xl text-[11px] font-semibold text-slate-500">
+      <i class="fa-solid fa-pen-nib text-base mb-0.5"></i><span>Mains</span>
+    </button>
+    <button onclick="W.navigate('mentor')" data-nav="mentor" class="mob-nav-btn flex flex-col items-center justify-center py-1 px-2 rounded-xl text-[11px] font-semibold text-slate-500">
+      <i class="fa-solid fa-robot text-base mb-0.5"></i><span>AI Guru</span>
+    </button>
+  </nav>
+
+  <!-- Main Application Script (ES Module with Firebase + Gemini API) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    /* =========================================================================
+       1. CONSTANTS, TRANSLATIONS & 10-STAGE JOURNEY
+       ========================================================================= */
+    const STAGES = [
+      { id: 1, en: "Zero Level Foundation", hi: "शून्य स्तर नींव (Zero Foundation)", desc: "Basic concepts, terminology & exam orientation" },
+      { id: 2, en: "NCERT Foundation", hi: "NCERT आधार (कक्षा 6-12)", desc: "Class 6–12 NCERT conceptual clarity" },
+      { id: 3, en: "Basic Subject Knowledge", hi: "मूल विषय ज्ञान", desc: "Core GS subjects: Polity, History, Geo, Economy" },
+      { id: 4, en: "Standard Books Level", hi: "मानक पुस्तकें (Standard Books)", desc: "Laxmikanth, Spectrum, Ramesh Singh, Shankar IAS" },
+      { id: 5, en: "UPSC Prelims Level", hi: "UPSC प्रारंभिक परीक्षा स्तर", desc: "MCQ accuracy, elimination & CSAT qualification" },
+      { id: 6, en: "UPSC Mains Level", hi: "UPSC मुख्य परीक्षा स्तर", desc: "GS Paper I–IV, Optional & Essay integration" },
+      { id: 7, en: "Advanced Analytical", hi: "उन्नत विश्लेषणात्मक स्तर", desc: "Interlinking static syllabus with Current Affairs" },
+      { id: 8, en: "Answer Writing Mastery", hi: "उत्तर लेखन दक्षता", desc: "Timed 10/15/20 mark answers & Case Studies" },
+      { id: 9, en: "Interview Preparation", hi: "साक्षात्कार (Interview) तैयारी", desc: "DAF mastery, balanced opinion & mock board" },
+      { id: 10, en: "Final Exam Simulation", hi: "अंतिम परीक्षा सिमुलेशन", desc: "Full-length UPSC/PCS exam temperament" }
+    ];
+
+    const UI_STRINGS = {
+      en: {
+        dashboard: "Dashboard", syllabus: "Syllabus & Notes", maps: "Maps & Mind Maps",
+        currentAffairs: "Current Affairs", prelims: "Prelims, CSAT & Mocks",
+        mains: "Mains & Essay", interview: "Interview Prep", mentor: "AI Personal Mentor",
+        studyPlan: "Study Plan", admin: "Admin & Data",
+        welcome: "Welcome back, Future Civil Servant",
+        tagline: "YOUR JOURNEY FROM ZERO TO CIVIL SERVICES"
+      },
+      hi: {
+        dashboard: "डैशबोर्ड", syllabus: "पाठ्यक्रम एवं नोट्स", maps: "मानचित्र एवं माइंड मैप",
+        currentAffairs: "समसामयिकी (Current Affairs)", prelims: "प्रिलिम्स, CSAT एवं मॉक",
+        mains: "मेन्स एवं निबंध (Essay)", interview: "साक्षात्कार तैयारी", mentor: "AI पर्सनल मेंटर",
+        studyPlan: "अध्ययन योजना", admin: "एडमिन एवं डेटा",
+        welcome: "स्वागत है, भावी लोक सेवक",
+        tagline: "शून्य से सिविल सेवा तक आपकी यात्रा"
+      },
+      bi: {
+        dashboard: "Dashboard / डैशबोर्ड", syllabus: "Syllabus & Notes / पाठ्यक्रम", maps: "Maps & Mind Maps / मानचित्र",
+        currentAffairs: "Current Affairs / समसामयिकी", prelims: "Prelims & CSAT / प्रिलिम्स",
+        mains: "Mains & Essay / मुख्य परीक्षा", interview: "Interview / साक्षात्कार", mentor: "AI Mentor / AI गुरु",
+        studyPlan: "Study Plan / अध्ययन योजना", admin: "Admin & Data / डेटा",
+        welcome: "Welcome, Future IAS / स्वागत है",
+        tagline: "ZERO TO CIVIL SERVICES • शून्य से सिविल सेवा तक"
+      }
+    };
+
+    /* =========================================================================
+       2. COMPLETE UPSC SYLLABUS DATABASE (ALL GS + ETHICS + 10 OPTIONALS)
+       ========================================================================= */
+    const INITIAL_SYLLABUS = [
+      // HISTORY
+      {
+        id: "his-anc-1", subject: "History", category: "Ancient India", paper: "Prelims & GS-I",
+        title: "Indus Valley Civilization (IVC)", hiTitle: "सिंधु घाटी सभ्यता (हड़प्पा सभ्यता)",
+        level: "Stage 2: NCERT", estTime: "45 min", prereq: "Prehistoric India",
+        quickNotes: "Bronze Age urban civilization (c. 2600–1900 BCE). Known for grid-pattern town planning, Great Bath (Mohenjodaro), dockyard (Lothal), standardized weights, and undeciphered pictographic script.",
+        detailedNotes: "The Harappan Civilization flourished in the northwestern Indian subcontinent. Cities were typically divided into an elevated Citadel (western) and Lower Town (eastern), with Dholavira uniquely having three divisions and advanced water conservation. Baked bricks in a 4:2:1 ratio, covered drainage systems, and granaries reflect strong municipal administration. Trade extended to Mesopotamia (Meluhha). Religion featured Pashupati seal, Mother Goddess, and tree worship, with no clear evidence of monumental temples.",
+        hiNotes: "सिंधु घाटी सभ्यता (लगभग 2600–1900 ईसा पूर्व) एक कांस्य युगीन नगरीय सभ्यता थी। इसकी प्रमुख विशेषताएँ ग्रिड प्रणाली पर आधारित नगर नियोजन, जल निकासी व्यवस्था, मोहनजोदड़ो का विशाल स्नानागार, लोथल का गोदीवाड़ा (Dockyard) और धोलावीरा का जल प्रबंधन हैं। मेसोपोटामिया के अभिलेखों में इसे 'मेलुहा' कहा गया है।",
+        keyFacts: ["Lothal: Artificial dockyard & bead-making", "Dholavira: UNESCO World Heritage Site (2021), water reservoirs", "Kalibangan: Ploughed field & fire altars", "No iron or horse-centered warfare evidence"],
+        pyqConn: "UPSC Prelims 2019 (Harappan Sites), Prelims 2021 (Dholavira water management), Mains GS-I 2014 (Urban planning inputs for present urbanization)."
+      },
+      {
+        id: "his-anc-2", subject: "History", category: "Ancient India", paper: "Prelims & GS-I",
+        title: "Buddhism, Jainism & Mauryan Empire", hiTitle: "बौद्ध धर्म, जैन धर्म एवं मौर्य साम्राज्य",
+        level: "Stage 3: Basic", estTime: "60 min", prereq: "Vedic Civilization & Mahajanapadas",
+        quickNotes: "6th Century BCE heterodox sects challenging Vedic ritualism. Mauryan Empire (322–185 BCE) founded by Chandragupta Maurya; Ashoka's Dhamma propagated via Rock & Pillar Edicts.",
+        detailedNotes: "Gautama Buddha taught Four Noble Truths and the Eightfold Path (Ashtangika Marga), emphasizing Madhyama Marga (Middle Path). Vardhamana Mahavira, the 24th Tirthankara, emphasized Ahimsa, Anekantavada (non-absolutism), and Syadvada. Politically, Magadha rose to supremacy culminating in the Mauryan Empire. Kautilya's Arthashastra details centralized statecraft, while Ashoka's Kalinga War (261 BCE) led to his policy of Dhamma-Vijaya inscribed in Prakrit (Brahmi/Kharosthi scripts).",
+        hiNotes: "छठी शताब्दी ईसा पूर्व में बौद्ध और जैन धर्म का उदय हुआ। बुद्ध ने चार आर्य सत्य और अष्टांगिक मार्ग दिया, जबकि महावीर ने अहिंसा और अनेकान्तवाद पर बल दिया। मौर्य साम्राज्य की स्थापना चंद्रगुप्त मौर्य ने की और अशोक ने कलिंग युद्ध (261 ई.पू.) के बाद 'धम्म विजय' की नीति अपनाई।",
+        keyFacts: ["4 Buddhist Councils: Rajagriha, Vaishali, Pataliputra, Kashmir", "Ashoka's Major Rock Edict XIII mentions Kalinga War", "James Prinsep deciphered Brahmi script in 1837"],
+        pyqConn: "UPSC Prelims 2020 (Paramitas & Ashokan Edicts), Prelims 2023 (Souls in Jainism)."
+      },
+      {
+        id: "his-med-1", subject: "History", category: "Medieval India", paper: "Prelims & GS-I",
+        title: "Delhi Sultanate, Vijayanagara & Bhakti-Sufi Movements", hiTitle: "दिल्ली सल्तनत, विजयनगर एवं भक्ति-सूफी आंदोलन",
+        level: "Stage 3: Basic", estTime: "55 min", prereq: "Early Medieval India",
+        quickNotes: "Five dynasties of Delhi Sultanate (1206–1526) introduced Iqta system. Vijayanagara Empire (1336) peaked under Krishnadevaraya. Bhakti & Sufi saints promoted syncretic devotion.",
+        detailedNotes: "Alauddin Khilji introduced market reforms, Dagh (branding of horses), and Chehra (descriptive roll). Muhammad bin Tughlaq experimented with token currency and capital shift to Daulatabad. In South India, Harihara and Bukka founded Vijayanagara (Hampi), famed for Nayankara system and Vittala Temple. Simultaneously, Nirguna Bhakti (Kabir, Guru Nanak), Saguna Bhakti (Mirabai, Tulsidas, Chaitanya), and Chishti Sufis (Nizamuddin Auliya) bridged social divides.",
+        hiNotes: "दिल्ली सल्तनत (1206–1526) में इक्ता प्रणाली (Iqta System) और अलाउद्दीन खिलजी के बाजार सुधार प्रमुख हैं। दक्षिण में विजयनगर साम्राज्य (कृष्णदेवराय) कला व प्रशासन का केंद्र था। भक्ति (कबीर, नानक) और सूफी (चिश्ती सिलसिला) संतों ने सामाजिक समरसता को बढ़ावा दिया।",
+        keyFacts: ["Amuktamalyada written in Telugu by Krishnadevaraya", "Ibn Battuta visited during Muhammad bin Tughlaq", "Silsilas: Chishti, Suhrawardi, Naqshbandi"],
+        pyqConn: "UPSC Prelims 2019 (Mian Tansen & Bhakti), Prelims 2021 (Vijayanagara taxation & travelers)."
+      },
+      {
+        id: "his-mod-1", subject: "History", category: "Modern India", paper: "Prelims & GS-I",
+        title: "Revolt of 1857, INC & Gandhian Era", hiTitle: "1857 का विद्रोह, भारतीय राष्ट्रीय कांग्रेस एवं गांधी युग",
+        level: "Stage 4: Standard Books", estTime: "75 min", prereq: "British Expansion & Economic Impact",
+        quickNotes: "1857 Revolt ended East India Company rule (GOI Act 1858). INC founded in 1885. Gandhian mass movements: Non-Cooperation (1920), Civil Disobedience (1930), Quit India (1942).",
+        detailedNotes: "Economic drain (Dadabhai Naoroji), land revenue settlements (Permanent, Ryotwari, Mahalwari), and Doctrine of Lapse triggered the 1857 uprising. Post-1885, the Indian National Movement evolved through Moderate constitutionalism, Extremist Swadeshi (1905), and Gandhian Satyagraha (Champaran 1917, Kheda, Ahmedabad 1918). Constitutional milestones include GOI Acts of 1909, 1919 (Dyarchy), and 1935 (Provincial Autonomy), culminating in the Indian Independence Act 1947.",
+        hiNotes: "1857 के विद्रोह के बाद भारत का शासन सीधे ब्रिटिश क्राउन के अधीन आ गया (1858 अधिनियम)। 1885 में कांग्रेस की स्थापना हुई। गांधीजी ने चंपारण (1917), असहयोग (1920), सविनय अवज्ञा (1930) और भारत छोड़ो आंदोलन (1942) के माध्यम से राष्ट्रीय आंदोलन को जन-आंदोलन बनाया।",
+        keyFacts: ["Champaran (1917): First Civil Disobedience", "Dandi March: March 12 – April 6, 1930", "Quit India Resolution: August 8, 1942 (Gowalia Tank)"],
+        pyqConn: "UPSC Prelims 2021 (Quit India & Gandhi-Irwin Pact), Mains GS-I 2019 (Many voices in 1920s freedom struggle)."
+      },
+      {
+        id: "his-wld-1", subject: "History", category: "World History", paper: "GS-I (Mains)",
+        title: "Industrial Revolution, World Wars & Cold War", hiTitle: "औद्योगिक क्रांति, विश्व युद्ध एवं शीत युद्ध",
+        level: "Stage 6: Mains", estTime: "50 min", prereq: "Modern India",
+        quickNotes: "Industrial Revolution began in Britain (18th c.), fueling colonialism. WWI (1914–18) & WWII (1939–45) reshaped global order, leading to UN, decolonization, and Cold War bipolarity.",
+        detailedNotes: "Mechanization in textiles and steam power shifted agrarian economies to industrial capitalism, driving European imperial scramble in Asia and Africa. The Treaty of Versailles (1919) sowed seeds of Fascism and Nazism. Post-WWII, Afro-Asian decolonization gained momentum alongside Non-Aligned Movement (NAM) led by India, Egypt, and Yugoslavia during US–USSR Cold War rivalry.",
+        hiNotes: "औद्योगिक क्रांति की शुरुआत 18वीं सदी में ब्रिटेन से हुई, जिसने उपनिवेशवाद को बढ़ावा दिया। प्रथम एवं द्वितीय विश्व युद्ध के बाद संयुक्त राष्ट्र (UN) की स्थापना, उपनिवेशवाद का अंत और अमेरिका-सोवियत संघ के बीच शीत युद्ध (Cold War) तथा गुटनिरपेक्ष आंदोलन (NAM) का उदय हुआ।",
+        keyFacts: ["Treaty of Versailles (1919)", "Bretton Woods Conference (1944): IMF & World Bank", "Bandung Conference (1955) -> NAM (1961)"],
+        pyqConn: "UPSC Mains GS-I 2015 (Why Industrial Revolution first occurred in England)."
+      },
+
+      // GEOGRAPHY
+      {
+        id: "geo-phy-1", subject: "Geography", category: "Physical Geography", paper: "Prelims & GS-I",
+        title: "Plate Tectonics, Atmosphere & Indian Monsoon", hiTitle: "प्लेट विवर्तनिकी, वायुमंडल एवं भारतीय मानसून",
+        level: "Stage 2: NCERT", estTime: "60 min", prereq: "Earth's Interior & Latitudes",
+        quickNotes: "Lithospheric plates move over the asthenosphere causing earthquakes, volcanoes, and fold mountains. Indian Monsoon is driven by differential heating, ITCZ shift, Jet Streams, ENSO & IOD.",
+        detailedNotes: "Convergent boundaries (Indian–Eurasian plates) formed the Himalayas. Atmospheric circulation involves Coriolis force, Trade Winds, Westerlies, and Subtropical Jet Streams. Indian Southwest Monsoon (June–Sept) arrives in two branches (Arabian Sea & Bay of Bengal); El Niño generally weakens it while positive Indian Ocean Dipole (IOD) strengthens rainfall.",
+        hiNotes: "प्लेट विवर्तनिकी (Plate Tectonics) सिद्धांत के अनुसार स्थलमंडलीय प्लेटें एस्थेनोस्फीयर पर गति करती हैं, जिससे हिमालय जैसे वलित पर्वत, भूकंप और ज्वालामुखी बनते हैं। भारतीय मानसून ITCZ के खिसकाव, जेट स्ट्रीम, अल-नीनो (El Niño) और हिंद महासागर द्विध्रुव (IOD) से प्रभावित होता है।",
+        keyFacts: ["Troposphere contains ~75% of atmospheric mass & all weather", "Positive IOD boosts Indian Monsoon", "Western Disturbances bring winter rain to NW India"],
+        pyqConn: "UPSC Prelims 2017 (Indian Ocean Dipole), Mains GS-I 2022 (Troposphere & weather)."
+      },
+      {
+        id: "geo-ind-1", subject: "Geography", category: "Indian Geography", paper: "Prelims & GS-I",
+        title: "Himalayan & Peninsular Drainage Systems", hiTitle: "हिमालयी एवं प्रायद्वीपीय अपवाह तंत्र (नदियाँ)",
+        level: "Stage 3: Basic", estTime: "55 min", prereq: "Physical Features of India",
+        quickNotes: "Himalayan rivers (Indus, Ganga, Brahmaputra) are perennial & antecedent. Peninsular rivers (Godavari, Krishna, Kaveri—east-flowing; Narmada, Tapi—west-flowing rift valleys) are seasonal.",
+        detailedNotes: "The Ganga rises at Gangotri (Bhagirathi) and meets Alaknanda at Devprayag. Brahmaputra enters India as Dihang in Arunachal Pradesh. Godavari is 'Dakshin Ganga'. Narmada and Tapi flow westward through structural rift valleys between Vindhya and Satpura ranges and form estuaries rather than deltas.",
+        hiNotes: "हिमालयी नदियाँ (सिंधु, गंगा, ब्रह्मपुत्र) बारहमासी होती हैं, जबकि प्रायद्वीपीय नदियाँ मौसमी होती हैं। नर्मदा और तापी भ्रंश घाटी (Rift Valley) से बहकर अरब सागर में ज्वारनदमुख (Estuary) बनाती हैं, जबकि गोदावरी, कृष्णा और कावेरी बंगाल की खाड़ी में डेल्टा बनाती हैं।",
+        keyFacts: ["Devprayag = Bhagirathi + Alaknanda", "Narmada & Tapi form estuaries", "Godavari is longest peninsular river (1,465 km)"],
+        pyqConn: "UPSC Prelims 2021 (Indus River system tributaries), Prelims 2023 (Jhelum & Wular Lake)."
+      },
+
+      // INDIAN POLITY
+      {
+        id: "pol-fnd-1", subject: "Polity", category: "Constitutional Framework", paper: "Prelims & GS-II",
+        title: "Preamble, Fundamental Rights, DPSP & Fundamental Duties", hiTitle: "प्रस्तावना, मौलिक अधिकार, नीति निदेशक तत्व एवं मूल कर्तव्य",
+        level: "Stage 3: Basic", estTime: "70 min", prereq: "Constituent Assembly",
+        quickNotes: "Preamble declares India Sovereign, Socialist, Secular, Democratic Republic. Part III (Art 12–35) Fundamental Rights are justiciable; Part IV (Art 36–51) DPSPs are non-justiciable; Part IVA (Art 51A) Fundamental Duties.",
+        detailedNotes: "Kesavananda Bharati Case (1973) established the Basic Structure Doctrine—Parliament can amend the Constitution under Art 368 without destroying its basic features. 42nd Amendment (1976) added Socialist, Secular, Integrity to Preamble and 10 Fundamental Duties (Swaran Singh Committee). Art 32 (Constitutional Remedies) was called the 'heart and soul' of the Constitution by Dr. B.R. Ambedkar.",
+        hiNotes: "प्रस्तावना संविधान का सार है। भाग III (अनुच्छेद 12–35) में मौलिक अधिकार न्याययोग्य (Justiciable) हैं, जबकि भाग IV (अनुच्छेद 36–51) के नीति निदेशक तत्व (DPSP) गैर-न्याययोग्य हैं। केशवानंद भारती वाद (1973) में 'मूल ढांचा सिद्धांत' (Basic Structure Doctrine) प्रतिपादित किया गया।",
+        keyFacts: ["Art 32: 5 Writs (Habeas Corpus, Mandamus, Prohibition, Certiorari, Quo Warranto)", "Art 21: Right to Life & Personal Liberty (Maneka Gandhi 1978)", "86th Amendment (2002): Art 21A Right to Education"],
+        pyqConn: "UPSC Prelims 2020 (Preamble & Legal Effect), Prelims 2022 (Writs & Mandamus)."
+      },
+      {
+        id: "pol-adv-1", subject: "Polity", category: "Union & Federalism", paper: "Prelims & GS-II",
+        title: "Parliament, Judiciary, Federalism & Constitutional Bodies", hiTitle: "संसद, न्यायपालिका, संघवाद एवं संवैधानिक निकाय",
+        level: "Stage 4: Standard Books", estTime: "80 min", prereq: "Fundamental Rights",
+        quickNotes: "Parliament comprises President, Lok Sabha & Rajya Sabha. Money Bill (Art 110) needs Speaker's certification. Constitutional Bodies: ECI (Art 324), CAG (Art 148), UPSC (Art 315), Finance Commission (Art 280).",
+        detailedNotes: "Indian federalism is 'quasi-federal' (K.C. Wheare) with Seventh Schedule dividing Union, State, and Concurrent Lists. Supreme Court exercises Judicial Review (Art 13, 32, 136). Panchayati Raj (73rd Amendment, 11th Schedule) and Municipalities (74th Amendment, 12th Schedule) institutionalized grassroots democracy.",
+        hiNotes: "संसद में राष्ट्रपति, लोकसभा और राज्यसभा शामिल हैं। धन विधेयक (अनुच्छेद 110) केवल लोकसभा में पेश किया जा सकता है। निर्वाचन आयोग (अनुच्छेद 324), CAG (अनुच्छेद 148), UPSC (अनुच्छेद 315) और वित्त आयोग (अनुच्छेद 280) प्रमुख संवैधानिक निकाय हैं।",
+        keyFacts: ["Joint Sitting (Art 108): Presided by Lok Sabha Speaker; NOT for Money/Constitutional Amendment Bills", "CAG is Guardian of Public Purse", "73rd & 74th Amendments (1992): Local Self-Government"],
+        pyqConn: "UPSC Prelims 2023 (Finance Bill vs Money Bill), Mains GS-II 2021 (Cooperative Federalism)."
+      },
+
+      // INDIAN ECONOMY
+      {
+        id: "eco-fnd-1", subject: "Economy", category: "Macroeconomics & Banking", paper: "Prelims & GS-III",
+        title: "GDP, Inflation, RBI Monetary Policy & Fiscal Policy", hiTitle: "GDP, मुद्रास्फीति, RBI की मौद्रिक नीति एवं राजकोषीय नीति",
+        level: "Stage 2: NCERT", estTime: "65 min", prereq: "What is Economics & Money?",
+        quickNotes: "GDP measures final goods/services produced within domestic territory. RBI's Monetary Policy Committee (MPC) targets CPI inflation at 4% ± 2% using Repo Rate, CRR, SLR, OMO. Fiscal policy manages Union Budget & FRBM targets.",
+        detailedNotes: "Repo Rate is the rate at which RBI lends short-term funds to commercial banks against government securities. Tight (hawkish) monetary policy raises Repo Rate to curb demand-pull inflation. Fiscal Deficit = Total Expenditure – (Revenue Receipts + Non-debt Capital Receipts). GST (101st Amendment) unified indirect taxes into a destination-based consumption tax.",
+        hiNotes: "सकल घरेलू उत्पाद (GDP) देश की सीमा के भीतर उत्पादित अंतिम वस्तुओं और सेवाओं का कुल मूल्य है। RBI की मौद्रिक नीति समिति (MPC) रेपो रेट, CRR और SLR के माध्यम से खुदरा मुद्रास्फीति (CPI) को 4% (±2%) के दायरे में नियंत्रित करती है। राजकोषीय नीति (Fiscal Policy) सरकार के बजट और कराधान से संबंधित है।",
+        keyFacts: ["MPC has 6 members (3 RBI + 3 Govt), chaired by RBI Governor", "Base year for India GDP: 2011–12", "CPI (Combined) is published by NSO (MoSPI)"],
+        pyqConn: "UPSC Prelims 2020 (Expansionist Monetary Policy), Prelims 2022 (Inflation-Indexed Bonds & RBI)."
+      },
+      {
+        id: "eco-adv-1", subject: "Economy", category: "External Sector & Agriculture", paper: "Prelims & GS-III",
+        title: "Balance of Payments, MSP, Inclusive Growth & Digital Economy", hiTitle: "भुगतान संतुलन (BoP), MSP, समावेशी विकास एवं डिजिटल अर्थव्यवस्था",
+        level: "Stage 5: Prelims", estTime: "55 min", prereq: "Fiscal & Monetary Policy",
+        quickNotes: "BoP has Current Account (Trade + Invisibles) and Capital Account (FDI, FPI, ECB). MSP is recommended by CACP and approved by CCEA for 22 mandated crops + FRP for sugarcane.",
+        detailedNotes: "Foreign Direct Investment (FDI) brings long-term capital and technology, whereas Foreign Portfolio Investment (FPI) is volatile 'hot money'. Digital Public Infrastructure (DPI)—Aadhaar, UPI, DigiLocker—drives financial inclusion (JAM Trinity: Jan Dhan–Aadhaar–Mobile).",
+        hiNotes: "भुगतान संतुलन (BoP) में चालू खाता (व्यापार एवं अदृश्य मदें) और पूंजी खाता (FDI, FPI) शामिल होते हैं। न्यूनतम समर्थन मूल्य (MSP) की सिफारिश CACP द्वारा की जाती है। आधार, UPI और जन-धन (JAM Trinity) ने भारत में वित्तीय समावेशन को क्रांतिकारी गति दी है।",
+        keyFacts: ["CACP recommends MSP; CCEA gives final approval", "FDI = long-term equity/management; FPI = financial markets", "UPI developed by NPCI"],
+        pyqConn: "UPSC Prelims 2020 (MSP crops), Mains GS-III 2023 (Digital Public Infrastructure)."
+      },
+
+      // ENVIRONMENT & ECOLOGY
+      {
+        id: "env-adv-1", subject: "Environment", category: "Biodiversity & Climate", paper: "Prelims & GS-III",
+        title: "Biodiversity, Protected Areas, Ramsar Sites & Climate Conventions", hiTitle: "जैव विविधता, संरक्षित क्षेत्र, रामसर स्थल एवं जलवायु सम्मेलन",
+        level: "Stage 4: Standard Books", estTime: "65 min", prereq: "Ecosystem & Food Web",
+        quickNotes: "In-situ conservation: National Parks, Wildlife Sanctuaries, Biosphere Reserves (MAB). Key laws: Wildlife Protection Act 1972, EPA 1986. Global treaties: UNFCCC (Paris Agreement), CBD, Ramsar (Wetlands), CITES.",
+        detailedNotes: "India hosts 4 Biodiversity Hotspots: Himalayas, Indo-Burma, Western Ghats, and Sundaland. Ramsar Convention (1971) protects wetlands of international importance (Montreux Record tracks threatened sites—Keoladeo & Loktak in India). Paris Agreement (COP21) aims to limit global warming well below 2°C, pursuing 1.5°C, via Nationally Determined Contributions (NDCs). India's Panchamrit targets Net-Zero by 2070.",
+        hiNotes: "जैव विविधता संरक्षण के दो तरीके हैं: स्व-स्थाने (In-situ: राष्ट्रीय उद्यान, अभयारण्य, बायोस्फीयर रिजर्व) और बाह्य-स्थाने (Ex-situ)। वन्यजीव संरक्षण अधिनियम 1972 और पर्यावरण संरक्षण अधिनियम 1986 प्रमुख कानून हैं। भारत ने 2070 तक 'नेट-ज़ीरो' उत्सर्जन का लक्ष्य रखा है।",
+        keyFacts: ["Montreux Record sites in India: Keoladeo NP (RJ) & Loktak Lake (MN)", "EPA 1986 enacted after Bhopal Gas Tragedy", "India Net-Zero target: 2070"],
+        pyqConn: "UPSC Prelims 2022 (Climate Action Tracker & EPA), Prelims 2023 (Invasive Species & Ramsar)."
+      },
+
+      // SCIENCE & TECH
+      {
+        id: "sci-adv-1", subject: "Science & Tech", category: "Space, AI & Biotech", paper: "Prelims & GS-III",
+        title: "ISRO Missions, AI, Quantum Computing & Biotechnology", hiTitle: "ISRO मिशन, कृत्रिम बुद्धिमत्ता (AI), क्वांटम एवं जैव प्रौद्योगिकी",
+        level: "Stage 4: Standard Books", estTime: "55 min", prereq: "Basic Physics, Chemistry, Biology",
+        quickNotes: "ISRO vehicles: PSLV (workhorse), GSLV Mk-II (cryogenic), LVM3 (Chandrayaan-3, Gaganyaan). Emerging tech: CRISPR-Cas9 gene editing, mRNA vaccines, National Quantum Mission, Generative AI.",
+        detailedNotes: "Chandrayaan-3 achieved historic soft landing near the lunar South Pole (Shiv Shakti Point), while Aditya-L1 studies the Sun from Lagrange Point L1. CRISPR-Cas9 acts as molecular scissors for targeted DNA editing. Quantum computers use qubits exploiting superposition and entanglement for exponentially faster optimization and cryptography.",
+        hiNotes: "ISRO के प्रमुख प्रक्षेपण यान PSLV, GSLV और LVM3 हैं। चंद्रयान-3 ने चंद्रमा के दक्षिणी ध्रुव पर सफल लैंडिंग की और आदित्य-L1 सूर्य का अध्ययन कर रहा है। CRISPR-Cas9 जीन एडिटिंग तकनीक है, जबकि राष्ट्रीय क्वांटम मिशन भारत को क्वांटम कंप्यूटिंग में अग्रणी बना रहा है।",
+        keyFacts: ["LVM3 launched Chandrayaan-3", "Aditya-L1 placed in Halo Orbit around Sun-Earth L1", "CRISPR-Cas9: Bacterial defense mechanism adapted for gene editing"],
+        pyqConn: "UPSC Prelims 2019 (Cas9 protein), Prelims 2022 (Qubits & Web 3.0)."
+      },
+
+      // ART & CULTURE
+      {
+        id: "art-1", subject: "Art & Culture", category: "Architecture & Performing Arts", paper: "Prelims & GS-I",
+        title: "Temple Architecture (Nagara, Dravida, Vesara) & Classical Dances", hiTitle: "मंदिर वास्तुकला (नागर, द्रविड़, वेसर) एवं शास्त्रीय नृत्य",
+        level: "Stage 3: Basic", estTime: "50 min", prereq: "Ancient & Medieval History",
+        quickNotes: "Nagara (North: curvilinear Shikhara, Panchayatan), Dravida (South: pyramidal Vimana, Gopuram, compound wall), Vesara (Deccan hybrid: Chalukyas/Hoysalas). 8 Sangeet Natak Akademi Classical Dances.",
+        detailedNotes: "Key Nagara sub-schools: Odisha (Konark, Lingaraja), Khajuraho (Chandelas), Solanki (Modhera Sun Temple). Dravida peaked under Pallavas (Mahabalipuram) and Cholas (Brihadisvara Temple, Thanjavur). The 8 classical dances are Bharatanatyam, Kathak, Kathakali, Kuchipudi, Odissi, Manipuri, Mohiniyattam, and Sattriya.",
+        hiNotes: "भारतीय मंदिर स्थापत्य की तीन प्रमुख शैलियाँ हैं: नागर (उत्तर भारत—शिखर), द्रविड़ (दक्षिण भारत—विमान व गोपुरम), और वेसर (दक्कन—मिश्रित शैली)। संगीत नाटक अकादमी द्वारा मान्यता प्राप्त 8 शास्त्रीय नृत्य हैं: भरतनाट्यम, कथक, कथकली, कुचिपुड़ी, ओडिसी, मणिपुरी, मोहिनीअट्टम और सत्रिया।",
+        keyFacts: ["Brihadisvara Temple: Rajaraja Chola I (1010 CE)", "Sattriya: Introduced by Srimanta Sankardeva in Assam", "Ajanta: Purely Buddhist; Ellora: Hindu, Buddhist & Jain"],
+        pyqConn: "UPSC Prelims 2021 (Chausath Yogini Temple), Prelims 2022 (Somnath & Ramanuja)."
+      },
+
+      // INDIAN SOCIETY
+      {
+        id: "soc-1", subject: "Indian Society", category: "Social Issues", paper: "GS-I (Mains)",
+        title: "Diversity, Women Empowerment, Urbanization & Demography", hiTitle: "विविधता, महिला सशक्तिकरण, शहरीकरण एवं जनसांख्यिकी",
+        level: "Stage 6: Mains", estTime: "45 min", prereq: "NCERT Sociology",
+        quickNotes: "India's demographic dividend requires skilling, health & female LFPR boost. Rapid urbanization demands transit-oriented planning, affordable housing, and climate-resilient Smart Cities.",
+        detailedNotes: "Unity in diversity is sustained by constitutional secularism and linguistic federalism. Social empowerment initiatives include Beti Bachao Beti Padhao, Nari Shakti Vandan Adhiniyam (106th Amendment—33% women's reservation in Lok Sabha & State Assemblies), and PM-JANMAN for Particularly Vulnerable Tribal Groups (PVTGs).",
+        hiNotes: "भारत की जनसांख्यिकीय लाभांश (Demographic Dividend) का लाभ उठाने के लिए शिक्षा, कौशल विकास और महिला श्रम बल भागीदारी आवश्यक है। 106वें संविधान संशोधन (नारी शक्ति वंदन अधिनियम) ने लोकसभा और विधानसभाओं में महिलाओं के लिए 33% आरक्षण का प्रावधान किया।",
+        keyFacts: ["106th Constitutional Amendment Act: Women's Reservation", "75 PVTGs identified across India", "Urbanization ~35%+ and rising rapidly"],
+        pyqConn: "UPSC Mains GS-I 2023 (Caste identity, Women's role, Urbanization challenges)."
+      },
+
+      // INTERNATIONAL RELATIONS
+      {
+        id: "ir-1", subject: "International Relations", category: "Foreign Policy & Orgs", paper: "Prelims & GS-II",
+        title: "India's Foreign Policy, Neighbourhood First & Multilateral Orgs", hiTitle: "भारत की विदेश नीति, नेबरहुड फर्स्ट एवं अंतर्राष्ट्रीय संगठन",
+        level: "Stage 5: Prelims & Mains", estTime: "60 min", prereq: "Indian Polity",
+        quickNotes: "Guided by Strategic Autonomy, Neighbourhood First, Act East, and SAGAR (Indian Ocean). Key groupings: UN, G20, BRICS+, QUAD, SCO, ASEAN, BIMSTEC.",
+        detailedNotes: "India balances ties with the USA (iCET, QUAD), Russia (defence & energy), EU, and Global South (Voice of Global South, African Union inclusion in G20 during India's 2023 Presidency). Neighbourhood challenges involve border management (LAC), connectivity, and debt-trap geopolitics in the Indo-Pacific.",
+        hiNotes: "भारत की विदेश नीति 'रणनीतिक स्वायत्तता' (Strategic Autonomy), 'नेबरहुड फर्स्ट', 'एक्ट ईस्ट' और 'सागर' (SAGAR) विजन पर आधारित है। भारत G20, BRICS, QUAD, SCO और BIMSTEC जैसे मंचों के माध्यम से ग्लोबल साउथ की आवाज बुलंद कर रहा है।",
+        keyFacts: ["QUAD: India, USA, Japan, Australia", "BIMSTEC: Bay of Bengal initiative (7 members)", "African Union joined G20 at New Delhi Summit 2023"],
+        pyqConn: "UPSC Prelims 2022 (G20 & BIMSTEC), Mains GS-II 2023 (India's G20 Presidency & QUAD)."
+      },
+
+      // INTERNAL SECURITY
+      {
+        id: "sec-1", subject: "Internal Security", category: "Security Challenges", paper: "GS-III (Mains)",
+        title: "Cybersecurity, Border Management, Left-Wing Extremism & Money Laundering", hiTitle: "साइबर सुरक्षा, सीमा प्रबंधन, वामपंथी उग्रवाद एवं मनी लॉन्ड्रिंग",
+        level: "Stage 6: Mains", estTime: "50 min", prereq: "Indian Polity & IR",
+        quickNotes: "Key agencies: CERT-In, NCIIPC (Critical Infrastructure), NIA, ED (PMLA 2002), FATF. Border management integrates CIBMS (Smart Fencing) and Vibrant Villages Programme.",
+        detailedNotes: "Modern threats span hybrid warfare, ransomware on power/banking grids, narco-terrorism via drones, and terror financing. India's SAMADHAN doctrine combines smart leadership, technology, and developmental outreach to address Left-Wing Extremism (LWE).",
+        hiNotes: "आंतरिक सुरक्षा के अंतर्गत साइबर सुरक्षा (CERT-In, NCIIPC), सीमा प्रबंधन (CIBMS, वाइब्रेंट विलेज प्रोग्राम), आतंकवाद निरोध (NIA) और मनी लॉन्ड्रिंग (PMLA 2002, FATF) प्रमुख स्तंभ हैं।",
+        keyFacts: ["CERT-In: Nodal agency for cyber incidents", "PMLA 2002 enforced by Enforcement Directorate", "FATF Grey/Black lists combat terror financing"],
+        pyqConn: "UPSC Mains GS-III 2023 (Terror funding & Maritime security)."
+      },
+
+      // DISASTER MANAGEMENT
+      {
+        id: "dm-1", subject: "Disaster Management", category: "DRR & Frameworks", paper: "GS-III (Mains)",
+        title: "NDMA, Disaster Management Act 2005 & Sendai Framework", hiTitle: "NDMA, आपदा प्रबंधन अधिनियम 2005 एवं सेंदाई फ्रेमवर्क",
+        level: "Stage 6: Mains", estTime: "40 min", prereq: "Physical Geography",
+        quickNotes: "Shift from relief-centric to proactive Disaster Risk Reduction (DRR). NDMA chaired by Prime Minister; SDMA by Chief Minister; DDMA by District Collector. Sendai Framework (2015–2030) has 4 priorities & 7 targets.",
+        detailedNotes: "India launched the Coalition for Disaster Resilient Infrastructure (CDRI). Key hazards include Himalayan earthquakes/GLOFs, urban floods (sponge cities), heatwaves, and coastal cyclones (IMD early warning drastically reduced fatalities).",
+        hiNotes: "आपदा प्रबंधन अधिनियम 2005 के तहत NDMA (अध्यक्ष: प्रधानमंत्री), SDMA और DDMA की त्रि-स्तरीय संरचना है। सेंदाई फ्रेमवर्क (2015–2030) आपदा जोखिम न्यूनीकरण (DRR) का वैश्विक ढांचा है।",
+        keyFacts: ["NDMA Chairman: Prime Minister of India", "Sendai Framework: 2015–2030", "CDRI HQ: New Delhi"],
+        pyqConn: "UPSC Mains GS-III 2022 (Cloudbursts & Landslides), 2023 (Dam failures & Urban floods)."
+      },
+
+      // ETHICS GS PAPER IV (Special structured fields!)
+      {
+        id: "eth-1", subject: "Ethics (GS-IV)", category: "Foundational Values", paper: "GS-IV (Mains)",
+        title: "Integrity, Impartiality, Objectivity & Emotional Intelligence", hiTitle: "सत्यनिष्ठा, निष्पक्षता, वस्तुनिष्ठता एवं भावनात्मक बुद्धिमत्ता",
+        level: "Stage 6: Mains", estTime: "60 min", prereq: "General Awareness",
+        quickNotes: "Nolan Committee's 7 Principles of Public Life: Selflessness, Integrity, Objectivity, Accountability, Openness, Honesty, Leadership. EI (Daniel Goleman): Self-awareness, Self-regulation, Motivation, Empathy, Social Skills.",
+        detailedNotes: "Ethics in civil services bridges legality with morality. Integrity means unwavering adherence to moral principles even when no one is watching. Impartiality ensures non-partisan decision-making free from political or personal bias, while Empathy and Compassion drive citizen-centric governance for the vulnerable.",
+        hiNotes: "लोक सेवा में नैतिकता कानून और अंतरात्मा के बीच सेतु है। सत्यनिष्ठा (Integrity) का अर्थ विपरीत परिस्थितियों में भी नैतिक सिद्धांतों पर अडिग रहना है। भावनात्मक बुद्धिमत्ता (Emotional Intelligence) प्रशासक को तनावपूर्ण स्थितियों में संयम और सहानुभूति के साथ निर्णय लेने में सक्षम बनाती है।",
+        keyFacts: ["Nolan Committee (1995): 7 Principles of Public Life", "Gandhi's Talisman: Recall the face of the poorest person", "2nd ARC 4th Report: Ethics in Governance"],
+        pyqConn: "UPSC Mains GS-IV 2021–2023 (Integrity, Compassion, Emotional Intelligence in administration).",
+        ethicsPack: {
+          concept: "Integrity & Objectivity in Public Administration",
+          definition: "Integrity is consistency between one's values, words, and actions—doing the right thing even at personal cost. Objectivity means basing administrative decisions solely on merit, evidence, and rules.",
+          realLifeExample: "Returning excess change to a street vendor even when they haven't noticed, or refusing to jump a hospital queue despite having contacts.",
+          civilServiceExample: "Sir M. Visvesvaraya used two separate candles—one government-funded for official work, and a personal candle when reading private letters—exemplifying financial probity and integrity.",
+          caseStudy: "You are a District Magistrate overseeing flood relief. A powerful local MLA pressures you to divert 60% of relief kits to his relatively less-affected constituency ahead of elections, while a remote tribal block is severely submerged.",
+          modelAnswer: "1) Stakeholders: Flood-affected tribal citizens, MLA, district administration, taxpayers. 2) Ethical Dilemmas: Political pressure vs. Impartiality & Compassion; Duty of care vs. Career convenience. 3) Course of Action: Politely present objective satellite/revenue damage data to the MLA; deploy relief strictly on vulnerability index (Gandhi's Talisman); maintain transparent public dashboard of relief distribution; document orders in writing to uphold rule of law."
+        }
+      },
+      {
+        id: "eth-2", subject: "Ethics (GS-IV)", category: "Probity in Governance", paper: "GS-IV (Mains)",
+        title: "Probity, Transparency, RTI, Citizen Charter & Ethical Dilemmas", hiTitle: "शासन में ईमानदारी, पारदर्शिता, RTI, नागरिक चार्टर एवं नैतिक दुविधाएँ",
+        level: "Stage 7: Analytical", estTime: "55 min", prereq: "Foundational Values",
+        quickNotes: "Probity is uprightness and absence of corruption. Tools: RTI Act 2005, Citizen's Charter (Sevottam model), Social Audit (Meghalaya Act), E-Governance, Code of Conduct vs Code of Ethics.",
+        detailedNotes: "While Code of Conduct lists legally enforceable 'dos and don'ts', Code of Ethics articulates aspirational moral values. Transparency reduces information asymmetry, curbing discretion-driven corruption (Corruption = Monopoly + Discretion – Accountability).",
+        hiNotes: "शासन में सत्यनिष्ठा (Probity) केवल भ्रष्टाचार का अभाव नहीं, बल्कि सार्वजनिक संसाधनों का नैतिक और प्रभावी उपयोग है। RTI अधिनियम 2005, सिटिजन चार्टर (सेवोत्तम मॉडल) और सोशल ऑडिट पारदर्शिता के प्रमुख उपकरण हैं।",
+        keyFacts: ["Klitgaard Formula: C = M + D – A", "Sevottam Model: Citizen Charter + Grievance Redressal + Service Delivery", "RTI Act 2005: Empowers citizens as masters of democracy"],
+        pyqConn: "UPSC Mains GS-IV 2022 (Probity & Whistleblowing), 2023 (Accountability & Conflict of Interest).",
+        ethicsPack: {
+          concept: "Conflict of Interest & Probity in Public Procurement",
+          definition: "A Conflict of Interest arises when a public official's private interests (financial, familial) could improperly influence the performance of official duties.",
+          realLifeExample: "A teacher recusing themselves from grading an exam paper written by their own child.",
+          civilServiceExample: "An IAS officer heading a tender committee immediately discloses in writing that a bidder is owned by their brother-in-law and formally recuses themselves from the entire procurement process.",
+          caseStudy: "As Municipal Commissioner, you discover your subordinate—who is an honest, hardworking engineer—approved a slightly substandard road bill under duress from a local syndicate threatening his family.",
+          modelAnswer: "1) Immediate Safety & Integrity: Ensure police protection for the engineer's family while immediately halting payment and ordering an independent quality audit. 2) Institutional Reform: Shift to e-tendering with geo-tagged third-party inspection so individuals cannot be coerced. 3) Balanced Justice: Follow due process—distinguish coercion from malice while upholding zero tolerance for public safety compromise."
+        }
+      }
+    ];
+
+    /* 10 OPTIONAL SUBJECTS */
+    const OPTIONAL_SUBJECTS = [
+      { id: "opt-his", name: "History", hiName: "इतिहास", p1: "Ancient & Medieval India (Sources, IVC, Mauryas, Guptas, Cholas, Delhi Sultanate, Mughals, Bhakti-Sufi)", p2: "Modern India & World History (British Expansion, Economic Impact, Freedom Struggle, Enlightenment, Industrialization, World Wars, Cold War)", prompt: "Critically examine the nature of the 1857 Revolt. Was it merely a sepoy mutiny or the First War of Independence? (250 words)" },
+      { id: "opt-geo", name: "Geography", hiName: "भूगोल", p1: "Principles of Geography (Geomorphology, Climatology, Oceanography, Biogeography, Perspectives in Human Geography, Regional Planning)", p2: "Geography of India (Physical Setting, Resources, Agriculture, Industry, Transport, Cultural Setting, Contemporary Issues & Map Work)", prompt: "Discuss the mechanism of the Indian Monsoon with reference to Jet Streams and El Niño–Southern Oscillation (ENSO). (250 words)" },
+      { id: "opt-psir", name: "Political Science & IR", hiName: "राजनीति विज्ञान एवं IR", p1: "Political Theory & Indian Politics (Plato to Marx, Justice, Equality, Indian Constitution, Federalism, Caste & Democracy)", p2: "Comparative Politics & International Relations (Realism, Liberalism, India's Foreign Policy, UN, Global South, Indo-Pacific)", prompt: "Analyze the relevance of Kautilya's Mandal Theory in India's contemporary Neighbourhood First policy. (250 words)" },
+      { id: "opt-pubad", name: "Public Administration", hiName: "लोक प्रशासन", p1: "Administrative Theory (Wilson, Weber, Taylor, Elton Mayo, New Public Management, Accountability, Financial Administration)", p2: "Indian Administration (Evolution, PMO, Cabinet Secretariat, District Collector, Panchayati Raj, Law & Order, Administrative Reforms)", prompt: "Examine how e-Governance and Digital Public Infrastructure are transforming the Weberian bureaucracy in India. (250 words)" },
+      { id: "opt-soc", name: "Sociology", hiName: "समाजशास्त्र", p1: "Fundamentals of Sociology (Marx, Durkheim, Weber, Stratification, Work, Religion, Kinship, Social Change)", p2: "Indian Society: Structure & Change (Caste System, Tribal Communities, Rural & Agrarian Transformation, Urbanization, Social Movements)", prompt: "Discuss M.N. Srinivas's concept of Sanskritization and its relevance in contemporary India. (250 words)" },
+      { id: "opt-phil", name: "Philosophy", hiName: "दर्शनशास्त्र", p1: "History & Problems of Philosophy (Plato, Aristotle, Descartes, Kant, Nyaya, Sankhya, Yoga, Advaita Vedanta, Buddhism, Jainism)", p2: "Socio-Political Philosophy & Philosophy of Religion (Justice, Sovereignty, Secularism, Problem of Evil, Religious Pluralism)", prompt: "Compare and contrast Shankaracharya's Advaita Vedanta with Ramanuja's Vishishtadvaita. (250 words)" },
+      { id: "opt-eco", name: "Economics", hiName: "अर्थशास्त्र", p1: "Advanced Micro & Macro Economics, Money & Banking, International Economics, Public Finance, Growth & Development", p2: "Indian Economy: Pre- & Post-Independence, Planning, Agriculture, Industry, Liberalization (1991), New Economic Policy", prompt: "Evaluate the role of Fiscal Consolidation under the FRBM Act in balancing growth and macroeconomic stability. (250 words)" },
+      { id: "opt-psy", name: "Psychology", hiName: "मनोविज्ञान", p1: "Foundations of Psychology (Research Methods, Sensation, Learning, Memory, Motivation, Intelligence, Personality)", p2: "Psychology: Issues & Applications (Psychological Measurement, Mental Health, Work & Organizational Psychology, Community & Rehabilitation)", prompt: "Explain the role of Emotional Intelligence in effective leadership and stress management in public service. (250 words)" },
+      { id: "opt-anthro", name: "Anthropology", hiName: "मानवशास्त्र", p1: "Physical, Archaeological & Socio-Cultural Anthropology (Human Evolution, Genetics, Kinship, Religion, Anthropological Theories)", p2: "Indian Anthropology (Caste, Tribe-Caste Continuum, PVTGs, Forest Rights, Tribal Development & Constitutional Safeguards)", prompt: "Analyze the impact of the Forest Rights Act (2006) on the socio-economic empowerment of Scheduled Tribes. (250 words)" },
+      { id: "opt-lit", name: "Hindi / English Literature", hiName: "साहित्य (हिंदी / अंग्रेज़ी)", p1: "History of Language & Literary Criticism (Evolution of Khari Boli/Devangari or Renaissance–Modern English Literary Movements)", p2: "Prescribed Classical & Modern Literary Texts (Kabir, Surdas, Tulsidas, Premchand / Shakespeare, Milton, Wordsworth, Dickens)", prompt: "Discuss Premchand's contribution to social realism in Hindi literature with reference to 'Godan'. (250 words)" }
+    ];
+
+    /* =========================================================================
+       3. AUTHENTIC QUESTION BANK (STRICTLY LABELED: OFFICIAL PYQ vs PRACTICE)
+       ========================================================================= */
+    const INITIAL_QUESTIONS = [
+      {
+        id: "q-pyq-2021-pol1", subject: "Polity", topic: "Constitutional Government", paper: "Prelims GS",
+        type: "Standard MCQ", level: "LEVEL 5 — UPSC STANDARD", authenticity: "OFFICIAL PYQ", year: "UPSC CSE 2021",
+        q: "What is the position of the Right to Property in India?",
+        hiQ: "भारत में संपत्ति के अधिकार (Right to Property) की क्या स्थिति है?",
+        options: [
+          "Legal right available to citizens only",
+          "Legal right available to any person",
+          "Fundamental Right available to citizens only",
+          "Neither Fundamental Right nor legal right"
+        ],
+        answer: 1,
+        whyCorrect: "By the 44th Constitutional Amendment Act (1978), Right to Property was removed from Fundamental Rights and made a Constitutional/Legal Right under Article 300A, which states 'No person shall be deprived of his property save by authority of law'.",
+        whyWrong: "It applies to 'any person' (not just citizens), and it is no longer a Fundamental Right.",
+        concept: "Article 300A (Part XII) — Constitutional & Legal Right.",
+        trick: "Remember: 44th Amendment (4+4=8 -> 1978) moved Property to 300A for 'any person'."
+      },
+      {
+        id: "q-pyq-2020-his1", subject: "History", topic: "Ancient India (Buddhism)", paper: "Prelims GS",
+        type: "Standard MCQ", level: "LEVEL 5 — UPSC STANDARD", authenticity: "OFFICIAL PYQ", year: "UPSC CSE 2020",
+        q: "With reference to the cultural history of India, which one of the following is the correct description of the term 'Paramitas'?",
+        hiQ: "भारत के सांस्कृतिक इतिहास के संदर्भ में, 'पारमिता' (Paramitas) शब्द का सही विवरण निम्नलिखित में से कौन-सा है?",
+        options: [
+          "The earliest Dharmashastra texts written in aphoristic (sutra) style",
+          "Philosophical schools that did not accept the authority of Vedas",
+          "Perfections whose attainment led to the Bodhisattva path",
+          "Powerful merchant guilds of early medieval South India"
+        ],
+        answer: 2,
+        whyCorrect: "In Mahayana Buddhism, Paramitas refer to 'perfections' or transcendent virtues (such as Dana, Sila, Ksanti, Virya, Dhyana, Prajna) practiced to attain Bodhisattvahood.",
+        whyWrong: "Option B refers to Nastika schools; Option D refers to guilds like Manigramam/Ayyavole.",
+        concept: "Mahayana Buddhism & Bodhisattva Ideal.",
+        trick: "Paramita = 'Param' (Supreme) Perfection on the Bodhisattva path."
+      },
+      {
+        id: "q-pyq-2021-geo1", subject: "Geography", topic: "Indian Drainage", paper: "Prelims GS",
+        type: "Standard MCQ", level: "LEVEL 5 — UPSC STANDARD", authenticity: "OFFICIAL PYQ", year: "UPSC CSE 2021",
+        q: "With reference to the Indus river system, of the following four rivers, three of them pour into one of them which joins the Indus direct. Among the following, which one is such river that joins the Indus direct?",
+        hiQ: "सिंधु नदी प्रणाली के संदर्भ में, निम्नलिखित चार नदियों में से तीन नदियाँ इनमें से किसी एक नदी में मिलती हैं जो सीधे सिंधु से मिलती है। वह नदी कौन-सी है जो सीधे सिंधु से मिलती है?",
+        options: ["Chenab", "Jhelum", "Ravi", "Sutlej"],
+        answer: 3,
+        whyCorrect: "Jhelum and Ravi join Chenab, and Chenab joins Sutlej (forming Panjnad) which finally flows directly into the Indus near Mithankot.",
+        whyWrong: "Jhelum and Ravi do not directly join the Indus; they merge into Chenab first.",
+        concept: "Indus River System (Panjnad).",
+        trick: "North to South: I-J-C-R-B-S -> Sutlej carries the combined Panjnad waters into Indus."
+      },
+      {
+        id: "q-pyq-2020-eco1", subject: "Economy", topic: "Monetary Policy", paper: "Prelims GS",
+        type: "Multiple Statement", level: "LEVEL 5 — UPSC STANDARD", authenticity: "OFFICIAL PYQ", year: "UPSC CSE 2020",
+        q: "If the RBI decides to adopt an expansionist monetary policy, which of the following would it NOT do?\n1. Cut and optimize the Statutory Liquidity Ratio (SLR)\n2. Increase the Marginal Standing Facility (MSF) Rate\n3. Cut the Bank Rate and Repo Rate",
+        hiQ: "यदि RBI विस्तारवादी मौद्रिक नीति (Expansionist Monetary Policy) अपनाने का निर्णय लेता है, तो वह निम्नलिखित में से क्या नहीं करेगा?\n1. SLR में कटौती\n2. MSF दर में वृद्धि\n3. बैंक दर और रेपो दर में कटौती",
+        options: ["1 and 2 only", "2 only", "1 and 3 only", "1, 2 and 3"],
+        answer: 1,
+        whyCorrect: "An expansionist policy aims to increase money supply by lowering interest rates (cutting SLR, Bank Rate, Repo Rate). Increasing the MSF Rate would make borrowing costlier (contractionary), so RBI would NOT do statement 2.",
+        whyWrong: "Statements 1 and 3 inject liquidity into the economy, which IS what expansionist policy does.",
+        concept: "RBI Quantitative Monetary Policy Tools.",
+        trick: "Expansion = Lower Rates (Cheap Money); Contraction = Higher Rates (Dear Money)."
+      },
+      {
+        id: "q-pyq-2022-env1", subject: "Environment", topic: "Environmental Laws", paper: "Prelims GS",
+        type: "Standard MCQ", level: "LEVEL 5 — UPSC STANDARD", authenticity: "OFFICIAL PYQ", year: "UPSC CSE 2022",
+        q: "Which one of the following has been constituted under the Environment (Protection) Act, 1986?",
+        hiQ: "निम्नलिखित में से किसका गठन पर्यावरण (संरक्षण) अधिनियम, 1986 के अंतर्गत किया गया है?",
+        options: [
+          "Central Water Commission",
+          "Central Ground Water Board",
+          "Central Ground Water Authority",
+          "National Water Development Agency"
+        ],
+        answer: 2,
+        whyCorrect: "Central Ground Water Authority (CGWA) was constituted under Section 3(3) of the Environment (Protection) Act, 1986 to regulate and control development and management of groundwater resources.",
+        whyWrong: "CGWB and CWC are subordinate/attached technical organizations not created under EPA 1986.",
+        concept: "Statutory Authorities under EPA 1986.",
+        trick: "Authority (CGWA) = Regulatory power under EPA 1986; Board (CGWB) = Technical research."
+      },
+      {
+        id: "q-prac-pol2", subject: "Polity", topic: "Parliament & Money Bill", paper: "Prelims GS",
+        type: "Assertion-Reason", level: "LEVEL 4 — ADVANCED", authenticity: "PRACTICE QUESTION", year: "WONDER IAS Bank",
+        q: "Assertion (A): A Joint Sitting of both Houses of Parliament cannot be summoned to resolve a deadlock over a Money Bill.\nReason (R): The Rajya Sabha has limited powers regarding a Money Bill and can detain it for a maximum of 14 days.",
+        hiQ: "कथन (A): धन विधेयक पर गतिरोध को दूर करने के लिए संसद के दोनों सदनों की संयुक्त बैठक नहीं बुलाई जा सकती।\nकारण (R): धन विधेयक के संबंध में राज्यसभा की शक्तियाँ सीमित हैं और वह इसे अधिकतम 14 दिनों तक रोक सकती है।",
+        options: [
+          "Both A and R are true and R is the correct explanation of A",
+          "Both A and R are true but R is NOT the correct explanation of A",
+          "A is true but R is false",
+          "A is false but R is true"
+        ],
+        answer: 0,
+        whyCorrect: "Under Article 108, Joint Sitting applies only to Ordinary Bills and Financial Bills (I/II), never to Money Bills (Art 110) or Constitutional Amendment Bills (Art 368), because Lok Sabha has overriding authority over Money Bills.",
+        whyWrong: "Both statements are factually correct and R directly explains A.",
+        concept: "Article 108 & Article 110 of Indian Constitution.",
+        trick: "No Joint Sitting for Money (110) & Amendment (368) Bills."
+      },
+      {
+        id: "q-prac-sci1", subject: "Science & Tech", topic: "Space Technology", paper: "Prelims GS",
+        type: "Match the Following", level: "LEVEL 3 — INTERMEDIATE", authenticity: "PRACTICE QUESTION", year: "WONDER IAS Bank",
+        q: "Match the following ISRO Missions with their primary objectives:\n1. Aditya-L1 — Solar Corona Study\n2. Gaganyaan — Human Spaceflight\n3. NISAR — Dual-frequency Earth Observation Radar\nHow many pairs given above are correctly matched?",
+        hiQ: "निम्नलिखित ISRO मिशनों का उनके उद्देश्यों से मिलान कीजिए:\n1. आदित्य-L1 — सौर कोरोना अध्ययन\n2. गगनयान — मानव अंतरिक्ष उड़ान\n3. NISAR — पृथ्वी अवलोकन रडार\nउपर्युक्त में से कितने युग्म सही सुमेलित हैं?",
+        options: ["Only one pair", "Only two pairs", "All three pairs", "None of the pairs"],
+        answer: 2,
+        whyCorrect: "All three are correctly matched: Aditya-L1 orbits Sun-Earth L1 point; Gaganyaan is India's human spaceflight mission; NISAR is the joint NASA-ISRO Synthetic Aperture Radar satellite.",
+        whyWrong: "Every pair is accurate, so options with fewer than three are incorrect.",
+        concept: "ISRO Flagship Missions.",
+        trick: "Aditya = Sun; Gagan = Sky/Human flight; N-I-SAR = NASA-ISRO SAR."
+      },
+      {
+        id: "q-prac-map1", subject: "Geography", topic: "Map Learning", paper: "Prelims GS",
+        type: "Map-Based", level: "LEVEL 4 — ADVANCED", authenticity: "PRACTICE QUESTION", year: "WONDER IAS Map Bank",
+        q: "Arrange the following National Parks of India from North to South:\n1. Kaziranga National Park\n2. Jim Corbett National Park\n3. Kanha National Park\n4. Silent Valley National Park",
+        hiQ: "भारत के निम्नलिखित राष्ट्रीय उद्यानों को उत्तर से दक्षिण के क्रम में व्यवस्थित कीजिए:\n1. काजीरंगा  2. जिम कॉर्बेट  3. कान्हा  4. साइलेंट वैली",
+        options: ["2 - 1 - 3 - 4", "1 - 2 - 3 - 4", "2 - 3 - 1 - 4", "1 - 3 - 2 - 4"],
+        answer: 0,
+        whyCorrect: "Jim Corbett (Uttarakhand, ~29.5°N) is northernmost, followed by Kaziranga (Assam, ~26.6°N), Kanha (Madhya Pradesh, ~22.3°N), and Silent Valley (Kerala, ~11.1°N).",
+        whyWrong: "Uttarakhand lies significantly north of Assam's Brahmaputra valley.",
+        concept: "Protected Areas Geography & Latitudes.",
+        trick: "Corbett (UK) > Kaziranga (Assam) > Kanha (MP) > Silent Valley (Kerala)."
+      },
+      // CSAT QUESTIONS
+      {
+        id: "q-csat-1", subject: "CSAT", topic: "Number System & Percentage", paper: "Prelims CSAT",
+        type: "Standard MCQ", level: "LEVEL 3 — INTERMEDIATE", authenticity: "PRACTICE QUESTION", year: "CSAT Quant Bank",
+        q: "If the price of an article is first increased by 20% and then decreased by 20%, what is the net percentage change in the price?",
+        hiQ: "यदि किसी वस्तु के मूल्य में पहले 20% की वृद्धि की जाती है और फिर 20% की कमी की जाती है, तो मूल्य में शुद्ध प्रतिशत परिवर्तन क्या होगा?",
+        options: ["0% (No change)", "4% increase", "4% decrease", "2% decrease"],
+        answer: 2,
+        whyCorrect: "Let initial price = 100. After +20% -> 120. After -20% of 120 (-24) -> 96. Net change = -4% (4% decrease). Formula: -x²/100 = -(20²)/100 = -4%.",
+        whyWrong: "Equal % increase followed by same % decrease ALWAYS results in a net decrease.",
+        concept: "Successive Percentage Change.",
+        trick: "Same +x% and -x% ALWAYS gives -x²/100% loss."
+      },
+      {
+        id: "q-csat-2", subject: "CSAT", topic: "Logical Reasoning (Syllogism)", paper: "Prelims CSAT",
+        type: "Standard MCQ", level: "LEVEL 3 — INTERMEDIATE", authenticity: "PRACTICE QUESTION", year: "CSAT Reasoning Bank",
+        q: "Statements:\n1. All rivers are water bodies.\n2. Some water bodies are polluted.\nConclusions:\nI. Some rivers are polluted.\nII. Some polluted things are water bodies.\nWhich conclusion logically follows?",
+        hiQ: "कथन: 1. सभी नदियाँ जल निकाय हैं। 2. कुछ जल निकाय प्रदूषित हैं।\nनिष्कर्ष: I. कुछ नदियाँ प्रदूषित हैं। II. कुछ प्रदूषित वस्तुएँ जल निकाय हैं।",
+        options: ["Only Conclusion I follows", "Only Conclusion II follows", "Both I and II follow", "Neither I nor II follows"],
+        answer: 1,
+        whyCorrect: "From Statement 2 ('Some water bodies are polluted'), its converse ('Some polluted things are water bodies') definitely follows. However, no definite link is given between Rivers and Polluted, so I is only a possibility, not a definite conclusion.",
+        whyWrong: "Conclusion I commits the undistributed middle fallacy.",
+        concept: "Syllogism & Venn Diagrams.",
+        trick: "'Some A are B' ALWAYS implies 'Some B are A'."
+      },
+      {
+        id: "q-csat-3", subject: "CSAT", topic: "Reading Comprehension", paper: "Prelims CSAT",
+        type: "Standard MCQ", level: "LEVEL 4 — ADVANCED", authenticity: "PRACTICE QUESTION", year: "CSAT Comprehension",
+        q: "Passage: 'Sustainable urban growth cannot rely solely on concrete flyovers; it requires restoring urban wetlands, expanding public transit, and decentralizing municipal finance so cities remain livable during climate extremes.'\nWhich of the following best reflects the crux of the passage?",
+        hiQ: "गद्यांश का मुख्य संदेश (Crux) निम्नलिखित में से कौन-सा है?",
+        options: [
+          "Flyovers should be completely banned in Indian cities",
+          "Climate-resilient urbanization needs ecological restoration, public transit, and empowered local governance",
+          "Municipalities lack the technical skill to manage wetlands",
+          "Urbanization is inherently incompatible with ecology"
+        ],
+        answer: 1,
+        whyCorrect: "Option B captures all three pillars mentioned in the passage—ecological restoration (wetlands), public transit, and decentralized municipal finance—without making extreme assumptions.",
+        whyWrong: "Options A, C, and D use extreme words ('completely banned', 'inherently incompatible') not supported by the text.",
+        concept: "CSAT Main Idea & Extreme-Word Elimination.",
+        trick: "Avoid extreme choices ('only', 'completely', 'never') in UPSC CSAT Comprehension."
+      },
+      {
+        id: "q-prac-ir1", subject: "International Relations", topic: "International Organizations", paper: "Prelims GS",
+        type: "Standard MCQ", level: "LEVEL 4 — ADVANCED", authenticity: "PRACTICE QUESTION", year: "WONDER IAS Bank",
+        q: "Which of the following countries is NOT a member of BIMSTEC (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation)?",
+        hiQ: "निम्नलिखित में से कौन-सा देश BIMSTEC का सदस्य नहीं है?",
+        options: ["Bhutan", "Nepal", "Thailand", "Maldives"],
+        answer: 3,
+        whyCorrect: "BIMSTEC has 7 members: Bangladesh, Bhutan, India, Myanmar, Nepal, Sri Lanka, and Thailand. Maldives is a member of SAARC, not BIMSTEC.",
+        whyWrong: "Bhutan, Nepal, and Thailand are all full members of BIMSTEC.",
+        concept: "Regional Groupings around India.",
+        trick: "BIMSTEC = SAARC minus (Pakistan, Afghanistan, Maldives) + (Myanmar, Thailand)."
+      }
+    ];
+
+    /* =========================================================================
+       4. CURRENT AFFAIRS ENGINE (AUTHENTIC CONCEPTUAL & INSTITUTIONAL BRIEFS)
+       ========================================================================= */
+    const INITIAL_CURRENT_AFFAIRS = [
+      {
+        id: "ca-1", date: "Nov 2026", category: "Economy", source: "RBI / PIB",
+        headline: "India's Digital Public Infrastructure (DPI) & Global UPI Expansion",
+        hiHeadline: "भारत का डिजिटल पब्लिक इंफ्रास्ट्रक्चर (DPI) और UPI का वैश्विक विस्तार",
+        background: "India Stack (Aadhaar, UPI, DigiLocker, Account Aggregator) has emerged as a global model for low-cost, interoperable financial inclusion.",
+        whyImportant: "Directly linked to GS-III Inclusive Growth, Financial Inclusion, and GS-II Digital Diplomacy with Global South nations.",
+        syllabus: "GS-III: Indian Economy (Financial Inclusion, Digital Economy) | GS-II: IR",
+        prelimsFacts: ["NPCI operates UPI & RuPay", "Account Aggregator framework is regulated by RBI", "DPI is built on open-source, interoperable APIs"],
+        mainsAnalysis: "DPI bridges the physical-digital divide, lowers KYC costs, and enables Direct Benefit Transfers (DBT) with minimal leakage. Challenges include cyber-fraud, rural digital literacy, and data privacy under DPDP Act.",
+        keywords: ["DPI", "India Stack", "JAM Trinity", "Interoperability", "DPDP Act"],
+        possibleQ: "Discuss how India's Digital Public Infrastructure (DPI) model advances both domestic inclusive growth and soft-power diplomacy. (15 Marks)"
+      },
+      {
+        id: "ca-2", date: "Nov 2026", category: "Environment", source: "UNFCCC / MoEFCC",
+        headline: "Climate Finance, Loss & Damage Fund & India's Panchamrit Roadmap",
+        hiHeadline: "जलवायु वित्त, लॉस एंड डैमेज फंड एवं भारत का पंचामृत रोडमैप",
+        background: "Developing nations emphasize Common But Differentiated Responsibilities (CBDR-RC) and predictable climate finance for green energy transition and adaptation.",
+        whyImportant: "Core recurring theme in UPSC Prelims (UNFCCC mechanisms) and Mains GS-III (Climate Change & Renewable Energy).",
+        syllabus: "GS-III: Environment & Climate Change | GS-II: International Conventions",
+        prelimsFacts: ["India targets 500 GW non-fossil energy capacity by 2030", "Net-Zero target: 2070", "Loss & Damage Fund operationalized at COP28, hosted initially by World Bank"],
+        mainsAnalysis: "Balancing rapid poverty alleviation with decarbonization requires concessional finance, green hydrogen scaling, and grid storage. India's LiFE (Lifestyle for Environment) mission complements technological mitigation.",
+        keywords: ["CBDR-RC", "Panchamrit", "Climate Justice", "Green Hydrogen", "Mission LiFE"],
+        possibleQ: "Explain the principle of CBDR-RC. How can India balance developmental imperatives with its Net-Zero 2070 commitment? (15 Marks)"
+      },
+      {
+        id: "ca-3", date: "Nov 2026", category: "Polity", source: "Supreme Court / Parliament",
+        headline: "Constitutional Morality, Cooperative Federalism & Election Reforms",
+        hiHeadline: "संवैधानिक नैतिकता, सहकारी संघवाद एवं निर्वाचन सुधार",
+        background: "Recent constitutional debates focus on the independence of constitutional bodies, Centre-State fiscal federalism (Finance Commission devolution), and electoral transparency.",
+        whyImportant: "High-yield GS-II Polity topic tested frequently in both Prelims conceptual questions and Mains analytical essays.",
+        syllabus: "GS-II: Indian Constitution, Federalism, Election Commission",
+        prelimsFacts: ["Article 324: Superintendence of elections by ECI", "Article 280: Finance Commission", "Article 263: Inter-State Council"],
+        mainsAnalysis: "Strengthening institutional autonomy, empowering the Inter-State Council, and adopting transparent political funding mechanisms reinforce democratic legitimacy and public trust.",
+        keywords: ["Constitutional Morality", "Cooperative Federalism", "Article 324", "Fiscal Devolution"],
+        possibleQ: "What is Constitutional Morality? Discuss its role in strengthening India's parliamentary democracy. (10 Marks)"
+      },
+      {
+        id: "ca-4", date: "Nov 2026", category: "Science & Tech", source: "ISRO / DST",
+        headline: "India's Deep Space Roadmap: Gaganyaan, Bharatiya Antariksh Station & Quantum Mission",
+        hiHeadline: "भारत का अंतरिक्ष रोडमैप: गगनयान, भारतीय अंतरिक्ष स्टेशन एवं क्वांटम मिशन",
+        background: "Building on Chandrayaan-3 and Aditya-L1, India is advancing human spaceflight (Gaganyaan), private space startups (IN-SPACe), and the National Quantum Mission.",
+        whyImportant: "High-probability Prelims S&T questions and GS-III Indigenization of Technology.",
+        syllabus: "GS-III: Science & Technology (Space, Quantum, Indigenization)",
+        prelimsFacts: ["IN-SPACe regulates & promotes private space sector", "NSIL is ISRO's commercial arm", "National Quantum Mission focuses on computing, communication, sensing & materials"],
+        mainsAnalysis: "Opening the space sector to private startups accelerates downstream applications in agriculture, disaster warning, and telecom while reducing launch costs.",
+        keywords: ["IN-SPACe", "Gaganyaan", "LVM3", "Qubits", "Atmanirbhar Bharat"],
+        possibleQ: "How are private space sector reforms transforming India's space economy and strategic capabilities? (10 Marks)"
+      }
+    ];
+
+    /* =========================================================================
+       5. INTERACTIVE MAPS & MIND MAPS DATA
+       ========================================================================= */
+    const INDIA_MAP_PINS = [
+      { id: "m-him", x: 155, y: 78, type: "Mountain", name: "Himalayan Ranges & Karakoram", fact: "Young fold mountains formed by Indian–Eurasian plate collision. Home to K2, Kanchenjunga, and Siachen Glacier." },
+      { id: "m-corb", x: 158, y: 125, type: "National Park", name: "Jim Corbett National Park (Uttarakhand)", fact: "India's oldest National Park (1936, Hailey NP). First site of Project Tiger (1973). Ramganga river flows through it." },
+      { id: "m-ganga", x: 205, y: 155, type: "River", name: "Ganga River Basin", fact: "Originates at Gangotri (Bhagirathi), meets Alaknanda at Devprayag. Major tributaries: Yamuna, Ghaghara, Gandak, Kosi, Son." },
+      { id: "m-kaz", x: 300, y: 152, type: "National Park", name: "Kaziranga National Park (Assam)", fact: "UNESCO World Heritage Site famous for Great Indian One-Horned Rhinoceros on the Brahmaputra floodplains." },
+      { id: "m-nar", x: 145, y: 215, type: "River", name: "Narmada Rift Valley", fact: "Originates at Amarkantak Plateau (MP), flows west between Vindhya & Satpura ranges into Gulf of Khambhat forming an estuary." },
+      { id: "m-wg", x: 118, y: 295, type: "Mountain", name: "Western Ghats (Sahyadri)", fact: "UNESCO Biodiversity Hotspot; escarpment causing orographic rainfall; highest peak Anamudi (2,695 m) in Kerala." },
+      { id: "m-god", x: 185, y: 265, type: "River", name: "Godavari Basin (Dakshin Ganga)", fact: "Longest Peninsular river (1,465 km), rises at Trimbakeshwar (Maharashtra), drains into Bay of Bengal." },
+      { id: "m-sund", x: 262, y: 205, type: "National Park", name: "Sundarbans Biosphere Reserve", fact: "World's largest mangrove forest & delta (Ganga-Brahmaputra), habitat of Royal Bengal Tiger; Ramsar Site." }
+    ];
+
+    const WORLD_MAP_PINS = [
+      { id: "w-mal", x: 325, y: 150, type: "Strait", name: "Strait of Malacca", fact: "Connects Andaman Sea (Indian Ocean) with South China Sea (Pacific). Vital global oil & trade chokepoint between Malaysia & Indonesia." },
+      { id: "w-hor", x: 248, y: 118, type: "Strait", name: "Strait of Hormuz", fact: "Connects Persian Gulf with Gulf of Oman. Crucial maritime chokepoint for global crude oil transit." },
+      { id: "w-bab", x: 228, y: 138, type: "Strait", name: "Bab-el-Mandeb Strait", fact: "Connects Red Sea with Gulf of Aden (Indian Ocean), separating Yemen from Djibouti & Eritrea." },
+      { id: "w-gib", x: 168, y: 98, type: "Strait", name: "Strait of Gibraltar", fact: "Connects Atlantic Ocean to Mediterranean Sea, separating Spain (Europe) from Morocco (Africa)." },
+      { id: "w-and", x: 108, y: 175, type: "Mountain", name: "Andes Mountains (South America)", fact: "Longest continental mountain range in the world; formed by Nazca–South American plate subduction." },
+      { id: "w-sah", x: 192, y: 120, type: "Desert", name: "Sahara Desert", fact: "World's largest hot desert spanning North Africa; influenced by subtropical high-pressure belt & cold Canary Current." }
+    ];
+
+    const MIND_MAPS = {
+      constitution: {
+        title: "Indian Constitution Mind Map",
+        center: "Constitution of India (1950)",
+        branches: [
+          { title: "Preamble", color: "bg-royal-800", items: [
+            { label: "Sovereign, Socialist, Secular", note: "42nd Amendment (1976) added Socialist, Secular, Integrity. Declares source of authority: 'We, the People of India'." },
+            { label: "Justice, Liberty, Equality, Fraternity", note: "Social, Economic, Political Justice (Russian Rev); Liberty, Equality, Fraternity (French Rev)." }
+          ]},
+          { title: "Fundamental Rights (Part III)", color: "bg-emerald-600", items: [
+            { label: "Art 14–18: Equality", note: "Rule of Law (Art 14), Non-discrimination (Art 15), Public Employment (Art 16), Untouchability abolished (Art 17)." },
+            { label: "Art 19–22: Freedom & Life", note: "6 Freedoms (Art 19), Life & Personal Liberty (Art 21 — Maneka Gandhi due process)." },
+            { label: "Art 32: Writs", note: "Habeas Corpus, Mandamus, Prohibition, Certiorari, Quo Warranto." }
+          ]},
+          { title: "Union & Federalism", color: "bg-purple-600", items: [
+            { label: "Parliament (Art 79–122)", note: "President + Lok Sabha + Rajya Sabha. Money Bill (Art 110), Joint Sitting (Art 108)." },
+            { label: "Judiciary & Basic Structure", note: "Kesavananda Bharati (1973): Parliament cannot alter Basic Structure under Art 368." }
+          ]},
+          { title: "Constitutional Bodies", color: "bg-amber-600", items: [
+            { label: "ECI (324) & UPSC (315)", note: "Independent guardians of free elections and merit-based civil services." },
+            { label: "CAG (148) & FC (280)", note: "CAG audits public expenditure; Finance Commission recommends Centre-State tax devolution." }
+          ]}
+        ]
+      },
+      modernHistory: {
+        title: "Modern Indian History Mind Map",
+        center: "Indian National Movement (1857–1947)",
+        branches: [
+          { title: "Early Resistance & 1857", color: "bg-rose-700", items: [
+            { label: "Tribal & Peasant Revolts", note: "Santhal (1855), Indigo (1859), Munda Ulgulan (Birsa Munda)." },
+            { label: "Revolt of 1857", note: "Triggered by greased cartridges, Doctrine of Lapse, economic drain. Led to GOI Act 1858." }
+          ]},
+          { title: "Moderate & Extremist Era", color: "bg-royal-800", items: [
+            { label: "INC (1885) & Drain Theory", note: "Dadabhai Naoroji's 'Poverty and Un-British Rule in India'; constitutional petitions." },
+            { label: "Swadeshi (1905) & Home Rule", note: "Bengal Partition protest; Lal-Bal-Pal; Annie Besant & Tilak (1916)." }
+          ]},
+          { title: "Gandhian Mass Movements", color: "bg-emerald-600", items: [
+            { label: "Non-Cooperation (1920–22)", note: "Khilafat synergy, boycott of titles/schools; withdrawn after Chauri Chaura." },
+            { label: "Civil Disobedience (1930)", note: "Dandi Salt March, Gandhi-Irwin Pact, Round Table Conferences." },
+            { label: "Quit India (1942)", note: "'Do or Die' call; parallel governments in Ballia, Tamluk, Satara." }
+          ]},
+          { title: "Constitutional Milestones", color: "bg-amber-600", items: [
+            { label: "GOI Acts 1909, 1919, 1935", note: "Separate electorates (1909), Provincial Dyarchy (1919), Provincial Autonomy & Federal Court (1935)." },
+            { label: "Cabinet Mission & 1947", note: "Constituent Assembly formed (1946); Mountbatten Plan -> Independence (Aug 15, 1947)." }
+          ]}
+        ]
+      },
+      economy: {
+        title: "Indian Economy Mind Map",
+        center: "Indian Economy Framework",
+        branches: [
+          { title: "Monetary Policy (RBI)", color: "bg-royal-800", items: [
+            { label: "Repo, Reverse Repo, MSF", note: "MPC (6 members) targets CPI 4% ± 2% using policy rate corridors." },
+            { label: "CRR, SLR & OMO", note: "Quantitative tools controlling commercial bank liquidity." }
+          ]},
+          { title: "Fiscal Policy & Budget", color: "bg-emerald-600", items: [
+            { label: "Deficits & FRBM", note: "Fiscal Deficit = borrowing requirement; Revenue Deficit = revenue shortfall." },
+            { label: "Taxation & GST", note: "Direct (Income/Corporate) vs Indirect (GST—101st Amendment, GST Council Art 279A)." }
+          ]},
+          { title: "External Sector", color: "bg-purple-600", items: [
+            { label: "Balance of Payments", note: "Current Account (Trade + Remittances/Services) & Capital Account (FDI, FPI, ECB)." },
+            { label: "Forex & Exchange Rate", note: "Managed float by RBI; Forex reserves include FCA, Gold, SDR, RTP." }
+          ]}
+        ]
+      },
+      environment: {
+        title: "Environment & Ecology Mind Map",
+        center: "Ecology & Climate Governance",
+        branches: [
+          { title: "Biodiversity Conservation", color: "bg-emerald-600", items: [
+            { label: "In-situ Protection", note: "National Parks, Wildlife Sanctuaries, Biosphere Reserves, Sacred Groves." },
+            { label: "Indian Hotspots (4)", note: "Himalayas, Western Ghats, Indo-Burma, Sundaland." }
+          ]},
+          { title: "Indian Environmental Laws", color: "bg-royal-800", items: [
+            { label: "WPA 1972 & EPA 1986", note: "Schedules for species protection; EPA is umbrella legislation." },
+            { label: "FRA 2006 & NGT 2010", note: "Recognizes tribal forest rights; NGT provides speedy environmental justice." }
+          ]},
+          { title: "Global Conventions", color: "bg-amber-600", items: [
+            { label: "UNFCCC & Paris Agreement", note: "Limit warming < 2°C / 1.5°C; NDCs; India Net-Zero 2070." },
+            { label: "Ramsar, CBD, CITES", note: "Wetlands (Ramsar), Biodiversity (Kunming-Montreal 30x30), Wildlife Trade (CITES)." }
+          ]}
+        ]
+      }
+    };
+
+    /* =========================================================================
+       6. APPLICATION STATE & FIREBASE PERSISTENCE (NO localStorage!)
+       ========================================================================= */
+    const DEFAULT_STATE = {
+      lang: "en",
+      wonderVersion: "1",
+      activeTab: "dashboard",
+      adminMode: false,
+      currentStage: 1,
+      targetExam: "UPSC CSE",
+      xp: 120,
+      streak: 1,
+      studyHours: 4.5,
+      completedTopics: ["his-anc-1", "pol-fnd-1"],
+      bookmarks: ["pol-fnd-1"],
+      personalNotes: {
+        "pol-fnd-1": "Revise Kesavananda Bharati 1973 and 5 Writs under Article 32 before Prelims mock."
+      },
+      dailyTargets: [
+        { id: "t1", text: "Complete 1 Polity NCERT/Standard Topic", done: true },
+        { id: "t2", text: "Practice 5 Prelims MCQs + Review Explanations", done: false },
+        { id: "t3", text: "Read 2 Daily Current Affairs Briefs", done: false },
+        { id: "t4", text: "Write 1 Mains 10-Mark Answer & Get AI Feedback", done: false }
+      ],
+      // Spaced Repetition History: { [questionId]: { attempts, correct, stageIdx (0..5), nextReviewAt (timestamp), lastWrong } }
+      // Intervals: 1h, 1d, 5d, 7d, 14d, 21d
+      questionHistory: {},
+      mockHistory: [
+        { date: "Nov 18", title: "GS Foundation Mini-Mock", score: 11.34, maxScore: 20, accuracy: 70, timeSec: 420 },
+        { date: "Nov 21", title: "Polity & History Sprint", score: 14.66, maxScore: 20, accuracy: 80, timeSec: 390 }
+      ],
+      dafProfile: {
+        name: "Civil Services Aspirant",
+        homeState: "Uttar Pradesh",
+        district: "Lucknow",
+        education: "B.Tech / B.A. Graduate",
+        optional: "Political Science & IR",
+        hobbies: "Reading Non-Fiction, Chess, Running"
+      },
+      customSyllabus: [],
+      customQuestions: [],
+      customCA: [],
+      savedStudyPlan: null,
+      masterRegistry: { files: [], records: [], lastAuditAt: null },
+      masterDataMeta: { archived: [], versions: [], lastSearch: "" },
+      duplicateAuditLog: []
+    };
+
+    let state = structuredClone(DEFAULT_STATE);
+    let sessionSeenQuestions = new Set();
+    let activeCharts = [];
+    let activeMock = null;
+    let mockTimerInterval = null;
+    let mainsTimerInterval = null;
+    let mentorMessages = [
+      {
+        role: "model",
+        text: "Namaste! I am your **WONDER IAS Personal AI Mentor**. I know your current preparation stage, language preference, and weak topics. Ask me to explain any UPSC/PCS concept from zero, translate into natural Hindi, generate UPSC-standard MCQs, or craft a Mains answer structure!"
+      }
+    ];
+    let interviewMessages = [
+      {
+        role: "model",
+        text: "Good morning! Please have a seat. Welcome to the UPSC Personality Test Board. Let us begin with your DAF—tell us briefly about your educational background and why you want to join the Civil Services."
+      }
+    ];
+
+    /* Firebase Setup (Following all 3 Mandatory Rules) */
+    let db = null;
+    let auth = null;
+    let currentUser = null;
+    let appId = typeof __app_id !== "undefined" ? __app_id : "wonder-ias-platform";
+
+    async function initFirebase() {
+      try {
+        if (typeof __firebase_config === "undefined" || !__firebase_config) {
+          updateSyncBadge("In-Memory Session Mode", "bg-amber-400");
+          return;
+        }
+        const firebaseConfig = typeof __firebase_config === "string" ? JSON.parse(__firebase_config) : __firebase_config;
+        const app = initializeApp(firebaseConfig);
