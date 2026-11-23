@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Manushree's WonderWorld - Smart Learning Hub</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Fredoka (playful kid-friendly rounded font) & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* =====================================================================
+       CUSTOM STYLES: GLASSMORPHISM, 3D TACTILE BUTTONS, ANIMATIONS & GAMES
+       ===================================================================== */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #fdf2f8 0%, #eff6ff 45%, #ecfdf5 100%);
+    }
+
+    body {
+      font-family: 'Fredoka', 'Inter', sans-serif;
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    /* Glassmorphism panels */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.08);
+    }
+
+    /* Soft 3D Tactile Buttons */
+    .btn-3d {
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.15s ease;
+      box-shadow: 0 5px 0 rgba(0, 0, 0, 0.16), 0 8px 16px rgba(0, 0, 0, 0.08);
+    }
+    .btn-3d:hover {
+      filter: brightness(1.03);
+      transform: translateY(-2px);
+      box-shadow: 0 7px 0 rgba(0, 0, 0, 0.16), 0 12px 20px rgba(0, 0, 0, 0.1);
+    }
+    .btn-3d:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Floating Mascot Animation */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+    .animate-float {
+      animation: floatSlow 3.2s ease-in-out infinite;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      70% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-pop {
+      animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes floatBalloon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    .balloon-float {
+      animation: floatBalloon 2.4s ease-in-out infinite;
+    }
+
+    @keyframes orbitSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: rgba(255,255,255,0.4); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.35); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(139, 92, 246, 0.55); }
+
+    /* Piano Key Styling */
+    .piano-key {
+      transition: transform 0.08s ease, filter 0.08s ease;
+      box-shadow: 0 6px 0 rgba(0,0,0,0.2);
+    }
+    .piano-key.active, .piano-key:active {
+      transform: translateY(5px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+      filter: brightness(1.15);
+    }
+
+    /* Canvas responsive container */
+    .responsive-canvas {
+      display: block;
+      width: 100%;
+      touch-action: none;
+    }
+
+    /* Memory Card Flip */
+    .memory-card {
+      perspective: 800px;
+    }
+    .memory-card-inner {
+      transition: transform 0.45s cubic-bezier(0.4, 0.2, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .memory-card.flipped .memory-card-inner {
+      transform: rotateY(180deg);
+    }
+    .memory-front, .memory-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .memory-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Floating PiP Video Player */
+    #pipVideoContainer {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #pipVideoContainer.pip-minimized {
+      width: 280px !important;
+      max-width: 85vw !important;
+      bottom: 16px !important;
+      right: 16px !important;
+      left: auto !important;
+      top: auto !important;
+      transform: none !important;
+    }
+    #pipVideoContainer.pip-expanded {
+      width: 720px !important;
+      max-width: 94vw !important;
+      top: 50% !important;
+      left: 50% !important;
+      right: auto !important;
+      bottom: auto !important;
+      transform: translate(-50%, -50%) !important;
+    }
+  
+    /* Auto Quiz Fullscreen */
+    #gameView.quiz-auto-fullscreen{position:fixed!important;inset:0!important;z-index:99999!important;background:linear-gradient(135deg,#eef2ff,#fdf4ff);overflow-y:auto!important;padding:12px!important;margin:0!important;width:100vw!important;height:100dvh!important;max-width:none!important;border-radius:0!important}
+    #gameView.quiz-auto-fullscreen #gameStage{min-height:calc(100dvh - 130px);display:flex;align-items:center;justify-content:center}
+    #gameView.quiz-auto-fullscreen .quiz-fullscreen-exit{display:inline-flex!important}
+    .quiz-fullscreen-exit{display:none!important}
+</style>
+</head>
+<body class="text-slate-800 pb-24">
+
+  <!-- Full-Screen Confetti Canvas -->
+  <canvas id="confettiCanvas" class="fixed inset-0 pointer-events-none z-50 w-full h-full"></canvas>
+
+  <!-- Toast Notification Banner (No alert() ever!) -->
+  <div id="toastBanner" class="fixed top-4 left-1/2 -translate-x-1/2 z-[70] hidden px-6 py-3 rounded-full shadow-2xl font-bold text-white text-base sm:text-lg items-center gap-2 transition-all">
+    <span id="toastIcon">🌟</span>
+    <span id="toastText">Great job, Manushree!</span>
+  </div>
+
+  <!-- =====================================================================
+       TOP NAVIGATION BAR
+       ===================================================================== -->
+  <header class="sticky top-0 z-40 glass-card border-b-2 border-white/80 px-3 py-2.5 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Brand & Personalized Greeting -->
+      <div class="flex items-center gap-2.5 cursor-pointer" onclick="goHome()">
+        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 flex items-center justify-center text-2xl shadow-lg border-2 border-white">
+          🦄
+        </div>
+        <div>
+          <h1 class="text-lg sm:text-xl font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent leading-tight">
+            Manushree's WonderWorld
+          </h1>
+          <div class="flex items-center gap-1">
+            <p id="navGreeting" class="text-xs sm:text-sm font-semibold text-purple-700">Hi Manushree! 🌟</p>
+            <button onclick="openNamePremium()" title="Change Parent / Child name" class="ml-1 rounded-full bg-purple-100 hover:bg-purple-200 text-purple-700 px-2 py-1 text-xs font-bold shadow-sm">✏️ Edit Name</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls: Class Switcher, Language, Sound, Parent Panel -->
+      <div class="flex flex-wrap items-center gap-2">
+        <!-- Class Switcher -->
+        <select id="classSwitcher" onchange="changeClassLevel(this.value)"
+          class="bg-white/95 border-2 border-purple-200 text-purple-800 font-bold text-xs sm:text-sm rounded-xl px-2.5 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400 cursor-pointer">
+          <option value="0">Play Group</option>
+          <option value="1">Nursery</option>
+          <option value="2">LKG</option>
+          <option value="3">UKG</option>
+          <option value="4">Class 1</option>
+          <option value="5">Class 2</option>
+          <option value="6">Class 3</option>
+          <option value="7">Class 4</option>
+          <option value="8">Class 5 (Age 11)</option>
+          <option value="9">Class 6 (Age 11–12)</option>
+          <option value="10">Class 7 (Age 12)</option>
+        </select>
+
+        <!-- Bilingual Toggle (EN / HI) -->
+        <button id="langToggleBtn" onclick="toggleLanguage()"
+          class="btn-3d bg-gradient-to-r from-amber-400 to-orange-500 text-white font-bold text-xs sm:text-sm px-3 py-2 rounded-xl flex items-center gap-1">
+          <span>🌐</span> <span id="langLabel">EN / हिं</span>
+        </button>
+
+        <!-- Sound / Voice Mute Toggle -->
+        <button id="soundToggleBtn" onclick="toggleSound()" title="Toggle Voice & Sound"
+          class="btn-3d bg-white text-purple-700 border-2 border-purple-200 font-bold text-sm px-3 py-2 rounded-xl">
+          🔊
+        </button>
+
+        <!-- Parent Panel Button -->
+        <button onclick="openPinModal()"
+          class="btn-3d bg-gradient-to-r from-slate-700 to-slate-900 text-white font-bold text-xs sm:text-sm px-3 py-2 rounded-xl flex items-center gap-1">
+          <span>🔒</span> <span class="hidden sm:inline" data-i18n="parents">Parents</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Progress HUD Bar -->
+    <div class="max-w-7xl mx-auto mt-2 pt-2 border-t border-purple-100/80 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+      <div class="flex items-center gap-2 sm:gap-3">
+        <div id="wwAccessBadge" class="bg-purple-100 text-purple-800 font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">🎮 Unlimited Learning</div>
+        <div class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+          <span>⭐</span> <span id="hudStars">0</span> <span data-i18n="stars">Stars</span>
+        </div>
+        <div class="bg-orange-100 text-orange-800 font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+          <span>🔥</span> <span id="hudStreak">1</span> <span data-i18n="streak">Day Streak</span>
+        </div>
+        <div class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-sm cursor-pointer" onclick="showBadgesModal()">
+          <span>🏆</span> <span id="hudBadges">0</span> <span data-i18n="badges">Badges</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="openPhotoFlashcards()"
+          class="bg-pink-100 hover:bg-pink-200 text-pink-700 font-bold px-3 py-1 rounded-full transition flex items-center gap-1">
+          <span>📸</span> <span data-i18n="myPhotos">My Photos</span>
+        </button>
+        <button onclick="scrollToVideoZone()"
+          class="bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-bold px-3 py-1 rounded-full transition flex items-center gap-1">
+          <span>🎬</span> <span data-i18n="videoZone">Video Zone</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+<!-- PREVIEW NOTE: This file is a separate header reference preview; live page is unchanged. -->
