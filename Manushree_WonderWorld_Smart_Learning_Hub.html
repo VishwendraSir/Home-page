@@ -2056,6 +2056,24 @@
 }catch(e){console.warn('WonderWorld auto design fallback',e)}})();
 </script>
 
+
+<!-- GLOBAL HANDLER BRIDGE: make inline HTML handlers resolvable outside the core script. -->
+<script id="ww-global-handler-bridge">
+(function(){
+  const names = ['goHome','toggleLanguage','toggleSound','changeClassLevel','selectCategory','renderGamesGrid','launchRandomGame','scrollToVideoZone','playTopicVideo','speakCurrentPrompt','mascotTalk','togglePipSize','closePipVideo','openPinModal','closePinModal','verifyPin','closeParentModal','switchParentTab','closeConfirmModal','answerGame','startDailyChallenge','updateDailyChallengeUI','filterVideoCategory','openVideo','startCoachFocus','practiceMistakes','addParentVideo','deleteParentVideo','addPhotoCard','saveParentPin','resetProgress','showBadgesModal','openPhotoFlashcards','wwExportParentReport','loadGame'];
+  function expose(){
+    for(const name of names){
+      try{
+        if(typeof window[name] === 'function') continue;
+        const value = (0,eval)('typeof '+name+' === "function" ? '+name+' : null');
+        if(typeof value === 'function') window[name]=value;
+      }catch(e){}
+    }
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded',expose,{once:true}); else expose();
+  window.addEventListener('error',function(e){console.error('[WonderWorld runtime]',e.message,e.filename,e.lineno);});
+})();
+</script>
 </body>
 </html>
 
