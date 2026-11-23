@@ -603,14 +603,22 @@
        2. LOGIN / LOGOUT AUTHENTICATION LOGIC
        ===================================================================== */
     function switchLoginTab(mode) {
-      loginMode = mode;
-      document.getElementById('loginErrorMsg').classList.add('hidden');
+      loginMode = mode === 'parent' ? 'parent' : 'student';
+      const errorEl = document.getElementById('loginErrorMsg');
+      if (errorEl) errorEl.classList.add('hidden');
       const sBtn = document.getElementById('loginTabStudent');
       const pBtn = document.getElementById('loginTabParent');
       const subBtn = document.getElementById('loginSubmitBtn');
       const remRow = document.getElementById('rememberMeRow');
-
-      if (mode === 'student') {
+      const form = document.querySelector('#loginScreen form');
+      const userInput = document.getElementById('loginUsername');
+      const passInput = document.getElementById('loginPassword');
+      // Explicitly restore the shared login form when switching tabs.
+      if (form) { form.style.display = 'block'; form.style.visibility = 'visible'; }
+      if (userInput) { userInput.style.display = 'block'; userInput.style.visibility = 'visible'; userInput.placeholder = loginMode === 'parent' ? 'Enter Parent/Admin username' : 'Enter student username'; userInput.value = ''; }
+      if (passInput) { passInput.style.display = 'block'; passInput.style.visibility = 'visible'; passInput.placeholder = loginMode === 'parent' ? 'Enter Parent/Admin password' : 'Enter password'; passInput.value = ''; passInput.type = 'password'; }
+      if (subBtn) subBtn.style.display = 'block';
+      if (loginMode === 'student') {
         sBtn.className = 'py-2.5 rounded-xl font-bold text-sm transition bg-white text-purple-700 shadow';
         pBtn.className = 'py-2.5 rounded-xl font-bold text-sm transition text-slate-600 hover:text-purple-700';
         subBtn.innerHTML = "🚀 Let's Start Learning!";
