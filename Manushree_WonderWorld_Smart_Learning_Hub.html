@@ -2979,7 +2979,7 @@
   document.getElementById('loginScreen')?.classList.add('hidden');enterApp(false);applyPersonalHub();
   const switchBtn=document.getElementById('wwSwitchChild');if(switchBtn)switchBtn.style.display='block';
  }
- chooser.querySelectorAll('[data-child]').forEach(b=>b.addEventListener('click',()=>activateChild(b.dataset.child)));
+ chooser.addEventListener('click',function(ev){const b=ev.target.closest('[data-child]');if(!b)return;ev.preventDefault();ev.stopPropagation();try{activateChild(b.dataset.child);}catch(err){const msg=document.createElement('div');msg.style='margin-top:12px;color:#b91c1c;font-weight:900';msg.textContent='App open error: '+(err&&err.message||err);chooser.querySelector('div').appendChild(msg);console.error(err);}});window.WWSelectChild=activateChild;
  document.addEventListener('DOMContentLoaded',()=>{document.getElementById('loginScreen')?.classList.add('hidden');document.getElementById('appShell')?.classList.add('hidden');});
  window.logoutUser=function(){if(activeSessionRole==='student'&&appState){const who=window.WWChildProfile.current();snaps[norm(who.username)]=JSON.parse(JSON.stringify(appState));localStorage.setItem(SNAP,JSON.stringify(snaps));}activeSessionRole=null;document.getElementById('appShell')?.classList.add('hidden');chooser.style.display='flex';};
  const switchBtn=document.createElement('button');switchBtn.id='wwSwitchChild';switchBtn.textContent='👥 Switch Child';switchBtn.style.cssText='display:none;position:fixed;bottom:12px;left:12px;z-index:90;background:#fff;color:#6d28d9;font-weight:900;padding:10px 14px;border-radius:999px;box-shadow:0 4px 16px #0002';switchBtn.onclick=()=>window.logoutUser();document.body.appendChild(switchBtn);
