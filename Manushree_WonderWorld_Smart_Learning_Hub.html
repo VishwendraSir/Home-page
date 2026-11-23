@@ -2752,5 +2752,63 @@
 })();
 </script>
 
+
+<!-- MULTI-USER LOCAL ACCOUNT MANAGER -->
+<script>
+(function(){
+ const ACC='WW_MULTI_ACCOUNTS_V1', SNAP='WW_USER_SNAPSHOTS_V1';
+ const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}catch(e){return d}};
+ let accounts=read(ACC,[
+  {username:'manushree',password:'1234',role:'student',classLevel:2,enabled:true,name:'Manushree'},
+  {username:'student2',password:'1234',role:'student',classLevel:2,enabled:true,name:'Student 2'},
+  {username:'parent',password:'admin123',role:'parent',enabled:true,name:'Parent'},
+  {username:'admin',password:'Admin@123',role:'admin',enabled:true,name:'Administrator'}
+ ]);
+ let snapshots=read(SNAP,{});
+ const saveAccounts=()=>localStorage.setItem(ACC,JSON.stringify(accounts));
+ const saveSnapshots=()=>localStorage.setItem(SNAP,JSON.stringify(snapshots));
+ const norm=s=>String(s||'').trim().toLowerCase();
+ function loginAccount(u,p,role){
+  return accounts.find(a=>a.enabled!==false&&norm(a.username)===norm(u)&&a.password===p&&(role==='parent'?['parent','admin'].includes(a.role):a.role==='student'));
+ }
+ window.WWAccounts={
+  list(){return accounts.map(a=>({...a,password:'••••••'}));},
+  add(username,password,role,classLevel,name){
+   username=String(username||'').trim();password=String(password||'');
+   if(username.length<3||password.length<4)throw Error('Username min 3 and password min 4 characters.');
+   if(accounts.some(a=>norm(a.username)===norm(username)))throw Error('Username already exists.');
+   accounts.push({username,password,role:role==='admin'?'admin':role==='parent'?'parent':'student',classLevel:Number(classLevel)||2,name:name||username,enabled:true});
+   saveAccounts();return true;
+  },
+  update(oldUser,username,password,role,classLevel,name,enabled){
+   const a=accounts.find(x=>norm(x.username)===norm(oldUser));if(!a)throw Error('Account not found');
+   if(accounts.some(x=>x!==a&&norm(x.username)===norm(username)))throw Error('Username already exists');
+   a.username=username.trim();if(password)a.password=password;a.role=role;a.classLevel=Number(classLevel)||2;a.name=name||a.username;a.enabled=!!enabled;saveAccounts();
+  },
+  remove(username){if(['admin','parent','manushree'].includes(norm(username)))throw Error('Default account protected. Disable/edit instead.');accounts=accounts.filter(a=>norm(a.username)!==norm(username));delete snapshots[norm(username)];saveAccounts();saveSnapshots();},
+  open(){
+   const body=document.getElementById('parentTabBody');if(!body)return;
+   body.innerHTML='<div class="space-y-4"><div class="flex items-center justify-between"><h3 class="text-lg font-black">👥 User Management</h3><span class="text-xs text-amber-700 font-bold">Local device accounts</span></div><form id="wwAccountForm" class="grid grid-cols-2 gap-2 bg-indigo-50 p-3 rounded-2xl"><input id="wwNewName" required placeholder="Display name" class="border rounded-xl p-2 text-sm"><input id="wwNewUser" required placeholder="Username" class="border rounded-xl p-2 text-sm"><input id="wwNewPass" required type="password" placeholder="Password" class="border rounded-xl p-2 text-sm"><select id="wwNewRole" class="border rounded-xl p-2 text-sm"><option value="student">Student</option><option value="parent">Parent</option><option value="admin">Admin</option></select><select id="wwNewClass" class="border rounded-xl p-2 text-sm"><option value="0">Play Group</option><option value="1">Nursery</option><option value="2" selected>LKG</option><option value="3">UKG</option><option value="4">Class 1</option><option value="5">Class 2</option><option value="6">Class 3</option><option value="7">Class 4</option><option value="8">Class 5</option></select><button class="col-span-2 bg-indigo-600 text-white rounded-xl p-2 font-bold">➕ Create Account</button></form><div id="wwAccountsList" class="space-y-2"></div><p class="text-xs text-rose-600 bg-rose-50 p-3 rounded-xl">⚠️ This is local browser storage, not secure server authentication. Accounts and progress exist on this device/browser only. Do not use sensitive passwords.</p></div>';
+   const render=()=>{const list=document.getElementById('wwAccountsList');if(!list)return;list.innerHTML=accounts.map(a=>'<div class="border rounded-xl p-3 flex flex-wrap items-center justify-between gap-2"><div><b>'+a.name+'</b><div class="text-xs text-slate-500">@'+a.username+' • '+a.role+(a.role==='student'?' • '+(CLASS_NAMES[a.classLevel]||'Class'):'')+' • '+(a.enabled?'Active':'Disabled')+'</div></div><div class="flex gap-1"><button data-edit="'+a.username+'" class="bg-amber-100 text-amber-800 px-2 py-1 rounded-lg text-xs font-bold">Edit</button><button data-toggle="'+a.username+'" class="bg-slate-100 px-2 py-1 rounded-lg text-xs font-bold">'+(a.enabled?'Disable':'Enable')+'</button><button data-del="'+a.username+'" class="bg-rose-100 text-rose-700 px-2 py-1 rounded-lg text-xs font-bold">Delete</button></div></div>').join('');
+   list.querySelectorAll('[data-toggle]').forEach(b=>b.onclick=()=>{const a=accounts.find(x=>x.username===b.dataset.toggle);a.enabled=!a.enabled;saveAccounts();render();});
+   list.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{if(confirm('Delete account '+b.dataset.del+'?')){try{WWAccounts.remove(b.dataset.del);render()}catch(e){alert(e.message)}}});
+   list.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>{const a=accounts.find(x=>x.username===b.dataset.edit);const un=prompt('Username',a.username);if(un===null)return;const pw=prompt('New password (leave blank to keep current)');const nm=prompt('Display name',a.name);const role=prompt('Role: student / parent / admin',a.role);const cl=prompt('Class level 0-8',a.classLevel||2);try{WWAccounts.update(a.username,un,pw||'',role,cl,nm,a.enabled);render()}catch(e){alert(e.message)}});
+   };
+   document.getElementById('wwAccountForm').onsubmit=e=>{e.preventDefault();try{WWAccounts.add(document.getElementById('wwNewUser').value,document.getElementById('wwNewPass').value,document.getElementById('wwNewRole').value,document.getElementById('wwNewClass').value,document.getElementById('wwNewName').value);e.target.reset();render();}catch(err){alert(err.message)}};
+   render();
+  }
+ };
+ const originalTab=window.switchParentTab;
+ window.switchParentTab=function(tab){if(tab==='users'){document.querySelectorAll('.parent-tab').forEach(b=>b.className='parent-tab px-3.5 py-2 font-bold text-xs sm:text-sm rounded-t-xl text-slate-600 hover:bg-white/60');const b=document.getElementById('ptab-users');if(b)b.className='parent-tab px-3.5 py-2 font-bold text-xs sm:text-sm rounded-t-xl bg-white text-indigo-700 border-t border-x border-slate-200';WWAccounts.open();return;}return originalTab(tab);};
+ document.addEventListener('DOMContentLoaded',()=>{const nav=document.querySelector('#parentModal .flex.border-b');if(nav&&!document.getElementById('ptab-users')){const b=document.createElement('button');b.id='ptab-users';b.className='parent-tab px-3.5 py-2 font-bold text-xs sm:text-sm rounded-t-xl text-slate-600 hover:bg-white/60';b.textContent='👥 Users';b.onclick=()=>switchParentTab('users');nav.appendChild(b);}});
+ const origLogin=window.handleLoginSubmit;
+ window.handleLoginSubmit=function(e){e.preventDefault();const u=document.getElementById('loginUsername').value,p=document.getElementById('loginPassword').value,role=window.loginMode||'student';const a=loginAccount(u,p,role);if(!a){document.getElementById('loginErrorMsg')?.classList.remove('hidden');return false;}if(a.role==='student'){if(snapshots[norm(a.username)]){appState=Object.assign(appState,snapshots[norm(a.username)]);}appState.classLevel=a.classLevel||2;appState.session={loggedInRole:document.getElementById('loginRemember')?.checked?'student':null,remember:!!document.getElementById('loginRemember')?.checked};}else{appState.session={loggedInRole:null,remember:false};}
+ window.activeSessionRole=a.role;document.getElementById('loginErrorMsg')?.classList.add('hidden');saveState();enterApp(a.role!=='student');return false;};
+ const origLogout=window.logoutUser;
+ window.logoutUser=function(){if(window.activeSessionRole==='student'&&window.appState)snapshots[norm(accounts.find(a=>a.role==='student'&&norm(a.username)===norm(document.getElementById('loginUsername')?.value))?.username||'manushree')]=appState;saveSnapshots();return origLogout();};
+ // Ensure account panel is reachable and tab handler exists.
+})();
+</script>
+
 </body>
 </html>
