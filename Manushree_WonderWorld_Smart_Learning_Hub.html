@@ -542,7 +542,7 @@
         studentPass: '1234',
         parentUser: 'parent',
         parentPass: 'admin123',
-        showHint: true
+        showHint: false
       },
       session: { loggedInRole: null, remember: false },
       classLevel: 0,
@@ -2381,14 +2381,14 @@
               <h4 class="font-bold text-purple-900">👧 Student Account (Manushree)</h4>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <input id="secStuUser" value="${c.studentUser}" placeholder="Student Username" class="border rounded-xl px-3 py-2 text-sm font-bold">
-                <input id="secStuPass" value="${c.studentPass}" placeholder="Student Password" class="border rounded-xl px-3 py-2 text-sm font-bold">
+                <input id="secStuPass" type="password" value="${c.studentPass}" placeholder="Student Password" autocomplete="new-password" class="border rounded-xl px-3 py-2 text-sm font-bold">
               </div>
             </div>
             <div class="bg-indigo-50 p-4 rounded-2xl border border-indigo-200 space-y-3">
-              <h4 class="font-bold text-indigo-900">👨‍👩‍👧 Parent / Admin Account</h4>
+              <h4 class="font-bold text-indigo-900">👨‍👩‍👧 Admin Account — Set Your Own Default Login</h4>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <input id="secParUser" value="${c.parentUser}" placeholder="Parent Username" class="border rounded-xl px-3 py-2 text-sm font-bold">
-                <input id="secParPass" value="${c.parentPass}" placeholder="Parent Password" class="border rounded-xl px-3 py-2 text-sm font-bold">
+                <input id="secParPass" type="password" value="${c.parentPass}" placeholder="Admin Password" autocomplete="new-password" class="border rounded-xl px-3 py-2 text-sm font-bold">
               </div>
             </div>
             <label class="flex items-center gap-2 text-sm font-bold text-slate-700 cursor-pointer">
@@ -2435,13 +2435,13 @@
       }
     }
 
-    function saveSecuritySettings() {
+    function saveSecuritySettings() {\n      if (!confirm("Save new Student and Admin login credentials? Make sure you remember the new Admin username and password.")) return;
       const su = document.getElementById('secStuUser').value.trim();
       const sp = document.getElementById('secStuPass').value.trim();
       const pu = document.getElementById('secParUser').value.trim();
       const pp = document.getElementById('secParPass').value.trim();
       const sh = document.getElementById('secShowHint').checked;
-      if (!su || !sp || !pu || !pp) { showToast('All username and password fields are required!', '⚠️', 'bg-amber-600'); return; }
+      if (!su || !sp || !pu || !pp) { showToast('All username and password fields are required!', '⚠️', 'bg-amber-600'); return; }\n      if (pp.length < 6) { showToast('Admin password must be at least 6 characters!', '⚠️', 'bg-amber-600'); return; }
       appState.credentials = { studentUser: su, studentPass: sp, parentUser: pu, parentPass: pp, showHint: sh };
       saveState();
       showToast('Account credentials updated safely!', '🔐', 'bg-emerald-600');
