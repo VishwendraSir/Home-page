@@ -1518,7 +1518,10 @@
       const fb=document.getElementById('gameFeedback');
       const answerKey=id+':'+(questionProgress[id]||0);
       if(String(answer).trim()===String(q.correct).trim() && !answeredQuestions[answerKey]) { 
-        fb.textContent=appState.lang==='hi'?'🎉 सही जवाब! शाबाश!':'🎉 Correct! Great job!';
+        const praiseHi=['🌟 बहुत खूब! तुम Math Star हो!','🎉 शानदार! तुम्हारा दिमाग बहुत तेज़ है!','👏 सही जवाब! ऐसे ही आगे बढ़ते रहो!','🚀 कमाल! तुम हर सवाल जीत सकते हो!','💪 वाह! तुमने बेहतरीन किया!','🏆 Excellent! तुम सुपर चैंपियन हो!'];
+        const praiseEn=['🌟 Amazing! You are a Math Star!','🎉 Brilliant! Your brain is super powerful!','👏 Correct! Keep shining!','🚀 Fantastic! You can do it!','💪 Great work! Keep going!','🏆 Excellent! You are a champion!'];
+        const praise=(appState.lang==='hi'?praiseHi:praiseEn)[Math.floor(Math.random()*(appState.lang==='hi'?praiseHi:praiseEn).length)];
+        fb.textContent=praise;
         fb.className='font-bold text-lg mt-4 text-green-600 min-h-8';
         answeredQuestions[answerKey]=true; appState.answeredQuestions=answeredQuestions;
         recordAdaptiveAnswer(id,game.cat,true);
