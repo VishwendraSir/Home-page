@@ -961,7 +961,7 @@
       customCA: [],
       savedStudyPlan: null,
       masterRegistry: { files: [], records: [], lastAuditAt: null },
-      masterDataMeta: { archived: [], versions: [], lastSearch: "" },
+      masterDataMeta: { archived: [], versions: [], lastSearch: "", idAliases: {} },
       duplicateAuditLog: []
     };
 
@@ -1215,7 +1215,7 @@
       });
     }
 
-    function dedupeMasterArray(items,kind){const byId=new Map(),byFingerprint=new Map(),kept=[];let removed=0,merged=0;for(const item of(Array.isArray(items)?items:[])){if(!item||typeof item!=="object")continue;const id=String(item.id||""),fp=recordFingerprint(kind,item),master=(id&&byId.get(id))||(fp&&byFingerprint.get(fp));if(master){const masterId=master.id;for(const [key,value] of Object.entries(item))if((master[key]===undefined||master[key]===null||master[key]==="")&&value!==undefined)master[key]=value;if(masterId)master.id=masterId;removed++;merged++;continue;}kept.push(item);if(id)byId.set(id,item);if(fp)byFingerprint.set(fp,item);}return{items:kept,removed,merged};}
+    function dedupeMasterArray(items,kind){const byId=new Map(),byFingerprint=new Map(),kept=[],idAliases={};let removed=0,merged=0;for(const item of(Array.isArray(items)?items:[])){if(!item||typeof item!=="object")continue;const id=String(item.id||""),fp=recordFingerprint(kind,item),master=(id&&byId.get(id))||(fp&&byFingerprint.get(fp));if(master){const masterId=String(master.id||"");if(id&&masterId&&id!==masterId)idAliases[id]=masterId;for(const [key,value] of Object.entries(item))if((master[key]===undefined||master[key]===null||master[key]==="")&&value!==undefined)master[key]=value;if(masterId)master.id=masterId;removed++;merged++;continue;}kept.push(item);if(id)byId.set(id,item);if(fp)byFingerprint.set(fp,item);}return{items:kept,removed,merged,idAliases};}
     function normalizeMasterData({log=true}={}) {
       state.customSyllabus = Array.isArray(state.customSyllabus) ? state.customSyllabus : [];
       state.customQuestions = Array.isArray(state.customQuestions) ? state.customQuestions : [];
@@ -1230,8 +1230,21 @@
       state.masterDataMeta.versions = Array.isArray(state.masterDataMeta.versions) ? state.masterDataMeta.versions : [];
       const assigned={topics:ensurePermanentIds(INITIAL_SYLLABUS,"topic"),questions:ensurePermanentIds(INITIAL_QUESTIONS,"question"),currentAffairs:ensurePermanentIds(INITIAL_CURRENT_AFFAIRS,"ca")};
       assigned.topics+=ensurePermanentIds(state.customSyllabus,"topic");assigned.questions+=ensurePermanentIds(state.customQuestions,"question");assigned.currentAffairs+=ensurePermanentIds(state.customCA,"ca");
-      const topics=dedupeMasterArray(state.customSyllabus,"topic"),questions=dedupeMasterArray(state.customQuestions,"question"),ca=dedupeMasterArray(state.customCA,"ca");
-      state.customSyllabus=topics.items;state.customQuestions=questions.items;state.customCA=ca.items;
+      const topics=dedupeMasterArray([...INITIAL_SYLLABUS,...state.customSyllabus],"topic");
+      const questions=dedupeMasterArray([...INITIAL_QUESTIONS,...state.customQuestions],"question");
+      const ca=dedupeMasterArray([...INITIAL_CURRENT_AFFAIRS,...state.customCA],"ca");
+      INITIAL_SYLLABUS.splice(0,INITIAL_SYLLABUS.length,...topics.items);
+      INITIAL_QUESTIONS.splice(0,INITIAL_QUESTIONS.length,...questions.items);
+      INITIAL_CURRENT_AFFAIRS.splice(0,INITIAL_CURRENT_AFFAIRS.length,...ca.items);
+      const initialTopicIds=new Set(INITIAL_SYLLABUS.map(x=>String(x.id))),initialQuestionIds=new Set(INITIAL_QUESTIONS.map(x=>String(x.id))),initialCAIds=new Set(INITIAL_CURRENT_AFFAIRS.map(x=>String(x.id)));
+      state.customSyllabus=topics.items.filter(x=>!initialTopicIds.has(String(x.id)));
+      state.customQuestions=questions.items.filter(x=>!initialQuestionIds.has(String(x.id)));
+      state.customCA=ca.items.filter(x=>!initialCAIds.has(String(x.id)));
+      const aliases={...(state.masterDataMeta.idAliases||{}),...topics.idAliases,...questions.idAliases,...ca.idAliases};
+      state.masterDataMeta.idAliases=aliases;
+      state.completedTopics=[...new Set((state.completedTopics||[]).map(id=>aliases[id]||id))];
+      state.bookmarks=[...new Set((state.bookmarks||[]).map(id=>aliases[id]||id))];
+      for(const [from,to] of Object.entries(questions.idAliases)){if(state.questionHistory?.[from]){const a=state.questionHistory[from],b=state.questionHistory[to]||{};state.questionHistory[to]={attempts:Number(a.attempts||0)+Number(b.attempts||0),correct:Number(a.correct||0)+Number(b.correct||0),stageIdx:Math.max(Number(a.stageIdx||0),Number(b.stageIdx||0)),nextReviewAt:Math.min(Number(a.nextReviewAt||Infinity),Number(b.nextReviewAt||Infinity)),lastWrong:!!(a.lastWrong||b.lastWrong),lastAttemptAt:Math.max(Number(a.lastAttemptAt||0),Number(b.lastAttemptAt||0))};delete state.questionHistory[from];}}
       state.masterRegistry.records=[...recordCandidates("topic").map(x=>({id:x.id,kind:"topic",fingerprint:recordFingerprint("topic",x)})),...recordCandidates("question").map(x=>({id:x.id,kind:"question",fingerprint:recordFingerprint("question",x)})),...recordCandidates("ca").map(x=>({id:x.id,kind:"ca",fingerprint:recordFingerprint("ca",x)}))];
       const removed = topics.removed + questions.removed + ca.removed;
       if(log&&(removed||Object.values(assigned).some(Boolean)))state.duplicateAuditLog.push({at:Date.now(),action:"MASTER_NORMALIZE",removed,assignedIds:assigned,details:{topics:topics.removed,questions:questions.removed,currentAffairs:ca.removed}});
