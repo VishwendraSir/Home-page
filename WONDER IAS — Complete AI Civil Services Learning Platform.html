@@ -1040,13 +1040,10 @@
           (snapshot) => {
             snapshot.forEach((d) => {
               const item = d.data();
-              if (item.kind === "topic" && !state.customSyllabus.some(x => x.id === item.id)) {
-                state.customSyllabus.push(item);
-              } else if (item.kind === "question" && !state.customQuestions.some(x => x.id === item.id)) {
-                state.customQuestions.push(item);
-              } else if (item.kind === "ca" && !state.customCA.some(x => x.id === item.id)) {
-                state.customCA.push(item);
-              }
+              if(!item||!["topic","question","ca"].includes(item.kind))return;
+              const key=item.kind==="topic"?"customSyllabus":item.kind==="question"?"customQuestions":"customCA";
+              const merged=mergeImportedArray(state[key],[item],item.kind);
+              if(merged.added){state[key]=merged.items;normalizeMasterData({log:false});renderAll();saveStateToCloud();}
             });
           },
           (err) => {
@@ -1184,19 +1181,14 @@
     /* =========================================================================
        MASTER DATA / ONE FILE, ZERO DUPLICATES
        ========================================================================= */
-    function normalizeMasterText(value) {
-      return String(value || "").toLowerCase().normalize("NFKC")
-        .replace(/[^\\p{L}\\p{N}]+/gu, " ").trim().replace(/\\s+/g, " ");
-    }
-    function recordFingerprint(kind, record) {
-      if (kind === "question") {
-        return normalizeMasterText(record.q || record.question) + "|" +
-          (record.options || []).map(normalizeMasterText).join("|");
-      }
-      if (kind === "topic") return normalizeMasterText(record.subject) + "|" + normalizeMasterText(record.title || record.hiTitle);
-      if (kind === "ca") return normalizeMasterText(record.title || record.headline) + "|" + normalizeMasterText(record.date || record.year || "");
-      return normalizeMasterText(record.title || record.name || record.id);
-    }
+    function normalizeMasterText(value) { return String(value||"").toLowerCase().normalize("NFKC").replace(/[^\\p{L}\\p{N}]+/gu," ").trim().replace(/\\s+/g," "); }
+    function stableRecordHash(text){let h1=0x811c9dc5,h2=0x9e3779b9;for(let i=0;i<text.length;i++){const c=text.charCodeAt(i);h1=Math.imul(h1^c,0x01000193);h2=Math.imul(h2^c,0x85ebca6b);}return(h1>>>0).toString(16).padStart(8,"0")+(h2>>>0).toString(16).padStart(8,"0");}
+    const MASTER_ID_PREFIX={topic:"TOP",question:"QUE",ca:"CA"};
+    function createPermanentId(kind){return(MASTER_ID_PREFIX[kind]||"REC")+"-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).slice(2,8).toUpperCase();}
+    function ensurePermanentIds(items,kind){let assigned=0;for(const item of(Array.isArray(items)?items:[])){if(!item||typeof item!=="object")continue;if(!String(item.id||"").trim()){item.id=createPermanentId(kind);assigned++;}if(!Number.isInteger(item.recordVersion))item.recordVersion=1;if(!item.createdAt)item.createdAt=Date.now();item.updatedAt=item.updatedAt||item.createdAt;item.status=item.status||"active";item.tags=Array.isArray(item.tags)?item.tags:[];}return assigned;}
+    function recordFingerprint(kind,record){if(kind==="question")return stableRecordHash([normalizeMasterText(record.q||record.question),...(record.options||[]).map(normalizeMasterText)].join("|"));if(kind==="topic")return stableRecordHash([normalizeMasterText(record.subject),normalizeMasterText(record.title||record.hiTitle)].join("|"));if(kind==="ca")return stableRecordHash([normalizeMasterText(record.title||record.headline),normalizeMasterText(record.date||record.year||"")].join("|"));return stableRecordHash(normalizeMasterText(record.title||record.name||record.id));}
+    function recordCandidates(kind){const initial=kind==="topic"?INITIAL_SYLLABUS:kind==="question"?INITIAL_QUESTIONS:INITIAL_CURRENT_AFFAIRS;const custom=kind==="topic"?state.customSyllabus:kind==="question"?state.customQuestions:state.customCA;return [...initial,...(custom||[])];}
+    function getMasterRecordById(kind,id){return recordCandidates(kind).find(x=>String(x.id)===String(id))||null;}
     function escapeMasterHTML(value) {
       return String(value ?? "").replace(/[&<>\"']/g, ch => {
         if (ch === "&") return "&amp;";
@@ -1208,24 +1200,14 @@
     }
     function masterDataRecords() {
       return [
-        ...(state.customSyllabus || []).map(record => ({kind:"topic", record, title:record.title || record.hiTitle || "Untitled topic", subject:record.subject || "Unassigned", id:record.id})),
-        ...(state.customQuestions || []).map(record => ({kind:"question", record, title:record.q || record.question || "Untitled question", subject:record.subject || "Unassigned", id:record.id})),
-        ...(state.customCA || []).map(record => ({kind:"ca", record, title:record.title || record.headline || "Untitled current affair", subject:record.category || record.subject || "Current Affairs", id:record.id}))
+        ...recordCandidates("topic").map(record=>({kind:"topic",record,title:record.title||record.hiTitle||"Untitled topic",subject:record.subject||"Unassigned",id:record.id})),
+        ...recordCandidates("question").map(record=>({kind:"question",record,title:record.q||record.question||"Untitled question",subject:record.subject||"Unassigned",id:record.id})),
+        ...recordCandidates("ca").map(record=>({kind:"ca",record,title:record.title||record.headline||"Untitled current affair",subject:record.category||record.subject||"Current Affairs",id:record.id}))
       ];
     }
-    function masterDataHealth() {
-      const records = masterDataRecords();
-      const ids = records.map(x=>x.id).filter(Boolean);
-      const missingIds = records.filter(x=>!x.id).length;
-      const duplicateIds = ids.length - new Set(ids).size;
-      const incomplete = records.filter(x=>!String(x.title||"").trim() || !String(x.subject||"").trim()).length;
-      const archived = (state.masterDataMeta?.archived || []).length;
-      return {total:records.length, topics:(state.customSyllabus||[]).length, questions:(state.customQuestions||[]).length, currentAffairs:(state.customCA||[]).length, missingIds, duplicateIds, incomplete, archived};
-    }
-    function searchMasterData(query) {
-      const q = normalizeMasterText(query);
-      return masterDataRecords().filter(x => !q || normalizeMasterText([x.title,x.subject,x.id,x.kind,x.record.paper,x.record.topic,x.record.year].join(" ")).includes(q));
-    }
+    function masterDataHealth(){const records=masterDataRecords(),ids=records.map(x=>x.id).filter(Boolean);return{total:records.length,topics:recordCandidates("topic").length,questions:recordCandidates("question").length,currentAffairs:recordCandidates("ca").length,missingIds:records.filter(x=>!x.id).length,duplicateIds:ids.length-new Set(ids).size,incomplete:records.filter(x=>!String(x.title||"").trim()||!String(x.subject||"").trim()).length,archived:(state.masterDataMeta?.archived||[]).length,brokenReferences:countBrokenMasterReferences(),registeredFiles:(state.masterRegistry?.files||[]).length,registeredRecords:(state.masterRegistry?.records||[]).length};}
+    function countBrokenMasterReferences(){const topics=new Set(recordCandidates("topic").map(x=>String(x.id))),questions=new Set(recordCandidates("question").map(x=>String(x.id)));let n=0;for(const id of [...(state.completedTopics||[]),...(state.bookmarks||[])])if(!topics.has(String(id)))n++;for(const id of Object.keys(state.questionHistory||{}))if(!questions.has(String(id)))n++;return n;}
+    function searchMasterData(query){const q=normalizeMasterText(query);return masterDataRecords().filter(x=>!q||normalizeMasterText([x.title,x.subject,x.id,x.kind,x.record.paper,x.record.topic,x.record.year,x.record.category,x.record.q,x.record.hiQ,(x.record.options||[]).join(" ")].join(" ")).includes(q));}
     function dedupeRegistryFiles(files) {
       const seen = new Set(); return (Array.isArray(files)?files:[]).filter(file=>{
         const key=normalizeMasterText(file.hash || file.name || file.path || JSON.stringify(file));
@@ -1233,20 +1215,7 @@
       });
     }
 
-    function dedupeMasterArray(items, kind) {
-      const seenIds = new Set(), seenFingerprints = new Set(), kept = [];
-      let removed = 0;
-      for (const item of (Array.isArray(items) ? items : [])) {
-        if (!item || typeof item !== "object") continue;
-        const id = String(item.id || "");
-        const fp = recordFingerprint(kind, item);
-        if ((id && seenIds.has(id)) || (fp && seenFingerprints.has(fp))) { removed++; continue; }
-        if (id) seenIds.add(id);
-        if (fp) seenFingerprints.add(fp);
-        kept.push(item);
-      }
-      return { items: kept, removed };
-    }
+    function dedupeMasterArray(items,kind){const byId=new Map(),byFingerprint=new Map(),kept=[];let removed=0,merged=0;for(const item of(Array.isArray(items)?items:[])){if(!item||typeof item!=="object")continue;const id=String(item.id||""),fp=recordFingerprint(kind,item),master=(id&&byId.get(id))||(fp&&byFingerprint.get(fp));if(master){const masterId=master.id;for(const [key,value] of Object.entries(item))if((master[key]===undefined||master[key]===null||master[key]==="")&&value!==undefined)master[key]=value;if(masterId)master.id=masterId;removed++;merged++;continue;}kept.push(item);if(id)byId.set(id,item);if(fp)byFingerprint.set(fp,item);}return{items:kept,removed,merged};}
     function normalizeMasterData({log=true}={}) {
       state.customSyllabus = Array.isArray(state.customSyllabus) ? state.customSyllabus : [];
       state.customQuestions = Array.isArray(state.customQuestions) ? state.customQuestions : [];
@@ -1259,22 +1228,17 @@
       state.masterDataMeta = state.masterDataMeta && typeof state.masterDataMeta === "object" ? state.masterDataMeta : { archived: [], versions: [], lastSearch: "" };
       state.masterDataMeta.archived = Array.isArray(state.masterDataMeta.archived) ? state.masterDataMeta.archived : [];
       state.masterDataMeta.versions = Array.isArray(state.masterDataMeta.versions) ? state.masterDataMeta.versions : [];
-      const topics = dedupeMasterArray(state.customSyllabus, "topic");
-      const questions = dedupeMasterArray(state.customQuestions, "question");
-      const ca = dedupeMasterArray(state.customCA, "ca");
-      state.customSyllabus = topics.items;
-      state.customQuestions = questions.items;
-      state.customCA = ca.items;
+      const assigned={topics:ensurePermanentIds(INITIAL_SYLLABUS,"topic"),questions:ensurePermanentIds(INITIAL_QUESTIONS,"question"),currentAffairs:ensurePermanentIds(INITIAL_CURRENT_AFFAIRS,"ca")};
+      assigned.topics+=ensurePermanentIds(state.customSyllabus,"topic");assigned.questions+=ensurePermanentIds(state.customQuestions,"question");assigned.currentAffairs+=ensurePermanentIds(state.customCA,"ca");
+      const topics=dedupeMasterArray(state.customSyllabus,"topic"),questions=dedupeMasterArray(state.customQuestions,"question"),ca=dedupeMasterArray(state.customCA,"ca");
+      state.customSyllabus=topics.items;state.customQuestions=questions.items;state.customCA=ca.items;
+      state.masterRegistry.records=[...recordCandidates("topic").map(x=>({id:x.id,kind:"topic",fingerprint:recordFingerprint("topic",x)})),...recordCandidates("question").map(x=>({id:x.id,kind:"question",fingerprint:recordFingerprint("question",x)})),...recordCandidates("ca").map(x=>({id:x.id,kind:"ca",fingerprint:recordFingerprint("ca",x)}))];
       const removed = topics.removed + questions.removed + ca.removed;
-      if (log && removed) state.duplicateAuditLog.push({ at: Date.now(), action: "AUTO_DEDUPE", removed, details: { topics: topics.removed, questions: questions.removed, currentAffairs: ca.removed } });
-      return { topicsRemoved: topics.removed, questionsRemoved: questions.removed, caRemoved: ca.removed, totalRemoved: removed };
+      if(log&&(removed||Object.values(assigned).some(Boolean)))state.duplicateAuditLog.push({at:Date.now(),action:"MASTER_NORMALIZE",removed,assignedIds:assigned,details:{topics:topics.removed,questions:questions.removed,currentAffairs:ca.removed}});
+      return{topicsRemoved:topics.removed,questionsRemoved:questions.removed,caRemoved:ca.removed,totalRemoved:removed,assignedIds:assigned};
     }
     function runDuplicateAudit() {
-      const groups = [
-        {name:"Custom Syllabus Topics", kind:"topic", records:state.customSyllabus},
-        {name:"Custom Questions", kind:"question", records:state.customQuestions},
-        {name:"Current Affairs", kind:"ca", records:state.customCA}
-      ];
+      const groups=[{name:"All Syllabus Topics",kind:"topic",records:recordCandidates("topic")},{name:"All Questions",kind:"question",records:recordCandidates("question")},{name:"All Current Affairs",kind:"ca",records:recordCandidates("ca")}];
       const duplicateGroups = [];
       let duplicateCount = 0;
       for (const group of groups) {
@@ -1297,22 +1261,7 @@
       state.duplicateAuditLog.push({ at: report.at, action: "AUDIT", duplicateCount, duplicateGroups: duplicateGroups.length });
       return report;
     }
-    function mergeImportedArray(existing, incoming, kind) {
-      const current = dedupeMasterArray(existing, kind).items;
-      const imported = Array.isArray(incoming) ? incoming : [];
-      const byId = new Map(current.filter(x=>x.id).map(x=>[String(x.id),x]));
-      const fingerprints = new Set(current.map(x=>recordFingerprint(kind,x)));
-      let added=0, skipped=0, updated=0;
-      for (const item of imported) {
-        if (!item || typeof item !== "object") { skipped++; continue; }
-        const id = String(item.id || "");
-        const fp = recordFingerprint(kind,item);
-        if (id && byId.has(id)) { skipped++; continue; }
-        if (fp && fingerprints.has(fp)) { skipped++; continue; }
-        current.push(item); if(id)byId.set(id,item); if(fp)fingerprints.add(fp); added++;
-      }
-      return {items:current, added, skipped, updated};
-    }
+    function mergeImportedArray(existing,incoming,kind){const current=dedupeMasterArray(existing,kind).items,byId=new Map(current.filter(x=>x.id).map(x=>[String(x.id),x])),fingerprints=new Set(current.map(x=>recordFingerprint(kind,x)));let added=0,skipped=0;for(const raw of(Array.isArray(incoming)?incoming:[])){if(!raw||typeof raw!=="object"){skipped++;continue;}const item={...raw};if(!item.id)item.id=createPermanentId(kind);const id=String(item.id),fp=recordFingerprint(kind,item);if(byId.has(id)||(fp&&fingerprints.has(fp))){skipped++;continue;}item.recordVersion=Number.isInteger(item.recordVersion)?item.recordVersion:1;item.createdAt=item.createdAt||Date.now();item.updatedAt=item.updatedAt||item.createdAt;item.status=item.status||"active";item.tags=Array.isArray(item.tags)?item.tags:[];current.push(item);byId.set(id,item);if(fp)fingerprints.add(fp);added++;}return{items:current,added,skipped,updated:0};}
 
     function addXP(points, reason) {
       state.xp += points;
@@ -2819,7 +2768,11 @@
           </div>
           <div class="flex gap-2"><input id="master-search" oninput="W.searchMasterDataUI(this.value)" type="search" placeholder="Search title, subject, ID, paper, topic..." class="flex-1 p-3 rounded-xl border border-slate-200 text-sm"/><button onclick="W.searchMasterDataUI(document.getElementById('master-search').value)" class="px-4 rounded-xl bg-slate-800 text-white text-xs font-bold">Search</button></div>
           <div id="master-search-results" class="space-y-2 text-sm"><div class="text-slate-500 text-xs">Start typing to search your custom master records.</div></div>
-          <div class="text-[11px] text-slate-500">V2 metadata: permanent ID • version • status • tags • created/updated timestamps. Existing data is retained.</div>
+          <div class="rounded-xl border border-slate-200 p-3 space-y-2">
+            <div class="text-xs font-bold text-slate-700">Archived Master Records</div>
+            ${(state.masterDataMeta?.archived||[]).length?(state.masterDataMeta.archived.slice(-30).reverse().map(x=>`<div class="flex flex-wrap items-center justify-between gap-2 text-xs"><span class="break-words">${escapeMasterHTML(x.kind)} • ${escapeMasterHTML(x.record?.id||"NO ID")} • ${escapeMasterHTML(x.record?.title||x.record?.q||x.record?.headline||"Archived record")}</span><button onclick="W.restoreArchivedRecord('${escapeMasterHTML(x.kind)}','${escapeMasterHTML(x.record?.id||"")}')" class="px-3 py-1 rounded-lg bg-emerald-700 text-white font-bold">Restore</button></div>`).join("")):`<div class="text-xs text-slate-500">No archived custom records.</div>`}
+          </div>
+          <div class="text-[11px] text-slate-500">V3: built-in + custom record registry • permanent IDs • content fingerprints • safer import • archive restore.</div>
         </section>
       `;
       document.getElementById("app-content").innerHTML = html;
@@ -2853,6 +2806,12 @@
     }
 
     window.W = {
+      restoreArchivedRecord(kind,id) {
+        const idx=state.masterDataMeta.archived.findIndex(x=>x.kind===kind&&String(x.record?.id)===String(id));if(idx<0)return;
+        const entry=state.masterDataMeta.archived[idx],key=kind==="topic"?"customSyllabus":kind==="question"?"customQuestions":"customCA",masters=recordCandidates(kind);
+        if(masters.some(x=>String(x.id)===String(id)||recordFingerprint(kind,x)===recordFingerprint(kind,entry.record))){showToast("A master already exists; restore skipped.","warning");return;}
+        state[key].push(entry.record);state.masterDataMeta.archived.splice(idx,1);normalizeMasterData({log:false});state.duplicateAuditLog.push({at:Date.now(),action:"RESTORE_RECORD",kind,id});saveStateToCloud();renderAdmin();showToast("Archived master record restored.","success");
+      },
       setVersion(version) { applyWonderVersion(version, true); saveStateToCloud(); showToast(`Visual version changed to V${state.wonderVersion}.`, "success"); },
       navigate(tab) {
         if (activeMock && tab !== "prelims") {
@@ -3276,12 +3235,7 @@
         const notes = document.getElementById("adm-t-notes").value.trim();
         if (!title || !notes) { showToast("Please enter Topic Title and Notes.", "warning"); return; }
 
-        const newTopic = {
-          id: "TOP-" + Date.now().toString(36).toUpperCase(), subject, category: "Custom Module", paper, title, hiTitle,
-          level: "Stage 4: Standard", estTime: "30 min", prereq: "Foundation",
-          quickNotes: notes, detailedNotes: notes, hiNotes: notes,
-          keyFacts: ["Added via Admin Studio"], pyqConn: "Teacher-curated high-yield topic"
-        };
+        const newTopic={id:createPermanentId("topic"),recordVersion:1,createdAt:Date.now(),updatedAt:Date.now(),status:"active",tags:[],subject,category:"Custom Module",paper,title,hiTitle,level:"Stage 4: Standard",estTime:"30 min",prereq:"Foundation",quickNotes:notes,detailedNotes:notes,hiNotes:notes,keyFacts:["Added via Admin Studio"],pyqConn:"Teacher-curated high-yield topic"};
         const fingerprint = recordFingerprint("topic", newTopic);
         if (state.customSyllabus.some(x => recordFingerprint("topic", x) === fingerprint)) {
           showToast("Duplicate topic detected. Existing master record was kept.", "warning"); return;
@@ -3301,12 +3255,7 @@
         const exp = document.getElementById("adm-q-exp").value.trim() || "Verified explanation.";
         if (!q || options.some(o => !o)) { showToast("Please fill the question and all 4 options.", "warning"); return; }
 
-        const newQuestion = {
-          id: "QUE-" + Date.now().toString(36).toUpperCase(), subject, topic: "Admin Curated", paper: "Prelims GS",
-          type: "Standard MCQ", level: "LEVEL 4 — ADVANCED", authenticity, year: "Admin Bank",
-          q, hiQ: q, options, answer, whyCorrect: exp, whyWrong: "Other options do not match standard UPSC facts.",
-          concept: subject, trick: "Revise key terms carefully."
-        };
+        const newQuestion={id:createPermanentId("question"),recordVersion:1,createdAt:Date.now(),updatedAt:Date.now(),status:"active",tags:[],subject,topic:"Admin Curated",paper:"Prelims GS",type:"Standard MCQ",level:"LEVEL 4 — ADVANCED",authenticity,year:"Admin Bank",q,hiQ:q,options,answer,whyCorrect:exp,whyWrong:"Other options do not match standard UPSC facts.",concept:subject,trick:"Revise key terms carefully."};
         const qFingerprint = recordFingerprint("question", newQuestion);
         if (state.customQuestions.some(x => recordFingerprint("question", x) === qFingerprint)) {
           showToast("Duplicate question detected. Existing master record was kept.", "warning"); return;
@@ -3335,20 +3284,28 @@
           try {
             const imported = JSON.parse(reader.result);
             if (!imported || typeof imported !== "object") throw new Error("Invalid backup");
-            const backupBefore = JSON.stringify(state);
-            const topics = mergeImportedArray(state.customSyllabus, imported.customSyllabus, "topic");
-            const questions = mergeImportedArray(state.customQuestions, imported.customQuestions, "question");
-            const ca = mergeImportedArray(state.customCA, imported.customCA, "ca");
-            state = {
-              ...state,
-              ...Object.fromEntries(Object.entries(imported).filter(([k]) => !["customSyllabus","customQuestions","customCA","masterRegistry","masterDataMeta","duplicateAuditLog"].includes(k))),
-              customSyllabus: topics.items,
-              customQuestions: questions.items,
-              customCA: ca.items,
-              masterRegistry: { ...(state.masterRegistry||{}), ...(imported.masterRegistry||{}), files: dedupeRegistryFiles([...(state.masterRegistry?.files||[]), ...(imported.masterRegistry?.files||[])]), records: [...(state.masterRegistry?.records||[]), ...(imported.masterRegistry?.records||[])] },
-              masterDataMeta: { ...(state.masterDataMeta||{}), ...(imported.masterDataMeta||{}), archived: [...(state.masterDataMeta?.archived||[]), ...(imported.masterDataMeta?.archived||[])], versions: [...(state.masterDataMeta?.versions||[]), ...(imported.masterDataMeta?.versions||[])] },
-              duplicateAuditLog: [...(state.duplicateAuditLog||[]), ...(imported.duplicateAuditLog||[]), {at:Date.now(),action:"IMPORT_MERGE",added:{topics:topics.added,questions:questions.added,currentAffairs:ca.added},skipped:{topics:topics.skipped,questions:questions.skipped,currentAffairs:ca.skipped}}]
-            };
+            const topics=mergeImportedArray(state.customSyllabus,imported.customSyllabus,"topic");
+            const questions=mergeImportedArray(state.customQuestions,imported.customQuestions,"question");
+            const ca=mergeImportedArray(state.customCA,imported.customCA,"ca");
+            const protectedKeys=["lang","wonderVersion","activeTab","adminMode","currentStage","targetExam","xp","streak","studyHours","completedTopics","bookmarks","personalNotes","dailyTargets","questionHistory","mockHistory","dafProfile","savedStudyPlan"];
+            const mergedPrefs={...state};
+            for(const key of protectedKeys){const incoming=imported[key];if(incoming===undefined||incoming===null)continue;
+              if(key==="completedTopics"||key==="bookmarks")mergedPrefs[key]=[...new Set([...(state[key]||[]),...(Array.isArray(incoming)?incoming:[])])];
+              else if(key==="personalNotes"||key==="questionHistory"||key==="dafProfile")mergedPrefs[key]={...(state[key]||{}),...(typeof incoming==="object"?incoming:{})};
+              else if(key==="dailyTargets"||key==="adminMode")mergedPrefs[key]=state[key];
+              else if(key==="mockHistory")mergedPrefs[key]=[...(state[key]||[]),...(Array.isArray(incoming)?incoming.filter(n=>!(state[key]||[]).some(o=>JSON.stringify(o)===JSON.stringify(n))):[])];
+              else if(key==="savedStudyPlan")mergedPrefs[key]=state[key]||incoming;
+              else if(["xp","streak","studyHours","currentStage"].includes(key))mergedPrefs[key]=Math.max(Number(state[key]||0),Number(incoming||0));
+              else mergedPrefs[key]=incoming;
+            }
+            const archives=[...(state.masterDataMeta?.archived||[]),...(Array.isArray(imported.masterDataMeta?.archived)?imported.masterDataMeta.archived:[])];
+            const archiveMap=new Map(archives.map(x=>[String(x.kind)+":"+String(x.record?.id||recordFingerprint(x.kind,x.record||{})),x]));
+            const registryRecords=[...(state.masterRegistry?.records||[]),...(imported.masterRegistry?.records||[])];
+            const registryMap=new Map(registryRecords.filter(x=>x?.id).map(x=>[String(x.id),x]));
+            state={...mergedPrefs,customSyllabus:topics.items,customQuestions:questions.items,customCA:ca.items,
+              masterRegistry:{...(state.masterRegistry||{}),files:dedupeRegistryFiles([...(state.masterRegistry?.files||[]),...(imported.masterRegistry?.files||[])]),records:[...registryMap.values()]},
+              masterDataMeta:{...(state.masterDataMeta||{}),archived:[...archiveMap.values()],versions:[...(state.masterDataMeta?.versions||[]),...(imported.masterDataMeta?.versions||[])]},
+              duplicateAuditLog:[...(state.duplicateAuditLog||[]),...(imported.duplicateAuditLog||[]),{at:Date.now(),action:"IMPORT_MERGE",added:{topics:topics.added,questions:questions.added,currentAffairs:ca.added},skipped:{topics:topics.skipped,questions:questions.skipped,currentAffairs:ca.skipped}}]};
             normalizeMasterData();
             saveStateToCloud();
             renderAll();
@@ -3360,19 +3317,19 @@
         reader.readAsText(file);
       },
       searchMasterDataUI(query) {
-        const out=document.getElementById("master-search-results"); if(!out)return;
+        const out=document.getElementById("master-search-results");if(!out)return;
         const results=searchMasterData(query).slice(0,100);
         if(!results.length){out.innerHTML='<div class="text-xs text-slate-500 p-3">No matching master records.</div>';return;}
-        out.innerHTML=results.map(x=>`<div class="p-3 rounded-xl border border-slate-200 bg-white flex flex-wrap justify-between gap-2"><div class="min-w-0"><div class="text-[10px] uppercase font-bold text-blue-700">${escapeMasterHTML(x.kind)} • ${escapeMasterHTML(x.subject)} • ${escapeMasterHTML(x.id||"MISSING ID")}</div><div class="font-semibold text-slate-800 break-words">${escapeMasterHTML(x.title)}</div><div class="text-[10px] text-slate-500">${escapeMasterHTML(x.record.paper||x.record.topic||x.record.year||"")}</div></div><div class="flex items-center gap-1"><button onclick="W.archiveMasterRecord('${escapeMasterHTML(x.kind)}','${escapeMasterHTML(x.id||"")}')" class="px-2 py-1 rounded-lg border text-[10px] font-bold">Archive</button></div></div>`).join("");
+        out.innerHTML=results.map(x=>`<div class="p-3 rounded-xl border border-slate-200 bg-white flex flex-wrap justify-between gap-2"><div class="min-w-0"><div class="text-[10px] uppercase font-bold text-blue-700">${escapeMasterHTML(x.kind)} • ${escapeMasterHTML(x.subject)} • ${escapeMasterHTML(x.id||"MISSING ID")}</div><div class="font-semibold text-slate-800 break-words">${escapeMasterHTML(x.title)}</div><div class="text-[10px] text-slate-500">${escapeMasterHTML(x.record.paper||x.record.topic||x.record.year||"Built-in / Master")}</div></div><div>${String(x.id||"").startsWith("TOP-")||String(x.id||"").startsWith("QUE-")||String(x.id||"").startsWith("CA-")?`<button onclick="W.archiveMasterRecord('${escapeMasterHTML(x.kind)}','${escapeMasterHTML(x.id)}')" class="px-2 py-1 rounded-lg border text-[10px] font-bold">Archive</button>`:"<span class='text-[10px] text-slate-400'>Built-in</span>"}</div></div>`).join("");
       },
       archiveMasterRecord(kind,id) {
-        if(!id){showToast("This record has no ID and cannot be safely archived.","warning");return;}
+        if(!id){showToast("Record has no ID; archive cancelled.","warning");return;}
         const key=kind==="topic"?"customSyllabus":kind==="question"?"customQuestions":"customCA";
-        const index=state[key].findIndex(x=>String(x.id)===String(id)); if(index<0)return;
-        const record=state[key].splice(index,1)[0];
-        state.masterDataMeta.archived.push({kind,record,archivedAt:Date.now(),archivedBy:"admin"});
-        state.duplicateAuditLog.push({at:Date.now(),action:"ARCHIVE_RECORD",kind,id});
-        saveStateToCloud();renderAdmin();showToast("Record archived safely. It remains in backup and archive metadata.","success");
+        const index=state[key].findIndex(x=>String(x.id)===String(id));if(index<0){showToast("Only custom records can be archived here.","info");return;}
+        if(!confirm("Archive this master record? A backup copy will be retained and can be restored."))return;
+        const record=state[key][index];state.masterDataMeta.archived=state.masterDataMeta.archived.filter(x=>!(x.kind===kind&&String(x.record?.id)===String(id)));
+        state.masterDataMeta.archived.push({kind,record,archivedAt:Date.now(),archivedBy:"admin"});state[key].splice(index,1);
+        state.duplicateAuditLog.push({at:Date.now(),action:"ARCHIVE_RECORD",kind,id});saveStateToCloud();renderAdmin();showToast("Record archived and retained for restore.","success");
       },
       exportMasterDataBackup() {
         const payload={schemaVersion:2,exportedAt:new Date().toISOString(),state:{customSyllabus:state.customSyllabus,customQuestions:state.customQuestions,customCA:state.customCA,masterRegistry:state.masterRegistry,masterDataMeta:state.masterDataMeta,duplicateAuditLog:state.duplicateAuditLog}};
