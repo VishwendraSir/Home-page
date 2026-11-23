@@ -2975,9 +2975,9 @@
  function activateChild(key){
   const account=accounts.find(a=>norm(a.username)===norm(key))||profiles.find(a=>norm(a.username)===norm(key));if(!account)return;
   const previous=window.WWChildProfile.current();if(window.activeSessionRole==='student'&&window.appState){snaps[norm(previous.username)]=JSON.parse(JSON.stringify(appState));localStorage.setItem(SNAP,JSON.stringify(snaps));}
-  window.WWChildProfile.set(account);window.WWRuntime.setState(snaps[norm(key)]||window.WWRuntime.defaultState());const state=window.WWRuntime.getState();state.classLevel=account.classLevel||2;state.session={loggedInRole:null,remember:false};window.WWRuntime.setActiveRole('student');
-  localStorage.setItem(SNAP,JSON.stringify(snaps));window.WWRuntime.save();chooser.style.display='none';
-  document.getElementById('loginScreen')?.classList.add('hidden');window.WWRuntime.enterApp(false);applyPersonalHub();
+  window.WWChildProfile.set(account);if(!window.WWRuntime){throw new Error('Learning engine is not ready. Reload the page and try again.');}const runtime=window.WWRuntime;runtime.setState(snaps[norm(key)]||runtime.defaultState());const state=runtime.getState();state.classLevel=account.classLevel||2;state.session={loggedInRole:null,remember:false};runtime.setActiveRole('student');
+  localStorage.setItem(SNAP,JSON.stringify(snaps));runtime.save();chooser.style.display='none';
+  document.getElementById('loginScreen')?.classList.add('hidden');runtime.enterApp(false);applyPersonalHub();
   const switchBtn=document.getElementById('wwSwitchChild');if(switchBtn)switchBtn.style.display='block';
  }
  chooser.addEventListener('click',function(ev){const b=ev.target.closest('[data-child]');if(!b)return;ev.preventDefault();ev.stopPropagation();try{activateChild(b.dataset.child);}catch(err){const msg=document.createElement('div');msg.style='margin-top:12px;color:#b91c1c;font-weight:900';msg.textContent='App open error: '+(err&&err.message||err);chooser.querySelector('div').appendChild(msg);console.error(err);}});window.WWSelectChild=activateChild;
