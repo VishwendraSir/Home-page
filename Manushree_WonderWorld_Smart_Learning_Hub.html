@@ -1869,12 +1869,8 @@
     function restore(){try{const s=JSON.parse(sessionStorage.getItem(KEY)||'{}');pendingGameId=s.pendingGameId||pendingGameId;shareOpened=!!s.shareOpened;followOpened=!!s.followOpened;unlocked=!!s.unlocked;}catch(e){}}
     function enableContinue(){continueBtn.disabled=!shareOpened;continueBtn.classList.toggle('opacity-40',!shareOpened);continueBtn.classList.toggle('opacity-100',shareOpened);}
     window.quizShareGateCheck=function(id){
-      restore();
-      if(sharedWithin24h()){unlocked=true;pendingGameId=null;save();return true;}
-      if(unlocked)return true;
-      pendingGameId=id;shareOpened=false;save();enableContinue();
-      status.textContent='🔒 24 घंटे पूरे हो गए। आज का link WhatsApp पर share करें।';
-      gate.classList.remove('hidden');return false;
+      // Topic/game access is never blocked by sharing. Sharing remains optional.
+      gate.classList.add('hidden');pendingGameId=null;unlocked=true;return true;
     };
     document.getElementById('quizShareFollow').onclick=()=>{window.open('https://whatsapp.com/channel/0029Vb4HINJ96H4LDSR4uV0q','_blank','noopener');followOpened=true;save();status.textContent='💚 Channel Follow वैकल्पिक है—आज का Share पूरा करें।';};
     shareBtn.onclick=()=>{const url=location.origin+location.pathname;const text='🌈 Manushree’s WonderWorld — Smart Learning Hub for Kids!\\nLearn • Play • Explore • Grow\\nComplete link: '+url+'\\nGuided by Vishwendra Sir | Science Centre Learning Hub';const wa='https://wa.me/?text='+encodeURIComponent(text);shareOpened=true;setLastShare();save();enableContinue();status.textContent='📲 आज का Share दर्ज हो गया। WhatsApp में भेजें, वापस आकर Continue Practice दबाएँ।';window.location.href=wa;};
