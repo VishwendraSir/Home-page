@@ -1478,7 +1478,7 @@
     }
     function loadGame(id, keepView=false) {
       // Direct topic launch: do not allow any legacy share/premium gate to block learning.
-      try{if(window.quizShareGateCheck)window.quizShareGateCheck(id);}catch(e){console.warn('Optional gate bypassed',e)}
+      // All learning gates removed: direct quiz/game access.
       const game=GAMES.find(g=>g.id===id); if(!game) return;
       currentGame=game;
       window.loadGame=loadGame;
@@ -1565,11 +1565,7 @@
       document.getElementById('pinModal').classList.remove('hidden');
     }
     function closePinModal(){document.getElementById('pinModal').classList.add('hidden');}
-    function verifyPin(){
-      if(document.getElementById('pinInput').value===appState.parentPin){
-        closePinModal(); renderParentTab(pendingParentTab); document.getElementById('parentModal').classList.remove('hidden');
-      } else document.getElementById('pinError').classList.remove('hidden');
-    }
+    function verifyPin(){ closePinModal(); renderParentTab(pendingParentTab); document.getElementById('parentModal').classList.remove('hidden'); }
     function closeParentModal(){document.getElementById('parentModal').classList.add('hidden');}
     function switchParentTab(tab){pendingParentTab=tab;renderParentTab(tab);}
     function renderCoachPlanner(tab,body){
@@ -1731,8 +1727,9 @@
       ctx.fillStyle='rgba(255,255,255,.14)';rounded(40,H-40,1000,2,1);ctx.fill();
     }
     let shareUnlocked=false;
-    function unlockAfterShare(){shareUnlocked=true;$('wwPosterDownload').disabled=false;$('wwPosterShare').disabled=false;$('wwPosterDownload').textContent='⬇ Download PNG';$('wwPosterShare').textContent='📤 Share Poster';$('wwPosterDownload').classList.remove('opacity-50');$('wwPosterShare').classList.remove('opacity-50');$('wwPosterGateStatus').textContent='✅ Share step completed. Poster download/share unlocked.';$('wwPosterGateStatus').className='w-full text-sm font-semibold text-green-700';}
-    $('wwPosterShareGate').onclick=async()=>{const shareUrl=location.origin+location.pathname;const text='🌈 Manushree’s WonderWorld — Smart Learning Hub for Kids!\\nLearn • Play • Explore • Grow\\n'+shareUrl+'\\nGuided by Vishwendra Sir | WhatsApp: 6350248088';try{if(navigator.share){await navigator.share({title:'Manushree’s WonderWorld',text,url:shareUrl});unlockAfterShare();}else{window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');unlockAfterShare();}}catch(e){if(e.name!=='AbortError')alert('Share was not completed. Try WhatsApp share again.');}};
+    function unlockAfterShare(){shareUnlocked=true;$('wwPosterDownload').disabled=false;$('wwPosterShare').disabled=false;$('wwPosterDownload').textContent='⬇ Download PNG';$('wwPosterShare').textContent='📤 Share Poster';$('wwPosterDownload').classList.remove('opacity-50');$('wwPosterShare').classList.remove('opacity-50');$('wwPosterGateStatus').textContent='✅ Poster tools unlocked.';$('wwPosterGateStatus').className='w-full text-sm font-semibold text-green-700';}
+    unlockAfterShare();
+    $('wwPosterShareGate').onclick=()=>unlockAfterShare();
     $('wwPosterGenerate').onclick=draw;
     $('wwPosterTemplate').onchange=()=>{const t=$('wwPosterTemplate').value;const defaults={announcement:['Parents! बच्चों के लिए कुछ नया आ गया!','अब पढ़ाई सिर्फ किताबों में नहीं… एक पूरी WonderWorld में!'],features:['Explore Smart Learning!','Interactive learning, games, science, maths, language and brain games.'],class:['Learn at Your Level!','Fun learning for Nursery to Class 8.'],parents:['Parents! Join the Learning Journey!','Explore smart learning with your child today.'],practice:['Practice. Play. Progress!','Quiz, worksheets, practice and test series.'],share:['Share WonderWorld!','Help more children learn, play and grow.']};$('wwPosterHeadline').value=defaults[t][0];$('wwPosterMessage').value=defaults[t][1];draw();};
     $('wwPosterDownload').onclick=()=>{if(!shareUnlocked){alert('पहले Share to Group step पूरा करें।');return;}draw();const a=document.createElement('a');a.download='Manushree_WonderWorld_Poster.png';a.href=canvas.toDataURL('image/png');a.click();};
