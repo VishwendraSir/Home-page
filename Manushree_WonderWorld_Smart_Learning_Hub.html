@@ -565,6 +565,7 @@
     let loginMode = 'student';
     let pendingParentTab = 'report';
     let activeSessionRole = null;
+    window.WWRuntime = { getState:()=>appState, setState:s=>{appState=s;}, getActiveRole:()=>activeSessionRole, setActiveRole:r=>{activeSessionRole=r;}, defaultState:()=>JSON.parse(JSON.stringify(DEFAULT_STATE)), save:()=>saveState(), enterApp:openParent=>enterApp(openParent), applyTheme:()=>applyTheme(), updateHUD:()=>updateHUD(), renderCategoryTabs:()=>renderCategoryTabs(), renderGamesGrid:()=>renderGamesGrid(), renderVideoZone:()=>renderVideoZone() };
 
     function loadState() {
       try {
@@ -2974,9 +2975,9 @@
  function activateChild(key){
   const account=accounts.find(a=>norm(a.username)===norm(key))||profiles.find(a=>norm(a.username)===norm(key));if(!account)return;
   const previous=window.WWChildProfile.current();if(window.activeSessionRole==='student'&&window.appState){snaps[norm(previous.username)]=JSON.parse(JSON.stringify(appState));localStorage.setItem(SNAP,JSON.stringify(snaps));}
-  window.WWChildProfile.set(account);appState=snaps[norm(key)]||JSON.parse(JSON.stringify(DEFAULT_STATE));appState.classLevel=account.classLevel||2;appState.session={loggedInRole:null,remember:false};window.activeSessionRole='student';
-  localStorage.setItem(SNAP,JSON.stringify(snaps));saveState();chooser.style.display='none';
-  document.getElementById('loginScreen')?.classList.add('hidden');enterApp(false);applyPersonalHub();
+  window.WWChildProfile.set(account);window.WWRuntime.setState(snaps[norm(key)]||window.WWRuntime.defaultState());const state=window.WWRuntime.getState();state.classLevel=account.classLevel||2;state.session={loggedInRole:null,remember:false};window.WWRuntime.setActiveRole('student');
+  localStorage.setItem(SNAP,JSON.stringify(snaps));window.WWRuntime.save();chooser.style.display='none';
+  document.getElementById('loginScreen')?.classList.add('hidden');window.WWRuntime.enterApp(false);applyPersonalHub();
   const switchBtn=document.getElementById('wwSwitchChild');if(switchBtn)switchBtn.style.display='block';
  }
  chooser.addEventListener('click',function(ev){const b=ev.target.closest('[data-child]');if(!b)return;ev.preventDefault();ev.stopPropagation();try{activateChild(b.dataset.child);}catch(err){const msg=document.createElement('div');msg.style='margin-top:12px;color:#b91c1c;font-weight:900';msg.textContent='App open error: '+(err&&err.message||err);chooser.querySelector('div').appendChild(msg);console.error(err);}});window.WWSelectChild=activateChild;
