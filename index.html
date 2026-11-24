@@ -1774,13 +1774,14 @@
         renderActiveView();
         return;
       }
+      const searchTerms = q.split(/\s+/).filter(Boolean);
       const searchableFields = ["title", "titleHi", "category", "board", "classLevel", "subject", "topic"];
       const matches = getPublishedCourses().filter(course => {
         if (!course || typeof course !== "object") return false;
         const searchableText = searchableFields
           .map(field => normalizeSearchText(course[field]))
           .join(" ");
-        return searchableText.includes(q);
+        return searchTerms.every(term => searchableText.includes(term));
       });
 
       const viewport = document.getElementById("appViewport");
