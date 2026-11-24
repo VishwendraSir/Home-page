@@ -1807,10 +1807,14 @@
           const searchableText = Object.values(fields).join(" ") + " " + learningContent;
           if (!searchTerms.every(term => searchableText.includes(term))) return null;
           const score = searchTerms.reduce((total, term) => {
-            if (fields.title === term || fields.titleHi === term) return total + 12;
-            if (fields.title.startsWith(term) || fields.titleHi.startsWith(term)) return total + 8;
-            if (fields.title.includes(term) || fields.titleHi.includes(term)) return total + 5;
-            if (fields.subject.includes(term) || fields.topic.includes(term)) return total + 3;
+            if (fields.title === term || fields.titleHi === term) return total + 20;
+            if (fields.title.startsWith(term) || fields.titleHi.startsWith(term)) return total + 14;
+            if (fields.title.includes(term) || fields.titleHi.includes(term)) return total + 10;
+            if (fields.subject.includes(term)) return total + 7;
+            if (fields.chapter.includes(term) || fields.topic.includes(term)) return total + 6;
+            if (fields.classLevel.includes(term) || fields.board.includes(term)) return total + 4;
+            if (fields.category.includes(term) || fields.syllabusRef.includes(term)) return total + 3;
+            if (fields.conceptEn.includes(term) || fields.conceptHi.includes(term) || fields.intro.includes(term)) return total + 2;
             return total + 1;
           }, 0);
           return { course, score, index };
