@@ -57,6 +57,8 @@
 </head>
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased transition-colors duration-200 overflow-x-hidden">
 
+  <a href="#appViewport" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-3 focus:rounded-xl focus:bg-white focus:text-[#4C1D95] focus:shadow-xl focus:font-bold">Skip to main content</a>
+
   <!-- TOP ANNOUNCEMENT & PWA OFFLINE STATUS BAR -->
   <div class="bg-[#4C1D95] text-white text-xs sm:text-sm py-2 px-3 sm:px-4 border-b border-purple-700">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
@@ -194,7 +196,7 @@
   <div id="toastContainer" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 max-w-xs sm:max-w-sm"></div>
 
   <!-- MAIN CONTENT VIEWPORT -->
-  <main id="appViewport" class="max-w-7xl mx-auto px-3 sm:px-4 py-6 space-y-10 min-h-[75vh]">
+  <main id="appViewport" tabindex="-1" class="max-w-7xl mx-auto px-3 sm:px-4 py-6 space-y-10 min-h-[75vh]">
     <!-- Rendered immediately via JS -->
   </main>
 
@@ -1695,13 +1697,17 @@
       updateNavHighlight();
       renderActiveView();
       setMobileMenuOpen(false);
+      const mainContent = document.getElementById("appViewport");
+      if (mainContent) mainContent.setAttribute("aria-label", "Main content: " + view);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function updateNavHighlight() {
       document.querySelectorAll(".nav-pill").forEach(btn => {
         const nav = btn.getAttribute("data-nav");
-        if (nav === appState.activeView) {
+        const isCurrent = nav === appState.activeView;
+        btn.setAttribute("aria-current", isCurrent ? "page" : "false");
+        if (isCurrent) {
           btn.classList.add("bg-[#4C1D95]", "text-white");
           btn.classList.remove("bg-amber-50", "bg-purple-50", "bg-blue-50");
         } else {
