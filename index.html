@@ -1325,10 +1325,17 @@
       const drawer = document.getElementById("mobileMenuDrawer");
       const toggle = document.getElementById("mobileMenuToggle");
       if (!drawer) return;
+      const focusWasInside = drawer.contains(document.activeElement);
       drawer.classList.toggle("hidden", !open);
       if (toggle) {
         toggle.setAttribute("aria-expanded", String(open));
         toggle.setAttribute("aria-label", open ? "Close Menu" : "Open Menu");
+      }
+      if (open) {
+        const firstAction = drawer.querySelector("button, input, a[href]");
+        if (firstAction) firstAction.focus();
+      } else if (focusWasInside && toggle) {
+        toggle.focus();
       }
     }
 
@@ -1340,6 +1347,15 @@
 
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") setMobileMenuOpen(false);
+    });
+
+    document.addEventListener("pointerdown", event => {
+      const drawer = document.getElementById("mobileMenuDrawer");
+      const toggle = document.getElementById("mobileMenuToggle");
+      if (!drawer || drawer.classList.contains("hidden")) return;
+      if (!drawer.contains(event.target) && !(toggle && toggle.contains(event.target))) {
+        setMobileMenuOpen(false);
+      }
     });
 
     function updateBackToTopVisibility() {
@@ -1678,6 +1694,7 @@
       saveState();
       updateNavHighlight();
       renderActiveView();
+      setMobileMenuOpen(false);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
