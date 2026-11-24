@@ -166,25 +166,25 @@
         <span class="absolute left-3 top-2.5 text-slate-400">🔍</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs sm:text-sm font-semibold">
-        <button type="button" onclick="navigateTo('home')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🏠 Home</button>
-        <button type="button" onclick="navigateTo('school')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🏫 School (N–12)</button>
-        <button type="button" onclick="navigateTo('university')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🎓 University</button>
-        <button type="button" onclick="navigateTo('govt')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🏛️ Govt Exams</button>
-        <button type="button" onclick="navigateTo('entrance')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🎯 Entrance</button>
-        <button type="button" onclick="navigateTo('jobs')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">💼 Private Jobs</button>
-        <button type="button" onclick="navigateTo('skills')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🤖 Skill & AI</button>
-        <button type="button" onclick="navigateTo('virtuallab')" class="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-900/40 text-indigo-900 dark:text-indigo-200 text-left">🔬 Virtual Lab & ELT</button>
-        <button type="button" onclick="navigateTo('revisionhub')" class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 text-emerald-900 dark:text-emerald-200 text-left">🗂️ Flashcards & Vault</button>
-        <button type="button" onclick="navigateTo('scholarships')" class="p-3 rounded-xl bg-amber-50 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 text-left">🏅 Scholarships & Exam Hub</button>
-        <button type="button" onclick="navigateTo('aitutor')" class="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-blue-900 dark:text-blue-200 text-left">🧠 AI Adaptive Tutor</button>
-        <button type="button" onclick="navigateTo('dashboard')" class="p-3 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 text-left">📊 Dashboard & Mentor</button>
-        <button type="button" onclick="navigateTo('admin')" class="p-3 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-900 dark:text-purple-200 text-left">⚙️ Admin & AI</button>
+        <button type="button" data-mobile-nav="home" onclick="navigateTo('home')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🏠 Home</button>
+        <button type="button" data-mobile-nav="school" onclick="navigateTo('school')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🏫 School (N–12)</button>
+        <button type="button" data-mobile-nav="university" onclick="navigateTo('university')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🎓 University</button>
+        <button type="button" data-mobile-nav="govt" onclick="navigateTo('govt')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🏛️ Govt Exams</button>
+        <button type="button" data-mobile-nav="entrance" onclick="navigateTo('entrance')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🎯 Entrance</button>
+        <button type="button" data-mobile-nav="jobs" onclick="navigateTo('jobs')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">💼 Private Jobs</button>
+        <button type="button" data-mobile-nav="skills" onclick="navigateTo('skills')" class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-left">🤖 Skill & AI</button>
+        <button type="button" data-mobile-nav="virtuallab" onclick="navigateTo('virtuallab')" class="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-900/40 text-indigo-900 dark:text-indigo-200 text-left">🔬 Virtual Lab & ELT</button>
+        <button type="button" data-mobile-nav="revisionhub" onclick="navigateTo('revisionhub')" class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 text-emerald-900 dark:text-emerald-200 text-left">🗂️ Flashcards & Vault</button>
+        <button type="button" data-mobile-nav="scholarships" onclick="navigateTo('scholarships')" class="p-3 rounded-xl bg-amber-50 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 text-left">🏅 Scholarships & Exam Hub</button>
+        <button type="button" data-mobile-nav="aitutor" onclick="navigateTo('aitutor')" class="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-blue-900 dark:text-blue-200 text-left">🧠 AI Adaptive Tutor</button>
+        <button type="button" data-mobile-nav="dashboard" onclick="navigateTo('dashboard')" class="p-3 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 text-left">📊 Dashboard & Mentor</button>
+        <button type="button" data-mobile-nav="admin" onclick="navigateTo('admin')" class="p-3 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-900 dark:text-purple-200 text-left">⚙️ Admin & AI</button>
       </div>
     </div>
   </header>
 
   <!-- FLOATING QUICK-DOUBT AI TUTOR TRIGGER -->
-  <button type="button" onclick="navigateTo('aitutor')" title="Ask Wonder AI Guru (Bilingual Doubt Solver)" class="fixed bottom-4 left-4 z-40 px-4 py-2.5 rounded-2xl hero-gradient text-white shadow-xl border border-amber-300/40 flex items-center gap-2 text-xs sm:text-sm font-extrabold hover:scale-105 transition">
+  <button type="button" data-mobile-nav="aitutor" onclick="navigateTo('aitutor')" title="Ask Wonder AI Guru (Bilingual Doubt Solver)" class="fixed bottom-4 left-4 z-40 px-4 py-2.5 rounded-2xl hero-gradient text-white shadow-xl border border-amber-300/40 flex items-center gap-2 text-xs sm:text-sm font-extrabold hover:scale-105 transition">
     <span class="text-base">🧠</span>
     <span class="hidden sm:inline">Wonder AI Guru</span>
     <span class="sm:hidden">AI Guru</span>
@@ -1707,6 +1707,10 @@
     }
 
     function updateNavHighlight() {
+      document.querySelectorAll("#mobileMenuDrawer [data-mobile-nav]").forEach(btn => {
+        const isCurrent = btn.getAttribute("data-mobile-nav") === appState.activeView;
+        btn.setAttribute("aria-current", isCurrent ? "page" : "false");
+      });
       document.querySelectorAll(".nav-pill").forEach(btn => {
         const nav = btn.getAttribute("data-nav");
         const isCurrent = nav === appState.activeView;
