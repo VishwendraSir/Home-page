@@ -1552,9 +1552,10 @@
             <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
               <div class="flex items-center justify-between">
                 <h4 class="font-extrabold text-sm text-emerald-700 dark:text-emerald-400">📝 Quick Revision Notes</h4>
-                <button type="button" onclick="downloadCourseNotes('${c.id}')" class="px-3 py-1 rounded-lg bg-emerald-100 text-emerald-900 text-[11px] font-extrabold hover:bg-emerald-200">
-                  ⬇ Download .TXT
-                </button>
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" onclick="downloadCourseNotesPDF('${c.id}')" class="px-3 py-1 rounded-lg bg-emerald-100 text-emerald-900 text-[11px] font-extrabold hover:bg-emerald-200">📄 Download PDF</button>
+                  <button type="button" onclick="shareCourseNotes('${c.id}')" class="px-3 py-1 rounded-lg bg-green-100 text-green-900 text-[11px] font-extrabold hover:bg-green-200">↗ WhatsApp Share</button>
+                </div>
               </div>
               <pre class="whitespace-pre-wrap font-sans text-xs text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800 p-3 rounded-xl leading-relaxed">${escapeHTML(c.revisionNotes)}</pre>
             </div>
@@ -1628,6 +1629,44 @@
       const content = `WONDER WORLD – BHARAT LEARNING NETWORK\nGuided by Vishwendra Sir\n----------------------------------------\nCourse: ${c.title}\nBoard/Authority: ${c.board} | Level: ${c.classLevel}\nChapter: ${c.chapter}\nTopic: ${c.topic}\n\nENGLISH EXPLANATION:\n${c.conceptEn}\n\nHINDI EXPLANATION:\n${c.conceptHi}\n\nREVISION NOTES:\n${c.revisionNotes}\n`;
       triggerFileDownload(`${c.id}_Revision_Notes.txt`, content, "text/plain");
       showToast("Revision notes downloaded!", "success");
+    }
+
+    function downloadCourseNotesPDF(courseId) {
+      const c = appState.courses.find(item => item.id === courseId);
+      if (!c) return showToast("Course notes could not be found.", "error");
+      const popup = window.open("", "_blank");
+      if (!popup) return showToast("PDF window blocked. Allow pop-ups and try again.", "warning");
+      const esc = value => escapeHTML(value == null ? "" : String(value)).replace(/\n/g, "<br>");
+      const list = (items, render) => Array.isArray(items) && items.length
+        ? `<ol>${items.map((item, i) => `<li>${render(item, i)}</li>`).join("")}</ol>`
+        : "<p>Not provided in this course module.</p>";
+      const objectives = list(c.objectives, item => esc(item));
+      const examples = list(c.examples, item => esc(item));
+      const shortQuestions = list(c.shortQuestions, item => `<strong>${esc(item.q)}</strong><br><span class="answer">Answer: ${esc(item.a)}</span>`);
+      const mcqs = list(c.mcqs, (item, i) => {
+        const options = Array.isArray(item.options) ? `<ul>${item.options.map((option, n) => `<li>${String.fromCharCode(65+n)}. ${esc(option)}${n === Number(item.answer) ? ' <strong class="correct">(Correct)</strong>' : ''}</li>`).join("")}</ul>` : "";
+        return `<strong>Q${i+1}. ${esc(item.q)}</strong>${options}<p class="answer">Explanation: ${esc(item.explanation || "No explanation provided.")}</p>`;
+      });
+      const printable = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHTML(c.title)} – Revision Notes</title>
+      <style>*{box-sizing:border-box}body{font-family:Arial,"Noto Sans Devanagari",sans-serif;color:#172554;line-height:1.6;margin:28px;font-size:12px}header{border-bottom:3px solid #4c1d95;padding-bottom:12px;margin-bottom:18px}h1{color:#4c1d95;font-size:20px}h2{color:#1d4ed8;font-size:15px;margin:20px 0 8px;border-bottom:1px solid #dbeafe;padding-bottom:4px}.meta{color:#475569;font-size:11px}.panel{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px;white-space:normal}ol,ul{padding-left:22px}li{margin:5px 0}.answer{color:#047857}.correct{color:#047857}@page{size:A4;margin:15mm}@media print{body{margin:0}}</style></head><body>
+      <header><h1>WONDER WORLD – BHARAT LEARNING NETWORK</h1><strong>Guided by Vishwendra Sir</strong></header>
+      <h2>${escapeHTML(c.title || "Course Notes")}</h2><p class="meta">${escapeHTML([c.board,c.state,c.classLevel,c.subject,c.medium,c.chapter,c.topic].filter(Boolean).join(" | "))}</p>
+      <h2>Learning Objectives</h2>${objectives}<h2>Concept – English</h2><div class="panel">${esc(c.conceptEn)}</div>
+      <h2>अवधारणा – हिंदी</h2><div class="panel">${esc(c.conceptHi)}</div><h2>Worked Examples</h2>${examples}
+      <h2>Quick Revision Notes</h2><div class="panel">${esc(c.revisionNotes)}</div><h2>Short Questions & Answers</h2>${shortQuestions}<h2>Practice MCQs</h2>${mcqs}
+      <p style="margin-top:25px;color:#64748b;font-size:10px">Use the browser print dialog and choose Save as PDF.</p></body></html>`;
+      popup.document.open(); popup.document.write(printable); popup.document.close(); popup.focus();
+      popup.setTimeout(() => { try { popup.print(); } catch(e) { popup.alert("Use browser menu to Print or Save as PDF."); } }, 700);
+      showToast("PDF ready. Select Save as PDF in print options.", "success");
+    }
+
+    function shareCourseNotes(courseId) {
+      const c = appState.courses.find(item => item.id === courseId);
+      if (!c) return;
+      const pageUrl = `${window.location.href.split("#")[0]}#course-${encodeURIComponent(c.id)}`;
+      const details = [c.board, c.classLevel, c.subject, c.chapter].filter(Boolean).join(" | ");
+      const message = `WONDER WORLD – BHARAT LEARNING NETWORK\n${c.title}\n${details}\nStudy and revise on Wonder World:\n${pageUrl}`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     }
 
     function submitCoursePracticeQuiz(courseId) {
@@ -3963,6 +4002,18 @@ ${coursesToBundle.map(c => `
             </div>
           </div>
 
+          <!-- UPGRADE 3: PERSONAL PERFORMANCE ANALYTICS & REPORT EXPORT -->
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-3"><div><h2 class="text-lg font-extrabold text-[#4C1D95] dark:text-purple-300">📊 Personal Performance Analytics</h2><p class="text-xs text-slate-500">Based on this student's saved course and quiz activity on this device.</p></div>
+              <div class="flex flex-wrap gap-2"><button type="button" onclick="printStudentProgressReport()" class="px-3 py-2 rounded-xl hero-gradient text-white text-xs font-extrabold">📄 Print / Save PDF</button><button type="button" onclick="exportStudentProgressCSV()" class="px-3 py-2 rounded-xl bg-emerald-100 text-emerald-900 text-xs font-extrabold">⬇ Export CSV</button></div></div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div class="rounded-2xl bg-blue-50 dark:bg-blue-950/30 p-4"><div class="text-xs text-slate-500">Tests Attempted</div><div class="text-2xl font-extrabold text-blue-700 dark:text-blue-300">${profile.quizHistory.length}</div></div>
+              <div class="rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 p-4"><div class="text-xs text-slate-500">Best Accuracy</div><div class="text-2xl font-extrabold text-emerald-700 dark:text-emerald-300">${profile.quizHistory.length ? Math.max(...profile.quizHistory.map(q => Number(q.accuracy)||0)) : 0}%</div></div>
+              <div class="rounded-2xl bg-purple-50 dark:bg-purple-950/30 p-4"><div class="text-xs text-slate-500">Bookmarked</div><div class="text-2xl font-extrabold text-purple-700 dark:text-purple-300">${bookmarkedCourses.length}</div></div>
+              <div class="rounded-2xl bg-amber-50 dark:bg-amber-950/30 p-4"><div class="text-xs text-slate-500">Credentials</div><div class="text-2xl font-extrabold text-amber-700 dark:text-amber-300">${microCredentials.length}</div></div></div>
+            <div><div class="flex justify-between text-xs font-bold"><span>Overall Quiz Accuracy</span><span>${avgAccuracy}%</span></div><div class="h-3 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden"><div class="h-full rounded-full bg-gradient-to-r from-blue-600 to-emerald-500" style="width:${Math.max(0,Math.min(100,avgAccuracy))}%"></div></div></div>
+          </div>
+
           <!-- PHASE 12: GUARDIAN / MENTOR PROGRESS SNAPSHOT & STUDY TIMETABLE GENERATOR -->
           ${renderGuardianAndTimetableSection(profile, avgAccuracy, microCredentials.length)}
 
@@ -4025,6 +4076,27 @@ ${coursesToBundle.map(c => `
           </div>
         </section>
       `;
+    }
+
+    function exportStudentProgressCSV() {
+      const profile = getActiveProfile();
+      const rows = [["Student","Target","Course / Test","Score","Accuracy (%)","Date"], ...profile.quizHistory.map(q => [profile.name,profile.target,q.courseTitle,q.score,q.accuracy,q.date])];
+      const csv = rows.map(row => row.map(value => '"' + String(value ?? "").replace(/"/g,'""') + '"').join(",")).join("\r\n");
+      triggerFileDownload(`WonderWorld_${(profile.name || "Student").replace(/[^a-z0-9_-]/gi,"_")}_Progress.csv`, "\uFEFF" + csv, "text/csv;charset=utf-8");
+      showToast("Student progress CSV exported.", "success");
+    }
+
+    function printStudentProgressReport() {
+      const profile = getActiveProfile(), history = profile.quizHistory || [];
+      const average = history.length ? Math.round(history.reduce((sum,q) => sum + (Number(q.accuracy)||0),0) / history.length) : 0;
+      const esc = value => escapeHTML(value == null ? "" : String(value));
+      const rows = history.length ? history.map(q => `<tr><td>${esc(q.courseTitle)}</td><td>${esc(q.score)}</td><td>${Number(q.accuracy)||0}%</td><td>${esc(q.date)}</td></tr>`).join("") : '<tr><td colspan="4">No tests attempted yet.</td></tr>';
+      const win = window.open("", "_blank");
+      if (!win) return showToast("Allow pop-ups to create the progress report.", "warning");
+      win.document.open();
+      win.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Wonder World Progress Report</title><style>body{font-family:Arial,sans-serif;margin:28px;color:#172554}h1{color:#4c1d95}table{border-collapse:collapse;width:100%;margin-top:20px}th,td{border:1px solid #cbd5e1;padding:9px;text-align:left;font-size:12px}th{background:#ede9fe}.stats{padding:12px;background:#f1f5f9;border-radius:8px}@page{size:A4;margin:15mm}</style></head><body><h1>WONDER WORLD – BHARAT LEARNING NETWORK</h1><strong>Student Progress Report</strong><p><b>Name:</b> ${esc(profile.name)} &nbsp; <b>Target:</b> ${esc(profile.target)}</p><div class="stats">Enrolled courses: ${profile.enrolled.length} | Completed lessons: ${profile.completedLessons.length} | Tests: ${history.length} | Average accuracy: ${average}%</div><table><thead><tr><th>Course / Test</th><th>Score</th><th>Accuracy</th><th>Date</th></tr></thead><tbody>${rows}</tbody></table><p style="margin-top:28px;color:#64748b;font-size:10px">Generated from locally saved activity on this device. Guided by Vishwendra Sir.</p></body></html>`);
+      win.document.close(); win.focus(); win.setTimeout(() => win.print(), 700);
+      showToast("Progress report ready. Choose Save as PDF.", "success");
     }
 
     function switchStudentProfile(profileId) {
