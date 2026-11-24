@@ -70,7 +70,7 @@
         <span id="pwaStatusBadge" class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200 text-[11px] font-bold border border-emerald-400/30">
           ● Checking connection…
         </span>
-        <span class="text-[#FBBF24] font-semibold">v12.0 Production</span>
+        <span class="text-[#FBBF24] font-semibold">v18.0 Production</span>
       </div>
     </div>
   </div>
@@ -144,6 +144,9 @@
         <button type="button" onclick="navigateTo('virtuallab')" data-nav="virtuallab" class="nav-pill px-2.5 py-1.5 rounded-xl transition">🔬 <span data-i18n="navLab">Virtual Lab & English</span></button>
         <button type="button" onclick="navigateTo('revisionhub')" data-nav="revisionhub" class="nav-pill px-2.5 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 transition">🗂️ <span data-i18n="navRevision">Flashcards & Vault</span></button>
         <button type="button" onclick="navigateTo('scholarships')" data-nav="scholarships" class="nav-pill px-2.5 py-1.5 rounded-xl transition">🏅 <span data-i18n="navScholar">Scholarships & Calendar</span></button>
+        <button type="button" onclick="navigateTo('syllabustracker')" data-nav="syllabustracker" class="nav-pill px-2.5 py-1.5 rounded-xl transition">📚 <span data-i18n="navSyllabus">Syllabus & PYQ</span></button>
+        <button type="button" onclick="navigateTo('revisionplanner')" data-nav="revisionplanner" class="nav-pill px-2.5 py-1.5 rounded-xl transition">🗓️ <span data-i18n="navPlanner">Revision Planner</span></button>
+        <button type="button" onclick="navigateTo('releasehub')" data-nav="releasehub" class="nav-pill px-2.5 py-1.5 rounded-xl transition">🚀 <span data-i18n="navRelease">GitHub & Release</span></button>
         <button type="button" onclick="navigateTo('aitutor')" data-nav="aitutor" class="nav-pill px-2.5 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-900/30 text-[#1D4ED8] dark:text-blue-300 transition">🧠 <span data-i18n="navTutor">AI Tutor</span></button>
         <button type="button" onclick="navigateTo('dashboard')" data-nav="dashboard" class="nav-pill px-2.5 py-1.5 rounded-xl bg-amber-50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 transition">📊 <span data-i18n="navDash">Student Dashboard</span></button>
         <button type="button" onclick="navigateTo('admin')" data-nav="admin" class="nav-pill px-2.5 py-1.5 rounded-xl bg-purple-50 dark:bg-purple-900/30 text-[#4C1D95] dark:text-purple-300 transition">⚙️ <span data-i18n="navAdmin">Admin & AI</span></button>
@@ -174,6 +177,9 @@
         <button type="button" data-mobile-nav="virtuallab" onclick="navigateTo('virtuallab')" class="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-900/40 text-indigo-900 dark:text-indigo-200 text-left">🔬 Virtual Lab & ELT</button>
         <button type="button" data-mobile-nav="revisionhub" onclick="navigateTo('revisionhub')" class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 text-emerald-900 dark:text-emerald-200 text-left">🗂️ Flashcards & Vault</button>
         <button type="button" data-mobile-nav="scholarships" onclick="navigateTo('scholarships')" class="p-3 rounded-xl bg-amber-50 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 text-left">🏅 Scholarships & Exam Hub</button>
+        <button type="button" data-mobile-nav="syllabustracker" onclick="navigateTo('syllabustracker')" class="p-3 rounded-xl bg-teal-50 dark:bg-teal-900/40 text-teal-900 dark:text-teal-200 text-left">📚 Syllabus & PYQ Tracker</button>
+        <button type="button" data-mobile-nav="revisionplanner" onclick="navigateTo('revisionplanner')" class="p-3 rounded-xl bg-cyan-50 dark:bg-cyan-900/40 text-cyan-900 dark:text-cyan-200 text-left">🗓️ Revision Planner</button>
+        <button type="button" data-mobile-nav="releasehub" onclick="navigateTo('releasehub')" class="p-3 rounded-xl bg-fuchsia-50 dark:bg-fuchsia-900/40 text-fuchsia-900 dark:text-fuchsia-200 text-left">🚀 GitHub & Release</button>
         <button type="button" data-mobile-nav="questions" onclick="navigateTo('questions')" class="p-3 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 text-left">❓ Questions & Practice</button>
         <button type="button" data-mobile-nav="aitutor" onclick="navigateTo('aitutor')" class="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-blue-900 dark:text-blue-200 text-left">🧠 AI Adaptive Tutor</button>
         <button type="button" data-mobile-nav="dashboard" onclick="navigateTo('dashboard')" class="p-3 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 text-left">📊 Dashboard & Mentor</button>
@@ -326,6 +332,9 @@
         navLab: "Virtual Lab & English",
         navRevision: "Flashcards & Vault",
         navScholar: "Scholarships & Calendar",
+        navSyllabus: "Syllabus & PYQ",
+        navPlanner: "Revision Planner",
+        navRelease: "GitHub & Release",
         navTutor: "AI Tutor",
         navDash: "Student Dashboard",
         navAdmin: "Admin & AI",
@@ -356,6 +365,9 @@
         navLab: "वर्चुअल लैब व इंग्लिश",
         navRevision: "फ्लैशकार्ड और सूत्र वॉल्ट",
         navScholar: "छात्रवृत्ति और परीक्षा कैलेंडर",
+        navSyllabus: "सिलेबस व PYQ ट्रैकर",
+        navPlanner: "रिवीजन प्लानर",
+        navRelease: "GitHub व रिलीज़",
         navTutor: "AI गुरु (डाउट सॉल्वर)",
         navDash: "छात्र डैशबोर्ड",
         navAdmin: "एडमिन और AI",
@@ -1233,12 +1245,16 @@
             masteredFlashcards: [],
             reviewFlashcards: [],
             customFlashcards: [],
-            savedTimetable: null
+            savedTimetable: null,
+            syllabusStatusMap: {},
+            revisionPlan: null,
+            completedRevisionTaskIds: []
           }
         },
         auditLogs: [
           { time: "2026-11-24 09:00", action: "Pilot Catalog Initialized (10 Verified Courses across 6 Pillars)", user: "System" },
-          { time: "2026-11-24 13:45", action: "Platform v12.0 Production Activated (Flashcards SRS, Formula Vault, Scholarship Hub & Guardian Planner)", user: "Vishwa Tech Admin" }
+          { time: "2026-11-24 13:45", action: "Platform v12.0 Production Activated (Flashcards SRS, Formula Vault, Scholarship Hub & Guardian Planner)", user: "Vishwa Tech Admin" },
+          { time: "2026-11-24", action: "Platform v18.0 Modules Integrated (Syllabus & PYQ Tracker, Smart Revision Planner & GitHub Pages Release Packager)", user: "Vishwa Tech Admin" }
         ]
       };
     }
@@ -1275,7 +1291,11 @@
       if (!appState.profiles[appState.activeProfileId]) {
         appState.activeProfileId = Object.keys(appState.profiles)[0] || "guest";
       }
-      return appState.profiles[appState.activeProfileId];
+      const profile = appState.profiles[appState.activeProfileId];
+      if (!profile.syllabusStatusMap) profile.syllabusStatusMap = {};
+      if (profile.revisionPlan === undefined) profile.revisionPlan = null;
+      if (!Array.isArray(profile.completedRevisionTaskIds)) profile.completedRevisionTaskIds = [];
+      return profile;
     }
 
     function getPublishedCourses() {
@@ -2000,6 +2020,9 @@
         else if (view === "virtuallab") viewport.innerHTML = renderVirtualLabAndELTView();
         else if (view === "revisionhub") viewport.innerHTML = renderFlashcardsAndFormulaVaultView();
         else if (view === "scholarships") viewport.innerHTML = renderScholarshipAndExamHubView();
+        else if (view === "syllabustracker") viewport.innerHTML = renderSyllabusAndPYQTrackerView();
+        else if (view === "revisionplanner") viewport.innerHTML = renderSmartRevisionPlannerView();
+        else if (view === "releasehub") viewport.innerHTML = renderGitHubReleasePackagerView();
         else if (view === "aitutor") viewport.innerHTML = renderAIAdaptiveTutorView();
         else if (view === "dashboard") viewport.innerHTML = renderStudentDashboardView();
         else if (view === "admin") viewport.innerHTML = renderAdminPanelView();
@@ -5178,6 +5201,442 @@ ${coursesToBundle.map(c => `
     function escapeAttr(str) {
       if (str === null || str === undefined) return "";
       return String(str).replace(/`/g, "'").replace(/"/g, "&quot;").replace(/\n/g, " ");
+    }
+
+    /*************************************************************************
+     * 16B. PHASE 17 & 18 MODULES: SYLLABUS & PYQ TRACKER, SMART REVISION
+     *      PLANNER & GITHUB PAGES RELEASE PACKAGER (v18.0)
+     *************************************************************************/
+    const SYLLABUS_PYQ_ITEMS = [
+      {
+        id: "SYL-CBSE10-SCI-01",
+        track: "CBSE Class 10",
+        subject: "Science",
+        chapterEn: "Ch 10: Light – Reflection & Refraction",
+        chapterHi: "अध्याय 10: प्रकाश – परावर्तन तथा अपवर्तन",
+        pyqFocusEn: "Mirror/Lens formula numericals, refractive index & ray diagrams",
+        pyqFocusHi: "दर्पण/लेंस सूत्र के आंकिक प्रश्न, अपवर्तनांक और किरण आरेख",
+        linkedCourseId: "WW-SCH-CBSE-10-SCI-01",
+        cbtId: "CBT-NEET-JEE-01"
+      },
+      {
+        id: "SYL-CBSE10-SCI-02",
+        track: "CBSE Class 10",
+        subject: "Science",
+        chapterEn: "Ch 11: Electricity & Ohm's Law",
+        chapterHi: "अध्याय 11: विद्युत तथा ओम का नियम",
+        pyqFocusEn: "Series-parallel equivalent resistance, heating effect & V-I graph",
+        pyqFocusHi: "श्रेणी-समांतर तुल्य प्रतिरोध, तापीय प्रभाव और V-I ग्राफ",
+        linkedCourseId: "WW-SCH-CBSE-10-SCI-01",
+        cbtId: "CBT-NEET-JEE-01"
+      },
+      {
+        id: "SYL-UP10-MATH-01",
+        track: "UP Board Class 10",
+        subject: "Mathematics",
+        chapterEn: "Ch 4: Quadratic Equations",
+        chapterHi: "अध्याय 4: द्विघात समीकरण",
+        pyqFocusEn: "Discriminant D = b² - 4ac, nature of roots & word problems",
+        pyqFocusHi: "विविक्तकर D = b² - 4ac, मूलों की प्रकृति और इबारती प्रश्न",
+        linkedCourseId: "WW-SCH-UP-10-MATH-01",
+        cbtId: "CBT-SSC-CGL-01"
+      },
+      {
+        id: "SYL-UPSC-POL-01",
+        track: "UPSC / State PSC",
+        subject: "Indian Polity",
+        chapterEn: "Part III: Fundamental Rights & Art. 32 Writs",
+        chapterHi: "भाग III: मौलिक अधिकार व अनुच्छेद 32 रिट",
+        pyqFocusEn: "Art. 14–32 exceptions, SC vs HC writs & amendment limits",
+        pyqFocusHi: "अनुच्छेद 14–32 अपवाद, SC बनाम HC रिट और संशोधन सीमाएं",
+        linkedCourseId: "WW-GOV-UPSC-POL-01",
+        cbtId: "CBT-UPSC-GS-01"
+      },
+      {
+        id: "SYL-SSC-QNT-01",
+        track: "SSC CGL / RRB",
+        subject: "Quantitative Aptitude",
+        chapterEn: "Percentage, Ratio-Proportion & Successive Change",
+        chapterHi: "प्रतिशत, अनुपात-समानुपात व क्रमिक परिवर्तन",
+        pyqFocusEn: "Fraction-to-% speed conversions, election & price-consumption",
+        pyqFocusHi: "भिन्न से % शॉर्टकट, चुनाव व मूल्य-खपत आधारित प्रश्न",
+        linkedCourseId: "WW-GOV-SSC-QUANT-01",
+        cbtId: "CBT-SSC-CGL-01"
+      },
+      {
+        id: "SYL-NEET-BIO-01",
+        track: "NEET UG",
+        subject: "Biology",
+        chapterEn: "Cell: The Unit of Life & Organelles",
+        chapterHi: "कोशिका: जीवन की इकाई व कोशिकांग",
+        pyqFocusEn: "70S vs 80S ribosomes, endomembrane system & NCERT lines",
+        pyqFocusHi: "70S बनाम 80S राइबोसोम, अंतःझिल्लीका तंत्र व NCERT पंक्तियां",
+        linkedCourseId: "WW-ENT-NEET-BIO-01",
+        cbtId: "CBT-NEET-JEE-01"
+      },
+      {
+        id: "SYL-BCA-DSA-01",
+        track: "University (BCA/B.Sc)",
+        subject: "Computer Science",
+        chapterEn: "Time Complexity, Stacks, Queues & Trees",
+        chapterHi: "टाइम कॉम्प्लेक्सिटी, स्टैक, क्यू व ट्री",
+        pyqFocusEn: "Big-O analysis, LIFO/FIFO operations & traversal orders",
+        pyqFocusHi: "Big-O विश्लेषण, LIFO/FIFO संक्रियाएं व ट्रैवर्सल क्रम",
+        linkedCourseId: "WW-UNI-BCA-DSA-01",
+        cbtId: "CBT-SSC-CGL-01"
+      },
+      {
+        id: "SYL-JOB-GST-01",
+        track: "Private Jobs & Skills",
+        subject: "Accounts & AI",
+        chapterEn: "Tally GST Vouchers, ITC & RCTF Prompting",
+        chapterHi: "टैली GST वाउचर, ITC व RCTF प्रॉम्प्टिंग",
+        pyqFocusEn: "CGST+SGST vs IGST billing, GSTR-3B & structured AI prompts",
+        pyqFocusHi: "CGST+SGST बनाम IGST बिलिंग, GSTR-3B व संरचित AI प्रॉम्प्ट",
+        linkedCourseId: "WW-JOB-TALLY-GST-01",
+        cbtId: "CBT-SSC-CGL-01"
+      }
+    ];
+
+    const SYLLABUS_STATUS_META = {
+      not_started: { labelEn: "Not Started", labelHi: "शुरू नहीं किया", points: 0, badge: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300" },
+      in_progress: { labelEn: "In Progress", labelHi: "प्रगति पर", points: 35, badge: "bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300" },
+      revised: { labelEn: "Concept Revised", labelHi: "अवधारणा रिवाइज्ड", points: 70, badge: "bg-amber-100 text-amber-900 dark:bg-amber-900/50 dark:text-amber-300" },
+      pyq_done: { labelEn: "PYQ & Mock Done", labelHi: "PYQ व मॉक पूर्ण", points: 100, badge: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300" }
+    };
+
+    let syllabusTrackFilter = "All";
+
+    function updateSyllabusItemStatus(itemId, nextStatus) {
+      try {
+        const profile = getActiveProfile();
+        if (!profile.syllabusStatusMap) profile.syllabusStatusMap = {};
+        profile.syllabusStatusMap[itemId] = nextStatus;
+        saveState();
+        renderActiveView();
+        showToast("Syllabus & PYQ status updated!", "success");
+      } catch (err) {
+        console.error("Syllabus status update failed:", err);
+      }
+    }
+
+    function renderSyllabusAndPYQTrackerView() {
+      const profile = getActiveProfile();
+      const statusMap = profile.syllabusStatusMap || {};
+      const tracks = ["All", ...new Set(SYLLABUS_PYQ_ITEMS.map(i => i.track))];
+      const visibleItems = syllabusTrackFilter === "All"
+        ? SYLLABUS_PYQ_ITEMS
+        : SYLLABUS_PYQ_ITEMS.filter(i => i.track === syllabusTrackFilter);
+
+      const totalPoints = visibleItems.reduce((sum, item) => {
+        const st = statusMap[item.id] || "not_started";
+        return sum + ((SYLLABUS_STATUS_META[st] && SYLLABUS_STATUS_META[st].points) || 0);
+      }, 0);
+      const readinessPct = visibleItems.length ? Math.round(totalPoints / visibleItems.length) : 0;
+      const pyqCompletedCount = visibleItems.filter(i => statusMap[i.id] === "pyq_done").length;
+
+      return `
+        <section class="space-y-6">
+          <div class="hero-gradient rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-3">
+            <button type="button" onclick="navigateTo('home')" class="text-xs font-bold text-amber-300 hover:underline">← Back to Home</button>
+            <h1 class="text-2xl sm:text-3xl font-extrabold">📚 Interactive Bilingual Syllabus & PYQ Chapter Tracker</h1>
+            <p class="text-sm text-purple-100 max-w-3xl">
+              Track chapter-by-chapter completion across school boards, competitive exams, university modules, and career tracks—with direct links to free lessons and CBT mock drills.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2">
+              ${tracks.map(tr => `
+                <button type="button" onclick="syllabusTrackFilter='${escapeAttr(tr)}'; renderActiveView();" class="px-3.5 py-1.5 rounded-xl text-xs font-extrabold ${syllabusTrackFilter === tr ? 'gold-gradient text-slate-950' : 'bg-white/15 hover:bg-white/25'}">
+                  ${escapeHTML(tr)}
+                </button>
+              `).join("")}
+            </div>
+          </div>
+
+          <!-- Readiness Summary Banner -->
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="text-xs font-extrabold uppercase text-[#6D28D9] dark:text-purple-400">Chapter Mastery Index (${escapeHTML(profile.name)})</span>
+                <h2 class="text-lg font-extrabold">Syllabus Readiness: ${readinessPct}% • PYQ & Mock Mastered: ${pyqCompletedCount}/${visibleItems.length}</h2>
+              </div>
+              <button type="button" onclick="navigateTo('revisionplanner')" class="px-4 py-2 rounded-xl hero-gradient text-white text-xs font-extrabold">
+                🗓️ Build Revision Schedule From Gaps →
+              </button>
+            </div>
+            <div class="w-full h-3 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+              <div class="h-full gold-gradient transition-all duration-300" style="width:${readinessPct}%"></div>
+            </div>
+          </div>
+
+          <!-- Chapter Tracker Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${visibleItems.map(item => {
+              const currentSt = statusMap[item.id] || "not_started";
+              const meta = SYLLABUS_STATUS_META[currentSt] || SYLLABUS_STATUS_META.not_started;
+              return `
+                <article class="bg-white dark:bg-slate-900 rounded-3xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+                  <div class="space-y-2">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                      <span class="px-2.5 py-0.5 rounded-full bg-purple-100 dark:bg-purple-900/50 text-[#4C1D95] dark:text-purple-300 text-[10px] font-extrabold">
+                        ${escapeHTML(item.track)} • ${escapeHTML(item.subject)}
+                      </span>
+                      <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold ${meta.badge}">
+                        ${escapeHTML(appState.lang === "hi" ? meta.labelHi : meta.labelEn)} (${meta.points}%)
+                      </span>
+                    </div>
+                    <h3 class="font-extrabold text-base text-slate-900 dark:text-white">
+                      ${escapeHTML(appState.lang === "hi" ? item.chapterHi : item.chapterEn)}
+                    </h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                      ${escapeHTML(appState.lang === "hi" ? item.chapterEn : item.chapterHi)}
+                    </p>
+                    <div class="p-3 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-900 text-xs text-amber-950 dark:text-amber-200">
+                      <strong>🎯 High-Yield PYQ Focus:</strong> ${escapeHTML(appState.lang === "hi" ? item.pyqFocusHi : item.pyqFocusEn)}
+                    </div>
+                  </div>
+
+                  <div class="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-[11px] font-bold">
+                      ${Object.entries(SYLLABUS_STATUS_META).map(([key, m]) => `
+                        <button type="button" onclick="updateSyllabusItemStatus('${item.id}', '${key}')" class="py-1.5 px-2 rounded-xl border transition ${currentSt === key ? 'bg-[#4C1D95] text-white border-[#4C1D95]' : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-[#6D28D9]'}">
+                          ${escapeHTML(appState.lang === "hi" ? m.labelHi : m.labelEn)}
+                        </button>
+                      `).join("")}
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                      <button type="button" onclick="openCoursePlayer('${item.linkedCourseId}')" class="flex-1 py-2 px-3 rounded-xl bg-[#1D4ED8] text-white text-xs font-extrabold hover:bg-blue-700">
+                        ▶ Open Lesson
+                      </button>
+                      <button type="button" onclick="openCBTSimulator('${item.cbtId}')" class="py-2 px-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-purple-100 dark:hover:bg-slate-700 text-xs font-extrabold">
+                        ⏱️ Practice CBT
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              `;
+            }).join("")}
+          </div>
+        </section>
+      `;
+    }
+
+    function buildSmartRevisionSchedule() {
+      const profile = getActiveProfile();
+      const daysInput = document.getElementById("revDaysInput");
+      const hoursInput = document.getElementById("revHoursInput");
+      const targetInput = document.getElementById("revTargetInput");
+
+      const days = Math.max(3, Math.min(60, parseInt(daysInput?.value, 10) || 14));
+      const hours = Math.max(1, Math.min(14, parseFloat(hoursInput?.value) || 4));
+      const targetName = (targetInput?.value || profile.target || "Target Exam / Board").trim();
+
+      const statusMap = profile.syllabusStatusMap || {};
+      const pendingChapters = SYLLABUS_PYQ_ITEMS.filter(item => (statusMap[item.id] || "not_started") !== "pyq_done");
+      const sourcePool = pendingChapters.length ? pendingChapters : SYLLABUS_PYQ_ITEMS;
+
+      const tasks = [];
+      for (let d = 1; d <= days; d++) {
+        const ch = sourcePool[(d - 1) % sourcePool.length];
+        const isMockDay = d % 3 === 0 || d === days;
+        tasks.push({
+          id: `REV-D${d}-${ch.id}`,
+          day: `Day ${d}`,
+          focusBlock: isMockDay
+            ? `${targetName}: Full Revision + Timed CBT Mock & Mistake Log Audit (${hours}h)`
+            : `${ch.track} • ${appState.lang === "hi" ? ch.chapterHi : ch.chapterEn} (${hours}h)`,
+          detail: isMockDay
+            ? `Attempt CBT mock test, review every wrong option, and add weak points to Flashcards.`
+            : `${appState.lang === "hi" ? ch.pyqFocusHi : ch.pyqFocusEn} + 15-min Flashcard recall.`
+        });
+      }
+
+      profile.revisionPlan = { days, hours, targetName, createdAt: new Date().toLocaleDateString("en-IN"), tasks };
+      profile.completedRevisionTaskIds = [];
+      saveState();
+      renderActiveView();
+      showToast(`Generated ${days}-day Smart Revision Plan for ${targetName}!`, "success");
+    }
+
+    function toggleRevisionTaskDone(taskId) {
+      try {
+        const profile = getActiveProfile();
+        if (!Array.isArray(profile.completedRevisionTaskIds)) profile.completedRevisionTaskIds = [];
+        const idx = profile.completedRevisionTaskIds.indexOf(taskId);
+        if (idx === -1) profile.completedRevisionTaskIds.push(taskId);
+        else profile.completedRevisionTaskIds.splice(idx, 1);
+        saveState();
+        renderActiveView();
+      } catch (err) {
+        console.error("Task toggle error:", err);
+      }
+    }
+
+    function exportRevisionPlanTxt() {
+      const profile = getActiveProfile();
+      const plan = profile.revisionPlan;
+      if (!plan || !plan.tasks?.length) {
+        showToast("Generate a revision plan first before exporting.", "warning");
+        return;
+      }
+      const lines = [
+        "WONDER WORLD – BHARAT LEARNING NETWORK",
+        "Guided by Vishwendra Sir (Vishwa Tech Group)",
+        `Smart Revision Plan for: ${profile.name} | Target: ${plan.targetName}`,
+        `Horizon: ${plan.days} Days @ ${plan.hours} hrs/day | Created: ${plan.createdAt}`,
+        "------------------------------------------------------------",
+        ...plan.tasks.map(tItem => {
+          const done = (profile.completedRevisionTaskIds || []).includes(tItem.id) ? "[DONE]" : "[TODO]";
+          return `${done} ${tItem.day}: ${tItem.focusBlock}\n   Action: ${tItem.detail}`;
+        })
+      ];
+      triggerFileDownload(`WonderWorld_Revision_Plan_${plan.days}Days.txt`, lines.join("\n\n"), "text/plain");
+      showToast("Smart Revision Plan exported as TXT!", "success");
+    }
+
+    function renderSmartRevisionPlannerView() {
+      const profile = getActiveProfile();
+      const plan = profile.revisionPlan;
+      const doneIds = profile.completedRevisionTaskIds || [];
+      const doneCount = plan && plan.tasks ? plan.tasks.filter(tItem => doneIds.includes(tItem.id)).length : 0;
+
+      return `
+        <section class="space-y-6">
+          <div class="hero-gradient rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-3">
+            <button type="button" onclick="navigateTo('home')" class="text-xs font-bold text-amber-300 hover:underline">← Back to Home</button>
+            <h1 class="text-2xl sm:text-3xl font-extrabold">🗓️ Smart Revision & Exam Readiness Planner</h1>
+            <p class="text-sm text-purple-100 max-w-3xl">
+              Prioritize unmastered syllabus chapters, PYQ drills, and mock test days based on your remaining days, daily study hours, and active profile progress.
+            </p>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 text-xs">
+              <div>
+                <label class="block font-bold mb-1">Target Exam / Class</label>
+                <input id="revTargetInput" type="text" value="${escapeAttr(plan?.targetName || profile.target || 'Board & Competitive Exam')}" class="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"/>
+              </div>
+              <div>
+                <label class="block font-bold mb-1">Days Left (3–60 Days)</label>
+                <input id="revDaysInput" type="number" min="3" max="60" value="${plan?.days || 14}" class="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"/>
+              </div>
+              <div>
+                <label class="block font-bold mb-1">Daily Study Hours</label>
+                <input id="revHoursInput" type="number" min="1" max="14" step="0.5" value="${plan?.hours || 4}" class="w-full p-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-bold"/>
+              </div>
+              <div class="flex items-end gap-2">
+                <button type="button" onclick="buildSmartRevisionSchedule()" class="flex-1 py-2.5 px-4 rounded-xl hero-gradient text-white font-extrabold text-xs">
+                  ⚡ Generate Plan
+                </button>
+                <button type="button" onclick="exportRevisionPlanTxt()" class="py-2.5 px-3 rounded-xl bg-slate-200 dark:bg-slate-800 font-extrabold text-xs" title="Download Plan TXT">
+                  ⬇
+                </button>
+              </div>
+            </div>
+
+            ${plan && plan.tasks && plan.tasks.length ? `
+              <div class="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <h2 class="font-extrabold text-base text-[#4C1D95] dark:text-purple-300">
+                    ${escapeHTML(plan.targetName)} • ${plan.days}-Day Sprint (${doneCount}/${plan.tasks.length} Days Checked Off)
+                  </h2>
+                  <span class="text-xs text-slate-500">Created: ${escapeHTML(plan.createdAt)}</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[520px] overflow-y-auto pr-1">
+                  ${plan.tasks.map(tItem => {
+                    const isDone = doneIds.includes(tItem.id);
+                    return `
+                      <div class="p-4 rounded-2xl border transition flex items-start gap-3 ${isDone ? 'bg-emerald-50/70 dark:bg-emerald-950/25 border-emerald-300 dark:border-emerald-800' : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700'}">
+                        <input type="checkbox" ${isDone ? 'checked' : ''} onchange="toggleRevisionTaskDone('${tItem.id}')" class="mt-1 w-4 h-4 accent-emerald-600 cursor-pointer shrink-0"/>
+                        <div class="space-y-1 text-xs">
+                          <div class="font-extrabold text-[#1D4ED8] dark:text-blue-300">${escapeHTML(tItem.day)} • ${escapeHTML(tItem.focusBlock)}</div>
+                          <p class="text-slate-600 dark:text-slate-300">${escapeHTML(tItem.detail)}</p>
+                        </div>
+                      </div>
+                    `;
+                  }).join("")}
+                </div>
+              </div>
+            ` : `
+              <div class="p-6 rounded-2xl bg-purple-50/60 dark:bg-purple-950/20 text-center text-xs text-slate-600 dark:text-slate-300">
+                Configure your target exam, days remaining, and daily study hours above, then click <strong>"⚡ Generate Plan"</strong> to create a day-by-day revision checklist.
+              </div>
+            `}
+          </div>
+        </section>
+      `;
+    }
+
+    const RELEASE_CHANGELOG = [
+      { ver: "v18.0 (Phase 17–18)", date: "Nov 2026", notes: "Added Interactive Bilingual Syllabus & PYQ Chapter Tracker, Smart Revision & Exam Readiness Planner, and GitHub Pages & Release Packager." },
+      { ver: "v16.0 (Phase 15–16)", date: "Nov 2026", notes: "Added Exam Cutoff & Rank Estimator, Revision Sprint Timer & Mistake Log, and System & QA Diagnostics." },
+      { ver: "v14.0 (Phase 13–14)", date: "Nov 2026", notes: "Added Teacher Question Paper Studio, Chapter Mind-Map Explorer, and CBSE 2026–27 Two-Board Exam Tracker." },
+      { ver: "v12.0 (Phase 11–12)", date: "Nov 2026", notes: "Added Spaced-Repetition Flashcards, Formula Vault, Unit Converter, Scientific Calculator, Scholarship Hub & Guardian Timetable." },
+      { ver: "v1.0–v10.0 (Phase 1–10)", date: "2026", notes: "Core 7-Filter Smart Course Finder, Bilingual Course Player + Audio + Certificates, School/Uni/Govt/Entrance/Jobs/AI Academies, CBT Simulator, Virtual Lab, Spoken English Coach, Wonder AI Guru & Admin AI Studio." }
+    ];
+
+    function renderGitHubReleasePackagerView() {
+      const swSnippet = `// Optional sw.js for GitHub Pages static cache
+const CACHE_NAME = 'wonder-world-v18';
+self.addEventListener('install', (e) => {
+  e.waitUntil(caches.open(CACHE_NAME).then((c) => c.addAll(['./', './wonder_world_bharat_learning.html'])));
+});
+self.addEventListener('fetch', (e) => {
+  e.respondWith(caches.match(e.request).then((res) => res || fetch(e.request)));
+});`;
+
+      return `
+        <section class="space-y-6">
+          <div class="hero-gradient rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-3">
+            <button type="button" onclick="navigateTo('home')" class="text-xs font-bold text-amber-300 hover:underline">← Back to Home</button>
+            <h1 class="text-2xl sm:text-3xl font-extrabold">🚀 GitHub Pages & Release Packager (v18.0)</h1>
+            <p class="text-sm text-purple-100 max-w-3xl">
+              Publish <strong>WONDER WORLD – BHARAT LEARNING NETWORK</strong> on GitHub Pages (such as <code>VishwendraSir/Home-page</code>), export standalone HTML or full JSON backups, and inspect version history.
+            </p>
+            <div class="flex flex-wrap gap-2.5 pt-2">
+              <button type="button" onclick="downloadStandaloneHTML()" class="px-4 py-2.5 rounded-xl gold-gradient text-slate-950 text-xs font-extrabold shadow">
+                ⬇ Download Standalone HTML (index.html)
+              </button>
+              <button type="button" onclick="exportPlatformData()" class="px-4 py-2.5 rounded-xl bg-white text-[#4C1D95] text-xs font-extrabold shadow">
+                📤 Export Full State JSON
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+              <h2 class="text-lg font-extrabold text-[#4C1D95] dark:text-purple-300">📌 GitHub Pages Deployment Steps</h2>
+              <ol class="list-decimal list-inside space-y-2.5 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                <li>Download the standalone file using <strong>"⬇ Download Standalone HTML"</strong> and save it as <code>index.html</code> (or keep <code>wonder_world_bharat_learning.html</code> in your repository root).</li>
+                <li>Upload to your GitHub repository (e.g., <code>VishwendraSir/Home-page</code>) on the <code>main</code> branch.</li>
+                <li>Open <strong>Settings → Pages → Build and deployment → Branch</strong>, select <code>main</code> and <code>/ (root)</code>, then save.</li>
+                <li>Your free learning platform runs directly in the browser with zero paid backend required; use <strong>Export / Import JSON</strong> to move student data across devices.</li>
+              </ol>
+              <div class="space-y-2 pt-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-extrabold">Optional Service Worker (<code>sw.js</code>) Snippet</span>
+                  <button type="button" onclick="copyFormulaText(document.getElementById('swCodeSnippet').value)" class="text-xs font-bold text-[#1D4ED8] hover:underline">📋 Copy Snippet</button>
+                </div>
+                <textarea id="swCodeSnippet" rows="6" readonly class="w-full p-3 rounded-2xl bg-slate-950 text-emerald-400 font-mono text-[11px] border border-slate-700">${escapeHTML(swSnippet)}</textarea>
+              </div>
+            </div>
+
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+              <h2 class="text-lg font-extrabold text-[#1D4ED8] dark:text-blue-300">🧾 Platform Release Changelog</h2>
+              <div class="space-y-3">
+                ${RELEASE_CHANGELOG.map(rel => `
+                  <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-1">
+                    <div class="flex items-center justify-between text-xs">
+                      <span class="font-extrabold text-[#4C1D95] dark:text-purple-300">${escapeHTML(rel.ver)}</span>
+                      <span class="text-slate-400 font-semibold">${escapeHTML(rel.date)}</span>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">${escapeHTML(rel.notes)}</p>
+                  </div>
+                `).join("")}
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
     }
 
     /*************************************************************************
