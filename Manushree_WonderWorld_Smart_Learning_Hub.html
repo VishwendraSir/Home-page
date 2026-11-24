@@ -153,6 +153,27 @@
   </style>
 </head>
 <body class="pb-24">
+<!-- WONDER WORLD VERSION SWITCHER -->
+<style>
+#wwHomeVersionSwitch{position:fixed;top:12px;right:12px;z-index:99999;font-family:Arial,sans-serif}
+#wwHomeVersionSwitch button{border:0;border-radius:999px;padding:10px 14px;background:#4c1d95;color:#fff;font-weight:800;box-shadow:0 5px 16px #0003;cursor:pointer}
+#wwHomeVersionMenu{position:absolute;right:0;top:48px;width:230px;background:#fff;color:#1e293b;border:1px solid #ddd;border-radius:16px;padding:8px;box-shadow:0 12px 35px #0003}
+#wwHomeVersionMenu a{display:flex;gap:8px;padding:11px 12px;border-radius:10px;text-decoration:none;color:#1e293b;font-weight:700;font-size:13px}
+#wwHomeVersionMenu a:hover{background:#f3e8ff}
+#wwHomeVersionMenu[hidden]{display:none}
+</style>
+<div id="wwHomeVersionSwitch">
+ <button type="button" aria-expanded="false" aria-controls="wwHomeVersionMenu" onclick="var m=document.getElementById('wwHomeVersionMenu');m.hidden=!m.hidden;this.setAttribute('aria-expanded',String(!m.hidden))">🔄 Versions ▾</button>
+ <div id="wwHomeVersionMenu" hidden>
+  <a href="./wonderworld/">🌟 Main Wonder World</a>
+  <a href="./Manushree_WonderWorld_Smart_Learning_Hub.html" aria-current="page">🧸 Manushree Wonder World (Current)</a>
+  <a href="./Manushree_Candy_Garden_V3_7.html">🍭 Candy Garden V3.7</a>
+ </div>
+</div>
+<script>
+document.addEventListener('click',function(e){var s=document.getElementById('wwHomeVersionSwitch');if(s&&!s.contains(e.target)){var m=document.getElementById('wwHomeVersionMenu');var b=s.querySelector('button');m.hidden=true;b.setAttribute('aria-expanded','false')}});
+</script>
+
 
   <!-- Full-Screen Confetti Canvas -->
   <canvas id="confettiCanvas" class="fixed inset-0 pointer-events-none z-[80] w-full h-full"></canvas>
