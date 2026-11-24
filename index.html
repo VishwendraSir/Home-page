@@ -1761,21 +1761,27 @@
       }
     });
 
+    function normalizeSearchText(value) {
+      return String(value ?? "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase();
+    }
+
     function handleGlobalSearch(query) {
-      const q = query.trim().toLowerCase();
+      const q = normalizeSearchText(query.trim());
       if (!q) {
         renderActiveView();
         return;
       }
-      const matches = getPublishedCourses().filter(c =>
-        c.title.toLowerCase().includes(q) ||
-        (c.titleHi && c.titleHi.toLowerCase().includes(q)) ||
-        c.category.toLowerCase().includes(q) ||
-        c.board.toLowerCase().includes(q) ||
-        c.classLevel.toLowerCase().includes(q) ||
-        c.subject.toLowerCase().includes(q) ||
-        c.topic.toLowerCase().includes(q)
-      );
+      const searchableFields = ["title", "titleHi", "category", "board", "classLevel", "subject", "topic"];
+      const matches = getPublishedCourses().filter(course => {
+        if (!course || typeof course !== "object") return false;
+        const searchableText = searchableFields
+          .map(field => normalizeSearchText(course[field]))
+          .join(" ");
+        return searchableText.includes(q);
+      });
 
       const viewport = document.getElementById("appViewport");
       if (!viewport) return;
