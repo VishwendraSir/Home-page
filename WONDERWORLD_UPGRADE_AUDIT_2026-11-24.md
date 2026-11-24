@@ -68,3 +68,24 @@ All six paths are present in the repository tree. This confirms path presence, n
 - Firebase security rules, authentication providers, storage rules, or billing status.
 - Browser/device runtime behavior and GitHub Pages deployment status.
 - Availability of original sources for the three zero-byte V3.7 files.
+
+
+## Recovery update — 2026-11-24
+The user supplied the original V3.7 source files. The following paths were restored on the audit branch:
+- `Manushree_Candy_Garden_V3_7.html` — non-empty, direct-starts the Manushree profile.
+- `Shree_Ocean_Discovery_V3_7.html` — non-empty, direct-starts the Shree profile.
+- `Ram_Dino_Space_Quest_V3_7.html` — non-empty, direct-starts the Ram profile.
+- `WonderWorld_V3_7_Launcher.html` — recovered 3-profile launcher stored separately; it does not replace the current root homepage.
+- `WONDERWORLD_V3_7_README.txt` — recovered release guide stored under a new name to avoid overwriting repository documentation.
+
+### Preservation and verification
+- The existing root `index.html` was not changed; it remains the 358 KB Bharat Learning Network homepage.
+- No files were deleted.
+- The three direct modules were verified non-empty after commit, with the expected titles and profile-specific startup calls.
+- The separate launcher was verified non-empty and retains the three-profile selector.
+- The three modules share the same core implementation; the intentional differences are their document titles and startup profile.
+- External runtime dependencies in the recovered HTML include Tailwind CDN and Google Fonts. The files are not fully offline/self-contained as uploaded.
+- GitHub content fetch confirmed all restored files exist on the audit branch. A real browser/device test and GitHub Pages deployment test remain pending.
+
+## Current audit-branch outcome
+The recovered V3.7 modules are restored without replacing the working live homepage or deleting any existing path. Review and runtime testing should precede any merge to `main`.
