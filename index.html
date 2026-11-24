@@ -185,6 +185,11 @@
     <span class="sm:hidden">AI Guru</span>
   </button>
 
+  <!-- ACCESSIBLE BACK-TO-TOP CONTROL -->
+  <button type="button" id="backToTopBtn" onclick="scrollToPageTop()" class="hidden fixed bottom-24 right-4 z-40 w-12 h-12 rounded-2xl bg-[#1D4ED8] text-white shadow-xl border border-white/30 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 transition" aria-label="Back to top" title="Back to top">
+    <svg class="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 14 7-7 7 7"/><path d="M12 7v13"/></svg>
+  </button>
+
   <!-- NON-BLOCKING TOAST NOTIFICATION -->
   <div id="toastContainer" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 max-w-xs sm:max-w-sm"></div>
 
@@ -1336,6 +1341,19 @@
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") setMobileMenuOpen(false);
     });
+
+    function updateBackToTopVisibility() {
+      const button = document.getElementById("backToTopBtn");
+      if (button) button.classList.toggle("hidden", window.scrollY < 420);
+    }
+
+    function scrollToPageTop() {
+      const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    }
+
+    window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
+    document.addEventListener("DOMContentLoaded", updateBackToTopVisibility);
 
     function showToast(message, type = "success") {
       const container = document.getElementById("toastContainer");
