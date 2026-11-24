@@ -1775,12 +1775,18 @@
         return;
       }
       const searchTerms = q.split(/\s+/).filter(Boolean);
-      const searchableFields = ["title", "titleHi", "category", "board", "classLevel", "subject", "topic"];
+      const searchableFields = ["title", "titleHi", "category", "board", "state", "classLevel", "subject", "medium", "level", "chapter", "topic", "syllabusRef", "intro", "conceptEn", "conceptHi", "revisionNotes"];
       const matches = getPublishedCourses()
         .map((course, index) => {
           if (!course || typeof course !== "object") return null;
           const fields = Object.fromEntries(searchableFields.map(field => [field, normalizeSearchText(course[field])]));
-          const searchableText = Object.values(fields).join(" ");
+          const learningContent = [
+            ...(Array.isArray(course.objectives) ? course.objectives : []),
+            ...(Array.isArray(course.examples) ? course.examples : []),
+            ...(Array.isArray(course.shortQuestions) ? course.shortQuestions.flatMap(item => [item?.q, item?.a]) : []),
+            ...(Array.isArray(course.mcqs) ? course.mcqs.flatMap(item => [item?.q, item?.explanation, ...(Array.isArray(item?.options) ? item.options : [])]) : [])
+          ].map(normalizeSearchText).join(" ");
+          const searchableText = Object.values(fields).join(" ") + " " + learningContent;
           if (!searchTerms.every(term => searchableText.includes(term))) return null;
           const score = searchTerms.reduce((total, term) => {
             if (fields.title === term || fields.titleHi === term) return total + 12;
