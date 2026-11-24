@@ -101,7 +101,7 @@
             id="globalSearchInput"
             type="search"
             aria-label="Search courses, classes, exams and subjects"
-            oninput="handleGlobalSearch(this.value)"
+            oninput="queueGlobalSearch(this.value)"
             placeholder="Search Class 10, UPSC, NEET, Python, Tally..."
             class="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-sm focus:ring-2 focus:ring-[#6D28D9] focus:bg-white dark:focus:bg-slate-900 outline-none transition"
           />
@@ -159,7 +159,7 @@
           id="mobileGlobalSearchInput"
           type="search"
           aria-label="Search courses, classes, exams and subjects"
-          oninput="handleGlobalSearch(this.value)"
+          oninput="queueGlobalSearch(this.value)"
           placeholder="Search courses, exams, boards..."
           class="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-sm outline-none"
         />
@@ -1693,6 +1693,10 @@
      * 7. NAVIGATION & GLOBAL SEARCH
      *************************************************************************/
     function navigateTo(view) {
+      if (globalSearchDebounceTimer !== null) {
+        window.clearTimeout(globalSearchDebounceTimer);
+        globalSearchDebounceTimer = null;
+      }
       appState.activeView = view;
       document.querySelectorAll("#globalSearchInput, #mobileGlobalSearchInput").forEach(input => {
         input.value = "";
@@ -1754,6 +1758,10 @@
         const mobile = document.getElementById("mobileGlobalSearchInput");
         const activeSearch = [desktop, mobile].find(input => input && input.value.trim());
         if (activeSearch) {
+          if (globalSearchDebounceTimer !== null) {
+            window.clearTimeout(globalSearchDebounceTimer);
+            globalSearchDebounceTimer = null;
+          }
           activeSearch.value = "";
           handleGlobalSearch("");
           if (typing) activeSearch.blur();
@@ -1766,6 +1774,16 @@
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLocaleLowerCase();
+    }
+
+    let globalSearchDebounceTimer = null;
+
+    function queueGlobalSearch(query) {
+      if (globalSearchDebounceTimer !== null) window.clearTimeout(globalSearchDebounceTimer);
+      globalSearchDebounceTimer = window.setTimeout(() => {
+        globalSearchDebounceTimer = null;
+        handleGlobalSearch(query);
+      }, 180);
     }
 
     function handleGlobalSearch(query) {
