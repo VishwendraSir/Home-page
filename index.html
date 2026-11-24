@@ -99,7 +99,8 @@
         <div class="hidden lg:flex flex-1 max-w-md mx-4 relative">
           <input
             id="globalSearchInput"
-            type="text"
+            type="search"
+            aria-label="Search courses, classes, exams and subjects"
             oninput="handleGlobalSearch(this.value)"
             placeholder="Search Class 10, UPSC, NEET, Python, Tally..."
             class="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-sm focus:ring-2 focus:ring-[#6D28D9] focus:bg-white dark:focus:bg-slate-900 outline-none transition"
@@ -155,7 +156,9 @@
     <div id="mobileMenuDrawer" class="hidden xl:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3 shadow-xl">
       <div class="relative">
         <input
-          type="text"
+          id="mobileGlobalSearchInput"
+          type="search"
+          aria-label="Search courses, classes, exams and subjects"
           oninput="handleGlobalSearch(this.value)"
           placeholder="Search courses, exams, boards..."
           class="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-sm outline-none"
@@ -1690,7 +1693,7 @@
      *************************************************************************/
     function navigateTo(view) {
       appState.activeView = view;
-      document.querySelectorAll("#globalSearchInput, #mobileMenuDrawer input[type='text']").forEach(input => {
+      document.querySelectorAll("#globalSearchInput, #mobileGlobalSearchInput").forEach(input => {
         input.value = "";
       });
       saveState();
@@ -1715,6 +1718,43 @@
         }
       });
     }
+
+    function focusGlobalSearch() {
+      const desktop = document.getElementById("globalSearchInput");
+      const mobile = document.getElementById("mobileGlobalSearchInput");
+      if (window.matchMedia && window.matchMedia("(min-width: 1280px)").matches && desktop) {
+        desktop.focus();
+        desktop.select();
+        return;
+      }
+      setMobileMenuOpen(true);
+      window.setTimeout(() => {
+        if (mobile) {
+          mobile.focus();
+          mobile.select();
+        }
+      }, 0);
+    }
+
+    document.addEventListener("keydown", event => {
+      const target = event.target;
+      const typing = target && (target.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(target.tagName));
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        focusGlobalSearch();
+        return;
+      }
+      if (event.key === "Escape") {
+        const desktop = document.getElementById("globalSearchInput");
+        const mobile = document.getElementById("mobileGlobalSearchInput");
+        const activeSearch = [desktop, mobile].find(input => input && input.value.trim());
+        if (activeSearch) {
+          activeSearch.value = "";
+          handleGlobalSearch("");
+          if (typing) activeSearch.blur();
+        }
+      }
+    });
 
     function handleGlobalSearch(query) {
       const q = query.trim().toLowerCase();
