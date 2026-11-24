@@ -66,7 +66,7 @@
       </div>
       <div class="flex flex-wrap items-center gap-2 sm:gap-3">
         <span id="pwaStatusBadge" class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200 text-[11px] font-bold border border-emerald-400/30">
-          ● Online & Offline Ready
+          ● Checking connection…
         </span>
         <button type="button" onclick="downloadStandaloneHTML()" class="underline hover:text-[#FBBF24] transition font-medium" title="Download single HTML file for GitHub Pages">
           ⬇ <span data-i18n="downloadApp">GitHub Pages HTML</span>
@@ -1650,8 +1650,9 @@
      *************************************************************************/
     function navigateTo(view) {
       appState.activeView = view;
-      const searchBox = document.getElementById("globalSearchInput");
-      if (searchBox) searchBox.value = "";
+      document.querySelectorAll("#globalSearchInput, #mobileMenuDrawer input[type='text']").forEach(input => {
+        input.value = "";
+      });
       saveState();
       updateNavHighlight();
       renderActiveView();
@@ -1898,8 +1899,8 @@
               <div class="text-purple-100">Bilingual Explanations & Voice</div>
             </div>
             <div class="bg-white/10 rounded-2xl p-3">
-              <div class="font-extrabold text-lg text-white">Offline PWA</div>
-              <div class="text-purple-100">Zero Syllabus Mixing Verified</div>
+              <div class="font-extrabold text-lg text-white">Local Progress</div>
+              <div class="text-purple-100">Saved in this browser • Internet needed for site assets</div>
             </div>
           </div>
         </section>
@@ -2912,10 +2913,10 @@ console.log("Fibonacci Series:", [0, 1, 1, 2, 3, 5, 8, 13]);</textarea>
             <button type="button" onclick="navigateTo('home')" class="text-xs font-bold text-amber-300 hover:underline">← Back to Home</button>
             <div class="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <span class="px-3 py-1 rounded-full bg-white/15 text-amber-300 text-xs font-extrabold">Offline-Ready Bilingual AI Mentor</span>
+                <span class="px-3 py-1 rounded-full bg-white/15 text-amber-300 text-xs font-extrabold">Bilingual AI Study Mentor (Built-in Topic Library)</span>
                 <h1 class="text-2xl sm:text-3xl font-extrabold mt-2">🧠 Wonder AI Guru – Adaptive Tutor & Diagnostic Recovery</h1>
               </div>
-              <span class="px-3 py-1.5 rounded-xl bg-emerald-500/20 border border-emerald-300/30 text-emerald-200 text-xs font-bold">✓ Works 100% Offline</span>
+              <span class="px-3 py-1.5 rounded-xl bg-emerald-500/20 border border-emerald-300/30 text-emerald-200 text-xs font-bold">✓ Built-in Topic Explanations • Local Progress</span>
             </div>
             <p class="text-sm text-purple-100 max-w-3xl">
               Step-by-step Hindi + English concept solver paired with automated weakness detection from your CBT Mock Tests & Course Quizzes.
@@ -4305,7 +4306,8 @@ ${coursesToBundle.map(c => `
     }
 
     function closeCertificateModal() {
-      document.getElementById("certificateModal").classList.add("hidden");
+      const modal = document.getElementById("certificateModal");
+      if (modal) modal.classList.add("hidden");
     }
 
     /*************************************************************************
@@ -4729,10 +4731,12 @@ ${coursesToBundle.map(c => `
         const badge = document.getElementById("pwaStatusBadge");
         if (!badge) return;
         if (navigator.onLine) {
-          badge.textContent = "● Online & Offline Ready";
+          badge.textContent = "● Online • Local Data Saved";
+          badge.title = "Internet is connected. Learning progress is stored in this browser; this version does not cache the full site for offline use.";
           badge.className = "px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200 text-[11px] font-bold border border-emerald-400/30";
         } else {
-          badge.textContent = "● Offline Mode Active (Local Vault)";
+          badge.textContent = "● Offline • Saved Data Only";
+          badge.title = "You are offline. Previously saved browser data may be available, but the full site is not cached for offline use.";
           badge.className = "px-2.5 py-0.5 rounded-full bg-amber-500/30 text-amber-200 text-[11px] font-bold border border-amber-400/40";
         }
       };
@@ -4754,8 +4758,14 @@ ${coursesToBundle.map(c => `
       reader.onload = function(e) {
         try {
           const imported = JSON.parse(e.target.result);
-          if (imported && Array.isArray(imported.courses) && imported.profiles) {
-            appState = imported;
+          if (imported && Array.isArray(imported.courses) && imported.profiles &&
+              typeof imported.profiles === "object" &&
+              Object.keys(imported.profiles).length > 0 &&
+              imported.courses.every(course => course && typeof course.id === "string")) {
+            appState = { ...getDefaultState(), ...imported };
+            if (!appState.profiles[appState.activeProfileId]) {
+              appState.activeProfileId = Object.keys(appState.profiles)[0];
+            }
             saveState();
             applyThemeAndFont();
             renderActiveView();
@@ -4785,7 +4795,7 @@ ${coursesToBundle.map(c => `
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
     }
 
     function escapeHTML(str) {
