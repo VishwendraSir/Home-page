@@ -188,6 +188,12 @@
     <span class="sm:hidden">AI Guru</span>
   </button>
 
+  <!-- FLOATING QUESTIONS / CBT PRACTICE SHORTCUT -->
+  <button type="button" onclick="openQuestionsHub()" title="Open practice questions and CBT mock tests" aria-label="Open practice questions and CBT mock tests" class="fixed bottom-4 right-4 z-40 px-4 py-3 rounded-2xl bg-amber-400 text-slate-950 shadow-xl border border-amber-200 flex items-center gap-2 text-xs sm:text-sm font-extrabold hover:scale-105 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-amber-300">
+    <span class="text-base" aria-hidden="true">❓</span>
+    <span>Questions</span>
+  </button>
+
   <!-- ACCESSIBLE BACK-TO-TOP CONTROL -->
   <button type="button" id="backToTopBtn" onclick="scrollToPageTop()" class="hidden fixed bottom-24 right-4 z-40 w-12 h-12 rounded-2xl bg-[#1D4ED8] text-white shadow-xl border border-white/30 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 transition" aria-label="Back to top" title="Back to top">
     <svg class="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 14 7-7 7 7"/><path d="M12 7v13"/></svg>
@@ -1690,6 +1696,14 @@
     /*************************************************************************
      * 7. NAVIGATION & GLOBAL SEARCH
      *************************************************************************/
+    function openQuestionsHub() {
+      navigateTo("govt");
+      window.setTimeout(() => {
+        const testCenter = document.getElementById("cbtMockTestCenter");
+        if (testCenter) testCenter.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 180);
+    }
+
     function navigateTo(view) {
       if (globalSearchDebounceTimer !== null) {
         window.clearTimeout(globalSearchDebounceTimer);
@@ -2322,7 +2336,7 @@
     function renderGovtAcademyView() {
       const govtCourses = getPublishedCourses().filter(c => c.category === "Government Exams");
       return `
-        <section class="space-y-6">
+        <section id="cbtMockTestCenter" class="space-y-6 scroll-mt-24">
           <div class="hero-gradient rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-3">
             <button type="button" onclick="navigateTo('home')" class="text-xs font-bold text-amber-300 hover:underline">← Back to Home</button>
             <h1 class="text-2xl sm:text-3xl font-extrabold">🏛️ All-India Government Exam Academy & CBT Test Center</h1>
