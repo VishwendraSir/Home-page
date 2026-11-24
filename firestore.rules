@@ -61,5 +61,17 @@ service cloud.firestore {
       allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
       allow update, delete: if false;
     }
+    match /videos/{videoId} {
+      allow read: if resource.data.status == "published" || isAdmin();
+      allow create: if isAdmin()
+        && request.resource.data.title is string
+        && request.resource.data.title.size() > 0
+        && request.resource.data.driveId is string
+        && request.resource.data.driveId.size() > 10
+        && request.resource.data.course is string
+        && request.resource.data.course.size() > 0
+        && request.resource.data.status in ["published", "draft"];
+      allow update, delete: if isAdmin();
+    }
   }
 }
