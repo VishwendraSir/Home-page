@@ -1811,6 +1811,8 @@
         else if (view === "jobs") viewport.innerHTML = renderCareerAndSkillsStudioView("jobs");
         else if (view === "skills") viewport.innerHTML = renderCareerAndSkillsStudioView("skills");
         else if (view === "virtuallab") viewport.innerHTML = renderVirtualLabAndELTView();
+        else if (view === "revisionhub") viewport.innerHTML = renderFlashcardsAndFormulaVaultView();
+        else if (view === "scholarships") viewport.innerHTML = renderScholarshipAndExamHubView();
         else if (view === "aitutor") viewport.innerHTML = renderAIAdaptiveTutorView();
         else if (view === "dashboard") viewport.innerHTML = renderStudentDashboardView();
         else if (view === "admin") viewport.innerHTML = renderAdminPanelView();
@@ -1824,6 +1826,9 @@
         }
         if (view === "virtuallab") {
           initVirtualLabCanvases();
+        }
+        if (view === "revisionhub") {
+          convertUnitLive();
         }
       } catch (err) {
         console.error("Render error:", err);
@@ -2668,40 +2673,69 @@ function calculateGST(amount, rate) {
 console.log("Invoice Breakdown:", calculateGST(12000, 18));
 console.log("Fibonacci Series:", [0, 1, 1, 2, 3, 5, 8, 13]);</textarea>
             <pre id="sandboxCodeOutput" class="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 text-xs font-mono min-h-[70px] overflow-x-auto">Click "▶ Run Code" to see console output...</pre>
+            <p class="text-[11px] text-slate-500">Code runs in a sandboxed iframe. Do not enter passwords or private data.</p>
           </div>
-
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <h3 class="font-extrabold text-base text-[#1D4ED8] dark:text-blue-300">🤖 RCTF Prompt Engineering Studio</h3>
               <button type="button" onclick="buildStructuredPrompt()" class="px-4 py-1.5 rounded-xl hero-gradient text-white text-xs font-extrabold">⚡ Assemble Prompt</button>
             </div>
             <div class="grid grid-cols-2 gap-2 text-xs">
-        else if (view === "jobs") viewport.innerHTML = renderCareerAndSkillsStudioView("jobs");
-        else if (view === "skills") viewport.innerHTML = renderCareerAndSkillsStudioView("skills");
-        else if (view === "virtuallab") viewport.innerHTML = renderVirtualLabAndELTView();
-        else if (view === "revisionhub") viewport.innerHTML = renderFlashcardsAndFormulaVaultView();
-        else if (view === "scholarships") viewport.innerHTML = renderScholarshipAndExamHubView();
-        else if (view === "aitutor") viewport.innerHTML = renderAIAdaptiveTutorView();
-        else if (view === "dashboard") viewport.innerHTML = renderStudentDashboardView();
-        else if (view === "admin") viewport.innerHTML = renderAdminPanelView();
-        else viewport.innerHTML = renderHomeView();
+              <label class="space-y-1">Role
+                <input id="pRole" class="w-full p-2 rounded-xl border dark:bg-slate-900" value="Expert educator and curriculum designer">
+              </label>
+              <label class="space-y-1">Audience
+                <input id="pContext" class="w-full p-2 rounded-xl border dark:bg-slate-900" value="Indian school and competitive-exam learners">
+              </label>
+              <label class="col-span-2 space-y-1">Task
+                <textarea id="pTask" rows="2" class="w-full p-2 rounded-xl border dark:bg-slate-900">Create a concept-based bilingual learning resource</textarea>
+              </label>
+              <label class="col-span-2 space-y-1">Output format
+                <input id="pFormat" class="w-full p-2 rounded-xl border dark:bg-slate-900" value="Structured lesson, examples, practice MCQs and answer key">
+              </label>
+            </div>
+            <textarea id="assembledPromptOutput" rows="6" readonly class="w-full p-3 rounded-xl border dark:bg-slate-900 text-xs" placeholder="Your assembled prompt will appear here..."></textarea>
+            <button type="button" onclick="copyFormulaText(document.getElementById('assembledPromptOutput').value)" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-700 text-xs font-bold">Copy Prompt</button>
+          </div>
+        </div>
+      `;
+    }
 
-        if (view === "home") updateCascadingFinder();
-        if (view === "university") updateUniversityExplorer();
-        if (view === "jobs" || view === "skills") {
-          updateResumePreview();
-          loadInterviewRole();
+    function runSandboxCode() {
+      const input = document.getElementById("sandboxCodeInput");
+      const output = document.getElementById("sandboxCodeOutput");
+      if (!input || !output) return;
+      const frame = document.createElement("iframe");
+      frame.setAttribute("sandbox", "allow-scripts");
+      frame.style.display = "none";
+      const safeCode = input.value.replace(/<\/script/gi, "<\\/script");
+      frame.srcdoc = `<!doctype html><meta charset="utf-8"><script>
+        const lines = [];
+        const fmt = value => {
+          try { return typeof value === "string" ? value : JSON.stringify(value); }
+          catch (_) { return String(value); }
+        };
+        console.log = (...args) => lines.push(args.map(fmt).join(" "));
+        console.error = (...args) => lines.push("ERROR: " + args.map(fmt).join(" "));
+        window.onerror = message => { lines.push("ERROR: " + message); };
+        try { ${safeCode}\n } catch (error) { lines.push("ERROR: " + error.message); }
+        parent.postMessage({ type: "wonderworld-sandbox-result", lines }, "*");
+      <\/script>`;
+      const listener = event => {
+        if (event.source !== frame.contentWindow || !event.data || event.data.type !== "wonderworld-sandbox-result") return;
+        output.textContent = event.data.lines.join("\n") || "Code executed. No console output.";
+        window.removeEventListener("message", listener);
+        frame.remove();
+      };
+      window.addEventListener("message", listener);
+      document.body.appendChild(frame);
+      setTimeout(() => {
+        if (frame.isConnected) {
+          output.textContent = "Execution timed out or produced no response.";
+          window.removeEventListener("message", listener);
+          frame.remove();
         }
-        if (view === "virtuallab") {
-          initVirtualLabCanvases();
-        }
-        if (view === "revisionhub") {
-          convertUnitLive();
-        }
-      } catch (err) {
-        console.error("Render error:", err);
-        viewport.innerHTML = renderHomeView();
-      }
+      }, 3000);
     }
 
     function buildStructuredPrompt() {
