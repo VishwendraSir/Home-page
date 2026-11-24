@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+<title id="title">Wonder World by Vishwa Tech Group</title>
+<desc id="desc">A circular blue and purple education emblem with a globe, graduation cap, open book and Wonder World title.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07164f"/><stop offset=".55" stop-color="#173cc2"/><stop offset="1" stop-color="#4c1d95"/></linearGradient>
+ <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#00e5ff"/><stop offset=".55" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ff4fd8"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff59d"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+ <linearGradient id="cyan" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b8f7ff"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<circle cx="256" cy="256" r="248" fill="url(#bg)" stroke="url(#edge)" stroke-width="12"/>
+<circle cx="256" cy="256" r="230" fill="none" stroke="#8be9ff" stroke-opacity=".35" stroke-width="2"/>
+<g fill="#fff" opacity=".9"><circle cx="89" cy="148" r="3"/><circle cx="420" cy="151" r="3"/><circle cx="102" cy="340" r="2"/><circle cx="409" cy="353" r="2"/><circle cx="255" cy="88" r="2"/></g>
+<g text-anchor="middle" font-family="Arial,sans-serif" font-weight="800">
+ <text x="256" y="72" fill="#fff" font-size="27" letter-spacing="1">VISHWA TECH GROUP</text>
+ <text x="256" y="96" fill="#c9eaff" font-size="12" letter-spacing=".8">TECHNOLOGY • EDUCATION • INNOVATION</text>
+</g>
+<circle cx="256" cy="170" r="70" fill="#0c2d83" stroke="#38e4ff" stroke-width="4" filter="url(#glow)"/>
+<circle cx="256" cy="170" r="55" fill="url(#cyan)" opacity=".95"/>
+<path d="M201 170h110M256 115c-22 18-22 92 0 110M256 115c22 18 22 92 0 110M211 145c28 14 62 14 90 0M211 195c28-14 62-14 90 0" fill="none" stroke="#0751a5" stroke-width="4" opacity=".85"/>
+<path d="M190 166c26-70 105-90 151-31" fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+<path d="M256 109l82 28-82 29-82-29z" fill="#101b55" stroke="url(#gold)" stroke-width="4"/>
+<path d="M215 150v20c25 20 57 20 82 0v-20" fill="#243b8f" stroke="#facc15" stroke-width="3"/>
+<path d="M337 137v37" stroke="#facc15" stroke-width="4"/><circle cx="337" cy="177" r="5" fill="#facc15"/>
+<g text-anchor="middle" font-family="Arial,sans-serif" font-weight="900" filter="url(#glow)">
+ <text x="256" y="294" font-size="77" fill="url(#cyan)" stroke="#08215d" stroke-width="2">Wonder</text>
+ <text x="256" y="366" font-size="79" fill="url(#gold)" stroke="#35116e" stroke-width="2">World</text>
+</g>
+<path d="M93 382Q256 426 419 382" fill="none" stroke="#facc15" stroke-width="7" stroke-linecap="round"/>
+<g transform="translate(111 394)">
+ <path d="M0 25Q54 0 108 25v48Q54 49 0 73z" fill="#fff" stroke="#fbbf24" stroke-width="4"/>
+ <path d="M108 25Q162 0 216 25v48Q162 49 108 73z" fill="#e0f2fe" stroke="#fbbf24" stroke-width="4"/>
+ <path d="M108 25v48" stroke="#64748b" stroke-width="3"/>
+ <path d="M18 35q38-13 72 0M18 47q38-13 72 0M126 35q38-13 72 0M126 47q38-13 72 0" fill="none" stroke="#60a5fa" stroke-width="3"/>
+</g>
+<rect x="88" y="486" width="336" height="1" fill="#fff" opacity=".3"/>
+<text x="256" y="475" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#fff">A GLOBAL LEARNING ECOSYSTEM</text>
+</svg>
