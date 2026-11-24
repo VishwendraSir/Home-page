@@ -1776,13 +1776,24 @@
       }
       const searchTerms = q.split(/\s+/).filter(Boolean);
       const searchableFields = ["title", "titleHi", "category", "board", "classLevel", "subject", "topic"];
-      const matches = getPublishedCourses().filter(course => {
-        if (!course || typeof course !== "object") return false;
-        const searchableText = searchableFields
-          .map(field => normalizeSearchText(course[field]))
-          .join(" ");
-        return searchTerms.every(term => searchableText.includes(term));
-      });
+      const matches = getPublishedCourses()
+        .map((course, index) => {
+          if (!course || typeof course !== "object") return null;
+          const fields = Object.fromEntries(searchableFields.map(field => [field, normalizeSearchText(course[field])]));
+          const searchableText = Object.values(fields).join(" ");
+          if (!searchTerms.every(term => searchableText.includes(term))) return null;
+          const score = searchTerms.reduce((total, term) => {
+            if (fields.title === term || fields.titleHi === term) return total + 12;
+            if (fields.title.startsWith(term) || fields.titleHi.startsWith(term)) return total + 8;
+            if (fields.title.includes(term) || fields.titleHi.includes(term)) return total + 5;
+            if (fields.subject.includes(term) || fields.topic.includes(term)) return total + 3;
+            return total + 1;
+          }, 0);
+          return { course, score, index };
+        })
+        .filter(Boolean)
+        .sort((a, b) => b.score - a.score || a.index - b.index)
+        .map(result => result.course);
 
       const viewport = document.getElementById("appViewport");
       if (!viewport) return;
