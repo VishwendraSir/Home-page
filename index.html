@@ -174,6 +174,7 @@
         <button type="button" data-mobile-nav="virtuallab" onclick="navigateTo('virtuallab')" class="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-900/40 text-indigo-900 dark:text-indigo-200 text-left">🔬 Virtual Lab & ELT</button>
         <button type="button" data-mobile-nav="revisionhub" onclick="navigateTo('revisionhub')" class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 text-emerald-900 dark:text-emerald-200 text-left">🗂️ Flashcards & Vault</button>
         <button type="button" data-mobile-nav="scholarships" onclick="navigateTo('scholarships')" class="p-3 rounded-xl bg-amber-50 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 text-left">🏅 Scholarships & Exam Hub</button>
+        <button type="button" data-mobile-nav="questions" onclick="navigateTo('questions')" class="p-3 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 text-left">❓ Questions & Practice</button>
         <button type="button" data-mobile-nav="aitutor" onclick="navigateTo('aitutor')" class="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-blue-900 dark:text-blue-200 text-left">🧠 AI Adaptive Tutor</button>
         <button type="button" data-mobile-nav="dashboard" onclick="navigateTo('dashboard')" class="p-3 rounded-xl bg-amber-100 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 text-left">📊 Dashboard & Mentor</button>
         <button type="button" data-mobile-nav="admin" onclick="navigateTo('admin')" class="p-3 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-900 dark:text-purple-200 text-left">⚙️ Admin & AI</button>
@@ -182,14 +183,14 @@
   </header>
 
   <!-- FLOATING QUICK-DOUBT AI TUTOR TRIGGER -->
-  <button type="button" data-mobile-nav="aitutor" onclick="navigateTo('aitutor')" title="Ask Wonder AI Guru (Bilingual Doubt Solver)" class="fixed bottom-4 left-4 z-40 px-4 py-2.5 rounded-2xl hero-gradient text-white shadow-xl border border-amber-300/40 flex items-center gap-2 text-xs sm:text-sm font-extrabold hover:scale-105 transition">
+  <button type="button" data-mobile-nav="aitutor" onclick="navigateTo('aitutor')" title="Ask Wonder AI Guru (Bilingual Doubt Solver)" style="bottom:calc(1rem + env(safe-area-inset-bottom))" class="fixed left-4 z-40 px-4 py-2.5 rounded-2xl hero-gradient text-white shadow-xl border border-amber-300/40 flex items-center gap-2 text-xs sm:text-sm font-extrabold hover:scale-105 transition">
     <span class="text-base">🧠</span>
     <span class="hidden sm:inline">Wonder AI Guru</span>
     <span class="sm:hidden">AI Guru</span>
   </button>
 
   <!-- FLOATING QUESTIONS / CBT PRACTICE SHORTCUT -->
-  <button type="button" onclick="openQuestionsHub()" title="Open practice questions and CBT mock tests" aria-label="Open practice questions and CBT mock tests" class="fixed bottom-4 right-4 z-40 px-4 py-3 rounded-2xl bg-amber-400 text-slate-950 shadow-xl border border-amber-200 flex items-center gap-2 text-xs sm:text-sm font-extrabold hover:scale-105 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-amber-300">
+  <button type="button" onclick="openQuestionsHub()" title="Open practice questions and CBT mock tests" aria-label="Open practice questions and CBT mock tests" style="bottom:calc(1rem + env(safe-area-inset-bottom))" class="fixed right-4 z-40 px-4 py-3 rounded-2xl bg-amber-400 text-slate-950 shadow-xl border border-amber-200 flex items-center gap-2 text-xs sm:text-sm font-extrabold hover:scale-105 active:scale-95 transition focus:outline-none focus:ring-4 focus:ring-amber-300">
     <span class="text-base" aria-hidden="true">❓</span>
     <span>Questions</span>
   </button>
@@ -1697,11 +1698,7 @@
      * 7. NAVIGATION & GLOBAL SEARCH
      *************************************************************************/
     function openQuestionsHub() {
-      navigateTo("govt");
-      window.setTimeout(() => {
-        const testCenter = document.getElementById("cbtMockTestCenter");
-        if (testCenter) testCenter.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 180);
+      navigateTo("questions");
     }
 
     function navigateTo(view) {
@@ -1957,6 +1954,7 @@
         else if (view === "school") viewport.innerHTML = renderSchoolBoardExplorerView();
         else if (view === "university") viewport.innerHTML = renderUniversityExplorerView();
         else if (view === "govt") viewport.innerHTML = renderGovtAcademyView();
+        else if (view === "questions") viewport.innerHTML = renderQuestionsHubView();
         else if (view === "entrance") viewport.innerHTML = renderPillarView("Entrance Exams", "🎯 National & State Entrance Exam Academy", "Concept-based NCERT & numerical mastery for NEET UG, IIT-JEE Main/Advanced, CUET UG, CLAT, Polytechnic & Nursing entrances.", true);
         else if (view === "jobs") viewport.innerHTML = renderCareerAndSkillsStudioView("jobs");
         else if (view === "skills") viewport.innerHTML = renderCareerAndSkillsStudioView("skills");
@@ -2023,6 +2021,9 @@
               </button>
               <button type="button" onclick="document.getElementById('smartFinderSection').scrollIntoView({behavior:'smooth'})" class="px-5 py-3 rounded-2xl bg-white text-[#4C1D95] font-extrabold text-xs sm:text-sm shadow hover:bg-purple-50 transition">
                 🔍 ${t("btnExploreAll")}
+              </button>
+              <button type="button" onclick="navigateTo('questions')" class="px-4 py-3 rounded-2xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs sm:text-sm transition shadow">
+                ❓ Questions & Mock Tests
               </button>
               <button type="button" onclick="navigateTo('revisionhub')" class="px-4 py-3 rounded-2xl bg-white/15 hover:bg-white/25 border border-white/25 text-white font-bold text-xs sm:text-sm transition">
                 🗂️ Flashcards & Formula Vault
@@ -2329,6 +2330,152 @@
           </div>
 
           ${filtered.length ? renderCourseGrid(filtered) : renderEmptyState(`No pilot chapters published yet for ${selectedSchoolBoard} (${selectedSchoolStage}). Switch to 'All Boards' or generate a chapter in Admin → AI Course Studio!`)}
+        </section>
+      `;
+    }
+
+    /*************************************************************************
+     * 10A. CENTRAL QUESTIONS & PRACTICE HUB
+     *************************************************************************/
+    let questionsHubQuery = "";
+    let questionsHubCategory = "All";
+
+    function getQuestionsHubData() {
+      const courses = getPublishedCourses().filter(course =>
+        Array.isArray(course.mcqs) && course.mcqs.length > 0
+      );
+      const tests = Array.isArray(CBT_MOCK_TESTS) ? CBT_MOCK_TESTS : [];
+      const totalCBTQuestions = tests.reduce((sum, test) =>
+        sum + (Array.isArray(test.questions) ? test.questions.length : 0), 0
+      );
+      const totalCourseQuestions = courses.reduce((sum, course) => sum + course.mcqs.length, 0);
+      return { courses, tests, totalCBTQuestions, totalCourseQuestions };
+    }
+
+    function renderQuestionsHubResults() {
+      const { courses, tests } = getQuestionsHubData();
+      const query = normalizeSearchText(questionsHubQuery);
+      const matches = item => !query || normalizeSearchText(item).includes(query);
+      const selectedCategory = questionsHubCategory;
+
+      const filteredTests = tests.filter(test =>
+        (selectedCategory === "All" || selectedCategory === "Mock Tests") &&
+        (matches(test.title) || matches(test.exam))
+      );
+      const filteredCourses = courses.filter(course => {
+        const categoryOk = selectedCategory === "All" || selectedCategory === course.category;
+        return categoryOk && [
+          course.title, course.titleHi, course.board, course.classLevel,
+          course.subject, course.chapter, course.topic, course.category
+        ].some(matches);
+      });
+
+      return `
+        <div class="space-y-6">
+          <section class="space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h2 class="text-lg font-extrabold">⏱️ Ready-to-start CBT Mock Tests (${filteredTests.length})</h2>
+              <span class="text-xs text-slate-500">Timed tests • Question palette • Scorecard</span>
+            </div>
+            ${filteredTests.length ? `
+              <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                ${filteredTests.map(test => `
+                  <article class="rounded-2xl p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between gap-3">
+                    <div class="space-y-2">
+                      <span class="inline-flex px-2.5 py-1 rounded-full bg-purple-100 dark:bg-purple-900/40 text-purple-900 dark:text-purple-200 text-[10px] font-extrabold">${escapeHTML(test.exam)}</span>
+                      <h3 class="font-extrabold text-sm leading-snug">${escapeHTML(test.title)}</h3>
+                      <p class="text-xs text-slate-500">⏳ ${Number(test.durationMinutes) || 0} min • ${Array.isArray(test.questions) ? test.questions.length : 0} questions</p>
+                      <p class="text-xs font-bold text-emerald-700 dark:text-emerald-300">+${escapeHTML(test.positiveMarks)} correct • −${escapeHTML(test.negativeMarks)} wrong</p>
+                    </div>
+                    <button type="button" onclick="openCBTSimulator('${escapeAttr(test.id)}')" class="w-full py-2.5 rounded-xl hero-gradient text-white text-xs font-extrabold">Start Mock Test →</button>
+                  </article>
+                `).join("")}
+              </div>` : `
+              <div class="p-5 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 text-sm text-slate-500">No CBT mock test matches this search or filter.</div>
+            `}
+          </section>
+
+          <section class="space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h2 class="text-lg font-extrabold">📚 Course-wise Practice Questions (${filteredCourses.length} courses)</h2>
+              <span class="text-xs text-slate-500">Open a published course to attempt its built-in MCQs</span>
+            </div>
+            ${filteredCourses.length ? `
+              <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                ${filteredCourses.map(course => `
+                  <article class="rounded-2xl p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between gap-3">
+                    <div class="space-y-2">
+                      <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-1 rounded-lg bg-blue-50 dark:bg-blue-950/40 text-blue-800 dark:text-blue-200 text-[10px] font-extrabold">${escapeHTML(course.board)}</span>
+                        <span class="px-2 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-200 text-[10px] font-extrabold">${escapeHTML(course.classLevel)}</span>
+                      </div>
+                      <h3 class="font-extrabold text-sm leading-snug">${escapeHTML(appState.lang === "hi" ? (course.titleHi || course.title) : course.title)}</h3>
+                      <p class="text-xs text-slate-500">${escapeHTML(course.subject)} • ${escapeHTML(course.chapter || course.topic || course.category)}</p>
+                      <p class="text-xs font-bold text-emerald-700 dark:text-emerald-300">📝 ${course.mcqs.length} practice questions</p>
+                    </div>
+                    <button type="button" onclick="openCoursePlayer('${escapeAttr(course.id)}')" class="w-full py-2.5 rounded-xl bg-[#1D4ED8] text-white text-xs font-extrabold">Open Course & Practice →</button>
+                  </article>
+                `).join("")}
+              </div>` : `
+              <div class="p-5 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 text-sm text-slate-500">No published course MCQs match this search or filter yet. More question banks can be added from Admin → Import Question Bank.</div>
+            `}
+          </section>
+        </div>
+      `;
+    }
+
+    function filterQuestionsHub(query) {
+      questionsHubQuery = String(query || "");
+      const results = document.getElementById("questionsHubResults");
+      if (results) results.innerHTML = renderQuestionsHubResults();
+      const count = document.getElementById("questionsHubCount");
+      if (count) {
+        const data = getQuestionsHubData();
+        count.textContent = `${data.totalCBTQuestions + data.totalCourseQuestions} questions in currently published banks`;
+      }
+    }
+
+    function setQuestionsHubCategory(category) {
+      questionsHubCategory = category || "All";
+      filterQuestionsHub(questionsHubQuery);
+    }
+
+    function renderQuestionsHubView() {
+      const data = getQuestionsHubData();
+      const total = data.totalCBTQuestions + data.totalCourseQuestions;
+      return `
+        <section class="space-y-6">
+          <div class="hero-gradient rounded-3xl p-6 sm:p-8 text-white shadow-lg space-y-3">
+            <button type="button" onclick="navigateTo('home')" class="text-xs font-bold text-amber-300 hover:underline">← Back to Home</button>
+            <span class="inline-flex px-3 py-1 rounded-full bg-white/15 text-amber-200 text-xs font-extrabold">WONDER WORLD • PRACTICE ZONE</span>
+            <h1 class="text-2xl sm:text-3xl font-extrabold">❓ Questions, Practice & Mock Test Hub</h1>
+            <p class="text-sm text-purple-100 max-w-3xl">Find available CBT mock tests and practice questions from published courses in one place. Your test results are saved to the active learner profile on this device.</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+              <div class="rounded-2xl bg-white/10 border border-white/15 p-3"><div class="text-2xl font-extrabold">${data.tests.length}</div><div class="text-xs text-purple-100">CBT Mock Tests</div></div>
+              <div class="rounded-2xl bg-white/10 border border-white/15 p-3"><div class="text-2xl font-extrabold">${data.totalCBTQuestions}</div><div class="text-xs text-purple-100">CBT Questions</div></div>
+              <div class="rounded-2xl bg-white/10 border border-white/15 p-3 col-span-2 sm:col-span-1"><div class="text-2xl font-extrabold">${data.totalCourseQuestions}</div><div class="text-xs text-purple-100">Course MCQs</div></div>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800 space-y-3">
+            <label for="questionsHubSearch" class="block text-xs font-extrabold text-slate-600 dark:text-slate-300">Search by exam, course, class, subject or topic</label>
+            <input id="questionsHubSearch" type="search" value="${escapeAttr(questionsHubQuery)}" oninput="filterQuestionsHub(this.value)" placeholder="Search questions, exams, subjects..." class="w-full p-3 rounded-2xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm outline-none focus:ring-2 focus:ring-[#4C1D95]"/>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <select aria-label="Filter question category" onchange="setQuestionsHubCategory(this.value)" class="w-full sm:w-auto p-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-bold">
+                <option value="All" ${questionsHubCategory === "All" ? "selected" : ""}>All question banks</option>
+                <option value="Mock Tests" ${questionsHubCategory === "Mock Tests" ? "selected" : ""}>CBT Mock Tests</option>
+                <option value="School Education" ${questionsHubCategory === "School Education" ? "selected" : ""}>School Education</option>
+                <option value="Government Exams" ${questionsHubCategory === "Government Exams" ? "selected" : ""}>Government Exams</option>
+                <option value="Entrance Exams" ${questionsHubCategory === "Entrance Exams" ? "selected" : ""}>Entrance Exams</option>
+                <option value="University & Higher Ed" ${questionsHubCategory === "University & Higher Ed" ? "selected" : ""}>University & Higher Education</option>
+                <option value="Private Jobs & Career" ${questionsHubCategory === "Private Jobs & Career" ? "selected" : ""}>Private Jobs & Career</option>
+                <option value="Future Skills & AI" ${questionsHubCategory === "Future Skills & AI" ? "selected" : ""}>Future Skills & AI</option>
+              </select>
+              <span id="questionsHubCount" class="text-xs font-semibold text-slate-500">${total} questions in currently published banks</span>
+            </div>
+          </div>
+
+          <div id="questionsHubResults">${renderQuestionsHubResults()}</div>
         </section>
       `;
     }
