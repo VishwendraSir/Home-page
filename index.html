@@ -1804,11 +1804,12 @@
       const viewport = document.getElementById("appViewport");
       if (!viewport) return;
       viewport.innerHTML = `
-        <section class="space-y-6">
+        <section class="space-y-6" aria-label="Global course search results">
           <div class="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
             <div>
               <span class="text-xs font-bold uppercase text-[#6D28D9] dark:text-purple-400">Global Instant Search</span>
-              <h2 class="text-xl sm:text-2xl font-extrabold mt-1">Results for "${escapeHTML(query)}" (${matches.length})</h2>
+              <h2 class="text-xl sm:text-2xl font-extrabold mt-1">Results for "${escapeHTML(query)}"</h2>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-1" role="status" aria-live="polite" aria-atomic="true">${matches.length} matching courses found</p>
             </div>
             <button type="button" onclick="navigateTo('home')" class="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs sm:text-sm font-bold">✕ Clear Search</button>
           </div>
