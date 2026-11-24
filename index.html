@@ -68,10 +68,6 @@
         <span id="pwaStatusBadge" class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200 text-[11px] font-bold border border-emerald-400/30">
           ● Checking connection…
         </span>
-        <button type="button" onclick="downloadStandaloneHTML()" class="underline hover:text-[#FBBF24] transition font-medium" title="Download single HTML file for GitHub Pages">
-          ⬇ <span data-i18n="downloadApp">GitHub Pages HTML</span>
-        </button>
-        <span class="opacity-50 hidden sm:inline">|</span>
         <span class="text-[#FBBF24] font-semibold">v12.0 Production</span>
       </div>
     </div>
@@ -289,14 +285,6 @@
         </ul>
       </div>
 
-      <div class="space-y-3">
-        <h4 class="font-bold text-white text-sm uppercase tracking-wider">Platform Portability & Backup</h4>
-        <p class="text-xs text-slate-400">Works offline via browser storage. Export your progress or download the standalone app anytime.</p>
-        <div class="flex flex-wrap gap-2">
-          <button type="button" onclick="exportPlatformData()" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white border border-slate-700">📤 Export JSON</button>
-          <button type="button" onclick="downloadStandaloneHTML()" class="px-3 py-2 rounded-xl bg-[#6D28D9] hover:bg-purple-800 text-xs font-semibold text-white">⬇ Save HTML</button>
-        </div>
-      </div>
     </div>
     <div class="border-t border-slate-800 py-4 px-4 text-center text-xs text-slate-500">
       © 2026 WONDER WORLD – BHARAT LEARNING NETWORK | Vishwa Tech Group | Guided by Vishwendra Sir. Built for All-India Free Education.
@@ -311,7 +299,6 @@
     const I18N = {
       en: {
         topBanner: "100% Free-First Bharat Learning Ecosystem • Guided by Vishwendra Sir (Vishwa Tech Group)",
-        downloadApp: "GitHub Pages HTML",
         guidedBy: "Guided by Vishwendra Sir",
         navHome: "Home",
         navSchool: "School (Nursery–12)",
