@@ -89,3 +89,20 @@ The user supplied the original V3.7 source files. The following paths were resto
 
 ## Current audit-branch outcome
 The recovered V3.7 modules are restored without replacing the working live homepage or deleting any existing path. Review and runtime testing should precede any merge to `main`.
+
+
+## Static validation pass — 2026-11-24
+The four supplied HTML documents were checked locally with an HTML parser and Node.js syntax validation:
+- index.html, Manushree_Candy_Garden_V3_7.html, Shree_Ocean_Discovery_V3_7.html, and Ram_Dino_Space_Quest_V3_7.html all parsed without parser exceptions.
+- Each document contains 81 unique HTML IDs; no duplicate IDs were detected.
+- Inline JavaScript passed node --check validation in all four documents (zero syntax errors).
+- No missing local href/src file references were detected relative to the supplied files.
+- No broken same-page #anchor links were detected.
+- The recovered files load Tailwind from https://cdn.tailwindcss.com. A browser network connection is therefore needed for that dependency; full offline operation is not established.
+- This is static validation only. It does not prove that buttons, audio, profile persistence, Firebase/Worker requests, responsive layout, or all 80 activities behave correctly in a browser/device.
+
+### Next test gate
+1. Run browser-based smoke tests for each profile and the 3-profile launcher.
+2. Exercise navigation, all activity entry points, audio controls, progress persistence, and reload behavior.
+3. Check mobile viewport and keyboard/touch interactions.
+4. Only then decide whether a deployment preview or pull request is appropriate. Keep main and live Pages unchanged until reviewed.
