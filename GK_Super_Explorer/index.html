@@ -96,6 +96,12 @@ body{background:radial-gradient(circle at 5% 0%,#e2eaff 0,transparent 30%),var(-
 .slide-counter{font-weight:850;font-variant-numeric:tabular-nums}
 @media(max-width:600px){#slideShow{padding:9px}.slide-shell{height:96dvh}.slide-options{grid-template-columns:1fr}.slide-stage{border-radius:18px}.slide-controls{justify-content:center}.slide-controls .group{justify-content:center}.slide-btn{padding:10px 12px}}
 </style>
+
+<!-- SCLH shared Firebase display lock (automatically managed) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="../firebase-config.js"></script>
+<script src="../site-lock.js?v=2"></script>
 </head><body><div class="app">
 <header class="hero"><div class="brand">🌍 SCIENCE CENTRE LEARNING HUB<br>GUIDED BY VISHWENDRA SIR</div><h1>GK SUPER<br>EXPLORER ✦</h1><p>कक्षा 1 से 10 तक General Knowledge सीखें, सुनें और खेल-खेल में अभ्यास करें। Explore • Learn • Listen • Test</p><div class="actions"><button class="pill" onclick="showExplore()">🚀 Start Exploring</button><button class="pill ghost" onclick="startQuiz()">🎯 Quick Quiz</button><button class="pill" onclick="openSlideShow()">📽️ Interactive Slide Show</button></div></header>
 <div class="stats"><div class="stat"><b>8</b><span>Learning Zones</span></div><div class="stat"><b id="totalQ">1,000</b><span>Practice Questions</span></div><div class="stat"><b id="best">0%</b><span>Best Accuracy</span></div><div class="stat"><b id="done">0</b><span>Questions Attempted</span></div></div>

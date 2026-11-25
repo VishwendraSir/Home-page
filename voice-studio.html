@@ -13,7 +13,13 @@ label{display:block;font-weight:750;margin:12px 0 6px}textarea,select,input{widt
 textarea{min-height:115px;resize:vertical}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.range-row{display:flex;align-items:center;gap:10px}.range-row input{padding:0}.range-row output{min-width:40px;font-weight:800;text-align:right}
 .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}button,.home{border:0;border-radius:11px;padding:12px 16px;font:inherit;font-weight:800;cursor:pointer;background:var(--blue);color:#fff;text-decoration:none}.secondary{background:#eaf0fa;color:#17366f}.stop{background:#9f2635}.status{padding:12px;border-radius:10px;background:#edf4ff;color:#17366f;margin-top:14px;overflow-wrap:anywhere}.hint{font-size:.9rem;color:var(--muted)}button:disabled{opacity:.5;cursor:not-allowed}
 @media(max-width:600px){.grid{grid-template-columns:1fr}.panel{padding:14px}.actions button{flex:1}}
-</style></head>
+</style>
+<!-- SCLH shared Firebase display lock (automatically managed) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="./firebase-config.js"></script>
+<script src="./site-lock.js?v=2"></script>
+</head>
 <body>
 <header><div class="wrap"><h1>🔊 SCIENCE CENTRE LEARNING HUB — Voice Studio</h1><p>Guided by Vishwendra Sir · Hindi + English Speech Controller</p></div></header>
 <main class="wrap">

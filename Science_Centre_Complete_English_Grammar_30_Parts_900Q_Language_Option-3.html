@@ -16,7 +16,13 @@ h2,h3{line-height:1.25}h2{margin-top:0;color:var(--navy)}.hindi{color:#4c5d73}.t
 .srtabs{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.srtabs button{background:#e0e7ff;color:#3730a3}.srtabs button.active{background:#4338ca;color:white}
 .srquestion{background:white;padding:15px;border-radius:16px;margin:10px 0;border:1px solid #dbeafe}.sroptions{display:grid;gap:8px}.sroptions button{text-align:left;background:#f8fafc;color:#1e293b;border:1px solid #cbd5e1}.sroptions button.correct{background:#dcfce7;color:#166534}.sroptions button.wrong{background:#fee2e2;color:#991b1b}
 .srlist{display:grid;gap:8px}.srrow{background:white;padding:12px;border-radius:12px;border:1px solid #e2e8f0;display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap}.srmuted{color:#64748b;font-size:.85rem}
-@media(min-width:720px){.srgrid{grid-template-columns:repeat(5,minmax(0,1fr))}}</style></head><body>
+@media(min-width:720px){.srgrid{grid-template-columns:repeat(5,minmax(0,1fr))}}</style>
+<!-- SCLH shared Firebase display lock (automatically managed) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="./firebase-config.js"></script>
+<script src="./site-lock.js?v=2"></script>
+</head><body>
 <header><h1>SCIENCE CENTRE LEARNING HUB</h1><p><strong>Guided by Vishwendra Sir</strong></p><p>Complete English Grammar • 30 Parts • 900 Practice Questions</p></header>
 <main class="wrap">
 <section class="panel"><div class="row"><h2 id="howTitle">How to use / उपयोग कैसे करें</h2><div style="text-align:right"><button class="secondary" id="langHindi" type="button">हिन्दी</button> <button class="secondary" id="langEnglish" type="button">English</button></div></div><p class="hindi">टॉपिक चुनें, पहले हिन्दी में नियम पढ़ें, फिर अंग्रेज़ी प्रश्न हल करें। 🔊 बटन से प्रश्न या विकल्प सुनें। अंत में Check Answers दबाएँ। अंक, सही उत्तर और हिन्दी में explanation दिखाई देंगे।</p>

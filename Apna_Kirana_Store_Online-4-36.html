@@ -5,7 +5,13 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
 :root{--green:#166534;--green2:#15803d;--bg:#f4f7f2}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#17231a}.btn{border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}.primary{background:var(--green);color:white}.secondary{background:#e5f3e8;color:#14532d}.danger{background:#fee2e2;color:#991b1b}.card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 2px 8px #00000008}.input{width:100%;border:1px solid #d1d5db;border-radius:10px;padding:10px;background:#fff}.hidden{display:none!important}.pill{border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700}.product-img{height:130px;display:flex;align-items:center;justify-content:center;background:#f0fdf4;font-size:58px;border-radius:12px;overflow:hidden}.product-img img{width:100%;height:100%;object-fit:cover}.tab{padding:9px 13px;border-radius:999px;background:#e5e7eb;white-space:nowrap}.tab.active{background:#166534;color:white}.modal-bg{position:fixed;inset:0;background:#0008;z-index:50;display:flex;align-items:center;justify-content:center;padding:16px}.modal{background:white;width:min(600px,100%);max-height:90vh;overflow:auto;border-radius:18px;padding:20px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:80;background:#17231a;color:white;padding:12px 18px;border-radius:12px;box-shadow:0 8px 30px #0003}.stickybar{position:sticky;bottom:0;background:#ffffffee;backdrop-filter:blur(10px);padding:12px;border-top:1px solid #e5e7eb;z-index:10}.small{font-size:12px}.safe-bottom{padding-bottom:env(safe-area-inset-bottom)}
-</style></head>
+</style>
+<!-- SCLH shared Firebase display lock (automatically managed) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="./firebase-config.js"></script>
+<script src="./site-lock.js?v=2"></script>
+</head>
 <body>
 <div id="app" class="min-h-screen">
 <header class="bg-green-800 text-white sticky top-0 z-20 shadow"><div class="max-w-6xl mx-auto px-3 py-3 flex items-center justify-between gap-2"><div><div class="font-black text-xl">🛒 APNA KIRANA STORE ONLINE</div><div class="text-xs opacity-90">आपकी रोज़मर्रा की जरूरतें, अब ऑनलाइन!</div></div><div class="flex gap-2"><button class="btn bg-white text-green-800" onclick="openCustomerAccount()">👤 Account</button><button class="btn bg-white text-green-800" onclick="openCart()">🛍️ Cart <span id="cartCount">0</span></button></div></div></header>

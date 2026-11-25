@@ -3,7 +3,13 @@
 <style>
 :root{--bg:#0b1020;--panel:#151d33;--line:#2b3858;--text:#eef3ff;--muted:#9eb0d1;--blue:#70a7ff;--green:#54d69a;--yellow:#ffd166;--red:#ff6b7a}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px system-ui,Arial}header{padding:22px;background:linear-gradient(120deg,#14284c,#32205b);border-bottom:1px solid var(--line)}h1{margin:0 0 6px;font-size:24px}small,.muted{color:var(--muted)}main{max-width:1200px;margin:auto;padding:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.btn,button{background:#263b66;color:white;border:1px solid #45659a;padding:10px 14px;border-radius:9px;cursor:pointer}button:hover{filter:brightness(1.15)}input,select,textarea{background:#0c1428;color:var(--text);border:1px solid var(--line);padding:10px;border-radius:8px}textarea{width:100%;min-height:130px} .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.stat{background:#0d162b;border:1px solid var(--line);padding:14px;border-radius:10px}.stat b{display:block;font-size:23px}.good{color:var(--green)}.warn{color:var(--yellow)}.bad{color:var(--red)}table{width:100%;border-collapse:collapse;min-width:800px}th,td{border-bottom:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}th{color:var(--blue)}.tablewrap{overflow:auto}.pill{display:inline-block;border-radius:20px;padding:3px 8px;background:#263653;font-size:12px}.approved{color:var(--green)}.revise{color:var(--yellow)}.reject{color:var(--red)}details{margin-top:6px}footer{padding:20px;color:var(--muted);text-align:center}
-</style></head><body>
+</style>
+<!-- SCLH shared Firebase display lock (automatically managed) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="../firebase-config.js"></script>
+<script src="../site-lock.js?v=2"></script>
+</head><body>
 <header><h1>🛡️ QUESTION BANK QUALITY CONTROL V9</h1><div>SCIENCE CENTRE LEARNING HUB · Guided by Vishwendra Sir</div><small>Quality First • Source Integrity • Answer Audit • Duplicate Control • Bilingual Review</small></header>
 <main>
 <section class="card"><h2>1. Question Bank Import</h2><p class="muted">JSON array या {questions:[...]} format. यह tool heuristic audit करता है; source/answer की वास्तविक सत्यता तभी पुष्टि होगी जब प्रमाण/स्रोत उपलब्ध हों।</p>

@@ -22,6 +22,12 @@ dialog{border:0;border-radius:16px;max-width:min(92vw,560px);width:100%;padding:
 @media(max-width:700px){.grid{grid-template-columns:1fr}.wrap{padding:8px}.card{padding:10px}.fact{display:block}.fact b{display:block;margin-bottom:2px}.toolbar>*{flex:1 1 42%}.hero{padding:13px}}
 @media print{.toolbar,.audio-row,.action,.quizbox,.footer{display:none!important}body{background:#fff}.card{break-inside:avoid;box-shadow:none}}
 </style>
+
+<!-- SCLH shared Firebase display lock (automatically managed) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="./firebase-config.js"></script>
+<script src="./site-lock.js?v=2"></script>
 </head>
 <body>
 <header>
