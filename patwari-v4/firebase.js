@@ -14,6 +14,7 @@ function getSavedConfig(){ try { return JSON.parse(localStorage.getItem(KEY) || 
 async function restoreCloudForUser(user) {
   if (!user || !db) return;
   restoring = true;
+  let shouldUpload = false;
   try {
     const ref = doc(db, "users", user.uid, "app_state", "main");
     const snap = await getDoc(ref);
@@ -23,14 +24,15 @@ async function restoreCloudForUser(user) {
         window.PatwariApplyCloudState?.(data.state);
       }
     } else {
-      // First cloud activation: preserve and upload this browser's existing local records.
-      const local = window.PatwariGetLocalState?.();
-      if (local) await saveStateNow(local);
+      // First cloud activation: preserve this browser's local records for first upload.
+      shouldUpload = true;
     }
   } catch (e) {
     window.dispatchEvent(new CustomEvent("patwari-cloud-error", { detail: e.message || String(e) }));
   } finally {
     restoring = false;
+    const local = window.PatwariGetLocalState?.();
+    if (local && (shouldUpload || user)) queueSave(local);
   }
 }
 
