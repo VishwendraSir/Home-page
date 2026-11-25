@@ -1190,7 +1190,7 @@
 <pre id="v4AiOutput" style="white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f9;color:#0f172a;padding:12px;border-radius:10px;margin-top:10px"></pre>
 </section>
 <script type="module">
-import "./firebase.js";
+import "./firebase.js?v=4.1.2";
 const status=()=>document.getElementById("v4AuthStatus");
 const setStatus=(message)=>{status().textContent=message;const top=document.getElementById("authStatus");if(top)top.textContent=message;};
 const savedCfg=window.PatwariFirebase?.getSavedConfig?.();
@@ -1201,7 +1201,16 @@ if(savedCfg){for(const [id,key] of [["v4ApiKey","apiKey"],["v4AuthDomain","authD
 window.v4Connect=async()=>{try{const cfg={apiKey:document.getElementById("v4ApiKey").value.trim(),authDomain:document.getElementById("v4AuthDomain").value.trim(),projectId:document.getElementById("v4ProjectId").value.trim(),appId:document.getElementById("v4AppId").value.trim()};const r=await window.PatwariFirebase.saveAndConnectConfig(cfg);setStatus(r.ok?"Firebase connected. अब Google Login दबाएँ।":r.reason);}catch(e){status().textContent="Connect error: "+e.message;}};
 window.v4GoogleLogin=async()=>{try{if(!window.PatwariFirebase?.isConfigured()){document.getElementById("v4CloudPanel").scrollIntoView({behavior:"smooth",block:"start"});setStatus("पहले Firebase Console से Web App Config भरें और Save & Connect Firebase दबाएँ।");document.getElementById("v4ApiKey").focus();return;}setStatus("Google sign-in खुल रहा है…");await window.PatwariFirebase.loginGoogle();}catch(e){setStatus("Login error: "+(e.message||String(e)));}};
 window.v4Logout=async()=>{try{await window.PatwariFirebase.logoutUser();setStatus("Signed out.");}catch(e){setStatus(e.message);}};
-window.v4CloudSync=async()=>{try{setStatus("Cloud sync running…");await window.PatwariFirebase.restoreCloud();await window.PatwariFirebase.flushPending();setStatus("Cloud sync completed.");}catch(e){setStatus("Cloud sync failed: "+e.message);}};
+window.v4CloudSync=async()=>{try{
+  const fb=window.PatwariFirebase;
+  if(!fb) throw new Error("Firebase module load नहीं हुआ। पेज को hard refresh करें।");
+  if(typeof fb.restoreCloud!=="function") throw new Error("पुराना Firebase module cache में है। पेज बंद करके नया V4.1 लिंक खोलें।");
+  if(!fb.getCurrentUser()) throw new Error("पहले Google Login करें।");
+  setStatus("Cloud sync running…");
+  await fb.restoreCloud();
+  await fb.flushPending();
+  setStatus("Cloud sync request पूरी हुई। Firestore Data tab में users/UID/app_state/main जाँचें।");
+}catch(e){setStatus("Cloud sync failed: "+(e.message||String(e)));}};
 window.v4AskAI=async()=>{const out=document.getElementById("v4AiOutput");try{const url=document.getElementById("v4WorkerUrl").value.trim();if(!url)throw new Error("Cloudflare Worker URL enter करें.");
 localStorage.setItem("RPAA_V4_WORKER_URL",url);const token=await window.PatwariFirebase.getIdToken();if(!token)throw new Error("पहले Firebase Google Login करें.");const prompt=document.getElementById("v4AiPrompt").value.trim();if(!prompt)throw new Error("अपना प्रश्न लिखें.");out.textContent="Working…";const res=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({prompt,mode:"chat",language:"hi"})});const data=await res.json();if(!res.ok)throw new Error(data.error||"AI request failed");out.textContent=data.text+"\n\n"+(data.disclaimer||"");}catch(e){out.textContent=e.message;}};
 window.addEventListener("patwari-login-error",e=>{setStatus("Google Login error: "+e.detail);});
