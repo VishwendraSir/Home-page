@@ -16,7 +16,7 @@ Live app: https://vishwendrasir.github.io/Home-page/Rajasthan_Patwari_AI_Assista
 
 ## Cloudflare AI setup
 1. Deploy patwari-worker.js as a Worker.
-2. Set FIREBASE_PROJECT_ID and ALLOWED_ORIGIN=https://vishwendrasir.github.io.
+2. Set FIREBASE_PROJECT_ID, FIREBASE_WEB_API_KEY (Firebase Web API key), and ALLOWED_ORIGIN=https://vishwendrasir.github.io.
 3. Add GEMINI_API_KEY as a Worker secret (never put it in browser code or GitHub).
 4. Optionally set GEMINI_MODEL; default gemini-2.5-flash.
 5. Set workerUrl in patwari-config.js. Worker requires a valid Firebase ID token.
