@@ -1136,6 +1136,14 @@
       } catch (e) { console.error("Cloud restore failed", e); }
     };
 
+    window.addEventListener("patwari-cloud-status", e => {
+      const el = document.getElementById("netStatus");
+      if (el) el.textContent = e.detail || "Cloud status";
+    });
+    window.addEventListener("patwari-cloud-error", e => {
+      const el = document.getElementById("netStatus");
+      if (el) el.textContent = "Cloud Error • " + (e.detail || "Check Firestore Rules");
+    });
     window.addEventListener("online", updateNetBadge);
     window.addEventListener("offline", updateNetBadge);
     window.addEventListener("DOMContentLoaded", () => {
