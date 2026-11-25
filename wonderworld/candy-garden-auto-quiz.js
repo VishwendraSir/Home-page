@@ -131,39 +131,50 @@ function start(id){stop();var g=game(id),qs=choose(id);if(!g)return false;if(!qs
 function optionImage(label,cat,index){
 var s=String(label||'').toLowerCase().trim();
 var photos=[
-[/\b(rose|roses)\b|गुलाब/,'https://commons.wikimedia.org/wiki/Special:FilePath/Rose_Flower_photo.jpg?width=800'],
-[/\b(sunflower|sun flowers)\b|सूरजमुखी/,'https://commons.wikimedia.org/wiki/Special:FilePath/Sunflower_as.jpg?width=800'],
-[/\b(lotus|water lily)\b|कमल/,'https://commons.wikimedia.org/wiki/Special:FilePath/Lotus_flower.JPG?width=800'],
-[/\b(microscope)\b|सूक्ष्मदर्शी/,'https://commons.wikimedia.org/wiki/Special:FilePath/A_Microscope.jpg?width=800'],
-[/\b(marigold)\b|गेंदा/,'https://commons.wikimedia.org/wiki/Special:FilePath/Marigold_flower.jpg?width=800'],
-[/\b(tulip|tulips)\b|ट्यूलिप/,'https://commons.wikimedia.org/wiki/Special:FilePath/Tulip_in_spring.jpg?width=800'],
-[/\b(lily|lilies)\b|लिली/,'https://commons.wikimedia.org/wiki/Special:FilePath/Lilium_longiflorum.jpg?width=800'],
-[/\b(hibiscus|china rose)\b|गुड़हल/,'https://commons.wikimedia.org/wiki/Special:FilePath/Hibiscus_rosa-sinensis_flower.jpg?width=800'],
-[/\b(apple|सेब)\b/,'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=800&q=85'],
-[/\b(banana|केला)\b/,'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800&q=85'],
-[/\b(mango|आम)\b/,'https://images.unsplash.com/photo-1553279768-865429fa0078?w=800&q=85'],
-[/\b(grapes|अंगूर)\b/,'https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=800&q=85'],
-[/\b(orange|संतरा)\b/,'https://images.unsplash.com/photo-1547514701-42782101795e?w=800&q=85'],
-[/\b(lion|शेर)\b/,'https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=800&q=85'],
-[/\b(elephant|हाथी)\b/,'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=800&q=85'],
-[/\b(dog|कुत्ता)\b/,'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=800&q=85'],
-[/\b(cat|बिल्ली)\b/,'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&q=85'],
-[/\b(peacock|मोर)\b/,'https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?w=800&q=85'],
-[/\b(cow|गाय)\b/,'https://images.unsplash.com/photo-1546445317-29f4545e9d53?w=800&q=85'],
-[/\b(car|कार)\b/,'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=85'],
-[/\b(train|रेलगाड़ी)\b/,'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800&q=85'],
-[/\b(airplane|aeroplane|हवाई जहाज)\b/,'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=85'],
-[/\b(sun|सूरज|सूर्य)\b/,'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=85'],
-[/\b(tree|पेड़)\b/,'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&q=85']
+[/\\b(rose|roses)\\b|गुलाब/,'https://commons.wikimedia.org/wiki/Special:FilePath/Rose_Flower_photo.jpg?width=800'],
+[/\\b(sunflower|sun flowers)\\b|सूरजमुखी/,'https://commons.wikimedia.org/wiki/Special:FilePath/Sunflower_as.jpg?width=800'],
+[/\\b(lotus|water lily)\\b|कमल/,'https://commons.wikimedia.org/wiki/Special:FilePath/Lotus_flower.JPG?width=800'],
+[/\\b(microscope)\\b|सूक्ष्मदर्शी/,'https://commons.wikimedia.org/wiki/Special:FilePath/A_Microscope.jpg?width=800'],
+[/\\b(marigold)\\b|गेंदा/,'https://commons.wikimedia.org/wiki/Special:FilePath/Marigold_flower.jpg?width=800'],
+[/\\b(tulip|tulips)\\b|ट्यूलिप/,'https://commons.wikimedia.org/wiki/Special:FilePath/Tulip_in_spring.jpg?width=800'],
+[/\\b(lily|lilies)\\b|लिली/,'https://commons.wikimedia.org/wiki/Special:FilePath/Lilium_longiflorum.jpg?width=800'],
+[/\\b(hibiscus|china rose)\\b|गुड़हल/,'https://commons.wikimedia.org/wiki/Special:FilePath/Hibiscus_rosa-sinensis_flower.jpg?width=800'],
+[/\\b(apple|सेब)\\b/,'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=800&q=85'],
+[/\\b(banana|केला)\\b/,'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800&q=85'],
+[/\\b(mango|आम)\\b/,'https://images.unsplash.com/photo-1553279768-865429fa0078?w=800&q=85'],
+[/\\b(grapes|अंगूर)\\b/,'https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=800&q=85'],
+[/\\b(orange|संतरा)\\b/,'https://images.unsplash.com/photo-1547514701-42782101795e?w=800&q=85'],
+[/\\b(lion|शेर)\\b/,'https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=800&q=85'],
+[/\\b(elephant|हाथी)\\b/,'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=800&q=85'],
+[/\\b(dog|कुत्ता)\\b/,'https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=800&q=85'],
+[/\\b(cat|बिल्ली)\\b/,'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=800&q=85'],
+[/\\b(peacock|मोर)\\b/,'https://images.unsplash.com/photo-1536514498073-50e69d39c6cf?w=800&q=85'],
+[/\\b(cow|गाय)\\b/,'https://images.unsplash.com/photo-1546445317-29f4545e9d53?w=800&q=85'],
+[/\\b(car|कार)\\b/,'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=85'],
+[/\\b(train|रेलगाड़ी)\\b/,'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800&q=85'],
+[/\\b(airplane|aeroplane|हवाई जहाज)\\b/,'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=85'],
+[/\\b(sun|सूरज|सूर्य)\\b/,'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=85'],
+[/\\b(tree|पेड़)\\b/,'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&q=85']
 ];
 for(var p=0;p<photos.length;p++){if(photos[p][0].test(s))return photos[p][1]}
-var emoji='✨',bg=['#dbeafe','#fce7f3','#dcfce7','#fef3c7'][index%4];
-var rules=[[/cow|milk|गाय|दूध/,'🐄'],[/lion|शेर/,'🦁'],[/tiger|बाघ/,'🐅'],[/elephant|हाथी/,'🐘'],[/dog|कुत्ता/,'🐶'],[/cat|बिल्ली/,'🐱'],[/bird|पक्षी|eagle|penguin|parrot/,'🐦'],[/fish|whale|shark|मछली/,'🐠'],[/fruit|apple|mango|banana|orange|आम|सेब|केला/,'🍎'],[/vegetable|carrot|potato|गाजर|आलू/,'🥕'],[/sun|सूर्य/,'☀️'],[/moon|चाँद/,'🌙'],[/earth|पृथ्वी/,'🌍'],[/mars|मंगल/,'🔴'],[/planet|ग्रह|jupiter|बृहस्पति/,'🪐'],[/rocket|रॉकेट/,'🚀'],[/star|तारा/,'⭐'],[/heart|हृदय|दिल/,'❤️'],[/lung|फेफड़े|breathe|breath|साँस/,'🫁'],[/brain|दिमाग/,'🧠'],[/root|जड़/,'🌱'],[/leaf|पत्ता|पत्ती/,'🍃'],[/flower|फूल|petal/,'🌸'],[/water|पानी|जल/,'💧'],[/rain|बारिश/,'🌧️'],[/rainbow|रंग|colour|color/,'🌈'],[/shape|circle|square|triangle|वृत्त|त्रिभुज/,'🔷'],[/number|count|गिनती|संख्या/,'🔢'],[/book|पुस्तक|किताब/,'📚'],[/letter|alphabet|अक्षर|phonics/,'🔤'],[/family|परिवार/,'👨‍👩‍👧'],[/home|घर/,'🏡'],[/food|भोजन|खाना/,'🍎'],[/car|vehicle|गाड़ी|वाहन/,'🚗'],[/bus|बस/,'🚌'],[/train|रेलगाड़ी/,'🚆'],[/clock|time|घड़ी/,'⏰'],[/money|rupee|coin|पैसा|रुपया/,'🪙'],[/magnet|चुंबक/,'🧲'],[/iron|लोहा/,'🔩'],[/wood|लकड़ी/,'🪵'],[/plastic|प्लास्टिक/,'🧴'],[/paper|कागज/,'📄'],[/break|तोड़|damage/,'🛠️'],[/shout|loud|चिल्ला/,'📢'],[/hit|मारना/,'🛑'],[/slow|breath|शांत|calm/,'🌬️'],[/match|matching|symmetry|सममिति/,'🦋'],[/shadow|परछाई|छाया/,'🌗'],[/good|kind|help|मदद|सहायता/,'🤝'],[/clean|सफाई/,'🧹'],[/safe|safety|सुरक्षा/,'🛡️'],[/smile|happy|खुश/,'😊'],[/sad|उदास/,'😢'],[/angry|गुस्सा/,'😠'],[/music|song|गाना/,'🎵'],[/piano/,'🎹'],[/cake|कपकेक/,'🧁'],[/butterfly|तितली/,'🦋'],[/dinosaur|dino|डायनासोर/,'🦕'],[/robot|रोबोट/,'🤖'],[/ocean|समुद्र/,'🌊'],[/shell|सीप/,'🐚']];
-for(var i=0;i<rules.length;i++){if(rules[i][0].test(s)){emoji=rules[i][1];break}}
-if(emoji==='✨')emoji=({math:'🔢',science:'🔬',language:'🔤',habits:'🌟',brain:'🧩'}[cat]||'🌟');
-var hash=0;for(var j=0;j<s.length;j++)hash=(hash*31+s.charCodeAt(j))>>>0;
-var accent=['#8b5cf6','#ec4899','#0ea5e9','#10b981','#f59e0b'][(hash+index)%5];
-var svg='<svg xmlns="http://www.w3.org/2000/svg" width="320" height="190" viewBox="0 0 320 190"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="'+bg+'"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><rect width="320" height="190" rx="26" fill="url(#g)"/><circle cx="160" cy="84" r="62" fill="'+accent+'" opacity=".16"/><circle cx="160" cy="84" r="48" fill="#fff" opacity=".72"/><text x="160" y="108" text-anchor="middle" font-size="72">'+emoji+'</text><path d="M25 153 Q160 133 295 153" stroke="'+accent+'" stroke-width="5" stroke-linecap="round" opacity=".55" fill="none"/><circle cx="34" cy="34" r="7" fill="'+accent+'" opacity=".55"/><circle cx="286" cy="36" r="9" fill="'+accent+'" opacity=".35"/></svg>';
+var rules=[
+[/\\b(mercury)\\b/,'☿️'],[/\\b(venus)\\b/,'🟠'],[/\\b(mars)\\b/,'🔴'],[/\\b(jupiter)\\b/,'🪐'],[/\\b(saturn)\\b/,'🪐'],[/\\b(neptune)\\b/,'🔵'],[/\\b(earth)\\b/,'🌍'],[/\\b(planet)\\b/,'🪐'],
+[/\\b(heart)\\b|हृदय|दिल/,'❤️'],[/\\b(lungs)\\b|फेफड़े/,'🫁'],[/\\b(kidney)\\b/,'🫘'],[/\\b(liver)\\b/,'🫀'],[/\\b(stomach)\\b/,'🫃'],[/\\b(brain)\\b|दिमाग/,'🧠'],[/\\b(skin)\\b/,'🖐️'],[/\\b(bone|bones)\\b|हड्डी/,'🦴'],
+[/\\b(root|roots)\\b|जड़/,'🌱'],[/\\b(leaf|leaves)\\b|पत्ता|पत्ती/,'🍃'],[/\\b(flower|flowers)\\b|फूल/,'🌼'],[/\\b(fruit)\\b|फल/,'🍎'],[/\\b(vegetable)\\b|सब्जी/,'🥕'],[/\\b(seed|seeds)\\b|बीज/,'🌰'],[/\\b(stem)\\b|तना/,'🌿'],[/\\b(plant)\\b|पौधा/,'🪴'],
+[/\\b(whale)\\b/,'🐋'],[/\\b(shark)\\b/,'🦈'],[/\\b(penguin)\\b/,'🐧'],[/\\b(frog)\\b/,'🐸'],[/\\b(crocodile)\\b/,'🐊'],[/\\b(camel)\\b/,'🐪'],[/\\b(horse)\\b/,'🐎'],[/\\b(tiger)\\b/,'🐅'],[/\\b(bird)\\b|पक्षी/,'🐦'],[/\\b(fish)\\b|मछली/,'🐟'],[/\\b(butterfly)\\b|तितली/,'🦋'],
+[/\\b(oxygen)\\b/,'🫧'],[/\\b(carbon dioxide)\\b/,'💨'],[/\\b(nitrogen)\\b/,'🌫️'],[/\\b(water)\\b|पानी|जल/,'💧'],[/\\b(solid)\\b|ठोस/,'🧊'],[/\\b(liquid)\\b|तरल/,'💧'],[/\\b(gas)\\b|गैस/,'💨'],[/\\b(gravity)\\b|गुरुत्व/,'🌍'],[/\\b(friction)\\b/,'🛞'],[/\\b(magnetism|magnet)\\b|चुंबक/,'🧲'],[/\\b(iron)\\b|लोहा/,'🔩'],[/\\b(wood)\\b|लकड़ी/,'🪵'],[/\\b(plastic)\\b|प्लास्टिक/,'🧴'],[/\\b(paper)\\b|कागज/,'📄'],[/\\b(solar energy|solar)\\b|सौर ऊर्जा/,'☀️'],[/\\b(coal)\\b/,'🪨'],[/\\b(petrol)\\b/,'⛽'],[/\\b(thermometer)\\b/,'🌡️'],[/\\b(barometer)\\b/,'🌡️'],[/\\b(compass)\\b/,'🧭'],[/\\b(rain gauge)\\b/,'🌧️'],[/\\b(metre|meter)\\b/,'📏'],[/\\b(litre|liter)\\b/,'🧪'],[/\\b(gram)\\b/,'⚖️'],[/\\b(second)\\b/,'⏱️'],
+[/\\b(teacher)\\b/,'👩‍🏫'],[/\\b(doctor)\\b/,'🧑‍⚕️'],[/\\b(farmer)\\b/,'🧑‍🌾'],[/\\b(pilot)\\b/,'👨‍✈️'],[/\\b(ambulance)\\b/,'🚑'],[/\\b(helmet)\\b/,'🪖'],[/\\b(dustbin|bin)\\b/,'🗑️'],[/\\b(book|books)\\b|किताब|पुस्तक/,'📚'],[/\\b(piano)\\b/,'🎹'],[/\\b(drum)\\b/,'🥁'],[/\\b(flute)\\b/,'🪈'],[/\\b(clock|time)\\b|घड़ी/,'⏰'],[/\\b(money|rupee|coin)\\b|पैसा|रुपया/,'🪙'],[/\\b(bus)\\b|बस/,'🚌'],[/\\b(ship)\\b|जहाज/,'🚢'],[/\\b(bicycle|cycle)\\b|साइकिल/,'🚲'],[/\\b(rocket)\\b|रॉकेट/,'🚀'],
+[/\\b(noun|pronoun|verb|adjective|preposition)\\b/,'🔤'],[/\\b(vowel|consonant|letter|alphabet)\\b|अक्षर|स्वर|व्यंजन/,'🔠'],[/\\b(sentence|punctuation|question mark)\\b/,'📝'],[/\\b(children|child)\\b/,'🧒'],[/\\b(colour|color|purple|blue|green|yellow|red|black|white)\\b|रंग/,'🎨'],[/\\b(sunflower)\\b/,'🌻'],[/\\b(rose)\\b/,'🌹'],[/\\b(lotus)\\b/,'🪷'],[/\\b(microscope)\\b/,'🔬'],[/\\b(circle)\\b|वृत्त/,'⚪'],[/\\b(square)\\b|वर्ग/,'🟦'],[/\\b(triangle)\\b|त्रिभुज/,'🔺'],[/\\b(rectangle)\\b/,'▭'],[/\\b(algorithm|loop|debugging|bug)\\b/,'💻'],[/\\b(protein)\\b/,'🥚'],[/\\b(doctor)\\b/,'🩺'],[/\\b(please|sorry|thank you|good morning|goodbye)\\b/,'💬'],[/\\b(modern|ancient|historic)\\b/,'🏛️'],[/\\b(joyful|happy)\\b/,'😊'],[/\\b(angry)\\b/,'😠'],[/\\b(sad)\\b/,'😢'],[/\\b(moral|story)\\b/,'📖'],[/\\b(opaque)\\b/,'📕'],[/\\b(glass)\\b/,'🥛'],[/\\b(solar energy)\\b/,'☀️']
+];
+for(var i=0;i<rules.length;i++){if(rules[i][0].test(s))return makeOptionSvg(rules[i][1],index,s)}
+var fallback=cat==='math'?'🔢':cat==='language'?'🔤':cat==='science'?'🔍':cat==='habits'?'🌟':'🧩';
+return makeOptionSvg(fallback,index,s)
+}
+function makeOptionSvg(emoji,index,label){
+var bg=['#dbeafe','#fce7f3','#dcfce7','#fef3c7'][index%4],hash=0;
+for(var j=0;j<label.length;j++)hash=(hash*31+label.charCodeAt(j))>>>0;
+var accent=['#8b5cf6','#ec4899','#0ea5e9','#10b981','#f59e0b'][hash%5];
+var svg='<svg xmlns="http://www.w3.org/2000/svg" width="320" height="190" viewBox="0 0 320 190"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="'+bg+'"/><stop offset="1" stop-color="#fff"/></linearGradient></defs><rect width="320" height="190" rx="26" fill="url(#g)"/><circle cx="160" cy="84" r="62" fill="'+accent+'" opacity=".16"/><circle cx="160" cy="84" r="48" fill="#fff" opacity=".72"/><text x="160" y="108" text-anchor="middle" font-size="72">'+emoji+'</text><text x="160" y="174" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#334155">'+String(label).replace(/[&<>]/g,'') .slice(0,26)+'</text><path d="M25 153 Q160 133 295 153" stroke="'+accent+'" stroke-width="5" stroke-linecap="round" opacity=".4" fill="none"/></svg>';
 return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg)
 }
 function render(){if(!session)return;stop();if(settings.difficulty==='adaptive'&&session.i>0){var available=bank(session.id).filter(function(x){return allowed().indexOf(x.difficulty)>=0&&session.used.indexOf(x.id)<0&&x.difficulty===session.diff});if(!available.length)available=bank(session.id).filter(function(x){return allowed().indexOf(x.difficulty)>=0&&session.used.indexOf(x.id)<0});if(available.length)session.qs[session.i]=available[Math.floor(Math.random()*available.length)]}var q=session.qs[session.i],isHi=hi(),opts=shuffle(q.opts);session.used.push(q.id);if(!Array.isArray(q.imageRefs)||q.imageRefs.length!==4||q.imageRefs.some(function(u){return /^data:image\\/svg/i.test(String(u||''))}))q.imageRefs=q.opts.map(function(o,i){return optionImage(o,category(session.g),i)});session.current={q:q,opts:opts,images:opts.map(function(o){return q.imageRefs[q.opts.indexOf(o)]||optionImage(o,category(session.g),0)})};session.locked=false;var stage=$('gameStage'),pct=Math.round(session.i/session.qs.length*100);stage.innerHTML='<div class="w-full max-w-2xl mx-auto space-y-4 text-slate-800"><div class="flex justify-between gap-2"><b>🎮 '+esc(isHi?session.g.hi:session.g.en)+'</b><b>'+(session.i+1)+' / '+session.qs.length+'</b></div><div class="grid grid-cols-3 gap-2 text-center"><div class="bg-blue-50 rounded-xl p-2"><b id="wwqt" class="text-xl">--</b><small class="block">⏱ Time</small></div><div class="bg-emerald-50 rounded-xl p-2"><b id="wwqs" class="text-xl">'+session.score+'</b><small class="block">⭐ Score</small></div><div class="bg-amber-50 rounded-xl p-2"><b id="wwqc" class="text-xl">'+session.correct+'</b><small class="block">✓ Correct</small></div></div><div class="h-2 bg-slate-200 rounded-full overflow-hidden"><div class="h-full bg-indigo-600" style="width:'+pct+'%"></div></div><div class="rounded-2xl bg-indigo-50 p-4"><small class="font-bold text-indigo-600">'+esc(q.topic)+' · '+esc(session.diff.toUpperCase())+'</small><h3 class="text-xl font-black mt-2">'+esc(isHi&&q.qHi?q.qHi:q.q)+'</h3></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-2">'+opts.map(function(o,i){var src=session.current.images[i]||optionImage(o,category(session.g),i);return '<button data-qopt="'+i+'" aria-label="'+('ABCD'[i])+'. '+esc(o)+'" class="wwq-opt text-left border-2 border-slate-200 bg-white rounded-2xl p-3 font-bold min-h-14 shadow-sm transition-all"><img src="'+esc(src)+'" alt="'+esc(o)+' illustration" loading="eager" decoding="async" class="wwq-option-image w-full rounded-xl object-cover mb-2" style="height:116px;background:#f8fafc"><span class="flex items-center gap-2"><b class="text-indigo-600 text-lg">'+('ABCD'[i])+'.</b><span>'+esc(o)+'</span></span></button>'}).join('')+'</div><div id="wwqf" class="hidden rounded-xl p-3 font-bold" aria-live="polite"></div><div class="flex justify-between gap-2"><div class="flex gap-2"><button id="wwqp" class="bg-amber-100 rounded-xl px-3 py-2 font-bold">Pause</button><button id="wwqskip" class="bg-slate-100 rounded-xl px-3 py-2 font-bold">Skip</button></div><button id="wwqnext" disabled class="bg-indigo-600 text-white rounded-xl px-4 py-2 font-bold disabled:opacity-40">Next →</button></div><small class="text-slate-500">Correct +5 · Wrong '+(settings.negative?'-1':'0')+'</small></div>';
