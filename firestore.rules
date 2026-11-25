@@ -1,77 +1,38 @@
 rules_version = '2';
 service cloud.firestore {
-  match /databases/{database}/documents {
-    function signedIn() { return request.auth != null; }
-    function isAdmin() {
-      return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
-    }
-    function ownStudent(uid) { return signedIn() && request.auth.uid == uid; }
-
-    match /admins/{uid} {
-      allow read: if ownStudent(uid);
-      allow write: if false; // bootstrap admin document manually in Firebase Console
-    }
-
-    match /students/{uid} {
-      allow read: if ownStudent(uid) || isAdmin();
-      allow create: if ownStudent(uid)
-        && request.resource.data.uid == uid
-        && request.resource.data.status == "pending"
-        && request.resource.data.remaining == 0
-        && request.resource.data.batchNumber == 0
-        && request.auth.token.email_verified == true
-        && request.resource.data.email == request.auth.token.email
-        && request.resource.data.emailVerified == true;
-      allow update: if isAdmin() ||
-        (ownStudent(uid)
-          && resource.data.status == "approved"
-          && resource.data.remaining > 0
-          && request.resource.data.status == resource.data.status
-          && request.resource.data.batchNumber == resource.data.batchNumber
-          && request.resource.data.remaining == resource.data.remaining - 1
-          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["remaining","lastAttemptAt"]));
-      allow delete: if isAdmin();
-    }
-
-    match /batchRequests/{requestId} {
-      allow create: if signedIn()
-        && request.resource.data.uid == request.auth.uid
-        && request.resource.data.status == "pending"
-        && request.resource.data.createdAt == request.time
-        && get(/databases/$(database)/documents/students/$(request.auth.uid)).data.status == "approved"
-        && get(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining == 0
-        && request.resource.data.batchNumber == get(/databases/$(database)/documents/students/$(request.auth.uid)).data.batchNumber + 1;
-      allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
-      allow update, delete: if isAdmin();
-    }
-
-    match /attempts/{attemptId} {
-      allow create: if signedIn()
-        && request.resource.data.uid == request.auth.uid
-        && request.resource.data.questionKey is string
-        && request.resource.data.questionKey.size() <= 160
-        && request.resource.data.createdAt == request.time
-        && request.resource.data.batchNumber == get(/databases/$(database)/documents/students/$(request.auth.uid)).data.batchNumber
-        && request.resource.data.remainingAfter == getAfter(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining
-        && attemptId == request.auth.uid + "_" + request.resource.data.batchNumber + "_" + request.resource.data.remainingAfter
-        && get(/databases/$(database)/documents/students/$(request.auth.uid)).data.status == "approved"
-        && get(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining > 0
-        && getAfter(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining
-          == get(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining - 1;
-      allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
-      allow update, delete: if false;
-    }
-    match /videos/{videoId} {
-      allow read: if resource.data.status == "published" || isAdmin();
-      allow create: if isAdmin()
-        && request.resource.data.title is string
-        && request.resource.data.title.size() > 0
-        && request.resource.data.driveId is string
-        && request.resource.data.driveId.size() > 10
-        && request.resource.data.course is string
-        && request.resource.data.course.size() > 0
-        && request.resource.data.status in ["published", "draft"];
-      allow update, delete: if isAdmin();
-    }
+ match /databases/{database}/documents {
+  function signedIn(){return request.auth != null;}
+  function isAdmin(){return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));}
+  function ownStudent(uid){return signedIn() && request.auth.uid==uid;}
+  function siteEnabled(){return !exists(/databases/$(database)/documents/siteControl/global) || get(/databases/$(database)/documents/siteControl/global).data.enabled==true;}
+  function pageEnabled(pageId){return exists(/databases/$(database)/documents/siteControl/pages/$(pageId)) && get(/databases/$(database)/documents/siteControl/pages/$(pageId)).data.enabled==true;}
+  function moduleEnabled(moduleId){return exists(/databases/$(database)/documents/siteControl/modules/$(moduleId)) && get(/databases/$(database)/documents/siteControl/modules/$(moduleId)).data.enabled==true;}
+  function contentAllowed(){return isAdmin() || (siteEnabled() && resource.data.pageId is string && resource.data.moduleId is string && pageEnabled(resource.data.pageId) && moduleEnabled(resource.data.moduleId));}
+  match /admins/{uid}{allow read:if ownStudent(uid);allow write:if false;}
+  match /siteControl/global{allow read:if true;allow create,update,delete:if isAdmin();}
+  match /siteControl/pages/{pageId}{allow read:if true;allow create,update,delete:if isAdmin();}
+  match /siteControl/modules/{moduleId}{allow read:if true;allow create,update,delete:if isAdmin();}
+  match /siteControl/audit/{eventId}{allow read:if isAdmin();allow create:if isAdmin() && request.resource.data.actorUid==request.auth.uid && request.resource.data.createdAt==request.time;allow update,delete:if false;}
+  match /protectedContent/{contentId}{allow read:if contentAllowed();allow create,update,delete:if isAdmin();}
+  match /courseContent/{contentId}{allow read:if contentAllowed();allow create,update,delete:if isAdmin();}
+  match /students/{uid}{
+   allow read:if ownStudent(uid)||isAdmin();
+   allow create:if ownStudent(uid)&&request.resource.data.uid==uid&&request.resource.data.status=="pending"&&request.resource.data.remaining==0&&request.resource.data.batchNumber==0&&request.auth.token.email_verified==true&&request.resource.data.email==request.auth.token.email&&request.resource.data.emailVerified==true;
+   allow update:if isAdmin()||(ownStudent(uid)&&resource.data.status=="approved"&&resource.data.remaining>0&&request.resource.data.status==resource.data.status&&request.resource.data.batchNumber==resource.data.batchNumber&&request.resource.data.remaining==resource.data.remaining-1&&request.resource.data.diff(resource.data).affectedKeys().hasOnly(["remaining","lastAttemptAt"]));
+   allow delete:if isAdmin();
   }
+  match /batchRequests/{requestId}{
+   allow create:if signedIn()&&request.resource.data.uid==request.auth.uid&&request.resource.data.status=="pending"&&request.resource.data.createdAt==request.time&&get(/databases/$(database)/documents/students/$(request.auth.uid)).data.status=="approved"&&get(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining==0&&request.resource.data.batchNumber==get(/databases/$(database)/documents/students/$(request.auth.uid)).data.batchNumber+1;
+   allow read:if isAdmin()||(signedIn()&&resource.data.uid==request.auth.uid);allow update,delete:if isAdmin();
+  }
+  match /attempts/{attemptId}{
+   allow create:if signedIn()&&request.resource.data.uid==request.auth.uid&&request.resource.data.questionKey is string&&request.resource.data.questionKey.size()<=160&&request.resource.data.createdAt==request.time&&request.resource.data.batchNumber==get(/databases/$(database)/documents/students/$(request.auth.uid)).data.batchNumber&&request.resource.data.remainingAfter==getAfter(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining&&attemptId==request.auth.uid+"_"+request.resource.data.batchNumber+"_"+request.resource.data.remainingAfter&&get(/databases/$(database)/documents/students/$(request.auth.uid)).data.status=="approved"&&get(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining>0&&getAfter(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining==get(/databases/$(database)/documents/students/$(request.auth.uid)).data.remaining-1;
+   allow read:if isAdmin()||(signedIn()&&resource.data.uid==request.auth.uid);allow update,delete:if false;
+  }
+  match /videos/{videoId}{
+   allow read:if resource.data.status=="published"||isAdmin();
+   allow create:if isAdmin()&&request.resource.data.title is string&&request.resource.data.title.size()>0&&request.resource.data.driveId is string&&request.resource.data.driveId.size()>10&&request.resource.data.course is string&&request.resource.data.course.size()>0&&request.resource.data.status in ["published","draft"];
+   allow update,delete:if isAdmin();
+  }
+ }
 }
