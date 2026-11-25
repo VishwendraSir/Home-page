@@ -2471,13 +2471,15 @@ document.addEventListener('click',function(e){var s=document.getElementById('wwH
       }
     }
 
-    function saveSecuritySettings() {\n      if (!confirm("Save new Student and Admin login credentials? Make sure you remember the new Admin username and password.")) return;
+    function saveSecuritySettings() {
+      if (!confirm("Save new Student and Admin login credentials? Make sure you remember the new Admin username and password.")) return;
       const su = document.getElementById('secStuUser').value.trim();
       const sp = document.getElementById('secStuPass').value.trim();
       const pu = document.getElementById('secParUser').value.trim();
       const pp = document.getElementById('secParPass').value.trim();
       const sh = document.getElementById('secShowHint').checked;
-      if (!su || !sp || !pu || !pp) { showToast('All username and password fields are required!', '⚠️', 'bg-amber-600'); return; }\n      if (pp.length < 6) { showToast('Admin password must be at least 6 characters!', '⚠️', 'bg-amber-600'); return; }
+      if (!su || !sp || !pu || !pp) { showToast('All username and password fields are required!', '⚠️', 'bg-amber-600'); return; }
+      if (pp.length < 6) { showToast('Admin password must be at least 6 characters!', '⚠️', 'bg-amber-600'); return; }
       appState.credentials = { studentUser: su, studentPass: sp, parentUser: pu, parentPass: pp, showHint: sh };
       saveState();
       showToast('Account credentials updated safely!', '🔐', 'bg-emerald-600');
