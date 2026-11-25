@@ -1,0 +1,91 @@
+{
+  "platform": "WONDER WORLD – NAVODAYA CLASS 6",
+  "version": "V3.3",
+  "guided_by": "Vishwendra Sir",
+  "target_distribution": {
+    "MAT": 4000,
+    "Arithmetic": 3000,
+    "Language": 3000,
+    "Total": 10000
+  },
+  "questions": [
+    {
+      "id": "MAT-001",
+      "subject": "MAT",
+      "topic": "Figure Series",
+      "difficulty": "Easy",
+      "en": {
+        "q": "What comes next in: 2, 4, 8, 16, ?",
+        "opts": [
+          "20",
+          "24",
+          "32",
+          "36"
+        ],
+        "ans": 2
+      },
+      "hi": {
+        "q": "अगला पद क्या होगा: 2, 4, 8, 16, ?",
+        "opts": [
+          "20",
+          "24",
+          "32",
+          "36"
+        ],
+        "ans": 2
+      }
+    },
+    {
+      "id": "AR-001",
+      "subject": "AR",
+      "topic": "Percentage",
+      "difficulty": "Easy",
+      "en": {
+        "q": "What is 25% of 200?",
+        "opts": [
+          "25",
+          "40",
+          "50",
+          "75"
+        ],
+        "ans": 2
+      },
+      "hi": {
+        "q": "200 का 25% कितना होगा?",
+        "opts": [
+          "25",
+          "40",
+          "50",
+          "75"
+        ],
+        "ans": 2
+      }
+    },
+    {
+      "id": "LA-001",
+      "subject": "LA",
+      "topic": "Vocabulary",
+      "difficulty": "Easy",
+      "en": {
+        "q": "Choose the synonym of 'Diligent':",
+        "opts": [
+          "Lazy",
+          "Hardworking",
+          "Careless",
+          "Shy"
+        ],
+        "ans": 1
+      },
+      "hi": {
+        "q": "'परिश्रमी' का सही पर्यायवाची चुनिए:",
+        "opts": [
+          "आलसी",
+          "मेहनती",
+          "लापरवाह",
+          "संकोची"
+        ],
+        "ans": 1
+      }
+    }
+  ]
+}
