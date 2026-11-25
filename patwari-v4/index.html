@@ -183,10 +183,6 @@
 
 
 <!-- SCLH shared Firebase display lock (automatically managed) -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="../firebase-config.js"></script>
-<script src="../site-lock.js?v=2"></script>
 </head>
 <body>
   <header class="topbar">
@@ -195,7 +191,7 @@
       <div class="brand-sub">अधिकारी: विजय उपाध्याय (पटवारी) | पदस्थापना: सेवर, जिला: भरतपुर, राजस्थान</div>
     </div>
     <div class="top-actions no-print">
-      <span class="badge" id="netStatus">Online • Local Storage</span><button class="btn btn-outline" onclick="window.v4GoogleLogin?.()">🔐 Login</button><button class="btn btn-outline" onclick="window.v4CloudSync?.()">☁️ Cloud Sync</button><span id="authStatus" class="badge badge-warn">Local mode</span><span class="badge badge-warn">v4.1 Auto Save + Cloud Sync</span>
+      <span class="badge" id="netStatus">Online • Local Storage</span><button class="btn btn-outline" onclick="window.v4GoogleLogin?.()">🔐 Login</button><button class="btn btn-outline" onclick="window.v4CloudSync?.()">☁️ Cloud Sync</button><span id="authStatus" class="badge badge-warn">Local mode</span><span class="badge badge-warn">v4.1 Secure Cloud Sync</span>
       <select id="langSelect" onchange="changeLanguage(this.value)" aria-label="Language">
         <option value="hi">हिन्दी (Primary)</option>
         <option value="en">English (Secondary)</option>
@@ -1168,6 +1164,7 @@
 
 <section id="v4CloudPanel" style="margin:18px auto;max-width:1100px;padding:18px;background:var(--card,#fff);border:1px solid var(--border,#cbd5e1);border-radius:16px;color:var(--text,#0f172a)">
 <h2>V4.1 · Automatic Save, Restore & AI Workspace</h2>
+<style>#v4CloudPanel button{background:#173b70;color:#fff;border:0;border-radius:9px;padding:11px 14px;font:600 15px inherit;cursor:pointer}#v4CloudPanel button:active{transform:scale(.98)}#v4CloudPanel input,#v4CloudPanel textarea{box-sizing:border-box;border:1px solid #cbd5e1;border-radius:9px;background:#f8fafc;color:#0f172a;font:16px inherit}#v4CloudPanel input{min-height:46px}#v4CloudPanel p[role=status]{overflow-wrap:anywhere;font-weight:600}#v4AuthStatus{padding:9px 10px;border-radius:8px;background:#f1f5f9}</style>
 <p style="margin:6px 0 14px;color:var(--muted,#475569)">Firebase configuration is stored only in this browser. Gemini API key stays in Cloudflare Worker Secrets.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
 <label>Firebase API Key<input id="v4ApiKey" autocomplete="off" style="display:block;width:100%;padding:10px"></label>
@@ -1189,15 +1186,20 @@
 <script type="module">
 import "./firebase.js";
 const status=()=>document.getElementById("v4AuthStatus");
+const setStatus=(message)=>{status().textContent=message;const top=document.getElementById("authStatus");if(top)top.textContent=message;};
 const savedCfg=window.PatwariFirebase?.getSavedConfig?.();
+const workerInput=document.getElementById("v4WorkerUrl");
+if(workerInput) workerInput.value=localStorage.getItem("RPAA_V4_WORKER_URL")||"";
+workerInput?.addEventListener("change",()=>localStorage.setItem("RPAA_V4_WORKER_URL",workerInput.value.trim()));
 if(savedCfg){for(const [id,key] of [["v4ApiKey","apiKey"],["v4AuthDomain","authDomain"],["v4ProjectId","projectId"],["v4AppId","appId"]]){const el=document.getElementById(id);if(el&&!el.value)el.value=savedCfg[key]||"";}}
-window.v4Connect=async()=>{try{const cfg={apiKey:document.getElementById("v4ApiKey").value.trim(),authDomain:document.getElementById("v4AuthDomain").value.trim(),projectId:document.getElementById("v4ProjectId").value.trim(),appId:document.getElementById("v4AppId").value.trim()};const r=await window.PatwariFirebase.saveAndConnectConfig(cfg);status().textContent=r.ok?"Firebase connected. अब Google Login दबाएँ।":r.reason;}catch(e){status().textContent="Connect error: "+e.message;}};
-window.v4GoogleLogin=async()=>{try{if(!window.PatwariFirebase?.isConfigured()){document.getElementById("v4CloudPanel").scrollIntoView({behavior:"smooth",block:"start"});status().textContent="पहले Firebase Web Config भरें और Save & Connect Firebase दबाएँ।";document.getElementById("v4ApiKey").focus();return;}status().textContent="Google sign-in खुल रहा है…";await window.PatwariFirebase.loginGoogle();}catch(e){status().textContent="Login error: "+(e.message||String(e));}};
-window.v4Logout=async()=>{try{await window.PatwariFirebase.logoutUser();status().textContent="Signed out.";}catch(e){status().textContent=e.message;}};
-window.v4CloudSync=async()=>{try{status().textContent="Cloud sync running…";await window.PatwariFirebase.restoreCloud();await window.PatwariFirebase.flushPending();status().textContent="Cloud sync completed. Status above shows latest result.";}catch(e){status().textContent="Cloud sync failed: "+e.message;}};
-window.v4AskAI=async()=>{const out=document.getElementById("v4AiOutput");try{const url=document.getElementById("v4WorkerUrl").value.trim();if(!url)throw new Error("Cloudflare Worker URL enter करें.");const token=await window.PatwariFirebase.getIdToken();if(!token)throw new Error("पहले Firebase Google Login करें.");const prompt=document.getElementById("v4AiPrompt").value.trim();if(!prompt)throw new Error("अपना प्रश्न लिखें.");out.textContent="Working…";const res=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({prompt,mode:"chat",language:"hi"})});const data=await res.json();if(!res.ok)throw new Error(data.error||"AI request failed");out.textContent=data.text+"\n\n"+(data.disclaimer||"");}catch(e){out.textContent=e.message;}};
-window.addEventListener("patwari-login-error",e=>{status().textContent="Google Login error: "+e.detail;});
-window.addEventListener("patwari-auth",e=>{if(e.detail?.user)status().textContent="Signed in: "+e.detail.user.email;});
+window.v4Connect=async()=>{try{const cfg={apiKey:document.getElementById("v4ApiKey").value.trim(),authDomain:document.getElementById("v4AuthDomain").value.trim(),projectId:document.getElementById("v4ProjectId").value.trim(),appId:document.getElementById("v4AppId").value.trim()};const r=await window.PatwariFirebase.saveAndConnectConfig(cfg);setStatus(r.ok?"Firebase connected. अब Google Login दबाएँ।":r.reason);}catch(e){status().textContent="Connect error: "+e.message;}};
+window.v4GoogleLogin=async()=>{try{if(!window.PatwariFirebase?.isConfigured()){document.getElementById("v4CloudPanel").scrollIntoView({behavior:"smooth",block:"start"});setStatus("पहले Firebase Console से Web App Config भरें और Save & Connect Firebase दबाएँ।");document.getElementById("v4ApiKey").focus();return;}setStatus("Google sign-in खुल रहा है…");await window.PatwariFirebase.loginGoogle();}catch(e){setStatus("Login error: "+(e.message||String(e)));}};
+window.v4Logout=async()=>{try{await window.PatwariFirebase.logoutUser();setStatus("Signed out.");}catch(e){setStatus(e.message);}};
+window.v4CloudSync=async()=>{try{setStatus("Cloud sync running…");await window.PatwariFirebase.restoreCloud();await window.PatwariFirebase.flushPending();setStatus("Cloud sync completed.");}catch(e){setStatus("Cloud sync failed: "+e.message);}};
+window.v4AskAI=async()=>{const out=document.getElementById("v4AiOutput");try{const url=document.getElementById("v4WorkerUrl").value.trim();if(!url)throw new Error("Cloudflare Worker URL enter करें.");
+localStorage.setItem("RPAA_V4_WORKER_URL",url);const token=await window.PatwariFirebase.getIdToken();if(!token)throw new Error("पहले Firebase Google Login करें.");const prompt=document.getElementById("v4AiPrompt").value.trim();if(!prompt)throw new Error("अपना प्रश्न लिखें.");out.textContent="Working…";const res=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({prompt,mode:"chat",language:"hi"})});const data=await res.json();if(!res.ok)throw new Error(data.error||"AI request failed");out.textContent=data.text+"\n\n"+(data.disclaimer||"");}catch(e){out.textContent=e.message;}};
+window.addEventListener("patwari-login-error",e=>{setStatus("Google Login error: "+e.detail);});
+window.addEventListener("patwari-auth",e=>{setStatus(e.detail?.user?"Signed in: "+e.detail.user.email:"Signed out • Local mode");});
 // Buttons use their inline handlers; do not attach duplicate click listeners.
 if("serviceWorker" in navigator)navigator.serviceWorker.register("./service-worker.js",{updateViaCache:"none"}).then(r=>r.update()).catch(e=>{status().textContent="Service worker: "+e.message;});
 </script>
