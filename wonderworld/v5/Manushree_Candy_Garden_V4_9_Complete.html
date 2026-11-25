@@ -960,11 +960,11 @@
     .hidden { display: none !important; }
   </style>
 
-<!-- SCLH shared Firebase display lock (automatically managed) -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="../../firebase-config.js"></script>
-<script src="../../site-lock.js?v=2"></script>
+  <style id="wonder-world-accessibility-upgrade">
+    :focus-visible { outline: 3px solid #f59e0b !important; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+    img, svg { max-width: 100%; }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -1004,3 +1004,1666 @@
 
   <main class="container">
     <section id="view-world" class="view active">
+      <div class="streak-banner" id="daily-challenge-banner">
+        <div>
+          <div style="font-weight:800; font-size:1rem;">🔥 Daily Learning Challenge Streak: <span id="daily-streak-text">1 Day</span></div>
+          <div style="font-size:0.86rem; color:var(--muted); font-weight:700;" id="daily-challenge-sub">Complete today’s bonus check-in or challenge to earn +25 Candy Coins &amp; +1 Star!</div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <button class="btn-mint" id="btn-claim-daily" onclick="claimDailyChallenge()">🌟 Claim Daily Bonus</button>
+          <button class="btn-secondary" onclick="startDailyQuickChallenge()">⚡ Today’s Challenge</button>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div>
+          <div class="hero-tag">✨ V3.7 → V4.8 → V4.9 Complete • Opposite Word Match + All Features</div>
+          <h1 class="hero-title" id="hero-heading">Welcome to Manushree’s Candy Garden!</h1>
+          <p class="hero-desc" id="hero-desc">
+            Explore 10 candy worlds, 12 learning modules, Opposite Word Match, Rhyming Word Match, Odd-One-Out Spotter, Musical Sound &amp; Phonics Explorer, Pattern &amp; Shape Builder, Hindi-English word flip cards, 12-card memory flip pairs, printable tracing worksheets, Manushree’s avatar &amp; room studio, daily streaks, missions, badges, and the protected parent zone.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="launchWorld('candy-land')">🍬 Start Adventure</button>
+            <button class="btn-secondary" onclick="switchView('games')">🎮 Play Learning Games</button>
+            <button class="btn-mint" onclick="switchView('avatar')">👑 Customize Manushree</button>
+          </div>
+        </div>
+
+        <div class="garden-canvas-box">
+          <svg viewBox="0 0 480 250" role="img" aria-label="Candy Garden fantasy scene with candy castle, rainbow bridge, lollipop trees, chocolate river, and flower field">
+            <circle cx="415" cy="48" r="24" fill="#ffd166" />
+            <ellipse cx="95" cy="46" rx="34" ry="14" fill="#ffffff" opacity="0.9" />
+            <ellipse cx="245" cy="36" rx="40" ry="15" fill="#ffffff" opacity="0.88" />
+            <path d="M 165 162 Q 250 82 335 162" fill="none" stroke="#ff7eb6" stroke-width="8" stroke-linecap="round" />
+            <path d="M 171 168 Q 250 92 329 168" fill="none" stroke="#ffd166" stroke-width="7" stroke-linecap="round" />
+            <path d="M 177 174 Q 250 102 323 174" fill="none" stroke="#5cc8ff" stroke-width="7" stroke-linecap="round" />
+            <path d="M 183 180 Q 250 112 317 180" fill="none" stroke="#5ce1b6" stroke-width="6" stroke-linecap="round" />
+            <path d="M 0 155 Q 150 135 480 158 L 480 250 L 0 250 Z" fill="#a8f5d8" />
+            <path d="M 0 185 Q 240 168 480 192 L 480 250 L 0 250 Z" fill="#7ce8c2" />
+            <path d="M 215 165 C 200 195, 255 215, 235 250 L 285 250 C 305 212, 245 192, 258 165 Z" fill="#7c4832" />
+            <path d="M 228 175 C 218 198, 260 214, 248 242" fill="none" stroke="#a66346" stroke-width="4" stroke-linecap="round" />
+            <g class="float-anim">
+              <rect x="44" y="92" width="66" height="62" rx="10" fill="#ff9ec7" stroke="#ffffff" stroke-width="3" />
+              <rect x="66" y="118" width="22" height="36" rx="10" fill="#9d6bff" />
+              <polygon points="40,92 56,64 72,92" fill="#9d6bff" />
+              <polygon points="82,92 98,64 114,92" fill="#5cc8ff" />
+              <circle cx="56" cy="62" r="6" fill="#ffd166" />
+              <circle cx="98" cy="62" r="6" fill="#ffd166" />
+            </g>
+            <rect x="138" y="114" width="6" height="38" fill="#ffffff" rx="3" />
+            <circle cx="141" cy="102" r="18" fill="#ff7eb6" stroke="#ffd166" stroke-width="4" />
+            <rect x="366" y="112" width="6" height="40" fill="#ffffff" rx="3" />
+            <circle cx="369" cy="99" r="19" fill="#9d6bff" stroke="#5cc8ff" stroke-width="4" />
+            <circle cx="72" cy="206" r="7" fill="#ff7eb6" />
+            <circle cx="96" cy="216" r="7" fill="#ffd166" />
+            <circle cx="122" cy="202" r="7" fill="#9d6bff" />
+            <circle cx="348" cy="204" r="7" fill="#5cc8ff" />
+            <circle cx="376" cy="214" r="7" fill="#ff7eb6" />
+            <circle cx="406" cy="198" r="7" fill="#ffd166" />
+            <g class="flap-anim">
+              <ellipse cx="188" cy="86" rx="9" ry="6" fill="#ff7eb6" />
+              <ellipse cx="204" cy="86" rx="9" ry="6" fill="#9d6bff" />
+            </g>
+            <g transform="translate(324, 174)">
+              <ellipse cx="0" cy="10" rx="12" ry="9" fill="#ffffff" />
+              <circle cx="8" cy="3" r="8" fill="#ffffff" />
+              <ellipse cx="6" cy="-8" rx="2.5" ry="8" fill="#ffd1e8" />
+              <ellipse cx="11" cy="-8" rx="2.5" ry="8" fill="#ffd1e8" />
+              <circle cx="11" cy="2" r="1.6" fill="#2b2440" />
+            </g>
+          </svg>
+
+          <div class="hotspot-bar">
+            <button class="hotspot-chip" onclick="inspectLandmark('Candy Castle')">🏰 Candy Castle</button>
+            <button class="hotspot-chip" onclick="inspectLandmark('Rainbow Bridge')">🌈 Rainbow Bridge</button>
+            <button class="hotspot-chip" onclick="inspectLandmark('Chocolate River')">🍫 Chocolate River</button>
+            <button class="hotspot-chip" onclick="inspectLandmark('Treasure Island')">🏝️ Treasure Island</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="landmark-toast" class="feedback-box hidden"></div>
+
+      <div class="section-head">
+        <div>
+          <h2>🌍 10 Magical Game Worlds</h2>
+          <p>Tap any world to jump straight into its themed adventure and earn Candy Coins &amp; Stars.</p>
+        </div>
+      </div>
+
+      <div class="worlds-grid" id="worlds-grid"></div>
+    </section>
+
+    <section id="view-games" class="view">
+      <div class="stage-banner">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px;">
+          <div>
+            <div class="badge-pill" id="game-world-tag">🍬 Candy Land</div>
+            <h2 id="game-prompt" style="margin:6px 0 4px; font-size:1.35rem;">Tap a Learning Topic to Start!</h2>
+            <div id="game-subprompt" style="color:var(--muted); font-weight:700;">Difficulty adapts smoothly as Manushree earns stars.</div>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn-secondary" onclick="speakPrompt()">🔊 Hear Question</button>
+            <button class="btn-primary" onclick="nextChallenge()">✨ Next Question</button>
+          </div>
+        </div>
+
+        <div id="game-choices" class="choice-grid"></div>
+        <div id="game-feedback" class="feedback-box">Choose a learning module below or answer the active challenge!</div>
+      </div>
+
+      <div class="panel" style="margin-bottom:16px;" id="opposite-match-panel">
+        <h3>
+          <span>🔄 Opposite Word Match</span>
+          <button class="chip-btn" onclick="nextOppositeRound()">✨ Next Opposite</button>
+        </h3>
+        <div style="font-size:0.88rem; color:var(--muted); font-weight:700;" id="opposite-prompt">Find the opposite of HOT (+15 Coins &amp; +1 Star)!</div>
+        <div class="opp-grid" id="opposite-grid"></div>
+        <div id="opposite-feedback" style="margin-top:8px; font-weight:800; font-size:0.9rem;"></div>
+      </div>
+
+      <div class="panel" style="margin-bottom:16px;" id="rhyme-match-panel">
+        <h3>
+          <span>🎶 Rhyming Word Match</span>
+          <button class="chip-btn" onclick="nextRhymeRound()">✨ Next Rhyme</button>
+        </h3>
+        <div style="font-size:0.88rem; color:var(--muted); font-weight:700;" id="rhyme-prompt">Find the word that rhymes with CAT (+15 Coins &amp; +1 Star)!</div>
+        <div class="rhyme-grid" id="rhyme-grid"></div>
+        <div id="rhyme-feedback" style="margin-top:8px; font-weight:800; font-size:0.9rem;"></div>
+      </div>
+
+      <div class="panel" style="margin-bottom:16px;" id="odd-spotter-panel">
+        <h3>
+          <span>🔍 Odd-One-Out Spotter</span>
+          <button class="chip-btn" onclick="nextOddRound()">✨ Next Round</button>
+        </h3>
+        <div style="font-size:0.88rem; color:var(--muted); font-weight:700;" id="odd-prompt">Spot the item that does not belong (+15 Coins &amp; +1 Star)!</div>
+        <div class="odd-grid" id="odd-grid"></div>
+        <div id="odd-feedback" style="margin-top:8px; font-weight:800; font-size:0.9rem;"></div>
+      </div>
+
+      <div class="panel" style="margin-bottom:16px;" id="sound-explorer-panel">
+        <h3>
+          <span>🎶 Musical Sound &amp; Phonics Explorer</span>
+          <span class="badge-pill">Touch &amp; Listen</span>
+        </h3>
+        <div style="font-size:0.86rem; color:var(--muted); font-weight:700;">Tap any musical note or phonics tile to play a cheerful tone and hear its name.</div>
+        <div class="sound-grid" id="sound-grid"></div>
+      </div>
+
+      <div class="panel" style="margin-bottom:16px;" id="pattern-builder-panel">
+        <h3>
+          <span>🔺 Interactive Pattern &amp; Shape Builder</span>
+          <button class="chip-btn" onclick="nextPatternPuzzle()">✨ New Pattern</button>
+        </h3>
+        <div class="pattern-stage">
+          <div style="font-size:0.88rem; color:var(--muted); font-weight:700;" id="pattern-instruction">Complete the candy &amp; shape pattern (+15 Coins &amp; +1 Star)!</div>
+          <div class="pattern-sequence" id="pattern-sequence"></div>
+          <div class="option-row" id="pattern-options"></div>
+          <div id="pattern-feedback" style="margin-top:8px; font-weight:800; font-size:0.9rem;"></div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-bottom:16px;" id="wordcards-panel">
+        <h3>
+          <span>📖 Hindi–English Word Flip Cards</span>
+          <button class="chip-btn" onclick="resetWordCards()">↺ Reset Cards</button>
+        </h3>
+        <div style="font-size:0.86rem; color:var(--muted); font-weight:700;">Tap a card to flip between English &amp; Hindi and hear its pronunciation.</div>
+        <div class="wordcard-grid" id="wordcard-grid"></div>
+      </div>
+
+      <div class="panel" style="margin-bottom:16px;" id="memory-arcade-panel">
+        <h3>
+          <span>🃏 12-Card Memory Flip Mini-Game</span>
+          <button class="btn-mint" style="padding:8px 14px; min-height:40px; font-size:0.85rem;" onclick="initMemoryDeck()">🔄 New 12-Card Deck</button>
+        </h3>
+        <div style="font-size:0.88rem; color:var(--muted); font-weight:700;" id="memory-status">Match all 6 pairs to earn +25 Candy Coins &amp; +1 Star!</div>
+        <div class="memory-grid" id="memory-grid"></div>
+      </div>
+
+      <div class="panel" style="margin-bottom:16px;" id="worksheet-panel">
+        <div class="no-print" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px;">
+          <h3 style="margin:0;">📝 Printable Practice Worksheet (ABC, Numbers &amp; Hindi)</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <button class="chip-btn active" id="ws-btn-abc" onclick="renderWorksheet('abc')">ABC</button>
+            <button class="chip-btn" id="ws-btn-num" onclick="renderWorksheet('num')">1–20 Numbers</button>
+            <button class="chip-btn" id="ws-btn-hindi" onclick="renderWorksheet('hindi')">हिन्दी स्वर व व्यंजन</button>
+            <button class="btn-secondary" style="padding:8px 14px; min-height:40px; font-size:0.85rem;" onclick="window.print()">🖨️ Print Worksheet</button>
+          </div>
+        </div>
+
+        <div class="worksheet-sheet" id="worksheet-sheet"></div>
+      </div>
+
+      <div class="section-head">
+        <div>
+          <h2>📚 12 Educational Learning Modules</h2>
+          <p>ABC, Phonics, Counting 1–100, Math, Shapes, Colors, Memory, Puzzles, Animals, English, Hindi Swar/Vyanjan &amp; Science.</p>
+        </div>
+      </div>
+
+      <div class="worlds-grid" id="modules-grid"></div>
+    </section>
+
+    <section id="view-avatar" class="view">
+      <div class="split-grid">
+        <div class="panel">
+          <h3>👑 Manushree’s Avatar Studio</h3>
+          <div class="avatar-stage">
+            <svg id="avatar-svg" viewBox="0 0 220 230" width="210" height="220" role="img" aria-label="Customizable avatar of Manushree">
+              <g id="svg-wings" class="flap-anim">
+                <ellipse cx="62" cy="118" rx="34" ry="18" transform="rotate(-22 62 118)" fill="#ffe0f0" stroke="#ff7eb6" stroke-width="2.5" />
+                <ellipse cx="158" cy="118" rx="34" ry="18" transform="rotate(22 158 118)" fill="#e6f7ff" stroke="#5cc8ff" stroke-width="2.5" />
+              </g>
+              <circle cx="110" cy="78" r="36" fill="#5b3724" id="svg-hair-back" />
+              <path id="svg-dress" d="M 78 122 L 142 122 L 164 186 L 56 186 Z" fill="#ff7eb6" stroke="#ffffff" stroke-width="3" />
+              <path d="M 88 122 L 132 122 L 126 144 L 94 144 Z" fill="#ffd166" />
+              <line x1="78" y1="128" x2="54" y2="156" stroke="#ffdfb8" stroke-width="10" stroke-linecap="round" />
+              <line x1="142" y1="128" x2="166" y2="156" stroke="#ffdfb8" stroke-width="10" stroke-linecap="round" />
+              <rect x="88" y="186" width="12" height="22" rx="5" fill="#ffdfb8" />
+              <rect x="120" y="186" width="12" height="22" rx="5" fill="#ffdfb8" />
+              <ellipse id="svg-shoe-l" cx="92" cy="211" rx="13" ry="7" fill="#9d6bff" />
+              <ellipse id="svg-shoe-r" cx="126" cy="211" rx="13" ry="7" fill="#9d6bff" />
+              <circle cx="110" cy="82" r="29" fill="#ffdfb8" />
+              <circle cx="99" cy="82" r="3.6" fill="#2b2440" />
+              <circle cx="121" cy="82" r="3.6" fill="#2b2440" />
+              <circle cx="92" cy="90" r="5" fill="#ff9ec7" opacity="0.65" />
+              <circle cx="128" cy="90" r="5" fill="#ff9ec7" opacity="0.65" />
+              <path d="M 102 93 Q 110 101 118 93" fill="none" stroke="#c94c76" stroke-width="3" stroke-linecap="round" />
+              <path id="svg-hair-top" d="M 80 74 Q 110 42 140 74 Q 124 62 110 66 Q 96 62 80 74 Z" fill="#5b3724" />
+              <g id="svg-accessory">
+                <polygon points="96,52 103,36 110,48 117,36 124,52" fill="#ffd166" stroke="#e6a922" stroke-width="1.5" />
+              </g>
+            </svg>
+            <div style="font-weight:800; margin-top:6px;">✨ Manushree</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>🎀 Outfits, Wings &amp; Room Decor</h3>
+          <div class="custom-group">
+            <span class="custom-label">Dress / Princess Outfit</span>
+            <div class="option-row" id="opts-dress"></div>
+          </div>
+          <div class="custom-group">
+            <span class="custom-label">Hairstyle &amp; Color</span>
+            <div class="option-row" id="opts-hair"></div>
+          </div>
+          <div class="custom-group">
+            <span class="custom-label">Accessories &amp; Wings</span>
+            <div class="option-row" id="opts-acc"></div>
+          </div>
+          <div class="custom-group">
+            <span class="custom-label">Shoes</span>
+            <div class="option-row" id="opts-shoes"></div>
+          </div>
+          <div class="custom-group">
+            <span class="custom-label">Personal Room Theme (Unlockable with Coins)</span>
+            <div class="option-row" id="opts-room"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-rewards" class="view">
+      <div class="split-grid">
+        <div class="panel">
+          <h3>
+            <span>🎯 Daily Missions &amp; Treasure Chest</span>
+            <button class="btn-mint" style="padding:8px 14px; min-height:40px; font-size:0.85rem;" onclick="openTreasureChest()">🎁 Open Chest (50 Coins)</button>
+          </h3>
+          <div id="missions-list"></div>
+        </div>
+
+        <div class="panel">
+          <h3>🏆 Achievement Badges</h3>
+          <div class="badge-shelf" id="badges-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-parent" class="view">
+      <div class="panel" id="parent-gate-box">
+        <h3>🔒 Parent Dashboard Gate</h3>
+        <p style="color:var(--muted);">Solve this quick check to view learning progress, time spent, subject performance, and reset options.</p>
+        <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:12px;">
+          <label for="parent-pin-input" style="font-weight:800;">7 + 8 =</label>
+          <input id="parent-pin-input" type="number" inputmode="numeric" placeholder="Answer" style="padding:10px 14px; border-radius:12px; border:2px solid #d4c4ff; width:120px; font-size:1rem; font-weight:800;" />
+          <button class="btn-primary" onclick="unlockParentDashboard()">Unlock Parent Zone</button>
+        </div>
+        <div id="parent-gate-msg" class="feedback-box hidden"></div>
+      </div>
+
+      <div class="panel hidden" id="parent-dashboard-content">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; margin-bottom:14px;">
+          <h3 style="margin:0;">📊 Parent Progress &amp; Activity Report</h3>
+          <div style="display:flex; gap:8px;">
+            <button class="chip-btn" onclick="lockParentDashboard()">🔒 Lock</button>
+            <button class="btn-warn" onclick="resetAllProgress()">🗑️ Reset Progress</button>
+          </div>
+        </div>
+
+        <div class="kpi-grid" id="parent-kpis"></div>
+
+        <h4 style="margin:14px 0 8px;">📘 Subject &amp; Module Accuracy</h4>
+        <div id="parent-subjects"></div>
+
+        <h4 style="margin:16px 0 8px;">🕒 Recent Activity Log</h4>
+        <div id="parent-activity-log" style="max-height:220px; overflow-y:auto;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-love">
+    🍭 MANUSHREE CANDY GARDEN V4.9 COMPLETE • Created with love for Manushree ❤️
+  </footer>
+
+  <script>
+    const STORAGE_KEY_V4 = "ManushreeCandyGarden_V4_0_State";
+    const LEGACY_KEYS = ["ManushreeCandyGarden_V3_7", "MCG_V3_7_Progress", "candy_garden_state"];
+
+    const WORLDS = [
+      { id: "candy-land", name: "Candy Land", emoji: "🍬", desc: "Collect sweet candies and solve ABC & number treats.", mod: "counting" },
+      { id: "cupcake-village", name: "Cupcake Village", emoji: "🧁", desc: "Bake colorful cupcakes with addition & pattern recipes.", mod: "math" },
+      { id: "chocolate-river", name: "Chocolate River", emoji: "🍫", desc: "Cross cocoa stepping stones with logic & picture puzzles.", mod: "puzzles" },
+      { id: "rainbow-kingdom", name: "Rainbow Kingdom", emoji: "🌈", desc: "Paint skies and match vibrant colors & patterns.", mod: "colors" },
+      { id: "unicorn-forest", name: "Unicorn Forest", emoji: "🦄", desc: "Explore enchanted glades with phonics & vocabulary.", mod: "phonics" },
+      { id: "bunny-garden", name: "Bunny Garden", emoji: "🐰", desc: "Care for cute bunnies and identify forest animals.", mod: "animals" },
+      { id: "star-island", name: "Star Island", emoji: "⭐", desc: "Count twinkling stars, planets & science wonders.", mod: "science" },
+      { id: "princess-castle", name: "Princess Castle", emoji: "🏰", desc: "Royal letter quests, shapes & memory challenges.", mod: "shapes" },
+      { id: "treasure-world", name: "Treasure World", emoji: "🎁", desc: "Unlock shiny chests and Hindi Swar & Vyanjan gems.", mod: "hindi" },
+      { id: "flower-garden", name: "Flower Garden", emoji: "🌸", desc: "Plant blooming flowers and master memory matching.", mod: "memory" }
+    ];
+
+    const MODULES = [
+      { id: "abc", title: "ABC Alphabet", icon: "🔤", tag: "English" },
+      { id: "phonics", title: "Phonics & Words", icon: "🗣️", tag: "Reading" },
+      { id: "counting", title: "Counting 1–100", icon: "🔢", tag: "Numbers" },
+      { id: "math", title: "Addition & Subtraction", icon: "➕", tag: "Math" },
+      { id: "shapes", title: "Shapes & Patterns", icon: "🔺", tag: "Logic" },
+      { id: "colors", title: "Colors Recognition", icon: "🎨", tag: "Visual" },
+      { id: "memory", title: "Memory Matching", icon: "🃏", tag: "Focus" },
+      { id: "puzzles", title: "Picture Puzzles", icon: "🧩", tag: "Reasoning" },
+      { id: "animals", title: "Animal Identification", icon: "🐾", tag: "Nature" },
+      { id: "vocab", title: "English Vocabulary", icon: "📖", tag: "Words" },
+      { id: "hindi", title: "Hindi Swar & Vyanjan", icon: "🇮🇳", tag: "हिन्दी" },
+      { id: "science", title: "Simple Science", icon: "🔬", tag: "Discovery" }
+    ];
+
+    const AVATAR_OPTIONS = {
+      dress: [
+        { id: "pink-candy", label: "Candy Pink", color: "#ff7eb6", cost: 0 },
+        { id: "sky-royal", label: "Sky Princess", color: "#5cc8ff", cost: 40 },
+        { id: "mint-fairy", label: "Mint Garden", color: "#5ce1b6", cost: 60 },
+        { id: "gold-star", label: "Starlight Gown", color: "#ffd166", cost: 90 }
+      ],
+      hair: [
+        { id: "cocoa", label: "Cocoa Bun", color: "#5b3724", cost: 0 },
+        { id: "berry", label: "Berry Plum", color: "#6d3b7d", cost: 30 },
+        { id: "caramel", label: "Caramel Gold", color: "#b8742b", cost: 50 }
+      ],
+      acc: [
+        { id: "crown", label: "Golden Crown", type: "crown", cost: 0 },
+        { id: "tiara", label: "Sky Gem Star", type: "star", cost: 35 },
+        { id: "bow", label: "Candy Bow", type: "bow", cost: 50 }
+      ],
+      shoes: [
+        { id: "purple", label: "Purple Slippers", color: "#9d6bff", cost: 0 },
+        { id: "pink", label: "Pink Mary Janes", color: "#ff7eb6", cost: 25 },
+        { id: "mint", label: "Mint Boots", color: "#24b386", cost: 45 }
+      ],
+      room: [
+        { id: "cupcake-room", label: "Cupcake Room", cost: 0 },
+        { id: "rainbow-room", label: "Rainbow Room", cost: 70 },
+        { id: "starlight-room", label: "Starlight Room", cost: 110 }
+      ]
+    };
+
+    const BADGES = [
+      { id: "first-star", title: "First Star", icon: "⭐", req: (s) => s.stars >= 1 },
+      { id: "candy-collector", title: "Candy Collector", icon: "🍬", req: (s) => s.coins >= 80 },
+      { id: "gem-seeker", title: "Diamond Explorer", icon: "💎", req: (s) => s.gems >= 3 },
+      { id: "world-hopper", title: "World Hopper", icon: "🌍", req: (s) => s.worldsVisited.length >= 5 },
+      { id: "scholar-10", title: "Bright Learner", icon: "📚", req: (s) => s.totalAnswered >= 10 },
+      { id: "all-worlds", title: "Garden Champion", icon: "👑", req: (s) => s.worldsVisited.length >= 10 }
+    ];
+
+    function getTodayKey() {
+      const d = new Date();
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    }
+
+    function getYesterdayKey() {
+      const d = new Date(Date.now() - 86400000);
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    }
+
+    function defaultState() {
+      return {
+        version: "4.9",
+        lang: "both",
+        sfx: true,
+        bgm: false,
+        coins: 45,
+        stars: 3,
+        gems: 1,
+        xp: 0,
+        streakDays: 1,
+        lastActiveDate: getTodayKey(),
+        lastDailyClaimDate: null,
+        totalAnswered: 0,
+        totalCorrect: 0,
+        secondsPlayed: 0,
+        worldsVisited: ["candy-land"],
+        unlockedItems: ["pink-candy", "cocoa", "crown", "purple", "cupcake-room"],
+        avatar: {
+          dress: "pink-candy",
+          hair: "cocoa",
+          acc: "crown",
+          shoes: "purple",
+          room: "cupcake-room"
+        },
+        missions: [
+          { id: "m1", title: "Answer 5 Learning Questions", current: 0, target: 5, rewardCoins: 30, rewardStar: 1, claimed: false },
+          { id: "m2", title: "Visit 3 Different Candy Worlds", current: 1, target: 3, rewardCoins: 35, rewardStar: 1, claimed: false },
+          { id: "m3", title: "Customize Manushree's Outfit", current: 0, target: 1, rewardCoins: 25, rewardStar: 1, claimed: false }
+        ],
+        subjectStats: {},
+        activityLog: [
+          { time: new Date().toLocaleTimeString(), text: "Entered Manushree Candy Garden V4.9 Complete" }
+        ]
+      };
+    }
+
+    function syncStreakOnLoad(s) {
+      const today = getTodayKey();
+      const yesterday = getYesterdayKey();
+      if (s.lastActiveDate === today) {
+        s.streakDays = Math.max(1, Number(s.streakDays) || 1);
+      } else if (s.lastActiveDate === yesterday) {
+        s.streakDays = (Number(s.streakDays) || 1) + 1;
+        s.lastActiveDate = today;
+      } else {
+        s.streakDays = 1;
+        s.lastActiveDate = today;
+      }
+      return s;
+    }
+
+    function loadState() {
+      const base = defaultState();
+      try {
+        for (const k of LEGACY_KEYS) {
+          const rawLegacy = localStorage.getItem(k);
+          if (rawLegacy) {
+            const parsedLegacy = JSON.parse(rawLegacy);
+            if (typeof parsedLegacy.coins === "number") base.coins = Math.max(base.coins, parsedLegacy.coins);
+            if (typeof parsedLegacy.stars === "number") base.stars = Math.max(base.stars, parsedLegacy.stars);
+            if (typeof parsedLegacy.gems === "number") base.gems = Math.max(base.gems, parsedLegacy.gems);
+            if (typeof parsedLegacy.xp === "number") base.xp = Math.max(base.xp, parsedLegacy.xp);
+            base.activityLog.unshift({ time: "V3.7", text: "Preserved progress from V3.7" });
+          }
+        }
+        const raw = localStorage.getItem(STORAGE_KEY_V4);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          return syncStreakOnLoad({
+            ...base,
+            ...parsed,
+            avatar: { ...base.avatar, ...(parsed.avatar || {}) },
+            missions: Array.isArray(parsed.missions) && parsed.missions.length ? parsed.missions : base.missions,
+            subjectStats: parsed.subjectStats || {},
+            activityLog: Array.isArray(parsed.activityLog) ? parsed.activityLog : base.activityLog
+          });
+        }
+      } catch (e) {
+        console.warn("Storage fallback active:", e);
+      }
+      return syncStreakOnLoad(base);
+    }
+
+    let state = loadState();
+
+    function saveToIndexedDbMirror(snapshot) {
+      if (!("indexedDB" in window)) return;
+      try {
+        const req = indexedDB.open("ManushreeCandyGardenDB", 1);
+        req.onupgradeneeded = () => {
+          const db = req.result;
+          if (!db.objectStoreNames.contains("saves")) {
+            db.createObjectStore("saves", { keyPath: "id" });
+          }
+        };
+        req.onsuccess = () => {
+          const tx = req.result.transaction("saves", "readwrite");
+          tx.objectStore("saves").put({ id: "v4_state", data: snapshot, updatedAt: Date.now() });
+        };
+      } catch (_) {}
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY_V4, JSON.stringify(state));
+      } catch (_) {}
+      saveToIndexedDbMirror(state);
+      renderHud();
+      renderDailyChallengeBanner();
+    }
+
+    function logActivity(text) {
+      state.activityLog.unshift({
+        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        text
+      });
+      if (state.activityLog.length > 30) state.activityLog.length = 30;
+    }
+
+    let audioCtx = null;
+    let bgmTimer = null;
+
+    function ensureAudioCtx() {
+      if (!audioCtx) {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (Ctx) audioCtx = new Ctx();
+      }
+      if (audioCtx && audioCtx.state === "suspended") {
+        audioCtx.resume().catch(() => {});
+      }
+      return audioCtx;
+    }
+
+    function playTone(freq, duration = 0.16, type = "sine", gainVal = 0.08) {
+      if (!state.sfx) return;
+      const ctx = ensureAudioCtx();
+      if (!ctx) return;
+      try {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        gain.gain.setValueAtTime(gainVal, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+      } catch (_) {}
+    }
+
+    function playSuccessChime() {
+      playTone(523.25, 0.12, "triangle", 0.09);
+      setTimeout(() => playTone(659.25, 0.12, "triangle", 0.09), 110);
+      setTimeout(() => playTone(783.99, 0.22, "triangle", 0.1), 220);
+    }
+
+    function playGentleBump() {
+      playTone(260, 0.16, "sine", 0.07);
+    }
+
+    const bgmNotes = [523.25, 587.33, 659.25, 783.99, 659.25, 587.33];
+    let bgmIdx = 0;
+
+    function syncBgmLoop() {
+      if (bgmTimer) {
+        clearInterval(bgmTimer);
+        bgmTimer = null;
+      }
+      if (state.bgm) {
+        ensureAudioCtx();
+        bgmTimer = setInterval(() => {
+          if (!state.bgm || !audioCtx || audioCtx.state !== "running") return;
+          try {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(bgmNotes[bgmIdx % bgmNotes.length], audioCtx.currentTime);
+            bgmIdx++;
+            gain.gain.setValueAtTime(0.025, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0008, audioCtx.currentTime + 0.35);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.36);
+          } catch (_) {}
+        }, 520);
+      }
+    }
+
+    const VoiceController = {
+      speak(textEn, textHi) {
+        if (!("speechSynthesis" in window)) return;
+        try {
+          window.speechSynthesis.cancel();
+          const parts = [];
+          if ((state.lang === "en" || state.lang === "both") && textEn) {
+            const uEn = new SpeechSynthesisUtterance(textEn);
+            uEn.lang = "en-IN";
+            uEn.rate = 0.95;
+            parts.push(uEn);
+          }
+          if ((state.lang === "hi" || state.lang === "both") && textHi) {
+            const uHi = new SpeechSynthesisUtterance(textHi);
+            uHi.lang = "hi-IN";
+            uHi.rate = 0.95;
+            parts.push(uHi);
+          }
+          parts.forEach((utt) => window.speechSynthesis.speak(utt));
+        } catch (_) {}
+      }
+    };
+
+    function cycleLanguage() {
+      const order = ["both", "en", "hi"];
+      state.lang = order[(order.indexOf(state.lang) + 1) % order.length];
+      playTone(600, 0.1);
+      saveState();
+      updateControlButtons();
+      updateMissionProgress("m3", 1);
+    }
+
+    function toggleSfx() {
+      state.sfx = !state.sfx;
+      if (state.sfx) playTone(700, 0.12);
+      saveState();
+      updateControlButtons();
+    }
+
+    function toggleBgm() {
+      state.bgm = !state.bgm;
+      syncBgmLoop();
+      saveState();
+      updateControlButtons();
+    }
+
+    function updateControlButtons() {
+      const langMap = { both: "🌐 EN + HI", en: "🌐 English", hi: "🌐 हिन्दी" };
+      document.getElementById("btn-lang-cycle").textContent = langMap[state.lang] || "🌐 EN + HI";
+      const sfxBtn = document.getElementById("btn-sfx-toggle");
+      sfxBtn.textContent = state.sfx ? "🔊 SFX" : "🔇 SFX";
+      sfxBtn.classList.toggle("muted", !state.sfx);
+      const bgmBtn = document.getElementById("btn-bgm-toggle");
+      bgmBtn.textContent = state.bgm ? "🎵 Music" : "🎵 Off";
+      bgmBtn.classList.toggle("muted", !state.bgm);
+    }
+
+    function readCurrentScreen() {
+      const activeView = document.querySelector(".view.active")?.id || "view-world";
+      if (activeView === "view-games") {
+        speakPrompt();
+      } else {
+        VoiceController.speak(
+          "Welcome to Manushree Candy Garden! Tap any magical world or learning game to play.",
+          "मनुश्री कैंडी गार्डन में आपका स्वागत है! खेलने के लिए कोई भी दुनिया या खेल चुनें।"
+        );
+      }
+    }
+
+    let currentView = "world";
+    let currentModuleId = "abc";
+    let currentWorldName = "Candy Land";
+    let activeQuestion = null;
+
+    function switchView(viewName) {
+      currentView = viewName;
+      playTone(540, 0.08);
+      document.querySelectorAll(".nav-tab").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.view === viewName);
+      });
+      document.querySelectorAll(".view").forEach((sec) => {
+        sec.classList.toggle("active", sec.id === "view-" + viewName);
+      });
+      if (viewName === "games") {
+        if (!activeQuestion) generateQuestion(currentModuleId);
+        if (!memCards.length) initMemoryDeck();
+      }
+      if (viewName === "avatar") renderAvatarStudio();
+      if (viewName === "rewards") renderRewardsView();
+      if (viewName === "parent") renderParentDashboard();
+    }
+
+    function renderDailyChallengeBanner() {
+      const today = getTodayKey();
+      const claimedToday = state.lastDailyClaimDate === today;
+      const dayLabel = state.streakDays === 1 ? "1 Day" : `${state.streakDays} Days`;
+      const stEl = document.getElementById("daily-streak-text");
+      const subEl = document.getElementById("daily-challenge-sub");
+      const btnEl = document.getElementById("btn-claim-daily");
+      if (stEl) stEl.textContent = dayLabel;
+      if (btnEl) {
+        btnEl.disabled = claimedToday;
+        btnEl.textContent = claimedToday ? "✓ Daily Bonus Claimed" : "🌟 Claim Daily Bonus";
+      }
+      if (subEl) {
+        subEl.textContent = claimedToday
+          ? "Great job! Today’s streak reward is already collected. Come back tomorrow to keep your streak growing!"
+          : "Tap Claim Daily Bonus for +25 Candy Coins & +1 Star, or jump into Today’s Challenge!";
+      }
+    }
+
+    function claimDailyChallenge() {
+      const today = getTodayKey();
+      if (state.lastDailyClaimDate === today) {
+        playGentleBump();
+        return;
+      }
+      state.lastDailyClaimDate = today;
+      state.lastActiveDate = today;
+      state.coins += 25;
+      state.stars += 1;
+      state.xp += 20;
+      playSuccessChime();
+      logActivity(`Claimed Daily Challenge Streak (${state.streakDays}d): +25 coins, +1 star`);
+      saveState();
+      alert(`🌟 Daily Streak Bonus! +25 Candy Coins & +1 Star added for Day ${state.streakDays}!`);
+    }
+
+    function startDailyQuickChallenge() {
+      const dailyMods = ["counting", "math", "hindi", "science", "shapes", "animals"];
+      const dayNum = Math.floor(Date.now() / 86400000);
+      const chosenMod = dailyMods[dayNum % dailyMods.length];
+      currentWorldName = "Daily Challenge";
+      playTone(660, 0.1);
+      switchView("games");
+      generateQuestion(chosenMod);
+    }
+
+    function updateMissionProgress(missionId, delta) {
+      const m = state.missions.find((item) => item.id === missionId);
+      if (!m || m.claimed) return;
+      m.current = Math.min(m.target, m.current + delta);
+      saveState();
+    }
+
+    function claimMission(missionId) {
+      const m = state.missions.find((item) => item.id === missionId);
+      if (!m || m.claimed || m.current < m.target) return;
+      m.claimed = true;
+      state.coins += m.rewardCoins;
+      state.stars += m.rewardStar;
+      state.xp += 25;
+      playSuccessChime();
+      logActivity(`Claimed mission: ${m.title}`);
+      saveState();
+      renderRewardsView();
+    }
+
+    function openTreasureChest() {
+      if (state.coins < 50) {
+        playGentleBump();
+        alert("Collect at least 50 Candy Coins to open the Treasure Chest! 🍬");
+        return;
+      }
+      state.coins -= 50;
+      const bonusCoins = 25 + Math.floor(Math.random() * 40);
+      const bonusGems = 1;
+      const bonusStars = 1;
+      state.coins += bonusCoins;
+      state.gems += bonusGems;
+      state.stars += bonusStars;
+      state.xp += 30;
+      playSuccessChime();
+      logActivity(`Opened Treasure Chest (+${bonusCoins} coins, +1 diamond)`);
+      saveState();
+      renderRewardsView();
+      alert(`🎁 Treasure Chest Opened! You found +${bonusCoins} Coins, +1 Diamond 💎, and +1 Star ⭐!`);
+    }
+
+    function renderHud() {
+      document.getElementById("hud-coins").textContent = state.coins;
+      document.getElementById("hud-stars").textContent = state.stars;
+      document.getElementById("hud-gems").textContent = state.gems;
+      document.getElementById("hud-streak").textContent = `${state.streakDays}d`;
+      const level = Math.max(1, Math.floor(state.xp / 60) + 1);
+      document.getElementById("hud-level").textContent = `Lv. ${level}`;
+    }
+
+    function inspectLandmark(place) {
+      playTone(720, 0.12);
+      const box = document.getElementById("landmark-toast");
+      box.classList.remove("hidden");
+      box.textContent = `✨ ${place}: Tap any Candy World card below to start a learning adventure!`;
+    }
+
+    function launchWorld(worldId) {
+      const w = WORLDS.find((item) => item.id === worldId) || WORLDS[0];
+      currentWorldName = w.name;
+      currentModuleId = w.mod;
+      if (!state.worldsVisited.includes(w.id)) {
+        state.worldsVisited.push(w.id);
+      }
+      const uniqueCount = state.worldsVisited.length;
+      const m2 = state.missions.find((m) => m.id === "m2");
+      if (m2 && !m2.claimed) {
+        m2.current = Math.min(m2.target, uniqueCount);
+      }
+      state.xp += 10;
+      playSuccessChime();
+      logActivity(`Explored ${w.name}`);
+      saveState();
+      switchView("games");
+      generateQuestion(w.mod);
+    }
+
+    function renderWorldsGrid() {
+      const grid = document.getElementById("worlds-grid");
+      grid.innerHTML = WORLDS.map((w) => {
+        const visited = state.worldsVisited.includes(w.id);
+        return `
+          <div class="world-card">
+            <div>
+              <div class="world-emoji">${w.emoji}</div>
+              <div class="world-name">${w.name}</div>
+              <div class="world-sub">${w.desc}</div>
+            </div>
+            <div class="world-foot">
+              <span class="badge-pill">${visited ? "✓ Explored" : "New Quest"}</span>
+              <button class="play-mini-btn" onclick="launchWorld('${w.id}')">Explore</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderModulesGrid() {
+      const grid = document.getElementById("modules-grid");
+      grid.innerHTML = MODULES.map((m) => `
+        <div class="world-card">
+          <div>
+            <div class="world-emoji">${m.icon}</div>
+            <div class="world-name">${m.title}</div>
+            <div class="world-sub">Subject: ${m.tag}</div>
+          </div>
+          <div class="world-foot">
+            <span class="badge-pill">+15 Coins</span>
+            <button class="play-mini-btn" onclick="selectModule('${m.id}')">Play</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function getDifficultyTier() {
+      if (state.stars >= 12) return "explorer";
+      if (state.stars >= 6) return "budding";
+      return "sprout";
+    }
+
+    function buildQuestion(modId) {
+      const tier = getDifficultyTier();
+      const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+      const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
+
+      if (modId === "counting") {
+        const maxNum = tier === "explorer" ? 100 : tier === "budding" ? 50 : 20;
+        const n = Math.max(1, Math.floor(Math.random() * maxNum) + 1);
+        const opts = shuffle([n, n + 1, Math.max(1, n - 1), Math.min(100, n + 2)].filter((v, i, a) => a.indexOf(v) === i)).slice(0, 4);
+        return {
+          prompt: `Which number comes right after ${n - 1 === 0 ? "0" : n - 1}?`,
+          speakEn: `Find the number ${n}`,
+          speakHi: `संख्या ${n} पहचानो`,
+          answer: String(n),
+          options: opts.map(String)
+        };
+      }
+
+      if (modId === "math") {
+        const cap = tier === "explorer" ? 20 : 10;
+        const a = Math.floor(Math.random() * cap) + 1;
+        const b = Math.floor(Math.random() * Math.min(cap, a)) + 1;
+        const isAdd = Math.random() > 0.35;
+        const ans = isAdd ? a + b : a - b;
+        const expr = isAdd ? `${a} + ${b}` : `${a} - ${b}`;
+        const opts = shuffle([ans, ans + 1, Math.max(0, ans - 1), ans + 2].filter((v, i, arr) => arr.indexOf(v) === i)).slice(0, 4);
+        return {
+          prompt: `Solve: ${expr} = ?`,
+          speakEn: isAdd ? `What is ${a} plus ${b}?` : `What is ${a} minus ${b}?`,
+          speakHi: isAdd ? `${a} और ${b} जोड़ने पर क्या आता है?` : `${a} में से ${b} घटाने पर क्या आता है?`,
+          answer: String(ans),
+          options: opts.map(String)
+        };
+      }
+
+      if (modId === "hindi") {
+        const bank = [
+          { q: "अ से क्या होता है? (A for...)", ans: "अनार 🍎", opts: ["अनार 🍎", "आम 🥭", "कमल 🌸", "गमला 🪴"] },
+          { q: "क से क्या शुरू होता है? (Ka starts with...)", ans: "कमल 🌸", opts: ["कमल 🌸", "इमली", "ऊँट", "ऐनक"] },
+          { q: "ई से कौन-सा शब्द बनता है?", ans: "ईख", opts: ["ईख", "उल्लू", "ऋषि", "ओखली"] },
+          { q: "म से क्या होता है?", ans: "मछली 🐟", opts: ["मछली 🐟", "सेब 🍎", "तारा ⭐", "बिल्ली 🐱"] }
+        ];
+        const item = pick(bank);
+        return {
+          prompt: item.q,
+          speakEn: "Choose the matching Hindi word.",
+          speakHi: item.q,
+          answer: item.ans,
+          options: shuffle(item.opts)
+        };
+      }
+
+      if (modId === "animals") {
+        const bank = [
+          { q: "Which animal hops with long ears? 🐰", ans: "Bunny", opts: ["Bunny", "Fish", "Owl", "Crab"] },
+          { q: "Which creature swims in the ocean? 🐠", ans: "Fish", opts: ["Fish", "Bear", "Horse", "Squirrel"] },
+          { q: "Which animal has a long trunk? 🐘", ans: "Elephant", opts: ["Elephant", "Frog", "Duck", "Bee"] }
+        ];
+        const item = pick(bank);
+        return {
+          prompt: item.q,
+          speakEn: item.q.replace(/[^\w\s?]/g, ""),
+          speakHi: "सही जानवर चुनिए।",
+          answer: item.ans,
+          options: shuffle(item.opts)
+        };
+      }
+
+      if (modId === "colors") {
+        const bank = [
+          { q: "🍓 Strawberry and candy hearts are mostly...", ans: "Pink", opts: ["Pink", "Black", "Grey", "Brown"] },
+          { q: "☀️ The bright sun in Star Island is...", ans: "Yellow", opts: ["Yellow", "Dark Blue", "Black", "Silver"] },
+          { q: "🌿 Mint leaves and garden grass are...", ans: "Green", opts: ["Green", "Purple", "Orange", "White"] }
+        ];
+        const item = pick(bank);
+        return {
+          prompt: item.q,
+          speakEn: "Pick the matching color.",
+          speakHi: "सही रंग चुनिए।",
+          answer: item.ans,
+          options: shuffle(item.opts)
+        };
+      }
+
+      if (modId === "shapes") {
+        const bank = [
+          { q: "How many sides does a Triangle (🔺) have?", ans: "3", opts: ["3", "4", "5", "6"] },
+          { q: "A round lollipop or wheel looks like a...", ans: "Circle", opts: ["Circle", "Square", "Triangle", "Rectangle"] },
+          { q: "How many equal sides does a Square have?", ans: "4", opts: ["4", "2", "3", "5"] }
+        ];
+        const item = pick(bank);
+        return {
+          prompt: item.q,
+          speakEn: item.q,
+          speakHi: "सही आकृति चुनिए।",
+          answer: item.ans,
+          options: shuffle(item.opts)
+        };
+      }
+
+      if (modId === "science") {
+        const bank = [
+          { q: "What do garden plants need to grow? 🌱", ans: "Sunlight & Water", opts: ["Sunlight & Water", "Candy & Soda", "Rocks Only", "Darkness"] },
+          { q: "Where do rainbows appear in the sky? 🌈", ans: "After Rain & Sun", opts: ["After Rain & Sun", "Underground", "Inside Ice", "In Caves"] },
+          { q: "Water freezes into ice when it gets...", ans: "Very Cold", opts: ["Very Cold", "Very Hot", "Loud", "Pink"] }
+        ];
+        const item = pick(bank);
+        return {
+          prompt: item.q,
+          speakEn: item.q.replace(/[^\w\s?&]/g, ""),
+          speakHi: "सही विज्ञान उत्तर चुनिए।",
+          answer: item.ans,
+          options: shuffle(item.opts)
+        };
+      }
+
+      const bank = [
+        { q: "🔤 A is for...", ans: "Apple 🍎", opts: ["Apple 🍎", "Bus 🚌", "Cat 🐱", "Dog 🐶"] },
+        { q: "🗣️ Which word starts with the 'B' sound?", ans: "Ball", opts: ["Ball", "Sun", "Tree", "Star"] },
+        { q: "📖 Opposite of 'Big' is...", ans: "Small", opts: ["Small", "Tall", "Fast", "Loud"] },
+        { q: "🧩 Complete the pattern: 🍬, 🧁, 🍬, ?", ans: "🧁", opts: ["🧁", "🍬", "🌈", "⭐"] },
+        { q: "🃏 Match the pair: 🦋 Butterfly goes with...", ans: "🦋 Butterfly", opts: ["🦋 Butterfly", "🚂 Train", "🍕 Pizza", "🧦 Sock"] }
+      ];
+      const item = pick(bank);
+      return {
+        prompt: item.q,
+        speakEn: item.q.replace(/[^\w\s?,?]/g, ""),
+        speakHi: "सही उत्तर पर टैप करें।",
+        answer: item.ans,
+        options: shuffle(item.options)
+      };
+    }
+
+    function generateQuestion(modId) {
+      currentModuleId = modId;
+      const modObj = MODULES.find((m) => m.id === modId) || MODULES[0];
+      activeQuestion = buildQuestion(modId);
+
+      document.getElementById("game-world-tag").textContent = `${modObj.icon} ${currentWorldName} • ${modObj.title}`;
+      document.getElementById("game-prompt").textContent = activeQuestion.prompt;
+      document.getElementById("game-subprompt").textContent = `Level Tier: ${getDifficultyTier().toUpperCase()} • Tap an answer card`;
+
+      const choicesEl = document.getElementById("game-choices");
+      choicesEl.innerHTML = activeQuestion.options.map((opt) => {
+        const escaped = opt.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="choice-btn" onclick="checkAnswer(this, '${escaped}')">${opt}</button>`;
+      }).join("");
+    }
+
+    function selectModule(modId) {
+      currentModuleId = modId;
+      playTone(620, 0.1);
+      generateQuestion(modId);
+    }
+
+    function speakPrompt() {
+      if (!activeQuestion) return;
+      VoiceController.speak(activeQuestion.speakEn, activeQuestion.speakHi);
+    }
+
+    function checkAnswer(btnEl, chosen) {
+      if (!activeQuestion) return;
+      const isRight = chosen === activeQuestion.answer;
+      state.totalAnswered += 1;
+
+      if (!state.subjectStats[currentModuleId]) {
+        state.subjectStats[currentModuleId] = { right: 0, total: 0 };
+      }
+      state.subjectStats[currentModuleId].total += 1;
+
+      document.querySelectorAll("#game-choices .choice-btn").forEach((b) => {
+        b.disabled = true;
+      });
+
+      const fb = document.getElementById("game-feedback");
+      if (isRight) {
+        btnEl.classList.add("correct");
+        state.subjectStats[currentModuleId].right += 1;
+        state.totalCorrect += 1;
+        state.coins += 15;
+        state.stars += 1;
+        state.xp += 15;
+        if (state.totalCorrect % 5 === 0) state.gems += 1;
+        updateMissionProgress("m1", 1);
+        playSuccessChime();
+        fb.textContent = `🎉 Yay! "${chosen}" is right! +15 Candy Coins & +1 Star!`;
+        VoiceController.speak("Well done! Great job!", "शाबाश! बहुत बढ़िया!");
+        logActivity(`Solved ${currentModuleId.toUpperCase()}: ${chosen}`);
+      } else {
+        btnEl.classList.add("wrong");
+        playGentleBump();
+        fb.textContent = `🌸 Good try! The right answer is "${activeQuestion.answer}". Tap Next Question to keep going!`;
+        VoiceController.speak(`Nice try! The answer is ${activeQuestion.answer.replace(/[^\w\s]/g, "")}.`, "कोई बात नहीं, फिर से कोशिश करें!");
+      }
+
+      saveState();
+    }
+
+    function nextChallenge() {
+      generateQuestion(currentModuleId);
+    }
+
+    /* Opposite Word Match */
+    const OPPOSITE_ROUNDS = [
+      { target: "HOT", opp: "COLD", options: ["COLD", "SWEET", "FAST", "BRIGHT"] },
+      { target: "DAY", opp: "NIGHT", options: ["NIGHT", "HAPPY", "SOFT", "TALL"] },
+      { target: "UP", opp: "DOWN", options: ["DOWN", "BLUE", "FAST", "ROUND"] }
+    ];
+    let oppIdx = 0;
+    let oppSolved = false;
+
+    function renderOppositeMatch() {
+      const round = OPPOSITE_ROUNDS[oppIdx % OPPOSITE_ROUNDS.length];
+      const grid = document.getElementById("opposite-grid");
+      const promptEl = document.getElementById("opposite-prompt");
+      const fbEl = document.getElementById("opposite-feedback");
+      if (!grid) return;
+      if (promptEl) promptEl.textContent = `Find the opposite of ${round.target} (+15 Coins & +1 Star)!`;
+      const shuffled = [...round.options].sort(() => Math.random() - 0.5);
+      grid.innerHTML = shuffled.map((word) => {
+        const escaped = word.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="opp-btn" onclick="pickOppositeWord('${escaped}')">${word}</button>`;
+      }).join("");
+      if (fbEl && !oppSolved) fbEl.textContent = `Tap the opposite word for ${round.target}.`;
+    }
+
+    function pickOppositeWord(chosen) {
+      const round = OPPOSITE_ROUNDS[oppIdx % OPPOSITE_ROUNDS.length];
+      const fbEl = document.getElementById("opposite-feedback");
+      if (chosen === round.opp) {
+        if (!oppSolved) {
+          oppSolved = true;
+          state.coins += 15;
+          state.stars += 1;
+          state.xp += 15;
+          updateMissionProgress("m1", 1);
+          logActivity(`Matched opposite ${round.target} ↔ ${chosen}`);
+          saveState();
+        }
+        playSuccessChime();
+        VoiceController.speak(`${chosen} is the opposite of ${round.target}`, `${chosen}, ${round.target} का उल्टा शब्द है`);
+        if (fbEl) fbEl.textContent = `🎉 Well done! "${chosen}" is the opposite of "${round.target}"! +15 Coins & +1 Star`;
+      } else {
+        playGentleBump();
+        if (fbEl) fbEl.textContent = `🌸 "${chosen}" is not the opposite of "${round.target}". Try again!`;
+      }
+    }
+
+    function nextOppositeRound() {
+      oppIdx = (oppIdx + 1) % OPPOSITE_ROUNDS.length;
+      oppSolved = false;
+      playTone(620, 0.08);
+      renderOppositeMatch();
+    }
+
+    /* Rhyming Word Match */
+    const RHYME_ROUNDS = [
+      { target: "CAT", rhyme: "HAT", options: ["HAT", "SUN", "FISH", "BOOK"] },
+      { target: "STAR", rhyme: "CAR", options: ["CAR", "TREE", "DUCK", "MILK"] },
+      { target: "CAKE", rhyme: "LAKE", options: ["LAKE", "BIRD", "BEAR", "SHOE"] }
+    ];
+    let rhymeIdx = 0;
+    let rhymeSolved = false;
+
+    function renderRhymeMatch() {
+      const round = RHYME_ROUNDS[rhymeIdx % RHYME_ROUNDS.length];
+      const grid = document.getElementById("rhyme-grid");
+      const promptEl = document.getElementById("rhyme-prompt");
+      const fbEl = document.getElementById("rhyme-feedback");
+      if (!grid) return;
+      if (promptEl) promptEl.textContent = `Find the word that rhymes with ${round.target} (+15 Coins & +1 Star)!`;
+      const shuffled = [...round.options].sort(() => Math.random() - 0.5);
+      grid.innerHTML = shuffled.map((word) => {
+        const escaped = word.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="rhyme-btn" onclick="pickRhymeWord('${escaped}')">${word}</button>`;
+      }).join("");
+      if (fbEl && !rhymeSolved) fbEl.textContent = `Tap the word that sounds like ${round.target}.`;
+    }
+
+    function pickRhymeWord(chosen) {
+      const round = RHYME_ROUNDS[rhymeIdx % RHYME_ROUNDS.length];
+      const fbEl = document.getElementById("rhyme-feedback");
+      if (chosen === round.rhyme) {
+        if (!rhymeSolved) {
+          rhymeSolved = true;
+          state.coins += 15;
+          state.stars += 1;
+          state.xp += 15;
+          updateMissionProgress("m1", 1);
+          logActivity(`Matched rhyme ${round.target} → ${chosen}`);
+          saveState();
+        }
+        playSuccessChime();
+        VoiceController.speak(`${chosen} rhymes with ${round.target}`, `${chosen} और ${round.target} तुकांत शब्द हैं`);
+        if (fbEl) fbEl.textContent = `🎉 Nice rhyme! "${chosen}" rhymes with "${round.target}"! +15 Coins & +1 Star`;
+      } else {
+        playGentleBump();
+        if (fbEl) fbEl.textContent = `🌸 "${chosen}" doesn't rhyme with "${round.target}". Try another word!`;
+      }
+    }
+
+    function nextRhymeRound() {
+      rhymeIdx = (rhymeIdx + 1) % RHYME_ROUNDS.length;
+      rhymeSolved = false;
+      playTone(620, 0.08);
+      renderRhymeMatch();
+    }
+
+    /* Odd-One-Out Spotter */
+    const ODD_ROUNDS = [
+      { prompt: "Which one is NOT a sweet treat?", odd: "🥦", items: ["🍬", "🧁", "🍭", "🥦"], reason: "Broccoli is a veggie, not a sweet treat!" },
+      { prompt: "Which one does NOT fly in the sky?", odd: "🐢", items: ["🦋", "🕊️", "🦅", "🐢"], reason: "A turtle walks on land/water rather than flying!" },
+      { prompt: "Which one is NOT a fruit?", odd: "🥕", items: ["🍎", "🍌", "🍇", "🥕"], reason: "A carrot is a root vegetable!" }
+    ];
+    let oddIdx = 0;
+    let oddSolved = false;
+
+    function renderOddSpotter() {
+      const round = ODD_ROUNDS[oddIdx % ODD_ROUNDS.length];
+      const grid = document.getElementById("odd-grid");
+      const promptEl = document.getElementById("odd-prompt");
+      const fbEl = document.getElementById("odd-feedback");
+      if (!grid) return;
+      if (promptEl) promptEl.textContent = `${round.prompt} (+15 Coins & +1 Star)`;
+      const shuffled = [...round.items].sort(() => Math.random() - 0.5);
+      grid.innerHTML = shuffled.map((sym) => {
+        const escaped = sym.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="odd-btn" onclick="pickOddItem('${escaped}')">${sym}</button>`;
+      }).join("");
+      if (fbEl && !oddSolved) fbEl.textContent = "Tap the odd one out.";
+    }
+
+    function pickOddItem(chosen) {
+      const round = ODD_ROUNDS[oddIdx % ODD_ROUNDS.length];
+      const fbEl = document.getElementById("odd-feedback");
+      if (chosen === round.odd) {
+        if (!oddSolved) {
+          oddSolved = true;
+          state.coins += 15;
+          state.stars += 1;
+          state.xp += 15;
+          updateMissionProgress("m1", 1);
+          logActivity(`Spotted odd one out: ${chosen}`);
+          saveState();
+        }
+        playSuccessChime();
+        if (fbEl) fbEl.textContent = `🎉 Spot on! ${chosen} — ${round.reason} (+15 Coins & +1 Star)`;
+      } else {
+        playGentleBump();
+        if (fbEl) fbEl.textContent = `🌸 ${chosen} fits with the group. Try spotting the odd one!`;
+      }
+    }
+
+    function nextOddRound() {
+      oddIdx = (oddIdx + 1) % ODD_ROUNDS.length;
+      oddSolved = false;
+      playTone(620, 0.08);
+      renderOddSpotter();
+    }
+
+    /* Musical Sound & Phonics Explorer */
+    const SOUND_TILES = [
+      { label: "Do • सा", freq: 523.25, en: "Do", hi: "सा" },
+      { label: "Re • रे", freq: 587.33, en: "Re", hi: "रे" },
+      { label: "Mi • ग", freq: 659.25, en: "Mi", hi: "ग" },
+      { label: "Fa • म", freq: 698.46, en: "Fa", hi: "म" },
+      { label: "So • प", freq: 783.99, en: "So", hi: "प" },
+      { label: "La • ध", freq: 880.0, en: "La", hi: "ध" }
+    ];
+
+    function renderSoundExplorer() {
+      const grid = document.getElementById("sound-grid");
+      if (!grid) return;
+      grid.innerHTML = SOUND_TILES.map((t, i) => `
+        <button class="sound-tile" onclick="playSoundTile(${i})">
+          <span style="font-size:1.3rem;">🎵</span>
+          <span>${t.label}</span>
+        </button>
+      `).join("");
+    }
+
+    function playSoundTile(idx) {
+      const t = SOUND_TILES[idx];
+      if (!t) return;
+      playTone(t.freq, 0.24, "triangle", 0.09);
+      VoiceController.speak(t.en, t.hi);
+    }
+
+    /* Interactive Pattern & Shape Builder */
+    const PATTERN_SETS = [
+      { seq: ["🍬", "🧁", "🍬", "🧁"], ans: "🍬", opts: ["🍬", "🧁", "🌈", "⭐"] },
+      { seq: ["🔺", "🔵", "🔺", "🔵"], ans: "🔺", opts: ["🔺", "🔵", "🟩", "🌸"] },
+      { seq: ["🌸", "🌸", "⭐", "🌸"], ans: "🌸", opts: ["🌸", "⭐", "🍬", "🐰"] },
+      { seq: ["🦄", "🌈", "🦄", "🌈"], ans: "🦄", opts: ["🦄", "🌈", "🧁", "💎"] }
+    ];
+    let currentPatternIdx = 0;
+    let patternSolved = false;
+
+    function renderPatternPuzzle() {
+      const p = PATTERN_SETS[currentPatternIdx % PATTERN_SETS.length];
+      const seqEl = document.getElementById("pattern-sequence");
+      const optsEl = document.getElementById("pattern-options");
+      const fbEl = document.getElementById("pattern-feedback");
+      if (!seqEl || !optsEl) return;
+
+      const slotText = patternSolved ? p.ans : "?";
+      seqEl.innerHTML = p.seq.map((item) => `<span>${item}</span>`).join("") +
+        `<span class="pattern-slot" id="pattern-slot">${slotText}</span>`;
+
+      const shuffled = [...p.opts].sort(() => Math.random() - 0.5);
+      optsEl.innerHTML = shuffled.map((opt) => {
+        const escaped = opt.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="opt-btn" onclick="pickPatternOption('${escaped}')">${opt}</button>`;
+      }).join("");
+
+      if (fbEl && !patternSolved) {
+        fbEl.textContent = "Tap the shape or treat that completes the pattern.";
+      }
+    }
+
+    function pickPatternOption(chosen) {
+      const p = PATTERN_SETS[currentPatternIdx % PATTERN_SETS.length];
+      const fbEl = document.getElementById("pattern-feedback");
+      if (chosen === p.ans) {
+        if (!patternSolved) {
+          patternSolved = true;
+          state.coins += 15;
+          state.stars += 1;
+          state.xp += 15;
+          updateMissionProgress("m1", 1);
+          logActivity(`Completed Pattern Builder: ${chosen}`);
+          saveState();
+        }
+        renderPatternPuzzle();
+        playSuccessChime();
+        if (fbEl) fbEl.textContent = `🎉 Awesome! ${chosen} completes the pattern! +15 Coins & +1 Star!`;
+      } else {
+        playGentleBump();
+        if (fbEl) fbEl.textContent = `🌸 Try another piece! Look at how ${p.seq[0]} and ${p.seq[1]} repeat.`;
+      }
+    }
+
+    function nextPatternPuzzle() {
+      currentPatternIdx = (currentPatternIdx + 1) % PATTERN_SETS.length;
+      patternSolved = false;
+      playTone(620, 0.08);
+      renderPatternPuzzle();
+    }
+
+    /* Hindi-English Word Flip Cards */
+    const WORD_CARDS_DATA = [
+      { id: "w1", en: "Apple 🍎", hi: "सेब" },
+      { id: "w2", en: "Butterfly 🦋", hi: "तितली" },
+      { id: "w3", en: "Rainbow 🌈", hi: "इंद्रधनुष" },
+      { id: "w4", en: "Star ⭐", hi: "तारा" },
+      { id: "w5", en: "Flower 🌸", hi: "फूल" },
+      { id: "w6", en: "Water 💧", hi: "पानी" }
+    ];
+    let flippedWordIds = [];
+
+    function renderWordCards() {
+      const grid = document.getElementById("wordcard-grid");
+      if (!grid) return;
+      grid.innerHTML = WORD_CARDS_DATA.map((w) => {
+        const isFlipped = flippedWordIds.includes(w.id);
+        return `
+          <button class="word-flip-btn ${isFlipped ? "flipped" : ""}" onclick="toggleWordCard('${w.id}')">
+            <span style="font-size:1.05rem;">${isFlipped ? w.hi : w.en}</span>
+            <span style="font-size:0.74rem; color:var(--muted);">${isFlipped ? "हिन्दी • Tap for EN" : "English • Tap for HI"}</span>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function toggleWordCard(id) {
+      const item = WORD_CARDS_DATA.find((x) => x.id === id);
+      if (!item) return;
+      if (flippedWordIds.includes(id)) {
+        flippedWordIds = flippedWordIds.filter((x) => x !== id);
+      } else {
+        flippedWordIds.push(id);
+      }
+      playTone(610, 0.08);
+      VoiceController.speak(item.en.replace(/[^\w\s]/g, ""), item.hi);
+      renderWordCards();
+    }
+
+    function resetWordCards() {
+      flippedWordIds = [];
+      playTone(520, 0.08);
+      renderWordCards();
+    }
+
+    const MEMORY_PAIRS = ["🍬", "🧁", "🌈", "🦄", "🐰", "⭐"];
+    let memCards = [];
+    let memFlipped = [];
+    let memLock = false;
+
+    function initMemoryDeck() {
+      const doubled = [...MEMORY_PAIRS, ...MEMORY_PAIRS].sort(() => Math.random() - 0.5);
+      memCards = doubled.map((sym, idx) => ({ id: idx, sym, matched: false }));
+      memFlipped = [];
+      memLock = false;
+      document.getElementById("memory-status").textContent = "Find all 6 matching pairs (+25 Coins & +1 Star)!";
+      renderMemoryGrid();
+    }
+
+    function renderMemoryGrid() {
+      const grid = document.getElementById("memory-grid");
+      if (!grid) return;
+      grid.innerHTML = memCards.map((c) => {
+        const isOpen = c.matched || memFlipped.includes(c.id);
+        const cls = ["mem-card", isOpen ? "revealed" : "", c.matched ? "matched" : ""].filter(Boolean).join(" ");
+        return `<button class="${cls}" onclick="flipMemoryCard(${c.id})">${isOpen ? c.sym : "🍭"}</button>`;
+      }).join("");
+    }
+
+    function flipMemoryCard(cardId) {
+      if (memLock) return;
+      const card = memCards[cardId];
+      if (!card || card.matched || memFlipped.includes(cardId)) return;
+
+      playTone(640, 0.08);
+      memFlipped.push(cardId);
+      renderMemoryGrid();
+
+      if (memFlipped.length === 2) {
+        memLock = true;
+        const [aId, bId] = memFlipped;
+        const a = memCards[aId];
+        const b = memCards[bId];
+
+        if (a.sym === b.sym) {
+          a.matched = true;
+          b.matched = true;
+          memFlipped = [];
+          memLock = false;
+          playSuccessChime();
+          renderMemoryGrid();
+
+          if (memCards.every((m) => m.matched)) {
+            state.coins += 25;
+            state.stars += 1;
+            state.xp += 20;
+            updateMissionProgress("m1", 1);
+            logActivity("Completed 12-Card Memory Flip (+25 coins, +1 star)");
+            saveState();
+            document.getElementById("memory-status").textContent = "🎉 All 6 pairs matched! +25 Candy Coins & +1 Star earned!";
+          }
+        } else {
+          playGentleBump();
+          setTimeout(() => {
+            memFlipped = [];
+            memLock = false;
+            renderMemoryGrid();
+          }, 680);
+        }
+      }
+    }
+
+    const WORKSHEETS = {
+      abc: {
+        heading: "Manushree Candy Garden — ABC Tracing & Phonics Sheet",
+        items: [
+          ["A • Apple 🍎", "A a  •  A a  •  A a"],
+          ["B • Ball ⚽", "B b  •  B b  •  B b"],
+          ["C • Cake 🧁", "C c  •  C c  •  C c"],
+          ["D • Doll 🪆", "D d  •  D d  •  D d"],
+          ["E • Elephant 🐘", "E e  •  E e  •  E e"]
+        ]
+      },
+      num: {
+        heading: "Manushree Candy Garden — Numbers & Counting Sheet",
+        items: [
+          ["1 • One Candy 🍬", "1  •  1  •  1"],
+          ["2 • Two Cupcakes 🧁🧁", "2  •  2  •  2"],
+          ["5 • Five Stars ⭐⭐⭐⭐⭐", "5  •  5  •  5"],
+          ["8 • Eight Gems 💎", "8  •  8  •  8"],
+          ["10 • Ten Flowers 🌸", "10  •  10  •  10"]
+        ]
+      },
+      hindi: {
+        heading: "मनुश्री कैंडी गार्डन — हिन्दी स्वर व व्यंजन अभ्यास पत्रक",
+        items: [
+          ["अ — अनार 🍎", "अ  •  अ  •  अ"],
+          ["आ — आम 🥭", "आ  •  आ  •  आ"],
+          ["इ — इमली", "इ  •  इ  •  इ"],
+          ["क — कमल 🌸", "क  •  क  •  क"],
+          ["म — मछली 🐟", "म  •  म  •  म"]
+        ]
+      }
+    };
+
+    function renderWorksheet(type) {
+      playTone(580, 0.08);
+      ["abc", "num", "hindi"].forEach((k) => {
+        const btn = document.getElementById("ws-btn-" + k);
+        if (btn) btn.classList.toggle("active", k === type);
+      });
+      const data = WORKSHEETS[type] || WORKSHEETS.abc;
+      const sheet = document.getElementById("worksheet-sheet");
+      sheet.innerHTML = `
+        <div style="font-size:1.05rem; font-weight:800; margin-bottom:10px; color:var(--purple-deep);">${data.heading}</div>
+        ${data.items.map(([left, trace]) => `
+          <div class="worksheet-row">
+            <span>${left}</span>
+            <span class="trace-box">${trace}</span>
+          </div>
+        `).join("")}
+      `;
+    }
+
+    function applyAvatarSvg() {
+      const dressObj = AVATAR_OPTIONS.dress.find((x) => x.id === state.avatar.dress) || AVATAR_OPTIONS.dress[0];
+      const hairObj = AVATAR_OPTIONS.hair.find((x) => x.id === state.avatar.hair) || AVATAR_OPTIONS.hair[0];
+      const accObj = AVATAR_OPTIONS.acc.find((x) => x.id === state.avatar.acc) || AVATAR_OPTIONS.acc[0];
+      const shoeObj = AVATAR_OPTIONS.shoes.find((x) => x.id === state.avatar.shoes) || AVATAR_OPTIONS.shoes[0];
+
+      document.getElementById("svg-dress").setAttribute("fill", dressObj.color);
+      document.getElementById("svg-hair-back").setAttribute("fill", hairObj.color);
+      document.getElementById("svg-hair-top").setAttribute("fill", hairObj.color);
+      document.getElementById("svg-shoe-l").setAttribute("fill", shoeObj.color);
+      document.getElementById("svg-shoe-r").setAttribute("fill", shoeObj.color);
+
+      const accGroup = document.getElementById("svg-accessory");
+      if (accObj.type === "star") {
+        accGroup.innerHTML = `<polygon points="110,28 114,38 125,38 116,44 119,54 110,48 101,54 104,44 95,38 106,38" fill="#5cc8ff" />`;
+      } else if (accObj.type === "bow") {
+        accGroup.innerHTML = `<circle cx="102" cy="46" r="7" fill="#ff7eb6" /><circle cx="118" cy="46" r="7" fill="#ff7eb6" /><circle cx="110" cy="46" r="5" fill="#ffd166" />`;
+      } else {
+        accGroup.innerHTML = `<polygon points="96,52 103,36 110,48 117,36 124,52" fill="#ffd166" stroke="#e6a922" stroke-width="1.5" />`;
+      }
+
+      const stage = document.querySelector(".avatar-stage");
+      if (stage) {
+        if (state.avatar.room === "rainbow-room") {
+          stage.style.background = "linear-gradient(135deg, #ffe3f1 0%, #e6f6ff 50%, #e5fff4 100%)";
+        } else if (state.avatar.room === "starlight-room") {
+          stage.style.background = "linear-gradient(135deg, #ebe3ff 0%, #fff6d6 100%)";
+        } else {
+          stage.style.background = "linear-gradient(180deg, #fff7fb 0%, #f1ecff 100%)";
+        }
+      }
+    }
+
+    function chooseOption(category, itemId) {
+      const list = AVATAR_OPTIONS[category];
+      const item = list.find((x) => x.id === itemId);
+      if (!item) return;
+
+      if (!state.unlockedItems.includes(item.id)) {
+        if (state.coins < item.cost) {
+          playGentleBump();
+          alert(`Need ${item.cost} Candy Coins to unlock ${item.label}!`);
+          return;
+        }
+        state.coins -= item.cost;
+        state.unlockedItems.push(item.id);
+        logActivity(`Unlocked ${item.label}`);
+      }
+
+      state.avatar[category] = item.id;
+      updateMissionProgress("m3", 1);
+      playTone(680, 0.12);
+      saveState();
+      renderAvatarStudio();
+    }
+
+    function renderAvatarStudio() {
+      applyAvatarSvg();
+      const buildRow = (containerId, category) => {
+        const el = document.getElementById(containerId);
+        el.innerHTML = AVATAR_OPTIONS[category].map((opt) => {
+          const isSel = state.avatar[category] === opt.id;
+          const isUnlocked = state.unlockedItems.includes(opt.id);
+          const cls = ["opt-btn", isSel ? "selected" : "", !isUnlocked ? "locked" : ""].filter(Boolean).join(" ");
+          const tag = isUnlocked ? "" : ` (${opt.cost} 🍬)`;
+          return `<button class="${cls}" onclick="chooseOption('${category}', '${opt.id}')">${opt.label}${tag}</button>`;
+        }).join("");
+      };
+      buildRow("opts-dress", "dress");
+      buildRow("opts-hair", "hair");
+      buildRow("opts-acc", "acc");
+      buildRow("opts-shoes", "shoes");
+      buildRow("opts-room", "room");
+    }
+
+    function renderRewardsView() {
+      const mList = document.getElementById("missions-list");
+      mList.innerHTML = state.missions.map((m) => {
+        const pct = Math.min(100, Math.round((m.current / m.target) * 100));
+        const ready = m.current >= m.target && !m.claimed;
+        return `
+          <div class="mission-item">
+            <div style="flex:1;">
+              <div style="font-weight:800;">${m.title}</div>
+              <div style="font-size:0.82rem; color:var(--muted);">Reward: +${m.rewardCoins} Coins, +${m.rewardStar} Star (${m.current}/${m.target})</div>
+              <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+            </div>
+            ${
+              m.claimed
+                ? `<span class="badge-pill">Claimed</span>`
+                : ready
+                  ? `<button class="play-mini-btn" onclick="claimMission('${m.id}')">Claim</button>`
+                  : `<span class="badge-pill" style="background:#f3f0ff; color:var(--purple-deep);">${pct}%</span>`
+            }
+          </div>
+        `;
+      }).join("");
+
+      const bGrid = document.getElementById("badges-grid");
+      bGrid.innerHTML = BADGES.map((b) => {
+        const earned = b.req(state);
+        return `
+          <div class="badge-tile ${earned ? "earned" : ""}">
+            <div style="font-size:1.8rem;">${b.icon}</div>
+            <div style="font-weight:800; font-size:0.85rem; margin-top:4px;">${b.title}</div>
+            <div style="font-size:0.74rem; color:var(--muted);">${earned ? "Unlocked!" : "Keep Playing"}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function unlockParentDashboard() {
+      const val = Number(document.getElementById("parent-pin-input").value);
+      const msg = document.getElementById("parent-gate-msg");
+      if (val === 15) {
+        document.getElementById("parent-gate-box").classList.add("hidden");
+        document.getElementById("parent-dashboard-content").classList.remove("hidden");
+        renderParentDashboard();
+      } else {
+        msg.classList.remove("hidden");
+        msg.textContent = "Please check the math sum (7 + 8 = 15) to open the Parent Dashboard.";
+      }
+    }
+
+    function lockParentDashboard() {
+      document.getElementById("parent-pin-input").value = "";
+      document.getElementById("parent-dashboard-content").classList.add("hidden");
+      document.getElementById("parent-gate-box").classList.remove("hidden");
+    }
+
+    function renderParentDashboard() {
+      const mins = Math.max(1, Math.round(state.secondsPlayed / 60));
+      const acc = state.totalAnswered > 0 ? Math.round((state.totalCorrect / state.totalAnswered) * 100) : 0;
+      document.getElementById("parent-kpis").innerHTML = `
+        <div class="kpi-card"><div class="kpi-val">${state.totalCorrect}/${state.totalAnswered}</div><div class="kpi-lbl">Completed Challenges (${acc}%)</div></div>
+        <div class="kpi-card"><div class="kpi-val">${mins} min</div><div class="kpi-lbl">Active Time</div></div>
+        <div class="kpi-card"><div class="kpi-val">${state.stars} ⭐ / ${state.gems} 💎</div><div class="kpi-lbl">Stars &amp; Diamonds</div></div>
+        <div class="kpi-card"><div class="kpi-val">${state.streakDays}d / ${state.worldsVisited.length}/10</div><div class="kpi-lbl">Streak &amp; Worlds</div></div>
+      `;
+
+      const subjKeys = Object.keys(state.subjectStats);
+      document.getElementById("parent-subjects").innerHTML = subjKeys.length
+        ? subjKeys.map((k) => {
+            const s = state.subjectStats[k];
+            const pct = s.total ? Math.round((s.right / s.total) * 100) : 0;
+            return `<div class="mission-item"><strong>${k.toUpperCase()}</strong><span>${s.right}/${s.total} (${pct}%)</span></div>`;
+          }).join("")
+        : `<p style="color:var(--muted);">No subject attempts recorded yet.</p>`;
+
+      document.getElementById("parent-activity-log").innerHTML = state.activityLog
+        .map((item) => `<div class="mission-item" style="padding:8px 12px; font-size:0.86rem;"><span>${item.text}</span><span style="color:var(--muted);">${item.time}</span></div>`)
+        .join("");
+    }
+
+    function resetAllProgress() {
+      if (!confirm("Reset all Candy Coins, Stars, Avatar unlocks, and Learning Progress?")) return;
+      localStorage.removeItem(STORAGE_KEY_V4);
+      state = defaultState();
+      saveState();
+      renderWorldsGrid();
+      renderModulesGrid();
+      renderAvatarStudio();
+      renderRewardsView();
+      renderParentDashboard();
+      initMemoryDeck();
+      renderWorksheet("abc");
+      resetWordCards();
+      patternSolved = false;
+      renderPatternPuzzle();
+      renderSoundExplorer();
+      oddSolved = false;
+      renderOddSpotter();
+      rhymeSolved = false;
+      renderRhymeMatch();
+      oppSolved = false;
+      renderOppositeMatch();
+      alert("Progress has been reset cleanly.");
+    }
+
+    setInterval(() => {
+      if (!document.hidden) {
+        state.secondsPlayed += 5;
+        if (state.secondsPlayed % 30 === 0) saveState();
+      }
+    }, 5000);
+
+    (function init() {
+      renderHud();
+      renderDailyChallengeBanner();
+      updateControlButtons();
+      renderWorldsGrid();
+      renderModulesGrid();
+      applyAvatarSvg();
+      generateQuestion(currentModuleId);
+      initMemoryDeck();
+      renderWorksheet("abc");
+      renderWordCards();
+      renderPatternPuzzle();
+      renderSoundExplorer();
+      renderOddSpotter();
+      renderRhymeMatch();
+      renderOppositeMatch();
+      saveState();
+    })();
+  </script>
+</body>
+</html>
