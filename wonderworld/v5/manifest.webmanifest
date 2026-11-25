@@ -1,0 +1,24 @@
+{
+  "name": "Manushree Wonder World",
+  "short_name": "Wonder World",
+  "description": "Bilingual family learning universe: Candy Garden, Ocean Discovery and Ram Dino Space Quest.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fff0f7",
+  "theme_color": "#171b48",
+  "lang": "en",
+  "categories": [
+    "education",
+    "kids"
+  ],
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
