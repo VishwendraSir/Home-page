@@ -847,6 +847,7 @@
       const id = globalState.activeProfileId || 'manushree';
       return globalState.profiles[id];
     }
+    window.WW_GET_ACTIVE_KID_ID = () => globalState.activeProfileId || 'manushree';
 
     function getActiveCharConfig() {
       return CHARACTER_CONFIG[globalState.activeProfileId || 'manushree'];
@@ -869,6 +870,7 @@
       globalState.activeProfileId = charId;
       const prof = getActiveProfile();
       const cfg = getActiveCharConfig();
+      if (window.WonderKidAutoPrefs) window.WonderKidAutoPrefs.onKidSelected(charId, prof.classLevel);
 
       // Update daily streak & reset dailyStars on new day
       const today = new Date().toDateString();
@@ -1308,6 +1310,7 @@
       playClickSound();
       const prof = getActiveProfile();
       prof.classLevel = parseInt(val, 10) || 0;
+      if (window.WonderKidAutoPrefs) window.WonderKidAutoPrefs.syncGradeFromApp(globalState.activeProfileId || 'manushree', prof.classLevel);
       saveGlobalState();
       showToast(`Switched to ${CLASS_NAMES[prof.classLevel]}!`, '🎓', 'bg-purple-600');
       if (currentGame) loadGame(currentGame.id, true);
@@ -3876,6 +3879,7 @@
       }
     });
   </script>
-  <script src="./wonderworld/candy-garden-auto-quiz.js?v=1.7"></script>
+  <script src="./wonderworld/wonder-kid-auto-prefs.js?v=2.0"></script>
+  <script src="./wonderworld/candy-garden-auto-quiz.js?v=1.8"></script>
 </body>
 </html>
