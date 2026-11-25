@@ -465,6 +465,11 @@
     "title": "Manushree Wonder World V5.1"
   },
   {
+    "id": "wonderworld-v5-offline-html",
+    "path": "wonderworld/v5/offline.html",
+    "title": "Offline · Manushree Wonder World"
+  },
+  {
     "id": "worker-test-html",
     "path": "worker-test.html",
     "title": "Science Centre AI Tutor — Worker Test"
