@@ -613,6 +613,9 @@
           tx.objectStore("store").put({ id: "main", data: state });
         };
       }
+      if (window.PatwariFirebase?.queueSave && window.PatwariFirebase.getCurrentUser()) {
+        window.PatwariFirebase.queueSave(state);
+      }
       if (shouldRender) renderAll();
     }
 
@@ -1107,7 +1110,33 @@
       return String(s || "").replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
     }
 
-    async function patwariLogin(){try{await window.patwariSignIn();}catch(e){alert("Login: "+e.message);}}\n    async function patwariCloudSync(){try{if(!window.firebaseAuth?.currentUser)throw new Error("पहले Login करें");if(confirm("OK = Cloud backup को इस device पर Restore करें (मौजूदा local data बदल सकता है)। Cancel = इस device का data Cloud पर Upload करें।")){const remote=await window.patwariCloudLoad();if(!remote)throw new Error("Cloud पर कोई backup नहीं मिला");downloadJson();state=normalizeState(remote);persist();logAudit("Cloud backup restored");alert("Cloud backup restore हो गया।");}else{await window.patwariCloudSave(state);logAudit("Local data uploaded to cloud");alert("इस device का data Cloud पर सुरक्षित किया गया।");}}catch(e){alert("Cloud sync उपलब्ध नहीं: "+e.message);}}\n    window.addEventListener("patwari-auth",e=>{const el=document.getElementById("authStatus");if(el)el.textContent=e.detail.user?("Signed in: "+e.detail.user.email):"Local mode";});\n    async function runPatwariAI() {\n      const prompt = document.getElementById("aiPrompt").value.trim();\n      const output = document.getElementById("aiOutput");\n      const status = document.getElementById("aiStatus");\n      if (!prompt) { alert("कृपया प्रश्न या प्रकरण का विवरण लिखें।"); return; }\n      const cfg = window.PATWARI_CONFIG || {};\n      if (!cfg.workerUrl || !window.firebaseAuth || !window.firebaseAuth.currentUser) { status.textContent = "AI अभी कनेक्ट नहीं है। Worker URL और Firebase Authentication configuration सेट करें; API key को HTML में न डालें।"; return; }\n      status.textContent = "AI उत्तर तैयार हो रहा है…"; output.textContent = "कृपया प्रतीक्षा करें…";\n      try { const token = await window.firebaseAuth.currentUser.getIdToken(); const response = await fetch(cfg.workerUrl, { method:"POST", headers:{"Content-Type":"application/json","Authorization":"Bearer "+token}, body:JSON.stringify({ prompt, taskType:document.getElementById("aiTaskType").value, language:document.getElementById("aiLang").value }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error || "AI request failed"); output.textContent = data.text || "कोई उत्तर प्राप्त नहीं हुआ।"; status.textContent = "उत्तर तैयार। आधिकारिक उपयोग से पहले तथ्य सत्यापित करें।"; logAudit("AI मसौदा तैयार किया गया"); } catch (e) { status.textContent = "AI सेवा त्रुटि: " + e.message; output.textContent = "कनेक्शन उपलब्ध नहीं। कृपया Worker/Firebase configuration जाँचें।"; }\n    }\n    function renderCalendarTasks() { const date=document.getElementById("calendarDate").value; const filter=document.getElementById("calendarFilter").value; const list=state.tasks.filter(t=>(!date||t.due===date)&&(filter==="all"||(filter==="done"?t.done:!t.done))); document.getElementById("calendarTaskList").textContent=list.length?list.map(t=>`${t.done?"✓":"○"} ${t.title} | ${t.priority} | ${t.due}`).join("\\n"):"इस चयन में कोई कार्य नहीं।"; }\n    function generateMonthlyReport() { const m=document.getElementById("reportMonth").value; if(!m){alert("कृपया माह चुनें।");return;} const tasks=state.tasks.filter(t=>(t.due||"").startsWith(m)); const lines=[`मासिक राजस्व कार्यालय रिपोर्ट — ${m}`,`हल्का: सेवर, तहसील/जिला: भरतपुर, राजस्थान`,`भूमि रिकॉर्ड: ${state.land.length}`,`कुल दर्ज क्षेत्रफल: ${state.land.reduce((a,x)=>a+(Number(x.areaHa)||0),0).toFixed(4)} Ha`,`नामांतरण: ${state.mutations.length}`,`गिरदावरी प्रविष्टियां: ${state.crops.length}`,`क्षेत्र भ्रमण: ${state.visits.length}`,`इस माह निर्धारित कार्य: ${tasks.length}`,`पूर्ण कार्य: ${tasks.filter(t=>t.done).length}`,`लंबित कार्य: ${tasks.filter(t=>!t.done).length}`]; document.getElementById("monthlyReportOutput").textContent=lines.join("\\n"); logAudit("मासिक रिपोर्ट बनाई गई: "+m); }\n\n    window.addEventListener("online", updateNetBadge);
+    async function patwariLogin(){try{await window.patwariSignIn();}catch(e){alert("Login: "+e.message);}}\n    async function patwariCloudSync(){try{if(!window.firebaseAuth?.currentUser)throw new Error("पहले Login करें");if(confirm("OK = Cloud backup को इस device पर Restore करें (मौजूदा local data बदल सकता है)। Cancel = इस device का data Cloud पर Upload करें।")){const remote=await window.patwariCloudLoad();if(!remote)throw new Error("Cloud पर कोई backup नहीं मिला");downloadJson();state=normalizeState(remote);persist();logAudit("Cloud backup restored");alert("Cloud backup restore हो गया।");}else{await window.patwariCloudSave(state);logAudit("Local data uploaded to cloud");alert("इस device का data Cloud पर सुरक्षित किया गया।");}}catch(e){alert("Cloud sync उपलब्ध नहीं: "+e.message);}}\n    window.addEventListener("patwari-auth",e=>{const el=document.getElementById("authStatus");if(el)el.textContent=e.detail.user?("Signed in: "+e.detail.user.email):"Local mode";});\n    async function runPatwariAI() {\n      const prompt = document.getElementById("aiPrompt").value.trim();\n      const output = document.getElementById("aiOutput");\n      const status = document.getElementById("aiStatus");\n      if (!prompt) { alert("कृपया प्रश्न या प्रकरण का विवरण लिखें।"); return; }\n      const cfg = window.PATWARI_CONFIG || {};\n      if (!cfg.workerUrl || !window.firebaseAuth || !window.firebaseAuth.currentUser) { status.textContent = "AI अभी कनेक्ट नहीं है। Worker URL और Firebase Authentication configuration सेट करें; API key को HTML में न डालें।"; return; }\n      status.textContent = "AI उत्तर तैयार हो रहा है…"; output.textContent = "कृपया प्रतीक्षा करें…";\n      try { const token = await window.firebaseAuth.currentUser.getIdToken(); const response = await fetch(cfg.workerUrl, { method:"POST", headers:{"Content-Type":"application/json","Authorization":"Bearer "+token}, body:JSON.stringify({ prompt, taskType:document.getElementById("aiTaskType").value, language:document.getElementById("aiLang").value }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error || "AI request failed"); output.textContent = data.text || "कोई उत्तर प्राप्त नहीं हुआ।"; status.textContent = "उत्तर तैयार। आधिकारिक उपयोग से पहले तथ्य सत्यापित करें।"; logAudit("AI मसौदा तैयार किया गया"); } catch (e) { status.textContent = "AI सेवा त्रुटि: " + e.message; output.textContent = "कनेक्शन उपलब्ध नहीं। कृपया Worker/Firebase configuration जाँचें।"; }\n    }\n    function renderCalendarTasks() { const date=document.getElementById("calendarDate").value; const filter=document.getElementById("calendarFilter").value; const list=state.tasks.filter(t=>(!date||t.due===date)&&(filter==="all"||(filter==="done"?t.done:!t.done))); document.getElementById("calendarTaskList").textContent=list.length?list.map(t=>`${t.done?"✓":"○"} ${t.title} | ${t.priority} | ${t.due}`).join("\\n"):"इस चयन में कोई कार्य नहीं।"; }\n    function generateMonthlyReport() { const m=document.getElementById("reportMonth").value; if(!m){alert("कृपया माह चुनें।");return;} const tasks=state.tasks.filter(t=>(t.due||"").startsWith(m)); const lines=[`मासिक राजस्व कार्यालय रिपोर्ट — ${m}`,`हल्का: सेवर, तहसील/जिला: भरतपुर, राजस्थान`,`भूमि रिकॉर्ड: ${state.land.length}`,`कुल दर्ज क्षेत्रफल: ${state.land.reduce((a,x)=>a+(Number(x.areaHa)||0),0).toFixed(4)} Ha`,`नामांतरण: ${state.mutations.length}`,`गिरदावरी प्रविष्टियां: ${state.crops.length}`,`क्षेत्र भ्रमण: ${state.visits.length}`,`इस माह निर्धारित कार्य: ${tasks.length}`,`पूर्ण कार्य: ${tasks.filter(t=>t.done).length}`,`लंबित कार्य: ${tasks.filter(t=>!t.done).length}`]; document.getElementById("monthlyReportOutput").textContent=lines.join("\\n"); logAudit("मासिक रिपोर्ट बनाई गई: "+m); }\n\n    // V4.1 cloud-state bridge: merge by stable record id; cloud wins on conflicts.
+    function mergeCloudState(local, remote) {
+      const merged = normalizeState(remote || {});
+      const src = normalizeState(local || {});
+      ["land","mutations","crops","visits","tasks"].forEach(k => {
+        const byId = new Map((merged[k] || []).map(x => [String(x.id), x]));
+        (src[k] || []).forEach(x => { if (!byId.has(String(x.id))) byId.set(String(x.id), x); });
+        merged[k] = Array.from(byId.values());
+      });
+      merged.audit = [...(merged.audit || []), ...(src.audit || [])].slice(-200);
+      merged.lang = src.lang || merged.lang;
+      merged.dark = !!src.dark;
+      return merged;
+    }
+    window.PatwariGetLocalState = () => state;
+    window.PatwariApplyCloudState = remote => {
+      try {
+        state = mergeCloudState(state, remote);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        renderAll();
+        window.PatwariFirebase?.queueSave?.(state);
+        const net = document.getElementById("netStatus");
+        if (net) net.textContent = "Cloud Restored • Local Backup";
+      } catch (e) { console.error("Cloud restore failed", e); }
+    };
+
+    window.addEventListener("online", updateNetBadge);
     window.addEventListener("offline", updateNetBadge);
     window.addEventListener("DOMContentLoaded", () => {
       loadInitial();
@@ -1117,10 +1146,10 @@
       makeDraft();
     });
   </script>
-  <footer style="text-align:center;padding:14px;color:#64748b;font-size:12px">Rajasthan Patwari AI Assistant v3.0 · Offline/local record tool · आधिकारिक राजस्व रिकॉर्ड का विकल्प नहीं</footer>
+  <footer style="text-align:center;padding:14px;color:#64748b;font-size:12px">Rajasthan Patwari AI Assistant v4.1 · Local + Firebase cloud sync · आधिकारिक राजस्व रिकॉर्ड का विकल्प नहीं</footer>
 
 <section id="v4CloudPanel" style="margin:18px auto;max-width:1100px;padding:18px;background:var(--card,#fff);border:1px solid var(--border,#cbd5e1);border-radius:16px;color:var(--text,#0f172a)">
-<h2>V4.0 · Secure Cloud & AI Workspace</h2>
+<h2>V4.1 · Automatic Save, Restore & AI Workspace</h2>
 <p style="margin:6px 0 14px;color:var(--muted,#475569)">Firebase configuration is stored only in this browser. Gemini API key stays in Cloudflare Worker Secrets.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
 <label>Firebase API Key<input id="v4ApiKey" autocomplete="off" style="display:block;width:100%;padding:10px"></label>
