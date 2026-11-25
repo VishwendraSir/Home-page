@@ -2,12 +2,13 @@ rules_version = '2';
 service cloud.firestore {
  match /databases/{database}/documents {
   function signedIn(){return request.auth != null;}
-  function isAdmin(){return signedIn() && request.auth.token.admin == true;}
+  function isAdmin(){return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid)) && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.role == "admin";}
   function own(uid){return signedIn() && request.auth.uid == uid;}
   function siteEnabled(){return !exists(/databases/$(database)/documents/siteControl/global) || get(/databases/$(database)/documents/siteControl/global).data.enabled == true;}
   function pageEnabled(pageId){return exists(/databases/$(database)/documents/sitePages/$(pageId)) && get(/databases/$(database)/documents/sitePages/$(pageId)).data.enabled == true;}
   function moduleEnabled(moduleId){return exists(/databases/$(database)/documents/siteModules/$(moduleId)) && get(/databases/$(database)/documents/siteModules/$(moduleId)).data.enabled == true;}
   function contentAllowed(){return isAdmin() || (siteEnabled() && resource.data.pageId is string && resource.data.moduleId is string && pageEnabled(resource.data.pageId) && moduleEnabled(resource.data.moduleId));}
+  match /admins/{uid} { allow get: if own(uid); allow list: if isAdmin(); allow create,update,delete: if false; }
   match /siteControl/global { allow read: if true; allow create,update,delete: if isAdmin(); }
   match /sitePages/{pageId} { allow read: if true; allow create,update,delete: if isAdmin(); }
   match /siteModules/{moduleId} { allow read: if true; allow create,update,delete: if isAdmin(); }
