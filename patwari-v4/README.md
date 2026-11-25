@@ -1,15 +1,28 @@
-# Rajasthan Patwari AI Assistant V4.0
+# Rajasthan Patwari AI Assistant V4.1
+
+## What changed
+- Local Storage and IndexedDB remain enabled as device backups.
+- After Google sign-in, the app loads `users/{uid}/app_state/main` from Firestore.
+- Existing browser data is uploaded on first cloud activation if no cloud snapshot exists.
+- Every app `persist()` queues a debounced cloud snapshot save.
+- Failed saves remain in `RPAA_V4_PENDING_CLOUD_STATE` and retry when the browser is online.
+- Cloud and local records are merged by stable record IDs; cloud records win ID conflicts during initial restore.
+- Existing app sections and offline workflows are retained.
+
 ## Deploy
-1. Firebase Console में Web App बनाएं; Authentication में Google provider enable करें; Firestore Database बनाएं.
-2. इस app को GitHub Pages पर खोलें और Firebase Web App config के चार fields panel में भरें. यह config केवल उसी browser के localStorage में रहती है.
-3. Firestore Rules को firestore.rules से publish करें.
-4. Cloudflare Worker deploy करें: `npm install -g wrangler`, फिर repo folder में `wrangler deploy`.
-5. Secrets: `wrangler secret put GEMINI_API_KEY` और `wrangler secret put FIREBASE_WEB_API_KEY`. API keys को source code में न रखें.
-6. Worker URL को app panel में भरें. ALLOWED_ORIGIN को exact GitHub Pages origin पर रखें.
-## Security / limits
-- Firebase ID token is verified server-side through Identity Toolkit before Gemini access.
-- Admin role must be assigned manually in Firestore Console to a trusted user; never let users self-promote.
-- The in-memory Worker rate limiter is best-effort per isolate, not a global quota. Use Cloudflare rate limiting/Durable Objects for production enforcement.
-- Firebase Web API key is a browser identifier, not a private credential; Gemini key is secret.
-- Existing V3 local data/features are retained in this V4 page; V4 cloud CRUD helpers are exposed as window.PatwariFirebase APIs, but automatic migration/background merge is not enabled.
-- No Rajasthan government portal integration, certified Jamabandi lookup, or official legal advice.
+1. In Firebase Authentication, enable Google provider.
+2. Add `vishwendrasir.github.io` to Authentication > Settings > Authorized domains.
+3. Create Firestore Database.
+4. Publish the complete contents of `firestore.rules` in Firestore > Rules.
+5. Keep the Firebase Web config in the app panel/browser. Never put a Gemini API key or service-account key in HTML.
+6. Commit the files in `patwari-v4/` to the `main` branch. GitHub Pages serves the folder at the existing URL.
+
+## Test checklist
+- Sign in with Google; status should show the signed-in email.
+- Add a test land record or task; wait for Cloud Saved.
+- In Firestore Data, verify `users/{your-uid}/app_state/main`.
+- Refresh while signed in; records should reappear.
+- To test offline queue, switch offline, make a test change, reconnect and wait for Cloud Saved.
+
+## Important
+The app currently stores a single per-user state snapshot in Firestore. Do not share a user login between staff. No certified Rajasthan government portal integration is provided. Cloud restore requires internet on first sign-in. A browser-only app cannot guarantee background sync after it is fully closed.
