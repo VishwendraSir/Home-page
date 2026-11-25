@@ -1433,18 +1433,18 @@
     ];
 
     const GAMES_LIST = [
-      { id: 1, title: "1. Fish Identification Challenge", instr: "Identify the marine creature shown in the clue.", prompt: "Which creature lives inside sea anemones with a protective mucus coat?", ans: "Clownfish 🐠", opts: ["Clownfish 🐠", "Octopus 🐙", "Crab 🦀", "Penguin 🐧"] },
-      { id: 2, title: "2. Ocean Memory Match", instr: "Pick the matching ocean pair symbol.", prompt: "Match the pair for Sea Turtle 🐢:", ans: "🐢 Sea Turtle", opts: ["🐢 Sea Turtle", "🦀 Crab", "🪼 Jellyfish", "🦈 Shark"] },
-      { id: 3, title: "3. Save the Baby Turtle", instr: "Choose the safest action for baby sea turtles on a beach.", prompt: "Baby turtles hatch near the sand—what keeps their path safe?", ans: "Turn off bright beach lights & clear litter", opts: ["Turn off bright beach lights & clear litter", "Leave plastic bags on sand", "Drive vehicles on nests", "Block the shoreline"] },
-      { id: 4, title: "4. Clean the Ocean", instr: "Select the item that should be removed from ocean water.", prompt: "Which item does NOT belong in a healthy coral reef?", ans: "Plastic Bottle 🧴", opts: ["Plastic Bottle 🧴", "Coral 🪸", "Clownfish 🐠", "Seagrass 🌿"] },
-      { id: 5, title: "5. Feed the Correct Marine Animal", instr: "Match the marine animal with its natural diet.", prompt: "What do giant Blue Whales eat in large quantities?", ans: "Krill 🦐", opts: ["Krill 🦐", "Apples 🍎", "Tree Leaves 🍃", "Sand 🏖️"] },
-      { id: 6, title: "6. Build an Ocean Food Chain", instr: "Choose the next link in the marine energy chain.", prompt: "Phytoplankton → Krill → ?", ans: "Small Fish 🐟", opts: ["Small Fish 🐟", "Desert Cactus 🌵", "Mountain Goat 🐐", "Brick Wall 🧱"] },
-      { id: 7, title: "7. Deep Sea Treasure Hunt", instr: "Find the true deep-sea discovery clue.", prompt: "What helps deep-sea creatures make their own light in dark waters?", ans: "Bioluminescence ✨", opts: ["Bioluminescence ✨", "Traffic Lights 🚦", "Flashlight Batteries 🔋", "Mirrors 🪞"] },
-      { id: 8, title: "8. Coral Reef Builder", instr: "Choose what supports a healthy coral reef.", prompt: "Which condition helps coral reefs thrive?", ans: "Clean, sunlit, balanced water", opts: ["Clean, sunlit, balanced water", "Heavy oil spills", "Floating trash nets", "Dark mud burial"] },
-      { id: 9, title: "9. Shark Fact or Myth", instr: "Test your marine science knowledge about sharks.", prompt: "Fact or Myth: Are ALL sharks dangerous monsters that hunt humans?", ans: "Myth — Most sharks keep ocean balance", opts: ["Myth — Most sharks keep ocean balance", "Fact — Every shark hunts people", "Fact — Sharks have no fins", "Fact — Sharks live in trees"] },
-      { id: 10, title: "10. Underwater Word Explorer", instr: "Match the marine vocabulary term to its meaning.", prompt: "What does 'Echolocation' use to sense objects underwater?", ans: "Sound echoes 🔊", opts: ["Sound echoes 🔊", "Dry smoke 💨", "Paper notes 📝", "Wooden sticks 🪵"] },
-      { id: 11, title: "11. Marine Animal Jigsaw", instr: "Piece together the right body trait for the ocean animal.", prompt: "Which body feature helps an Octopus squeeze through small openings?", ans: "No backbone & 8 flexible arms", opts: ["No backbone & 8 flexible arms", "Hard shell armor", "Feathered wings", "Antlers"] },
-      { id: 12, title: "12. Ocean Quiz Race", instr: "Fast ocean science race question!", prompt: "Which ocean zone is also known as the Sunlight Zone?", ans: "Epipelagic Zone (0–200m)", opts: ["Epipelagic Zone (0–200m)", "Abyssal Zone", "Hadal Trench", "Earth’s Core"] }
+      { id: 1, title: "1. Fish Identification Challenge", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"Which fish can hide safely among sea anemone tentacles?","ans":"Clownfish","opts":["Clownfish","Blue whale","Penguin","Sea turtle"]},{"prompt":"Which organ lets most fish take oxygen from water?","ans":"Gills","opts":["Gills","Lungs","Fur","Wings"]},{"prompt":"Which of these is a marine mammal?","ans":"Dolphin","opts":["Dolphin","Crab","Starfish","Clownfish"]},{"prompt":"What is a shark's skeleton mainly made of?","ans":"Cartilage","opts":["Cartilage","Wood","Feathers","Shell"]},{"prompt":"Which animal has eight arms with suckers?","ans":"Octopus","opts":["Octopus","Seahorse","Tuna","Seal"]}] },
+      { id: 2, title: "2. Ocean Memory Match", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"Match the animal with its correct group: Whale.","ans":"Mammal","opts":["Mammal","Reptile","Mollusc","Sea plant"]},{"prompt":"Which creature matches the clue: has a hard shell and pincers?","ans":"Crab","opts":["Crab","Jellyfish","Dolphin","Seahorse"]},{"prompt":"Match the habitat: clownfish.","ans":"Coral reef / sea anemone","opts":["Coral reef / sea anemone","Polar ice only","Desert","Freshwater pond"]},{"prompt":"Which pair is correctly matched?","ans":"Seahorse — fish","opts":["Seahorse — fish","Dolphin — reptile","Octopus — bird","Shark — mammal"]},{"prompt":"Match the ocean plant.","ans":"Seagrass","opts":["Seagrass","Plastic bag","Sea glass","Shell"]}] },
+      { id: 3, title: "3. Save the Baby Turtle", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"What helps hatchling turtles find the sea?","ans":"A dark, natural horizon","opts":["A dark, natural horizon","Bright beach lights","Loud music","Plastic decorations"]},{"prompt":"What should people do near a turtle nest?","ans":"Keep a safe distance","opts":["Keep a safe distance","Dig it up","Touch the eggs","Drive over it"]},{"prompt":"Which litter can harm a turtle if swallowed?","ans":"Plastic bag","opts":["Plastic bag","Seaweed","Clean sand","Small shell"]},{"prompt":"Why should beachfront lights be shielded?","ans":"They can disorient hatchlings","opts":["They can disorient hatchlings","They make tides stop","They create coral","They feed turtles"]},{"prompt":"What is a responsible beach habit?","ans":"Take fishing line and rubbish away","opts":["Take fishing line and rubbish away","Leave hooks in sand","Disturb nests","Chase hatchlings"]}] },
+      { id: 4, title: "4. Clean the Ocean", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"Which item is marine litter?","ans":"Plastic bottle","opts":["Plastic bottle","Sea grass","Natural shell","Small fish"]},{"prompt":"Which choice reduces single-use waste?","ans":"Carry a refillable bottle","opts":["Carry a refillable bottle","Use extra bags","Drop wrappers","Dump waste"]},{"prompt":"Where should collected beach rubbish go?","ans":"A suitable waste bin","opts":["A suitable waste bin","Back into the sea","Into a tide pool","Under the sand"]},{"prompt":"What can abandoned fishing line injure?","ans":"Marine animals","opts":["Marine animals","Clouds","Mountains","Sunlight"]},{"prompt":"What is one way to prevent drain pollution?","ans":"Dispose of chemicals properly","opts":["Dispose of chemicals properly","Pour oil into drains","Flush plastic","Leave paint outdoors"]}] },
+      { id: 5, title: "5. Feed the Correct Marine Animal", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"What is a major food source for blue whales?","ans":"Krill","opts":["Krill","Apples","Tree bark","Sand"]},{"prompt":"What do many dolphins eat?","ans":"Fish and squid","opts":["Fish and squid","Grass roots","Pebbles","Leaves"]},{"prompt":"What do green sea turtles mainly eat as adults?","ans":"Seagrass and algae","opts":["Seagrass and algae","Plastic","Wood","Insects"]},{"prompt":"What do many sea stars feed on?","ans":"Molluscs such as clams","opts":["Molluscs such as clams","Bird eggs on trees","Grass","Ice"]},{"prompt":"What do filter-feeding manta rays eat?","ans":"Plankton","opts":["Plankton","Large land mammals","Sea rocks","Coral skeleton"]}] },
+      { id: 6, title: "6. Build an Ocean Food Chain", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"Which organism is a primary producer in the ocean?","ans":"Phytoplankton","opts":["Phytoplankton","Shark","Dolphin","Crab"]},{"prompt":"Complete: Phytoplankton → zooplankton → ?","ans":"Small fish","opts":["Small fish","Palm tree","Mountain goat","Eagle"]},{"prompt":"What do arrows in a food chain represent?","ans":"Energy transfer","opts":["Energy transfer","Animal age","Water depth","Body colour"]},{"prompt":"Which animal may eat a large fish?","ans":"Shark","opts":["Shark","Seagrass","Phytoplankton","Coral polyp"]},{"prompt":"What may happen if a key food-web species disappears?","ans":"The food web can become unbalanced","opts":["The food web can become unbalanced","All tides stop","Salt vanishes","Sunlight disappears"]}] },
+      { id: 7, title: "7. Deep Sea Treasure Hunt", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"What is light produced by a living organism called?","ans":"Bioluminescence","opts":["Bioluminescence","Evaporation","Condensation","Reflection"]},{"prompt":"Which ocean zone lies below the twilight zone?","ans":"Midnight zone","opts":["Midnight zone","Sunlight zone","Intertidal zone","Beach zone"]},{"prompt":"Why may an anglerfish use a glowing lure?","ans":"To attract prey","opts":["To attract prey","To grow plants","To warm water","To make waves"]},{"prompt":"How does water pressure change as depth increases?","ans":"It increases","opts":["It increases","It becomes zero","It disappears","It becomes sunlight"]},{"prompt":"Which vehicle can explore deep-sea locations?","ans":"Remotely operated vehicle (ROV)","opts":["Remotely operated vehicle (ROV)","Bicycle","Kite","Bus"]}] },
+      { id: 8, title: "8. Coral Reef Builder", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"Coral animals are called what?","ans":"Polyps","opts":["Polyps","Seeds","Birds","Mammals"]},{"prompt":"What do coral reefs provide for many species?","ans":"Food and shelter","opts":["Food and shelter","Desert soil","Freshwater ice","Plastic"]},{"prompt":"What can trigger mass coral bleaching?","ans":"Marine heat stress","opts":["Marine heat stress","Moon phases alone","Clean rain","Night sky"]},{"prompt":"Which action helps protect a reef?","ans":"Use reef-safe practices and reduce pollution","opts":["Use reef-safe practices and reduce pollution","Break coral","Collect live coral","Drop anchors on coral"]},{"prompt":"Many reef-building corals live with which partners?","ans":"Photosynthetic algae","opts":["Photosynthetic algae","Pine trees","Desert moss","Land insects"]}] },
+      { id: 9, title: "9. Shark Fact or Myth", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"Do all shark species pose a danger to humans?","ans":"No, most are not dangerous to people","opts":["No, most are not dangerous to people","Yes, every species hunts people","They live on land","They have no fins"]},{"prompt":"A shark skeleton is mostly made of what?","ans":"Cartilage","opts":["Cartilage","Iron","Wood","Bone only"]},{"prompt":"Which sense helps some sharks detect weak electrical signals?","ans":"Electroreception","opts":["Electroreception","Colour vision only","Taste buds on feet","Echo whistles"]},{"prompt":"What is an important role of sharks in ecosystems?","ans":"They help regulate food webs","opts":["They help regulate food webs","They make seawater fresh","They create sunlight","They stop tides"]},{"prompt":"What is safest when seeing a wild shark?","ans":"Give it space and follow local guidance","opts":["Give it space and follow local guidance","Touch its tail","Feed it","Block its path"]}] },
+      { id: 10, title: "10. Underwater Word Explorer", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"What does echolocation use?","ans":"Sound and returning echoes","opts":["Sound and returning echoes","Sunlight and shadows","Smell only","Electric wires"]},{"prompt":"What is an ocean habitat?","ans":"A place in the ocean where organisms live","opts":["A place in the ocean where organisms live","A type of boat","A weather forecast","A food label"]},{"prompt":"What does migration mean?","ans":"Movement from one region to another","opts":["Movement from one region to another","Changing body colour","Making salt","Sleeping"]},{"prompt":"What does biodiversity describe?","ans":"The variety of living things","opts":["The variety of living things","Only one species","Ocean depth","Water temperature only"]},{"prompt":"What is conservation?","ans":"Protecting nature and resources","opts":["Protecting nature and resources","Catching every animal","Removing all plants","Adding rubbish"]}] },
+      { id: 11, title: "11. Marine Animal Jigsaw", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"Which feature helps an octopus squeeze through narrow spaces?","ans":"A soft body without bones","opts":["A soft body without bones","A rigid skeleton","Feathered wings","Antlers"]},{"prompt":"What helps a dolphin move efficiently?","ans":"Streamlined body and flippers","opts":["Streamlined body and flippers","Hooves","Wheels","Roots"]},{"prompt":"What protects a sea turtle's body?","ans":"A shell","opts":["A shell","Fur","Feathers","A jelly-like bell"]},{"prompt":"Which feature helps a crab grip and defend itself?","ans":"Pincers","opts":["Pincers","Blowhole","Baleen","Flippers"]},{"prompt":"What helps a fish steer and balance?","ans":"Fins","opts":["Fins","Roots","Paws","Antlers"]}] },
+      { id: 12, title: "12. Ocean Quiz Race", instr: "Play five unique questions. Choose an answer, learn from feedback, and continue to the next round.", rounds: [{"prompt":"Which zone is also called the Sunlight Zone?","ans":"Epipelagic zone","opts":["Epipelagic zone","Abyssal zone","Hadal zone","Earth's core"]},{"prompt":"Approximately how much of Earth's surface is covered by ocean?","ans":"About 71%","opts":["About 71%","About 10%","About 25%","About 99%"]},{"prompt":"Which gas is released by photosynthesis in marine plants?","ans":"Oxygen","opts":["Oxygen","Helium","Methane only","Smoke"]},{"prompt":"What mainly causes ocean tides?","ans":"Gravity of the Moon and Sun","opts":["Gravity of the Moon and Sun","Fish movement","Cloud shadows","Ocean plants"]},{"prompt":"Which is the largest ocean on Earth?","ans":"Pacific Ocean","opts":["Pacific Ocean","Indian Ocean","Arctic Ocean","Southern Ocean"]}] }
     ];
 
     /* 11 Required Video Categories + Storyboard Builder */
@@ -2082,55 +2082,63 @@
       selectGame(state.activeGameId);
     }
 
+    let activeGameQuestionIndex = 0;
+    let activeGameRoundComplete = false;
+
     function selectGame(gameId) {
-      state.activeGameId = gameId;
-      saveState();
-      renderGamesGrid();
+      state.activeGameId = gameId; activeGameQuestionIndex = 0; activeGameRoundComplete = false;
+      saveState(); renderGamesGrid();
       const g = GAMES_LIST.find((x) => x.id === gameId) || GAMES_LIST[0];
       const bonusLabel = state.gameDifficulty === "scientist" ? "+25 pts" : "+15 pts";
-      document.getElementById("active-game-badge").textContent = `Game ${g.id} of 12 • ${state.gameDifficulty.toUpperCase()} (${bonusLabel})`;
+      document.getElementById("active-game-badge").textContent = `Game ${g.id} of 12 • 5 Questions • ${state.gameDifficulty.toUpperCase()} (${bonusLabel})`;
       document.getElementById("active-game-title").textContent = g.title;
       document.getElementById("active-game-instr").textContent = `Instructions: ${g.instr}`;
-      document.getElementById("active-game-prompt").textContent = "Tap Start to play this round!";
+      document.getElementById("active-game-prompt").textContent = "Tap Start to begin Question 1 of 5!";
       document.getElementById("active-game-choices").innerHTML = "";
       document.getElementById("active-game-feedback").textContent = "";
     }
 
     function startActiveGame() {
       const g = GAMES_LIST.find((x) => x.id === state.activeGameId) || GAMES_LIST[0];
-      playGameTone(640, 0.1);
-      document.getElementById("active-game-prompt").textContent = g.prompt;
+      const q = g.rounds[activeGameQuestionIndex]; activeGameRoundComplete = false; playGameTone(640, 0.1);
+      document.getElementById("active-game-badge").textContent = `Game ${g.id}/12 • Question ${activeGameQuestionIndex + 1}/5 • ${state.gameDifficulty.toUpperCase()}`;
+      document.getElementById("active-game-prompt").textContent = q.prompt;
       document.getElementById("active-game-feedback").textContent = "Choose the best answer below!";
-      const shuffled = [...g.opts].sort(() => Math.random() - 0.5);
+      const shuffled = [...q.opts].sort(() => Math.random() - 0.5);
       document.getElementById("active-game-choices").innerHTML = shuffled.map((op) => {
-        const escaped = op.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
-        return `<button class="choice-tile" onclick="submitGameAnswer(this, '${escaped}')">${op}</button>`;
+        const safe = op.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/\"/g, "&quot;");
+        return `<button class="choice-tile" onclick="submitGameAnswer(this, '${safe}')">${safe}</button>`;
       }).join("");
     }
 
-    function restartActiveGame() {
-      startActiveGame();
-    }
+    function restartActiveGame() { activeGameQuestionIndex = 0; startActiveGame(); }
 
     function submitGameAnswer(btnEl, chosen) {
       const g = GAMES_LIST.find((x) => x.id === state.activeGameId) || GAMES_LIST[0];
-      document.querySelectorAll("#active-game-choices .choice-tile").forEach((b) => { b.disabled = true; });
+      const q = g.rounds[activeGameQuestionIndex]; if (activeGameRoundComplete) return;
       const fb = document.getElementById("active-game-feedback");
-      const pts = state.gameDifficulty === "scientist" ? 25 : 15;
-      if (chosen === g.ans) {
-        btnEl.classList.add("right");
-        state.gameScore += pts;
-        state.gameStars += 1;
-        playGameTone(820, 0.16);
-        saveState();
-        fb.textContent = `🎉 Correct! +${pts} Score & +1 Star!`;
+      if (chosen === q.ans) {
+        activeGameRoundComplete = true; document.querySelectorAll("#active-game-choices .choice-tile").forEach((b) => { b.disabled = true; });
+        btnEl.classList.add("right"); const pts = state.gameDifficulty === "scientist" ? 25 : 15;
+        state.gameScore += pts; state.gameStars += 1; playGameTone(820, 0.16); saveState();
+        document.getElementById("game-rewards-pill").textContent = `Score: ${state.gameScore} • Stars: ${state.gameStars}`;
+        fb.innerHTML = `🎉 Correct! +${pts} points and +1 star. <button class="btn-aqua" onclick="nextOceanGameQuestion()">Next Question →</button>`;
       } else {
-        btnEl.classList.add("wrong");
-        playGameTone(240, 0.14);
-        fb.textContent = `🌸 Good try! Correct answer: ${g.ans}. Tap Restart to try again.`;
+        btnEl.classList.add("wrong"); btnEl.disabled = true; playGameTone(240, 0.14);
+        fb.textContent = `🌸 Good try! Correct answer: ${q.ans}. Try another choice.`;
       }
     }
 
+    function nextOceanGameQuestion() {
+      const g = GAMES_LIST.find((x) => x.id === state.activeGameId) || GAMES_LIST[0];
+      if (activeGameQuestionIndex < g.rounds.length - 1) { activeGameQuestionIndex += 1; startActiveGame(); }
+      else {
+        document.getElementById("active-game-prompt").textContent = `🏆 ${g.title} completed!`;
+        document.getElementById("active-game-choices").innerHTML = "";
+        document.getElementById("active-game-feedback").textContent = "You completed all five unique questions! Choose another game or restart to practise again.";
+        document.getElementById("active-game-badge").textContent = `Game ${g.id}/12 • Completed`;
+      }
+    }
     /* AI Video Studio & Admin Video Manager */
     function initAdminTopicSelect() {
       const sel = document.getElementById("av-topic");
