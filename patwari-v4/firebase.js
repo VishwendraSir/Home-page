@@ -1,122 +1,161 @@
 import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { initializeFirestore, getFirestore, persistentLocalCache, persistentSingleTabManager, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 const KEY = "RPAA_V4_FIREBASE_CONFIG";
-const STATE_DOC = "app_state/main";
-let app, auth, db, currentUser = null, saveTimer = null, restoring = false;
+const PENDING_KEY = "RPAA_V4_PENDING_CLOUD_STATE";
+const STATE_KEY = "RPAA_SEWAR_COMPLETE_HTML5_V1";
+let app, auth, db, currentUser = null, saveTimer = null, restoring = false, initPromise = null, lastSavedJSON = "";
 
 const valid = c => c && ["apiKey","authDomain","projectId","appId"].every(k =>
   typeof c[k] === "string" && c[k].trim().length > 5 && !/YOUR_|FAKE|EXAMPLE/i.test(c[k])
 );
 function getSavedConfig(){ try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch { return null; } }
-
-async function restoreCloudForUser(user) {
-  if (!user || !db) return;
-  restoring = true;
-  let shouldUpload = false;
-  try {
-    const ref = doc(db, "users", user.uid, "app_state", "main");
-    const snap = await getDoc(ref);
-    if (snap.exists()) {
-      const data = snap.data();
-      if (data && data.state && typeof data.state === "object") {
-        window.PatwariApplyCloudState?.(data.state);
+function emit(name, detail){ window.dispatchEvent(new CustomEvent(name,{detail})); }
+function clone(v){ return JSON.parse(JSON.stringify(v)); }
+function localState(){ return window.PatwariGetLocalState?.() || JSON.parse(localStorage.getItem(STATE_KEY)||"{}"); }
+function mergeById(local, cloud) {
+  const out = {...(cloud||{}), ...(local||{})};
+  for (const k of ["land","mutations","crops","visits","tasks"]) {
+    const map = new Map();
+    (cloud?.[k]||[]).forEach(x=>map.set(String(x.id),x));
+    (local?.[k]||[]).forEach(x=>{
+      const id=String(x.id);
+      if(!map.has(id)) map.set(id,x);
+      else {
+        const a=map.get(id), ta=Number(a.updatedAt||a.clientUpdatedAt||0), tb=Number(x.updatedAt||x.clientUpdatedAt||0);
+        if(tb>ta) map.set(id,x);
       }
-    } else {
-      // First cloud activation: preserve this browser's local records for first upload.
-      shouldUpload = true;
-    }
-  } catch (e) {
-    window.dispatchEvent(new CustomEvent("patwari-cloud-error", { detail: e.message || String(e) }));
-  } finally {
-    restoring = false;
-    const local = window.PatwariGetLocalState?.();
-    if (local && (shouldUpload || user)) queueSave(local);
+    });
+    out[k]=Array.from(map.values());
   }
+  out.audit=[...(cloud?.audit||[]),...(local?.audit||[])].filter((x,i,a)=>a.indexOf(x)===i).slice(-200);
+  out.lang=local?.lang||cloud?.lang||"hi";
+  out.dark=!!(local?.dark??cloud?.dark);
+  return out;
 }
 
 async function init(c) {
   if (!valid(c)) return {ok:false, reason:"Firebase config incomplete."};
+  if (initPromise) return initPromise;
+  initPromise = (async()=>{
+    try {
+      const existing=getApps().find(a=>a.options.projectId===c.projectId);
+      app=existing || initializeApp(c, "patwari-ai-"+c.projectId);
+      auth=getAuth(app);
+      try { await setPersistence(auth,browserLocalPersistence); } catch(e) { console.warn("Auth persistence fallback:",e); }
+      try {
+        db=initializeFirestore(app,{localCache:persistentLocalCache({tabManager:persistentSingleTabManager()})});
+      } catch(e) {
+        // Another module/tab may have initialized Firestore already, or browser storage is unavailable.
+        db=getFirestore(app);
+        console.warn("Firestore persistent cache fallback:",e);
+      }
+      try { await getRedirectResult(auth); } catch(e) { emit("patwari-login-error",e.message||String(e)); }
+      onAuthStateChanged(auth, async user=>{
+        currentUser=user;
+        emit("patwari-auth",{user:user?{uid:user.uid,email:user.email||""}:null});
+        if(user) await restoreCloudForUser(user);
+        else emit("patwari-cloud-status","Local Saved • Login to sync");
+      });
+      window.addEventListener("online",()=>flushPending().catch(e=>emit("patwari-cloud-status","Sync Failed: "+e.message)));
+      return {ok:true};
+    } catch(e) { initPromise=null; return {ok:false,reason:e.message||String(e)}; }
+  })();
+  return initPromise;
+}
+
+async function restoreCloudForUser(user) {
+  if(!user||!db||restoring) return;
+  restoring=true;
+  emit("patwari-cloud-status","Restoring Cloud Data…");
   try {
-    app = getApps().length ? getApps().find(a => a.options.projectId === c.projectId) || getApps()[0] : initializeApp(c);
-    if (app.options.projectId !== c.projectId) app = initializeApp(c, "patwari-ai-" + c.projectId);
-    auth = getAuth(app);
-    db = getFirestore(app);
-    try { await getRedirectResult(auth); } catch (e) {
-      window.dispatchEvent(new CustomEvent("patwari-login-error", {detail:e.message}));
+    const ref=doc(db,"users",user.uid,"app_state","main");
+    const snap=await getDoc(ref);
+    const local=clone(localState()||{});
+    if(snap.exists()) {
+      const remote=snap.data();
+      const merged=mergeById(local,remote.state||{});
+      window.PatwariApplyCloudState?.(merged);
+      // Persist merged state so local-only records migrate without deleting cloud records.
+      await writeSnapshot(merged, user, true);
+      emit("patwari-cloud-status","Cloud Restored • Local Backup");
+    } else {
+      // First sign-in: migrate the existing local data without clearing it.
+      await writeSnapshot(local,user,true);
+      emit("patwari-cloud-status","Local Data Migrated • Cloud Saved");
     }
-    onAuthStateChanged(auth, async user => {
-      currentUser = user;
-      window.dispatchEvent(new CustomEvent("patwari-auth", {detail:{user:user?{uid:user.uid,email:user.email||""}:null}}));
-      if (user) await restoreCloudForUser(user);
-    });
-    return {ok:true};
-  } catch(e) { return {ok:false, reason:e.message}; }
+    await flushPending();
+  } catch(e) {
+    emit("patwari-cloud-error",e.message||String(e));
+    emit("patwari-cloud-status","Sync Failed • Local data retained");
+  } finally { restoring=false; }
+}
+
+async function writeSnapshot(state,user=currentUser,force=false) {
+  if(!user||!db) throw new Error("Google Login required");
+  const ref=doc(db,"users",user.uid,"app_state","main");
+  const snap=await getDoc(ref);
+  let finalState=state;
+  if(snap.exists()&&!force) finalState=mergeById(state,snap.data().state||{});
+  const now=Date.now();
+  const payload={ownerUid:user.uid,state:finalState,clientUpdatedAt:now,serverUpdatedAt:serverTimestamp(),schemaVersion:2};
+  await setDoc(ref,payload);
+  lastSavedJSON=JSON.stringify(finalState);
+  return {ok:true};
 }
 
 async function saveStateNow(state) {
-  if (!currentUser || !db || !state || restoring) return {ok:false,reason:"Login required"};
-  const ref = doc(db, "users", currentUser.uid, "app_state", "main");
-  await setDoc(ref, {
-    ownerUid: currentUser.uid,
-    state,
-    clientUpdatedAt: Date.now(),
-    serverUpdatedAt: serverTimestamp(),
-    schemaVersion: 1
-  }, {merge:true});
-  window.dispatchEvent(new CustomEvent("patwari-cloud-status",{detail:"Cloud Saved"}));
+  if(!currentUser||!db||!state||restoring) return {ok:false,reason:"Login required or restore in progress"};
+  emit("patwari-cloud-status","Syncing…");
+  await writeSnapshot(clone(state));
+  try{localStorage.removeItem(PENDING_KEY);}catch{}
+  emit("patwari-cloud-status","Cloud Saved");
   return {ok:true};
 }
 function queueSave(state) {
-  if (!currentUser || !db || restoring) return;
-  window.dispatchEvent(new CustomEvent("patwari-cloud-status",{detail:"Syncing"}));
+  try { localStorage.setItem(STATE_KEY,JSON.stringify(state)); } catch(e) { console.warn("Local backup failed",e); }
+  if(!currentUser||!db||restoring) { emit("patwari-cloud-status",navigator.onLine?"Local Saved • Login to sync":"Local Saved • Offline"); return; }
+  const snapshot=clone(state);
+  emit("patwari-cloud-status","Syncing…");
   clearTimeout(saveTimer);
-  const snapshot = JSON.parse(JSON.stringify(state));
-  saveTimer = setTimeout(async () => {
+  saveTimer=setTimeout(async()=>{
     try { await saveStateNow(snapshot); }
     catch(e) {
-      try { localStorage.setItem("RPAA_V4_PENDING_CLOUD_STATE", JSON.stringify(snapshot)); } catch {}
-      window.dispatchEvent(new CustomEvent("patwari-cloud-status",{detail:"Sync Failed: "+(e.message||"Unknown error")}));
+      try { localStorage.setItem(PENDING_KEY,JSON.stringify(snapshot)); } catch{}
+      emit("patwari-cloud-status","Sync Failed • Pending save retained");
+      emit("patwari-cloud-error",e.message||String(e));
     }
-  }, 700);
+  },500);
 }
 async function flushPending() {
-  if (!currentUser || !navigator.onLine) return;
-  let pending;
-  try { pending = JSON.parse(localStorage.getItem("RPAA_V4_PENDING_CLOUD_STATE") || "null"); } catch {}
-  if (pending) {
-    await saveStateNow(pending);
-    localStorage.removeItem("RPAA_V4_PENDING_CLOUD_STATE");
-  }
+  if(!currentUser||!db||!navigator.onLine) return;
+  let pending=null;
+  try{pending=JSON.parse(localStorage.getItem(PENDING_KEY)||"null");}catch{}
+  if(pending){await saveStateNow(pending);}
 }
 async function saveAndConnectConfig(c) {
-  if (!valid(c)) return {ok:false,reason:"apiKey, authDomain, projectId and appId are required."};
+  if(!valid(c)) return {ok:false,reason:"apiKey, authDomain, projectId and appId are required."};
   localStorage.setItem(KEY,JSON.stringify(c));
   return init(c);
 }
 async function loginGoogle() {
-  if (!auth) throw Error("Firebase not configured. पहले Save & Connect Firebase करें.");
-  const p = new GoogleAuthProvider();
+  if(!auth) throw Error("Firebase not configured. पहले Save & Connect Firebase करें.");
+  const p=new GoogleAuthProvider();
   p.setCustomParameters({prompt:"select_account"});
   await signInWithRedirect(auth,p);
 }
-async function logoutUser(){ if(auth) await signOut(auth); }
-async function getIdToken(){ return currentUser ? currentUser.getIdToken() : ""; }
+async function logoutUser(){if(auth) await signOut(auth);}
+async function getIdToken(){return currentUser?currentUser.getIdToken(): "";}
+async function exportCloudBackup(){
+  if(!currentUser||!db) throw Error("पहले Google Login करें");
+  const snap=await getDoc(doc(db,"users",currentUser.uid,"app_state","main"));
+  return snap.exists()?snap.data().state:null;
+}
 
-window.PatwariFirebase = {
-  isConfigured:()=>!!db,
-  getCurrentUser:()=>currentUser,
-  getSavedConfig,
-  saveAndConnectConfig,
-  loginGoogle,
-  logoutUser,
-  getIdToken,
-  queueSave,
-  saveStateNow,
-  restoreCloud:()=>restoreCloudForUser(currentUser),
-  flushPending
+window.PatwariFirebase={
+  isConfigured:()=>!!db,getCurrentUser:()=>currentUser,getSavedConfig,saveAndConnectConfig,loginGoogle,logoutUser,getIdToken,
+  queueSave,saveStateNow,restoreCloud:()=>restoreCloudForUser(currentUser),flushPending,exportCloudBackup
 };
-window.addEventListener("online",()=>flushPending().catch(e=>console.warn(e)));
 const saved=getSavedConfig();
 if(saved) init(saved);
