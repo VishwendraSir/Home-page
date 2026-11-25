@@ -2597,5 +2597,112 @@
     })();
   </script>
 <script src="../../ai-tutor-widget.js?v=2" data-profile="wonderworld" defer></script>
+
+<script>
+/* Wonder World V5.2 repair pack: Voice Studio + Ocean Buddy */
+(() => {
+  "use strict";
+  const voicePrefs = { rate: 0.95, pitch: 1, volume: 1 };
+  let lastBuddyReply = "";
+  const byId = (id) => document.getElementById(id);
+  const cleanText = (value) => String(value || "").replace(/\s+/g, " ").trim();
+
+  window.updateVoiceParams = function updateVoiceParams() {
+    const rate = byId("voice-rate"), pitch = byId("voice-pitch"), volume = byId("voice-volume");
+    if (rate) voicePrefs.rate = Number(rate.value) || 0.95;
+    if (pitch) voicePrefs.pitch = Number(pitch.value) || 1;
+    if (volume) voicePrefs.volume = Number(volume.value) || 1;
+    if (byId("lbl-rate")) byId("lbl-rate").textContent = voicePrefs.rate.toFixed(2) + "x";
+    if (byId("lbl-pitch")) byId("lbl-pitch").textContent = voicePrefs.pitch.toFixed(2);
+    if (byId("lbl-volume")) byId("lbl-volume").textContent = Math.round(voicePrefs.volume * 100) + "%";
+  };
+
+  function speakWithStudio(text) {
+    const value = cleanText(text).slice(0, 1400);
+    if (!value) return;
+    if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+      const status = byId("pwa-status-pill");
+      if (status) status.textContent = "Voice playback is not supported by this browser.";
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const modes = (typeof state !== "undefined" && state.langMode) || "both";
+    const chunks = modes === "both" ? [value] : [value];
+    chunks.forEach((chunk) => {
+      const utterance = new SpeechSynthesisUtterance(chunk);
+      utterance.lang = modes === "hi" ? "hi-IN" : "en-IN";
+      utterance.rate = voicePrefs.rate;
+      utterance.pitch = voicePrefs.pitch;
+      utterance.volume = voicePrefs.volume;
+      window.speechSynthesis.speak(utterance);
+    });
+  }
+
+  window.SharedVoiceController = {
+    readCurrentLesson() {
+      const active = document.querySelector(".section-view.active");
+      speakWithStudio(active ? active.innerText : "Welcome to Shree Ocean Discovery. Explore marine life and protect our oceans.");
+    },
+    pause() { if ("speechSynthesis" in window) window.speechSynthesis.pause(); },
+    resume() { if ("speechSynthesis" in window) window.speechSynthesis.resume(); },
+    stop() { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); },
+    readAnimalFacts() {
+      const panel = byId("creature-detail-box") || byId("creature-detail");
+      speakWithStudio(panel ? panel.innerText : "Choose an ocean animal to hear its facts.");
+    },
+    readQuizQuestion() {
+      const active = document.querySelector("#tab-animals, #tab-lab, #tab-games");
+      speakWithStudio(active ? active.innerText : "Open a quiz or learning game first.");
+    }
+  };
+
+  function buddyAnswer(question) {
+    const q = question.toLowerCase();
+    if (/dolphin|डॉल्फिन/.test(q)) return "Dolphins are intelligent marine mammals. They breathe air through a blowhole, live in social groups called pods, and use clicks and whistles to communicate and echolocate.";
+    if (/whale|व्हेल/.test(q)) return "Whales are mammals, not fish. They breathe air at the surface, feed their young with milk, and many species use songs and calls to communicate across the ocean.";
+    if (/shark|शार्क/.test(q)) return "Sharks are fish with skeletons made mostly of cartilage. They have existed for hundreds of millions of years and play an important role in keeping ocean food webs balanced.";
+    if (/coral|reef|प्रवाल/.test(q)) return "Coral reefs are living ecosystems built by tiny animals called coral polyps. They provide food and shelter for many species, but warming seas and pollution put them at risk.";
+    if (/octopus|ऑक्टोपस/.test(q)) return "An octopus is a clever mollusc with eight arms, a soft body, and excellent camouflage. It can squeeze through very small openings and solve simple puzzles.";
+    if (/turtle|कछुआ/.test(q)) return "Sea turtles are reptiles that breathe air. They use their flippers to swim and return to beaches to lay eggs. Keep beaches clean and never disturb nesting turtles.";
+    if (/protect|save|pollution|plastic|बचाव|प्रदूषण/.test(q)) return "You can protect the ocean by refusing single-use plastic, using a reusable bottle, never littering, saving water, and joining safe local clean-ups with an adult.";
+    if (/quiz|question|प्रश्न/.test(q)) return "Ocean quiz: Which animal is a mammal — a dolphin, a tuna, or an octopus? Think carefully, then explore the Animal World to check your answer.";
+    if (/story|कहानी/.test(q)) return "Once a little dolphin named Tara found a plastic ring floating near her reef. With help from a sea turtle, she guided it to the surface where a careful ocean ranger collected it. The reef was safer, and Tara learned that small actions can protect a big ocean.";
+    return "Great question, young explorer! The ocean is home to mammals, fish, reptiles, molluscs, and tiny plankton. Explore the Animal World and Learning Lab for more facts. Try asking me about dolphins, whales, sharks, coral reefs, sea turtles, or ocean protection.";
+  }
+
+  function addBuddyMessage(text, who) {
+    const thread = byId("buddy-thread");
+    if (!thread) return;
+    const bubble = document.createElement("div");
+    bubble.className = "msg-bubble " + (who === "user" ? "msg-user" : "msg-buddy");
+    bubble.textContent = text;
+    thread.appendChild(bubble);
+    thread.scrollTop = thread.scrollHeight;
+  }
+
+  window.sendBuddyQuestion = function sendBuddyQuestion() {
+    const input = byId("buddy-input");
+    const question = cleanText(input && input.value);
+    if (!question) { if (input) input.focus(); return; }
+    addBuddyMessage(question, "user");
+    lastBuddyReply = buddyAnswer(question);
+    addBuddyMessage("🐬 " + lastBuddyReply, "buddy");
+    if (input) { input.value = ""; input.focus(); }
+    if (typeof saveState === "function") saveState();
+  };
+  window.askBuddyPreset = function askBuddyPreset(question) {
+    const input = byId("buddy-input");
+    if (input) input.value = question;
+    window.sendBuddyQuestion();
+  };
+  window.readLastBuddyReply = function readLastBuddyReply() {
+    speakWithStudio(lastBuddyReply || "Ask Ocean Buddy a question first.");
+  };
+
+  window.addEventListener("DOMContentLoaded", window.updateVoiceParams);
+  window.updateVoiceParams();
+})();
+</script>
+
 </body>
 </html>
