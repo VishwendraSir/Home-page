@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Owner page catalogue and add the shared Firebase display-lock loader to HTML pages."""
+"""Build page catalogue and wire the shared Firebase display-lock loader into HTML pages."""
 import json
 import os
 import re
@@ -15,7 +15,7 @@ def slug(value):
 def title_of(source, fallback):
     match = re.search(r"<title[^>]*>(.*?)</title>", source, re.I | re.S)
     if match:
-        clean = re.sub(r"\\s+", " ", re.sub(r"<[^>]+>", "", match.group(1))).strip()
+        clean = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", match.group(1))).strip()
         return clean[:140] or fallback
     return fallback
 
@@ -40,11 +40,11 @@ for path in sorted(ROOT.rglob("*.html")):
 
     if "site-lock.js" not in source:
         loader = (
-            '\\n<!-- SCLH shared Firebase display lock (automatically managed) -->\\n'
-            '<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>\\n'
-            '<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>\\n'
-            f'<script src="{prefix}firebase-config.js"></script>\\n'
-            f'<script src="{prefix}site-lock.js?v=2"></script>\\n'
+            '\n<!-- SCLH shared Firebase display lock (automatically managed) -->\n'
+            '<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>\n'
+            '<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>\n'
+            f'<script src="{prefix}firebase-config.js"></script>\n'
+            f'<script src="{prefix}site-lock.js?v=2"></script>\n'
         )
         if re.search(r"</head>", source, re.I):
             source = re.sub(r"</head>", loader + "</head>", source, count=1, flags=re.I)
@@ -53,5 +53,5 @@ for path in sorted(ROOT.rglob("*.html")):
         path.write_text(source, encoding="utf-8")
         updated += 1
 
-(ROOT / "site-pages.json").write_text(json.dumps(items, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+(ROOT / "site-pages.json").write_text(json.dumps(items, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print(f"Indexed {len(items)} HTML pages; added shared lock loader to {updated} new pages")
