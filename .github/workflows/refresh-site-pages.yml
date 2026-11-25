@@ -16,14 +16,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-      - name: Build page catalogue
+      - name: Build catalogue and wire page lock
         run: python scripts/build-site-pages.py
-      - name: Commit catalogue when changed
+      - name: Commit generated catalogue and page integrations
         run: |
-          if ! git diff --quiet -- site-pages.json; then
+          if ! git diff --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add site-pages.json
-            git commit -m "chore: refresh auto-discovered page catalogue"
+            git add -A
+            git commit -m "chore: refresh page catalogue and apply shared lock loader"
             git push
           fi
