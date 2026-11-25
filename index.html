@@ -45,4 +45,8 @@ footer{background:#111f59;color:#dbe4ff;padding:26px 0;font-size:12px}footer .wr
 (()=>{const search=document.getElementById('search'),clear=document.getElementById('clear'),filters=[...document.querySelectorAll('.filter')],projects=[...document.querySelectorAll('.project')],sections=[...document.querySelectorAll('.section')],result=document.getElementById('result'),empty=document.getElementById('empty');let active='All';
 function update(){const q=search.value.trim().toLowerCase();let shown=0;sections.forEach(section=>{let count=0;section.querySelectorAll('.project').forEach(card=>{const ok=(active==='All'||section.dataset.section===active)&&(!q||card.dataset.name.includes(q)||card.textContent.toLowerCase().includes(q));card.style.display=ok?'flex':'none';if(ok){shown++;count++}});section.style.display=count?'block':'none'});result.textContent=shown+' projects shown';empty.style.display=shown?'none':'block'}
 search.addEventListener('input',update);clear.addEventListener('click',()=>{search.value='';active='All';filters.forEach(b=>b.classList.toggle('active',b.dataset.filter==='All'));update();search.focus()});filters.forEach(b=>b.addEventListener('click',()=>{active=b.dataset.filter;filters.forEach(x=>x.classList.toggle('active',x===b));update()}));update()})();
-</script></body></html>
+</script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="./firebase-config.js"></script>
+<script src="./site-lock.js?v=1" defer></script>
+</body></html>
