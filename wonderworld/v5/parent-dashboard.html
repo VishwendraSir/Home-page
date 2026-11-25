@@ -43,7 +43,7 @@ const safe=(v)=>String(v??"").replace(/[<>]/g,"");
 function snapshot(){
  const c=read(KEYS.candy)||{},o=read(KEYS.ocean)||{},d=read(KEYS.dino)||{};
  const worlds=[
-  {id:"candy",icon:"🍭",name:"Manushree Candy Garden",data:c,exists:!!read(KEYS.candy),xp:num(c.xp),stars:num(c.stars),coins:num(c.coins),done:arr(c.completedMissions).length+arr(c.completedModules).length+arr(c.completedWorlds).length,total:10,detail:"Coins "+num(c.coins)+" · Gems "+num(c.gems)+" · Streak "+num(c.streakDays||c.streak)},
+  {id:"candy",icon:"🍭",name:"Manushree Candy Garden",data:c,exists:!!read(KEYS.candy),xp:num(c.xp),stars:num(c.stars),coins:num(c.coins),done:arr(c.worldsVisited).length+arr(c.missions).filter(m=>m&&m.claimed).length,total:13,detail:"Answered "+num(c.totalAnswered)+" · Correct "+num(c.totalCorrect)+" · Coins "+num(c.coins)+" · Streak "+num(c.streakDays)},
   {id:"ocean",icon:"🌊",name:"Shree Ocean Discovery",data:o,exists:!!read(KEYS.ocean),xp:num(o.quizPoints)+num(o.gameScore),stars:num(o.gameStars),done:arr(o.completedZones).length+arr(o.completedLabIds).length,total:22,detail:"Zones "+arr(o.completedZones).length+" · Labs "+arr(o.completedLabIds).length+" · Game score "+num(o.gameScore)},
   {id:"dino",icon:"🦖",name:"Ram Dino Space Quest",data:d,exists:!!read(KEYS.dino),xp:num(d.dinoQuizXp)+num(d.quizXp)+num(d.xp),stars:num(d.stars)+num(d.gameStars),done:arr(d.completedZones).length+arr(d.completedSpaceDests).length+arr(d.completedSolarIds).length+arr(d.completedMissions).length,total:38,detail:"Dino zones "+arr(d.completedZones).length+" · Space "+arr(d.completedSpaceDests).length+" · Solar topics "+arr(d.completedSolarIds).length}
  ];
