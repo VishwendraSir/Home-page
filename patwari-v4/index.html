@@ -1149,7 +1149,7 @@ window.v4AskAI=async()=>{const out=document.getElementById("v4AiOutput");try{con
 window.addEventListener("patwari-login-error",e=>{status().textContent="Google Login error: "+e.detail;});
 window.addEventListener("patwari-auth",e=>{if(e.detail?.user)status().textContent="Signed in: "+e.detail.user.email;});
 document.querySelectorAll("#v4CloudPanel button").forEach((btn,i)=>{btn.type="button";btn.addEventListener("click",()=>{if(i===0)window.v4Connect();else if(i===1)window.v4GoogleLogin();else if(i===2)window.v4Logout();else if(i===3)window.v4AskAI();});});
-if("serviceWorker" in navigator)navigator.serviceWorker.register("./service-worker.js").catch(()=>{});
+if("serviceWorker" in navigator)navigator.serviceWorker.register("./service-worker.js",{updateViaCache:"none"}).then(r=>r.update()).catch(e=>{status().textContent="Service worker: "+e.message;});
 </script>
 
 </body>
