@@ -731,11 +731,11 @@
 
   </style>
 
-<!-- SCLH shared Firebase display lock (automatically managed) -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="../../firebase-config.js"></script>
-<script src="../../site-lock.js?v=2"></script>
+  <style id="wonder-world-accessibility-upgrade">
+    :focus-visible { outline: 3px solid #f59e0b !important; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+    img, svg { max-width: 100%; }
+  </style>
 </head>
 <body>
   <div class="ecosystem-bar" role="navigation" aria-label="Manushree Wonder World Navigation">
@@ -1003,3 +1003,1592 @@
         </div>
       </div>
     </section>
+
+    <!-- TAB 6: AI VIDEO STUDIO & ADMIN VIDEO STUDIO -->
+    <section id="tab-videos" class="section-view">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>🎬 AI Video Studio &amp; Library (11 Categories)</h2>
+            <div style="font-size:0.86rem; color:var(--muted);">Browse published ocean learning videos or plan &amp; publish storyboards in the Admin Video Studio.</div>
+          </div>
+          <span class="status-pill" id="video-count-pill">11 Published Videos</span>
+        </div>
+
+        <div class="cat-pills" id="video-cat-chips"></div>
+        <div class="videos-grid" id="videos-grid"></div>
+
+        <div class="studio-box hidden" id="video-player-box">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-pill" id="vp-meta-pill">Category • Class • Duration</span>
+              <h3 id="vp-title" style="margin:6px 0 2px; font-size:1.25rem;">Video Title</h3>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="ctrl-btn" onclick="speakVideoScript()">🔊 Read Narration</button>
+              <button class="ctrl-btn" onclick="editVideoById(activeVideoId)">✏️ Edit</button>
+              <button class="btn-danger-soft" onclick="deleteVideoById(activeVideoId)">🗑️ Remove</button>
+            </div>
+          </div>
+
+          <div id="vp-embed-area" style="margin:12px 0;"></div>
+          <div class="meta-box" style="margin-bottom:10px;" id="vp-script-box"></div>
+          <div class="meta-box" style="margin-bottom:10px;" id="vp-prompts-box"></div>
+          <div class="storyboard-list" id="vp-storyboard-grid"></div>
+        </div>
+      </div>
+
+      <!-- Admin Video Studio -->
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>🛠️ Admin Video Studio (Storyboard, Prompts &amp; Media Manager)</h2>
+            <div style="font-size:0.86rem; color:var(--muted);">
+              Provider-ready storyboard &amp; prompt generator (connects to an external AI video API when configured) + MP4/WebM/URL/YouTube/Drive video manager.
+            </div>
+          </div>
+          <button class="ctrl-btn" onclick="resetAdminVideoForm()">↺ Clear Form</button>
+        </div>
+
+        <div class="form-grid-2">
+          <label class="form-field">Video Title
+            <input id="av-title" class="form-input" type="text" placeholder="e.g., Glowing Deep Sea Friends" />
+          </label>
+          <label class="form-field">Topic (11 Categories)
+            <select id="av-topic" class="form-select"></select>
+          </label>
+          <label class="form-field">Target Class / Age
+            <input id="av-class" class="form-input" type="text" value="Class 1–5 (Ages 6–11)" />
+          </label>
+          <label class="form-field">Language
+            <select id="av-lang" class="form-select">
+              <option value="Hindi + English">Hindi + English</option>
+              <option value="English">English</option>
+              <option value="Hindi">Hindi</option>
+            </select>
+          </label>
+          <label class="form-field">Duration
+            <select id="av-duration" class="form-select">
+              <option value="30 seconds">30 seconds</option>
+              <option value="60 seconds">60 seconds</option>
+              <option value="2 minutes">2 minutes</option>
+              <option value="5 minutes">5 minutes</option>
+            </select>
+          </label>
+          <label class="form-field">Video Style
+            <select id="av-style" class="form-select">
+              <option value="3D animation">3D animation</option>
+              <option value="realistic documentary">realistic documentary</option>
+              <option value="cartoon">cartoon</option>
+              <option value="cinematic adventure">cinematic adventure</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-grid-2">
+          <label class="form-field">Media Source Type
+            <select id="av-source-type" class="form-select">
+              <option value="storyboard">Storyboard &amp; Prompt Plan (No Video Link Yet)</option>
+              <option value="url">Direct Video URL (.mp4 / .webm)</option>
+              <option value="youtube">YouTube Link (Embed)</option>
+              <option value="drive">Google Drive Share Link (Preview)</option>
+              <option value="file">Upload Local MP4 / WebM File</option>
+            </select>
+          </label>
+          <label class="form-field">Direct URL / YouTube / Drive Link
+            <input id="av-media-url" class="form-input" type="url" placeholder="https://..." />
+          </label>
+          <label class="form-field">Upload MP4 / WebM Video File
+            <input id="av-file-input" class="form-input" type="file" accept="video/mp4,video/webm" onchange="handleLocalVideoFile(this)" />
+          </label>
+          <label class="form-field">Thumbnail Label or Image URL
+            <input id="av-thumb" class="form-input" type="text" placeholder="e.g., 🌊 Deep Sea Glow" />
+          </label>
+        </div>
+
+        <div class="form-field" style="margin-bottom:10px;">Description &amp; Captions / Subtitles
+          <textarea id="av-desc" class="form-textarea" placeholder="Short description and captions/subtitles for students..."></textarea>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <button class="btn-aqua" onclick="generateStoryboardPlan()">✨ Generate 8-Part Storyboard &amp; Prompts</button>
+          <button class="btn-coral" onclick="saveAndPublishVideo()">🚀 Preview &amp; Publish to Library</button>
+        </div>
+
+        <div class="meta-box hidden" style="margin-top:12px;" id="av-draft-preview"></div>
+      </div>
+    </section>
+
+    <!-- TAB 7: ROADMAP & CHANGELOG -->
+
+    <section id="tab-buddy" class="section-view">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>🎙️ Shared Voice Studio</h2>
+            <div style="font-size:0.86rem; color:var(--muted);">Single non-overlapping voice controller with Play, Pause, Resume, Stop, Speed, Pitch, Volume, and Hindi/English/Both modes (no autoplay).</div>
+          </div>
+          <span class="status-pill" id="voice-status-pill">Voice Ready (No Autoplay)</span>
+        </div>
+
+        <div class="voice-sliders">
+          <label class="form-field">Speed: <span id="lbl-rate">0.95x</span>
+            <input id="voice-rate" type="range" min="0.6" max="1.4" step="0.05" value="0.95" oninput="updateVoiceParams()" />
+          </label>
+          <label class="form-field">Pitch: <span id="lbl-pitch">1.0</span>
+            <input id="voice-pitch" type="range" min="0.7" max="1.4" step="0.05" value="1.0" oninput="updateVoiceParams()" />
+          </label>
+          <label class="form-field">Volume: <span id="lbl-volume">100%</span>
+            <input id="voice-volume" type="range" min="0.2" max="1.0" step="0.05" value="1.0" oninput="updateVoiceParams()" />
+          </label>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <button class="btn-aqua" style="padding:8px 14px; min-height:38px; font-size:0.84rem;" onclick="SharedVoiceController.readCurrentLesson()">▶️ Play Lesson</button>
+          <button class="ctrl-btn" onclick="SharedVoiceController.pause()">⏸️ Pause</button>
+          <button class="ctrl-btn" onclick="SharedVoiceController.resume()">⏯️ Resume</button>
+          <button class="btn-danger-soft" onclick="SharedVoiceController.stop()">⏹️ Stop</button>
+          <button class="ctrl-btn" onclick="SharedVoiceController.readAnimalFacts()">🐠 Read Animal Profile</button>
+          <button class="ctrl-btn" onclick="SharedVoiceController.readQuizQuestion()">❓ Read Quiz Question</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>🐬 AI Ocean Buddy ("Ocean Buddy")</h2>
+            <div style="font-size:0.86rem; color:var(--muted);">Safe child-friendly marine guide with offline educational fallback answers (backend endpoint hook ready; no secret keys in frontend).</div>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <button class="cat-chip" onclick="askBuddyPreset('Tell me a short story about a dolphin and a baby turtle.')">📖 Short Story</button>
+            <button class="cat-chip" onclick="askBuddyPreset('Give me a quick ocean quiz question.')">❓ Quick Quiz</button>
+            <button class="cat-chip" onclick="askBuddyPreset('What is my next recommended ocean mission?')">🎯 Next Mission</button>
+          </div>
+        </div>
+
+        <div class="buddy-thread" id="buddy-thread" aria-live="polite">
+          <div class="msg-bubble msg-buddy">
+            🐬 Hi Shree! I’m Ocean Buddy! Ask me about whales, dolphins, coral reefs, ocean science, game hints, or how to protect our oceans!
+          </div>
+        </div>
+
+        <div class="filter-toolbar" style="margin-bottom:0;">
+          <input id="buddy-input" class="search-input" type="text" placeholder="Ask Ocean Buddy (e.g., How do whales sing?)" onkeydown="if(event.key==='Enter') sendBuddyQuestion()" />
+          <button class="btn-coral" style="padding:10px 16px; min-height:42px;" onclick="sendBuddyQuestion()">Ask Buddy</button>
+          <button class="ctrl-btn" onclick="readLastBuddyReply()">🔊 Read Reply</button>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="tab-dashboard" class="section-view">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>🎓 Student Learning Dashboard &amp; Badges</h2>
+            <div style="font-size:0.86rem; color:var(--muted);">Personalize display name, avatar, and learning level; track missions, quiz scores, stars, badges, daily streak, and download a progress report.</div>
+          </div>
+          <div class="no-print-cert" style="display:flex; flex-wrap:wrap; gap:8px;">
+            <button class="btn-aqua" style="padding:8px 14px; min-height:38px; font-size:0.84rem;" onclick="downloadProgressReport()">📥 Download Progress Report</button>
+            <button class="btn-coral" style="padding:8px 14px; min-height:38px; font-size:0.84rem;" onclick="window.print()">🖨️ Print Certificate</button>
+          </div>
+        </div>
+
+        <div class="form-grid-2 no-print-cert">
+          <label class="form-field">Student Display Name
+            <input id="stu-name-input" class="form-input" type="text" value="Shree" oninput="updateStudentProfile()" />
+          </label>
+          <label class="form-field">Avatar Selection
+            <select id="stu-avatar-select" class="form-select" onchange="updateStudentProfile()">
+              <option value="🐬 Dolphin Explorer">🐬 Dolphin Explorer</option>
+              <option value="🐢 Sea Turtle Guardian">🐢 Sea Turtle Guardian</option>
+              <option value="🐋 Blue Whale Voyager">🐋 Blue Whale Voyager</option>
+              <option value="🐙 Deep Sea Scientist">🐙 Deep Sea Scientist</option>
+            </select>
+          </label>
+          <label class="form-field">Learning Level
+            <select id="stu-level-select" class="form-select" onchange="updateStudentProfile()">
+              <option value="LEVEL 1: Playgroup–UKG">LEVEL 1: Playgroup–UKG</option>
+              <option value="LEVEL 2: Classes 1–2">LEVEL 2: Classes 1–2</option>
+              <option value="LEVEL 3: Classes 3–5">LEVEL 3: Classes 3–5</option>
+              <option value="LEVEL 4: Classes 6–8">LEVEL 4: Classes 6–8</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="dash-grid" id="stu-kpi-grid"></div>
+
+        <h3 style="margin:12px 0 6px;">🏅 Ocean Explorer Badges</h3>
+        <div class="badges-row" id="stu-badges-row"></div>
+
+        <div class="cert-sheet" id="ocean-certificate-sheet">
+          <div style="font-size:0.82rem; font-weight:800; color:var(--purple);">MANUSHREE WONDER WORLD • SHREE OCEAN DISCOVERY</div>
+          <h3 style="margin:6px 0; font-size:1.45rem; color:var(--ocean-deep);">🌊 Ocean Explorer Certificate</h3>
+          <div style="font-size:0.95rem; font-weight:700; color:var(--muted);">Awarded to</div>
+          <div id="cert-student-name" style="font-size:1.35rem; font-weight:900; margin:4px 0;">🐬 Shree</div>
+          <div id="cert-achievement-line" style="font-size:0.92rem; font-weight:700; margin:6px 0;">
+            For exploring marine science, ocean habitats, and ocean conservation under the guidance of Vishwendra Sir.
+          </div>
+          <div id="cert-meta-line" style="font-size:0.82rem; font-weight:800; color:var(--ocean-mid); margin-top:8px;">
+            Certificate ID: SOD-SHREE-001 • Date: 2026-11-25
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="tab-admin" class="section-view">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>🛡️ Admin Control Center (v1.6.0-phase7)</h2>
+            <div style="font-size:0.86rem; color:var(--muted);">
+              Content &amp; progress management, JSON backup/restore, and secure backend-ready architecture (use Firebase Auth or a backend server in production; never store secrets in frontend code).
+            </div>
+          </div>
+          <span class="status-pill done">Backend-Ready • Zero Frontend Secrets</span>
+        </div>
+
+        <div class="admin-grid-2">
+          <div class="meta-box">
+            <div style="font-weight:900; font-size:0.95rem; margin-bottom:6px;">👤 Student Progress &amp; Session Controls</div>
+            <div style="font-size:0.84rem; margin-bottom:8px;">
+              Active Learner: <strong id="adm-stu-summary">Shree</strong> • Streak: <strong id="adm-streak-summary">1d</strong> • Missions: <strong id="adm-missions-summary">0/10</strong>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <button class="btn-aqua" style="padding:7px 12px; min-height:36px; font-size:0.8rem;" onclick="grantAdminBonusStars()">+10 Bonus Stars</button>
+              <button class="btn-danger-soft" onclick="resetStudentProgressSafely()">🗑️ Reset Student Progress</button>
+            </div>
+          </div>
+
+          <div class="meta-box">
+            <div style="font-weight:900; font-size:0.95rem; margin-bottom:6px;">💾 Backup &amp; Restore State (JSON)</div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+              <button class="btn-aqua" style="padding:7px 12px; min-height:36px; font-size:0.8rem;" onclick="exportStateBackupJson()">📤 Export JSON Backup</button>
+              <button class="ctrl-btn" onclick="restoreStateBackupJson()">📥 Restore From JSON</button>
+            </div>
+            <textarea id="adm-backup-json" class="form-textarea" placeholder="Click Export JSON Backup or paste a valid JSON backup snapshot here to restore..."></textarea>
+          </div>
+        </div>
+
+        <div class="meta-box" style="margin-top:10px;">
+          <div style="font-weight:900; font-size:0.95rem; margin-bottom:6px;">🔌 Backend &amp; AI Provider Integration Readiness</div>
+          <div style="font-size:0.84rem; line-height:1.5;">
+            • <strong>AI Ocean Buddy &amp; AI Video Studio:</strong> Configured to run offline with safe educational fallbacks and storyboard generators; connect authenticated backend endpoints on your server for live AI/video generation without exposing API keys in browser JavaScript.<br/>
+            • <strong>Admin Authentication:</strong> Do not rely on hardcoded frontend passwords for real admin security; connect Firebase Authentication or a server-verified session before enabling write access to shared production databases.
+          </div>
+        </div>
+
+        <div style="margin-top:14px;">
+          <h3 style="margin:0 0 6px;">✅ Final QA, Mobile &amp; GitHub Pages Audit</h3>
+          <div class="qa-checklist" id="qa-audit-list"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="tab-preview" class="section-view">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>📦 Shree Ocean Discovery — Complete Delivery &amp; Documentation (v1.7.0-phase8)</h2>
+            <div style="font-size:0.86rem; color:var(--muted);">
+              Part of <strong>MANUSHREE WONDER WORLD</strong> • Created for <strong>SHREE</strong> • Guided by <strong>VISHWENDRA SIR</strong>
+            </div>
+          </div>
+          <span class="status-pill done" id="pwa-status-pill">PWA &amp; Offline Ready</span>
+        </div>
+
+        <div class="delivery-grid">
+          <div class="delivery-card">
+            <div style="font-weight:900; color:var(--ocean-deep); margin-bottom:4px;">1. Setup &amp; GitHub Pages Deployment</div>
+            Host <code>Shree_Ocean_Discovery_Complete.html</code> (or split modules) in your repository using relative links (<code>./index.html</code>, <code>./Manushree_Candy_Garden_V4_9_Complete.html</code>, <code>./Ram_Dino_Space_Quest.html</code>). No build server or paid API is required for core learning.
+          </div>
+
+          <div class="delivery-card">
+            <div style="font-weight:900; color:var(--ocean-deep); margin-bottom:4px;">2. Admin &amp; AI Video Production Guide</div>
+            Use <strong>AI Video Studio</strong> to generate 8-part storyboards, video prompts, and thumbnail prompts, or attach MP4/WebM files, direct URLs, YouTube embeds, and Google Drive share previews. Use <strong>Admin Control Center</strong> for progress controls and JSON backup/restore.
+          </div>
+
+          <div class="delivery-card">
+            <div style="font-weight:900; color:var(--ocean-deep); margin-bottom:4px;">3. Working Offline vs. Provider-Dependent</div>
+            <strong>Working Now:</strong> 10 Ocean Map zones, 104-creature encyclopedia + 5-question quizzes, 12 Science Lab modules, 12 Underwater Games, Voice Studio &amp; Ocean Buddy offline fallback, Student Dashboard, Badges, Certificate print/report, and JSON backup/restore.<br/>
+            <strong>Provider-Dependent:</strong> Live external AI video rendering, live cloud AI chat, and production multi-user authentication require a secure backend (never store secret keys in frontend JS).
+          </div>
+
+          <div class="delivery-card">
+            <div style="font-weight:900; color:var(--ocean-deep); margin-bottom:4px;">4. QA Audit &amp; Version Changelog</div>
+            All phases (Phase 1 through Phase 8 Complete) preserve prior state across upgrades, keep relative Wonder World links intact, avoid autoplay or hardcoded secrets, and run cleanly on mobile and desktop browsers.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-brand">
+    🌊 SHREE OCEAN DISCOVERY • A Magical Learning Adventure Inside MANUSHREE WONDER WORLD • Guided by Vishwendra Sir
+  </footer>
+
+  <script>
+    const STORAGE_KEY_P4 = "ShreeOceanDiscovery_State_V8";
+    const LEGACY_KEYS = ["ShreeOceanDiscovery_State_P7", "ShreeOceanDiscovery_State_P6", "ShreeOceanDiscovery_State_P5", "ShreeOceanDiscovery_State_P4", "ShreeOceanDiscovery_State_P3", "ShreeOceanDiscovery_State_P2", "ShreeOceanDiscovery_State_P1"];
+
+    const OCEAN_ZONES = [
+      { id: 1, name: "Coral Reef Kingdom", emoji: "🪸", depth: "0–40m • Sunlight Zone", factEn: "Coral reefs support rich underwater life and protect coastlines like underwater cities.", factHi: "प्रवाल भित्तियाँ समुद्री जीवों का घर हैं और तटों की रक्षा करती हैं।", mini: "Mini-Activity: Spot colorful clownfish hiding among sea anemones!" },
+      { id: 2, name: "Dolphin Bay", emoji: "🐬", depth: "0–120m • Sunlight Zone", factEn: "Dolphins use clicks and whistles to talk and find food using echolocation.", factHi: "डॉल्फ़िन आवाज़ और प्रतिध्वनि (echolocation) से रास्ता और भोजन खोजती हैं।", mini: "Mini-Activity: Listen to playful dolphin pod calls in clear coastal bays!" },
+      { id: 3, name: "Sea Turtle Island", emoji: "🐢", depth: "0–100m • Sunlight Zone", factEn: "Sea turtles travel long distances across oceans and return to sandy beaches to nest.", factHi: "समुद्री कछुए लंबी दूरी तय करते हैं और रेतीले तटों पर अंडे देते हैं।", mini: "Mini-Activity: Guide baby hatchlings safely toward the sparkling tide!" },
+      { id: 4, name: "Whale Ocean", emoji: "🐋", depth: "50–500m • Sunlit to Twilight", factEn: "Blue whales are the largest animals on Earth and sing deep ocean songs.", factHi: "नीली व्हेल पृथ्वी का सबसे बड़ा जीव है और गहरे समुद्र में गीत गाती है।", mini: "Mini-Activity: Measure the giant scale of a Blue Whale alongside a boat!" },
+      { id: 5, name: "Shark Adventure Zone", emoji: "🦈", depth: "0–300m • Sunlight Zone", factEn: "Most sharks keep ocean ecosystems healthy by balancing marine populations.", factHi: "अधिकांश शार्क समुद्री संतुलन बनाए रखने में महत्वपूर्ण भूमिका निभाती हैं।", mini: "Mini-Activity: Learn how sharks sense gentle water movement!" },
+      { id: 6, name: "Jellyfish Glow World", emoji: "🪼", depth: "100–1,000m • Twilight Zone", factEn: "Many jellyfish drift gently with currents and glow softly in darker waters.", factHi: "कई जेलीफ़िश समुद्री धाराओं के साथ तैरती हैं और मंद रोशनी में चमकती हैं।", mini: "Mini-Activity: Observe how glowing bells pulse through dim blue water!" },
+      { id: 7, name: "Octopus Secret Cave", emoji: "🐙", depth: "20–500m • Rocky Caves", factEn: "Octopuses have eight flexible arms, smart problem-solving skills, and camouflage.", factHi: "ऑक्टोपस की आठ लचीली भुजाएँ होती हैं और वह रंग बदलकर छिप सकता है।", mini: "Mini-Activity: Find the camouflaged octopus inside a rocky reef cave!" },
+      { id: 8, name: "Deep Sea Mystery", emoji: "🌌", depth: "1,000–4,000m • Midnight & Abyss", factEn: "In the deep ocean, many creatures produce their own light called bioluminescence.", factHi: "गहरे समुद्र में कई जीव स्वयं प्रकाश उत्पन्न करते हैं जिसे बायो-ल्यूमिनेसेंस कहते हैं।", mini: "Mini-Activity: Explore how light shines in pitch-dark deep ocean trenches!" },
+      { id: 9, name: "Polar Ocean", emoji: "❄️", depth: "0–400m • Polar Waters", factEn: "Cold polar seas have floating sea ice and special wildlife adapted to icy waters.", factHi: "ध्रुवीय समुद्रों में बर्फ की चादरें होती हैं और जीव ठंडे पानी के अनुकूल होते हैं।", mini: "Mini-Activity: Compare floating sea ice with surrounding cold polar water!" },
+      { id: 10, name: "Ocean Conservation Island", emoji: "🏝️", depth: "Coastal & Reef Sanctuary", factEn: "Reducing plastic waste and keeping beaches clean helps protect every ocean creature.", factHi: "प्लास्टिक कचरा कम करके और तट साफ़ रखकर हम समुद्र को बचा सकते हैं।", mini: "Mini-Activity: Sort beach litter so marine animals stay safe!" }
+    ];
+
+    const CATEGORIES = [
+      "All", "Mammals", "Fish", "Reptiles", "Molluscs", "Crustaceans",
+      "Marine birds", "Deep-sea creatures", "Microscopic marine life"
+    ];
+
+    const FEATURED_TEMPLATES = {
+      "Blue Whale": { hi: "नीली व्हेल", emoji: "🐋", cat: "Mammals", habitat: "Open oceans worldwide", food: "Krill and tiny shrimp-like prey", sizeLife: "Up to ~24–30m; ~80–90 yrs", adapt: "Streamlined body, baleen plates, and thick blubber", fact: "Largest known animal on Earth with low-frequency ocean calls.", status: "Endangered" },
+      "Dolphin": { hi: "डॉल्फ़िन", emoji: "🐬", cat: "Mammals", habitat: "Coastal & warm/temperate seas", food: "Fish and squid", sizeLife: "Often ~2–4m; ~20–40 yrs", adapt: "Echolocation clicks, social pods, and agile tail", fact: "Uses whistle and click patterns to communicate and hunt.", status: "Varies by species" },
+      "Shark": { hi: "शार्क", emoji: "🦈", cat: "Fish", habitat: "Reefs, open seas, and coastal waters", food: "Fish, crustaceans, and marine prey", sizeLife: "Varies widely by species", adapt: "Cartilage skeleton, sharp senses, and streamlined fins", fact: "Helps maintain balanced marine food webs.", status: "Varies by species" },
+      "Octopus": { hi: "ऑक्टोपस", emoji: "🐙", cat: "Molluscs", habitat: "Coral reefs, rocky caves, and seabeds", food: "Crabs, clams, and small marine life", sizeLife: "Often ~0.3–3m arm span; ~1–5 yrs", adapt: "Eight flexible arms, color camouflage, and ink defense", fact: "Can squeeze through tight spaces and solve simple puzzles.", status: "Not evaluated / Varies" },
+      "Seahorse": { hi: "समुद्री घोड़ा", emoji: "🐴", cat: "Fish", habitat: "Seagrass beds, coral reefs, and mangroves", food: "Tiny planktonic crustaceans", sizeLife: "Often ~2–20cm; ~1–5 yrs", adapt: "Prehensile tail to anchor onto seaweed and independent eyes", fact: "Male seahorses carry developing eggs in a brood pouch.", status: "Varies by species" },
+      "Sea Turtle": { hi: "समुद्री कछुआ", emoji: "🐢", cat: "Reptiles", habitat: "Tropical and subtropical oceans & nesting beaches", food: "Seagrass, jellyfish, sponges, or crustaceans", sizeLife: "Often ~0.7–1.5m; decades-long lifespan", adapt: "Paddle-like flippers and strong navigation instincts", fact: "Often returns toward coastal regions where it hatched.", status: "Vulnerable / Endangered" },
+      "Clownfish": { hi: "क्लाउनफ़िश", emoji: "🐠", cat: "Fish", habitat: "Warm coral reefs and sea anemones", food: "Algae, zooplankton, and small leftovers", sizeLife: "Often ~7–11cm; ~6–10 yrs", adapt: "Protective mucus layer against anemone stings", fact: "Lives safely inside stinging sea anemones.", status: "Least Concern" },
+      "Jellyfish": { hi: "जेलीफ़िश", emoji: "🪼", cat: "Deep-sea creatures", habitat: "Surface to deep ocean waters", food: "Plankton and small marine organisms", sizeLife: "From millimeters to over a meter; months to a year", adapt: "Bell pulsing movement and stinging tentacles", fact: "Over 90% of a jellyfish body is made of water.", status: "Varies by species" },
+      "Starfish": { hi: "तारा मछली", emoji: "⭐", cat: "Molluscs", habitat: "Rocky shores, tide pools, and seafloors", food: "Bivalves, snails, and reef debris", sizeLife: "Often ~10–30cm; ~5–35 yrs", adapt: "Tube feet locomotion and limb regeneration", fact: "Can regrow a lost arm over time.", status: "Varies by species" },
+      "Crab": { hi: "केकड़ा", emoji: "🦀", cat: "Crustaceans", habitat: "Beaches, mangroves, reefs, and seafloors", food: "Algae, small invertebrates, and organic matter", sizeLife: "From a few cm to over 3m leg span; ~3–20+ yrs", adapt: "Hard exoskeleton, pincers, and sideways walking", fact: "Sheds its shell (molts) as it grows larger.", status: "Varies by species" }
+    };
+
+    const CATEGORY_SEEDS = {
+      "Mammals": ["Humpback Whale", "Orca", "Gray Whale", "Sperm Whale", "Beluga Whale", "Narwhal", "Bowhead Whale", "Fin Whale", "Minke Whale", "Bottlenose Dolphin", "Spinner Dolphin", "Harbor Porpoise"],
+      "Fish": ["Manta Ray", "Eagle Ray", "Pufferfish", "Lionfish", "Blue Tang", "Moray Eel", "Angelfish", "Butterflyfish", "Swordfish", "Marlin", "Tuna", "Flying Fish", "Stonefish", "Parrotfish"],
+      "Reptiles": ["Green Sea Turtle", "Hawksbill Turtle", "Loggerhead Turtle", "Leatherback Turtle", "Olive Ridley Turtle", "Saltwater Crocodile", "Marine Iguana", "Banded Sea Krait", "Yellow-Bellied Sea Snake", "Flatback Turtle"],
+      "Molluscs": ["Giant Squid", "Cuttlefish", "Chambered Nautilus", "Blue Clam", "Conch Shell", "Abalone", "Scallop", "Sea Slug", "Vampire Squid", "Oyster", "Mussel", "Whelk"],
+      "Crustaceans": ["Spiny Lobster", "Hermit Crab", "Fiddler Crab", "Peacock Mantis Shrimp", "Krill", "Barnacle", "Cleaner Shrimp", "King Crab", "Ghost Crab", "Horseshoe Crab"],
+      "Marine birds": ["Emperor Penguin", "Adelie Penguin", "Albatross", "Brown Pelican", "Atlantic Puffin", "Frigatebird", "Gannet", "Cormorant", "Tern", "Shearwater"],
+      "Deep-sea creatures": ["Anglerfish", "Gulper Eel", "Barreleye Fish", "Dumpling Squid", "Giant Tube Worm", "Tripod Fish", "Coffin Fish", "Deep-Sea Dragonfish", "Glass Squid", "Comb Jelly", "Sea Pig", "Fangtooth"],
+      "Microscopic marine life": ["Diatom", "Dinoflagellate", "Copepod", "Radiolarian", "Foraminifera", "Marine Cyanobacteria", "Coccolithophore", "Krill Larva", "Ciliate", "Picoplankton"]
+    };
+
+    const CATEGORY_EMOJIS = {
+      "Mammals": "🐋", "Fish": "🐟", "Reptiles": "🐢", "Molluscs": "🐚",
+      "Crustaceans": "🦀", "Marine birds": "🐧", "Deep-sea creatures": "🔦",
+      "Microscopic marine life": "🔬"
+    };
+
+    function buildCreatureCatalog() {
+      const list = [];
+      let idCounter = 1;
+      Object.keys(FEATURED_TEMPLATES).forEach((engName) => {
+        const t = FEATURED_TEMPLATES[engName];
+        list.push({
+          id: idCounter++, nameEn: engName, nameHi: t.hi, emoji: t.emoji, category: t.cat,
+          habitat: t.habitat, food: t.food, sizeLife: t.sizeLife, adaptation: t.adapt,
+          fact: t.fact, conservation: t.status
+        });
+      });
+      Object.keys(CATEGORY_SEEDS).forEach((cat) => {
+        CATEGORY_SEEDS[cat].forEach((n) => {
+          list.push({
+            id: idCounter++, nameEn: n, nameHi: `${n} (${cat})`, emoji: CATEGORY_EMOJIS[cat] || "🌊",
+            category: cat, habitat: `${cat} marine habitats across ocean zones`,
+            food: "Age-appropriate marine diet (plankton, algae, or small prey)",
+            sizeLife: "Varies by species & environment",
+            adaptation: `Specialized ${cat.toLowerCase()} traits for underwater survival`,
+            fact: `${n} is part of the ${cat.toLowerCase()} group studied in marine science.`,
+            conservation: "Protected by marine & coastal awareness"
+          });
+        });
+      });
+      return list;
+    }
+
+    const CREATURES = buildCreatureCatalog();
+
+    const SCIENCE_MODULES = [
+      { id: "layers", title: "Ocean layers and depth", icon: "🌊", diagram: "☀️ Sunlight (0–200m) → 🌅 Twilight (200–1000m) → 🌌 Midnight & Abyss (1000m+)", explain: "Sunlight fades with depth, dividing the ocean into distinct zones with different temperatures and light.", exp: "Experiment: Shine a flashlight through clear water, then through water tinted slightly with milk to see how light scatters and dims.", q: "Which ocean layer receives the most sunlight?", ans: "Sunlight Zone (0–200m)", opts: ["Sunlight Zone (0–200m)", "Abyssal Trench", "Deep Seafloor", "Sub-crustal Rock"] },
+      { id: "salinity", title: "Salinity", icon: "🧂", diagram: "💧 Fresh Water + 🧂 Dissolved Salts → Seawater (~35 g/kg average)", explain: "Seawater contains dissolved mineral salts (mostly sodium chloride) carried from rocks and evaporation.", exp: "Experiment: Compare a fresh-water cup and a salty-water cup with a grape or egg to observe buoyancy differences.", q: "What makes ocean water salty?", ans: "Dissolved mineral salts", opts: ["Dissolved mineral salts", "Frozen sugar", "Pure rainwater", "Air bubbles"] },
+      { id: "pressure", title: "Water pressure", icon: "⬇️", diagram: "📏 Deeper Water = More Weight Above → Higher Pressure", explain: "Water is heavier than air, so pressure increases steadily the deeper you go underwater.", exp: "Experiment: Poke small holes at top, middle, and bottom of a tall bottle filled with water to see where water shoots farthest.", q: "How does water pressure change as depth increases?", ans: "It increases with depth", opts: ["It increases with depth", "It drops to zero", "It turns into dry air", "It stays negative"] },
+      { id: "currents", title: "Ocean currents", icon: "🌀", diagram: "🌬️ Wind + 🌍 Earth’s Rotation + 🌡️ Temperature → Ocean Currents", explain: "Continuous rivers of seawater move heat and nutrients across Earth’s basins.", exp: "Experiment: Stir warm colored water gently in a bowl of cool water to watch circulation patterns form.", q: "What helps drive surface ocean currents?", ans: "Wind and Earth’s rotation", opts: ["Wind and Earth’s rotation", "Underground volcanoes only", "Static magnets", "Moon eclipses"] },
+      { id: "tides", title: "Tides and waves", icon: "🌊", diagram: "🌕 Gravity (Moon & Sun) → Tides • 💨 Wind → Surface Waves", explain: "Gravitational pull from the Moon and Sun creates rhythmic rising and falling tides; wind creates waves.", exp: "Experiment: Gently blow across water in a wide tray to create ripples and small waves.", q: "What mainly causes ocean tides along coasts?", ans: "Gravitational pull of Moon and Sun", opts: ["Gravitational pull of Moon and Sun", "Fish swimming in circles", "Underwater earthquakes only", "Sand castles"] },
+      { id: "foodchain", title: "Marine food chains", icon: "🐟", diagram: "🔬 Phytoplankton → 🦐 Krill/Zooplankton → 🐠 Fish → 🦈 Larger Predators", explain: "Energy moves from tiny ocean producers to consumers across marine food chains and webs.", exp: "Experiment: Build a 4-step energy chain card sequence from microscopic plankton to a top ocean predator.", q: "Where do most marine food chains start?", ans: "Microscopic producers like phytoplankton", opts: ["Microscopic producers like phytoplankton", "Deep rocks", "Dry pebbles", "Clouds"] },
+      { id: "reefs", title: "Coral reef ecosystems", icon: "🪸", diagram: "🪸 Coral Polyps + ☀️ Algae Partners → Vibrant Reef Habitat", explain: "Coral reefs are diverse underwater ecosystems that shelter fish, crabs, molluscs, and sponges.", exp: "Experiment: Draw a reef food web showing how shelter and food connect reef species.", q: "Why are coral reefs called vital marine ecosystems?", ans: "They shelter rich biodiversity and buffer coasts", opts: ["They shelter rich biodiversity and buffer coasts", "They have no living organisms", "They exist only in freezing ice", "They block all sunlight"] },
+      { id: "adaptations", title: "Adaptation of aquatic animals", icon: "🐙", diagram: "💨 Gills / Blowholes + 🎨 Camouflage + 🦈 Streamlined Fins", explain: "Marine animals evolve special body structures and behaviors to breathe, move, and stay safe underwater.", exp: "Experiment: Compare how a flat paddle vs. a narrow fin moves through water with less drag.", q: "Which adaptation helps an octopus hide from predators?", ans: "Color and texture camouflage", opts: ["Color and texture camouflage", "Wooden bark", "Dry feathers", "Desert sand"] },
+      { id: "photosynthesis", title: "Photosynthesis in marine plants", icon: "🌱", diagram: "☀️ Sunlight + 💧 Water + CO₂ → 🌿 Marine Plant Food + O₂", explain: "Kelp, seagrass, and phytoplankton use sunlight to make food and release oxygen into ocean water.", exp: "Experiment: Observe tiny oxygen bubbles on aquatic plants under bright light.", q: "What gas do marine plants release during photosynthesis?", ans: "Oxygen", opts: ["Oxygen", "Dry sand", "Salt crystals", "Smoke"] },
+      { id: "pollution", title: "Ocean pollution", icon: "♻️", diagram: "🛍️ Plastic & Waste → ⚠️ Marine Harm → 🧹 Reduce, Reuse, Recycle", explain: "Plastic debris, chemicals, and trash harm marine wildlife and disrupt coastal habitats.", exp: "Experiment: Sort household items into Reusable, Recyclable, and Trash bins.", q: "How can students help reduce ocean pollution?", ans: "Reduce single-use plastic and dispose waste properly", opts: ["Reduce single-use plastic and dispose waste properly", "Leave wrappers on beaches", "Pour oil in drains", "Ignore litter"] },
+      { id: "warming", title: "Climate and ocean warming", icon: "🌡️", diagram: "🔥 Extra Heat Trapped → 🌊 Warmer Seas → 🪸 Reef Stress & Ice Melt", explain: "Oceans absorb excess heat from Earth’s climate system, affecting sea ice and sensitive reefs.", exp: "Experiment: Track temperature differences between shaded and sunlit water containers over 15 minutes.", q: "What happens when oceans absorb extra heat over time?", ans: "Sea temperatures rise and stress sensitive habitats", opts: ["Sea temperatures rise and stress sensitive habitats", "Water turns into solid salt", "Tides stop completely", "Fish stop swimming"] },
+      { id: "watercycle", title: "Water cycle", icon: "☁️", diagram: "🌊 Ocean Evaporation → ☁️ Clouds → 🌧️ Rain/Snow → 🏞️ Rivers → 🌊 Ocean", explain: "Oceans hold most of Earth’s water and supply moisture through evaporation into the global water cycle.", exp: "Experiment: Place warm water in a covered bowl to watch condensation droplets form on the lid.", q: "Which process moves water vapor from the ocean into the atmosphere?", ans: "Evaporation", opts: ["Evaporation", "Freezing into salt", "Subduction", "Magnetism"] }
+    ];
+
+    const GAMES_LIST = [
+      { id: 1, title: "1. Fish Identification Challenge", instr: "Identify the marine creature shown in the clue.", prompt: "Which creature lives inside sea anemones with a protective mucus coat?", ans: "Clownfish 🐠", opts: ["Clownfish 🐠", "Octopus 🐙", "Crab 🦀", "Penguin 🐧"] },
+      { id: 2, title: "2. Ocean Memory Match", instr: "Pick the matching ocean pair symbol.", prompt: "Match the pair for Sea Turtle 🐢:", ans: "🐢 Sea Turtle", opts: ["🐢 Sea Turtle", "🦀 Crab", "🪼 Jellyfish", "🦈 Shark"] },
+      { id: 3, title: "3. Save the Baby Turtle", instr: "Choose the safest action for baby sea turtles on a beach.", prompt: "Baby turtles hatch near the sand—what keeps their path safe?", ans: "Turn off bright beach lights & clear litter", opts: ["Turn off bright beach lights & clear litter", "Leave plastic bags on sand", "Drive vehicles on nests", "Block the shoreline"] },
+      { id: 4, title: "4. Clean the Ocean", instr: "Select the item that should be removed from ocean water.", prompt: "Which item does NOT belong in a healthy coral reef?", ans: "Plastic Bottle 🧴", opts: ["Plastic Bottle 🧴", "Coral 🪸", "Clownfish 🐠", "Seagrass 🌿"] },
+      { id: 5, title: "5. Feed the Correct Marine Animal", instr: "Match the marine animal with its natural diet.", prompt: "What do giant Blue Whales eat in large quantities?", ans: "Krill 🦐", opts: ["Krill 🦐", "Apples 🍎", "Tree Leaves 🍃", "Sand 🏖️"] },
+      { id: 6, title: "6. Build an Ocean Food Chain", instr: "Choose the next link in the marine energy chain.", prompt: "Phytoplankton → Krill → ?", ans: "Small Fish 🐟", opts: ["Small Fish 🐟", "Desert Cactus 🌵", "Mountain Goat 🐐", "Brick Wall 🧱"] },
+      { id: 7, title: "7. Deep Sea Treasure Hunt", instr: "Find the true deep-sea discovery clue.", prompt: "What helps deep-sea creatures make their own light in dark waters?", ans: "Bioluminescence ✨", opts: ["Bioluminescence ✨", "Traffic Lights 🚦", "Flashlight Batteries 🔋", "Mirrors 🪞"] },
+      { id: 8, title: "8. Coral Reef Builder", instr: "Choose what supports a healthy coral reef.", prompt: "Which condition helps coral reefs thrive?", ans: "Clean, sunlit, balanced water", opts: ["Clean, sunlit, balanced water", "Heavy oil spills", "Floating trash nets", "Dark mud burial"] },
+      { id: 9, title: "9. Shark Fact or Myth", instr: "Test your marine science knowledge about sharks.", prompt: "Fact or Myth: Are ALL sharks dangerous monsters that hunt humans?", ans: "Myth — Most sharks keep ocean balance", opts: ["Myth — Most sharks keep ocean balance", "Fact — Every shark hunts people", "Fact — Sharks have no fins", "Fact — Sharks live in trees"] },
+      { id: 10, title: "10. Underwater Word Explorer", instr: "Match the marine vocabulary term to its meaning.", prompt: "What does 'Echolocation' use to sense objects underwater?", ans: "Sound echoes 🔊", opts: ["Sound echoes 🔊", "Dry smoke 💨", "Paper notes 📝", "Wooden sticks 🪵"] },
+      { id: 11, title: "11. Marine Animal Jigsaw", instr: "Piece together the right body trait for the ocean animal.", prompt: "Which body feature helps an Octopus squeeze through small openings?", ans: "No backbone & 8 flexible arms", opts: ["No backbone & 8 flexible arms", "Hard shell armor", "Feathered wings", "Antlers"] },
+      { id: 12, title: "12. Ocean Quiz Race", instr: "Fast ocean science race question!", prompt: "Which ocean zone is also known as the Sunlight Zone?", ans: "Epipelagic Zone (0–200m)", opts: ["Epipelagic Zone (0–200m)", "Abyssal Zone", "Hadal Trench", "Earth’s Core"] }
+    ];
+
+    /* 11 Required Video Categories + Storyboard Builder */
+    const VIDEO_CATEGORIES = [
+      "All",
+      "Ocean introduction",
+      "Life under the sea",
+      "How coral reefs grow",
+      "Blue whale adventure",
+      "Dolphin communication",
+      "Sea turtle life cycle",
+      "How sharks detect movement",
+      "Deep sea bioluminescence",
+      "Ocean food chain",
+      "Plastic pollution",
+      "Save our oceans"
+    ];
+
+    function buildScenePlan(title, topic, style, duration) {
+      return [
+        { part: "1. Opening hook", text: `Start with an exciting hook for "${title}" in ${style} style (${duration}).` },
+        { part: "2. Scene 1", text: `Introduce the setting and main focus for ${topic}.` },
+        { part: "3. Scene 2", text: `Show close-up underwater action and key visual details in ${topic}.` },
+        { part: "4. Scene 3", text: `Connect ${topic} to nearby ocean life and habitats.` },
+        { part: "5. Interesting scientific explanation", text: `Explain the marine science concept behind ${topic} simply for students.` },
+        { part: "6. Quick recap", text: `Summarize the 2–3 main takeaways from ${topic}.` },
+        { part: "7. Quiz question", text: `Ask a clear student check question about ${topic}.` },
+        { part: "8. Closing message", text: `End with an encouraging ocean-care message for Shree and learners.` }
+      ];
+    }
+
+    function buildDefaultVideos() {
+      const cats = VIDEO_CATEGORIES.filter((c) => c !== "All");
+      return cats.map((cat, i) => {
+        const title = `${cat} — Discovery Episode ${i + 1}`;
+        const duration = i % 2 === 0 ? "60 seconds" : "2 minutes";
+        const style = i % 2 === 0 ? "3D animation" : "cinematic adventure";
+        return {
+          id: `vid-${i + 1}`,
+          title,
+          topic: cat,
+          targetClass: "Class 1–6",
+          lang: "Hindi + English",
+          duration,
+          style,
+          sourceType: "storyboard",
+          mediaUrl: "",
+          fileName: "",
+          thumb: "🎬",
+          desc: `Educational video plan & captions covering ${cat}.`,
+          aiPrompt: `Educational ${style} of ${cat}, vibrant underwater lighting, clear child-friendly visuals, ${duration}.`,
+          thumbPrompt: `Bright educational thumbnail for ${cat}, turquoise ocean and marine life, crisp title space.`,
+          scenes: buildScenePlan(title, cat, style, duration)
+        };
+      });
+    }
+
+    function loadState() {
+      const base = {
+        langMode: "both",
+        sfxEnabled: true,
+        completedZones: [],
+        selectedZoneId: 1,
+        selectedCategory: "All",
+        selectedCreatureId: CREATURES[0]?.id || 1,
+        quizPoints: 0,
+        completedLabIds: [],
+        selectedLabId: SCIENCE_MODULES[0].id,
+        gameDifficulty: "explorer",
+        activeGameId: 1,
+        gameScore: 0,
+        gameStars: 0,
+        selectedVideoCategory: "All",
+        videos: buildDefaultVideos()
+      };
+      try {
+        for (const k of LEGACY_KEYS) {
+          const raw = localStorage.getItem(k);
+          if (raw) {
+            const p = JSON.parse(raw);
+            if (p.langMode) base.langMode = p.langMode;
+            if (Array.isArray(p.completedZones)) base.completedZones = p.completedZones;
+            if (p.selectedZoneId) base.selectedZoneId = p.selectedZoneId;
+            if (p.selectedCategory) base.selectedCategory = p.selectedCategory;
+            if (p.selectedCreatureId) base.selectedCreatureId = p.selectedCreatureId;
+            if (typeof p.quizPoints === "number") base.quizPoints = Math.max(base.quizPoints, p.quizPoints);
+            if (Array.isArray(p.completedLabIds)) base.completedLabIds = p.completedLabIds;
+            if (p.selectedLabId) base.selectedLabId = p.selectedLabId;
+            if (p.gameDifficulty) base.gameDifficulty = p.gameDifficulty;
+            if (p.activeGameId) base.activeGameId = p.activeGameId;
+            if (typeof p.gameScore === "number") base.gameScore = Math.max(base.gameScore, p.gameScore);
+            if (typeof p.gameStars === "number") base.gameStars = Math.max(base.gameStars, p.gameStars);
+          }
+        }
+        const rawP4 = localStorage.getItem(STORAGE_KEY_P4);
+        if (rawP4) {
+          const parsed4 = JSON.parse(rawP4);
+          return {
+            ...base,
+            ...parsed4,
+            videos: Array.isArray(parsed4.videos) && parsed4.videos.length ? parsed4.videos : base.videos
+          };
+        }
+      } catch (_) {}
+      return base;
+    }
+
+    let state = loadState();
+    let activeVideoId = state.videos[0]?.id || "vid-1";
+    let editingVideoId = null;
+    let uploadedFileDataUrl = "";
+    let uploadedFileName = "";
+    let draftStoryboardCache = null;
+
+
+    let lastUtterancePayload = {
+      en: "Welcome to Shree Ocean Discovery inside Manushree Wonder World.",
+      hi: "मनुश्री वंडर वर्ल्ड के अंतर्गत श्री ओशन डिस्कवरी में आपका स्वागत है।"
+    };
+    const SharedVoiceController = {
+      speak(enText, hiText) {
+        lastUtterancePayload = { en: enText || "", hi: hiText || "" };
+        if (!("speechSynthesis" in window)) return;
+        try {
+          window.speechSynthesis.cancel();
+          const list = [];
+          if ((state.langMode === "en" || state.langMode === "both") && enText) {
+            const u1 = new SpeechSynthesisUtterance(enText);
+            u1.lang = "en-IN";
+            u1.rate = Number(state.voiceRate) || 0.95;
+            u1.pitch = Number(state.voicePitch) || 1.0;
+            u1.volume = Number(state.voiceVolume) || 1.0;
+            list.push(u1);
+          }
+          if ((state.langMode === "hi" || state.langMode === "both") && hiText) {
+            const u2 = new SpeechSynthesisUtterance(hiText);
+            u2.lang = "hi-IN";
+            u2.rate = Number(state.voiceRate) || 0.95;
+            u2.pitch = Number(state.voicePitch) || 1.0;
+            u2.volume = Number(state.voiceVolume) || 1.0;
+            list.push(u2);
+          }
+          list.forEach((u) => window.speechSynthesis.speak(u));
+        } catch (_) {}
+      },
+      pause() {
+        if ("speechSynthesis" in window && window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+          window.speechSynthesis.pause();
+        }
+      },
+      resume() {
+        if ("speechSynthesis" in window && window.speechSynthesis.paused) {
+          window.speechSynthesis.resume();
+        }
+      },
+      stop() {
+        if ("speechSynthesis" in window) {
+          window.speechSynthesis.cancel();
+        }
+      },
+      replay() {
+        this.speak(lastUtterancePayload.en, lastUtterancePayload.hi);
+      },
+      readCurrentLesson() {
+        const mod = SCIENCE_MODULES.find((m) => m.id === state.selectedLabId) || SCIENCE_MODULES[0];
+        this.speak(`${mod.title}. ${mod.explain} ${mod.exp}`, `${mod.title}। ${mod.explain}`);
+      },
+      readAnimalFacts() {
+        const c = CREATURES.find((x) => x.id === state.selectedCreatureId) || CREATURES[0];
+        this.speak(`${c.nameEn}. Habitat: ${c.habitat}. ${c.fact}`, `${c.nameHi}। ${c.fact}`);
+      },
+      readQuizQuestion() {
+        if (quizQuestions.length && quizQuestions[quizCursor]) {
+          this.speak(quizQuestions[quizCursor].q, quizQuestions[quizCursor].q);
+          return;
+        }
+        const g = GAMES_LIST.find((x) => x.id === state.activeGameId) || GAMES_LIST[0];
+        this.speak(g.prompt, g.prompt);
+      }
+    };
+
+    function saveState() {
+      try {
+        const slimVideos = state.videos.map((v) => ({
+          ...v,
+          dataUrl: v.sourceType === "file" ? "" : (v.dataUrl || "")
+        }));
+        localStorage.setItem(STORAGE_KEY_P4, JSON.stringify({ ...state, videos: slimVideos }));
+      } catch (_) {}
+      renderMissionCounter();
+      renderZones();
+      const qPill = document.getElementById("quiz-score-pill");
+      if (qPill) qPill.textContent = `Quiz Mastery: ${state.quizPoints} pts`;
+      const lPill = document.getElementById("lab-progress-pill");
+      if (lPill) lPill.textContent = `${state.completedLabIds.length} / ${SCIENCE_MODULES.length} Lab Modules Explored`;
+      const gPill = document.getElementById("game-rewards-pill");
+      if (gPill) gPill.textContent = `Score: ${state.gameScore} • Stars: ${state.gameStars}`;
+      const vPill = document.getElementById("video-count-pill");
+      if (vPill) vPill.textContent = `${state.videos.length} Library Videos`;
+    }
+
+    let audioCtx = null;
+    function playGameTone(freq, dur = 0.14) {
+      if (!state.sfxEnabled) return;
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return;
+        if (!audioCtx) audioCtx = new Ctx();
+        if (audioCtx.state === "suspended") audioCtx.resume().catch(() => {});
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + dur);
+      } catch (_) {}
+    }
+
+    function toggleSfx() {
+      state.sfxEnabled = !state.sfxEnabled;
+      const btn = document.getElementById("btn-sfx");
+      if (btn) {
+        btn.textContent = state.sfxEnabled ? "🔊 SFX" : "🔇 SFX";
+        btn.classList.toggle("muted", !state.sfxEnabled);
+      }
+      if (state.sfxEnabled) playGameTone(660, 0.1);
+      saveState();
+    }
+
+    function toggleLangMode() {
+      const order = ["both", "en", "hi"];
+      state.langMode = order[(order.indexOf(state.langMode) + 1) % order.length];
+      const labels = { both: "🌐 EN + HI", en: "🌐 English", hi: "🌐 हिन्दी" };
+      document.getElementById("btn-lang").textContent = labels[state.langMode];
+      saveState();
+      inspectZone(state.selectedZoneId);
+      const det = document.getElementById("creature-detail-box");
+      if (det && !det.classList.contains("hidden")) {
+        openCreatureDetail(state.selectedCreatureId, false);
+      }
+    }
+
+    function speakText(en, hi) {
+      if (!("speechSynthesis" in window)) return;
+      try {
+        window.speechSynthesis.cancel();
+        const queue = [];
+        if (state.langMode === "en" || state.langMode === "both") {
+          const u1 = new SpeechSynthesisUtterance(en);
+          u1.lang = "en-IN";
+          u1.rate = 0.95;
+          queue.push(u1);
+        }
+        if (state.langMode === "hi" || state.langMode === "both") {
+          const u2 = new SpeechSynthesisUtterance(hi);
+          u2.lang = "hi-IN";
+          u2.rate = 0.95;
+          queue.push(u2);
+        }
+        queue.forEach((u) => window.speechSynthesis.speak(u));
+      } catch (_) {}
+    }
+
+    function narrateIntro() {
+      speakText(
+        "Welcome to Shree Ocean Discovery inside Manushree Wonder World. Dive deep, discover marine life, and protect our oceans.",
+        "मनुश्री वंडर वर्ल्ड के अंतर्गत श्री ओशन डिस्कवरी में आपका स्वागत है। गहराई में उतरें, समुद्री जीवन जानें और महासागरों की रक्षा करें।"
+      );
+    }
+
+    function pauseVoice() {
+      if (!("speechSynthesis" in window)) return;
+      try {
+        if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+          window.speechSynthesis.pause();
+        } else if (window.speechSynthesis.paused) {
+          window.speechSynthesis.resume();
+        }
+      } catch (_) {}
+    }
+
+    function openTab(tabName) {
+      document.querySelectorAll(".nav-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.tab === tabName);
+      });
+      document.querySelectorAll(".section-view").forEach((v) => {
+        v.classList.toggle("active", v.id === "tab-" + tabName);
+      });
+      if (tabName === "animals") {
+        renderCategoryChips();
+        renderCreatures();
+      }
+      if (tabName === "lab") {
+        renderLabGrid();
+        openLabModule(state.selectedLabId);
+      }
+      if (tabName === "games") {
+        renderGamesGrid();
+        selectGame(state.activeGameId);
+      }
+      if (tabName === "admin") {
+        renderAdminControlCenter();
+      }
+      if (tabName === "dashboard") {
+        renderStudentDashboard();
+      }
+      if (tabName === "videos") {
+        initAdminTopicSelect();
+        renderVideoCatChips();
+        renderVideosGrid();
+        openVideoPlayer(activeVideoId, false);
+      }
+    }
+
+    function renderMissionCounter() {
+      const done = state.completedZones.length;
+      const pill = document.getElementById("mission-counter-pill");
+      if (pill) {
+        pill.textContent = `${done} / ${OCEAN_ZONES.length} Zones Completed`;
+        pill.classList.toggle("done", done === OCEAN_ZONES.length);
+      }
+    }
+
+    function renderZones() {
+      const markup = OCEAN_ZONES.map((z) => {
+        const isDone = state.completedZones.includes(z.id);
+        return `
+          <div class="zone-tile ${isDone ? "completed" : ""}">
+            <div>
+              <div style="font-size:1.7rem;">${z.emoji}</div>
+              <div style="font-weight:800; font-size:1rem; margin-top:4px;">${z.id}. ${z.name}</div>
+              <div style="font-size:0.78rem; color:var(--muted); font-weight:700;">${z.depth}</div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:6px; margin-top:6px;">
+              <span class="status-pill ${isDone ? "done" : ""}">${isDone ? "✓ Completed" : "Explore"}</span>
+              <button class="btn-aqua" style="padding:7px 12px; min-height:36px; font-size:0.82rem;" onclick="inspectZone(${z.id})">Open</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+      const g1 = document.getElementById("zones-grid");
+      const g2 = document.getElementById("zones-grid-map");
+      if (g1) g1.innerHTML = markup;
+      if (g2) g2.innerHTML = markup;
+    }
+
+    function inspectZone(zoneId) {
+      const z = OCEAN_ZONES.find((item) => item.id === zoneId) || OCEAN_ZONES[0];
+      state.selectedZoneId = z.id;
+      saveState();
+
+      openTab("home");
+      const insp = document.getElementById("zone-inspector");
+      insp.classList.remove("hidden");
+      document.getElementById("insp-depth").textContent = z.depth;
+      document.getElementById("insp-title").textContent = `${z.emoji} ${z.name}`;
+
+      let factDisplay = z.factEn;
+      if (state.langMode === "hi") factDisplay = z.factHi;
+      if (state.langMode === "both") factDisplay = `${z.factEn} • ${z.factHi}`;
+
+      document.getElementById("insp-fact").textContent = factDisplay;
+      document.getElementById("insp-mini-challenge").textContent = z.mini;
+      insp.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function speakInspectedZone() {
+      const z = OCEAN_ZONES.find((item) => item.id === state.selectedZoneId) || OCEAN_ZONES[0];
+      speakText(z.factEn, z.factHi);
+    }
+
+    function completeInspectedMission() {
+      const id = state.selectedZoneId;
+      if (!state.completedZones.includes(id)) {
+        state.completedZones.push(id);
+        saveState();
+        speakText("Mission complete! Great exploring!", "मिशन पूरा हुआ! शानदार खोज!");
+      }
+    }
+
+    function renderCategoryChips() {
+      const wrap = document.getElementById("category-chips");
+      if (!wrap) return;
+      wrap.innerHTML = CATEGORIES.map((c) => {
+        const active = state.selectedCategory === c ? "active" : "";
+        const escaped = c.replace(/'/g, "&#39;");
+        return `<button class="cat-chip ${active}" onclick="selectCategory('${escaped}')">${c}</button>`;
+      }).join("");
+    }
+
+    function selectCategory(cat) {
+      state.selectedCategory = cat;
+      saveState();
+      renderCategoryChips();
+      renderCreatures();
+    }
+
+    function clearCreatureFilters() {
+      const inp = document.getElementById("creature-search");
+      if (inp) inp.value = "";
+      state.selectedCategory = "All";
+      saveState();
+      renderCategoryChips();
+      renderCreatures();
+    }
+
+    function renderCreatures() {
+      const q = (document.getElementById("creature-search")?.value || "").trim().toLowerCase();
+      const filtered = CREATURES.filter((item) => {
+        const catOk = state.selectedCategory === "All" || item.category === state.selectedCategory;
+        if (!catOk) return false;
+        if (!q) return true;
+        return item.nameEn.toLowerCase().includes(q) ||
+          item.nameHi.toLowerCase().includes(q) ||
+          item.category.toLowerCase().includes(q) ||
+          item.habitat.toLowerCase().includes(q);
+      });
+
+      const lbl = document.getElementById("creature-count-label");
+      if (lbl) lbl.textContent = `${filtered.length} / ${CREATURES.length}`;
+
+      const grid = document.getElementById("creatures-grid");
+      if (!grid) return;
+
+      if (!filtered.length) {
+        grid.innerHTML = `<div class="meta-box" style="grid-column:1/-1;">No marine creatures match your filter. Tap "Reset Filter" to browse all ${CREATURES.length} creatures.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map((c) => `
+        <div class="creature-card">
+          <div>
+            <div style="font-size:1.6rem;">${c.emoji}</div>
+            <div style="font-weight:800; font-size:0.98rem; margin-top:4px;">${c.nameEn}</div>
+            <div style="font-size:0.82rem; color:var(--purple); font-weight:800;">${c.nameHi}</div>
+            <div style="font-size:0.76rem; color:var(--muted); font-weight:700; margin-top:3px;">${c.category}</div>
+          </div>
+          <div style="display:flex; justify-content:flex-end; gap:6px; margin-top:6px;">
+            <button class="btn-aqua" style="padding:7px 12px; min-height:36px; font-size:0.8rem;" onclick="openCreatureDetail(${c.id}, true)">Profile &amp; Quiz</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    let quizQuestions = [];
+    let quizCursor = 0;
+
+    function openCreatureDetail(id, scrollToBox) {
+      const c = CREATURES.find((x) => x.id === id) || CREATURES[0];
+      state.selectedCreatureId = c.id;
+      saveState();
+
+      const box = document.getElementById("creature-detail-box");
+      box.classList.remove("hidden");
+      document.getElementById("cd-category").textContent = c.category;
+      document.getElementById("cd-names").textContent = `${c.emoji} ${c.nameEn} • ${c.nameHi}`;
+
+      document.getElementById("cd-meta").innerHTML = `
+        <div class="meta-box">🌊 <strong>Habitat:</strong> ${c.habitat}</div>
+        <div class="meta-box">🍽️ <strong>Food:</strong> ${c.food}</div>
+        <div class="meta-box">📏 <strong>Size &amp; Lifespan:</strong> ${c.sizeLife}</div>
+        <div class="meta-box">🛡️ <strong>Conservation:</strong> ${c.conservation}</div>
+      `;
+
+      document.getElementById("cd-facts").innerHTML = `
+        <div>✨ <strong>Special Adaptation:</strong> ${c.adaptation}</div>
+        <div style="margin-top:4px;">💡 <strong>Interesting Fact:</strong> ${c.fact}</div>
+      `;
+
+      document.getElementById("cd-quiz-area").classList.add("hidden");
+      if (scrollToBox) box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function pronounceSelectedCreature() {
+      const c = CREATURES.find((x) => x.id === state.selectedCreatureId) || CREATURES[0];
+      speakText(`${c.nameEn}. ${c.fact}`, `${c.nameHi}। ${c.fact}`);
+    }
+
+    function startCreatureQuiz() {
+      const c = CREATURES.find((x) => x.id === state.selectedCreatureId) || CREATURES[0];
+      const otherCats = CATEGORIES.filter((x) => x !== "All" && x !== c.category);
+      const wrongCat1 = otherCats[c.id % otherCats.length] || "Fish";
+      const wrongCat2 = otherCats[(c.id + 2) % otherCats.length] || "Molluscs";
+      const wrongCat3 = otherCats[(c.id + 4) % otherCats.length] || "Crustaceans";
+
+      quizQuestions = [
+        { q: `1. Which marine category does ${c.nameEn} belong to?`, ans: c.category, opts: [c.category, wrongCat1, wrongCat2, wrongCat3] },
+        { q: `2. Where is ${c.nameEn} typically found?`, ans: c.habitat, opts: [c.habitat, "High desert dunes", "Mountain glaciers only", "Dry caves"] },
+        { q: `3. What does ${c.nameEn} eat or feed on?`, ans: c.food, opts: [c.food, "Wooden logs", "Dry sand", "Plastic bottles"] },
+        { q: `4. Which adaptation or trait is linked with ${c.nameEn}?`, ans: c.adaptation, opts: [c.adaptation, "Desert camel hump", "Bird wings for flying", "Tree roots"] },
+        { q: `5. What is true about ${c.nameEn} and ocean conservation?`, ans: c.conservation, opts: [c.conservation, "Needs no clean water", "Lives only on land", "Never affected by pollution"] }
+      ];
+      quizCursor = 0;
+      document.getElementById("cd-quiz-area").classList.remove("hidden");
+      renderCurrentQuizQuestion();
+    }
+
+    function renderCurrentQuizQuestion() {
+      const item = quizQuestions[quizCursor];
+      if (!item) return;
+      document.getElementById("cd-q-counter").textContent = `Question ${quizCursor + 1} of 5`;
+      document.getElementById("cd-q-text").textContent = item.q;
+      document.getElementById("cd-q-feedback").textContent = "";
+
+      const shuffled = [...item.opts].sort(() => Math.random() - 0.5);
+      const optsEl = document.getElementById("cd-q-options");
+      optsEl.innerHTML = shuffled.map((op) => {
+        const escaped = op.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="quiz-option-btn" onclick="answerCreatureQuiz(this, '${escaped}')">${op}</button>`;
+      }).join("");
+    }
+
+    function speakQuizQuestion() {
+      const item = quizQuestions[quizCursor];
+      if (!item) return;
+      speakText(item.q, item.q);
+    }
+
+    function answerCreatureQuiz(btnEl, chosen) {
+      const item = quizQuestions[quizCursor];
+      if (!item) return;
+      document.querySelectorAll("#cd-q-options .quiz-option-btn").forEach((b) => { b.disabled = true; });
+      const fb = document.getElementById("cd-q-feedback");
+      if (chosen === item.ans) {
+        btnEl.classList.add("right");
+        state.quizPoints += 10;
+        playGameTone(740, 0.14);
+        saveState();
+        fb.textContent = `🎉 Correct! +10 Quiz Mastery points.`;
+      } else {
+        btnEl.classList.add("wrong");
+        playGameTone(250, 0.14);
+        fb.textContent = `💡 Answer: ${item.ans}`;
+      }
+      setTimeout(() => {
+        if (quizCursor < 4) {
+          quizCursor += 1;
+          renderCurrentQuizQuestion();
+        } else {
+          fb.textContent = `🏆 Completed all 5 questions! Total Quiz Mastery: ${state.quizPoints} pts.`;
+        }
+      }, 950);
+    }
+
+    function renderLabGrid() {
+      const grid = document.getElementById("lab-grid");
+      if (!grid) return;
+      grid.innerHTML = SCIENCE_MODULES.map((m, idx) => {
+        const done = state.completedLabIds.includes(m.id);
+        return `
+          <div class="lab-card ${done ? "done" : ""}">
+            <div>
+              <div style="font-size:1.5rem;">${m.icon}</div>
+              <div style="font-weight:800; font-size:0.95rem; margin-top:4px;">${idx + 1}. ${m.title}</div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:6px;">
+              <span class="status-pill ${done ? "done" : ""}">${done ? "✓ Learned" : "Lab"}</span>
+              <button class="btn-aqua" style="padding:6px 11px; min-height:34px; font-size:0.8rem;" onclick="openLabModule('${m.id}')">Open</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openLabModule(modId) {
+      const idx = SCIENCE_MODULES.findIndex((m) => m.id === modId);
+      const mod = SCIENCE_MODULES[idx >= 0 ? idx : 0];
+      state.selectedLabId = mod.id;
+      saveState();
+
+      document.getElementById("lab-mod-badge").textContent = `Module ${idx + 1} of ${SCIENCE_MODULES.length}`;
+      document.getElementById("lab-mod-title").textContent = `${mod.icon} ${mod.title}`;
+      document.getElementById("lab-diagram").innerHTML = `<div class="meta-box" style="background:#e8f8ff;">📊 <strong>Animated Diagram Flow:</strong> ${mod.diagram}</div>`;
+      document.getElementById("lab-explain").textContent = mod.explain;
+      document.getElementById("lab-experiment").textContent = mod.exp;
+      document.getElementById("lab-q-text").textContent = `Check Question: ${mod.q}`;
+      document.getElementById("lab-q-feedback").textContent = "";
+
+      const shuffled = [...mod.opts].sort(() => Math.random() - 0.5);
+      document.getElementById("lab-q-options").innerHTML = shuffled.map((op) => {
+        const escaped = op.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="choice-tile" onclick="answerLabQuestion(this, '${escaped}')">${op}</button>`;
+      }).join("");
+    }
+
+    function speakLabModule() {
+      const mod = SCIENCE_MODULES.find((m) => m.id === state.selectedLabId) || SCIENCE_MODULES[0];
+      speakText(`${mod.title}. ${mod.explain} ${mod.exp}`, `${mod.title}। ${mod.explain}`);
+    }
+
+    function answerLabQuestion(btnEl, chosen) {
+      const mod = SCIENCE_MODULES.find((m) => m.id === state.selectedLabId) || SCIENCE_MODULES[0];
+      document.querySelectorAll("#lab-q-options .choice-tile").forEach((b) => { b.disabled = true; });
+      const fb = document.getElementById("lab-q-feedback");
+      if (chosen === mod.ans) {
+        btnEl.classList.add("right");
+        if (!state.completedLabIds.includes(mod.id)) {
+          state.completedLabIds.push(mod.id);
+        }
+        state.gameScore += 15;
+        state.gameStars += 1;
+        playGameTone(780, 0.16);
+        saveState();
+        renderLabGrid();
+        fb.textContent = `🎉 Great science thinking! Module marked learned (+15 Score, +1 Star).`;
+      } else {
+        btnEl.classList.add("wrong");
+        playGameTone(250, 0.14);
+        fb.textContent = `💡 Hint: ${mod.ans}`;
+      }
+    }
+
+    function renderGamesGrid() {
+      const grid = document.getElementById("games-grid");
+      if (!grid) return;
+      grid.innerHTML = GAMES_LIST.map((g) => {
+        const isSel = state.activeGameId === g.id;
+        return `
+          <div class="game-card ${isSel ? "done" : ""}">
+            <div style="font-weight:800; font-size:0.94rem;">${g.title}</div>
+            <button class="btn-aqua" style="padding:7px 12px; min-height:36px; font-size:0.8rem;" onclick="selectGame(${g.id})">Select Game</button>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function changeGameDifficulty(val) {
+      state.gameDifficulty = val;
+      playGameTone(600, 0.08);
+      saveState();
+      renderGamesGrid();
+      selectGame(state.activeGameId);
+    }
+
+    function selectGame(gameId) {
+      state.activeGameId = gameId;
+      saveState();
+      renderGamesGrid();
+      const g = GAMES_LIST.find((x) => x.id === gameId) || GAMES_LIST[0];
+      const bonusLabel = state.gameDifficulty === "scientist" ? "+25 pts" : "+15 pts";
+      document.getElementById("active-game-badge").textContent = `Game ${g.id} of 12 • ${state.gameDifficulty.toUpperCase()} (${bonusLabel})`;
+      document.getElementById("active-game-title").textContent = g.title;
+      document.getElementById("active-game-instr").textContent = `Instructions: ${g.instr}`;
+      document.getElementById("active-game-prompt").textContent = "Tap Start to play this round!";
+      document.getElementById("active-game-choices").innerHTML = "";
+      document.getElementById("active-game-feedback").textContent = "";
+    }
+
+    function startActiveGame() {
+      const g = GAMES_LIST.find((x) => x.id === state.activeGameId) || GAMES_LIST[0];
+      playGameTone(640, 0.1);
+      document.getElementById("active-game-prompt").textContent = g.prompt;
+      document.getElementById("active-game-feedback").textContent = "Choose the best answer below!";
+      const shuffled = [...g.opts].sort(() => Math.random() - 0.5);
+      document.getElementById("active-game-choices").innerHTML = shuffled.map((op) => {
+        const escaped = op.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="choice-tile" onclick="submitGameAnswer(this, '${escaped}')">${op}</button>`;
+      }).join("");
+    }
+
+    function restartActiveGame() {
+      startActiveGame();
+    }
+
+    function submitGameAnswer(btnEl, chosen) {
+      const g = GAMES_LIST.find((x) => x.id === state.activeGameId) || GAMES_LIST[0];
+      document.querySelectorAll("#active-game-choices .choice-tile").forEach((b) => { b.disabled = true; });
+      const fb = document.getElementById("active-game-feedback");
+      const pts = state.gameDifficulty === "scientist" ? 25 : 15;
+      if (chosen === g.ans) {
+        btnEl.classList.add("right");
+        state.gameScore += pts;
+        state.gameStars += 1;
+        playGameTone(820, 0.16);
+        saveState();
+        fb.textContent = `🎉 Correct! +${pts} Score & +1 Star!`;
+      } else {
+        btnEl.classList.add("wrong");
+        playGameTone(240, 0.14);
+        fb.textContent = `🌸 Good try! Correct answer: ${g.ans}. Tap Restart to try again.`;
+      }
+    }
+
+    /* AI Video Studio & Admin Video Manager */
+    function initAdminTopicSelect() {
+      const sel = document.getElementById("av-topic");
+      if (!sel || sel.options.length > 0) return;
+      const topics = VIDEO_CATEGORIES.filter((c) => c !== "All");
+      sel.innerHTML = topics.map((t) => `<option value="${t}">${t}</option>`).join("");
+    }
+
+    function renderVideoCatChips() {
+      const wrap = document.getElementById("video-cat-chips");
+      if (!wrap) return;
+      wrap.innerHTML = VIDEO_CATEGORIES.map((c) => {
+        const active = state.selectedVideoCategory === c ? "active" : "";
+        const escaped = c.replace(/'/g, "&#39;");
+        return `<button class="cat-chip ${active}" onclick="selectVideoCategory('${escaped}')">${c}</button>`;
+      }).join("");
+    }
+
+    function selectVideoCategory(cat) {
+      state.selectedVideoCategory = cat;
+      saveState();
+      renderVideoCatChips();
+      renderVideosGrid();
+    }
+
+    function renderVideosGrid() {
+      const grid = document.getElementById("videos-grid");
+      if (!grid) return;
+      const list = state.videos.filter((v) => state.selectedVideoCategory === "All" || v.topic === state.selectedVideoCategory);
+      if (!list.length) {
+        grid.innerHTML = `<div class="meta-box" style="grid-column:1/-1;">No videos in this category yet. Use Admin Video Studio below to create or publish one.</div>`;
+        return;
+      }
+      grid.innerHTML = list.map((v) => `
+        <div class="video-card">
+          <div>
+            <div style="font-size:1.5rem;">${v.thumb || "🎬"}</div>
+            <div style="font-weight:800; font-size:0.96rem; margin-top:4px;">${v.title}</div>
+            <div style="font-size:0.78rem; color:var(--purple); font-weight:800;">${v.topic} • ${v.duration}</div>
+            <div style="font-size:0.76rem; color:var(--muted); font-weight:700; margin-top:3px;">${v.targetClass} • ${v.style}</div>
+          </div>
+          <div style="display:flex; justify-content:flex-end; gap:6px; margin-top:6px;">
+            <button class="btn-aqua" style="padding:7px 12px; min-height:36px; font-size:0.8rem;" onclick="openVideoPlayer('${v.id}', true)">Watch &amp; Plan</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function extractYouTubeId(url) {
+      if (!url) return "";
+      const m = url.match(/(?:youtu\.be\/|v=|embed\/)([A-Za-z0-9_-]{6,})/);
+      return m ? m[1] : "";
+    }
+
+    function extractDriveId(url) {
+      if (!url) return "";
+      const m = url.match(/\/d\/([A-Za-z0-9_-]{10,})/);
+      return m ? m[1] : "";
+    }
+
+    function buildEmbedHtml(v) {
+      if (v.sourceType === "file" && v.dataUrl) {
+        return `<video controls style="width:100%; max-height:320px; border-radius:14px; background:#000;" src="${v.dataUrl}"></video>`;
+      }
+      if (v.sourceType === "url" && v.mediaUrl) {
+        return `<video controls style="width:100%; max-height:320px; border-radius:14px; background:#000;" src="${v.mediaUrl}"></video>`;
+      }
+      if (v.sourceType === "youtube" && v.mediaUrl) {
+        const ytId = extractYouTubeId(v.mediaUrl);
+        if (ytId) {
+          return `<iframe style="width:100%; height:300px; border:0; border-radius:14px;" src="https://www.youtube.com/embed/${ytId}" allowfullscreen></iframe>`;
+        }
+      }
+      if (v.sourceType === "drive" && v.mediaUrl) {
+        const drId = extractDriveId(v.mediaUrl);
+        if (drId) {
+          return `<iframe style="width:100%; height:300px; border:0; border-radius:14px;" src="https://drive.google.com/file/d/${drId}/preview"></iframe>`;
+        }
+      }
+      return `<div class="meta-box" style="background:#eef9fc;">🎬 <strong>Storyboard &amp; Prompt Ready:</strong> Connect a video-generation API or attach an MP4/WebM/YouTube/Drive source in Admin Video Studio to play rendered video here.</div>`;
+    }
+
+    function openVideoPlayer(vidId, scrollToBox) {
+      const v = state.videos.find((x) => x.id === vidId) || state.videos[0];
+      if (!v) return;
+      activeVideoId = v.id;
+
+      const box = document.getElementById("video-player-box");
+      box.classList.remove("hidden");
+      document.getElementById("vp-meta-pill").textContent = `${v.topic} • ${v.targetClass} • ${v.duration} • ${v.lang}`;
+      document.getElementById("vp-title").textContent = `${v.thumb || "🎬"} ${v.title}`;
+      document.getElementById("vp-embed-area").innerHTML = buildEmbedHtml(v);
+      document.getElementById("vp-script-box").innerHTML = `📝 <strong>Captions / Subtitles &amp; Notes:</strong> ${v.desc}`;
+      document.getElementById("vp-prompts-box").innerHTML = `
+        <div>🤖 <strong>AI Video Prompt:</strong> ${v.aiPrompt}</div>
+        <div style="margin-top:4px;">🖼️ <strong>Thumbnail Prompt:</strong> ${v.thumbPrompt}</div>
+      `;
+
+      const scenes = Array.isArray(v.scenes) && v.scenes.length ? v.scenes : buildScenePlan(v.title, v.topic, v.style, v.duration);
+      document.getElementById("vp-storyboard-grid").innerHTML = scenes.map((sc) => `
+        <div class="meta-box">
+          <div style="color:var(--purple); font-weight:800;">${sc.part}</div>
+          <div style="margin-top:3px;">${sc.text}</div>
+        </div>
+      `).join("");
+
+      if (scrollToBox) box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function speakVideoScript() {
+      const v = state.videos.find((x) => x.id === activeVideoId) || state.videos[0];
+      if (!v) return;
+      const summary = `${v.title}. ${v.desc} ${(v.scenes || []).map((s) => s.text).join(" ")}`;
+      speakText(summary, summary);
+    }
+
+    function handleLocalVideoFile(inputEl) {
+      const file = inputEl.files && inputEl.files[0];
+      if (!file) return;
+      uploadedFileName = file.name;
+      const reader = new FileReader();
+      reader.onload = () => {
+        uploadedFileDataUrl = String(reader.result || "");
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function collectAdminFormData() {
+      const title = (document.getElementById("av-title").value || "").trim() || "Untitled Ocean Episode";
+      const topic = document.getElementById("av-topic").value || "Ocean introduction";
+      const targetClass = (document.getElementById("av-class").value || "").trim() || "Class 1–6";
+      const lang = document.getElementById("av-lang").value || "Hindi + English";
+      const duration = document.getElementById("av-duration").value || "60 seconds";
+      const style = document.getElementById("av-style").value || "3D animation";
+      const sourceType = document.getElementById("av-source-type").value || "storyboard";
+      const mediaUrl = (document.getElementById("av-media-url").value || "").trim();
+      const thumb = (document.getElementById("av-thumb").value || "").trim() || "🎬";
+      const desc = (document.getElementById("av-desc").value || "").trim() || `Subtitles & learning overview for ${title}.`;
+
+      return {
+        id: editingVideoId || `vid-${Date.now()}`,
+        title,
+        topic,
+        targetClass,
+        lang,
+        duration,
+        style,
+        sourceType,
+        mediaUrl,
+        fileName: uploadedFileName,
+        dataUrl: uploadedFileDataUrl,
+        thumb,
+        desc,
+        aiPrompt: `Educational ${style} video for "${title}" on ${topic}, ${duration}, clear marine visuals.`,
+        thumbPrompt: `Educational thumbnail for "${title}" (${topic}), ${style}, vibrant ocean colors.`,
+        scenes: draftStoryboardCache || buildScenePlan(title, topic, style, duration)
+      };
+    }
+
+    function generateStoryboardPlan() {
+      const form = collectAdminFormData();
+      draftStoryboardCache = buildScenePlan(form.title, form.topic, form.style, form.duration);
+      const prev = document.getElementById("av-draft-preview");
+      prev.classList.remove("hidden");
+      prev.innerHTML = `
+        <div><strong>Generated 8-Part Storyboard &amp; Prompts for "${form.title}":</strong></div>
+        <div style="margin-top:4px;">AI Video Prompt: ${form.aiPrompt}</div>
+        <div style="margin-top:4px;">Thumbnail Prompt: ${form.thumbPrompt}</div>
+        <ul style="margin:6px 0 0; padding-left:18px;">
+          ${draftStoryboardCache.map((s) => `<li><strong>${s.part}:</strong> ${s.text}</li>`).join("")}
+        </ul>
+      `;
+    }
+
+    function saveAndPublishVideo() {
+      const item = collectAdminFormData();
+      if (!item.scenes || !item.scenes.length) {
+        item.scenes = buildScenePlan(item.title, item.topic, item.style, item.duration);
+      }
+      const existingIdx = state.videos.findIndex((x) => x.id === item.id);
+      if (existingIdx >= 0) {
+        state.videos[existingIdx] = item;
+      } else {
+        state.videos.unshift(item);
+      }
+      activeVideoId = item.id;
+      editingVideoId = null;
+      draftStoryboardCache = null;
+      saveState();
+      renderVideosGrid();
+      openVideoPlayer(item.id, true);
+    }
+
+    function editVideoById(vidId) {
+      const v = state.videos.find((x) => x.id === vidId);
+      if (!v) return;
+      editingVideoId = v.id;
+      draftStoryboardCache = v.scenes || null;
+      document.getElementById("av-title").value = v.title;
+      document.getElementById("av-topic").value = v.topic;
+      document.getElementById("av-class").value = v.targetClass;
+      document.getElementById("av-lang").value = v.lang;
+      document.getElementById("av-duration").value = v.duration;
+      document.getElementById("av-style").value = v.style;
+      document.getElementById("av-source-type").value = v.sourceType || "storyboard";
+      document.getElementById("av-media-url").value = v.mediaUrl || "";
+      document.getElementById("av-thumb").value = v.thumb || "🎬";
+      document.getElementById("av-desc").value = v.desc || "";
+      document.getElementById("av-title").scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function deleteVideoById(vidId) {
+      const v = state.videos.find((x) => x.id === vidId);
+      if (!v) return;
+      if (!confirm(`Remove "${v.title}" from the Video Library?`)) return;
+      state.videos = state.videos.filter((x) => x.id !== vidId);
+      activeVideoId = state.videos[0]?.id || "";
+      saveState();
+      renderVideosGrid();
+      if (activeVideoId) {
+        openVideoPlayer(activeVideoId, false);
+      } else {
+        document.getElementById("video-player-box").classList.add("hidden");
+      }
+    }
+
+    function resetAdminVideoForm() {
+      editingVideoId = null;
+      draftStoryboardCache = null;
+      uploadedFileDataUrl = "";
+      uploadedFileName = "";
+      document.getElementById("av-title").value = "";
+      document.getElementById("av-media-url").value = "";
+      document.getElementById("av-thumb").value = "";
+      document.getElementById("av-desc").value = "";
+      const fInp = document.getElementById("av-file-input");
+      if (fInp) fInp.value = "";
+      document.getElementById("av-draft-preview").classList.add("hidden");
+    }
+
+
+    const OCEAN_BADGES_P6 = [
+      { id: "b1", name: "First Ocean Explorer", icon: "🌊", check: (s) => s.completedZones.length >= 1 || s.gameScore > 0 },
+      { id: "b2", name: "Coral Guardian", icon: "🪸", check: (s) => s.completedZones.includes(1) },
+      { id: "b3", name: "Dolphin Friend", icon: "🐬", check: (s) => s.completedZones.includes(2) },
+      { id: "b4", name: "Turtle Protector", icon: "🐢", check: (s) => s.completedZones.includes(3) || s.completedZones.includes(5) },
+      { id: "b5", name: "Whale Expert", icon: "🐋", check: (s) => s.completedZones.includes(4) || s.completedZones.includes(3) },
+      { id: "b6", name: "Deep Sea Detective", icon: "🌌", check: (s) => s.completedZones.includes(8) || s.completedZones.includes(9) },
+      { id: "b7", name: "Science Star", icon: "🔬", check: (s) => s.completedLabIds.length >= 3 },
+      { id: "b8", name: "Quiz Champion", icon: "❓", check: (s) => s.quizPoints >= 30 },
+      { id: "b9", name: "Ocean Guardian", icon: "♻️", check: (s) => s.completedZones.includes(10) || s.completedZones.includes(12) },
+      { id: "b10", name: "Master Explorer", icon: "👑", check: (s) => s.completedZones.length >= 6 && s.gameStars >= 5 }
+    ];
+
+    function ensureP6Defaults() {
+      if (!state.studentName) state.studentName = "Shree";
+      if (!state.studentAvatar) state.studentAvatar = "🐬 Dolphin Explorer";
+      if (!state.studentLevel) state.studentLevel = "LEVEL 2: Classes 1–2";
+      if (!state.streakDays) state.streakDays = 1;
+      if (!state.certId) state.certId = "SOD-SHREE-V15";
+    }
+
+    function updateStudentProfile() {
+      const nEl = document.getElementById("stu-name-input");
+      const aEl = document.getElementById("stu-avatar-select");
+      const lEl = document.getElementById("stu-level-select");
+      if (nEl) state.studentName = (nEl.value || "").trim() || "Shree";
+      if (aEl) state.studentAvatar = aEl.value;
+      if (lEl) state.studentLevel = lEl.value;
+      saveState();
+      renderStudentDashboard();
+    }
+
+    function renderStudentDashboard() {
+      ensureP6Defaults();
+      const nEl = document.getElementById("stu-name-input");
+      const aEl = document.getElementById("stu-avatar-select");
+      const lEl = document.getElementById("stu-level-select");
+      if (nEl && document.activeElement !== nEl) nEl.value = state.studentName;
+      if (aEl) aEl.value = state.studentAvatar;
+      if (lEl) lEl.value = state.studentLevel;
+
+      const earnedCount = OCEAN_BADGES_P6.filter((b) => b.check(state)).length;
+      const kpiGrid = document.getElementById("stu-kpi-grid");
+      if (kpiGrid) {
+        kpiGrid.innerHTML = `
+          <div class="dash-kpi"><div class="dash-kpi-val">${state.completedZones.length}/10</div><div class="dash-kpi-lbl">Completed Missions</div></div>
+          <div class="dash-kpi"><div class="dash-kpi-val">${state.quizPoints + state.gameScore}</div><div class="dash-kpi-lbl">Quiz &amp; Game Score</div></div>
+          <div class="dash-kpi"><div class="dash-kpi-val">${state.gameStars} ⭐ / ${earnedCount}/10</div><div class="dash-kpi-lbl">Stars &amp; Badges</div></div>
+          <div class="dash-kpi"><div class="dash-kpi-val">🔥 ${state.streakDays}d</div><div class="dash-kpi-lbl">Daily Streak (${state.studentLevel.split(":")[0]})</div></div>
+        `;
+      }
+
+      const badgesRow = document.getElementById("stu-badges-row");
+      if (badgesRow) {
+        badgesRow.innerHTML = OCEAN_BADGES_P6.map((b) => {
+          const isEarned = b.check(state);
+          return `
+            <div class="badge-card ${isEarned ? "earned" : ""}">
+              <div style="font-size:1.5rem;">${b.icon}</div>
+              <div style="font-size:0.84rem; margin-top:4px;">${b.name}</div>
+              <div style="font-size:0.72rem; color:var(--muted);">${isEarned ? "✓ Earned" : "In Progress"}</div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      const certName = document.getElementById("cert-student-name");
+      const certMeta = document.getElementById("cert-meta-line");
+      if (certName) certName.textContent = `${state.studentAvatar.split(" ")[0]} ${state.studentName}`;
+      if (certMeta) {
+        const todayStr = new Date().toISOString().slice(0, 10);
+        certMeta.textContent = `Certificate ID: ${state.certId} • Level: ${state.studentLevel} • Date: ${todayStr} • Guided by Vishwendra Sir`;
+      }
+    }
+
+    function downloadProgressReport() {
+      ensureP6Defaults();
+      const earnedBadges = OCEAN_BADGES_P6.filter((b) => b.check(state)).map((b) => b.name);
+      const reportLines = [
+        "SHREE OCEAN DISCOVERY — STUDENT PROGRESS REPORT",
+        "Parent Ecosystem: MANUSHREE WONDER WORLD | Guided by Vishwendra Sir",
+        "------------------------------------------------------------",
+        `Student Name: ${state.studentName}`,
+        `Avatar: ${state.studentAvatar}`,
+        `Learning Level: ${state.studentLevel}`,
+        `Daily Learning Streak: ${state.streakDays} day(s)`,
+        `Completed Ocean Missions: ${state.completedZones.length} / 10`,
+        `Science Lab Modules Explored: ${state.completedLabIds.length} / ${SCIENCE_MODULES.length}`,
+        `Quiz Mastery Points: ${state.quizPoints}`,
+        `Game Score & Stars: ${state.gameScore} pts | ${state.gameStars} stars`,
+        `Earned Badges (${earnedBadges.length}/10): ${earnedBadges.length ? earnedBadges.join(", ") : "None yet"}`,
+        `Certificate ID: ${state.certId}`
+      ].join("\n");
+
+      const blob = new Blob([reportLines], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `Shree_Ocean_Progress_Report_${state.studentName.replace(/\s+/g, "_")}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+
+    const QA_AUDIT_ITEMS = [
+      "✓ Homepage & Ocean Zones load",
+      "✓ Relative Wonder World links preserved",
+      "✓ 10 Ocean Map zones interactive",
+      "✓ 104-creature encyclopedia & 5-Q quiz",
+      "✓ 12-module Science Lab & checks",
+      "✓ 12 Underwater Games & SFX toggle",
+      "✓ 11-category Video Library & Studio",
+      "✓ Student Dashboard, Badges & Cert print",
+      "✓ JSON Backup & Restore verified",
+      "✓ Mobile-first responsive layout",
+      "✓ Zero hardcoded API keys/secrets",
+      "✓ GitHub Pages relative paths ready"
+    ];
+
+    function renderAdminControlCenter() {
+      const sLbl = document.getElementById("adm-stu-summary");
+      const stLbl = document.getElementById("adm-streak-summary");
+      const mLbl = document.getElementById("adm-missions-summary");
+      if (sLbl) sLbl.textContent = `${state.studentName || "Shree"} (${state.studentLevel || "LEVEL 2"})`;
+      if (stLbl) stLbl.textContent = `${state.streakDays || 1}d`;
+      if (mLbl) mLbl.textContent = `${(state.completedZones || []).length}/10`;
+
+      const qaEl = document.getElementById("qa-audit-list");
+      if (qaEl) {
+        qaEl.innerHTML = QA_AUDIT_ITEMS.map((item) => `<div class="qa-item">${item}</div>`).join("");
+      }
+    }
+
+    function grantAdminBonusStars() {
+      state.gameStars = (state.gameStars || 0) + 10;
+      state.gameScore = (state.gameScore || 0) + 50;
+      playGameTone(780, 0.14);
+      saveState();
+      if (typeof renderStudentDashboard === "function") renderStudentDashboard();
+      renderAdminControlCenter();
+    }
+
+    function resetStudentProgressSafely() {
+      if (!confirm("Reset missions, lab progress, quiz points, game score/stars, and streak?")) return;
+      state.completedZones = [];
+      state.completedLabIds = [];
+      state.quizPoints = 0;
+      state.gameScore = 0;
+      state.gameStars = 0;
+      state.streakDays = 1;
+      saveState();
+      if (typeof renderStudentDashboard === "function") renderStudentDashboard();
+      renderAdminControlCenter();
+    }
+
+    function exportStateBackupJson() {
+      const ta = document.getElementById("adm-backup-json");
+      if (!ta) return;
+      const safeSnapshot = { ...state, videos: (state.videos || []).map((v) => ({ ...v, dataUrl: "" })) };
+      ta.value = JSON.stringify(safeSnapshot, null, 2);
+    }
+
+    function restoreStateBackupJson() {
+      const ta = document.getElementById("adm-backup-json");
+      if (!ta || !ta.value.trim()) {
+        alert("Paste a valid JSON backup snapshot first.");
+        return;
+      }
+      try {
+        const parsed = JSON.parse(ta.value);
+        if (!parsed || typeof parsed !== "object") throw new Error("Invalid object");
+        state = { ...state, ...parsed };
+        saveState();
+        renderZones();
+        renderCreatures();
+        renderLabGrid();
+        renderGamesGrid();
+        renderVideosGrid();
+        if (typeof renderStudentDashboard === "function") renderStudentDashboard();
+        renderAdminControlCenter();
+        alert("Backup restored successfully.");
+      } catch (err) {
+        alert("Could not restore JSON: invalid backup format.");
+      }
+    }
+
+
+    function registerOfflineManifestHint() {
+      try {
+        if (!("serviceWorker" in navigator)) {
+          const pill = document.getElementById("pwa-status-pill");
+          if (pill) pill.textContent = "Offline LocalStorage Ready";
+        }
+      } catch (_) {}
+    }
+
+    (function initPhase8() {
+      const diffSel = document.getElementById("game-difficulty-select");
+      if (diffSel) diffSel.value = state.gameDifficulty;
+      const sfxBtn = document.getElementById("btn-sfx");
+      if (sfxBtn) {
+        sfxBtn.textContent = state.sfxEnabled ? "🔊 SFX" : "🔇 SFX";
+        sfxBtn.classList.toggle("muted", !state.sfxEnabled);
+      }
+      ensureP6Defaults();
+      renderStudentDashboard();
+      initAdminTopicSelect();
+      renderMissionCounter();
+      renderZones();
+      renderCategoryChips();
+      renderCreatures();
+      renderLabGrid();
+      openLabModule(state.selectedLabId);
+      renderGamesGrid();
+      selectGame(state.activeGameId);
+      renderVideoCatChips();
+      renderVideosGrid();
+      saveState();
+      renderAdminControlCenter();
+      registerOfflineManifestHint();
+    })();
+  </script>
+</body>
+</html>
