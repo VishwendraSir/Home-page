@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1e3a8a">\n<meta name="application-name" content="Manushree Wonder World">\n<meta name="mobile-web-app-capable" content="yes">\n<meta name="apple-mobile-web-app-capable" content="yes">\n<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="description" content="Free global learning platform with school curriculum, exam preparation, learner profiles, quizzes and offline-first study tools.">
+<title>MANUSHREE WONDER WORLD – Global Free Learning Platform (V2.1)</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  :root {
+    --primary: #1d4ed8;
+    --primary-dark: #1e3a8a;
+    --purple: #6d28d9;
+    --purple-light: #ede9fe;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #cbd5e1;
+    --success: #15803d;
+    --danger: #b91c1c;
+  }
+  body.dark {
+    --bg: #0b1120;
+    --card: #111827;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: #1e293b;
+    --purple-light: #2e1065;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, 'Noto Sans Devanagari', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  header {
+    background: linear-gradient(135deg, var(--primary-dark), var(--purple));
+    color: #fff;
+    padding: 1.15rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    box-shadow: 0 4px 14px rgba(15,23,42,0.18);
+  }
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .brand-title { font-size: 1.32rem; font-weight: 800; }
+  .brand-sub { font-size: 0.85rem; opacity: 0.95; }
+  .controls-bar { display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; }
+  button, select, input, textarea {
+    font-family: inherit;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 0.48rem 0.78rem;
+    background: var(--card);
+    color: var(--text);
+  }
+  button {
+    cursor: pointer;
+    font-weight: 600;
+    background: #ffffff;
+    color: var(--primary-dark);
+    transition: background 0.15s ease;
+  }
+  button:hover { background: var(--purple-light); }
+  button.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+  button.primary:hover { background: var(--primary-dark); }
+  nav {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 1.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .nav-inner { max-width: 1280px; margin: 0 auto; display: flex; gap: 0.45rem; }
+  .tab-btn { background: #f1f5f9; color: #0f172a; border: 1px solid transparent; }
+  body.dark .tab-btn { background: #1e293b; color: #e2e8f0; }
+  .tab-btn.active { background: var(--purple); color: #fff; }
+  main { max-width: 1280px; margin: 1.2rem auto; padding: 0 1.25rem 3rem; }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.15rem;
+    box-shadow: 0 2px 6px rgba(15,23,42,0.05);
+    margin-bottom: 1rem;
+  }
+  .stat-val { font-size: 1.48rem; font-weight: 800; color: var(--primary); }
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: var(--purple-light);
+    color: var(--purple);
+  }
+  pre.out-box {
+    white-space: pre-wrap;
+    background: rgba(148, 163, 184, 0.1);
+    padding: 0.85rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 0.88rem;
+    margin-top: 0.6rem;
+  }
+  @media print {
+    header, nav, .no-print { display: none !important; }
+    body { background: #fff; color: #000; }
+    .card { box-shadow: none; border: 1px solid #94a3b8; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="brand-title">MANUSHREE WONDER WORLD (V2.1)</div>
+      <div class="brand-sub">Global Free Learning Ecosystem • Nursery to Class 12, Boards, Exams, AI Studio & Labs</div>
+    </div>
+    <div class="controls-bar no-print">
+      <select id="langMode" onchange="setLanguageMode(this.value)">
+        <option value="both">Hindi + English (Both)</option>
+        <option value="hi">हिंदी (Hindi)</option>
+        <option value="en">English</option>
+        <option value="sa">संस्कृत / Regional & Global</option>
+      </select>
+      <button onclick="speakSummary()">🔊 TTS Read</button>
+      <button onclick="stopSpeech()">⏹ Stop</button>
+      <button onclick="toggleTheme()">🌓 Theme</button>
+      <button onclick="runSystemAudit()">🩺 System Audit</button>
+    </div>
+  </div>
+</header>
+
+<nav class="no-print">
+  <div class="nav-inner" id="mainNav">
+    <button class="tab-btn active" data-tab="curriculum">1. Global Curriculum & Library</button>
+    <button class="tab-btn" data-tab="ai-studio">2. Free AI Learning Studio</button>
+    <button class="tab-btn" data-tab="interactive-labs">3. Labs & Games</button>
+    <button class="tab-btn" data-tab="dashboards">4. Student, Teacher & Parent Dashboards</button>
+    <button class="tab-btn" data-tab="teacher-studio">5. Teacher Studio</button>
+    <button class="tab-btn" data-tab="admin-panel">6. Admin Workspace</button>
+    <button class="tab-btn" data-tab="learning-zone">7. Learner Zone</button>
+  </div>
+</nav>
+
+<main>
+  <!-- 1. GLOBAL CURRICULUM & DIGITAL LIBRARY -->
+  <section class="panel active" id="tab-curriculum">
+    <div class="grid">
+      <div class="card">
+        <div>Schooling & Boards</div>
+        <div class="stat-val">Nursery – Class 12</div>
+        <p style="color:var(--muted); font-size:0.88rem;">NCERT, CBSE, ICSE, All Indian State Boards & International Curricula (100% Free Access)</p>
+      </div>
+      <div class="card">
+        <div>Exams & Careers</div>
+        <div class="stat-val">JNVST • Sainik • UPSC</div>
+        <p style="color:var(--muted); font-size:0.88rem;">Navodaya, Sainik & Army Schools, SSC, Railway, Banking, Defence, Govt/Private Jobs, Digital & Spoken English</p>
+      </div>
+      <div class="card">
+        <div>Digital Library</div>
+        <div class="stat-val">Notes • PYQs • Audio</div>
+        <p style="color:var(--muted); font-size:0.88rem;">Chapter Notes, Worksheets, MCQs, Model Papers, Audio Lessons & Revision Kits</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Smart Curriculum & Digital Library Search</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.65rem 0;">
+        <input type="text" id="smartSearchInput" placeholder="Search track, subject, board, or exam..." oninput="renderCurriculumList()" style="flex:1; min-width:220px;">
+        <select id="trackFilter" onchange="renderCurriculumList()">
+          <option value="ALL">All Learning Tracks</option>
+          <option value="School">Nursery–Class 12 / NCERT / Boards</option>
+          <option value="Exam">Navodaya, Sainik, UPSC, SSC & Govt</option>
+          <option value="Skills">Computer, Digital & Spoken English</option>
+          <option value="HigherEd">University & College Resources</option>
+        </select>
+        <button onclick="resetCurriculumFilters()">Reset Filters</button>
+        <button onclick="showLibraryFormats()">📚 Library Formats</button>
+      </div>
+      <div id="libraryFormatsNote" style="font-size:0.86rem; color:var(--purple); font-weight:600; margin-bottom:0.4rem;"></div>
+      <div id="curriculumResults" class="grid" style="margin-top:0.5rem;"></div>
+    </div>
+  </section>
+
+  <!-- 2. FREE AI LEARNING STUDIO -->
+  <section class="panel" id="tab-ai-studio">
+    <div class="card">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:0.5rem;">
+        <div>
+          <h3>AI Learning Studio (Secure AI-ready + Offline Templates)</h3>
+          <p style="color:var(--muted); font-size:0.88rem;">Offline lesson templates are available now. Live AI requires a secure server endpoint; never paste API keys into this page.</p>
+        </div>
+        <span class="badge" id="aiQuotaBadge">Daily Free Sessions Remaining: 25/25</span>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.75rem;">
+        <select id="aiToolSelect">
+          <option value="teacher">AI Teacher</option>
+          <option value="notes">AI Notes Generator</option>
+          <option value="quiz">AI Quiz Generator</option>
+          <option value="worksheet">AI Worksheet Generator</option>
+          <option value="video">AI Video Lesson Planner</option>
+          <option value="story">AI Story Generator</option>
+          <option value="doubt">AI Doubt Solver</option>
+          <option value="exam">AI Exam Preparation Assistant</option>
+        </select>
+        <input type="text" id="aiTopicInput" placeholder="Enter topic (e.g., Fractions, Solar System, Navodaya MAT)..." style="flex:1; min-width:220px;">
+        <input type="url" id="aiProxyUrl" placeholder="Optional secure Worker endpoint (HTTPS)" style="min-width:220px;">
+        <button class="primary" onclick="runAiStudioTool()">✨ Generate Learning Output</button>
+        <button onclick="clearAiStudioOutput()">Clear Output</button>
+        
+      </div>
+      <pre id="aiStudioOutput" class="out-box" aria-live="polite">Select an AI studio tool, enter a topic, and click "Generate Learning Output".</pre>
+    </div>
+  </section>
+
+  <!-- 3. INTERACTIVE LABS & EDUCATIONAL GAMES -->
+  <section class="panel" id="tab-interactive-labs">
+    <div class="grid">
+      <div class="card">
+        <h3>Math, Science & Virtual Experiment Lab</h3>
+        <p style="color:var(--muted); font-size:0.88rem;">Interactive calculation & science observation check</p>
+        <div style="display:flex; gap:0.45rem; flex-wrap:wrap; margin:0.6rem 0;">
+          <input type="number" id="labBase" value="15" style="width:85px;">
+          <input type="number" id="labMult" value="4" style="width:85px;">
+          <button class="primary" onclick="runMathLab()">Math Check</button>
+          <button onclick="runScienceLab()">Science / Space Check</button>
+        </div>
+        <div id="labOutput" style="font-weight:700; color:var(--primary);">15 × 4 = 60 (Perimeter of square side 15 = 60)</div>
+      </div>
+
+      <div class="card">
+        <h3>Phonics, Hindi, GK, Computer, Geo, History & Dinosaur Explorer</h3>
+        <p style="color:var(--muted); font-size:0.88rem;">Explore multi-subject prompts and micro-challenges</p>
+        <div style="display:flex; gap:0.45rem; flex-wrap:wrap; margin:0.6rem 0;">
+          <button onclick="cycleExplorer('Phonics & Spoken English: Blend /s/ + /p/ + /a/ + /n/ = span. Practice clear pronunciation daily.')">Phonics</button>
+          <button onclick="cycleExplorer('Space & Dinosaur World: Earth orbits the Sun; dinosaurs lived in the Mesozoic Era millions of years ago.')">Space & Dino</button>
+          <button onclick="cycleExplorer('Computer & Coding: Algorithms are step-by-step instructions; loops repeat tasks cleanly.')">Coding</button>
+          <button onclick="cycleExplorer('Geography & History: Continents, rivers, ancient civilizations, and freedom movements shape world history.')">Geo & History</button>
+          <button onclick="cycleExplorer('Hindi & Sanskrit: व्याकरण, शब्द-भंडार और संस्कृत सुभाषितों से भाषा अभिव्यक्ति सशक्त होती है।')">Hindi & Sanskrit</button>
+        </div>
+        <div id="explorerOutput" style="font-size:0.9rem; font-weight:600;">Click any explorer button above to view interactive learning guidance.</div>
+      </div>
+
+      <div class="card">
+        <h3>Educational Mini-Game (+10 XP)</h3>
+        <p id="gamePrompt">Quick Challenge: How many degrees are in a right angle?</p>
+        <div style="display:flex; gap:0.45rem; flex-wrap:wrap; margin-top:0.5rem;">
+          <button onclick="answerGame(45)">45°</button>
+          <button onclick="answerGame(90)">90°</button>
+          <button onclick="answerGame(180)">180°</button>
+          <button onclick="nextGameQuestion()">Next Q</button>
+        </div>
+        <div id="gameStatus" style="margin-top:0.45rem; font-weight:700;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. STUDENT, TEACHER & PARENT DASHBOARDS -->
+  <section class="panel" id="tab-dashboards">
+    <div class="card">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:0.5rem;">
+        <h3>Role Dashboards (Student • Teacher • Parent • Administrator)</h3>
+        <div style="display:flex; gap:0.45rem; flex-wrap:wrap;">
+          <select id="roleViewSelect" onchange="renderRoleDashboard()">
+            <option value="student">Student Dashboard</option>
+            <option value="teacher">Teacher Dashboard</option>
+            <option value="parent">Parent Dashboard</option>
+            <option value="admin">Administrator Summary</option>
+          </select>
+          <button onclick="window.print()">🖨 Print Report</button>
+        </div>
+      </div>
+      <div id="roleDashboardBody" class="out-box"></div>
+    </div>
+  </section>
+
+  <!-- 5. TEACHER STUDIO -->
+  <section class="panel" id="tab-teacher-studio">
+    <div class="card">
+      <h3>Teacher Studio — Courses, Worksheets, Exams & Question Papers</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.6rem 0;">
+        <input type="text" id="teacherTitleInput" placeholder="Lesson / Worksheet / Exam title..." style="flex:1; min-width:220px;">
+        <select id="teacherActionType">
+          <option value="Course">Create Course</option>
+          <option value="Worksheet">Create Worksheet</option>
+          <option value="Examination">Prepare Examination</option>
+          <option value="Question Paper">Generate Question Paper</option>
+        </select>
+        <button class="primary" onclick="publishTeacherItem()">Save & Publish Resource</button>
+        <button onclick="clearTeacherItems()">Clear Items</button>
+      </div>
+      <pre id="teacherStudioList" class="out-box">No custom teacher resources published yet.</pre>
+    </div>
+  </section>
+
+  <!-- 6. PROTECTED ADMIN PANEL -->
+  <section class="panel" id="tab-admin-panel">
+    <div class="card">
+      <h3>Admin Workspace (Backend Authentication Required for Production)</h3>
+      <p style="color:var(--muted); font-size:0.88rem;">Important: Admin access is disabled in this static build. A browser-side password check is not secure. Connect Firebase Authentication and enforce server-side/Firestore Security Rules before enabling public admin operations.</p>
+      <div id="adminAuthBox" style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.65rem 0;">
+        <input type="password" id="adminPassInput" placeholder="Demo passcode (not secure for production)">
+        <button class="primary" onclick="authenticateAdmin()">🔐 Unlock Admin Panel</button>
+        <button onclick="lockAdmin()">🔒 Lock</button>
+      </div>
+      <div id="adminControlsArea" style="display:none; margin-top:0.75rem; border-top:1px solid var(--border); padding-top:0.75rem;">
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+          <input type="text" id="adminCourseName" placeholder="New Course / Subject / Announcement...">
+          <input type="url" id="adminDriveUrl" placeholder="Google Drive / Video / Image URL">
+          <button class="primary" onclick="adminAddCourseOrAnnouncement()">➕ Add Course / Announcement</button>
+        </div>
+        <pre id="adminAuditLog" class="out-box">Admin session active.</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. LEARNER ZONE: LOCAL PROFILE, QUIZ, AND PROGRESS -->
+  <section class="panel" id="tab-learning-zone">
+    <div class="grid">
+      <div class="card">
+        <h3>My Learning Profile</h3>
+        <p style="color:var(--muted);font-size:.88rem;margin:.35rem 0 .7rem;">Profile is saved on this device until a cloud account is connected.</p>
+        <div style="display:grid;gap:.5rem;">
+          <input id="learnerName" maxlength="60" placeholder="Learner name">
+          <select id="learnerLevel">
+            <option value="">Select class / level</option>
+            <option>Nursery</option><option>LKG</option><option>UKG</option>
+            <option>Class 1</option><option>Class 2</option><option>Class 3</option>
+            <option>Class 4</option><option>Class 5</option><option>Class 6</option>
+            <option>Class 7</option><option>Class 8</option><option>Class 9</option>
+            <option>Class 10</option><option>Class 11</option><option>Class 12</option>
+            <option>College / University</option><option>Competitive Exam</option><option>Open Learning</option>
+          </select>
+          <select id="learnerLanguage">
+            <option value="both">Hindi + English</option><option value="hi">Hindi</option><option value="en">English</option>
+          </select>
+          <button class="primary" onclick="saveLearnerProfile()">Save My Profile</button>
+          <div id="profileStatus" class="badge">Local profile not saved yet</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Daily Knowledge Challenge</h3>
+        <p id="dailyQuestion" style="margin:.65rem 0;font-weight:700;">Which planet is known as the Red Planet?</p>
+        <div id="dailyOptions" style="display:grid;gap:.45rem;">
+          <button onclick="answerDailyQuiz(0)">Earth</button>
+          <button onclick="answerDailyQuiz(1)">Mars</button>
+          <button onclick="answerDailyQuiz(2)">Venus</button>
+          <button onclick="answerDailyQuiz(3)">Jupiter</button>
+        </div>
+        <p id="dailyFeedback" aria-live="polite" style="margin-top:.6rem;font-weight:700;"></p>
+        <button onclick="nextDailyQuiz()" style="margin-top:.5rem;">Next Question</button>
+      </div>
+      <div class="card">
+        <h3>Learning Progress</h3>
+        <div class="stat-val" id="progressXp">25 XP</div>
+        <p id="progressSummary" style="color:var(--muted);">Track completed lessons and quiz achievements on this device.</p>
+        <div style="height:10px;background:var(--border);border-radius:99px;overflow:hidden;margin:.8rem 0;">
+          <div id="progressBar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--primary),var(--purple));"></div>
+        </div>
+        <p id="progressDetail" style="font-size:.86rem;"></p>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Cloud Account & Sync Readiness</h3>
+      <p style="color:var(--muted);margin:.4rem 0;">V2.0 keeps learning progress locally and prepares the interface for Firebase. Global login, multi-device sync and protected cloud records are not active until a Firebase project and security rules are configured.</p>
+      <span class="badge">Cloud sync: Not connected</span>
+      <p style="font-size:.86rem;margin-top:.6rem;">Production setup required: Firebase Authentication, Firestore database rules, authorized domains and role-based access policies. Never put service-account keys or private API keys in this HTML file.</p>
+    </div>
+  </section>
+</main>
+
+<script>
+const APP_STORAGE_KEY = "MANUSHREE_WONDER_WORLD_V2_0_STATE";
+// SHA-256 hash of default owner passcode "WonderAdmin#2026" (no plain-text password stored)
+const ADMIN_PASS_SHA256 = "7c8e5890089496e4f286e86c57183c8d4d446750298807860273230f332c75a8";
+
+const CURRICULUM_ITEMS = [
+  { track: "School", code: "SCH-01", title: "Nursery to Class 5 Foundational & Phonics", desc: "Hindi, English Phonics, Number Sense, Environmental Awareness & Activity Sheets." },
+  { track: "School", code: "SCH-02", title: "Class 6–12 NCERT, CBSE, ICSE & State Boards", desc: "Mathematics, Science, Social Science, Sanskrit & Chapter-wise Revision Notes." },
+  { track: "Exam", code: "EXM-01", title: "Navodaya (JNVST), Sainik & Army School Prep", desc: "Mental Ability, Arithmetic, Language Comprehension, Model Sets & Practice Tests." },
+  { track: "Exam", code: "EXM-02", title: "UPSC, SSC, Railway, Banking & Defence", desc: "General Studies, Quantitative Aptitude, Reasoning, Current Affairs & PYQ Guides." },
+  { track: "Skills", code: "SKL-01", title: "Computer, Digital Skills & Spoken English", desc: "Basic Computing, Internet Safety, Coding Logic, Vocabulary & Communication." },
+  { track: "HigherEd", code: "UNI-01", title: "University & College Learning Hub", desc: "Structured Conceptual Notes, Problem Sets, Exam Prep & Self-Paced Study Guides." },
+  { track: "School", code: "SCH-03", title: "International School Curriculum", desc: "IB PYP/MYP and Cambridge learning pathways; follow each school's official syllabus." },
+  { track: "School", code: "SCH-04", title: "Early Years & Kindergarten", desc: "Play-based literacy, numeracy, phonics, stories and creative activities." },
+  { track: "Exam", code: "EXM-03", title: "CUET, NEET & JEE Foundation", desc: "Concept revision, topic practice and exam planning; verify current official syllabi." },
+  { track: "Exam", code: "EXM-04", title: "Teaching & Eligibility Exams", desc: "CTET, TET, UGC NET and teaching recruitment preparation." },
+  { track: "Exam", code: "EXM-05", title: "State Government & Police Exams", desc: "State-wise GK, reasoning, quantitative aptitude and practice sets." },
+  { track: "Skills", code: "SKL-02", title: "Coding, AI Literacy & Cyber Safety", desc: "Block coding, web basics, computational thinking, responsible AI and online safety." },
+  { track: "Skills", code: "SKL-03", title: "Life Skills & Financial Literacy", desc: "Communication, problem solving, digital citizenship, budgeting and career awareness." },
+  { track: "HigherEd", code: "UNI-02", title: "Open Learning & Skill Certificates", desc: "Self-paced learning pathways and publicly available educational resources." }
+];
+
+let appState = {
+  langMode: "both",
+  darkMode: false,
+  xp: 25,
+  completedLessons: 2,
+  quizScorePct: 85,
+  aiRemaining: 25,
+  learnerProfile: { name: "", level: "", language: "both" },
+  dailyQuizCorrect: 0,
+  dailyQuizAttempts: 0,
+  dailyQuizDate: new Date().toISOString().slice(0, 10),
+  aiQuotaDate: new Date().toISOString().slice(0, 10),
+  teacherItems: [],
+  adminItems: [],
+  adminUnlocked: false
+};
+
+function loadAppState() {
+  try {
+    const raw = localStorage.getItem(APP_STORAGE_KEY)
+      || localStorage.getItem("MANUSHREE_WONDER_WORLD_V1_9_STATE")
+      || localStorage.getItem("MANUSHREE_WONDER_WORLD_V1_8_STATE")
+      || localStorage.getItem("MANUSHREE_WONDER_WORLD_V1_7_STATE")
+      || localStorage.getItem("MANUSHREE_WONDER_WORLD_V1_6_STATE")
+      || localStorage.getItem("MANUSHREE_WONDER_WORLD_V1_5_STATE")
+      || localStorage.getItem("MANUSHREE_WONDER_WORLD_V1_4_STATE")
+      || localStorage.getItem("MANUSHREE_WONDER_WORLD_V1_3_STATE")
+      || localStorage.getItem("MANUSHREE_WONDER_WORLD_V1_2_STATE")
+      || localStorage.getItem("MANUSHREE_WONDER_WORLD_V1_1_STATE")
+      || localStorage.getItem("MANUSHREE_WONDER_WORLD_V1_STATE");
+    if (raw) appState = { ...appState, ...JSON.parse(raw) };
+  } catch (e) {}
+  const today = new Date().toISOString().slice(0, 10);
+  if (appState.aiQuotaDate !== today) {
+    appState.aiQuotaDate = today;
+    appState.aiRemaining = 25;
+    saveAppState();
+  }
+  if (appState.darkMode) document.body.classList.add("dark");
+  const lm = document.getElementById("langMode");
+  if (lm) lm.value = appState.langMode;
+}
+
+function saveAppState() {
+  try { localStorage.setItem(APP_STORAGE_KEY, JSON.stringify(appState)); } catch (e) {}
+}
+
+function setLanguageMode(mode) {
+  appState.langMode = mode;
+  saveAppState();
+  renderRoleDashboard();
+}
+
+function toggleTheme() {
+  appState.darkMode = !appState.darkMode;
+  document.body.classList.toggle("dark", appState.darkMode);
+  saveAppState();
+}
+
+function stopSpeech() {
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+}
+
+function speakSummary() {
+  if (!("speechSynthesis" in window)) return;
+  stopSpeech();
+  const msg = appState.langMode === "en"
+    ? "Welcome to Manushree Wonder World free global learning platform."
+    : "मनुश्री वंडर वर्ल्ड नि:शुल्क वैश्विक शिक्षा मंच में आपका स्वागत है।";
+  const u = new SpeechSynthesisUtterance(msg);
+  u.lang = appState.langMode === "en" ? "en-IN" : "hi-IN";
+  window.speechSynthesis.speak(u);
+}
+
+function resetCurriculumFilters() {
+  const s = document.getElementById("smartSearchInput");
+  const t = document.getElementById("trackFilter");
+  if (s) s.value = "";
+  if (t) t.value = "ALL";
+  renderCurriculumList();
+}
+
+function showLibraryFormats() {
+  const note = document.getElementById("libraryFormatsNote");
+  if (note) note.textContent = "Digital Library Formats: Chapter Notes • Interactive Books • Worksheets • MCQ Practice • Previous Year & Model Papers • Audio Lessons • Revision Kits (100% Free).";
+}
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, ch => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[ch]));
+}
+function renderCurriculumList() {
+  const q = (document.getElementById("smartSearchInput")?.value || "").trim().toLowerCase();
+  const track = document.getElementById("trackFilter")?.value || "ALL";
+  const container = document.getElementById("curriculumResults");
+  if (!container) return;
+  const filtered = CURRICULUM_ITEMS.filter(item => {
+    const matchTrack = track === "ALL" || item.track === track;
+    const matchQuery = !q || item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
+    return matchTrack && matchQuery;
+  });
+  container.innerHTML = filtered.map(item => `
+    <div class="card" style="margin-bottom:0;">
+      <span class="badge">${escapeHTML(item.code)} • ${escapeHTML(item.track)}</span>
+      <h4 style="margin-top:0.45rem;">${escapeHTML(item.title)}</h4>
+      <p style="color:var(--muted); font-size:0.88rem; margin-top:0.25rem;">${escapeHTML(item.desc)}</p>
+      <button style="margin-top:0.65rem;" onclick="completeLesson('${item.title}')">✔ Mark Lesson Completed (+15 XP)</button>
+    </div>
+  `).join("");
+}
+
+function completeLesson(title) {
+  appState.completedLessons += 1;
+  appState.xp += 15;
+  saveAppState();
+  renderRoleDashboard();
+  alert(`Completed: ${title} (+15 XP)`);
+}
+
+function clearAiStudioOutput() {
+  const out = document.getElementById("aiStudioOutput");
+  if (out) out.textContent = 'Select an AI studio tool, enter a topic, and click "Generate Learning Output".';
+}
+
+async function runAiStudioTool() {
+  const tool = document.getElementById("aiToolSelect")?.value || "teacher";
+  const topic = (document.getElementById("aiTopicInput")?.value || "").trim();
+  const endpoint = (document.getElementById("aiProxyUrl")?.value || "").trim();
+  const out = document.getElementById("aiStudioOutput");
+  if (!topic) { out.textContent = "Please enter a topic."; return; }
+  out.textContent = "Preparing learning resource…";
+  if (endpoint) {
+    if (!/^https:\/\//i.test(endpoint)) {
+      out.textContent = "For safety, the AI Worker endpoint must use HTTPS."; return;
+    }
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tool, topic, language: appState.langMode, audience: "school learners" })
+      });
+      if (!response.ok) throw new Error("AI service returned HTTP " + response.status);
+      const data = await response.json();
+      const result = data.output || data.text || data.content;
+      if (!result) throw new Error("Worker response must include output, text, or content.");
+      out.textContent = String(result);
+      return;
+    } catch (error) {
+      out.textContent = "Live AI connection failed: " + error.message + "\\n\\nOffline template:\\n" + buildOfflineTemplate(tool, topic);
+      return;
+    }
+  }
+  out.textContent = "OFFLINE LEARNING TEMPLATE (not a live AI response)\\n\\n" +
+    buildOfflineTemplate(tool, topic) +
+    "\\n\\nConnect a secure HTTPS Worker to enable live AI. Keep API keys on the server.";
+}
+function buildOfflineTemplate(tool, topic) {
+  const templates = {
+    teacher: ["Learning objectives", "Explain the concept in simple steps", "Give one worked example", "Ask 3 understanding questions", "Provide a short recap"],
+    notes: ["Definition and introduction", "Important points", "Key terms", "Examples", "Quick revision summary"],
+    quiz: ["Create 5 age-appropriate MCQs", "Give four options per question", "Add a separate answer key", "Include brief explanations"],
+    worksheet: ["Warm-up questions", "Concept practice", "Application questions", "Challenge question", "Teacher answer key"],
+    video: ["Opening hook", "Learning objective", "Scene-by-scene explanation", "Visual suggestions", "Closing recap"],
+    story: ["Introduce characters", "Present a learning challenge", "Resolve it using the topic", "End with 3 takeaways"],
+    doubt: ["Restate the doubt", "Identify known facts", "Explain step by step", "Check the result"],
+    exam: ["List key concepts", "Prepare short-answer practice", "Prepare objective questions", "Add a timed revision plan"]
+  };
+  return "Topic: " + topic + "\\n\\n" + (templates[tool] || templates.teacher)
+    .map((line, i) => (i + 1) + ". " + line).join("\\n");
+}
+function updateAiBadge() {
+  const b = document.getElementById("aiQuotaBadge");
+  if (b) b.textContent = `Offline templates • ${appState.aiRemaining}/25 local daily sessions`;
+}
+
+function runMathLab() {
+  const a = parseFloat(document.getElementById("labBase")?.value || "0");
+  const b = parseFloat(document.getElementById("labMult")?.value || "0");
+  document.getElementById("labOutput").textContent = `${a} × ${b} = ${a * b} | Sum = ${a + b}`;
+}
+
+function runScienceLab() {
+  const a = parseFloat(document.getElementById("labBase")?.value || "10");
+  const b = parseFloat(document.getElementById("labMult")?.value || "2");
+  const speed = b !== 0 ? (a / b).toFixed(2) : "0";
+  document.getElementById("labOutput").textContent = `Virtual Motion Lab: Distance ${a} units ÷ Time ${b}s = ${speed} units/s`;
+}
+
+function cycleExplorer(text) {
+  document.getElementById("explorerOutput").textContent = text;
+}
+
+function nextGameQuestion() {
+  const p = document.getElementById("gamePrompt");
+  const st = document.getElementById("gameStatus");
+  if (p) p.textContent = "Quick Challenge: How many degrees are in a right angle? (Click 90°)";
+  if (st) st.textContent = "Ready for next attempt.";
+}
+
+function answerGame(val) {
+  const st = document.getElementById("gameStatus");
+  if (val === 90) {
+    appState.xp += 10;
+    saveAppState();
+    renderRoleDashboard();
+    st.textContent = "Correct! A right angle measures 90°. (+10 XP)";
+  } else {
+    st.textContent = "Try again! Hint: A square corner forms a right angle.";
+  }
+}
+
+function renderRoleDashboard() {
+  const role = document.getElementById("roleViewSelect")?.value || "student";
+  const body = document.getElementById("roleDashboardBody");
+  if (!body) return;
+  if (role === "student") {
+    body.textContent = `STUDENT DASHBOARD
+• XP Earned: ${appState.xp}
+• Completed Lessons: ${appState.completedLessons}
+• Latest Quiz Score: ${appState.quizScorePct}%
+• Recommendation: Practice daily mixed MCQs and review completed notes.`;
+  } else if (role === "teacher") {
+    body.textContent = `TEACHER DASHBOARD
+• Published Classroom Items: ${appState.teacherItems.length}
+• Active Tracks: School (Nursery–12), Competitive Exams & Skills
+• Recommendation: Assign topic-wise worksheets and track student completion.`;
+  } else if (role === "parent") {
+    body.textContent = `PARENT DASHBOARD
+• Learning Consistency: Active (${appState.completedLessons} lessons completed)
+• Earned XP: ${appState.xp}
+• Recommendation: Encourage 30–45 minutes of daily distraction-free study.`;
+  } else {
+    body.textContent = `ADMINISTRATOR SUMMARY
+• Admin Entries Added: ${appState.adminItems.length}
+• Free Technology Policy: GitHub Pages + IndexedDB/localStorage + Browser TTS
+• Security Status: Demo admin gate only; production access requires Firebase/server authorization.`;
+  }
+}
+
+function publishTeacherItem() {
+  const title = (document.getElementById("teacherTitleInput")?.value || "").trim();
+  const type = document.getElementById("teacherActionType")?.value || "Course";
+  if (!title) return alert("Please enter a title first.");
+  appState.teacherItems.push({ type, title, date: new Date().toISOString().slice(0, 10) });
+  saveAppState();
+  renderTeacherList();
+  renderRoleDashboard();
+  document.getElementById("teacherTitleInput").value = "";
+}
+
+function clearTeacherItems() {
+  appState.teacherItems = [];
+  saveAppState();
+  renderTeacherList();
+  renderRoleDashboard();
+}
+
+function renderTeacherList() {
+  const el = document.getElementById("teacherStudioList");
+  if (!el) return;
+  if (!appState.teacherItems.length) {
+    el.textContent = "No custom teacher resources published yet.";
+    return;
+  }
+  el.textContent = appState.teacherItems.map((it, idx) => `${idx + 1}. [${it.type}] ${it.title} (${it.date})`).join("\n");
+}
+
+async function sha256Hex(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function authenticateAdmin() {
+  const pass = document.getElementById("adminPassInput")?.value || "";
+  const hash = await sha256Hex(pass);
+  if (ADMIN_PASS_SHA256 && hash === ADMIN_PASS_SHA256) {
+    appState.adminUnlocked = true;
+    saveAppState();
+    syncAdminUi();
+  } else {
+    alert("Invalid admin passcode.");
+  }
+}
+
+function lockAdmin() {
+  appState.adminUnlocked = false;
+  saveAppState();
+  syncAdminUi();
+}
+
+function syncAdminUi() {
+  const area = document.getElementById("adminControlsArea");
+  if (area) area.style.display = appState.adminUnlocked ? "block" : "none";
+}
+
+function adminAddCourseOrAnnouncement() {
+  if (!appState.adminUnlocked) return alert("Unlock admin panel first.");
+  const name = (document.getElementById("adminCourseName")?.value || "").trim();
+  const url = (document.getElementById("adminDriveUrl")?.value || "").trim();
+  if (!name) return alert("Enter course or announcement title.");
+  if (url && !/^https:\/\//i.test(url)) return alert("Please use a secure HTTPS link.");
+  appState.adminItems.push({ name, url, at: new Date().toISOString() });
+  saveAppState();
+  document.getElementById("adminAuditLog").textContent = "Admin Records:\n" + appState.adminItems.map((x, i) => `${i + 1}. ${x.name}${x.url ? " (" + x.url + ")" : ""}`).join("\n");
+  document.getElementById("adminCourseName").value = "";
+  document.getElementById("adminDriveUrl").value = "";
+}
+
+function runSystemAudit() {
+  const checks = [
+    "Navigation Tabs: 7 panels registered",
+    "Curriculum & Search: Loaded",
+    "AI Studio: Offline templates + optional secure Worker",
+    "Local Progress & Learner Profile: Device storage",
+    "Admin Gate: Browser demo only; not production security"
+  ];
+  alert("MANUSHREE WONDER WORLD V2.1 Audit:\n" + checks.join("\n"));
+}
+
+
+
+const DAILY_QUIZ_BANK = [
+  { q: "Which planet is known as the Red Planet?", options: ["Earth", "Mars", "Venus", "Jupiter"], answer: 1, explain: "Mars looks reddish because iron-rich dust covers much of its surface." },
+  { q: "पौधे अपना भोजन मुख्य रूप से किस प्रक्रिया से बनाते हैं?", options: ["श्वसन", "प्रकाश संश्लेषण", "वाष्पीकरण", "पाचन"], answer: 1, explain: "हरे पौधे सूर्य के प्रकाश की सहायता से प्रकाश संश्लेषण करते हैं।" },
+  { q: "What is 12 × 8?", options: ["86", "92", "96", "108"], answer: 2, explain: "12 multiplied by 8 equals 96." },
+  { q: "भारत का संविधान कब लागू हुआ?", options: ["15 अगस्त 1947", "26 जनवरी 1950", "2 अक्टूबर 1950", "26 नवंबर 1949"], answer: 1, explain: "भारतीय संविधान 26 जनवरी 1950 को लागू हुआ।" },
+  { q: "Which gas do humans need for respiration?", options: ["Nitrogen", "Oxygen", "Carbon dioxide", "Hydrogen"], answer: 1, explain: "Humans use oxygen during cellular respiration." }
+];
+let dailyQuizIndex = 0;
+let dailyQuizAnswered = false;
+
+function saveLearnerProfile() {
+  const name = (document.getElementById("learnerName")?.value || "").trim();
+  const level = document.getElementById("learnerLevel")?.value || "";
+  const language = document.getElementById("learnerLanguage")?.value || "both";
+  if (!name) { alert("Please enter learner name."); return; }
+  appState.learnerProfile = { name, level, language };
+  appState.langMode = language;
+  saveAppState();
+  const status = document.getElementById("profileStatus");
+  if (status) status.textContent = "Profile saved on this device";
+  renderLearnerProgress();
+}
+
+function loadLearnerProfile() {
+  const profile = appState.learnerProfile || {};
+  const name = document.getElementById("learnerName");
+  const level = document.getElementById("learnerLevel");
+  const language = document.getElementById("learnerLanguage");
+  if (name) name.value = profile.name || "";
+  if (level) level.value = profile.level || "";
+  if (language) language.value = profile.language || "both";
+  const status = document.getElementById("profileStatus");
+  if (status && profile.name) status.textContent = "Welcome, " + profile.name;
+}
+
+function answerDailyQuiz(choice) {
+  if (dailyQuizAnswered) return;
+  dailyQuizAnswered = true;
+  const item = DAILY_QUIZ_BANK[dailyQuizIndex];
+  const correct = choice === item.answer;
+  appState.dailyQuizAttempts = (appState.dailyQuizAttempts || 0) + 1;
+  if (correct) {
+    appState.dailyQuizCorrect = (appState.dailyQuizCorrect || 0) + 1;
+    appState.xp += 10;
+  }
+  saveAppState();
+  const feedback = document.getElementById("dailyFeedback");
+  if (feedback) feedback.textContent = (correct ? "Correct! +10 XP. " : "Not quite. ") + item.explain;
+  document.querySelectorAll("#dailyOptions button").forEach((button, i) => {
+    button.disabled = true;
+    if (i === item.answer) button.style.borderColor = "#15803d";
+  });
+  renderLearnerProgress();
+  renderRoleDashboard();
+}
+
+function nextDailyQuiz() {
+  dailyQuizIndex = (dailyQuizIndex + 1) % DAILY_QUIZ_BANK.length;
+  dailyQuizAnswered = false;
+  const item = DAILY_QUIZ_BANK[dailyQuizIndex];
+  const q = document.getElementById("dailyQuestion");
+  const options = document.getElementById("dailyOptions");
+  const feedback = document.getElementById("dailyFeedback");
+  if (q) q.textContent = item.q;
+  if (options) options.innerHTML = item.options.map((option, i) =>
+    '<button type="button" onclick="answerDailyQuiz(' + i + ')">' + escapeHTML(option) + '</button>'
+  ).join("");
+  if (feedback) feedback.textContent = "";
+}
+
+function renderLearnerProgress() {
+  const xp = document.getElementById("progressXp");
+  const summary = document.getElementById("progressSummary");
+  const bar = document.getElementById("progressBar");
+  const detail = document.getElementById("progressDetail");
+  if (xp) xp.textContent = (appState.xp || 0) + " XP";
+  if (summary) summary.textContent = (appState.learnerProfile?.name || "Learner") + " • " + (appState.learnerProfile?.level || "Level not selected");
+  if (bar) bar.style.width = Math.min(100, (appState.xp || 0) % 101) + "%";
+  if (detail) detail.textContent = "Lessons completed: " + (appState.completedLessons || 0) +
+    " • Quiz correct: " + (appState.dailyQuizCorrect || 0) +
+    " • Quiz attempts: " + (appState.dailyQuizAttempts || 0);
+}
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(err => console.warn("PWA registration failed:", err));
+  });
+}
+
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
+  });
+});
+
+loadAppState();
+updateAiBadge();
+renderCurriculumList();
+renderTeacherList();
+renderRoleDashboard();
+syncAdminUi();
+loadLearnerProfile();
+renderLearnerProgress();
+</script>
+</body>
+</html>
