@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1b4332" />
+  <title>LAVANIYA KRISHISAARTHI 2.0 — HTML5 App</title>
+  <style>
+    :root{--forest:#1b4332;--leaf:#2d6a4f;--leaf-soft:#e9f5ee;--gold:#d4a017;--bg:#f5f7f4;--card:#fff;--text:#15221b;--muted:#4a5d52;--border:#d5dfd8}
+    body.dark{--bg:#0e1913;--card:#16251d;--leaf-soft:#1f3529;--text:#eef6f1;--muted:#a6bdb0;--border:#2a3e33}
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
+    header{background:linear-gradient(120deg,var(--forest),var(--leaf));color:#fff;padding:14px 18px;border-bottom:3px solid var(--gold);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+    .brand-title{font-size:1.1rem;font-weight:700}.brand-sub{font-size:.82rem;color:#f8e6a0}.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.72rem;font-weight:600;background:#d4a01738;border:1px solid var(--gold);color:#fff;margin-left:6px}
+    .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}button,select,input,textarea{font:inherit;padding:8px 10px;border-radius:7px;border:1px solid var(--border);background:var(--card);color:var(--text)}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #d4a017;outline-offset:2px}
+    button.btn-primary{background:var(--leaf);border-color:var(--leaf);color:#fff;font-weight:600}button.btn-gold{background:var(--gold);border-color:var(--gold);color:#161616;font-weight:600}
+    .container{max-width:1180px;margin:16px auto;padding:0 14px 36px;display:grid;gap:14px}.nav-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}.portal-tabs{display:flex;flex-wrap:wrap;gap:8px}.portal-tabs button.active{background:var(--forest);color:#fff;border-color:var(--gold)}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}.card h2,.card h3{margin:0 0 10px;font-size:1.05rem}.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}.field-stack{display:grid;gap:8px}.muted{color:var(--muted);font-size:.85rem}
+    table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.88rem}th,td{padding:8px;border-bottom:1px solid var(--border);text-align:left}.table-wrap{overflow-x:auto}.notice{background:var(--leaf-soft);border-left:4px solid var(--leaf);padding:10px 12px;border-radius:6px;font-size:.86rem}.warn{background:#d4a01724;border-left:4px solid var(--gold);padding:10px 12px;border-radius:6px;font-size:.85rem}.hidden{display:none!important}.kpi{min-width:0;overflow-wrap:anywhere}
+    @media(max-width:600px){header{padding:12px}.toolbar>*{flex:1 1 auto;min-width:0}.toolbar input[type=search]{flex-basis:100%}.portal-tabs button{flex:1 1 calc(50% - 8px)}}
+    @media print{header,.nav-row,.no-print{display:none!important}.card{border:1px solid #999;break-inside:avoid}body{background:#fff;color:#000}}
+  </style>
+</head>
+<body>
+<header>
+  <div style="display:flex;align-items:center;gap:10px">
+    <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#143326" stroke="#d4a017" stroke-width="2"/><circle cx="28" cy="11" r="4" fill="#f5c518"/><path d="M10 28Q20 12 30 28Z" fill="#52b788"/><path d="M20 28V14M20 19L15 15M20 22L25 18" stroke="#fff" stroke-width="1.8" fill="none"/></svg>
+    <div><div class="brand-title">LAVANIYA KRISHISAARTHI 2.0 <span class="badge" id="modeBadge">DEMO MODE</span></div><div class="brand-sub">Smart Farming | Smart Business | Better Income — Guided by Mahesh Lavaniya</div></div>
+  </div>
+  <div class="toolbar">
+    <select id="regionSelect" aria-label="उत्तर प्रदेश क्षेत्र"><option value="Western UP">Western UP (Agra / Meerut)</option><option value="Central UP">Central UP (Lucknow / Kanpur)</option><option value="Eastern UP">Eastern UP (Varanasi / Gorakhpur)</option><option value="Bundelkhand">Bundelkhand (Jhansi / Banda)</option></select>
+    <input id="searchInput" type="search" placeholder="खोजें / Search crop or input..." aria-label="Search marketplace" />
+    <button id="langToggle" class="btn-gold">English</button><button id="themeToggle">Dark/Light</button><button id="printBtn" class="no-print">Print / PDF</button>
+  </div>
+</header>
+<main class="container">
+  <div class="nav-row"><div class="portal-tabs" id="portalTabs"><button class="active" data-portal="farmer" id="tabFarmer">किसान पोर्टल</button><button data-portal="trader" id="tabTrader">व्यापारी पोर्टल</button><button data-portal="seller" id="tabSeller">विक्रेता पोर्टल</button><button data-portal="admin" id="tabAdmin">एडमिन पैनल</button></div><div class="muted" id="statusBar">Offline-ready local demo • Payment gateway disabled</div></div>
+  <div class="warn" id="safetyBanner"><strong>Demo &amp; Safety Notice:</strong> Sample fixtures are shown. Firebase/Cloudflare credentials are not connected. For crop protection or fertilizers, follow registered product labels and local KVK guidance only.</div>
+  <section class="card" id="portalOverview"><h2 id="portalHeading">किसान पोर्टल (Farmer Portal)</h2><p class="muted" id="portalDesc">Individual farmer records, crop expense &amp; profit tracking, crop selling offers, and UP regional crop/mandi reference in Demo Mode.</p><div class="grid-3" id="kpiGrid"></div></section>
+  <div class="grid-2">
+    <section class="card"><h3 id="calcHeading">खेती लागत व लाभ कैलकुलेटर (P&amp;L)</h3><div class="field-stack"><input id="cropNameInput" type="text" value="Wheat / गेहूँ" placeholder="Crop name" /><input id="seedCost" type="number" min="0" step="0.01" value="3200" placeholder="Seed cost (₹)" /><input id="inputCost" type="number" min="0" step="0.01" value="11800" placeholder="Fertilizer, irrigation &amp; labour (₹)" /><input id="grossIncome" type="number" min="0" step="0.01" value="44000" placeholder="Expected crop income (₹)" /><div style="display:flex;gap:8px;flex-wrap:wrap"><button id="calcBtn" class="btn-primary">गणना करें</button><button id="exportCsvBtn">Export CSV</button></div><div class="notice" id="calcOutput" aria-live="polite"></div></div></section>
+    <section class="card"><h3 id="tradeHeading">व्यापारी खरीद मांग व किसान ऑफर</h3><div class="notice" id="reqBox"><strong>Active Requirement:</strong> Potato • 100 Quintal • Agra • Quality: Grade A</div><div class="field-stack" style="margin-top:10px"><div style="display:flex;gap:8px;flex-wrap:wrap"><input id="offerFarmerInput" type="text" placeholder="Farmer name / किसान नाम" value="Ramesh Yadav" style="flex:1;min-width:140px" maxlength="80" /><input id="offerRateInput" type="number" min="1" step="1" placeholder="₹ / Quintal" value="1460" style="width:130px" /><button id="addOfferBtn" class="btn-primary">ऑफर भेजें</button></div><div class="table-wrap"><table><thead><tr><th>Farmer</th><th>Offer (₹/Q)</th><th>Action</th></tr></thead><tbody id="offersTableBody"></tbody></table></div></div></section>
+  </div>
+  <div class="grid-2">
+    <section class="card"><h3 id="marketHeading">कृषि उत्पाद बाज़ार (Enquiry / COD Notes)</h3><div class="muted" style="margin-bottom:8px">Online checkout is disabled pending verified payment credentials. Use enquiry or seller-supported COD arrangement.</div><div class="table-wrap"><table><thead><tr><th>Item</th><th>Category</th><th>Price (₹)</th><th>Enquiry</th></tr></thead><tbody id="marketTableBody"></tbody></table></div><div class="notice hidden" id="enquiryStatus" style="margin-top:10px" aria-live="polite"></div></section>
+    <section class="card"><h3 id="upHeading">उत्तर प्रदेश क्षेत्र व फसल संदर्भ</h3><div id="upRegionInfo" class="field-stack"></div></section>
+  </div>
+  <section class="card"><h3>डेटा एवं सुरक्षा स्थिति</h3><p class="muted">यह standalone demo है। Records इसी browser के local storage में रहेंगे; दूसरे device या users के साथ sync नहीं होंगे। Production के लिए Firebase Authentication, Firestore Security Rules और server-side authorization configure करना आवश्यक है।</p><button id="clearDemoBtn" class="no-print">Clear this device's demo data</button></section>
+</main>
+<script>
+(() => {
+  'use strict';
+  const STORAGE_KEY='lavaniya_krishisaarthi_v2_demo';
+  const defaultState={lang:'hi',dark:false,portal:'farmer',region:'Western UP',offers:[{id:1,farmer:'Suresh Verma',rate:1480,status:'Open'},{id:2,farmer:'Kavita Devi',rate:1450,status:'Open'}]};
+  const upRegions={
+    'Western UP':{crops:'Sugarcane, Wheat, Potato, Mustard, Maize',note:'High irrigation intensity; major potato & sugarcane belts (e.g., Agra, Meerut).'},
+    'Central UP':{crops:'Paddy, Wheat, Potato, Pulses, Vegetables',note:'Alluvial plains with mixed cereal, vegetable, and pulse cultivation.'},
+    'Eastern UP':{crops:'Paddy, Wheat, Maize, Pulses, Vegetables',note:'Higher monsoon rainfall; small and marginal holdings across Purvanchal.'},
+    'Bundelkhand':{crops:'Pulses, Oilseeds, Wheat, Bajra, Mustard',note:'Rainfed & moisture-sensitive pockets; soil conservation and pulse cropping matter.'}
+  };
+  const products=[
+    {name:'Certified Wheat Seed (Demo)',cat:'Seeds',price:1850,seller:'Agra Agro Inputs'},
+    {name:'Organic Vermicompost 50kg',cat:'Organic Manure',price:650,seller:'Bundelkhand Bio Store'},
+    {name:'Knapsack Manual Sprayer 16L',cat:'Sprayers',price:1420,seller:'Awadh Farm Tools'}
+  ];
+  const labels={
+    hi:{langBtn:'English',tabFarmer:'किसान पोर्टल',tabTrader:'व्यापारी पोर्टल',tabSeller:'विक्रेता पोर्टल',tabAdmin:'एडमिन पैनल',calcHeading:'खेती लागत व लाभ कैलकुलेटर (P&L)',calcBtn:'गणना करें',tradeHeading:'व्यापारी खरीद मांग व किसान ऑफर',addOfferBtn:'ऑफर भेजें',marketHeading:'कृषि उत्पाद बाज़ार (Enquiry / COD)',upHeading:'उत्तर प्रदेश क्षेत्र व फसल संदर्भ'},
+    en:{langBtn:'हिन्दी',tabFarmer:'Farmer Portal',tabTrader:'Trader Portal',tabSeller:'Seller Portal',tabAdmin:'Admin Panel',calcHeading:'Crop Cost & Profit Calculator (P&L)',calcBtn:'Calculate',tradeHeading:'Trader Buying Requirement & Farmer Offers',addOfferBtn:'Submit Offer',marketHeading:'Agricultural Inputs Marketplace (Enquiry / COD)',upHeading:'Uttar Pradesh Regional & Crop Reference'}
+  };
+  const $=id=>document.getElementById(id);
+  function loadState(){try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return structuredClone(defaultState);const parsed=JSON.parse(raw);return {...defaultState,...parsed,offers:Array.isArray(parsed.offers)?parsed.offers.filter(o=>o&&Number.isFinite(Number(o.id))&&typeof o.farmer==='string'&&Number.isFinite(Number(o.rate))&&Number(o.rate)>0):defaultState.offers};}catch{return structuredClone(defaultState);}}
+  let state=loadState();
+  function saveState(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));return true;}catch{setStatus('Storage unavailable — changes may not persist');return false;}}
+  function setStatus(msg){$('statusBar').textContent=msg;}
+  function money(n){return Number(n).toLocaleString('en-IN',{maximumFractionDigits:2});}
+  function cell(tag,text){const el=document.createElement(tag);el.textContent=String(text);return el;}
+  function applyLanguage(){const t=labels[state.lang]||labels.hi;document.documentElement.lang=state.lang;$('langToggle').textContent=t.langBtn;[['tabFarmer','tabFarmer'],['tabTrader','tabTrader'],['tabSeller','tabSeller'],['tabAdmin','tabAdmin'],['calcHeading','calcHeading'],['calcBtn','calcBtn'],['tradeHeading','tradeHeading'],['addOfferBtn','addOfferBtn'],['marketHeading','marketHeading'],['upHeading','upHeading']].forEach(([id,key])=>$(id).textContent=t[key]);}
+  function renderPortal(){document.querySelectorAll('#portalTabs button').forEach(btn=>btn.classList.toggle('active',btn.dataset.portal===state.portal));const titles={farmer:['किसान पोर्टल (Farmer Portal)','Private farm expenses, P&L, crop selling offers, and UP guides in Demo Mode.'],trader:['व्यापारी पोर्टल (Trader Portal)','Publish buying requirements, compare farmer offers, and manage procurement notes.'],seller:['विक्रेता पोर्टल (Seller Portal)','Demo listing view. Live stock, enquiries and seller approvals require a secured backend.'],admin:['एडमिन पैनल (Admin Panel)','Read-only demo overview. Production admin access requires Firebase Auth and server-verified admin claims.']};const [h,d]=titles[state.portal]||titles.farmer;$('portalHeading').textContent=h+' • '+state.region;$('portalDesc').textContent=d;const kpis=[['Active Region',state.region],['Open Trade Offers',state.offers.filter(o=>o.status==='Open').length],['Mode','Demo (Local)']];$('kpiGrid').replaceChildren(...kpis.map(([k,v])=>{const box=document.createElement('div');box.className='notice kpi';const strong=cell('strong',k+': ');box.append(strong,document.createTextNode(v));return box;}));}
+  function computePnl(){const crop=$('cropNameInput').value.trim()||'Crop';const seed=Math.max(0,Number($('seedCost').value)||0);const inp=Math.max(0,Number($('inputCost').value)||0);const inc=Math.max(0,Number($('grossIncome').value)||0);const totalCost=seed+inp;const net=inc-totalCost;$('calcOutput').textContent=crop+' — Total Cost: ₹'+money(totalCost)+' | Gross: ₹'+money(inc)+' | Net: ₹'+money(net)+' ('+(net>=0?'Profit':'Loss')+')';return{crop,seed,inp,totalCost,inc,net};}
+  function exportCsv(){const r=computePnl();const rows=[['Region','Crop','SeedCost','OtherCost','TotalCost','GrossIncome','NetProfitLoss'],[state.region,r.crop,r.seed,r.inp,r.totalCost,r.inc,r.net]];const csv='\uFEFF'+rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='krishisaarthi-pnl-demo.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+  function renderOffers(){const tbody=$('offersTableBody');tbody.replaceChildren();state.offers.forEach(o=>{const tr=document.createElement('tr'),farmer=cell('td',o.farmer),rate=cell('td','₹'+money(o.rate)+' ('+o.status+')'),action=cell('td','');const btn=cell('button',o.status==='Accepted (Demo)'?'Accepted':'Shortlist');btn.type='button';btn.dataset.accept=String(o.id);btn.disabled=o.status==='Accepted (Demo)';action.append(btn);tr.append(farmer,rate,action);tbody.append(tr);});}
+  function renderMarketplace(){const q=$('searchInput').value.trim().toLocaleLowerCase();const tbody=$('marketTableBody');tbody.replaceChildren();const filtered=products.filter(p=>!q||[p.name,p.cat,p.seller].some(v=>v.toLocaleLowerCase().includes(q)));filtered.forEach(p=>{const tr=document.createElement('tr'),name=cell('td',p.name),seller=cell('div',p.seller);seller.className='muted';name.append(seller);const cat=cell('td',p.cat),price=cell('td','₹'+money(p.price)),action=cell('td',''),btn=cell('button','Enquire');btn.type='button';btn.dataset.enquire=p.name;action.append(btn);tr.append(name,cat,price,action);tbody.append(tr);});if(!filtered.length){const tr=cell('tr','');const td=cell('td','No matching products found.');td.colSpan=4;tr.append(td);tbody.append(tr);}}
+  function renderUpRegion(){const info=upRegions[state.region]||upRegions['Western UP'];const crops=cell('div','');crops.className='notice';crops.append(cell('strong','Key Crops ('+state.region+'): '),document.createTextNode(info.crops));const note=cell('div',info.note);note.className='muted';$('upRegionInfo').replaceChildren(crops,note);}
+  function renderAll(){document.body.classList.toggle('dark',Boolean(state.dark));$('regionSelect').value=state.region;applyLanguage();renderPortal();renderOffers();renderMarketplace();renderUpRegion();computePnl();}
+  $('langToggle').addEventListener('click',()=>{state.lang=state.lang==='hi'?'en':'hi';saveState();applyLanguage();});
+  $('themeToggle').addEventListener('click',()=>{state.dark=!state.dark;document.body.classList.toggle('dark',state.dark);saveState();});
+  $('printBtn').addEventListener('click',()=>window.print());
+  $('regionSelect').addEventListener('change',e=>{state.region=e.target.value;saveState();renderPortal();renderUpRegion();});
+  $('searchInput').addEventListener('input',renderMarketplace);
+  $('portalTabs').addEventListener('click',e=>{const btn=e.target.closest('button[data-portal]');if(!btn)return;state.portal=btn.dataset.portal;saveState();renderPortal();});
+  $('calcBtn').addEventListener('click',computePnl);$('exportCsvBtn').addEventListener('click',exportCsv);
+  $('addOfferBtn').addEventListener('click',()=>{const farmer=$('offerFarmerInput').value.trim()||'Farmer';const rate=Number($('offerRateInput').value);if(farmer.length>80||!Number.isFinite(rate)||rate<=0){setStatus('Enter a valid farmer name and positive offer rate');return;}state.offers.push({id:Date.now(),farmer,rate,status:'Open'});saveState();renderOffers();renderPortal();setStatus('Offer added to local demo.');});
+  $('offersTableBody').addEventListener('click',e=>{const btn=e.target.closest('button[data-accept]');if(!btn)return;const id=Number(btn.dataset.accept);state.offers=state.offers.map(o=>o.id===id?{...o,status:'Accepted (Demo)'}:o);saveState();renderOffers();renderPortal();});
+  $('marketTableBody').addEventListener('click',e=>{const btn=e.target.closest('button[data-enquire]');if(!btn)return;const box=$('enquiryStatus');box.classList.remove('hidden');box.textContent='Demo enquiry selected: '+btn.dataset.enquire+'. No message has been sent; connect a verified seller contact workflow for live enquiries.';});
+  $('clearDemoBtn').addEventListener('click',()=>{if(!window.confirm('Clear this app\'s demo data from this device?'))return;try{localStorage.removeItem(STORAGE_KEY);}catch{}state=structuredClone(defaultState);renderAll();setStatus('Demo data cleared on this device.');});
+  renderAll();
+})();
+</script>
+</body>
+</html>
