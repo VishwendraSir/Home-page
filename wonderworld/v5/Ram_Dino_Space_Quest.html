@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#1e1b4b" />
+  <title>🚀 Ram Dino Space Quest (Phase 7 Complete) — Manushree Wonder World</title>
+  <style>
+    :root {
+      --space-deep: #0b1026;
+      --space-indigo: #1e1b4b;
+      --jungle-dark: #0f3d2e;
+      --jungle-green: #16a34a;
+      --amber-glow: #f59e0b;
+      --cyan-neon: #22d3ee;
+      --purple-nebula: #7c3aed;
+      --coral-flare: #fb7185;
+      --white: #ffffff;
+      --ink: #0f172a;
+      --muted: #475569;
+      --glass: rgba(255, 255, 255, 0.94);
+      --shadow: 0 12px 30px rgba(11, 16, 38, 0.16);
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Trebuchet MS", "Nunito", "Segoe UI", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(34, 211, 238, 0.2), transparent 36%),
+        radial-gradient(circle at 88% 15%, rgba(124, 58, 237, 0.2), transparent 38%),
+        linear-gradient(180deg, #eef6ff 0%, #f3f0ff 52%, #ecfdf5 100%);
+      overflow-x: hidden;
+    }
+
+    body.dark-mode {
+      color: #f1f5f9;
+      background:
+        radial-gradient(circle at 15% 12%, rgba(34, 211, 238, 0.16), transparent 38%),
+        radial-gradient(circle at 85% 15%, rgba(124, 58, 237, 0.22), transparent 40%),
+        linear-gradient(180deg, #070b1d 0%, #111836 55%, #091e26 100%);
+    }
+
+    body.dark-mode .panel,
+    body.dark-mode .char-card {
+      background: rgba(18, 26, 56, 0.92);
+      color: #f8fafc;
+      border-color: #334155;
+    }
+
+    body.dark-mode .main-header {
+      background: rgba(15, 23, 42, 0.94);
+      border-bottom-color: #334155;
+    }
+
+    body.dark-mode .brand-title,
+    body.dark-mode .nav-btn {
+      color: #f8fafc;
+    }
+
+    body.dark-mode .nav-btn {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    body.dark-mode .nav-btn.active {
+      background: linear-gradient(135deg, var(--purple-nebula), var(--cyan-neon));
+      color: #04101f;
+    }
+
+    body.reduced-motion *,
+    body.reduced-motion *::before,
+    body.reduced-motion *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    button, select {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      touch-action: manipulation;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Wonder World Switcher Bar */
+    .switcher-bar {
+      background: var(--space-deep);
+      color: var(--white);
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      border-bottom: 2px solid var(--cyan-neon);
+    }
+
+    .switcher-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .switcher-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .sw-link {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-weight: 700;
+      transition: background 0.15s ease;
+    }
+
+    .sw-link:hover, .sw-link.active-proj {
+      background: var(--cyan-neon);
+      color: var(--space-deep);
+    }
+
+    /* Sticky Header */
+    .main-header {
+      position: sticky;
+      top: 0;
+      z-index: 35;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border-bottom: 3px solid #c7d2fe;
+      padding: 10px 14px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    .header-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--jungle-green), var(--purple-nebula), var(--cyan-neon));
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      color: var(--white);
+      box-shadow: 0 6px 14px rgba(124, 58, 237, 0.28);
+    }
+
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--space-indigo);
+    }
+
+    .brand-sub {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .action-chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: var(--space-indigo);
+      border: 2px solid #c7d2fe;
+      font-weight: 800;
+      font-size: 0.8rem;
+      min-height: 38px;
+    }
+
+    .action-chip.active {
+      background: linear-gradient(135deg, var(--purple-nebula), var(--cyan-neon));
+      color: var(--space-deep);
+      border-color: transparent;
+    }
+
+    /* Module Navigation */
+    .nav-strip {
+      max-width: 1240px;
+      margin: 10px auto 0;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+
+    .nav-strip::-webkit-scrollbar { display: none; }
+
+    .nav-btn {
+      flex: 0 0 auto;
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: var(--white);
+      color: var(--ink);
+      border: 2px solid #cbd5e1;
+      font-weight: 800;
+      font-size: 0.86rem;
+      min-height: 44px;
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, var(--jungle-green), var(--purple-nebula));
+      color: var(--white);
+      border-color: transparent;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 16px auto 48px;
+      padding: 0 14px;
+    }
+
+    .view-sec {
+      display: none;
+      animation: fadeSlide 0.24s ease;
+    }
+
+    .view-sec.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Banner */
+    .hero-card {
+      background: linear-gradient(135deg, var(--space-deep) 0%, var(--space-indigo) 52%, var(--jungle-dark) 100%);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      border: 3px solid var(--cyan-neon);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 840px) {
+      .hero-card { grid-template-columns: 1fr; }
+    }
+
+    .hero-pill {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.18);
+      border: 1px solid var(--cyan-neon);
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .hero-h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+      line-height: 1.15;
+    }
+
+    .hero-tag {
+      margin: 0 0 10px;
+      font-weight: 800;
+      color: #67e8f9;
+      font-size: 0.98rem;
+    }
+
+    .hero-p {
+      margin: 0 0 16px;
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-amber {
+      background: linear-gradient(135deg, var(--amber-glow), var(--coral-flare));
+      color: var(--space-deep);
+      font-weight: 900;
+      padding: 12px 18px;
+      border-radius: 15px;
+      min-height: 46px;
+      font-size: 0.94rem;
+    }
+
+    .btn-cyan {
+      background: var(--cyan-neon);
+      color: var(--space-deep);
+      font-weight: 900;
+      padding: 12px 18px;
+      border-radius: 15px;
+      min-height: 46px;
+      font-size: 0.94rem;
+    }
+
+    .scene-stage {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid var(--cyan-neon);
+      background: linear-gradient(180deg, #090d24 0%, #172554 58%, #064e3b 100%);
+    }
+
+    .scene-stage svg {
+      width: 100%;
+      height: 250px;
+      display: block;
+    }
+
+    @keyframes hoverBob {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .hover-bob { animation: hoverBob 3.2s ease-in-out infinite; }
+
+    .panel {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      border: 3px solid #dbeafe;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .panel-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .panel-top h2 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .level-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .level-btn {
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: var(--ink);
+      border: 2px solid #cbd5e1;
+      font-weight: 800;
+      font-size: 0.82rem;
+      min-height: 38px;
+    }
+
+    .level-btn.active {
+      background: linear-gradient(135deg, var(--jungle-green), var(--purple-nebula));
+      color: var(--white);
+      border-color: transparent;
+    }
+
+    .chars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 12px;
+    }
+
+    .char-card {
+      background: #f8fafc;
+      border: 2.5px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .char-card.selected {
+      border-color: var(--purple-nebula);
+      background: #f5f3ff;
+    }
+
+    .status-tag {
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: var(--space-indigo);
+    }
+
+    .footer-sig {
+      text-align: center;
+      padding: 20px 14px 36px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+  
+    .zones-grid-12, .dino-grid-100 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .zone-box, .dino-card {
+      background: #f8fafc;
+      border: 2.5px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+      transition: transform 0.14s ease, border-color 0.14s ease;
+    }
+    body.dark-mode .zone-box, body.dark-mode .dino-card {
+      background: rgba(23, 34, 72, 0.92);
+      border-color: #334155;
+      color: #f8fafc;
+    }
+    .zone-box:hover, .dino-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--purple-nebula);
+    }
+    .zone-box.done {
+      border-color: var(--jungle-green);
+      background: #f0fdf4;
+    }
+    body.dark-mode .zone-box.done {
+      background: rgba(16, 60, 44, 0.75);
+      border-color: #34d399;
+    }
+    .stage-box-p2 {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(125deg, #ecfdf5 0%, #eef2ff 55%, #faf5ff 100%);
+      border: 2.5px solid var(--purple-nebula);
+    }
+    body.dark-mode .stage-box-p2 {
+      background: linear-gradient(125deg, #0d2b24 0%, #172047 60%, #261442 100%);
+      color: #f8fafc;
+    }
+    .search-box-p2 {
+      flex: 1 1 240px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 2px solid #cbd5e1;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      background: #ffffff;
+      color: #0f172a;
+    }
+    .cat-bar-p2 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0 12px;
+    }
+    .cat-pill-p2 {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: var(--space-indigo);
+      border: 2px solid #c7d2fe;
+      font-weight: 800;
+      font-size: 0.78rem;
+      min-height: 36px;
+    }
+    .cat-pill-p2.active {
+      background: linear-gradient(135deg, var(--jungle-green), var(--purple-nebula));
+      color: #ffffff;
+      border-color: transparent;
+    }
+    .meta-grid-p2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .meta-item-p2 {
+      background: rgba(255, 255, 255, 0.88);
+      color: #0f172a;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+    .opt-btn-p2 {
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: #ffffff;
+      color: #0f172a;
+      border: 2px solid #93c5fd;
+      font-weight: 800;
+      font-size: 0.88rem;
+      min-height: 44px;
+    }
+    .opt-btn-p2.ok {
+      background: #dcfce7;
+      border-color: #16a34a;
+      color: #14532d;
+    }
+    .opt-btn-p2.bad {
+      background: #ffe4e6;
+      border-color: #e11d48;
+      color: #881337;
+    }
+    .opts-grid-p2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 8px;
+      margin: 10px 0;
+    }
+
+  
+    .era-grid-6, .fossil-grid-p3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .era-card-p3, .fossil-card-p3 {
+      background: #f8fafc;
+      border: 2.5px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    body.dark-mode .era-card-p3, body.dark-mode .fossil-card-p3 {
+      background: rgba(23, 34, 72, 0.92);
+      border-color: #334155;
+      color: #f8fafc;
+    }
+    .era-card-p3.done, .fossil-card-p3.found {
+      border-color: var(--jungle-green);
+      background: #f0fdf4;
+    }
+    body.dark-mode .era-card-p3.done, body.dark-mode .fossil-card-p3.found {
+      background: rgba(16, 60, 44, 0.75);
+      border-color: #34d399;
+    }
+    .dig-grid-p3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(82px, 1fr));
+      gap: 10px;
+      max-width: 340px;
+      margin: 12px 0;
+    }
+    .dig-cell-p3 {
+      min-height: 76px;
+      border-radius: 14px;
+      background: #fef3c7;
+      border: 2.5px solid #d97706;
+      color: #451a03;
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+    .dig-cell-p3.dug {
+      background: #e0f2fe;
+      border-color: #0284c7;
+      color: #0c4a6e;
+    }
+    .skel-parts-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .skel-part-btn {
+      padding: 9px 13px;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #0f172a;
+      border: 2px solid #93c5fd;
+      font-weight: 800;
+      font-size: 0.84rem;
+      min-height: 40px;
+    }
+    .skel-part-btn.placed {
+      background: #dcfce7;
+      border-color: #16a34a;
+      color: #14532d;
+    }
+
+  
+    .space-grid-12, .solar-grid-14 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .space-card-p4, .solar-card-p4 {
+      background: #f8fafc;
+      border: 2.5px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    body.dark-mode .space-card-p4, body.dark-mode .solar-card-p4 {
+      background: rgba(23, 34, 72, 0.92);
+      border-color: #334155;
+      color: #f8fafc;
+    }
+    .space-card-p4.done, .solar-card-p4.done {
+      border-color: var(--cyan-neon);
+      background: #ecfeff;
+    }
+    body.dark-mode .space-card-p4.done, body.dark-mode .solar-card-p4.done {
+      background: rgba(14, 52, 74, 0.8);
+      border-color: #22d3ee;
+    }
+    .ship-form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .ship-lbl {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+    .ship-inp, .ship-sel {
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 2px solid #93c5fd;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+  
+    .game-center-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+      gap: 10px;
+      margin: 10px 0 14px;
+    }
+    .g-tile-p5 {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    body.dark-mode .g-tile-p5 {
+      background: rgba(23, 34, 72, 0.92);
+      border-color: #334155;
+      color: #f8fafc;
+    }
+    .g-tile-p5.active-g {
+      border-color: var(--purple-nebula);
+      background: #f5f3ff;
+    }
+    body.dark-mode .g-tile-p5.active-g {
+      background: rgba(59, 28, 108, 0.78);
+      border-color: #a855f7;
+    }
+
+  
+    .grid-cards-p6 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+      margin: 10px 0 14px;
+    }
+    .card-p6 {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    body.dark-mode .card-p6 {
+      background: rgba(23, 34, 72, 0.92);
+      border-color: #334155;
+      color: #f8fafc;
+    }
+    .card-p6.done-p6 {
+      border-color: var(--jungle-green);
+      background: #f0fdf4;
+    }
+    body.dark-mode .card-p6.done-p6 {
+      background: rgba(16, 60, 44, 0.75);
+      border-color: #34d399;
+    }
+    .buddy-box-p6 {
+      max-height: 240px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.88);
+      color: #0f172a;
+      border: 1.5px solid #cbd5e1;
+    }
+    .bub-p6 {
+      padding: 9px 12px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .bub-buddy { background: #e0f2fe; }
+    .bub-user { background: #ede9fe; align-self: flex-end; }
+    @media print {
+      .switcher-bar, .main-header, .footer-sig, .no-print-ram, #mod-home, #mod-dino-world, #mod-dino-ency, #mod-time-machine, #mod-fossil-lab, #mod-space-exp, #mod-solar-lab, #mod-ship-builder, #mod-dino-games, #mod-space-games, #mod-science-lab, #mod-dino-buddy, #mod-quiz-arena, #mod-missions, #mod-parent-teacher, #mod-admin, #mod-settings, #mod-other {
+        display: none !important;
+      }
+      #mod-progress, #mod-badges-certs {
+        display: block !important;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Manushree Wonder World Ecosystem Switcher -->
+  <div class="switcher-bar" role="navigation" aria-label="Manushree Wonder World Switcher">
+    <div class="switcher-inner">
+      <div><strong>MANUSHREE WONDER WORLD</strong> &bull; Guided by Vishwendra Sir</div>
+      <div class="switcher-links">
+        <a class="sw-link" href="./index.html">&larr; Back to Wonder World</a>
+        <a class="sw-link" href="./index.html">Main Manushree Wonder World</a>
+        <a class="sw-link" href="./Manushree_Candy_Garden_V4_9_Complete.html">Manushree Candy Garden</a>
+        <a class="sw-link" href="./Shree_Ocean_Discovery_Complete.html">Shree Ocean Discovery</a>
+        <a class="sw-link active-proj" href="./Ram_Dino_Space_Quest.html">Ram Dino Space Quest</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="header-inner">
+      <div class="brand-box">
+        <div class="brand-badge">🚀</div>
+        <div>
+          <div class="brand-title">RAM DINO SPACE QUEST <span style="color:var(--purple-nebula); font-size:0.8rem;">Phase 7 Complete</span></div>
+          <div class="brand-sub">Explore Dinosaurs &bull; Discover Space &bull; Travel Beyond Imagination</div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button class="action-chip" id="btn-lang" onclick="cycleLang()">🌐 EN + HI</button>
+        <button class="action-chip" id="btn-theme" onclick="toggleDarkMode()">🌙 Dark Ocean</button>
+        <button class="action-chip" id="btn-motion" onclick="toggleReducedMotion()">♿ Motion</button>
+        <button class="action-chip" id="btn-fullscreen" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+        <button class="action-chip" id="btn-sfx" onclick="toggleSfx()">🔊 Sound</button>
+      </div>
+    </div>
+
+    <!-- All 23 Required Navigation Modules -->
+    <div class="nav-strip" role="tablist" aria-label="Ram Dino Space Quest Modules">
+      <button class="nav-btn active" data-mod="home" onclick="openModule('home')">1. Home Adventure Base</button>
+      <button class="nav-btn" data-mod="dino-world" onclick="openModule('dino-world')">2. Dinosaur World</button>
+      <button class="nav-btn" data-mod="jurassic-map" onclick="openModule('jurassic-map')">3. Jurassic Explorer Map</button>
+      <button class="nav-btn" data-mod="fossil-lab" onclick="openModule('fossil-lab')">4. Fossil Discovery Lab</button>
+      <button class="nav-btn" data-mod="dino-ency" onclick="openModule('dino-ency')">5. Dinosaur Encyclopedia</button>
+      <button class="nav-btn" data-mod="time-machine" onclick="openModule('time-machine')">6. Time Machine Adventure</button>
+      <button class="nav-btn" data-mod="space-exp" onclick="openModule('space-exp')">7. Space Exploration</button>
+      <button class="nav-btn" data-mod="planet-disc" onclick="openModule('planet-disc')">8. Planet Discovery</button>
+      <button class="nav-btn" data-mod="solar-lab" onclick="openModule('solar-lab')">9. Solar System Lab</button>
+      <button class="nav-btn" data-mod="ship-builder" onclick="openModule('ship-builder')">10. Spaceship Builder</button>
+      <button class="nav-btn" data-mod="video-studio" onclick="openModule('video-studio')">11. AI Video Studio</button>
+      <button class="nav-btn" data-mod="video-lib" onclick="openModule('video-lib')">12. Adventure Video Library</button>
+      <button class="nav-btn" data-mod="dino-games" onclick="openModule('dino-games')">13. Dino Games</button>
+      <button class="nav-btn" data-mod="space-games" onclick="openModule('space-games')">14. Space Games</button>
+      <button class="nav-btn" data-mod="science-lab" onclick="openModule('science-lab')">15. Science Learning Lab</button>
+      <button class="nav-btn" data-mod="dino-buddy" onclick="openModule('dino-buddy')">16. AI Dino Buddy</button>
+      <button class="nav-btn" data-mod="quiz-arena" onclick="openModule('quiz-arena')">17. Quiz Arena</button>
+      <button class="nav-btn" data-mod="missions" onclick="openModule('missions')">18. Mission Control</button>
+      <button class="nav-btn" data-mod="progress" onclick="openModule('progress')">19. My Progress</button>
+      <button class="nav-btn" data-mod="badges-certs" onclick="openModule('badges-certs')">20. Badges &amp; Certificates</button>
+      <button class="nav-btn" data-mod="parent-teacher" onclick="openModule('parent-teacher')">21. Parent &amp; Teacher Corner</button>
+      <button class="nav-btn" data-mod="admin" onclick="openModule('admin')">22. Admin Control Center</button>
+      <button class="nav-btn" data-mod="settings" onclick="openModule('settings')">23. Settings</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- MODULE 1: HOME ADVENTURE BASE -->
+    <section id="mod-home" class="view-sec active">
+      <div class="hero-card">
+        <div>
+          <div class="hero-pill">🦖🚀 Manushree Wonder World &bull; Created for Shree &bull; Guided by Vishwendra Sir</div>
+          <h1 class="hero-h1">Ram Dino Space Quest</h1>
+          <div class="hero-tag">Explore Dinosaurs &bull; Discover Space &bull; Travel Beyond Imagination</div>
+          <p class="hero-p">
+            Join <strong>RAM</strong> — the friendly young Dino Space Explorer — along with Tiko, Rexy, Luna, Nova, and Professor Dino across prehistoric dinosaur eras and cosmic planets.
+          </p>
+          <div class="cta-row">
+            <button class="btn-amber" onclick="openModule('dino-world')">🦖 Start Dino Adventure</button>
+            <button class="btn-cyan" onclick="openModule('space-exp')">🚀 Launch Space Quest</button>
+          </div>
+        </div>
+
+        <div class="scene-stage">
+          <svg viewBox="0 0 480 240" role="img" aria-label="Animated prehistoric jungle and starry space adventure scene with Ram and spaceship">
+            <!-- Stars -->
+            <circle cx="65" cy="36" r="2.2" fill="#ffffff" />
+            <circle cx="155" cy="24" r="1.8" fill="#67e8f9" />
+            <circle cx="295" cy="32" r="2.4" fill="#fde047" />
+            <circle cx="410" cy="40" r="2" fill="#ffffff" />
+            <!-- Distant Planet -->
+            <circle cx="385" cy="64" r="24" fill="#7c3aed" />
+            <ellipse cx="385" cy="64" rx="38" ry="8" fill="none" stroke="#22d3ee" stroke-width="2.5" transform="rotate(-14 385 64)" />
+            <!-- Prehistoric Hills -->
+            <path d="M 0 185 Q 130 148 260 185 L 260 240 L 0 240 Z" fill="#065f46" />
+            <path d="M 210 192 Q 350 155 480 190 L 480 240 L 210 240 Z" fill="#047857" />
+            <!-- Ram & Spaceship -->
+            <g class="hover-bob">
+              <ellipse cx="145" cy="112" rx="34" ry="14" fill="#22d3ee" />
+              <path d="M 124 106 Q 145 84 166 106 Z" fill="#e0f2fe" opacity="0.88" />
+              <circle cx="145" cy="102" r="7" fill="#f59e0b" />
+            </g>
+            <!-- Friendly Dino Silhouette -->
+            <path d="M 295 205 L 315 205 L 320 175 Q 332 162 345 168 L 345 178 L 328 182 L 326 205 L 348 205" fill="#a7f3d0" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 4 Age-Appropriate Learning Levels -->
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🎓 Learning Level Path (Playgroup to Class 8)</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">Vocabulary, reading level, and challenges adapt smoothly across four levels.</div>
+          </div>
+          <span class="status-tag" id="active-level-badge">LEVEL 2: Classes 1–2</span>
+        </div>
+        <div class="level-row">
+          <button class="level-btn" data-lvl="LEVEL 1: Playgroup–UKG" onclick="selectLearningLevel('LEVEL 1: Playgroup–UKG')">LEVEL 1: Playgroup–UKG</button>
+          <button class="level-btn active" data-lvl="LEVEL 2: Classes 1–2" onclick="selectLearningLevel('LEVEL 2: Classes 1–2')">LEVEL 2: Classes 1–2</button>
+          <button class="level-btn" data-lvl="LEVEL 3: Classes 3–5" onclick="selectLearningLevel('LEVEL 3: Classes 3–5')">LEVEL 3: Classes 3–5</button>
+          <button class="level-btn" data-lvl="LEVEL 4: Classes 6–8" onclick="selectLearningLevel('LEVEL 4: Classes 6–8')">LEVEL 4: Classes 6–8</button>
+        </div>
+      </div>
+
+      <!-- Hero & Supporting Character Gallery -->
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🦸 Ram &amp; Supporting Character Gallery</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">Select your active companion avatar across scenes, missions, and quests.</div>
+          </div>
+          <span class="status-tag" id="selected-char-pill">Active Guide: RAM</span>
+        </div>
+        <div class="chars-grid" id="chars-grid"></div>
+      </div>
+    </section>
+
+
+    <!-- MODULE 2 & 3: DINOSAUR WORLD & JURASSIC EXPLORER MAP (12 ZONES) -->
+    <section id="mod-dino-world" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🦕 Dinosaur World &amp; Jurassic Explorer Map (12 Zones)</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">Explore prehistoric habitats, toggle time-of-day &amp; weather, complete zone quizzes, and earn exploration rewards.</div>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+            <select id="zone-env-select" class="action-chip" onchange="changeZoneEnv(this.value)">
+              <option value="☀️ Sunny Jurassic Day">☀️ Sunny Jurassic Day</option>
+              <option value="🌅 Amber Sunset &amp; Breeze">🌅 Amber Sunset &amp; Breeze</option>
+              <option value="🌧️ Prehistoric Rain">🌧️ Prehistoric Rain</option>
+              <option value="🌌 Starlit Dino Night">🌌 Starlit Dino Night</option>
+            </select>
+            <span class="status-tag" id="zone-prog-pill">0 / 12 Zones Explored</span>
+          </div>
+        </div>
+
+        <div class="zones-grid-12" id="zones-grid-12"></div>
+
+        <div class="stage-box-p2 hidden" id="zone-detail-stage">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-tag" id="zd-period-tag">Jurassic Era</span>
+              <h3 id="zd-title" style="margin:6px 0 2px; font-size:1.25rem;">Zone Title</h3>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <button class="action-chip" onclick="speakCurrentZone()">🔊 Narrate Zone</button>
+              <button class="btn-amber" style="padding:8px 14px; min-height:38px; font-size:0.84rem;" onclick="completeCurrentZone()">✓ Complete Zone (+20 XP)</button>
+            </div>
+          </div>
+          <p id="zd-fact" style="margin:8px 0; font-weight:700; line-height:1.5;"></p>
+          <div class="meta-item-p2" id="zd-activity" style="margin-bottom:10px;"></div>
+          <div style="font-weight:800; font-size:0.94rem;" id="zd-q-prompt"></div>
+          <div class="opts-grid-p2" id="zd-q-opts"></div>
+          <div id="zd-q-fb" style="font-weight:800; font-size:0.86rem;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 5: DINOSAUR ENCYCLOPEDIA (100 PROFILES ACROSS 9 CATEGORIES) -->
+    <section id="mod-dino-ency" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>📖 Dinosaur Encyclopedia (<span id="dino-count-badge">100</span> Profiles)</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">Search by name or category, hear pronunciation, inspect fossils &amp; adaptations, and solve a 5-question quiz on any profile.</div>
+          </div>
+          <span class="status-tag" id="dino-quiz-pts-pill">Dino Quiz XP: 0</span>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+          <input id="dino-search-input" class="search-box-p2" type="search" placeholder="Search T-Rex, Triceratops, Velociraptor, Brachiosaurus, Mosasaurus..." oninput="renderDinoEncyclopedia()" />
+          <button class="action-chip" onclick="pickRandomDino()">🎲 Random Dino</button>
+          <button class="action-chip" onclick="resetDinoFilters()">↺ Reset</button>
+        </div>
+
+        <div class="cat-bar-p2" id="dino-cat-pills"></div>
+        <div class="dino-grid-100" id="dino-grid-100"></div>
+
+        <div class="stage-box-p2 hidden" id="dino-detail-stage">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-tag" id="dd-cat-badge">Theropods</span>
+              <h3 id="dd-name-heading" style="margin:6px 0 2px; font-size:1.3rem;">🦖 Tyrannosaurus rex</h3>
+              <div id="dd-pron-line" style="font-size:0.82rem; font-weight:800; opacity:0.85;"></div>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <button class="action-chip" onclick="speakSelectedDino()">🔊 Pronounce &amp; Read</button>
+              <button class="btn-cyan" style="padding:8px 14px; min-height:38px; font-size:0.84rem;" onclick="startDinoFiveQuiz()">❓ 5-Question Quiz</button>
+            </div>
+          </div>
+
+          <div class="meta-grid-p2" id="dd-meta-grid"></div>
+          <div id="dd-facts-box" style="font-weight:700; line-height:1.5;"></div>
