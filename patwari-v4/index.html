@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>राजस्थान पटवारी AI सहायक (Complete HTML5) | Rajasthan Patwari AI Assistant</title>
-  <meta name="theme-color" content="#0f2c59" />\n  <link rel="manifest" href="./patwari.webmanifest" />
+  <meta name="theme-color" content="#0f2c59" />\n  <link rel="manifest" href="./manifest.json" />
   <meta name="application-name" content="Rajasthan Patwari AI Assistant" />
   <meta name="description" content="सेवर, भरतपुर के लिए ऑफलाइन राजस्व कार्यालय रिकॉर्ड, गिरदावरी, नामांतरण, कार्य और रिपोर्ट प्रबंधन।" />
   <style>
@@ -180,11 +180,6 @@
     }
   </style>
 
-<!-- SCLH shared Firebase display lock (automatically managed) -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="./firebase-config.js"></script>
-<script src="./site-lock.js?v=2"></script>
 </head>
 <body>
   <header class="topbar">
@@ -193,7 +188,7 @@
       <div class="brand-sub">अधिकारी: विजय उपाध्याय (पटवारी) | पदस्थापना: सेवर, जिला: भरतपुर, राजस्थान</div>
     </div>
     <div class="top-actions no-print">
-      <span class="badge" id="netStatus">Online • Local Storage</span><button class="btn btn-outline" onclick="patwariLogin()">🔐 Login</button><button class="btn btn-outline" onclick="patwariCloudSync()">☁️ Cloud Sync</button><span id="authStatus" class="badge badge-warn">Local mode</span><span class="badge badge-warn">v2.0 Offline-ready</span>
+      <span class="badge" id="netStatus">Online • Local Storage</span><button class="btn btn-outline" onclick="patwariLogin()">🔐 Login</button><button class="btn btn-outline" onclick="patwariCloudSync()">☁️ Cloud Sync</button><span id="authStatus" class="badge badge-warn">Local mode</span><span class="badge badge-warn">v4.0 Offline-ready</span>
       <select id="langSelect" onchange="changeLanguage(this.value)" aria-label="Language">
         <option value="hi">हिन्दी (Primary)</option>
         <option value="en">English (Secondary)</option>
