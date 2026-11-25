@@ -6,7 +6,7 @@
 - Firestore database: `(default)`
 - Previously recorded Firestore region: `asia-south2` (Delhi)
 - Existing web config is already stored in repository root `firebase-config.js`; dashboard imports this file.
-- Existing admin authorization model: Firebase Auth custom claim `admin: true`. No new `admins/{uid}` collection is required.
+- Existing admin authorization model: Firestore document `/admins/{uid}` with field `role: "admin"` (as confirmed from the Firebase Console screenshot). The authenticated Firebase UID must exactly match that document ID.
 
 ## What the repository now contains
 - `owner-dashboard.html`: Owner login, Master switch, individual Page switches, Module switches, and audit log.
@@ -18,13 +18,13 @@
 1. Open https://console.firebase.google.com/project/science-centre-learninghub-500/firestore/rules
 2. Review and publish the repository's `firestore.rules` for this same project.
 3. Do not create a new Firebase project or replace the existing web app config.
-4. The Owner account must already have the custom claim `admin: true`. The dashboard checks this same claim. Custom claims can only be granted securely by trusted Firebase Admin SDK code; never set them from browser JavaScript.
+4. The Owner must sign in with the same Firebase Authentication UID as the document ID in `/admins/{uid}`. The dashboard reads that document and checks `role == "admin"`. Do not allow browser clients to create or modify admin records.
 5. Open https://vishwendrasir.github.io/Home-page/owner-dashboard.html and sign in with that existing Owner account.
 
 ## Important behavior
 - Master OFF blocks reads from the protected Firestore content collections.
 - A Page must be ON and its Module must be ON for protected Firestore documents to be readable by normal signed-in users.
-- Owner with `admin: true` can manage switches and read protected data.
+- Owner whose `/admins/{uid}` document has `role: "admin"` can manage switches and read protected data.
 - Add sensitive content to `protectedContent` or `courseContent` with string fields `pageId` and `moduleId` matching the dashboard's IDs.
 - Existing published materials/quizzes, users, results, progress, student practice, attempts, batch requests and videos collection rules remain in the rules file.
 
