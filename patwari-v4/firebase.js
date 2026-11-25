@@ -1,19 +1,120 @@
-import {initializeApp,getApps} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import {getAuth,GoogleAuthProvider,signInWithRedirect,getRedirectResult,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-import {getFirestore,doc,getDoc,setDoc,deleteDoc,collection,query,where,getDocs,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-const KEY="RPAA_V4_FIREBASE_CONFIG";
-const COLLECTIONS=["land_records","khasra_records","khata_records","mutation_records","girdawari_records","farmer_records","field_diary","revenue_reports","tasks","audit_logs"];
-let app,auth,db,user=null,role="patwari";
-const valid=c=>c&&["apiKey","authDomain","projectId","appId"].every(k=>typeof c[k]==="string"&&c[k].trim().length>5&&!/YOUR_|FAKE|EXAMPLE/i.test(c[k]));
-async function init(c){if(!valid(c))return {ok:false,reason:"Firebase config incomplete."};try{app=getApps().length?getApps()[0]:initializeApp(c);auth=getAuth(app);db=getFirestore(app);try{await getRedirectResult(auth);}catch(e){window.dispatchEvent(new CustomEvent("patwari-login-error",{detail:e.message}));}onAuthStateChanged(auth,async u=>{user=u;role="patwari";if(u){try{const s=await getDoc(doc(db,"users",u.uid));if(s.exists()&&s.data().role==="admin")role="admin";else if(!s.exists())await setDoc(doc(db,"users",u.uid),{uid:u.uid,email:u.email||"",role:"patwari",designation:"Patwari",posting:"Sewar",district:"Bharatpur",state:"Rajasthan",updatedAt:serverTimestamp()});}catch(e){} }window.onPatwariAuthChange?.({configured:true,user:user?{uid:user.uid,email:user.email||""}:null,role});});return {ok:true};}catch(e){return {ok:false,reason:e.message};}}
-function getSavedConfig(){try{return JSON.parse(localStorage.getItem(KEY)||"null")}catch{return null}}
-async function saveAndConnectConfig(c){if(!valid(c))return {ok:false,reason:"apiKey, authDomain, projectId and appId are required."};localStorage.setItem(KEY,JSON.stringify(c));return init(c)}
-async function loginGoogle(){if(!auth)throw Error("Firebase not configured. पहले Save & Connect Firebase करें.");const provider=new GoogleAuthProvider();provider.setCustomParameters({prompt:"select_account"});await signInWithRedirect(auth,provider);return null;}
-async function logoutUser(){if(auth)await signOut(auth)}
-async function getIdToken(){return user?user.getIdToken(): ""}
-function check(col,id){if(!COLLECTIONS.includes(col))throw Error("Unsupported collection");if(!id||String(id).length>120)throw Error("Valid record id required")}
-async function upsertRecord(col,record){if(!user||!db)return {ok:false,reason:"Login required"};check(col,record?.id);const ref=doc(db,col,user.uid+"_"+record.id);await setDoc(ref,{...record,ownerUid:user.uid,clientUpdatedAt:Date.now(),serverUpdatedAt:serverTimestamp()},{merge:true});return {ok:true}}
-async function fetchUserCollection(col){if(!user||!db)return {ok:false,items:[]};if(!COLLECTIONS.includes(col))throw Error("Unsupported collection");const q=role==="admin"?collection(db,col):query(collection(db,col),where("ownerUid","==",user.uid));const s=await getDocs(q);return {ok:true,items:s.docs.map(d=>d.data())}}
-async function removeRemoteRecord(col,id){if(!user||!db)return {ok:false};check(col,id);await deleteDoc(doc(db,col,user.uid+"_"+id));return {ok:true}}
-window.PatwariFirebase={COLLECTIONS,isConfigured:()=>!!db,getCurrentUser:()=>user,getCurrentRole:()=>role,getSavedConfig,saveAndConnectConfig,loginGoogle,logoutUser,getIdToken,upsertRecord,fetchUserCollection,removeRemoteRecord};
-const saved=getSavedConfig();if(saved)init(saved);
+import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+const KEY = "RPAA_V4_FIREBASE_CONFIG";
+const STATE_DOC = "app_state/main";
+let app, auth, db, currentUser = null, saveTimer = null, restoring = false;
+
+const valid = c => c && ["apiKey","authDomain","projectId","appId"].every(k =>
+  typeof c[k] === "string" && c[k].trim().length > 5 && !/YOUR_|FAKE|EXAMPLE/i.test(c[k])
+);
+function getSavedConfig(){ try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch { return null; } }
+
+async function restoreCloudForUser(user) {
+  if (!user || !db) return;
+  restoring = true;
+  try {
+    const ref = doc(db, "users", user.uid, "app_state", "main");
+    const snap = await getDoc(ref);
+    if (snap.exists()) {
+      const data = snap.data();
+      if (data && data.state && typeof data.state === "object") {
+        window.PatwariApplyCloudState?.(data.state);
+      }
+    } else {
+      // First cloud activation: preserve and upload this browser's existing local records.
+      const local = window.PatwariGetLocalState?.();
+      if (local) await saveStateNow(local);
+    }
+  } catch (e) {
+    window.dispatchEvent(new CustomEvent("patwari-cloud-error", { detail: e.message || String(e) }));
+  } finally {
+    restoring = false;
+  }
+}
+
+async function init(c) {
+  if (!valid(c)) return {ok:false, reason:"Firebase config incomplete."};
+  try {
+    app = getApps().length ? getApps().find(a => a.options.projectId === c.projectId) || getApps()[0] : initializeApp(c);
+    if (app.options.projectId !== c.projectId) app = initializeApp(c, "patwari-ai-" + c.projectId);
+    auth = getAuth(app);
+    db = getFirestore(app);
+    try { await getRedirectResult(auth); } catch (e) {
+      window.dispatchEvent(new CustomEvent("patwari-login-error", {detail:e.message}));
+    }
+    onAuthStateChanged(auth, async user => {
+      currentUser = user;
+      window.dispatchEvent(new CustomEvent("patwari-auth", {detail:{user:user?{uid:user.uid,email:user.email||""}:null}}));
+      if (user) await restoreCloudForUser(user);
+    });
+    return {ok:true};
+  } catch(e) { return {ok:false, reason:e.message}; }
+}
+
+async function saveStateNow(state) {
+  if (!currentUser || !db || !state || restoring) return {ok:false,reason:"Login required"};
+  const ref = doc(db, "users", currentUser.uid, "app_state", "main");
+  await setDoc(ref, {
+    ownerUid: currentUser.uid,
+    state,
+    clientUpdatedAt: Date.now(),
+    serverUpdatedAt: serverTimestamp(),
+    schemaVersion: 1
+  }, {merge:true});
+  window.dispatchEvent(new CustomEvent("patwari-cloud-status",{detail:"Cloud Saved"}));
+  return {ok:true};
+}
+function queueSave(state) {
+  if (!currentUser || !db || restoring) return;
+  window.dispatchEvent(new CustomEvent("patwari-cloud-status",{detail:"Syncing"}));
+  clearTimeout(saveTimer);
+  const snapshot = JSON.parse(JSON.stringify(state));
+  saveTimer = setTimeout(async () => {
+    try { await saveStateNow(snapshot); }
+    catch(e) {
+      try { localStorage.setItem("RPAA_V4_PENDING_CLOUD_STATE", JSON.stringify(snapshot)); } catch {}
+      window.dispatchEvent(new CustomEvent("patwari-cloud-status",{detail:"Sync Failed: "+(e.message||"Unknown error")}));
+    }
+  }, 700);
+}
+async function flushPending() {
+  if (!currentUser || !navigator.onLine) return;
+  let pending;
+  try { pending = JSON.parse(localStorage.getItem("RPAA_V4_PENDING_CLOUD_STATE") || "null"); } catch {}
+  if (pending) {
+    await saveStateNow(pending);
+    localStorage.removeItem("RPAA_V4_PENDING_CLOUD_STATE");
+  }
+}
+async function saveAndConnectConfig(c) {
+  if (!valid(c)) return {ok:false,reason:"apiKey, authDomain, projectId and appId are required."};
+  localStorage.setItem(KEY,JSON.stringify(c));
+  return init(c);
+}
+async function loginGoogle() {
+  if (!auth) throw Error("Firebase not configured. पहले Save & Connect Firebase करें.");
+  const p = new GoogleAuthProvider();
+  p.setCustomParameters({prompt:"select_account"});
+  await signInWithRedirect(auth,p);
+}
+async function logoutUser(){ if(auth) await signOut(auth); }
+async function getIdToken(){ return currentUser ? currentUser.getIdToken() : ""; }
+
+window.PatwariFirebase = {
+  isConfigured:()=>!!db,
+  getCurrentUser:()=>currentUser,
+  getSavedConfig,
+  saveAndConnectConfig,
+  loginGoogle,
+  logoutUser,
+  getIdToken,
+  queueSave,
+  saveStateNow,
+  restoreCloud:()=>restoreCloudForUser(currentUser),
+  flushPending
+};
+window.addEventListener("online",()=>flushPending().catch(e=>console.warn(e)));
+const saved=getSavedConfig();
+if(saved) init(saved);
