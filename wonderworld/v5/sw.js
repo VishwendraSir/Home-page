@@ -1,7 +1,7 @@
 "use strict";
-const CACHE = "ww-v5-appshell-5-2";
+const CACHE = "ww-v5-appshell-5-3";
 const SHELL = [
-  "./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./offline.html",
+  "./", "./index.html", "./parent-dashboard.html", "./manifest.webmanifest", "./icon.svg", "./offline.html",
   "./Manushree_Candy_Garden_V4_9_Complete.html",
   "./Shree_Ocean_Discovery_Complete.html",
   "./Ram_Dino_Space_Quest.html",
