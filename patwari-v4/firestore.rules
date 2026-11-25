@@ -1,20 +1,27 @@
 rules_version = '2';
 service cloud.firestore {
- match /databases/{database}/documents {
-  function signed(){return request.auth != null;}
-  function admin(){return signed() && exists(/databases/$(database)/documents/users/$(request.auth.uid)) && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';}
-  function validBase(d){return d.keys().hasAll(['id','ownerUid','clientUpdatedAt']) && d.id is string && d.id.size()>0 && d.id.size()<=120 && d.ownerUid is string && d.clientUpdatedAt is number;}
-  match /users/{uid}{
-   allow read: if signed() && (request.auth.uid==uid || admin());
-   allow create: if signed() && request.auth.uid==uid && request.resource.data.uid==uid && request.resource.data.role=='patwari';
-   allow update: if admin() || (signed() && request.auth.uid==uid && request.resource.data.uid==resource.data.uid && request.resource.data.role==resource.data.role);
-   allow delete: if admin();
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+
+    match /users/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow create: if signedIn() && request.auth.uid == uid
+        && request.resource.data.uid == uid
+        && request.resource.data.role == 'patwari';
+      allow update: if signedIn() && request.auth.uid == uid
+        && request.resource.data.uid == resource.data.uid
+        && request.resource.data.role == resource.data.role;
+      allow delete: if false;
+
+      match /app_state/{docId} {
+        allow read: if signedIn() && request.auth.uid == uid;
+        allow create, update: if signedIn()
+          && request.auth.uid == uid
+          && request.resource.data.ownerUid == uid
+          && request.resource.data.state is map
+          && request.resource.data.clientUpdatedAt is number;
+        allow delete: if false;
+      }
+    }
   }
-  match /{col}/{docId}{
-   allow read: if col in ['land_records','khasra_records','khata_records','mutation_records','girdawari_records','farmer_records','field_diary','revenue_reports','tasks','audit_logs'] && (resource.data.ownerUid==request.auth.uid && signed() || admin());
-   allow create: if col in ['land_records','khasra_records','khata_records','mutation_records','girdawari_records','farmer_records','field_diary','revenue_reports','tasks','audit_logs'] && signed() && request.resource.data.ownerUid==request.auth.uid && validBase(request.resource.data);
-   allow update: if col in ['land_records','khasra_records','khata_records','mutation_records','girdawari_records','farmer_records','field_diary','revenue_reports','tasks','audit_logs'] && (resource.data.ownerUid==request.auth.uid && signed() || admin()) && request.resource.data.ownerUid==resource.data.ownerUid && validBase(request.resource.data);
-   allow delete: if col in ['land_records','khasra_records','khata_records','mutation_records','girdawari_records','farmer_records','field_diary','revenue_reports','tasks','audit_logs'] && (resource.data.ownerUid==request.auth.uid && signed() || admin());
-  }
- }
 }
