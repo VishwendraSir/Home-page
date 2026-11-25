@@ -462,12 +462,17 @@
   {
     "id": "wonderworld-v5-index-html",
     "path": "wonderworld/v5/index.html",
-    "title": "Manushree Wonder World V5.2"
+    "title": "Manushree Wonder World V5.3"
   },
   {
     "id": "wonderworld-v5-offline-html",
     "path": "wonderworld/v5/offline.html",
     "title": "Offline · Manushree Wonder World"
+  },
+  {
+    "id": "wonderworld-v5-parent-dashboard-html",
+    "path": "wonderworld/v5/parent-dashboard.html",
+    "title": "Wonder World • Parent Dashboard V5.3"
   },
   {
     "id": "worker-test-html",

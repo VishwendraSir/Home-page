@@ -11,7 +11,13 @@ h1{font-size:clamp(1.8rem,5vw,2.7rem);margin:12px 0 5px}p{line-height:1.55}.mute
 .toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}.btn{border:0;border-radius:12px;padding:11px 15px;font-weight:850;cursor:pointer;background:#27356f;color:white}.btn.light{background:white;color:#27356f;border:1px solid var(--line)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px}.card{background:white;border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:0 8px 22px #19224b0c}.kpi{font-size:2rem;font-weight:950;letter-spacing:-.04em}.card h2,.card h3{margin:0 0 9px}.module-head{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.08rem}.meter{height:10px;border-radius:99px;background:#edf0f8;overflow:hidden;margin:12px 0 7px}.meter span{display:block;height:100%;background:linear-gradient(90deg,#3157c8,#8b5bd3);border-radius:99px;width:0}.status{font-size:.82rem;color:var(--muted)}.section{margin:22px 0}.notice{padding:14px;border:1px solid #f0dfac;background:#fff9e8;border-radius:14px;color:#6e571a;font-size:.9rem}.actions{display:flex;gap:8px;flex-wrap:wrap}.actions a{color:var(--blue);font-weight:800;text-decoration:none}.report{white-space:pre-wrap;width:100%;min-height:110px;border:1px solid var(--line);border-radius:12px;padding:12px;font:13px ui-monospace,monospace}
 @media(max-width:520px){main{padding:13px}header{padding:18px 15px}.card{padding:14px}}
-</style></head><body>
+</style>
+<!-- SCLH shared Firebase display lock (automatically managed) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="../../firebase-config.js"></script>
+<script src="../../site-lock.js?v=2"></script>
+</head><body>
 <header><a href="./index.html">← MANUSHREE WONDER WORLD</a><div style="opacity:.82;font-size:.82rem;margin-top:12px;font-weight:800;letter-spacing:.08em">PARENT & TEACHER CONTROL CENTRE · V5.3</div><h1>🌟 Learning Progress Dashboard</h1><p style="margin:0;color:#e6eaff">One family view of Candy Garden, Ocean Discovery and Dino Space Quest.</p></header>
 <main>
 <div class="toolbar"><button class="btn" id="refresh">↻ Refresh progress</button><button class="btn" id="export">⬇ Export family backup</button><label class="btn light" for="importFile">⬆ Restore backup</label><input id="importFile" type="file" accept="application/json,.json" hidden><button class="btn light" id="print">🖨 Print report</button></div>
