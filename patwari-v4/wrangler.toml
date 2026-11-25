@@ -1,0 +1,8 @@
+name = "rajasthan-patwari-ai-v4"
+main = "worker/index.js"
+compatibility_date = "2026-11-25"
+[vars]
+GEMINI_MODEL = "gemini-2.5-flash"
+ALLOWED_ORIGIN = "https://vishwendrasir.github.io"
+# Set secrets with: wrangler secret put GEMINI_API_KEY
+# Set Firebase Web API key as a secret: wrangler secret put FIREBASE_WEB_API_KEY
