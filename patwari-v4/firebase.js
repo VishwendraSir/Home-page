@@ -10,16 +10,7 @@ let app, auth, db, currentUser = null, saveTimer = null, restoring = false, init
 const valid = c => c && ["apiKey","authDomain","projectId","appId"].every(k =>
   typeof c[k] === "string" && c[k].trim().length > 5 && !/YOUR_|FAKE|EXAMPLE/i.test(c[k])
 );
-const DEFAULT_CONFIG = {
-  apiKey: "AIzaSyCl8k1p2_r9Ejxu-KXYFHXOZxwLk5e6d6c",
-  authDomain: "rajasthan-patwari-ai.firebaseapp.com",
-  projectId: "rajasthan-patwari-ai",
-  storageBucket: "rajasthan-patwari-ai.firebasestorage.app",
-  messagingSenderId: "941057063249",
-  appId: "1:941057063249:web:b38e7e09f32045d82e3b70",
-  measurementId: "G-1X5JZJ1PKP"
-};
-function getSavedConfig(){ try { return JSON.parse(localStorage.getItem(KEY) || "null") || DEFAULT_CONFIG; } catch { return DEFAULT_CONFIG; } }
+function getSavedConfig(){ try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch { return null; } }
 function emit(name, detail){ window.dispatchEvent(new CustomEvent(name,{detail})); }
 function clone(v){ return JSON.parse(JSON.stringify(v)); }
 function localState(){ return window.PatwariGetLocalState?.() || JSON.parse(localStorage.getItem(STATE_KEY)||"{}"); }
@@ -167,4 +158,4 @@ window.PatwariFirebase={
   queueSave,saveStateNow,restoreCloud:()=>restoreCloudForUser(currentUser),flushPending,exportCloudBackup
 };
 const saved=getSavedConfig();
-if(saved) init(saved);
+if(saved && valid(saved)) init(saved);
