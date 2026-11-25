@@ -181,13 +181,6 @@
   </style>
 
 
-<!-- Patwari V4.1 uses its own Firebase project; no shared SCLH lock/config scripts. -->
-
-<!-- SCLH shared Firebase display lock (automatically managed) -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="../firebase-config.js"></script>
-<script src="../site-lock.js?v=2"></script>
 </head>
 <body>
   <header class="topbar">
@@ -1118,7 +1111,16 @@
       const src = normalizeState(local || {});
       ["land","mutations","crops","visits","tasks"].forEach(k => {
         const byId = new Map((merged[k] || []).map(x => [String(x.id), x]));
-        (src[k] || []).forEach(x => { if (!byId.has(String(x.id))) byId.set(String(x.id), x); });
+        (src[k] || []).forEach(x => {
+          const id = String(x.id);
+          const cloudRecord = byId.get(id);
+          if (!cloudRecord) byId.set(id, x);
+          else {
+            const cloudTime = Number(cloudRecord.updatedAt || cloudRecord.clientUpdatedAt || cloudRecord.updatedAtMs || 0);
+            const localTime = Number(x.updatedAt || x.clientUpdatedAt || x.updatedAtMs || 0);
+            if (localTime > cloudTime) byId.set(id, x);
+          }
+        });
         merged[k] = Array.from(byId.values());
       });
       merged.audit = [...(merged.audit || []), ...(src.audit || [])].slice(-200);
@@ -1190,7 +1192,7 @@ window.v4CloudSync=async()=>{try{status().textContent="Cloud sync running…";aw
 window.v4AskAI=async()=>{const out=document.getElementById("v4AiOutput");try{const url=document.getElementById("v4WorkerUrl").value.trim();if(!url)throw new Error("Cloudflare Worker URL enter करें.");const token=await window.PatwariFirebase.getIdToken();if(!token)throw new Error("पहले Firebase Google Login करें.");const prompt=document.getElementById("v4AiPrompt").value.trim();if(!prompt)throw new Error("अपना प्रश्न लिखें.");out.textContent="Working…";const res=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({prompt,mode:"chat",language:"hi"})});const data=await res.json();if(!res.ok)throw new Error(data.error||"AI request failed");out.textContent=data.text+"\n\n"+(data.disclaimer||"");}catch(e){out.textContent=e.message;}};
 window.addEventListener("patwari-login-error",e=>{status().textContent="Google Login error: "+e.detail;});
 window.addEventListener("patwari-auth",e=>{if(e.detail?.user)status().textContent="Signed in: "+e.detail.user.email;});
-document.querySelectorAll("#v4CloudPanel button").forEach((btn,i)=>{btn.type="button";btn.addEventListener("click",()=>{if(i===0)window.v4Connect();else if(i===1)window.v4GoogleLogin();else if(i===2)window.v4Logout();else if(i===3)window.v4AskAI();});});
+// Buttons use their inline handlers; do not attach duplicate click listeners.
 if("serviceWorker" in navigator)navigator.serviceWorker.register("./service-worker.js",{updateViaCache:"none"}).then(r=>r.update()).catch(e=>{status().textContent="Service worker: "+e.message;});
 </script>
 
