@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WONDER WORLD – NAVODAYA CLASS 6 (V3.3)</title>
+<style>
+  :root {
+    --primary: #1d4ed8;
+    --primary-dark: #1e3a8a;
+    --purple: #6d28d9;
+    --purple-light: #ede9fe;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #cbd5e1;
+    --success: #15803d;
+    --danger: #b91c1c;
+    --warn: #b45309;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, 'Noto Sans Devanagari', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  header {
+    background: linear-gradient(135deg, var(--primary-dark), var(--purple));
+    color: #fff;
+    padding: 1.25rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: 0 4px 12px rgba(15,23,42,0.15);
+  }
+  .header-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .brand-title { font-size: 1.35rem; font-weight: 800; letter-spacing: 0.2px; }
+  .brand-sub { font-size: 0.88rem; opacity: 0.92; }
+  .controls-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  button, select, input {
+    font-family: inherit;
+    font-size: 0.92rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.85rem;
+  }
+  button {
+    cursor: pointer;
+    font-weight: 600;
+    background: #fff;
+    color: var(--primary-dark);
+    transition: transform 0.12s ease, background 0.15s ease;
+  }
+  button:hover { background: var(--purple-light); }
+  button.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+  button.primary:hover { background: var(--primary-dark); }
+  nav {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 1.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .nav-inner { max-width: 1180px; margin: 0 auto; display: flex; gap: 0.45rem; }
+  .tab-btn { background: #f1f5f9; color: var(--text); border: 1px solid transparent; }
+  .tab-btn.active { background: var(--purple); color: #fff; }
+  main { max-width: 1180px; margin: 1.25rem auto; padding: 0 1.25rem 3rem; }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.25rem; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.15rem;
+    box-shadow: 0 2px 6px rgba(15,23,42,0.04);
+    margin-bottom: 1rem;
+  }
+  .stat-val { font-size: 1.6rem; font-weight: 800; color: var(--primary); }
+  .option-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 0.4rem 0;
+    padding: 0.7rem 0.9rem;
+    background: #f8fafc;
+    color: var(--text);
+  }
+  .option-btn.correct { background: #dcfce7; border-color: var(--success); color: var(--success); }
+  .option-btn.wrong { background: #fee2e2; border-color: var(--danger); color: var(--danger); }
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: var(--purple-light);
+    color: var(--purple);
+  }
+  canvas#celebCanvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+  }
+  @media print {
+    header, nav, .no-print, canvas { display: none !important; }
+    body { background: #fff; }
+    .card { box-shadow: none; border: 1px solid #94a3b8; }
+  }
+</style>
+</head>
+<body>
+<canvas id="celebCanvas"></canvas>
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="brand-title" id="appTitle">WONDER WORLD – NAVODAYA CLASS 6 (V3.3)</div>
+      <div class="brand-sub" id="appTagline">Learn Smart | Practice More | Achieve Your Dream • Guided by Vishwendra Sir</div>
+    </div>
+    <div class="controls-bar no-print">
+      <button onclick="toggleLang()" id="langBtn">English / हिंदी</button>
+      <button onclick="speakCurrent()" id="voiceBtn">🔊 Voice Read</button>
+      <button onclick="stopSpeech()" id="stopVoiceBtn">⏹ Stop</button>
+      <button onclick="runFullModuleAudit()" id="auditBtn">🩺 Module Audit</button>
+    </div>
+  </div>
+</header>
+
+<nav class="no-print">
+  <div class="nav-inner" id="navTabs">
+    <button class="tab-btn active" data-tab="overview">Overview & Plan</button>
+    <button class="tab-btn" data-tab="practice">Practice & AI Tutor</button>
+    <button class="tab-btn" data-tab="mock">80-Q Mock Exam</button>
+    <button class="tab-btn" data-tab="labs">Visual, Math & Lang Labs</button>
+    <button class="tab-btn" data-tab="pyq">PYQ & Paper Gen</button>
+    <button class="tab-btn" data-tab="dashboard">Dashboards & Audit</button>
+  </div>
+</nav>
+
+<main>
+  <!-- 1. OVERVIEW -->
+  <section class="panel active" id="tab-overview">
+    <div class="grid">
+      <div class="card">
+        <div>JNVST Class 6 Pattern</div>
+        <div class="stat-val">80 Qs • 100 Marks</div>
+        <p class="brand-sub" style="color:var(--muted)">Mental Ability (40 Qs, 50m) • Arithmetic (20 Qs, 25m) • Language (20 Qs, 25m) • 2 Hours • No Negative Marking by default</p>
+      </div>
+      <div class="card">
+        <div>Student XP & Streak</div>
+        <div class="stat-val"><span id="xpVal">0</span> XP • <span id="streakVal">1</span> Day Streak</div>
+        <p class="brand-sub" style="color:var(--muted)">Accuracy: <strong id="accVal">0%</strong> • Attempted: <strong id="attVal">0</strong></p>
+      </div>
+      <div class="card">
+        <div>Question Bank Status</div>
+        <div class="stat-val" id="qbCountVal">0 Validated</div>
+        <p class="brand-sub" style="color:var(--muted)">Target: 10,000 (MAT 4,000 • Arithmetic 3,000 • Language 3,000) • Current supplied sample bank is loaded locally</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Weekly Study Checklist & Daily Target</h3>
+      <div id="checklistBox" style="margin-top:0.6rem;"></div>
+    </div>
+  </section>
+
+  <!-- 2. PRACTICE & AI SMART TUTOR -->
+  <section class="panel" id="tab-practice">
+    <div class="card">
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:space-between; align-items:center;">
+        <div>
+          <span class="badge" id="qSubjectBadge">MAT</span>
+          <span class="badge" id="qTopicBadge">Figure Series</span>
+          <span class="badge" id="qDiffBadge">Easy</span>
+        </div>
+        <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+          <select id="filterSubject" onchange="renderPracticeQuestion()">
+            <option value="ALL">All Subjects</option>
+            <option value="MAT">Mental Ability</option>
+            <option value="AR">Arithmetic</option>
+            <option value="LA">Language</option>
+          </select>
+          <select id="tutorLevel">
+            <option value="beginner">Beginner Level</option>
+            <option value="advanced">Advanced Level</option>
+          </select>
+        </div>
+      </div>
+
+      <h3 id="qPrompt" style="margin-top:0.85rem;"></h3>
+      <div id="qOptions" style="margin-top:0.5rem;"></div>
+
+      <div style="margin-top:0.85rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <button onclick="showHint()">💡 Hint</button>
+        <button onclick="showExplanation()">📘 Step-by-Step Solution & Distractors</button>
+        <button class="primary" onclick="nextPracticeQuestion()">Next Question ➔</button>
+      </div>
+      <div id="tutorBox" style="margin-top:0.85rem; padding:0.85rem; border-radius:8px; background:#f8fafc; border:1px dashed var(--border); display:none;"></div>
+    </div>
+  </section>
+
+  <!-- 3. 80-Q MOCK EXAM -->
+  <section class="panel" id="tab-mock">
+    <div class="card">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:0.5rem;">
+        <div>
+          <h3>JNVST Practice Mock Simulator</h3><p class="brand-sub" style="color:var(--muted)">Loaded questions: <strong id="mockBankCount">0</strong> • This starter bank is a sample, not a complete 80-question paper.</p>
+          <p style="color:var(--muted); font-size:0.9rem;">Available question bank questions are used. Configure negative marking and review flagged questions.</p>
+        </div>
+        <div style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
+          <label>Neg Mark:
+            <select id="negMarkSelect">
+              <option value="0">0 (Standard JNVST)</option>
+              <option value="-0.25">-0.25</option>
+              <option value="-0.33">-0.33</option>
+            </select>
+          </label>
+          <button class="primary" onclick="startMockExam()">▶ Start Timed Test</button>
+          <button onclick="submitMockExam()">✔ Submit & Score</button>
+          <button onclick="window.print()">🖨 Print Scorecard</button>
+        </div>
+      </div>
+      <div style="margin-top:0.75rem; font-weight:700;">Timer (2 hours): <span id="mockTimer">120:00</span> | Score: <span id="mockScoreOut">-</span></div>
+      <div id="mockPalette" style="display:flex; flex-wrap:wrap; gap:0.35rem; margin-top:0.75rem;"></div>
+      <div id="mockQuestionArea" style="margin-top:0.9rem;"></div>
+    </div>
+  </section>
+
+  <!-- 4. VISUAL, MATH & LANG LABS -->
+  <section class="panel" id="tab-labs">
+    <div class="grid">
+      <div class="card">
+        <h3>Mental Ability Visual Lab (SVG)</h3>
+        <p style="color:var(--muted); font-size:0.9rem;">Mirror / Symmetry & Geometric Pattern check</p>
+        <svg id="matSvg" viewBox="0 0 240 110" width="100%" style="background:#f8fafc; border-radius:8px; border:1px solid var(--border); margin:0.6rem 0;">
+          <line x1="120" y1="8" x2="120" y2="102" stroke="#6d28d9" stroke-dasharray="4,4" stroke-width="2"/>
+          <polygon points="35,80 75,80 55,30" fill="#1d4ed8"/>
+          <polygon id="mirrorShape" points="205,80 165,80 185,30" fill="#6d28d9"/>
+        </svg>
+        <button onclick="toggleMirror()">Flip Mirror Image</button>
+      </div>
+
+      <div class="card">
+        <h3>Arithmetic Smart Lab (LCM & HCF)</h3>
+        <div style="display:flex; gap:0.5rem; margin:0.5rem 0;">
+          <input type="number" id="numA" value="12" min="1" style="width:90px;">
+          <input type="number" id="numB" value="18" min="1" style="width:90px;">
+          <button class="primary" onclick="calcLcmHcf()">Calculate</button>
+        </div>
+        <div id="lcmHcfResult" style="font-weight:700; color:var(--primary-dark);">LCM = 36, HCF = 6</div>
+      </div>
+
+      <div class="card">
+        <h3>Language Comprehension Lab</h3>
+        <p id="passageText" style="font-size:0.92rem; color:var(--muted);">"नवोदय विद्यालय छात्रों में अनुशासन, जिज्ञासा और आत्मनिर्भरता का विकास करते हैं। नियमित अभ्यास से कठिन प्रश्न भी सरल हो जाते हैं।"</p>
+        <button onclick="checkLangQuiz()" style="margin-top:0.5rem;">Check Main Idea</button>
+        <div id="langResult" style="margin-top:0.4rem; font-weight:600;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PYQ & PAPER GENERATOR -->
+  <section class="panel" id="tab-pyq">
+    <div class="card">
+      <h3>AI Question Paper Generator (Sets A, B, C, D)</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.6rem 0;">
+        <select id="genSet">
+          <option value="Set A">Set A</option>
+          <option value="Set B">Set B</option>
+          <option value="Set C">Set C</option>
+          <option value="Set D">Set D</option>
+        </select>
+        <input type="number" id="genCount" value="5" min="1" max="20" style="width:90px;">
+        <button class="primary" onclick="generatePaper()">Generate Paper & Key</button>
+        <button onclick="window.print()">🖨 Print A4</button>
+      </div>
+      <pre id="paperOutput" style="white-space:pre-wrap; background:#f8fafc; padding:0.85rem; border-radius:8px; border:1px solid var(--border); font-size:0.88rem;"></pre>
+    </div>
+  </section>
+
+  <!-- 6. DASHBOARDS & AUDIT -->
+  <section class="panel" id="tab-dashboard">
+    <div class="card">
+      <h3>Backup, Restore & Phase/Module Audit</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.6rem 0;">
+        <button onclick="exportJsonBackup()">⬇ Export JSON Backup</button>
+        <button onclick="runFullModuleAudit()">🩺 Run Full Module Audit</button>
+      </div>
+      <div id="auditLog" style="background:#0f172a; color:#e2e8f0; padding:0.85rem; border-radius:8px; font-family:monospace; font-size:0.84rem; max-height:240px; overflow:auto;">Ready.</div>
+    </div>
+  </section>
+</main>
+<footer style="max-width:1180px;margin:0 auto 1.5rem;padding:0 1.25rem;color:#64748b;font-size:.82rem;text-align:center">WONDER WORLD • NAVODAYA CLASS 6 • V3.3 • Guided by Vishwendra Sir • Offline-ready sample build</footer>
+
+<script>
+const STORAGE_KEY = "WONDER_WORLD_NAVODAYA_V3_3_STATE";
+const LEGACY_STORAGE_KEY = "WONDER_WORLD_NAVODAYA_V3_2_STATE";
+
+const QUESTION_BANK = [{"id":"MAT-001","subject":"MAT","topic":"Figure Series","difficulty":"Easy","en":{"q":"What comes next in: 2, 4, 8, 16, ?","opts":["20","24","32","36"],"ans":2},"hi":{"q":"अगला पद क्या होगा: 2, 4, 8, 16, ?","opts":["20","24","32","36"],"ans":2}},{"id":"AR-001","subject":"AR","topic":"Percentage","difficulty":"Easy","en":{"q":"What is 25% of 200?","opts":["25","40","50","75"],"ans":2},"hi":{"q":"200 का 25% कितना होगा?","opts":["25","40","50","75"],"ans":2}},{"id":"LA-001","subject":"LA","topic":"Vocabulary","difficulty":"Easy","en":{"q":"Choose the synonym of 'Diligent':","opts":["Lazy","Hardworking","Careless","Shy"],"ans":1},"hi":{"q":"'परिश्रमी' का सही पर्यायवाची चुनिए:","opts":["आलसी","मेहनती","लापरवाह","संकोची"],"ans":1}}];
+
+let state = {
+  lang: "hi",
+  xp: 0,
+  streak: 1,
+  attempted: 0,
+  correct: 0,
+  qIndex: 0,
+  checklist: [true, true, false, false],
+  mockAnswers: {},
+  mockFlagged: {},
+  mockSeconds: 1800,
+  mockRunning: false
+};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
+    if (raw) state = { ...state, ...JSON.parse(raw) };
+  } catch (e) { console.error(e); }
+}
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+}
+
+function toggleLang() {
+  state.lang = state.lang === "hi" ? "en" : "hi";
+  document.documentElement.lang = state.lang;
+  saveState();
+  renderAll();
+}
+
+function stopSpeech() {
+  if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+}
+
+function speakCurrent() {
+  if (!("speechSynthesis" in window)) return;
+  stopSpeech();
+  const q = getFilteredQuestions()[state.qIndex % Math.max(1, getFilteredQuestions().length)];
+  if (!q) return;
+  const text = state.lang === "hi" ? q.hi.q : q.en.q;
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang = state.lang === "hi" ? "hi-IN" : "en-IN";
+  window.speechSynthesis.speak(utter);
+}
+
+function triggerCelebration() {
+  const canvas = document.getElementById("celebCanvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const colors = ["#1d4ed8", "#7c3aed", "#16a34a", "#f59e0b", "#ec4899"];
+  const particles = Array.from({ length: 45 }, () => ({
+    x: Math.random() * canvas.width,
+    y: canvas.height + Math.random() * 40,
+    r: 4 + Math.random() * 5,
+    vy: -(2 + Math.random() * 4),
+    vx: (Math.random() - 0.5) * 2,
+    c: colors[Math.floor(Math.random() * colors.length)]
+  }));
+  let frames = 0;
+  function step() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      ctx.fillStyle = p.c;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    frames++;
+    if (frames < 55) requestAnimationFrame(step);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  step();
+}
+
+function getFilteredQuestions() {
+  const sub = document.getElementById("filterSubject")?.value || "ALL";
+  return sub === "ALL" ? QUESTION_BANK : QUESTION_BANK.filter(q => q.subject === sub);
+}
+
+function renderPracticeQuestion() {
+  const list = getFilteredQuestions();
+  if (!list.length) return;
+  const q = list[state.qIndex % list.length];
+  const loc = state.lang === "hi" ? q.hi : q.en;
+  document.getElementById("qSubjectBadge").textContent = q.subject;
+  document.getElementById("qTopicBadge").textContent = q.topic;
+  document.getElementById("qDiffBadge").textContent = q.difficulty;
+  document.getElementById("qPrompt").textContent = `${q.id}: ${loc.q}`;
+  document.getElementById("tutorBox").style.display = "none";
+
+  const optsEl = document.getElementById("qOptions");
+  optsEl.innerHTML = "";
+  let answered = false;
+  loc.opts.forEach((opt, idx) => {
+    const btn = document.createElement("button");
+    btn.className = "option-btn";
+    btn.textContent = `${String.fromCharCode(65 + idx)}. ${opt}`;
+    btn.onclick = () => {
+      if (answered) return;
+      answered = true;
+      optsEl.querySelectorAll("button").forEach(b => b.disabled = true);
+      state.attempted += 1;
+      if (idx === q.ans) {
+        btn.classList.add("correct");
+        state.correct += 1;
+        state.xp += 15;
+        triggerCelebration();
+      } else {
+        btn.classList.add("wrong");
+      }
+      saveState();
+      updateStats();
+    };
+    optsEl.appendChild(btn);
+  });
+}
+
+function showHint() {
+  const list = getFilteredQuestions();
+  const q = list[state.qIndex % list.length];
+  const loc = state.lang === "hi" ? q.hi : q.en;
+  const box = document.getElementById("tutorBox");
+  box.style.display = "block";
+  box.innerHTML = `<strong>💡 Hint:</strong> ${loc.hint}`;
+}
+
+function showExplanation() {
+  const list = getFilteredQuestions();
+  const q = list[state.qIndex % list.length];
+  const loc = state.lang === "hi" ? q.hi : q.en;
+  const lvl = document.getElementById("tutorLevel")?.value || "beginner";
+  const box = document.getElementById("tutorBox");
+  box.style.display = "block";
+  box.innerHTML = `<div><strong>📘 Solution (${lvl}):</strong> ${loc.exp}</div><div style="margin-top:0.35rem; color:var(--muted);"><strong>Why other options differ:</strong> ${loc.distractors}</div>`;
+}
+
+function nextPracticeQuestion() {
+  state.qIndex += 1;
+  saveState();
+  renderPracticeQuestion();
+}
+
+let mockInterval = null;
+function startMockExam() {
+  state.mockSeconds = 7200;
+  state.mockRunning = true;
+  clearInterval(mockInterval);
+  renderMockPalette();
+  renderMockQuestion(0);
+  mockInterval = setInterval(() => {
+    if (!state.mockRunning) return;
+    state.mockSeconds = Math.max(0, state.mockSeconds - 1);
+    const m = String(Math.floor(state.mockSeconds / 60)).padStart(2, "0");
+    const s = String(state.mockSeconds % 60).padStart(2, "0");
+    document.getElementById("mockTimer").textContent = `${m}:${s}`;
+    if (state.mockSeconds === 0) submitMockExam();
+  }, 1000);
+}
+
+function renderMockPalette() {
+  const countLabel = document.getElementById("mockBankCount"); if (countLabel) countLabel.textContent = QUESTION_BANK.length;
+  const pal = document.getElementById("mockPalette");
+  pal.innerHTML = "";
+  QUESTION_BANK.forEach((q, i) => {
+    const b = document.createElement("button");
+    b.textContent = `Q${i + 1}${state.mockFlagged[i] ? " 🚩" : ""}`;
+    b.style.padding = "0.35rem 0.6rem";
+    b.onclick = () => renderMockQuestion(i);
+    pal.appendChild(b);
+  });
+}
+
+function renderMockQuestion(idx) {
+  const q = QUESTION_BANK[idx % QUESTION_BANK.length];
+  const loc = state.lang === "hi" ? q.hi : q.en;
+  const area = document.getElementById("mockQuestionArea");
+  area.innerHTML = `
+    <div><strong>Q${idx + 1} (${q.subject} • ${q.topic}):</strong> ${loc.q}</div>
+    <div style="margin-top:0.5rem;">
+      ${loc.opts.map((o, oi) => `<button class="option-btn" onclick="selectMockAns(${idx},${oi})">${String.fromCharCode(65+oi)}. ${o} ${state.mockAnswers[idx]===oi?"✓":""}</button>`).join("")}
+    </div>
+    <button style="margin-top:0.4rem;" onclick="toggleFlag(${idx})">🚩 Mark for Review</button>
+  `;
+}
+
+function selectMockAns(qIdx, optIdx) {
+  state.mockAnswers[qIdx] = optIdx;
+  saveState();
+  renderMockQuestion(qIdx);
+}
+
+function toggleFlag(qIdx) {
+  state.mockFlagged[qIdx] = !state.mockFlagged[qIdx];
+  saveState();
+  renderMockPalette();
+}
+
+function submitMockExam() {
+  state.mockRunning = false;
+  clearInterval(mockInterval);
+  const neg = parseFloat(document.getElementById("negMarkSelect")?.value || "0");
+  let right = 0, wrong = 0;
+  QUESTION_BANK.forEach((q, i) => {
+    if (state.mockAnswers[i] === undefined) return;
+    if (state.mockAnswers[i] === q.en.ans) right++;
+    else wrong++;
+  });
+  const totalScore = (right * 1.25 + wrong * neg).toFixed(2);
+  document.getElementById("mockScoreOut").textContent = `${totalScore} (Right: ${right}, Wrong: ${wrong})`;
+  triggerCelebration();
+  saveState();
+}
+
+let mirrored = false;
+function toggleMirror() {
+  mirrored = !mirrored;
+  const poly = document.getElementById("mirrorShape");
+  poly.setAttribute("points", mirrored ? "165,80 205,80 185,30" : "205,80 165,80 185,30");
+}
+
+function gcd(a, b) { return b === 0 ? a : gcd(b, a % b); }
+function calcLcmHcf() {
+  const a = Math.max(1, parseInt(document.getElementById("numA").value || "1", 10));
+  const b = Math.max(1, parseInt(document.getElementById("numB").value || "1", 10));
+  const hcf = gcd(a, b);
+  const lcm = (a * b) / hcf;
+  document.getElementById("lcmHcfResult").textContent = `LCM = ${lcm}, HCF = ${hcf}`;
+}
+
+function checkLangQuiz() {
+  document.getElementById("langResult").textContent = "मुख्य विचार: नियमित अभ्यास और अनुशासन से नवोदय की तैयारी सरल व प्रभावी बनती है।";
+}
+
+function generatePaper() {
+  const setName = document.getElementById("genSet").value;
+  const count = Math.min(QUESTION_BANK.length, Math.max(1, parseInt(document.getElementById("genCount").value || "3", 10)));
+  const rotated = [...QUESTION_BANK];
+  const shift = { "Set A": 0, "Set B": 1, "Set C": 2, "Set D": 3 }[setName] || 0;
+  for (let i = 0; i < shift; i++) rotated.push(rotated.shift());
+  const selected = rotated.slice(0, count);
+  let out = `WONDER WORLD – NAVODAYA CLASS 6 | ${setName}
+==========================================
+`;
+  selected.forEach((q, idx) => {
+    const loc = state.lang === "hi" ? q.hi : q.en;
+    out += `${idx + 1}. [${q.subject} - ${q.topic}] ${loc.q}
+   ${loc.opts.map((o, i) => `(${String.fromCharCode(65+i)}) ${o}`).join("  ")}
+`;
+  });
+  out += `
+--- ANSWER KEY (${setName}) ---
+` + selected.map((q, idx) => `Q${idx+1}: ${String.fromCharCode(65 + q.en.ans)}`).join(" | ");
+  document.getElementById("paperOutput").textContent = out;
+}
+
+function exportJsonBackup() {
+  const blob = new Blob([JSON.stringify({ version: "V3.3", exportedAt: new Date().toISOString(), state, bank: QUESTION_BANK }, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "wonder-world-navodaya-v3-2-backup.json";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function runFullModuleAudit() {
+  const checks = [
+    ["Tabs & Navigation", document.querySelectorAll(".tab-btn").length === 6],
+    ["Question Bank Loaded", QUESTION_BANK.length > 0],
+    ["Question Bank Sample Notice", Boolean(document.getElementById("mockBankCount"))],
+    ["Celebration Canvas", Boolean(document.getElementById("celebCanvas")?.getContext)],
+    ["Speech Synthesis API", "speechSynthesis" in window],
+    ["LocalStorage Persistence", (() => { localStorage.setItem("_ww_test", "1"); const ok = localStorage.getItem("_ww_test") === "1"; localStorage.removeItem("_ww_test"); return ok; })()]
+  ];
+  const lines = checks.map(([name, ok]) => `${ok ? "[PASS]" : "[FAIL]"} ${name}`);
+  document.getElementById("auditLog").textContent = lines.join("\n") + "\nAudit complete: listed checks passed where marked PASS; question bank size reflects supplied sample data.";
+}
+
+function renderChecklist() {
+  const items = [
+    "Daily 20 Mental Ability figures (MAT)",
+    "Arithmetic fractions, LCM/HCF & percentage practice",
+    "Reading comprehension passage + vocabulary",
+    "Review mistakes in AI Smart Tutor"
+  ];
+  const box = document.getElementById("checklistBox");
+  box.innerHTML = "";
+  items.forEach((txt, idx) => {
+    const lbl = document.createElement("label");
+    lbl.style.display = "block";
+    lbl.style.margin = "0.35rem 0";
+    const cb = document.createElement("input");
+    cb.type = "checkbox";
+    cb.checked = Boolean(state.checklist[idx]);
+    cb.onchange = () => { state.checklist[idx] = cb.checked; saveState(); };
+    lbl.appendChild(cb);
+    lbl.append(" " + txt);
+    box.appendChild(lbl);
+  });
+}
+
+function updateStats() {
+  document.getElementById("xpVal").textContent = state.xp;
+  document.getElementById("streakVal").textContent = state.streak;
+  document.getElementById("attVal").textContent = state.attempted;
+  const acc = state.attempted > 0 ? Math.round((state.correct / state.attempted) * 100) : 0;
+  document.getElementById("accVal").textContent = `${acc}%`;
+  document.getElementById("qbCountVal").textContent = `${QUESTION_BANK.length} Validated`;
+}
+
+function renderAll() {
+  updateStats();
+  renderChecklist();
+  renderPracticeQuestion();
+  generatePaper();
+}
+
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
+  });
+});
+
+loadState();
+renderAll();
+runFullModuleAudit();
+</script>
+</body>
+</html>
