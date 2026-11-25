@@ -1,0 +1,29 @@
+name: Refresh Owner Page Catalogue
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "site-pages.json"
+      - ".github/workflows/refresh-site-pages.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Build page catalogue
+        run: python scripts/build-site-pages.py
+      - name: Commit catalogue when changed
+        run: |
+          if ! git diff --quiet -- site-pages.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add site-pages.json
+            git commit -m "chore: refresh auto-discovered page catalogue"
+            git push
+          fi
