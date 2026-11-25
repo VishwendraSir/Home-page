@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#073b66" />
+  <title>🌊 Shree Ocean Discovery (Phase 8 Complete) — Manushree Wonder World</title>
+  <style>
+    :root {
+      --ocean-deep: #041e3a;
+      --ocean-mid: #084272;
+      --turquoise: #00b4d8;
+      --aqua: #48cae4;
+      --coral: #ff758f;
+      --coral-warm: #ff8fa3;
+      --purple: #7b2cbf;
+      --purple-soft: #9d4edd;
+      --mint: #2ec4b6;
+      --white: #ffffff;
+      --ink: #07203a;
+      --muted: #3c6382;
+      --glass: rgba(255, 255, 255, 0.92);
+      --shadow: 0 12px 30px rgba(4, 30, 58, 0.16);
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Trebuchet MS", "Nunito", "Segoe UI", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 12%, rgba(72, 202, 228, 0.25), transparent 36%),
+        radial-gradient(circle at 86% 18%, rgba(157, 78, 221, 0.2), transparent 38%),
+        linear-gradient(180deg, #e0f7fa 0%, #caf0f8 48%, #ade8f4 100%);
+      overflow-x: hidden;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      touch-action: manipulation;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .ecosystem-bar {
+      background: var(--ocean-deep);
+      color: var(--white);
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      border-bottom: 2px solid var(--turquoise);
+    }
+
+    .ecosystem-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .eco-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .eco-link {
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      font-weight: 700;
+      transition: background 0.15s ease;
+    }
+
+    .eco-link:hover, .eco-link.current {
+      background: var(--turquoise);
+      color: var(--ocean-deep);
+    }
+
+    .main-header {
+      position: sticky;
+      top: 0;
+      z-index: 35;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border-bottom: 3px solid #90e0ef;
+      padding: 10px 14px;
+      box-shadow: 0 6px 20px rgba(4, 30, 58, 0.08);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--ocean-mid), var(--turquoise), var(--purple));
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      color: var(--white);
+      box-shadow: 0 6px 14px rgba(0, 180, 216, 0.3);
+    }
+
+    .brand-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--ocean-deep);
+    }
+
+    .brand-sub {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .header-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ctrl-btn {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #e6f8fc;
+      color: var(--ocean-mid);
+      border: 2px solid #90e0ef;
+      font-weight: 800;
+      font-size: 0.82rem;
+      min-height: 38px;
+    }
+
+    .ctrl-btn.muted {
+      background: #f0f2f5;
+      color: #6f7c8a;
+      border-color: #d6dde3;
+    }
+
+    .nav-scroller {
+      max-width: 1200px;
+      margin: 10px auto 0;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+
+    .nav-scroller::-webkit-scrollbar { display: none; }
+
+    .nav-btn {
+      flex: 0 0 auto;
+      padding: 10px 15px;
+      border-radius: 16px;
+      background: var(--white);
+      color: var(--ink);
+      border: 2px solid #bde0fe;
+      font-weight: 800;
+      font-size: 0.88rem;
+      min-height: 44px;
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, var(--ocean-mid), var(--turquoise));
+      color: var(--white);
+      border-color: transparent;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 16px auto 48px;
+      padding: 0 14px;
+    }
+
+    .section-view {
+      display: none;
+      animation: fadeUp 0.25s ease;
+    }
+
+    .section-view.active {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 55%, #16425b 100%);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      border: 3px solid var(--aqua);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 840px) {
+      .hero-banner { grid-template-columns: 1fr; }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(72, 202, 228, 0.22);
+      border: 1px solid var(--aqua);
+      font-size: 0.8rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .hero-h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+      line-height: 1.15;
+    }
+
+    .hero-tagline {
+      margin: 0 0 10px;
+      font-weight: 800;
+      color: #90e0ef;
+      font-size: 1rem;
+    }
+
+    .hero-copy {
+      margin: 0 0 16px;
+      color: #e0f7fa;
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-coral {
+      background: linear-gradient(135deg, var(--coral), var(--purple-soft));
+      color: var(--white);
+      font-weight: 800;
+      padding: 12px 18px;
+      border-radius: 15px;
+      min-height: 46px;
+      font-size: 0.95rem;
+    }
+
+    .btn-aqua {
+      background: var(--aqua);
+      color: var(--ocean-deep);
+      font-weight: 800;
+      padding: 12px 18px;
+      border-radius: 15px;
+      min-height: 46px;
+      font-size: 0.95rem;
+    }
+
+    .btn-danger-soft {
+      background: #ffe5ea;
+      color: #9b1d36;
+      border: 2px solid #ffb3c1;
+      font-weight: 800;
+      padding: 8px 13px;
+      border-radius: 12px;
+      min-height: 36px;
+      font-size: 0.82rem;
+    }
+
+    .ocean-scene-box {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid var(--aqua);
+      background: linear-gradient(180deg, #0096c7 0%, #023e8a 68%, #03045e 100%);
+    }
+
+    .ocean-scene-box svg {
+      width: 100%;
+      height: 250px;
+      display: block;
+    }
+
+    @keyframes bubbleRise {
+      0% { transform: translateY(18px); opacity: 0.2; }
+      50% { opacity: 0.85; }
+      100% { transform: translateY(-34px); opacity: 0; }
+    }
+
+    @keyframes fishSwim {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(12px); }
+    }
+
+    .bubble-rise { animation: bubbleRise 3.2s ease-in-out infinite; }
+    .fish-swim { animation: fishSwim 3.8s ease-in-out infinite; }
+
+    .depth-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .depth-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      border: 2.5px solid #90e0ef;
+      box-shadow: 0 6px 16px rgba(4, 30, 58, 0.08);
+    }
+
+    .depth-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #e0f7fa;
+      color: var(--ocean-mid);
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .panel {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      border: 3px solid #bde0fe;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .panel-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 1.28rem;
+      color: var(--ocean-deep);
+    }
+
+    .zones-grid, .lab-grid, .games-grid, .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 12px;
+    }
+
+    .zone-tile, .lab-card, .game-card, .video-card {
+      background: #f4fbff;
+      border: 2.5px solid #90e0ef;
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+      transition: transform 0.14s ease, border-color 0.14s ease;
+    }
+
+    .zone-tile:hover, .lab-card:hover, .game-card:hover, .video-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--coral);
+    }
+
+    .zone-tile.completed, .lab-card.done {
+      background: #edfff9;
+      border-color: var(--mint);
+    }
+
+    .zone-inspector, .lab-stage, .game-stage, .studio-box {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(120deg, #e0f7fa 0%, #f3e8ff 100%);
+      border: 2.5px solid var(--turquoise);
+    }
+
+    .status-pill {
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e0f7fa;
+      color: var(--ocean-deep);
+    }
+
+    .status-pill.done {
+      background: #d8fff0;
+      color: #0b6b4f;
+    }
+
+    .filter-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+
+    .search-input, .form-input, .form-select, .form-textarea {
+      padding: 10px 13px;
+      border-radius: 12px;
+      border: 2px solid #90e0ef;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--ink);
+      background: #f8fdff;
+    }
+
+    .search-input { flex: 1 1 240px; }
+    .form-textarea { width: 100%; min-height: 70px; }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--ocean-mid);
+    }
+
+    .cat-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .cat-chip {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #eef9fc;
+      color: var(--ocean-mid);
+      border: 2px solid #bde0fe;
+      font-weight: 800;
+      font-size: 0.8rem;
+      min-height: 36px;
+    }
+
+    .cat-chip.active {
+      background: linear-gradient(135deg, var(--turquoise), var(--purple));
+      color: var(--white);
+      border-color: transparent;
+    }
+
+    .creatures-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+      gap: 12px;
+    }
+
+    .creature-card {
+      background: #f7fcff;
+      border: 2px solid #caf0f8;
+      border-radius: var(--radius-md);
+      padding: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .creature-detail-box {
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #f0fbff 0%, #f7efff 100%);
+      border: 2.5px solid var(--purple-soft);
+    }
+
+    .detail-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin: 10px 0 14px;
+    }
+
+    .meta-box {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1.5px solid #d8ecfa;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .storyboard-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .quiz-option-btn, .choice-tile {
+      padding: 11px 14px;
+      border-radius: 14px;
+      background: var(--white);
+      border: 2px solid #90e0ef;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--ink);
+      min-height: 46px;
+    }
+
+    .quiz-option-btn:hover, .choice-tile:hover {
+      background: #eefaff;
+      border-color: var(--turquoise);
+    }
+
+    .quiz-option-btn.right, .choice-tile.right {
+      background: #d8fff0;
+      border-color: var(--mint);
+      color: #095c43;
+    }
+
+    .quiz-option-btn.wrong, .choice-tile.wrong {
+      background: #ffe3e8;
+      border-color: var(--coral);
+      color: #8a162e;
+    }
+
+    .game-choices-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .footer-brand {
+      text-align: center;
+      padding: 20px 14px 36px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.88rem;
+    }
+
+    .hidden { display: none !important; }
+  
+    .voice-sliders {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 10px 0 14px;
+    }
+    .buddy-thread {
+      max-height: 280px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 10px 0 12px;
+      padding: 10px;
+      border-radius: 14px;
+      background: #f6fcff;
+      border: 2px solid #bde0fe;
+    }
+    .msg-bubble {
+      padding: 10px 13px;
+      border-radius: 14px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.45;
+      max-width: 90%;
+    }
+    .msg-buddy {
+      align-self: flex-start;
+      background: #e0f7fa;
+      color: var(--ocean-deep);
+      border: 1.5px solid var(--aqua);
+    }
+    .msg-user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, var(--purple), var(--turquoise));
+      color: var(--white);
+    }
+
+  
+    .dash-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+    .dash-kpi {
+      background: #f4fbff;
+      border: 2px solid #90e0ef;
+      border-radius: 16px;
+      padding: 12px;
+      text-align: center;
+    }
+    .dash-kpi-val {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--ocean-mid);
+    }
+    .dash-kpi-lbl {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .badges-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 10px 0 14px;
+    }
+    .badge-card {
+      background: #f8fcff;
+      border: 2px solid #d4eefc;
+      border-radius: 14px;
+      padding: 10px;
+      text-align: center;
+      font-weight: 800;
+    }
+    .badge-card.earned {
+      background: #fff9e6;
+      border-color: #f4a261;
+    }
+    .cert-sheet {
+      margin-top: 14px;
+      padding: 22px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fbff 55%, #f8f2ff 100%);
+      border: 4px double var(--ocean-mid);
+      text-align: center;
+    }
+    @media print {
+      .ecosystem-bar, .main-header, #tab-home, #tab-map, #tab-animals, #tab-lab, #tab-games, #tab-videos, #tab-buddy, #tab-preview, .no-print-cert, .footer-brand {
+        display: none !important;
+      }
+      #tab-dashboard {
+        display: block !important;
+      }
+      .cert-sheet {
+        border: 4px solid #084272 !important;
+      }
+    }
+
+  
+    .admin-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .qa-checklist {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .qa-item {
+      background: #f4fbff;
+      border: 1.5px solid #90e0ef;
+      border-radius: 12px;
+      padding: 8px 11px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--ocean-deep);
+    }
+
+  
+    .delivery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .delivery-card {
+      background: #f4fbff;
+      border: 2px solid #90e0ef;
+      border-radius: 16px;
+      padding: 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="ecosystem-bar" role="navigation" aria-label="Manushree Wonder World Navigation">
+    <div class="ecosystem-inner">
+      <div><strong>MANUSHREE WONDER WORLD</strong> • Guided by Vishwendra Sir</div>
+      <div class="eco-links">
+        <a class="eco-link" href="./index.html">← Back to Manushree Wonder World</a>
+        <a class="eco-link" href="./index.html">Main Wonder World</a>
+        <a class="eco-link current" href="./Shree_Ocean_Discovery_Complete.html">Shree Ocean Discovery</a>
+        <a class="eco-link" href="./Manushree_Candy_Garden_V4_9_Complete.html">Manushree Candy Garden</a>
+        <a class="eco-link" href="./Ram_Dino_Space_Quest.html">Ram Dino Space Quest</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <div class="header-inner">
+      <div class="brand-box">
+        <div class="brand-icon">🌊</div>
+        <div>
+          <div class="brand-title">SHREE OCEAN DISCOVERY <span style="color:var(--purple); font-size:0.8rem;">Phase 8 Complete</span></div>
+          <div class="brand-sub" id="hdr-sub">Dive Deep • Discover Life • Protect Our Oceans</div>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button class="ctrl-btn" id="btn-lang" onclick="toggleLangMode()">🌐 EN + HI</button>
+        <button class="ctrl-btn" id="btn-sfx" onclick="toggleSfx()">🔊 SFX</button>
+        <button class="ctrl-btn" id="btn-narrate-play" onclick="narrateIntro()">▶️ Play Voice</button>
+        <button class="ctrl-btn" id="btn-narrate-pause" onclick="pauseVoice()">⏸️ Pause</button>
+        <button class="ctrl-btn" id="btn-narrate-replay" onclick="narrateIntro()">🔁 Replay</button>
+      </div>
+    </div>
+
+    <div class="nav-scroller" role="tablist" aria-label="Ocean Discovery Sections">
+      <button class="nav-btn active" data-tab="home" onclick="openTab('home')">🏠 Home</button>
+      <button class="nav-btn" data-tab="map" onclick="openTab('map')">🗺️ Explore Ocean</button>
+      <button class="nav-btn" data-tab="animals" onclick="openTab('animals')">🐠 Animal World (104)</button>
+      <button class="nav-btn" data-tab="lab" onclick="openTab('lab')">🔬 Learning Lab (12)</button>
+      <button class="nav-btn" data-tab="games" onclick="openTab('games')">🎮 Ocean Games (12)</button>
+      <button class="nav-btn" data-tab="videos" onclick="openTab('videos')">🎬 AI Video Studio</button>
+      <button class="nav-btn" data-tab="buddy" onclick="openTab('buddy')">🐬 Ocean Buddy &amp; Voice</button>
+      <button class="nav-btn" data-tab="dashboard" onclick="openTab('dashboard')">🎓 My Dashboard &amp; Certificate</button>
+      <button class="nav-btn" data-tab="admin" onclick="openTab('admin')">🛡️ Admin Control Center</button>
+      <button class="nav-btn" data-tab="preview" onclick="openTab('preview')">📦 Final Delivery &amp; Docs</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- TAB 1: HOME -->
+    <section id="tab-home" class="section-view active">
+      <div class="hero-banner">
+        <div>
+          <div class="hero-badge">🌊 Part of Manushree Wonder World • Phases 1–4 Active</div>
+          <h1 class="hero-h1" id="hero-title">Shree Ocean Discovery</h1>
+          <div class="hero-tagline">Dive Deep • Discover Life • Protect Our Oceans</div>
+          <p class="hero-copy" id="hero-desc">
+            Explore 10 ocean destinations, 104 marine creatures, a 12-module Science Learning Lab, 12 underwater games, and the AI Video Studio with storyboards and media publishing.
+          </p>
+          <div class="hero-cta-row">
+            <button class="btn-coral" onclick="openTab('videos')">🎬 Open AI Video Studio</button>
+            <button class="btn-aqua" onclick="openTab('games')">🎮 Play 12 Ocean Games</button>
+            <button class="ctrl-btn" style="background:var(--white);" onclick="openTab('lab')">🔬 Science Lab</button>
+          </div>
+        </div>
+
+        <div class="ocean-scene-box">
+          <svg viewBox="0 0 480 240" role="img" aria-label="Animated underwater scene with coral reef, swimming fish, and rising bubbles">
+            <circle cx="420" cy="42" r="22" fill="#90e0ef" opacity="0.35" />
+            <g class="bubble-rise">
+              <circle cx="95" cy="185" r="5" fill="#caf0f8" opacity="0.7" />
+              <circle cx="240" cy="165" r="7" fill="#caf0f8" opacity="0.65" />
+              <circle cx="385" cy="190" r="4" fill="#caf0f8" opacity="0.75" />
+            </g>
+            <path d="M 0 195 Q 140 175 480 198 L 480 240 L 0 240 Z" fill="#0077b6" />
+            <path d="M 55 196 Q 68 156 85 196 Z" fill="#ff758f" />
+            <path d="M 110 196 Q 128 148 146 196 Z" fill="#ff9e00" />
+            <path d="M 355 196 Q 374 152 394 196 Z" fill="#c77dff" />
+            <g class="fish-swim">
+              <ellipse cx="185" cy="95" rx="20" ry="11" fill="#ff9e00" />
+              <polygon points="165,95 152,85 152,105" fill="#ff758f" />
+              <circle cx="195" cy="92" r="2.5" fill="#041e3a" />
+            </g>
+            <g transform="translate(115, 42)">
+              <ellipse cx="220" cy="115" rx="16" ry="9" fill="#48cae4" />
+              <polygon points="204,115 193,107 193,123" fill="#00b4d8" />
+              <circle cx="229" cy="113" r="2" fill="#041e3a" />
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="depth-strip" aria-label="Ocean Zones from Shallow Water to Deep Sea">
+        <div class="depth-card">
+          <span class="depth-tag">0m – 200m • Sunlight Zone</span>
+          <div style="font-weight:800; font-size:1rem;">☀️ Epipelagic Zone</div>
+          <div style="font-size:0.84rem; color:var(--muted); margin-top:4px;">Bright sunlit water with coral reefs, dolphins, sea turtles, and colorful reef fish.</div>
+        </div>
+        <div class="depth-card">
+          <span class="depth-tag">200m – 1,000m • Twilight Zone</span>
+          <div style="font-weight:800; font-size:1rem;">🌅 Mesopelagic Zone</div>
+          <div style="font-size:0.84rem; color:var(--muted); margin-top:4px;">Dim blue light where whales dive deep and creatures use gentle light signals.</div>
+        </div>
+        <div class="depth-card">
+          <span class="depth-tag">1,000m – 4,000m+ • Midnight &amp; Abyss</span>
+          <div style="font-weight:800; font-size:1rem;">🌌 Bathypelagic &amp; Abyssal</div>
+          <div style="font-size:0.84rem; color:var(--muted); margin-top:4px;">Dark, high-pressure deep waters home to glowing bioluminescent wonders.</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>🗺️ Interactive Ocean World Map (10 Destinations)</h2>
+            <div style="font-size:0.86rem; color:var(--muted);">Click any ocean destination to inspect its discovery card, mini-challenge, and mission status.</div>
+          </div>
+          <span class="status-pill" id="mission-counter-pill">0 / 10 Zones Completed</span>
+        </div>
+        <div class="zones-grid" id="zones-grid"></div>
+
+        <div class="zone-inspector hidden" id="zone-inspector">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-pill" id="insp-depth">Sunlight Zone</span>
+              <h3 id="insp-title" style="margin:6px 0 2px; font-size:1.25rem;">Zone Name</h3>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="ctrl-btn" onclick="speakInspectedZone()">🔊 Hear Fact</button>
+              <button class="btn-aqua" style="padding:8px 14px; min-height:40px; font-size:0.85rem;" onclick="completeInspectedMission()">✓ Complete Zone Mission</button>
+            </div>
+          </div>
+          <p id="insp-fact" style="margin:8px 0; font-weight:700; line-height:1.45;"></p>
+          <div id="insp-mini-challenge" style="background:rgba(255,255,255,0.85); padding:10px 12px; border-radius:12px; font-weight:800; font-size:0.9rem;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: FULL OCEAN MAP -->
+    <section id="tab-map" class="section-view">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>🌊 Full Ocean Exploration Map</h2>
+          <button class="ctrl-btn" onclick="openTab('home')">← Back to Home</button>
+        </div>
+        <div class="zones-grid" id="zones-grid-map"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: MARINE LIFE EXPLORER -->
+    <section id="tab-animals" class="section-view">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>🐠 Marine Life Explorer (<span id="creature-count-label">104</span> Creatures)</h2>
+            <div style="font-size:0.86rem; color:var(--muted);">Search by English or Hindi name, filter by category, listen to pronunciation, and take a 5-question quiz on any creature.</div>
+          </div>
+          <span class="status-pill" id="quiz-score-pill">Quiz Mastery: 0 pts</span>
+        </div>
+
+        <div class="filter-toolbar">
+          <input id="creature-search" class="search-input" type="search" placeholder="Search Blue Whale, Dolphin, Shark, Octopus, कछुआ, जेलीफ़िश..." oninput="renderCreatures()" />
+          <button class="ctrl-btn" onclick="clearCreatureFilters()">↺ Reset Filter</button>
+        </div>
+
+        <div class="cat-pills" id="category-chips"></div>
+
+        <div class="creatures-grid" id="creatures-grid"></div>
+
+        <div class="creature-detail-box hidden" id="creature-detail-box">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-pill" id="cd-category">Mammals</span>
+              <h3 id="cd-names" style="margin:6px 0 2px; font-size:1.3rem;">🐋 Blue Whale • नीली व्हेल</h3>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="ctrl-btn" onclick="pronounceSelectedCreature()">🔊 Pronounce Name &amp; Profile</button>
+              <button class="btn-coral" style="padding:8px 14px; min-height:38px; font-size:0.84rem;" onclick="startCreatureQuiz()">❓ Start 5-Question Quiz</button>
+            </div>
+          </div>
+
+          <div class="detail-meta-grid" id="cd-meta"></div>
+          <div id="cd-facts" style="font-weight:700; line-height:1.5;"></div>
+
+          <div id="cd-quiz-area" class="hidden" style="margin-top:14px; padding-top:14px; border-top:2px dashed #c7b2ff;">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+              <strong id="cd-q-counter">Question 1 of 5</strong>
+              <button class="ctrl-btn" onclick="speakQuizQuestion()">🔊 Read Question</button>
+            </div>
+            <div id="cd-q-text" style="font-weight:800; font-size:1rem; margin:8px 0;"></div>
+            <div id="cd-q-options"></div>
+            <div id="cd-q-feedback" style="margin-top:8px; font-weight:800; font-size:0.88rem;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: SCIENCE LEARNING LAB -->
+    <section id="tab-lab" class="section-view">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>🔬 Marine Science Learning Lab (12 Modules)</h2>
+            <div style="font-size:0.86rem; color:var(--muted);">Interactive experiments, diagrams, bilingual explanations, and check-for-understanding questions.</div>
+          </div>
+          <span class="status-pill" id="lab-progress-pill">0 / 12 Lab Modules Explored</span>
+        </div>
+
+        <div class="lab-grid" id="lab-grid"></div>
+
+        <div class="lab-stage" id="lab-stage">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-pill" id="lab-mod-badge">Module 1 of 12</span>
+              <h3 id="lab-mod-title" style="margin:6px 0 2px; font-size:1.22rem;">Ocean Layers and Depth</h3>
+            </div>
+            <button class="ctrl-btn" onclick="speakLabModule()">🔊 Read Experiment</button>
+          </div>
+
+          <div id="lab-diagram" style="margin:10px 0;"></div>
+          <p id="lab-explain" style="font-weight:700; line-height:1.5; margin:6px 0 10px;"></p>
+          <div id="lab-experiment" style="background:rgba(255,255,255,0.9); padding:10px 12px; border-radius:12px; font-weight:800; font-size:0.88rem; margin-bottom:10px;"></div>
+
+          <div style="font-weight:800; font-size:0.95rem;" id="lab-q-text"></div>
+          <div class="game-choices-row" id="lab-q-options"></div>
+          <div id="lab-q-feedback" style="font-weight:800; font-size:0.88rem;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: 12 INTERACTIVE UNDERWATER GAMES -->
+    <section id="tab-games" class="section-view">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>🎮 Underwater Games Arcade (12 Games)</h2>
+            <div style="font-size:0.86rem; color:var(--muted);">Every game includes instructions, Start &amp; Restart controls, score, difficulty levels, sound effects with mute toggle, and rewards.</div>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+            <select id="game-difficulty-select" class="ctrl-btn" onchange="changeGameDifficulty(this.value)">
+              <option value="explorer">Level: Explorer (Ages 4–7)</option>
+              <option value="scientist">Level: Junior Scientist (Class 3–8)</option>
+            </select>
+            <span class="status-pill" id="game-rewards-pill">Score: 0 • Stars: 0</span>
+          </div>
+        </div>
+
+        <div class="games-grid" id="games-grid"></div>
+
+        <div class="game-stage" id="game-stage">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-pill" id="active-game-badge">Game 1 of 12</span>
+              <h3 id="active-game-title" style="margin:6px 0 2px; font-size:1.22rem;">1. Fish Identification Challenge</h3>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="btn-aqua" style="padding:8px 14px; min-height:38px; font-size:0.84rem;" onclick="startActiveGame()">▶️ Start</button>
+              <button class="ctrl-btn" onclick="restartActiveGame()">🔄 Restart</button>
+            </div>
+          </div>
+
+          <p id="active-game-instr" style="font-weight:700; color:var(--muted); margin:8px 0;"></p>
+          <div id="active-game-prompt" style="font-weight:900; font-size:1.05rem; margin:8px 0;"></div>
+          <div class="game-choices-row" id="active-game-choices"></div>
+          <div id="active-game-feedback" style="font-weight:800; font-size:0.9rem; margin-top:6px;"></div>
+        </div>
+      </div>
+    </section>
