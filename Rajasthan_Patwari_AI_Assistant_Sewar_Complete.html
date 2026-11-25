@@ -1003,3 +1003,71 @@
           </td>
         </tr>
       `).join("") || `<tr><td colspan="6">कोई रिकॉर्ड नहीं।</td></tr>`;
+
+      document.getElementById("mutTableBody").innerHTML = state.mutations.map(m => `
+        <tr>
+          <td>${esc(m.appNo)}</td><td>${esc(m.applicant)}</td><td>${esc(m.khasraKhata)}</td>
+          <td>${esc(m.category)}</td><td><span class="badge badge-warn">${esc(m.status)}</span></td>
+          <td>
+            <button class="btn btn-outline" onclick="startEditMutation('${m.id}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('mutations','${m.id}')">🗑️</button>
+          </td>
+        </tr>
+      `).join("") || `<tr><td colspan="6">कोई नामांतरण नहीं।</td></tr>`;
+
+      document.getElementById("cropTableBody").innerHTML = state.crops.map(c => `
+        <tr>
+          <td>${esc(c.village)} / ${esc(c.khasra)}</td><td>${esc(c.farmer)}</td>
+          <td>${esc(c.season)} — ${esc(c.crop)}</td><td>${Number(c.cultivated).toFixed(4)} Ha</td>
+          <td>${esc(c.damage || "-")} ${c.gps ? "(" + esc(c.gps) + ")" : ""}</td>
+          <td>
+            <button class="btn btn-outline" onclick="startEditCrop('${c.id}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('crops','${c.id}')">🗑️</button>
+          </td>
+        </tr>
+      `).join("") || `<tr><td colspan="6">कोई गिरदावरी रिकॉर्ड नहीं।</td></tr>`;
+
+      document.getElementById("visitTableBody").innerHTML = state.visits.map(v => `
+        <tr>
+          <td>${esc(v.village)} ${v.khasra ? "(" + esc(v.khasra) + ")" : ""}</td>
+          <td>${esc(v.purpose)}</td><td>${esc(v.obs)}</td>
+          <td>
+            <button class="btn btn-outline" onclick="startEditVisit('${v.id}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('visits','${v.id}')">🗑️</button>
+          </td>
+        </tr>
+      `).join("") || `<tr><td colspan="4">कोई भ्रमण नहीं।</td></tr>`;
+
+      document.getElementById("taskTableBody").innerHTML = state.tasks.map(t => `
+        <tr>
+          <td>${t.done ? "<s>" + esc(t.title) + "</s>" : esc(t.title)}</td>
+          <td>${esc(t.priority)}</td><td>${esc(t.due)}</td>
+          <td>${t.done ? "पूर्ण" : "लंबित"}</td>
+          <td>
+            <button class="btn btn-outline" onclick="toggleTask('${t.id}')">✓</button>
+            <button class="btn btn-outline" onclick="startEditTask('${t.id}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('tasks','${t.id}')">🗑️</button>
+          </td>
+        </tr>
+      `).join("") || `<tr><td colspan="5">कोई कार्य नहीं।</td></tr>`;
+
+      renderAudit();
+    }
+
+    function esc(s) {
+      return String(s || "").replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
+    }
+
+    window.addEventListener("online", updateNetBadge);
+    window.addEventListener("offline", updateNetBadge);
+    window.addEventListener("DOMContentLoaded", () => {
+      loadInitial();
+      buildNav();
+      renderAll();
+      calcArea();
+      makeDraft();
+    });
+  </script>
+  <footer style="text-align:center;padding:14px;color:#64748b;font-size:12px">Rajasthan Patwari AI Assistant v2.0 · Offline/local record tool · आधिकारिक राजस्व रिकॉर्ड का विकल्प नहीं</footer>
+</body>
+</html>
