@@ -786,11 +786,11 @@
 
   </style>
 
-<!-- SCLH shared Firebase display lock (automatically managed) -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="../../firebase-config.js"></script>
-<script src="../../site-lock.js?v=2"></script>
+  <style id="wonder-world-accessibility-upgrade">
+    :focus-visible { outline: 3px solid #f59e0b !important; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+    img, svg { max-width: 100%; }
+  </style>
 </head>
 <body>
   <!-- Manushree Wonder World Ecosystem Switcher -->
@@ -1004,3 +1004,2325 @@
 
           <div class="meta-grid-p2" id="dd-meta-grid"></div>
           <div id="dd-facts-box" style="font-weight:700; line-height:1.5;"></div>
+
+          <div id="dd-quiz-panel" class="hidden" style="margin-top:14px; padding-top:14px; border-top:2px dashed #93c5fd;">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+              <strong id="dd-q-step">Question 1 of 5</strong>
+              <button class="action-chip" onclick="speakDinoQuizQuestion()">🔊 Read Question</button>
+            </div>
+            <div id="dd-q-text" style="font-weight:900; font-size:0.98rem; margin:8px 0;"></div>
+            <div class="opts-grid-p2" id="dd-q-opts"></div>
+            <div id="dd-q-feedback" style="font-weight:800; font-size:0.86rem; margin-top:6px;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- MODULE 6: TIME MACHINE ADVENTURE (6 HISTORICAL JOURNEYS) -->
+    <section id="mod-time-machine" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>⏳ Time Machine Adventure (6 Historical Eras)</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">
+              Travel across geological time — note that dinosaurs lived across different periods and not all species lived at the same time.
+            </div>
+          </div>
+          <span class="status-tag" id="tm-prog-pill">0 / 6 Eras Completed</span>
+        </div>
+
+        <div class="era-grid-6" id="tm-eras-grid"></div>
+
+        <div class="stage-box-p2 hidden" id="tm-detail-stage">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-tag" id="tm-time-badge">Timeline</span>
+              <h3 id="tm-title" style="margin:6px 0 2px; font-size:1.25rem;">Era Name</h3>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <button class="action-chip" onclick="speakCurrentEra()">🔊 Narrate Era</button>
+              <button class="btn-amber" style="padding:8px 14px; min-height:38px; font-size:0.84rem;" onclick="completeCurrentEra()">✓ Complete Era Mission (+25 XP)</button>
+            </div>
+          </div>
+          <p id="tm-science" style="margin:8px 0; font-weight:700; line-height:1.5;"></p>
+          <div class="meta-grid-p2">
+            <div class="meta-item-p2" id="tm-env-box"></div>
+            <div class="meta-item-p2" id="tm-enc-box"></div>
+            <div class="meta-item-p2" id="tm-task-box"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 4: FOSSIL DISCOVERY LAB -->
+    <section id="mod-fossil-lab" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🦴 Fossil Discovery Lab &amp; Museum Collection</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">
+              Dig &amp; clean fossils, assemble a dinosaur skeleton, compare footprints, explore rock strata &amp; fossilization, and grow your museum collection.
+            </div>
+          </div>
+          <span class="status-tag" id="fossil-museum-pill">Museum Collection: 0 / 6</span>
+        </div>
+
+        <div class="meta-grid-p2">
+          <div class="meta-item-p2">
+            <div style="font-weight:900; margin-bottom:4px;">⛏️ Virtual Excavation &amp; Cleaning</div>
+            <div style="font-size:0.8rem; margin-bottom:6px;">Tap rock squares to dig &amp; brush clean for fossils and XP.</div>
+            <div class="dig-grid-p3" id="fossil-dig-grid"></div>
+            <button class="action-chip" onclick="resetDigSite()">↺ Reset Dig Grid</button>
+          </div>
+
+          <div class="meta-item-p2">
+            <div style="font-weight:900; margin-bottom:4px;">🦖 Assemble Dinosaur Skeleton</div>
+            <div style="font-size:0.8rem; margin-bottom:6px;">Tap each skeleton part in order to mount the museum display:</div>
+            <div class="skel-parts-row" id="skel-parts-row"></div>
+            <div id="skel-status-text" style="font-weight:800; font-size:0.82rem;">Parts Assembled: 0 / 4</div>
+          </div>
+        </div>
+
+        <div class="meta-grid-p2">
+          <div class="meta-item-p2">
+            <strong>🐾 Footprints &amp; Fossil Formation:</strong> Fossils form when remains are buried in sediment and minerals replace or preserve hard parts over deep time. Comparing footprint size and stride helps scientists study movement.
+          </div>
+          <div class="meta-item-p2">
+            <strong>🪨 Fossil Rock Layers (Strata):</strong> Sedimentary layers stack over time; deeper undisturbed layers generally hold older prehistoric evidence than upper layers.
+          </div>
+        </div>
+
+        <h3 style="margin:12px 0 6px; font-size:1.05rem;">🏛️ Museum Specimen Collection</h3>
+        <div class="fossil-grid-p3" id="fossil-museum-grid"></div>
+      </div>
+    </section>
+
+
+    <!-- MODULE 7 & 8: SPACE EXPLORATION & PLANET DISCOVERY (12 DESTINATIONS) -->
+    <section id="mod-space-exp" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🌌 Space Exploration &amp; Planet Discovery (12 Destinations)</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">
+              Explore moons, planets, belts, comets, galaxies, and cosmic mysteries with missions &amp; quizzes.
+            </div>
+          </div>
+          <span class="status-tag" id="space-prog-pill">0 / 12 Space Destinations Completed</span>
+        </div>
+
+        <div class="space-grid-12" id="space-grid-12"></div>
+
+        <div class="stage-box-p2 hidden" id="space-detail-stage">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-tag" id="sp-type-tag">Destination</span>
+              <h3 id="sp-title" style="margin:6px 0 2px; font-size:1.25rem;">Destination Name</h3>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <button class="action-chip" onclick="speakCurrentSpaceDest()">🔊 Narrate</button>
+              <button class="btn-cyan" style="padding:8px 14px; min-height:38px; font-size:0.84rem;" onclick="completeCurrentSpaceDest()">✓ Complete Space Mission (+25 XP)</button>
+            </div>
+          </div>
+          <p id="sp-fact" style="margin:8px 0; font-weight:700; line-height:1.5;"></p>
+          <div class="meta-item-p2" id="sp-mission-box" style="margin-bottom:10px;"></div>
+          <div style="font-weight:800; font-size:0.94rem;" id="sp-q-prompt"></div>
+          <div class="opts-grid-p2" id="sp-q-opts"></div>
+          <div id="sp-q-fb" style="font-weight:800; font-size:0.86rem;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 9: SOLAR SYSTEM LAB -->
+    <section id="mod-solar-lab" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🪐 Planet &amp; Solar System Lab</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">
+              Interactive astronomy concepts: Solar System, Planets, Sun &amp; Moon, Rotation &amp; Revolution, Day/Night, Seasons, Gravity, Asteroids, Comets, Stars, Galaxies, Telescopes, Rockets &amp; Satellites.
+            </div>
+          </div>
+          <span class="status-tag" id="solar-prog-pill">0 / 14 Topics Explored</span>
+        </div>
+
+        <div class="solar-grid-14" id="solar-grid-14"></div>
+
+        <div class="stage-box-p2" id="solar-detail-stage">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-tag" id="sol-badge">Topic 1 of 14</span>
+              <h3 id="sol-title" style="margin:6px 0 2px; font-size:1.22rem;">Solar System</h3>
+            </div>
+            <button class="action-chip" onclick="speakSolarTopic()">🔊 Read Lesson</button>
+          </div>
+          <div class="meta-item-p2" id="sol-diagram" style="margin:10px 0;"></div>
+          <p id="sol-explain" style="font-weight:700; line-height:1.5; margin:6px 0 10px;"></p>
+          <div style="font-weight:800; font-size:0.94rem;" id="sol-q-prompt"></div>
+          <div class="opts-grid-p2" id="sol-q-opts"></div>
+          <div id="sol-q-fb" style="font-weight:800; font-size:0.86rem;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 10: SPACESHIP BUILDER -->
+    <section id="mod-ship-builder" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🛸 Spaceship Builder &amp; Flight Test</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">
+              Choose ship class, body, wings, engines, color, windows &amp; equipment, name your ship, test launch, fly an obstacle course, and save locally.
+            </div>
+          </div>
+          <span class="status-tag" id="ship-saved-pill">Saved Ship Ready</span>
+        </div>
+
+        <div class="ship-form-grid">
+          <label class="ship-lbl">Spaceship Name
+            <input id="ship-name-inp" class="ship-inp" type="text" value="Ram Star-1" oninput="syncShipBuilder()" />
+          </label>
+          <label class="ship-lbl">Spaceship Class
+            <select id="ship-class-sel" class="ship-sel" onchange="syncShipBuilder()">
+              <option value="Beginner Explorer">Beginner Explorer</option>
+              <option value="Science Research Ship">Science Research Ship</option>
+              <option value="Galactic Adventure Ship">Galactic Adventure Ship</option>
+            </select>
+          </label>
+          <label class="ship-lbl">Spaceship Body
+            <select id="ship-body-sel" class="ship-sel" onchange="syncShipBuilder()">
+              <option value="Sleek Capsule Hull">Sleek Capsule Hull</option>
+              <option value="Twin-Pod Rover Hull">Twin-Pod Rover Hull</option>
+              <option value="Cruiser Command Hull">Cruiser Command Hull</option>
+            </select>
+          </label>
+          <label class="ship-lbl">Wings
+            <select id="ship-wings-sel" class="ship-sel" onchange="syncShipBuilder()">
+              <option value="Delta Glide Wings">Delta Glide Wings</option>
+              <option value="Solar Fin Wings">Solar Fin Wings</option>
+              <option value="Swept Star Wings">Swept Star Wings</option>
+            </select>
+          </label>
+          <label class="ship-lbl">Engines
+            <select id="ship-engine-sel" class="ship-sel" onchange="syncShipBuilder()">
+              <option value="Ion Pulse Thruster">Ion Pulse Thruster</option>
+              <option value="Plasma Booster">Plasma Booster</option>
+              <option value="Solar Photon Drive">Solar Photon Drive</option>
+            </select>
+          </label>
+          <label class="ship-lbl">Color Theme
+            <select id="ship-color-sel" class="ship-sel" onchange="syncShipBuilder()">
+              <option value="Cyan &amp; Nebula Purple">Cyan &amp; Nebula Purple</option>
+              <option value="Amber Gold &amp; Deep Space">Amber Gold &amp; Deep Space</option>
+              <option value="Emerald Dino &amp; Silver">Emerald Dino &amp; Silver</option>
+            </select>
+          </label>
+          <label class="ship-lbl">Windows &amp; Equipment
+            <select id="ship-gear-sel" class="ship-sel" onchange="syncShipBuilder()">
+              <option value="Dome Viewport + Telescope">Dome Viewport + Telescope</option>
+              <option value="Panoramic Cockpits + Sample Arm">Panoramic Cockpits + Sample Arm</option>
+              <option value="Radar Scanner + Shield Array">Radar Scanner + Shield Array</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="cta-row" style="margin-top:10px;">
+          <button class="btn-amber" onclick="runShipLaunchTest()">🚀 Test Launch</button>
+          <button class="btn-cyan" onclick="runShipObstacleCourse()">☄️ Fly Obstacle Course</button>
+          <button class="action-chip" onclick="saveShipBlueprint()">💾 Save Ship Locally</button>
+        </div>
+
+        <div class="stage-box-p2" id="ship-summary-stage">
+          <div id="ship-spec-line" style="font-weight:900; font-size:1rem;"></div>
+          <div id="ship-flight-status" style="margin-top:6px; font-weight:800; font-size:0.9rem; color:var(--purple-nebula);"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- MODULE 13: DINO GAMES (20 INTERACTIVE GAMES) -->
+    <section id="mod-dino-games" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🦖 Dino Games Center (20 Games)</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">
+              Every game includes Start, Pause, Restart, Difficulty, Score, Sound control, Feedback, Rewards &amp; Completion Screen.
+            </div>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+            <select id="dino-game-diff" class="action-chip" onchange="changeGameCenterDiff('dino', this.value)">
+              <option value="easy">Easy (+10 XP)</option>
+              <option value="medium">Medium (+20 XP)</option>
+              <option value="hard">Hard (+30 XP)</option>
+            </select>
+            <span class="status-tag" id="dino-games-score-badge">Dino Score: 0 • Stars: 0</span>
+          </div>
+        </div>
+
+        <div class="game-center-grid" id="dino-games-list"></div>
+
+        <div class="stage-box-p2" id="dino-game-arena">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-tag" id="dg-meta-tag">Game 1 of 20</span>
+              <h3 id="dg-title" style="margin:6px 0 2px; font-size:1.2rem;">1. Dinosaur Identification</h3>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px;">
+              <button class="btn-amber" style="padding:7px 12px; min-height:36px; font-size:0.8rem;" onclick="startCenterGame('dino')">▶️ Start</button>
+              <button class="action-chip" onclick="pauseCenterGame('dino')">⏸️ Pause</button>
+              <button class="action-chip" onclick="restartCenterGame('dino')">🔄 Restart</button>
+            </div>
+          </div>
+          <p id="dg-instr" style="font-weight:700; margin:6px 0;"></p>
+          <div id="dg-prompt" style="font-weight:900; font-size:1rem; margin:8px 0;"></div>
+          <div class="opts-grid-p2" id="dg-choices"></div>
+          <div id="dg-feedback" style="font-weight:800; font-size:0.88rem; margin-top:6px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 14: SPACE GAMES (15 INTERACTIVE GAMES) -->
+    <section id="mod-space-games" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🚀 Space Games Center (15 Games)</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">
+              Touch &amp; keyboard friendly space games with Start, Pause, Restart, Difficulty, Score, Sound control, Rewards &amp; Completion Screen.
+            </div>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+            <select id="space-game-diff" class="action-chip" onchange="changeGameCenterDiff('space', this.value)">
+              <option value="easy">Easy (+10 XP)</option>
+              <option value="medium">Medium (+20 XP)</option>
+              <option value="hard">Hard (+30 XP)</option>
+            </select>
+            <span class="status-tag" id="space-games-score-badge">Space Score: 0 • Stars: 0</span>
+          </div>
+        </div>
+
+        <div class="game-center-grid" id="space-games-list"></div>
+
+        <div class="stage-box-p2" id="space-game-arena">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-tag" id="sg-meta-tag">Game 1 of 15</span>
+              <h3 id="sg-title" style="margin:6px 0 2px; font-size:1.2rem;">1. Rocket Launch Simulator</h3>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px;">
+              <button class="btn-cyan" style="padding:7px 12px; min-height:36px; font-size:0.8rem;" onclick="startCenterGame('space')">▶️ Start</button>
+              <button class="action-chip" onclick="pauseCenterGame('space')">⏸️ Pause</button>
+              <button class="action-chip" onclick="restartCenterGame('space')">🔄 Restart</button>
+            </div>
+          </div>
+          <p id="sg-instr" style="font-weight:700; margin:6px 0;"></p>
+          <div id="sg-prompt" style="font-weight:900; font-size:1rem; margin:8px 0;"></div>
+          <div class="opts-grid-p2" id="sg-choices"></div>
+          <div id="sg-feedback" style="font-weight:800; font-size:0.88rem; margin-top:6px;"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- MODULE 15: SCIENCE LEARNING LAB -->
+    <section id="mod-science-lab" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🔬 Science Learning Lab (15 Core Topics)</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">Gravity, Motion, Force, Light, Sound, Energy, Solar Energy, Magnetism, Earth &amp; Space, Fossils, Rocks &amp; Minerals, Evolution &amp; Adaptation, Food Chains, Habitats, Weather &amp; Climate.</div>
+          </div>
+          <span class="status-tag" id="sci-lab-pill">0 / 15 Completed</span>
+        </div>
+        <div class="grid-cards-p6" id="sci-lab-grid"></div>
+        <div class="stage-box-p2" id="sci-lab-stage">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <h3 id="scil-title" style="margin:0;">Topic</h3>
+            <button class="action-chip" onclick="RamVoice.readCurrentScience()">🔊 Read Lesson</button>
+          </div>
+          <p id="scil-desc" style="font-weight:700; line-height:1.5; margin:8px 0;"></p>
+          <div class="meta-item-p2" id="scil-act" style="margin-bottom:8px;"></div>
+          <div style="font-weight:800;" id="scil-q"></div>
+          <div class="opts-grid-p2" id="scil-opts"></div>
+          <div id="scil-fb" style="font-weight:800; font-size:0.86rem;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 16: AI DINO BUDDY & VOICE STUDIO -->
+    <section id="mod-dino-buddy" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🤖 AI Dino Buddy &amp; Universal Voice Studio</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">Friendly safe guide with offline fallback answers + single non-overlapping voice controller (Play, Pause, Resume, Stop, Speed, Pitch, Volume — zero autoplay).</div>
+          </div>
+          <span class="status-tag" id="ram-voice-status">Voice Ready</span>
+        </div>
+
+        <div class="cta-row" style="margin-bottom:10px;">
+          <button class="btn-cyan" style="padding:7px 12px; min-height:36px; font-size:0.8rem;" onclick="RamVoice.readCurrentScience()">▶️ Play Lesson</button>
+          <button class="action-chip" onclick="RamVoice.pause()">⏸️ Pause</button>
+          <button class="action-chip" onclick="RamVoice.resume()">⏯️ Resume</button>
+          <button class="action-chip" onclick="RamVoice.stop()">⏹️ Stop</button>
+          <button class="action-chip" onclick="RamVoice.readSelectedDino()">🦖 Read Dino</button>
+        </div>
+
+        <div class="buddy-box-p6" id="ram-buddy-thread">
+          <div class="bub-p6 bub-buddy">🦖 Hi Shree! I’m Dino Buddy! Ask me about dinosaurs, fossils, planets, rockets, or game hints!</div>
+        </div>
+
+        <div class="cta-row" style="margin-bottom:8px;">
+          <button class="cat-pill-p2" onclick="askDinoBuddy('Tell me about T-Rex and Triceratops')">🦖 Dino Facts</button>
+          <button class="cat-pill-p2" onclick="askDinoBuddy('Give me a space game hint')">🚀 Space Hint</button>
+          <button class="cat-pill-p2" onclick="askDinoBuddy('Tell a short adventure story with Ram and Tiko')">📖 Short Story</button>
+        </div>
+
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <input id="ram-buddy-inp" class="search-box-p2" type="text" placeholder="Ask Dino Buddy..." onkeydown="if(event.key==='Enter') sendDinoBuddyMsg()" />
+          <button class="btn-amber" style="padding:8px 14px; min-height:38px; font-size:0.84rem;" onclick="sendDinoBuddyMsg()">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 17: QUIZ ARENA -->
+    <section id="mod-quiz-arena" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>❓ Quiz Arena (Dinosaurs, Fossils, Space &amp; Science)</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">Evaluate answers with explanations, score tracking, and instant retry.</div>
+          </div>
+          <span class="status-tag" id="qa-score-pill">Arena Score: 0</span>
+        </div>
+        <div id="qa-q-text" style="font-weight:900; font-size:1rem; margin:8px 0;"></div>
+        <div class="opts-grid-p2" id="qa-q-opts"></div>
+        <div id="qa-q-exp" style="font-weight:800; font-size:0.86rem; margin-top:8px;"></div>
+        <div class="cta-row" style="margin-top:10px;">
+          <button class="btn-cyan" style="padding:7px 14px; min-height:36px; font-size:0.82rem;" onclick="nextArenaQuestion()">Next / Retry Question</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 18: MISSION CONTROL (20 DINO & SPACE MISSIONS) -->
+    <section id="mod-missions" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🎯 Mission Control (20 Dino &amp; Space Missions)</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">Complete missions across Dinosaur World and Space Exploration to earn XP &amp; badges.</div>
+          </div>
+          <span class="status-tag" id="mc-count-pill">0 / 20 Missions Done</span>
+        </div>
+        <div class="grid-cards-p6" id="mc-missions-grid"></div>
+      </div>
+    </section>
+
+    <!-- MODULE 19 & 20: MY PROGRESS, BADGES & CERTIFICATES -->
+    <section id="mod-progress" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🏅 My Progress, Badges &amp; Printable Certificate</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">Track your level, guide avatar, completed zones/missions/games, XP, and print your certificate.</div>
+          </div>
+          <div class="no-print-ram" style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="btn-cyan" style="padding:7px 13px; min-height:36px; font-size:0.8rem;" onclick="downloadRamProgressTxt()">📥 Download Report</button>
+            <button class="btn-amber" style="padding:7px 13px; min-height:36px; font-size:0.8rem;" onclick="window.print()">🖨️ Print Certificate</button>
+          </div>
+        </div>
+        <div class="meta-grid-p2" id="ram-prog-kpis"></div>
+        <div class="grid-cards-p6" id="ram-badges-grid"></div>
+        <div class="stage-box-p2" style="text-align:center;">
+          <div style="font-size:0.8rem; font-weight:800; color:var(--purple-nebula);">MANUSHREE WONDER WORLD &bull; RAM DINO SPACE QUEST</div>
+          <h3 style="margin:6px 0;">🏆 Dino &amp; Space Explorer Certificate</h3>
+          <div id="ram-cert-holder" style="font-weight:900; font-size:1.15rem;">Awarded to Shree</div>
+          <div id="ram-cert-detail" style="font-size:0.85rem; font-weight:700; margin-top:4px;">Guided by Vishwendra Sir</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULE 21, 22 & 23: PARENT/TEACHER, ADMIN CONTROL CENTER & SETTINGS -->
+    <section id="mod-admin" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🛡️ Admin Control Center, Parent/Teacher Summary &amp; Settings</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">JSON backup/restore, child-safe settings, and backend-ready architecture without hardcoded secrets.</div>
+          </div>
+          <span class="status-tag">v1.5.0-phase7 • Backend-Ready</span>
+        </div>
+        <div class="cta-row" style="margin-bottom:10px;">
+          <button class="btn-cyan" style="padding:7px 12px; min-height:36px; font-size:0.8rem;" onclick="exportRamJsonBackup()">📤 Export JSON Backup</button>
+          <button class="action-chip" onclick="importRamJsonBackup()">📥 Restore JSON</button>
+          <button class="action-chip" style="background:#ffe4e6; color:#881337;" onclick="resetRamProgress()">🗑️ Reset Progress</button>
+        </div>
+        <textarea id="ram-backup-area" class="ship-inp" style="width:100%; min-height:90px;" placeholder="Exported JSON backup appears here or paste JSON backup to restore..."></textarea>
+      </div>
+    </section>
+
+
+    <!-- MODULE 11 & 12: AI VIDEO STUDIO & ADVENTURE VIDEO LIBRARY (12 CATEGORIES) -->
+    <section id="mod-video-studio" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🎬 AI Video Studio &amp; Adventure Video Library (12 Categories)</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">
+              Generate 8-part storyboards, image/video prompts &amp; captions (provider-ready, no fake video rendering), and manage/watch MP4, WebM, URL, YouTube &amp; Drive videos.
+            </div>
+          </div>
+          <span class="status-tag" id="ram-vid-count">12 Library Videos</span>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:10px;">
+          <input id="ram-vid-search" class="search-box-p2" type="search" placeholder="Search Dinosaur Documentaries, Space Exploration, Fossil Discoveries..." oninput="renderRamVideoLibrary()" />
+        </div>
+        <div class="cat-bar-p2" id="ram-vid-cats"></div>
+        <div class="grid-cards-p6" id="ram-vid-grid"></div>
+
+        <div class="stage-box-p2 hidden" id="ram-vid-player">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
+            <div>
+              <span class="status-tag" id="rvp-meta">Category</span>
+              <h3 id="rvp-title" style="margin:6px 0 2px;">Episode Title</h3>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:6px;">
+              <button class="action-chip" onclick="speakRamVideoPlan()">🔊 Read Script</button>
+              <button class="action-chip" onclick="markRamVideoWatched()">✓ Mark Watched</button>
+              <button class="action-chip" style="background:#ffe4e6; color:#881337;" onclick="deleteRamVideo()">🗑️ Remove</button>
+            </div>
+          </div>
+          <div id="rvp-embed" style="margin:10px 0;"></div>
+          <div class="meta-item-p2" id="rvp-prompts" style="margin-bottom:8px;"></div>
+          <div class="meta-grid-p2" id="rvp-scenes"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2>🛠️ Admin Video Studio — Storyboard &amp; Media Publisher</h2>
+            <div style="font-size:0.85rem; color:var(--muted);">Create scene-by-scene production plans or attach MP4/WebM/URL/YouTube/Drive links.</div>
+          </div>
+        </div>
+        <div class="ship-form-grid">
+          <label class="ship-lbl">Video Title<input id="rvs-title" class="ship-inp" type="text" placeholder="e.g., Journey to Saturn's Rings" /></label>
+          <label class="ship-lbl">Category (12 Topics)<select id="rvs-cat" class="ship-sel"></select></label>
+          <label class="ship-lbl">Target Class<input id="rvs-class" class="ship-inp" type="text" value="Classes 1–5" /></label>
+          <label class="ship-lbl">Duration<select id="rvs-dur" class="ship-sel"><option>30 sec</option><option selected>60 sec</option><option>2 min</option><option>5 min</option></select></label>
+          <label class="ship-lbl">Style<select id="rvs-style" class="ship-sel"><option>Cinematic 3D</option><option>Realistic Documentary</option><option>Cartoon Animation</option><option>Science Explainer</option></select></label>
+          <label class="ship-lbl">Source Type<select id="rvs-src-type" class="ship-sel"><option value="storyboard">Storyboard &amp; Prompt Plan</option><option value="url">Direct MP4/WebM URL</option><option value="youtube">YouTube Link</option><option value="drive">Google Drive Link</option></select></label>
+          <label class="ship-lbl">Media Link (Optional)<input id="rvs-url" class="ship-inp" type="url" placeholder="https://..." /></label>
+        </div>
+        <div class="cta-row" style="margin-top:8px;">
+          <button class="btn-amber" onclick="publishRamVideo()">🚀 Generate Plan &amp; Publish to Library</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODULES 2–23 PLACEHOLDER-SAFE STAGES (EXPANDED IN SUBSEQUENT PHASES) -->
+    <section id="mod-other" class="view-sec">
+      <div class="panel">
+        <div class="panel-top">
+          <div>
+            <h2 id="other-mod-title">Module View</h2>
+            <div id="other-mod-sub" style="font-size:0.85rem; color:var(--muted);">Phase 7 Complete navigation active — full interactive module builds in upcoming phases.</div>
+          </div>
+          <button class="btn-cyan" style="padding:8px 14px; min-height:38px; font-size:0.84rem;" onclick="openModule('home')">← Home Adventure Base</button>
+        </div>
+        <p id="other-mod-desc" style="font-weight:700; line-height:1.5;"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-sig">
+    🚀 RAM DINO SPACE QUEST &bull; A Dinosaur &amp; Space Learning Adventure Inside MANUSHREE WONDER WORLD &bull; Guided by Vishwendra Sir
+  </footer>
+
+  <script>
+    const STORAGE_KEY_RAM = "RamDinoSpaceQuest_State_V7";
+
+    const CHARACTERS = [
+      { id: "ram", name: "RAM", role: "Young Dino Space Explorer", emoji: "🧑🏽‍🚀", desc: "Friendly explorer with space helmet & adventure backpack." },
+      { id: "tiko", name: "TIKO", role: "Baby T-Rex", emoji: "🦖", desc: "Curious little baby T-Rex learning about the prehistoric world." },
+      { id: "rexy", name: "REXY", role: "Friendly Dinosaur Guide", emoji: "🦕", desc: "Helpful dinosaur guide across forests, valleys, and plains." },
+      { id: "luna", name: "LUNA", role: "Space Robot", emoji: "🤖", desc: "Smart space robot assisting with rockets, moons, and sensors." },
+      { id: "nova", name: "NOVA", role: "Alien Planet Explorer", emoji: "👽", desc: "Friendly cosmic explorer sharing friendly space discoveries." },
+      { id: "prof-dino", name: "PROFESSOR DINO", role: "Science Mentor", emoji: "🎓", desc: "Wise science mentor explaining fossils, gravity, and stars." }
+    ];
+
+    const MODULE_LABELS = {
+      "home": "1. Home Adventure Base",
+      "dino-world": "2. Dinosaur World",
+      "jurassic-map": "3. Jurassic Explorer Map",
+      "fossil-lab": "4. Fossil Discovery Lab",
+      "dino-ency": "5. Dinosaur Encyclopedia",
+      "time-machine": "6. Time Machine Adventure",
+      "space-exp": "7. Space Exploration",
+      "planet-disc": "8. Planet Discovery",
+      "solar-lab": "9. Solar System Lab",
+      "ship-builder": "10. Spaceship Builder",
+      "video-studio": "11. AI Video Studio",
+      "video-lib": "12. Adventure Video Library",
+      "dino-games": "13. Dino Games",
+      "space-games": "14. Space Games",
+      "science-lab": "15. Science Learning Lab",
+      "dino-buddy": "16. AI Dino Buddy",
+      "quiz-arena": "17. Quiz Arena",
+      "missions": "18. Mission Control",
+      "progress": "19. My Progress",
+      "badges-certs": "20. Badges & Certificates",
+      "parent-teacher": "21. Parent and Teacher Corner",
+      "admin": "22. Admin Control Center",
+      "settings": "23. Settings"
+    };
+
+    function loadRamState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY_RAM);
+        if (raw) {
+          return {
+            lang: "both",
+            darkMode: false,
+            reducedMotion: false,
+            sfx: true,
+            level: "LEVEL 2: Classes 1–2",
+            characterId: "ram",
+            ...JSON.parse(raw)
+          };
+        }
+      } catch (_) {}
+      return {
+        lang: "both",
+        darkMode: false,
+        reducedMotion: false,
+        sfx: true,
+        level: "LEVEL 2: Classes 1–2",
+        characterId: "ram"
+      };
+    }
+
+    let ramState = loadRamState();
+
+    function saveRamState() {
+      try {
+        localStorage.setItem(STORAGE_KEY_RAM, JSON.stringify(ramState));
+      } catch (_) {}
+      applyVisualSettings();
+      renderCharacters();
+      const lvlBadge = document.getElementById("active-level-badge");
+      if (lvlBadge) lvlBadge.textContent = ramState.level;
+    }
+
+    function applyVisualSettings() {
+      document.body.classList.toggle("dark-mode", Boolean(ramState.darkMode));
+      document.body.classList.toggle("reduced-motion", Boolean(ramState.reducedMotion));
+      const langMap = { both: "🌐 EN + HI", en: "🌐 English", hi: "🌐 हिन्दी" };
+      const lBtn = document.getElementById("btn-lang");
+      if (lBtn) lBtn.textContent = langMap[ramState.lang] || "🌐 EN + HI";
+      const sBtn = document.getElementById("btn-sfx");
+      if (sBtn) {
+        sBtn.textContent = ramState.sfx ? "🔊 Sound" : "🔇 Muted";
+        sBtn.classList.toggle("muted", !ramState.sfx);
+      }
+    }
+
+    function cycleLang() {
+      const order = ["both", "en", "hi"];
+      ramState.lang = order[(order.indexOf(ramState.lang) + 1) % order.length];
+      saveRamState();
+    }
+
+    function toggleDarkMode() {
+      ramState.darkMode = !ramState.darkMode;
+      saveRamState();
+    }
+
+    function toggleReducedMotion() {
+      ramState.reducedMotion = !ramState.reducedMotion;
+      saveRamState();
+    }
+
+    function toggleSfx() {
+      ramState.sfx = !ramState.sfx;
+      saveRamState();
+    }
+
+    function toggleFullscreen() {
+      try {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen?.().catch(() => {});
+        } else {
+          document.exitFullscreen?.().catch(() => {});
+        }
+      } catch (_) {}
+    }
+
+    function selectLearningLevel(lvlStr) {
+      ramState.level = lvlStr;
+      document.querySelectorAll(".level-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.lvl === lvlStr);
+      });
+      saveRamState();
+    }
+
+    function chooseCharacter(charId) {
+      ramState.characterId = charId;
+      saveRamState();
+    }
+
+    function renderCharacters() {
+      const grid = document.getElementById("chars-grid");
+      if (!grid) return;
+      const activeObj = CHARACTERS.find((c) => c.id === ramState.characterId) || CHARACTERS[0];
+      const pill = document.getElementById("selected-char-pill");
+      if (pill) pill.textContent = `Active Guide: ${activeObj.name}`;
+
+      grid.innerHTML = CHARACTERS.map((c) => {
+        const sel = c.id === ramState.characterId;
+        return `
+          <div class="char-card ${sel ? "selected" : ""}">
+            <div>
+              <div style="font-size:1.8rem;">${c.emoji}</div>
+              <div style="font-weight:900; font-size:1rem; margin-top:4px;">${c.name}</div>
+              <div style="font-size:0.78rem; color:var(--purple-nebula); font-weight:800;">${c.role}</div>
+              <div style="font-size:0.82rem; color:var(--muted); margin-top:4px;">${c.desc}</div>
+            </div>
+            <button class="btn-cyan" style="padding:7px 12px; min-height:36px; font-size:0.8rem;" onclick="chooseCharacter('${c.id}')">${sel ? "✓ Selected Avatar" : "Select Avatar"}</button>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openModule(modKey) {
+      document.querySelectorAll(".nav-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.mod === modKey);
+      });
+
+      const homeSec = document.getElementById("mod-home");
+      const otherSec = document.getElementById("mod-other");
+
+      if (modKey === "home") {
+        homeSec.classList.add("active");
+        otherSec.classList.remove("active");
+      } else {
+        homeSec.classList.remove("active");
+        otherSec.classList.add("active");
+        const title = MODULE_LABELS[modKey] || modKey;
+        document.getElementById("other-mod-title").textContent = title;
+        document.getElementById("other-mod-desc").textContent = `Welcome to ${title} inside Ram Dino Space Quest (${ramState.level}). Continue to the next build phase to activate full interactive tools for this module.`;
+      }
+    }
+
+
+    const DINO_ZONES_12 = [
+      { id: 1, name: "Jurassic Forest", emoji: "🌲", period: "Late Jurassic (~150 Ma)", factEn: "Tall conifers and ferns filled lush Jurassic forests where plant-eating giants roamed.", factHi: "जुरासिक जंगलों में ऊँचे पेड़ और फ़र्न थे जहाँ शाकाहारी जीव घूमते थे।", act: "Activity: Spot tall fern canopies and listen for forest echoes.", q: "Which plants were common in lush Jurassic forests?", ans: "Conifers and ferns", opts: ["Conifers and ferns", "Modern apple orchards", "Desert cacti", "Coral reefs"] },
+      { id: 2, name: "T-Rex Valley", emoji: "🦖", period: "Late Cretaceous (~68–66 Ma)", factEn: "Tyrannosaurus rex had strong jaws, keen senses, and a powerful tail for balance.", factHi: "टायरानोसॉरस रेक्स के मजबूत जबड़े और संतुलन के लिए भारी पूँछ थी।", act: "Activity: Measure giant stride clues across a rocky valley floor.", q: "What helped Tyrannosaurus rex keep balance while moving?", ans: "A long, heavy muscular tail", opts: ["A long, heavy muscular tail", "Bird feathers on arms", "Shell armor", "Flippers"] },
+      { id: 3, name: "Triceratops Plains", emoji: "🦏", period: "Late Cretaceous (~68–66 Ma)", factEn: "Triceratops had a large bony frill and three horns on its skull.", factHi: "ट्राइसेराटॉप्स के सिर पर बड़ी हड्डी की झालर और तीन सींग होते थे।", act: "Activity: Compare brow horns and nose horn shapes on the plains.", q: "How many main horns did Triceratops typically have on its skull?", ans: "Three horns", opts: ["Three horns", "Zero horns", "Eight horns", "Antlers"] },
+      { id: 4, name: "Brachiosaurus Kingdom", emoji: "🦕", period: "Late Jurassic (~154–150 Ma)", factEn: "Brachiosaurus had long front legs that helped it reach high treetop leaves.", factHi: "ब्रैकियोसॉरस के अगले पैर लंबे थे जिससे वह ऊँची पत्तियों तक पहुँच पाता था।", act: "Activity: Look up toward high tree branches in the sunlit canopy.", q: "Which limb feature is famous on Brachiosaurus?", ans: "Longer front legs than hind legs", opts: ["Longer front legs than hind legs", "Webbed swimming feet", "Wings", "Short neck"] },
+      { id: 5, name: "Velociraptor Jungle", emoji: "🦎", period: "Late Cretaceous (~75–71 Ma)", factEn: "Velociraptor was a smaller, agile feathered theropod with a curved sickle claw.", factHi: "वेलोसिरैप्टर एक फुर्तीला थेरोपॉड था जिसके पैर में मुड़ा हुआ पंजा था।", act: "Activity: Trace agile footprints along shaded jungle trails.", q: "What group of dinosaurs did Velociraptor belong to?", ans: "Theropods", opts: ["Theropods", "Sauropods", "Stegosaurs", "Marine reptiles"] },
+      { id: 6, name: "Pterosaur Sky World", emoji: "翼" if False else "🦅", period: "Triassic to Cretaceous", factEn: "Pterosaurs were flying reptiles with membrane wings—distinct from true dinosaurs.", factHi: "टेरॉसॉर उड़ने वाले सरीसृप थे जिनके पंख झिल्ली के बने थे।", act: "Activity: Watch gliding flight paths above coastal cliffs.", q: "Were pterosaurs flying reptiles or ground-walking sauropods?", ans: "Flying reptiles", opts: ["Flying reptiles", "Ground sauropods", "Sea sponges", "Trilobites"] },
+      { id: 7, name: "Stegosaurus Garden", emoji: "🦴", period: "Late Jurassic (~155–150 Ma)", factEn: "Stegosaurus had back plates and spiked tail bones (thagomizer) for defense.", factHi: "स्टेगॉसॉरस की पीठ पर प्लेटें और पूँछ के सिरे पर नुकीले काँटे होते थे।", act: "Activity: Count back plates along a winding fern garden path.", q: "What did Stegosaurus have near the end of its tail?", ans: "Spikes", opts: ["Spikes", "A paddle fin", "A rattle", "A trunk"] },
+      { id: 8, name: "Ankylosaurus Fortress", emoji: "🛡️", period: "Late Cretaceous (~68–66 Ma)", factEn: "Ankylosaurus was covered in armored bony plates (osteoderms) and had a tail club.", factHi: "एंकिलोसॉरस कवच जैसी हड्डी की प्लेटों और पूँछ के क्लब से सुरक्षित था।", act: "Activity: Test low-to-the-ground armored defense clues.", q: "Which feature helped Ankylosaurus defend itself?", ans: "Bony armor plates and a tail club", opts: ["Bony armor plates and a tail club", "Long gliding wings", "Gills", "Trunk"] },
+      { id: 9, name: "Dinosaur River Valley", emoji: "🌊", period: "Mesozoic River Basins", factEn: "Rivers carried sediment that helped bury bones and leaves, starting fossilization.", factHi: "नदियों की तलछट हड्डियों और पत्तियों को ढककर जीवाश्म बनने में मदद करती थी।", act: "Activity: Follow riverbanks to spot sedimentary rock layers.", q: "How do river sediments help the fossil record?", ans: "They bury remains quickly away from scavengers", opts: ["They bury remains quickly away from scavengers", "They turn rock into liquid", "They remove all minerals", "They stop rain"] },
+      { id: 10, name: "Volcano Island", emoji: "🌋", period: "Volcanic & Tectonic Zones", factEn: "Volcanic activity shaped ancient islands and left ash and basalt layers in rock.", factHi: "ज्वालामुखीय गतिविधियों ने प्राचीन द्वीपों और चट्टानी परतों को आकार दिया।", act: "Activity: Observe safe distance markers near volcanic vents.", q: "What kind of rock forms from cooled lava?", ans: "Igneous / volcanic rock", opts: ["Igneous / volcanic rock", "Cotton fiber", "Sea salt cube", "Paper"] },
+      { id: 11, name: "Fossil Mountain", emoji: "⛰️", period: "Deep Time Rock Layers", factEn: "Uplifted mountain rock layers reveal ancient fossils formed over millions of years.", factHi: "ऊपर उठी पहाड़ी चट्टानों की परतें लाखों साल पुराने जीवाश्म दिखाती हैं।", act: "Activity: Compare deeper older strata with shallower younger layers.", q: "Generally, where are older undisturbed rock layers found?", ans: "Deeper down below newer layers", opts: ["Deeper down below newer layers", "Floating on clouds", "Inside tree bark", "On top of fresh snow"] },
+      { id: 12, name: "Cretaceous Mystery World", emoji: "🌿", period: "Cretaceous Period (~145–66 Ma)", factEn: "Flowering plants (angiosperms) appeared and diversified during the Cretaceous Period.", factHi: "क्रेटेशियस काल में फूलों वाले पौधे विकसित और विविध हुए।", act: "Activity: Explore new Cretaceous flowering plants alongside herbivore herds.", q: "What major plant group diversified during the Cretaceous Period?", ans: "Flowering plants", opts: ["Flowering plants", "Apple trees from today", "Kelp forests only", "Moss-free deserts"] }
+    ];
+
+    const DINO_CATEGORIES_9 = [
+      "All",
+      "Theropods",
+      "Sauropods",
+      "Ceratopsians",
+      "Stegosaurs",
+      "Ankylosaurs",
+      "Hadrosaurs",
+      "Pterosaurs",
+      "Marine reptiles",
+      "Early prehistoric animals"
+    ];
+
+    const VERIFIED_DINOS = {
+      "Tyrannosaurus rex": { sci: "Tyrannosaurus rex", pron: "ty-RAN-oh-SOR-us REKS", cat: "Theropods", period: "Late Cretaceous", habitat: "Coastal plains & river floodplains", diet: "Carnivore (meat-eating)", size: "Up to ~12m length", fact: "Known for one of the strongest bite forces among land predators.", fossil: "North American Late Cretaceous formations.", rel: "Tarbosaurus, Albertosaurus" },
+      "Triceratops": { sci: "Triceratops horridus", pron: "try-SER-uh-TOPS", cat: "Ceratopsians", period: "Late Cretaceous", habitat: "Woodlands & plains", diet: "Herbivore (plant-eating)", size: "Up to ~8–9m length", fact: "Featured a large bony neck frill and three prominent horns.", fossil: "Western North America fossil beds.", rel: "Torosaurus, Pentaceratops" },
+      "Velociraptor": { sci: "Velociraptor mongoliensis", pron: "vel-OSS-ih-RAP-tor", cat: "Theropods", period: "Late Cretaceous", habitat: "Semi-arid & desert-edge basins", diet: "Carnivore", size: "About ~2m length", fact: "Fossil evidence shows quill knobs linked to feathers.", fossil: "Central Asia (Mongolia & Northern China).", rel: "Deinonychus, Utahraptor" },
+      "Brachiosaurus": { sci: "Brachiosaurus altithorax", pron: "BRAK-ee-oh-SOR-us", cat: "Sauropods", period: "Late Jurassic", habitat: "Forests & floodplains", diet: "Herbivore", size: "Over ~20m length", fact: "Long forelimbs gave it an elevated browsing reach.", fossil: "Late Jurassic rock formations.", rel: "Giraffatitan, Camarasaurus" },
+      "Stegosaurus": { sci: "Stegosaurus stenops", pron: "STEG-oh-SOR-us", cat: "Stegosaurs", period: "Late Jurassic", habitat: "Fern plains & open woodlands", diet: "Herbivore", size: "Up to ~9m length", fact: "Had alternating back plates and tail spikes.", fossil: "Morrison Formation fossil sites.", rel: "Kentrosaurus, Huayangosaurus" },
+      "Ankylosaurus": { sci: "Ankylosaurus magniventris", pron: "an-KY-loh-SOR-us", cat: "Ankylosaurs", period: "Late Cretaceous", habitat: "Coastal plains & forests", diet: "Herbivore", size: "Up to ~6–8m length", fact: "Covered in armored plates with a heavy tail club.", fossil: "Late Cretaceous North American strata.", rel: "Euoplocephalus, Nodocephalosaurus" },
+      "Spinosaurus": { sci: "Spinosaurus aegyptiacus", pron: "SPY-noh-SOR-us", cat: "Theropods", period: "Cretaceous", habitat: "River systems & coastal deltas", diet: "Piscivore / Carnivore", size: "Up to ~14–15m length", fact: "Famous for tall neural spines forming a sail-like ridge.", fossil: "North African Cretaceous deposits.", rel: "Suchomimus, Baryonyx" },
+      "Diplodocus": { sci: "Diplodocus carnegii", pron: "dip-LOD-oh-kus", cat: "Sauropods", period: "Late Jurassic", habitat: "Floodplains & woodlands", diet: "Herbivore", size: "Up to ~24–27m length", fact: "Had a very long neck and whip-like tail.", fossil: "Late Jurassic Western North America.", rel: "Apatosaurus, Barosaurus" },
+      "Allosaurus": { sci: "Allosaurus fragilis", pron: "AL-oh-SOR-us", cat: "Theropods", period: "Late Jurassic", habitat: "Floodplains & river valleys", diet: "Carnivore", size: "Up to ~8.5–12m length", fact: "A major Late Jurassic predatory theropod.", fossil: "Late Jurassic bonebeds.", rel: "Saurophaganax, Sinraptor" },
+      "Parasaurolophus": { sci: "Parasaurolophus walkeri", pron: "PAR-uh-SOR-oh-LOF-us", cat: "Hadrosaurs", period: "Late Cretaceous", habitat: "Coastal plains & river valleys", diet: "Herbivore", size: "Up to ~9.5m length", fact: "Had a long hollow crest extending backward from the skull.", fossil: "Late Cretaceous deposits.", rel: "Corythosaurus, Lambeosaurus" },
+      "Iguanodon": { sci: "Iguanodon bernissartensis", pron: "ig-WAN-oh-don", cat: "Hadrosaurs", period: "Early Cretaceous", habitat: "Lush lowlands & wetlands", diet: "Herbivore", size: "Up to ~9–10m length", fact: "One of the earliest named dinosaurs in science history.", fossil: "Early Cretaceous European & global sites.", rel: "Mantellisaurus, Ouranosaurus" },
+      "Pteranodon": { sci: "Pteranodon longiceps", pron: "ter-AN-oh-don", cat: "Pterosaurs", period: "Late Cretaceous", habitat: "Coastal marine cliffs & seaways", diet: "Carnivore / Piscivore", size: "Wingspan ~5–7m", fact: "Flying pterosaur with a long head crest and toothless beak.", fossil: "Late Cretaceous marine chalk deposits.", rel: "Nyctosaurus, Quetzalcoatlus" },
+      "Mosasaurus": { sci: "Mosasaurus hoffmannii", pron: "MOH-suh-SOR-us", cat: "Marine reptiles", period: "Late Cretaceous", habitat: "Warm marine seas", diet: "Carnivore", size: "Up to ~13–17m length", fact: "Large marine squamate reptile (not a land dinosaur).", fossil: "Late Cretaceous marine formations.", rel: "Tylosaurus, Prognathodon" }
+    };
+
+    const EXTRA_BY_CAT = {
+      "Theropods": ["Carnotaurus", "Giganotosaurus", "Therizinosaurus", "Dilophosaurus", "Ceratosaurus", "Megalosaurus", "Compsognathus", "Deinonychus", "Troodon", "Baryonyx", "Suchomimus", "Albertosaurus"],
+      "Sauropods": ["Argentinosaurus", "Apatosaurus", "Brontosaurus", "Giraffatitan", "Camarasaurus", "Amargasaurus", "Patagotitan", "Saltasaurus", "Titanosaurus", "Barosaurus", "Mamenchisaurus", "Shunosaurus"],
+      "Ceratopsians": ["Styracosaurus", "Pachyrhinosaurus", "Protoceratops", "Psittacosaurus", "Chasmosaurus", "Torosaurus", "Centrosaurus", "Sinoceratops", "Einiosaurus", "Kosmoceratops", "Nasutoceratops", "Diabloceratops"],
+      "Stegosaurs": ["Kentrosaurus", "Huayangosaurus", "Tuojiangosaurus", "Miragaia", "Dacentrurus", "Wuerhosaurus", "Hesperosaurus", "Loricatosaurus", "Chungkingosaurus", "Jiangjunosaurus", "Alcovasaurus", "Paranthodon"],
+      "Ankylosaurs": ["Euoplocephalus", "Panoplosaurus", "Sauropelta", "Gastonia", "Edmontonia", "Polacanthus", "Pinacosaurus", "Talarurus", "Saichania", "Zuul", "Borealopelta", "Minmi"],
+      "Hadrosaurs": ["Hadrosaurus", "Edmontosaurus", "Corythosaurus", "Lambeosaurus", "Maiasaura", "Saurolophus", "Shantungosaurus", "Gryposaurus", "Kritosaurus", "Tsintaosaurus", "Hypacrosaurus", "Brachylophosaurus"],
+      "Pterosaurs": ["Quetzalcoatlus", "Rhamphorhynchus", "Dimorphodon", "Pterodactylus", "Tapejara", "Tropeognathus", "Dsungaripterus", "Anhanguera", "Nyctosaurus", "Geosternbergia", "Tupandactylus", "Cearadactylus"],
+      "Marine reptiles": ["Plesiosaurus", "Elasmosaurus", "Liopleurodon", "Ichthyosaurus", "Kronosaurus", "Tylosaurus", "Pliosaurus", "Nothosaurus", "Shonisaurus", "Archelon", "Hesperornis", "Temnodontosaurus"],
+      "Early prehistoric animals": ["Dimetrodon", "Trilobite", "Anomalocaris", "Dunkleosteus", "Edaphosaurus", "Lystrosaurus", "Gorgonops", "Helicoprion", "Opabinia", "Tiktaalik", "Scutosaurus", "Inostrancevia"]
+    };
+
+    function buildHundredDinosaurs() {
+      const list = [];
+      let id = 1;
+      Object.keys(VERIFIED_DINOS).forEach((name) => {
+        const d = VERIFIED_DINOS[name];
+        list.push({
+          id: id++, name, sci: d.sci, pron: d.pron, category: d.cat,
+          period: d.period, habitat: d.habitat, diet: d.diet, size: d.size,
+          fact: d.fact, fossil: d.fossil, related: d.rel
+        });
+      });
+      Object.keys(EXTRA_BY_CAT).forEach((cat) => {
+        EXTRA_BY_CAT[cat].forEach((n) => {
+          if (list.length >= 100) return;
+          list.push({
+            id: id++,
+            name: n,
+            sci: `${n} (prehistoric taxon)`,
+            pron: n.toLowerCase(),
+            category: cat,
+            period: cat === "Early prehistoric animals" ? "Paleozoic / Early Mesozoic" : "Mesozoic Era",
+            habitat: `${cat} environments in fossil record`,
+            diet: cat === "Theropods" || cat === "Marine reptiles" ? "Carnivore" : "Herbivore / Prehistoric diet",
+            size: "Estimated from fossil remains",
+            fact: `${n} is studied under ${cat} in paleontology and prehistoric science.`,
+            fossil: `Documented in ${cat.toLowerCase()} fossil studies.`,
+            related: `Other ${cat.toLowerCase()} taxa`
+          });
+        });
+      });
+      return list.slice(0, 100);
+    }
+
+    const DINOSAURS_100 = buildHundredDinosaurs();
+
+    // Extend Phase 1 state safely
+    ramState.completedZones = Array.isArray(ramState.completedZones) ? ramState.completedZones : [];
+    ramState.selectedZoneId = ramState.selectedZoneId || 1;
+    ramState.zoneEnv = ramState.zoneEnv || "☀️ Sunny Jurassic Day";
+    ramState.dinoCategory = ramState.dinoCategory || "All";
+    ramState.selectedDinoId = ramState.selectedDinoId || 1;
+    ramState.dinoQuizXp = typeof ramState.dinoQuizXp === "number" ? ramState.dinoQuizXp : 0;
+
+    function speakRamText(txt) {
+      if (!ramState.sfx || !("speechSynthesis" in window)) return;
+      try {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(txt);
+        u.rate = 0.96;
+        window.speechSynthesis.speak(u);
+      } catch (_) {}
+    }
+
+    function changeZoneEnv(val) {
+      ramState.zoneEnv = val;
+      saveRamState();
+    }
+
+    function renderZones12() {
+      const pill = document.getElementById("zone-prog-pill");
+      if (pill) pill.textContent = `${ramState.completedZones.length} / 12 Zones Explored`;
+      const envSel = document.getElementById("zone-env-select");
+      if (envSel) envSel.value = ramState.zoneEnv;
+
+      const grid = document.getElementById("zones-grid-12");
+      if (!grid) return;
+      grid.innerHTML = DINO_ZONES_12.map((z) => {
+        const done = ramState.completedZones.includes(z.id);
+        return `
+          <div class="zone-box ${done ? "done" : ""}">
+            <div>
+              <div style="font-size:1.6rem;">${z.emoji}</div>
+              <div style="font-weight:900; font-size:0.96rem; margin-top:4px;">ZONE ${z.id} — ${z.name}</div>
+              <div style="font-size:0.76rem; color:var(--muted); font-weight:700;">${z.period}</div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; margin-top:6px;">
+              <span class="status-tag">${done ? "✓ Completed" : "Explore"}</span>
+              <button class="btn-cyan" style="padding:6px 11px; min-height:34px; font-size:0.78rem;" onclick="openDinoZone(${z.id})">Enter</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openDinoZone(zId) {
+      const z = DINO_ZONES_12.find((x) => x.id === zId) || DINO_ZONES_12[0];
+      ramState.selectedZoneId = z.id;
+      saveRamState();
+
+      const stage = document.getElementById("zone-detail-stage");
+      stage.classList.remove("hidden");
+      document.getElementById("zd-period-tag").textContent = `${z.period} • ${ramState.zoneEnv}`;
+      document.getElementById("zd-title").textContent = `${z.emoji} ZONE ${z.id} — ${z.name}`;
+
+      let factText = z.factEn;
+      if (ramState.lang === "hi") factText = z.factHi;
+      if (ramState.lang === "both") factText = `${z.factEn} • ${z.factHi}`;
+
+      document.getElementById("zd-fact").textContent = factText;
+      document.getElementById("zd-activity").textContent = z.act;
+      document.getElementById("zd-q-prompt").textContent = `Zone Check: ${z.q}`;
+      document.getElementById("zd-q-fb").textContent = "";
+
+      const shuffled = [...z.opts].sort(() => Math.random() - 0.5);
+      document.getElementById("zd-q-opts").innerHTML = shuffled.map((op) => {
+        const esc = op.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="opt-btn-p2" onclick="answerZoneCheck(this, '${esc}')">${op}</button>`;
+      }).join("");
+    }
+
+    function speakCurrentZone() {
+      const z = DINO_ZONES_12.find((x) => x.id === ramState.selectedZoneId) || DINO_ZONES_12[0];
+      speakRamText(`${z.name}. ${z.factEn} ${z.act}`);
+    }
+
+    function completeCurrentZone() {
+      const zId = ramState.selectedZoneId;
+      if (!ramState.completedZones.includes(zId)) {
+        ramState.completedZones.push(zId);
+        ramState.dinoQuizXp += 20;
+        saveRamState();
+        renderZones12();
+        const ptsPill = document.getElementById("dino-quiz-pts-pill");
+        if (ptsPill) ptsPill.textContent = `Dino Quiz XP: ${ramState.dinoQuizXp}`;
+      }
+    }
+
+    function answerZoneCheck(btnEl, chosen) {
+      const z = DINO_ZONES_12.find((x) => x.id === ramState.selectedZoneId) || DINO_ZONES_12[0];
+      document.querySelectorAll("#zd-q-opts .opt-btn-p2").forEach((b) => { b.disabled = true; });
+      const fb = document.getElementById("zd-q-fb");
+      if (chosen === z.ans) {
+        btnEl.classList.add("ok");
+        if (!ramState.completedZones.includes(z.id)) ramState.completedZones.push(z.id);
+        ramState.dinoQuizXp += 15;
+        saveRamState();
+        renderZones12();
+        fb.textContent = "🎉 Correct! Zone mission updated (+15 XP).";
+      } else {
+        btnEl.classList.add("bad");
+        fb.textContent = `💡 Answer: ${z.ans}`;
+      }
+    }
+
+    function renderDinoCategoryPills() {
+      const wrap = document.getElementById("dino-cat-pills");
+      if (!wrap) return;
+      wrap.innerHTML = DINO_CATEGORIES_9.map((c) => {
+        const act = ramState.dinoCategory === c ? "active" : "";
+        const esc = c.replace(/'/g, "&#39;");
+        return `<button class="cat-pill-p2 ${act}" onclick="selectDinoCategory('${esc}')">${c}</button>`;
+      }).join("");
+    }
+
+    function selectDinoCategory(cat) {
+      ramState.dinoCategory = cat;
+      saveRamState();
+      renderDinoCategoryPills();
+      renderDinoEncyclopedia();
+    }
+
+    function resetDinoFilters() {
+      const inp = document.getElementById("dino-search-input");
+      if (inp) inp.value = "";
+      ramState.dinoCategory = "All";
+      saveRamState();
+      renderDinoCategoryPills();
+      renderDinoEncyclopedia();
+    }
+
+    function renderDinoEncyclopedia() {
+      const q = (document.getElementById("dino-search-input")?.value || "").trim().toLowerCase();
+      const list = DINOSAURS_100.filter((d) => {
+        const catOk = ramState.dinoCategory === "All" || d.category === ramState.dinoCategory;
+        if (!catOk) return false;
+        if (!q) return true;
+        return d.name.toLowerCase().includes(q) ||
+          d.sci.toLowerCase().includes(q) ||
+          d.category.toLowerCase().includes(q) ||
+          d.period.toLowerCase().includes(q);
+      });
+
+      const badge = document.getElementById("dino-count-badge");
+      if (badge) badge.textContent = `${list.length} / ${DINOSAURS_100.length}`;
+      const ptsPill = document.getElementById("dino-quiz-pts-pill");
+      if (ptsPill) ptsPill.textContent = `Dino Quiz XP: ${ramState.dinoQuizXp}`;
+
+      const grid = document.getElementById("dino-grid-100");
+      if (!grid) return;
+      grid.innerHTML = list.map((d) => `
+        <div class="dino-card">
+          <div>
+            <div style="font-weight:900; font-size:0.98rem;">🦖 ${d.name}</div>
+            <div style="font-size:0.78rem; color:var(--purple-nebula); font-weight:800;">${d.category}</div>
+            <div style="font-size:0.76rem; color:var(--muted); font-weight:700; margin-top:2px;">${d.period} &bull; ${d.diet}</div>
+          </div>
+          <div style="display:flex; justify-content:flex-end; margin-top:6px;">
+            <button class="btn-cyan" style="padding:6px 11px; min-height:34px; font-size:0.78rem;" onclick="inspectDinoProfile(${d.id})">Profile &amp; Quiz</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function pickRandomDino() {
+      const randItem = DINOSAURS_100[Math.floor(Math.random() * DINOSAURS_100.length)];
+      if (randItem) inspectDinoProfile(randItem.id);
+    }
+
+    let dinoQuizSet = [];
+    let dinoQuizIdx = 0;
+
+    function inspectDinoProfile(dId) {
+      const d = DINOSAURS_100.find((x) => x.id === dId) || DINOSAURS_100[0];
+      ramState.selectedDinoId = d.id;
+      saveRamState();
+
+      const stage = document.getElementById("dino-detail-stage");
+      stage.classList.remove("hidden");
+      document.getElementById("dd-cat-badge").textContent = d.category;
+      document.getElementById("dd-name-heading").textContent = `🦖 ${d.name} (${d.sci})`;
+      document.getElementById("dd-pron-line").textContent = `Pronunciation: ${d.pron}`;
+
+      document.getElementById("dd-meta-grid").innerHTML = `
+        <div class="meta-item-p2">⏳ <strong>Period:</strong> ${d.period}</div>
+        <div class="meta-item-p2">🌿 <strong>Habitat:</strong> ${d.habitat}</div>
+        <div class="meta-item-p2">🍽️ <strong>Diet:</strong> ${d.diet}</div>
+        <div class="meta-item-p2">📏 <strong>Estimated Size:</strong> ${d.size}</div>
+      `;
+
+      document.getElementById("dd-facts-box").innerHTML = `
+        <div>💡 <strong>Interesting Fact:</strong> ${d.fact}</div>
+        <div style="margin-top:4px;">🦴 <strong>Fossil Discoveries:</strong> ${d.fossil}</div>
+        <div style="margin-top:4px;">🔗 <strong>Related Species:</strong> ${d.related}</div>
+      `;
+
+      document.getElementById("dd-quiz-panel").classList.add("hidden");
+      stage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function speakSelectedDino() {
+      const d = DINOSAURS_100.find((x) => x.id === ramState.selectedDinoId) || DINOSAURS_100[0];
+      speakRamText(`${d.name}. Pronounced ${d.pron}. ${d.fact} Fossil record: ${d.fossil}`);
+    }
+
+    function startDinoFiveQuiz() {
+      const d = DINOSAURS_100.find((x) => x.id === ramState.selectedDinoId) || DINOSAURS_100[0];
+      const otherCats = DINO_CATEGORIES_9.filter((c) => c !== "All" && c !== d.category);
+      dinoQuizSet = [
+        { q: `1. Which group does ${d.name} belong to?`, ans: d.category, opts: [d.category, otherCats[0] || "Theropods", otherCats[1] || "Sauropods", otherCats[2] || "Pterosaurs"] },
+        { q: `2. Which geological time is associated with ${d.name}?`, ans: d.period, opts: [d.period, "Modern Stone Age", "Ice Age Mammoth Era", "Future Space Era"] },
+        { q: `3. What is the diet profile of ${d.name}?`, ans: d.diet, opts: [d.diet, "Solar batteries", "Plastic", "Glass"] },
+        { q: `4. What is the habitat note for ${d.name}?`, ans: d.habitat, opts: [d.habitat, "Deep ocean trench only", "Lunar crater", "Antarctic snowfield"] },
+        { q: `5. Which species are listed as related to ${d.name}?`, ans: d.related, opts: [d.related, "House cats", "Honeybees", "Pineapples"] }
+      ];
+      dinoQuizIdx = 0;
+      document.getElementById("dd-quiz-panel").classList.remove("hidden");
+      renderDinoQuizStep();
+    }
+
+    function renderDinoQuizStep() {
+      const qObj = dinoQuizSet[dinoQuizIdx];
+      if (!qObj) return;
+      document.getElementById("dd-q-step").textContent = `Question ${dinoQuizIdx + 1} of 5`;
+      document.getElementById("dd-q-text").textContent = qObj.q;
+      document.getElementById("dd-q-feedback").textContent = "";
+      const shuffled = [...qObj.opts].sort(() => Math.random() - 0.5);
+      document.getElementById("dd-q-opts").innerHTML = shuffled.map((op) => {
+        const esc = op.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="opt-btn-p2" onclick="answerDinoQuizStep(this, '${esc}')">${op}</button>`;
+      }).join("");
+    }
+
+    function speakDinoQuizQuestion() {
+      const qObj = dinoQuizSet[dinoQuizIdx];
+      if (qObj) speakRamText(qObj.q);
+    }
+
+    function answerDinoQuizStep(btnEl, chosen) {
+      const qObj = dinoQuizSet[dinoQuizIdx];
+      if (!qObj) return;
+      document.querySelectorAll("#dd-q-opts .opt-btn-p2").forEach((b) => { b.disabled = true; });
+      const fb = document.getElementById("dd-q-feedback");
+      if (chosen === qObj.ans) {
+        btnEl.classList.add("ok");
+        ramState.dinoQuizXp += 10;
+        saveRamState();
+        fb.textContent = "🎉 Correct! +10 Dino Quiz XP.";
+      } else {
+        btnEl.classList.add("bad");
+        fb.textContent = `💡 Answer: ${qObj.ans}`;
+      }
+      setTimeout(() => {
+        if (dinoQuizIdx < 4) {
+          dinoQuizIdx += 1;
+          renderDinoQuizStep();
+        } else {
+          fb.textContent = `🏆 Completed all 5 questions! Total Dino Quiz XP: ${ramState.dinoQuizXp}.`;
+        }
+      }, 900);
+    }
+
+    const origOpenModP1 = openModule;
+    openModule = function(modKey) {
+      document.querySelectorAll(".nav-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.mod === modKey);
+      });
+      const homeSec = document.getElementById("mod-home");
+      const dinoSec = document.getElementById("mod-dino-world");
+      const encySec = document.getElementById("mod-dino-ency");
+      const otherSec = document.getElementById("mod-other");
+
+      homeSec.classList.remove("active");
+      dinoSec.classList.remove("active");
+      encySec.classList.remove("active");
+      otherSec.classList.remove("active");
+
+      if (modKey === "home") {
+        homeSec.classList.add("active");
+      } else if (modKey === "dino-world" || modKey === "jurassic-map") {
+        dinoSec.classList.add("active");
+        renderZones12();
+      } else if (modKey === "dino-ency") {
+        encySec.classList.add("active");
+        renderDinoCategoryPills();
+        renderDinoEncyclopedia();
+      } else {
+        origOpenModP1(modKey);
+        homeSec.classList.remove("active");
+      }
+    };
+
+
+    const TIME_ERAS_6 = [
+      { id: 1, name: "Triassic Period", emoji: "🌱", time: "~252–201 Million Years Ago", science: "Early dinosaurs emerged after the end-Permian extinction alongside early conifers and reptiles. Not all famous dinosaurs lived together—Stegosaurus and T. rex came much later.", env: "Warm Pangaea interior with seasonal monsoons & arid belts.", enc: "Early dinosaurs, primitive archosaurs & early ferns.", task: "Time Machine Task: Log how early Triassic ecosystems began recovering." },
+      { id: 2, name: "Jurassic Period", emoji: "🦕", time: "~201–145 Million Years Ago", science: "Pangaea began breaking apart; giant long-necked sauropods and early birds appeared during the Jurassic.", env: "Lush fern forests, cycads, conifers & shallow warm seas.", enc: "Brachiosaurus, Diplodocus, Stegosaurus & Allosaurus.", task: "Time Machine Task: Compare tall sauropod reach with mid-sized predators." },
+      { id: 3, name: "Cretaceous Period", emoji: "🌺", time: "~145–66 Million Years Ago", science: "Flowering plants diversified and iconic late-Cretaceous groups thrived—separated from Jurassic forms by tens of millions of years.", env: "Diverse forests, flowering plants, deltas & wide seaways.", enc: "Tyrannosaurus rex, Triceratops, Velociraptor & Parasaurolophus.", task: "Time Machine Task: Observe Cretaceous plant diversity and herbivore herds." },
+      { id: 4, name: "Dinosaur Extinction Event", emoji: "☄️", time: "~66 Million Years Ago (Cretaceous–Paleogene)", science: "A major global impact and environmental upheaval ~66 million years ago ended non-avian dinosaurs, while avian theropods (birds) continued.", env: "Sudden climate shifts, dust/darkness & ecosystem transition.", enc: "Non-avian dinosaurs declined; modern bird lineage persisted.", task: "Time Machine Task: Review rock-layer evidence marking the K–Pg boundary." },
+      { id: 5, name: "Fossil Discovery Era", emoji: "⛏️", time: "19th–20th Century Paleontology", science: "Early naturalists and paleontologists named early finds like Megalosaurus and Iguanodon and mapped fossil beds worldwide.", env: "Field expeditions, quarries & early museum halls.", enc: "Historic fossil finds, teeth, bones & footprint slabs.", task: "Time Machine Task: Trace how carefully mapped fossils build scientific history." },
+      { id: 6, name: "Modern Paleontology", emoji: "🔬", time: "21st Century & Today", science: "Modern paleontologists combine fieldwork with CT scans, biomechanics, and feather/pigment studies to understand ancient life accurately.", env: "Labs, digital 3D models & global field sites.", enc: "Detailed anatomical reconstructions & bird-dinosaur links.", task: "Time Machine Task: Explain how science updates ideas as new fossils are found." }
+    ];
+
+    const FOSSIL_SPECIMENS_6 = [
+      { id: "f1", name: "Theropod Tooth Fossil", icon: "🦷", layer: "Upper Cretaceous Sandstone", note: "Serrated tooth fossil studied to understand diet." },
+      { id: "f2", name: "Sauropod Femur Bone", icon: "🦴", layer: "Jurassic Mudstone", note: "Heavy limb bone showing support for large body mass." },
+      { id: "f3", name: "Three-Toed Trackway", icon: "🐾", layer: "Riverbank Siltstone", note: "Preserved footprint track recording ancient movement." },
+      { id: "f4", name: "Ammonite Spiral Shell", icon: "🐚", layer: "Marine Limestone", note: "Coiled marine fossil helpful for dating rock layers." },
+      { id: "f5", name: "Leaf & Fern Impression", icon: "🍃", layer: "Coal & Shale Bed", note: "Plant fossil revealing ancient climate and flora." },
+      { id: "f6", name: "Armor Plate (Osteoderm)", icon: "🛡️", layer: "Cretaceous Claystone", note: "Bony armor structure used for protection." }
+    ];
+
+    ramState.completedEras = Array.isArray(ramState.completedEras) ? ramState.completedEras : [];
+    ramState.selectedEraId = ramState.selectedEraId || 1;
+    ramState.collectedFossils = Array.isArray(ramState.collectedFossils) ? ramState.collectedFossils : [];
+    ramState.dugCells = Array.isArray(ramState.dugCells) ? ramState.dugCells : [];
+    ramState.assembledParts = Array.isArray(ramState.assembledParts) ? ramState.assembledParts : [];
+
+    function renderTimeEras6() {
+      const pill = document.getElementById("tm-prog-pill");
+      if (pill) pill.textContent = `${ramState.completedEras.length} / 6 Eras Completed`;
+
+      const grid = document.getElementById("tm-eras-grid");
+      if (!grid) return;
+      grid.innerHTML = TIME_ERAS_6.map((er) => {
+        const done = ramState.completedEras.includes(er.id);
+        return `
+          <div class="era-card-p3 ${done ? "done" : ""}">
+            <div>
+              <div style="font-size:1.6rem;">${er.emoji}</div>
+              <div style="font-weight:900; font-size:0.98rem; margin-top:4px;">${er.id}. ${er.name}</div>
+              <div style="font-size:0.76rem; color:var(--purple-nebula); font-weight:800;">${er.time}</div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; margin-top:6px;">
+              <span class="status-tag">${done ? "✓ Completed" : "Era"}</span>
+              <button class="btn-amber" style="padding:6px 11px; min-height:34px; font-size:0.78rem;" onclick="openTimeEra(${er.id})">Travel</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openTimeEra(erId) {
+      const er = TIME_ERAS_6.find((x) => x.id === erId) || TIME_ERAS_6[0];
+      ramState.selectedEraId = er.id;
+      saveRamState();
+
+      const stage = document.getElementById("tm-detail-stage");
+      stage.classList.remove("hidden");
+      document.getElementById("tm-time-badge").textContent = er.time;
+      document.getElementById("tm-title").textContent = `${er.emoji} ${er.name}`;
+      document.getElementById("tm-science").textContent = er.science;
+      document.getElementById("tm-env-box").innerHTML = `<strong>🌍 Environment:</strong> ${er.env}`;
+      document.getElementById("tm-enc-box").innerHTML = `<strong>🦖 Encounters:</strong> ${er.enc}`;
+      document.getElementById("tm-task-box").innerHTML = `<strong>🧭 Interactive Task:</strong> ${er.task}`;
+      stage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function speakCurrentEra() {
+      const er = TIME_ERAS_6.find((x) => x.id === ramState.selectedEraId) || TIME_ERAS_6[0];
+      speakRamText(`${er.name}. ${er.time}. ${er.science}`);
+    }
+
+    function completeCurrentEra() {
+      const id = ramState.selectedEraId;
+      if (!ramState.completedEras.includes(id)) {
+        ramState.completedEras.push(id);
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 25;
+        saveRamState();
+        renderTimeEras6();
+      }
+    }
+
+    const SKELETON_PARTS_4 = ["1. Skull", "2. Spine & Ribs", "3. Front & Hind Limbs", "4. Tail"];
+
+    function renderFossilLab() {
+      const mPill = document.getElementById("fossil-museum-pill");
+      if (mPill) mPill.textContent = `Museum Collection: ${ramState.collectedFossils.length} / ${FOSSIL_SPECIMENS_6.length}`;
+
+      const digGrid = document.getElementById("fossil-dig-grid");
+      if (digGrid) {
+        const rewards = ["🦴 Bone", "🌿 Leaf", "🐾 Track", "🐚 Shell", "🪨 Rock", "🦴 Rib", "🐾 Claw", "🌿 Fern", "🐚 Fossil"];
+        digGrid.innerHTML = Array.from({ length: 9 }, (_, idx) => {
+          const isDug = ramState.dugCells.includes(idx);
+          return `<button class="dig-cell-p3 ${isDug ? "dug" : ""}" onclick="digFossilCell(${idx})">${isDug ? rewards[idx % rewards.length] : "⛏️ Dig"}</button>`;
+        }).join("");
+      }
+
+      const skelRow = document.getElementById("skel-parts-row");
+      if (skelRow) {
+        skelRow.innerHTML = SKELETON_PARTS_4.map((part) => {
+          const placed = ramState.assembledParts.includes(part);
+          return `<button class="skel-part-btn ${placed ? "placed" : ""}" onclick="placeSkeletonPart('${part}')">${placed ? "✓ " + part : part}</button>`;
+        }).join("");
+      }
+      const skelTxt = document.getElementById("skel-status-text");
+      if (skelTxt) {
+        skelTxt.textContent = ramState.assembledParts.length === SKELETON_PARTS_4.length
+          ? "🏆 Complete Dinosaur Skeleton Assembled!"
+          : `Parts Assembled: ${ramState.assembledParts.length} / ${SKELETON_PARTS_4.length}`;
+      }
+
+      const mGrid = document.getElementById("fossil-museum-grid");
+      if (mGrid) {
+        mGrid.innerHTML = FOSSIL_SPECIMENS_6.map((f) => {
+          const found = ramState.collectedFossils.includes(f.id);
+          return `
+            <div class="fossil-card-p3 ${found ? "found" : ""}">
+              <div>
+                <div style="font-size:1.5rem;">${f.icon}</div>
+                <div style="font-weight:900; font-size:0.94rem; margin-top:4px;">${f.name}</div>
+                <div style="font-size:0.75rem; color:var(--purple-nebula); font-weight:800;">${f.layer}</div>
+                <div style="font-size:0.8rem; color:var(--muted); margin-top:3px;">${f.note}</div>
+              </div>
+              <button class="btn-cyan" style="padding:6px 11px; min-height:34px; font-size:0.78rem; margin-top:6px;" onclick="collectFossilSpecimen('${f.id}')">${found ? "✓ In Museum" : "Add to Museum"}</button>
+            </div>
+          `;
+        }).join("");
+      }
+    }
+
+    function digFossilCell(idx) {
+      if (!ramState.dugCells.includes(idx)) {
+        ramState.dugCells.push(idx);
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 10;
+        const spec = FOSSIL_SPECIMENS_6[idx % FOSSIL_SPECIMENS_6.length];
+        if (spec && !ramState.collectedFossils.includes(spec.id)) {
+          ramState.collectedFossils.push(spec.id);
+        }
+        saveRamState();
+        renderFossilLab();
+      }
+    }
+
+    function resetDigSite() {
+      ramState.dugCells = [];
+      saveRamState();
+      renderFossilLab();
+    }
+
+    function placeSkeletonPart(part) {
+      if (!ramState.assembledParts.includes(part)) {
+        ramState.assembledParts.push(part);
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 10;
+        saveRamState();
+        renderFossilLab();
+      }
+    }
+
+    function collectFossilSpecimen(fId) {
+      if (!ramState.collectedFossils.includes(fId)) {
+        ramState.collectedFossils.push(fId);
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 15;
+        saveRamState();
+        renderFossilLab();
+      }
+    }
+
+    const origOpenModP2 = openModule;
+    openModule = function(modKey) {
+      document.querySelectorAll(".nav-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.mod === modKey);
+      });
+      const tmSec = document.getElementById("mod-time-machine");
+      const fosSec = document.getElementById("mod-fossil-lab");
+      [tmSec, fosSec].forEach((el) => { if (el) el.classList.remove("active"); });
+
+      if (modKey === "time-machine") {
+        if (tmSec) tmSec.classList.add("active");
+        renderTimeEras6();
+        return;
+      }
+      if (modKey === "fossil-lab") {
+        if (fosSec) fosSec.classList.add("active");
+        renderFossilLab();
+        return;
+      }
+      origOpenModP2(modKey);
+    };
+
+
+    const SPACE_DESTS_12 = [
+      { id: 1, name: "Moon Base", emoji: "🌕", tag: "Earth's Natural Satellite", fact: "The Moon orbits Earth and has craters formed by ancient impacts, with lower gravity than Earth.", mission: "Mission: Map lunar craters and low-gravity jump steps near Moon Base.", q: "Why can astronauts jump higher on the Moon than on Earth?", ans: "The Moon has weaker gravity than Earth", opts: ["The Moon has weaker gravity than Earth", "There is thick mud on the Moon", "Gravity is ten times stronger", "The Moon has oceans of honey"] },
+      { id: 2, name: "Mars Explorer Station", emoji: "🔴", tag: "Fourth Planet from the Sun", fact: "Mars is known as the Red Planet due to iron oxide dust on its rocky surface.", mission: "Mission: Scout rusty plains and ancient valley channels with Rover Luna.", q: "Why does Mars often look reddish?", ans: "Iron oxide (rust) in its surface dust and rocks", opts: ["Iron oxide (rust) in its surface dust and rocks", "Covered in bright green grass", "Made of liquid water only", "Glowing neon paint"] },
+      { id: 3, name: "Jupiter Discovery Zone", emoji: "🟠", tag: "Largest Planet in Solar System", fact: "Jupiter is a massive gas giant with swirling cloud bands and dozens of known moons.", mission: "Mission: Observe Jupiter's cloud bands from safe high orbit.", q: "What kind of planet is Jupiter primarily?", ans: "A giant planet composed mostly of gases (hydrogen and helium)", opts: ["A giant planet composed mostly of gases (hydrogen and helium)", "A tiny rocky moon", "A solid ice cube", "A star like the Sun"] },
+      { id: 4, name: "Saturn Ring World", emoji: "🪐", tag: "Ringed Gas Giant", fact: "Saturn features an extensive ring system made largely of countless ice and rock particles.", mission: "Mission: Chart icy ring particles along a safe orbital path.", q: "What are Saturn's iconic rings mainly made of?", ans: "Ice and rock particles", opts: ["Ice and rock particles", "Solid gold bars", "Cotton clouds", "Plastic balloons"] },
+      { id: 5, name: "Venus Research Base", emoji: "🟡", tag: "Second Planet from the Sun", fact: "Venus has a dense carbon dioxide atmosphere and strong greenhouse warming.", mission: "Mission: Measure high-altitude cloud layers safely above Venus.", q: "What makes Venus the hottest planet in our Solar System?", ans: "Its thick carbon dioxide atmosphere trapping heat", opts: ["Its thick carbon dioxide atmosphere trapping heat", "Being made of frozen snow", "Having no Sun nearby", "Living inside a cave"] },
+      { id: 6, name: "Mercury Mission", emoji: "🪨", tag: "Closest Planet to the Sun", fact: "Mercury is the smallest major planet in the Solar System and has many craters.", mission: "Mission: Scan cratered basins on Mercury during a thermal window.", q: "Which planet orbits closest to the Sun?", ans: "Mercury", opts: ["Mercury", "Neptune", "Saturn", "Mars"] },
+      { id: 7, name: "Uranus and Neptune Frontier", emoji: "🔵", tag: "Outer Ice Giants", fact: "Uranus and Neptune are outer ice giants with cold atmospheres containing methane.", mission: "Mission: Explore outer cold frontier winds beyond Saturn.", q: "Which two planets are outer ice giants?", ans: "Uranus and Neptune", opts: ["Uranus and Neptune", "Mercury and Venus", "Earth and Mars", "Sun and Moon"] },
+      { id: 8, name: "Asteroid Belt", emoji: "☄️", tag: "Rocky Belt Between Mars & Jupiter", fact: "The main asteroid belt contains many rocky bodies orbiting the Sun between Mars and Jupiter.", mission: "Mission: Navigate past rocky asteroids carefully with scanner shields.", q: "Where is the main asteroid belt located?", ans: "Between the orbits of Mars and Jupiter", opts: ["Between the orbits of Mars and Jupiter", "Inside Earth's core", "Outside all galaxies", "On the Moon's surface"] },
+      { id: 9, name: "Comet Adventure", emoji: "🌠", tag: "Icy Wanderer with Glowing Tail", fact: "Comets are icy bodies that release gas and dust, forming a glowing coma and tail near the Sun.", mission: "Mission: Observe how sunlight warms comet ice into a glowing tail.", q: "What happens when an icy comet approaches the Sun?", ans: "Heat warms its ices, creating a glowing gas and dust tail", opts: ["Heat warms its ices, creating a glowing gas and dust tail", "It turns into a brick wall", "It stops moving forever", "It becomes a planet"] },
+      { id: 10, name: "Nebula Galaxy", emoji: "✨", tag: "Star Nurseries & Galaxies", fact: "Nebulae are huge clouds of gas and dust where new stars can form within galaxies.", mission: "Mission: Spot glowing star-forming clouds inside a galaxy.", q: "What is a nebula in astronomy?", ans: "A giant cloud of gas and dust in space", opts: ["A giant cloud of gas and dust in space", "A type of dinosaur", "A submarine", "A volcano on Earth"] },
+      { id: 11, name: "Black Hole Mystery", emoji: "🕳️", tag: "Extreme Gravity Region", fact: "A black hole is a region in space where gravity is so strong that not even light escapes from inside its boundary.", mission: "Mission: Study light and orbit paths from a safe distance.", q: "What is true about gravity inside a black hole's event horizon?", ans: "Gravity is so strong that even light cannot escape from inside", opts: ["Gravity is so strong that even light cannot escape from inside", "Gravity disappears completely", "It is made of floating candy", "It is a small wooden box"] },
+      { id: 12, name: "Exoplanet Discovery", emoji: "🌍", tag: "Worlds Beyond Our Solar System", fact: "Exoplanets are planets that orbit stars outside our own Solar System.", mission: "Mission: Detect transit dimming as an exoplanet passes in front of its star.", q: "What is an exoplanet?", ans: "A planet orbiting a star outside our Solar System", opts: ["A planet orbiting a star outside our Solar System", "A cloud on Earth", "A shooting star", "A space helmet"] }
+    ];
+
+    const SOLAR_TOPICS_14 = [
+      { id: "s1", title: "Solar System", icon: "☀️", diag: "Sun (Center Star) → 8 Planets, Moons, Asteroids & Comets", exp: "Our Solar System consists of the Sun and objects gravitationally bound to it.", q: "What sits at the center of our Solar System?", ans: "The Sun", opts: ["The Sun", "Mars", "The Moon", "A comet"] },
+      { id: "s2", title: "Planets", icon: "🪐", diag: "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune", exp: "Eight major planets orbit the Sun along distinct paths.", q: "How many major planets are in our Solar System?", ans: "Eight", opts: ["Eight", "Three", "Twenty", "Two"] },
+      { id: "s3", title: "Sun and Moon", icon: "🌕", diag: "Sun (Star emitting light) • Moon (Natural satellite reflecting sunlight)", exp: "The Sun is a star; Earth's Moon orbits Earth and reflects sunlight.", q: "Does the Moon shine with its own light like a star?", ans: "No, it reflects light from the Sun", opts: ["No, it reflects light from the Sun", "Yes, it is a giant hot star", "It glows with batteries", "It has no light at all"] },
+      { id: "s4", title: "Earth rotation", icon: "🔄", diag: "Earth spins on its axis (~24 hours per rotation)", exp: "Rotation is Earth spinning around its axis.", q: "About how long does one full rotation of Earth take?", ans: "About 24 hours", opts: ["About 24 hours", "365 days", "10 seconds", "100 years"] },
+      { id: "s5", title: "Earth revolution", icon: "🛸", diag: "Earth travels around the Sun (~365.25 days per orbit)", exp: "Revolution is Earth's orbit around the Sun over a year.", q: "What is Earth's revolution around the Sun?", ans: "Its yearly orbit around the Sun", opts: ["Its yearly orbit around the Sun", "Spinning in one spot", "Falling into the Moon", "Jumping on clouds"] },
+      { id: "s6", title: "Day and night", icon: "🌓", diag: "Sunlit Half = Day • Shaded Half = Night (as Earth rotates)", exp: "Earth's rotation causes day and night as different sides face the Sun.", q: "What causes day and night on Earth?", ans: "Earth's rotation on its axis", opts: ["Earth's rotation on its axis", "Dinosaurs sleeping", "Clouds turning off the Sun", "Moon walking away"] },
+      { id: "s7", title: "Seasons", icon: "🍂", diag: "Tilted Axis (~23.5°) + Orbit Around Sun → Seasonal Changes", exp: "Earth's tilted axis combined with its orbit around the Sun leads to changing seasons.", q: "What key factor helps cause Earth's seasons?", ans: "Earth's tilted axis as it orbits the Sun", opts: ["Earth's tilted axis as it orbits the Sun", "The Sun turning off in winter", "The Moon changing color", "Ocean waves"] },
+      { id: "s8", title: "Gravity", icon: "🧲", diag: "Mass attracts Mass → Keeps Moons in Orbit & Feet on Ground", exp: "Gravity is an attractive force keeping planets in orbit and objects grounded.", q: "What force keeps the Moon orbiting Earth?", ans: "Gravity", opts: ["Gravity", "Magnetism of plastic", "Wind", "Friction"] },
+      { id: "s9", title: "Asteroids", icon: "🪨", tag_skip: 1, diag: "Rocky bodies orbiting the Sun (many in the Asteroid Belt)", exp: "Asteroids are mostly rocky remnants from the early Solar System.", q: "What are most asteroids made of?", ans: "Rock and metal", opts: ["Rock and metal", "Ice cream", "Liquid water", "Paper"] },
+      { id: "s10", title: "Comets", icon: "☄️", diag: "Icy body → Warms near Sun → Gas & Dust Tail", exp: "Comets contain ice, dust, and rock and can grow glowing tails near the Sun.", q: "What do comets carry that vaporizes near the Sun?", ans: "Ices and frozen gases", opts: ["Ices and frozen gases", "Iron armor", "Tree leaves", "Sandcastles"] },
+      { id: "s11", title: "Stars", icon: "⭐", diag: "Hot glowing spheres of gas (like our Sun)", exp: "Stars are huge, hot balls of gas that generate energy through nuclear fusion.", q: "What is the Sun?", ans: "A star", opts: ["A star", "A planet", "An asteroid", "A comet"] },
+      { id: "s12", title: "Galaxies", icon: "🌌", diag: "Billions of stars, gas, dust & dark matter bound by gravity (Milky Way)", exp: "Galaxies are vast systems of stars, gas, and dust; Earth is in the Milky Way.", q: "Which galaxy do we live in?", ans: "The Milky Way galaxy", opts: ["The Milky Way galaxy", "Andromeda core", "Moon crater", "Mars canyon"] },
+      { id: "s13", title: "Space telescopes", icon: "🔭", diag: "Above Earth's Atmosphere → Clearer Cosmic Views", exp: "Space telescopes observe light without atmospheric blur or absorption.", q: "Why are space telescopes placed above Earth's atmosphere?", ans: "To avoid atmospheric distortion and see clearer views", opts: ["To avoid atmospheric distortion and see clearer views", "To hit asteroids", "To land on the Sun", "To make rain"] },
+      { id: "s14", title: "Rockets and satellites", icon: "🛰️", diag: "Rocket Thrust → Reaches Orbit • Satellites Orbit & Observe", exp: "Rockets provide thrust to reach space; satellites orbit planets for science and communication.", q: "What helps a rocket lift upward against gravity?", ans: "Thrust from expelling exhaust gases downward", opts: ["Thrust from expelling exhaust gases downward", "Flapping wings", "Floating bubbles", "Magnets on the ground"] }
+    ];
+
+    ramState.completedSpaceDests = Array.isArray(ramState.completedSpaceDests) ? ramState.completedSpaceDests : [];
+    ramState.selectedSpaceId = ramState.selectedSpaceId || 1;
+    ramState.completedSolarIds = Array.isArray(ramState.completedSolarIds) ? ramState.completedSolarIds : [];
+    ramState.selectedSolarId = ramState.selectedSolarId || "s1";
+    ramState.shipConfig = ramState.shipConfig || {
+      name: "Ram Star-1",
+      shipClass: "Beginner Explorer",
+      body: "Sleek Capsule Hull",
+      wings: "Delta Glide Wings",
+      engine: "Ion Pulse Thruster",
+      color: "Cyan & Nebula Purple",
+      gear: "Dome Viewport + Telescope",
+      flightLog: "Ready for launch test."
+    };
+
+    function renderSpace12() {
+      const pill = document.getElementById("space-prog-pill");
+      if (pill) pill.textContent = `${ramState.completedSpaceDests.length} / 12 Space Destinations Completed`;
+
+      const grid = document.getElementById("space-grid-12");
+      if (!grid) return;
+      grid.innerHTML = SPACE_DESTS_12.map((sp) => {
+        const done = ramState.completedSpaceDests.includes(sp.id);
+        return `
+          <div class="space-card-p4 ${done ? "done" : ""}">
+            <div>
+              <div style="font-size:1.6rem;">${sp.emoji}</div>
+              <div style="font-weight:900; font-size:0.96rem; margin-top:4px;">${sp.id}. ${sp.name}</div>
+              <div style="font-size:0.75rem; color:var(--purple-nebula); font-weight:800;">${sp.tag}</div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; margin-top:6px;">
+              <span class="status-tag">${done ? "✓ Completed" : "Explore"}</span>
+              <button class="btn-cyan" style="padding:6px 11px; min-height:34px; font-size:0.78rem;" onclick="openSpaceDest(${sp.id})">Launch</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openSpaceDest(spId) {
+      const sp = SPACE_DESTS_12.find((x) => x.id === spId) || SPACE_DESTS_12[0];
+      ramState.selectedSpaceId = sp.id;
+      saveRamState();
+
+      const stage = document.getElementById("space-detail-stage");
+      stage.classList.remove("hidden");
+      document.getElementById("sp-type-tag").textContent = sp.tag;
+      document.getElementById("sp-title").textContent = `${sp.emoji} ${sp.name}`;
+      document.getElementById("sp-fact").textContent = sp.fact;
+      document.getElementById("sp-mission-box").textContent = sp.mission;
+      document.getElementById("sp-q-prompt").textContent = `Space Quiz: ${sp.q}`;
+      document.getElementById("sp-q-fb").textContent = "";
+
+      const shuffled = [...sp.opts].sort(() => Math.random() - 0.5);
+      document.getElementById("sp-q-opts").innerHTML = shuffled.map((op) => {
+        const esc = op.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="opt-btn-p2" onclick="answerSpaceQuiz(this, '${esc}')">${op}</button>`;
+      }).join("");
+      stage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function speakCurrentSpaceDest() {
+      const sp = SPACE_DESTS_12.find((x) => x.id === ramState.selectedSpaceId) || SPACE_DESTS_12[0];
+      speakRamText(`${sp.name}. ${sp.fact} ${sp.mission}`);
+    }
+
+    function completeCurrentSpaceDest() {
+      const id = ramState.selectedSpaceId;
+      if (!ramState.completedSpaceDests.includes(id)) {
+        ramState.completedSpaceDests.push(id);
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 25;
+        saveRamState();
+        renderSpace12();
+      }
+    }
+
+    function answerSpaceQuiz(btnEl, chosen) {
+      const sp = SPACE_DESTS_12.find((x) => x.id === ramState.selectedSpaceId) || SPACE_DESTS_12[0];
+      document.querySelectorAll("#sp-q-opts .opt-btn-p2").forEach((b) => { b.disabled = true; });
+      const fb = document.getElementById("sp-q-fb");
+      if (chosen === sp.ans) {
+        btnEl.classList.add("ok");
+        if (!ramState.completedSpaceDests.includes(sp.id)) ramState.completedSpaceDests.push(sp.id);
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 15;
+        saveRamState();
+        renderSpace12();
+        fb.textContent = "🚀 Great space mission! (+15 XP).";
+      } else {
+        btnEl.classList.add("bad");
+        fb.textContent = `💡 Answer: ${sp.ans}`;
+      }
+    }
+
+    function renderSolarLab14() {
+      const pill = document.getElementById("solar-prog-pill");
+      if (pill) pill.textContent = `${ramState.completedSolarIds.length} / 14 Topics Explored`;
+
+      const grid = document.getElementById("solar-grid-14");
+      if (!grid) return;
+      grid.innerHTML = SOLAR_TOPICS_14.map((t, idx) => {
+        const done = ramState.completedSolarIds.includes(t.id);
+        return `
+          <div class="solar-card-p4 ${done ? "done" : ""}">
+            <div>
+              <div style="font-size:1.5rem;">${t.icon}</div>
+              <div style="font-weight:900; font-size:0.94rem; margin-top:4px;">${idx + 1}. ${t.title}</div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:6px;">
+              <span class="status-tag">${done ? "✓ Explored" : "Lab"}</span>
+              <button class="btn-amber" style="padding:6px 11px; min-height:34px; font-size:0.78rem;" onclick="openSolarTopic('${t.id}')">Open</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openSolarTopic(tId) {
+      const idx = SOLAR_TOPICS_14.findIndex((x) => x.id === tId);
+      const t = SOLAR_TOPICS_14[idx >= 0 ? idx : 0];
+      ramState.selectedSolarId = t.id;
+      saveRamState();
+
+      document.getElementById("sol-badge").textContent = `Topic ${idx + 1} of 14`;
+      document.getElementById("sol-title").textContent = `${t.icon} ${t.title}`;
+      document.getElementById("sol-diagram").innerHTML = `<strong>🔭 Orbit / Concept Diagram:</strong> ${t.diag}`;
+      document.getElementById("sol-explain").textContent = t.exp;
+      document.getElementById("sol-q-prompt").textContent = `Check: ${t.q}`;
+      document.getElementById("sol-q-fb").textContent = "";
+
+      const shuffled = [...t.opts].sort(() => Math.random() - 0.5);
+      document.getElementById("sol-q-opts").innerHTML = shuffled.map((op) => {
+        const esc = op.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="opt-btn-p2" onclick="answerSolarQuiz(this, '${esc}')">${op}</button>`;
+      }).join("");
+    }
+
+    function speakSolarTopic() {
+      const t = SOLAR_TOPICS_14.find((x) => x.id === ramState.selectedSolarId) || SOLAR_TOPICS_14[0];
+      speakRamText(`${t.title}. ${t.exp}`);
+    }
+
+    function answerSolarQuiz(btnEl, chosen) {
+      const t = SOLAR_TOPICS_14.find((x) => x.id === ramState.selectedSolarId) || SOLAR_TOPICS_14[0];
+      document.querySelectorAll("#sol-q-opts .opt-btn-p2").forEach((b) => { b.disabled = true; });
+      const fb = document.getElementById("sol-q-fb");
+      if (chosen === t.ans) {
+        btnEl.classList.add("ok");
+        if (!ramState.completedSolarIds.includes(t.id)) ramState.completedSolarIds.push(t.id);
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 15;
+        saveRamState();
+        renderSolarLab14();
+        fb.textContent = "🌟 Awesome astronomy check! (+15 XP).";
+      } else {
+        btnEl.classList.add("bad");
+        fb.textContent = `💡 Answer: ${t.ans}`;
+      }
+    }
+
+    function renderShipBuilder() {
+      const sc = ramState.shipConfig || {};
+      const nEl = document.getElementById("ship-name-inp");
+      const cEl = document.getElementById("ship-class-sel");
+      const bEl = document.getElementById("ship-body-sel");
+      const wEl = document.getElementById("ship-wings-sel");
+      const eEl = document.getElementById("ship-engine-sel");
+      const colEl = document.getElementById("ship-color-sel");
+      const gEl = document.getElementById("ship-gear-sel");
+
+      if (nEl && document.activeElement !== nEl) nEl.value = sc.name || "Ram Star-1";
+      if (cEl) cEl.value = sc.shipClass || "Beginner Explorer";
+      if (bEl) bEl.value = sc.body || "Sleek Capsule Hull";
+      if (wEl) wEl.value = sc.wings || "Delta Glide Wings";
+      if (eEl) eEl.value = sc.engine || "Ion Pulse Thruster";
+      if (colEl) colEl.value = sc.color || "Cyan & Nebula Purple";
+      if (gEl) gEl.value = sc.gear || "Dome Viewport + Telescope";
+
+      const specEl = document.getElementById("ship-spec-line");
+      const flEl = document.getElementById("ship-flight-status");
+      if (specEl) {
+        specEl.textContent = `🛸 Ship: ${sc.name || "Ram Star-1"} [${sc.shipClass || "Beginner Explorer"}] — ${sc.body || "Sleek Capsule Hull"} • ${sc.wings || "Delta Glide Wings"} • ${sc.engine || "Ion Pulse Thruster"} • ${sc.color || "Cyan & Nebula Purple"} • ${sc.gear || "Dome Viewport + Telescope"}`;
+      }
+      if (flEl) {
+        flEl.textContent = sc.flightLog || "Ready for launch test.";
+      }
+    }
+
+    function syncShipBuilder() {
+      ramState.shipConfig = {
+        ...(ramState.shipConfig || {}),
+        name: (document.getElementById("ship-name-inp")?.value || "").trim() || "Ram Star-1",
+        shipClass: document.getElementById("ship-class-sel")?.value || "Beginner Explorer",
+        body: document.getElementById("ship-body-sel")?.value || "Sleek Capsule Hull",
+        wings: document.getElementById("ship-wings-sel")?.value || "Delta Glide Wings",
+        engine: document.getElementById("ship-engine-sel")?.value || "Ion Pulse Thruster",
+        color: document.getElementById("ship-color-sel")?.value || "Cyan & Nebula Purple",
+        gear: document.getElementById("ship-gear-sel")?.value || "Dome Viewport + Telescope"
+      };
+      saveRamState();
+      renderShipBuilder();
+    }
+
+    function runShipLaunchTest() {
+      syncShipBuilder();
+      ramState.shipConfig.flightLog = `🚀 Launch Test Passed! "${ramState.shipConfig.name}" lifted cleanly into low orbit.`;
+      ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 10;
+      saveRamState();
+      renderShipBuilder();
+    }
+
+    function runShipObstacleCourse() {
+      syncShipBuilder();
+      ramState.shipConfig.flightLog = `☄️ Obstacle Course Cleared! "${ramState.shipConfig.name}" dodged space rocks safely (+15 XP).`;
+      ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 15;
+      saveRamState();
+      renderShipBuilder();
+    }
+
+    function saveShipBlueprint() {
+      syncShipBuilder();
+      const pill = document.getElementById("ship-saved-pill");
+      if (pill) pill.textContent = `Saved: ${ramState.shipConfig.name} ✓`;
+    }
+
+    const origOpenModP3 = openModule;
+    openModule = function(modKey) {
+      document.querySelectorAll(".nav-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.mod === modKey);
+      });
+      const spSec = document.getElementById("mod-space-exp");
+      const solSec = document.getElementById("mod-solar-lab");
+      const shSec = document.getElementById("mod-ship-builder");
+      [spSec, solSec, shSec].forEach((el) => { if (el) el.classList.remove("active"); });
+
+      if (modKey === "space-exp" || modKey === "planet-disc") {
+        if (spSec) spSec.classList.add("active");
+        renderSpace12();
+        return;
+      }
+      if (modKey === "solar-lab") {
+        if (solSec) solSec.classList.add("active");
+        renderSolarLab14();
+        return;
+      }
+      if (modKey === "ship-builder") {
+        if (shSec) shSec.classList.add("active");
+        renderShipBuilder();
+        return;
+      }
+      origOpenModP3(modKey);
+    };
+
+
+    const DINO_GAMES_20 = [
+      { id: 1, title: "1. Dinosaur Identification", instr: "Identify the dinosaur from its signature trait.", prompt: "Which dinosaur had three horns and a large neck frill?", ans: "Triceratops", opts: ["Triceratops", "Diplodocus", "Pteranodon", "Mosasaurus"] },
+      { id: 2, title: "2. Dino Memory Match", instr: "Match the prehistoric pair.", prompt: "Match pair for Baby T-Rex Tiko:", ans: "🦖 Tiko (Theropod)", opts: ["🦖 Tiko (Theropod)", "🪐 Saturn", "☄️ Comet", "🚀 Rocket"] },
+      { id: 3, title: "3. T-Rex Runner", instr: "Choose the safe sprint move for T-Rex.", prompt: "A fallen log blocks the trail—what should T-Rex do?", ans: "Leap cleanly over the log", opts: ["Leap cleanly over the log", "Trip straight into it", "Sleep on the track", "Walk backward blindfolded"] },
+      { id: 4, title: "4. Feed the Baby Dinosaur", instr: "Match diet to prehistoric group.", prompt: "What does a herbivorous Sauropod eat?", ans: "Leaves and ferns", opts: ["Leaves and ferns", "Steel bolts", "Plastic bags", "Ice cubes"] },
+      { id: 5, title: "5. Dinosaur Footprint Detective", instr: "Read fossil track clues carefully.", prompt: "What can fossilized footprints help paleontologists estimate?", ans: "Stride and movement patterns", opts: ["Stride and movement patterns", "Smartphone battery life", "Wi-Fi speed", "Modern traffic lights"] },
+      { id: 6, title: "6. Fossil Puzzle", instr: "Solve the fossil formation clue.", prompt: "How do fossils typically preserve hard remains over millions of years?", ans: "Burial in sediment & mineral preservation", opts: ["Burial in sediment & mineral preservation", "Instant melting", "Flying in space", "Boiling in oil"] },
+      { id: 7, title: "7. Build a Dinosaur Skeleton", instr: "Identify key skeletal support.", prompt: "Which part protects the brain and holds jaws/teeth?", ans: "Skull", opts: ["Skull", "Tail fin", "Feather quill", "Wheel"] },
+      { id: 8, title: "8. Dinosaur Jigsaw", instr: "Connect the dinosaur trait.", prompt: "Which feature is famous on Stegosaurus?", ans: "Back plates & tail spikes", opts: ["Back plates & tail spikes", "Scuba tank", "Space helmet", "Propeller"] },
+      { id: 9, title: "9. Dino Egg Rescue", instr: "Keep the prehistoric nest safe.", prompt: "How do we protect ancient nest sites and habitats?", ans: "Keep habitats clean & undisturbed", opts: ["Keep habitats clean & undisturbed", "Scatter litter around nests", "Break rocks carelessly", "Ignore safety signs"] },
+      { id: 10, title: "10. Jurassic Treasure Hunt", instr: "Find the scientific discovery item.", prompt: "Which item is a real paleontological clue?", ans: "Preserved fossil bone", opts: ["Preserved fossil bone", "Space laser", "Time-travel wristwatch", "Robot pet"] },
+      { id: 11, title: "11. Herbivore vs Carnivore", instr: "Classify the eating habit.", prompt: "A herbivore eats plants—which one is a plant-eater?", ans: "Brachiosaurus", opts: ["Brachiosaurus", "Tyrannosaurus rex", "Allosaurus", "Velociraptor"] },
+      { id: 12, title: "12. Dinosaur Habitat Match", instr: "Match creature to environment.", prompt: "Where did Mosasaurus live?", ans: "Ancient marine seas", opts: ["Ancient marine seas", "Moon craters", "Arctic glaciers", "Cloud forests"] },
+      { id: 13, title: "13. Volcano Escape", instr: "Choose the safe evacuation route.", prompt: "Near a volcanic zone, where should explorers move?", ans: "Along marked safe highland paths", opts: ["Along marked safe highland paths", "Toward hot lava flows", "Into ash clouds", "Under falling rocks"] },
+      { id: 14, title: "14. Dino Quiz Race", instr: "Fast dinosaur era check!", prompt: "Which era is known as the Age of Dinosaurs?", ans: "Mesozoic Era", opts: ["Mesozoic Era", "Stone Age", "Bronze Age", "Space Age"] },
+      { id: 15, title: "15. Dinosaur Coloring", instr: "Pick natural habitat colors.", prompt: "Which palette fits a lush Jurassic fern forest?", ans: "Emerald greens & warm earth tones", opts: ["Emerald greens & warm earth tones", "Neon pink concrete", "Gray office tiles", "Black asphalt"] },
+      { id: 16, title: "16. Find the Hidden Dinosaur", instr: "Spot camouflage in nature.", prompt: "How does camouflage help animals blend in?", ans: "Matching colors & patterns with surroundings", opts: ["Matching colors & patterns with surroundings", "Wearing bright sirens", "Shining floodlights", "Making loud horns"] },
+      { id: 17, title: "17. Dinosaur Number Adventure", instr: "Count carefully with Ram.", prompt: "If Ram spots 3 Triceratops and adds 2 more, how many?", ans: "5 dinosaurs", opts: ["5 dinosaurs", "2 dinosaurs", "1 dinosaur", "9 dinosaurs"] },
+      { id: 18, title: "18. Dinosaur Word Challenge", instr: "Match the science term.", prompt: "What is a scientist who studies fossils called?", ans: "Paleontologist", opts: ["Paleontologist", "Baker", "Tailor", "Florist"] },
+      { id: 19, title: "19. Build Your Own Dino Park", instr: "Design a safe park zone.", prompt: "What makes a prehistoric park educational & safe?", ans: "Clear zone signs, science facts & safety paths", opts: ["Clear zone signs, science facts & safety paths", "No fences or signs", "Trash everywhere", "No learning info"] },
+      { id: 20, title: "20. Dinosaur Evolution Timeline Challenge", instr: "Check deep-time accuracy.", prompt: "Did all famous dinosaurs live at the exact same time?", ans: "No — they lived across different periods", opts: ["No — they lived across different periods", "Yes — all on one single day", "Only last week", "None ever existed"] }
+    ];
+
+    const SPACE_GAMES_15 = [
+      { id: 1, title: "1. Rocket Launch Simulator", instr: "Prepare Ram's rocket for liftoff.", prompt: "What pushes a rocket upward into space?", ans: "Rocket thrust", opts: ["Rocket thrust", "Folding paper fan", "Heavy anchor", "Sandbag"] },
+      { id: 2, title: "2. Planet Matching", instr: "Match planet to its key feature.", prompt: "Which planet is famous for its wide ice-and-rock rings?", ans: "Saturn", opts: ["Saturn", "Mercury", "Earth", "Mars"] },
+      { id: 3, title: "3. Moon Rover Mission", instr: "Drive Rover Luna safely.", prompt: "What should a lunar rover avoid while driving on the Moon?", ans: "Deep craters & sharp boulders", opts: ["Deep craters & sharp boulders", "Ocean waves", "Rainstorms", "Tree roots"] },
+      { id: 4, title: "4. Mars Landing Challenge", instr: "Guide the lander to Mars.", prompt: "Why is Mars often called the Red Planet?", ans: "Iron oxide dust on its surface", opts: ["Iron oxide dust on its surface", "Blue water oceans", "Green ice caps", "Golden clouds"] },
+      { id: 5, title: "5. Asteroid Dodge", instr: "Steer safely through the belt.", prompt: "Where is the main asteroid belt located?", ans: "Between Mars and Jupiter", opts: ["Between Mars and Jupiter", "Inside the Sun", "On Earth's equator", "Inside a volcano"] },
+      { id: 6, title: "6. Space Memory Match", instr: "Match space exploration pairs.", prompt: "Match pair for Luna:", ans: "🤖 Luna (Space Robot)", opts: ["🤖 Luna (Space Robot)", "🦖 Tiko", "🌿 Fern", "🐚 Ammonite"] },
+      { id: 7, title: "7. Build Your Spaceship", instr: "Choose key ship hardware.", prompt: "What helps explorers view distant stars and planets?", ans: "Telescope & sensors", opts: ["Telescope & sensors", "Frying pan", "Umbrella", "Skateboard"] },
+      { id: 8, title: "8. Solar System Puzzle", instr: "Identify the center of our system.", prompt: "Which star sits at the center of our Solar System?", ans: "The Sun", opts: ["The Sun", "Pluto", "Earth's Moon", "Mars"] },
+      { id: 9, title: "9. Satellite Rescue", instr: "Keep orbit clean and safe.", prompt: "What do scientific satellites do in orbit?", ans: "Observe Earth & space and relay data", opts: ["Observe Earth & space and relay data", "Dig underground tunnels", "Grow apples", "Melt glaciers on purpose"] },
+      { id: 10, title: "10. Space Treasure Hunt", instr: "Spot the true space object.", prompt: "What is a comet primarily made of?", ans: "Ice, dust, and rock", opts: ["Ice, dust, and rock", "Solid chocolate", "Cotton wool", "Rubber tires"] },
+      { id: 11, title: "11. Star Constellation Finder", instr: "Understand stars & night sky.", prompt: "What is the Sun compared to other stars?", ans: "A medium-sized star close to Earth", opts: ["A medium-sized star close to Earth", "The biggest black hole", "A cold rock", "A moon"] },
+      { id: 12, title: "12. Planet Sorting", instr: "Group planets accurately.", prompt: "Which planet is closest to the Sun?", ans: "Mercury", opts: ["Mercury", "Neptune", "Saturn", "Uranus"] },
+      { id: 13, title: "13. Gravity Experiment Game", instr: "Test gravity knowledge.", prompt: "What force keeps planets orbiting the Sun?", ans: "Gravity", opts: ["Gravity", "Wind", "Magnetism of wood", "Sound"] },
+      { id: 14, title: "14. Astronaut Training", instr: "Prepare like Ram & Nova.", prompt: "Why do astronauts wear spacesuits outside spacecraft?", ans: "For oxygen, pressure protection & temperature control", opts: ["For oxygen, pressure protection & temperature control", "For swimming in pools", "To look taller", "To carry groceries"] },
+      { id: 15, title: "15. Galaxy Explorer", instr: "Zoom out to cosmic scales.", prompt: "What is our home galaxy called?", ans: "The Milky Way", opts: ["The Milky Way", "Coral Bay", "Jurassic Peak", "Red Valley"] }
+    ];
+
+    ramState.activeDinoGameId = ramState.activeDinoGameId || 1;
+    ramState.activeSpaceGameId = ramState.activeSpaceGameId || 1;
+    ramState.dinoGameDiff = ramState.dinoGameDiff || "easy";
+    ramState.spaceGameDiff = ramState.spaceGameDiff || "easy";
+    ramState.dinoGameScore = typeof ramState.dinoGameScore === "number" ? ramState.dinoGameScore : 0;
+    ramState.spaceGameScore = typeof ramState.spaceGameScore === "number" ? ramState.spaceGameScore : 0;
+    ramState.completedDinoGames = Array.isArray(ramState.completedDinoGames) ? ramState.completedDinoGames : [];
+    ramState.completedSpaceGames = Array.isArray(ramState.completedSpaceGames) ? ramState.completedSpaceGames : [];
+    let pausedGameKind = "";
+
+    function playToneP5(freq, dur = 0.12) {
+      if (!ramState.sfx) return;
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return;
+        const ctx = new Ctx();
+        const osc = ctx.createOscillator();
+        const g = ctx.createGain();
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        g.gain.setValueAtTime(0.07, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+        osc.connect(g);
+        g.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + dur);
+      } catch (_) {}
+    }
+
+    function getDiffXp(diff) {
+      if (diff === "hard") return 30;
+      if (diff === "medium") return 20;
+      return 10;
+    }
+
+    function changeGameCenterDiff(kind, val) {
+      if (kind === "dino") ramState.dinoGameDiff = val;
+      else ramState.spaceGameDiff = val;
+      saveRamState();
+      renderGameCenter('dino');
+      renderGameCenter('space');
+    }
+
+    function renderGameCenter(kind) {
+      const isDino = kind === "dino";
+      const list = isDino ? DINO_GAMES_20 : SPACE_GAMES_15;
+      const activeId = isDino ? ramState.activeDinoGameId : ramState.activeSpaceGameId;
+      const diff = isDino ? ramState.dinoGameDiff : ramState.spaceGameDiff;
+      const score = isDino ? ramState.dinoGameScore : ramState.spaceGameScore;
+      const doneList = isDino ? ramState.completedDinoGames : ramState.completedSpaceGames;
+
+      const diffSel = document.getElementById(isDino ? "dino-game-diff" : "space-game-diff");
+      if (diffSel) diffSel.value = diff;
+
+      const badge = document.getElementById(isDino ? "dino-games-score-badge" : "space-games-score-badge");
+      if (badge) {
+        badge.textContent = `${isDino ? "Dino" : "Space"} Score: ${score} • Completed: ${doneList.length}/${list.length}`;
+      }
+
+      const listEl = document.getElementById(isDino ? "dino-games-list" : "space-games-list");
+      if (listEl) {
+        listEl.innerHTML = list.map((g) => {
+          const isAct = g.id === activeId;
+          const isDone = doneList.includes(g.id);
+          return `
+            <div class="g-tile-p5 ${isAct ? "active-g" : ""}">
+              <div style="font-weight:900; font-size:0.88rem;">${g.title}</div>
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:6px;">
+                <span class="status-tag">${isDone ? "✓ Done" : "Play"}</span>
+                <button class="btn-cyan" style="padding:5px 10px; min-height:32px; font-size:0.76rem;" onclick="selectCenterGame('${kind}', ${g.id})">Open</button>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      const gObj = list.find((x) => x.id === activeId) || list[0];
+      document.getElementById(isDino ? "dg-meta-tag" : "sg-meta-tag").textContent = `Game ${gObj.id} of ${list.length} • ${diff.toUpperCase()} (+${getDiffXp(diff)} XP)`;
+      document.getElementById(isDino ? "dg-title" : "sg-title").textContent = gObj.title;
+      document.getElementById(isDino ? "dg-instr" : "sg-instr").textContent = `Instructions: ${gObj.instr}`;
+      document.getElementById(isDino ? "dg-prompt" : "sg-prompt").textContent = "Tap Start to play!";
+      document.getElementById(isDino ? "dg-choices" : "sg-choices").innerHTML = "";
+      document.getElementById(isDino ? "dg-feedback" : "sg-feedback").textContent = "";
+    }
+
+    function selectCenterGame(kind, gId) {
+      if (kind === "dino") ramState.activeDinoGameId = gId;
+      else ramState.activeSpaceGameId = gId;
+      pausedGameKind = "";
+      saveRamState();
+      renderGameCenter(kind);
+    }
+
+    function startCenterGame(kind) {
+      const isDino = kind === "dino";
+      const list = isDino ? DINO_GAMES_20 : SPACE_GAMES_15;
+      const activeId = isDino ? ramState.activeDinoGameId : ramState.activeSpaceGameId;
+      const gObj = list.find((x) => x.id === activeId) || list[0];
+      pausedGameKind = "";
+      playToneP5(620, 0.1);
+
+      document.getElementById(isDino ? "dg-prompt" : "sg-prompt").textContent = gObj.prompt;
+      document.getElementById(isDino ? "dg-feedback" : "sg-feedback").textContent = "Round active — pick your answer!";
+
+      const shuffled = [...gObj.opts].sort(() => Math.random() - 0.5);
+      const chEl = document.getElementById(isDino ? "dg-choices" : "sg-choices");
+      chEl.innerHTML = shuffled.map((op) => {
+        const esc = op.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="opt-btn-p2" onclick="answerCenterGame('${kind}', this, '${esc}')">${op}</button>`;
+      }).join("");
+    }
+
+    function pauseCenterGame(kind) {
+      const isDino = kind === "dino";
+      pausedGameKind = kind;
+      document.querySelectorAll(`#${isDino ? "dg-choices" : "sg-choices"} .opt-btn-p2`).forEach((b) => { b.disabled = true; });
+      document.getElementById(isDino ? "dg-feedback" : "sg-feedback").textContent = "⏸️ Game paused. Tap Start to resume!";
+    }
+
+    function restartCenterGame(kind) {
+      startCenterGame(kind);
+    }
+
+    function answerCenterGame(kind, btnEl, chosen) {
+      if (pausedGameKind === kind) return;
+      const isDino = kind === "dino";
+      const list = isDino ? DINO_GAMES_20 : SPACE_GAMES_15;
+      const activeId = isDino ? ramState.activeDinoGameId : ramState.activeSpaceGameId;
+      const diff = isDino ? ramState.dinoGameDiff : ramState.spaceGameDiff;
+      const gObj = list.find((x) => x.id === activeId) || list[0];
+
+      document.querySelectorAll(`#${isDino ? "dg-choices" : "sg-choices"} .opt-btn-p2`).forEach((b) => { b.disabled = true; });
+      const fb = document.getElementById(isDino ? "dg-feedback" : "sg-feedback");
+      const pts = getDiffXp(diff);
+
+      if (chosen === gObj.ans) {
+        btnEl.classList.add("ok");
+        playToneP5(820, 0.15);
+        if (isDino) {
+          ramState.dinoGameScore += pts;
+          if (!ramState.completedDinoGames.includes(gObj.id)) ramState.completedDinoGames.push(gObj.id);
+        } else {
+          ramState.spaceGameScore += pts;
+          if (!ramState.completedSpaceGames.includes(gObj.id)) ramState.completedSpaceGames.push(gObj.id);
+        }
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + pts;
+        saveRamState();
+        renderGameCenter(kind);
+        document.getElementById(isDino ? "dg-feedback" : "sg-feedback").textContent = `🏆 Stage Complete! +${pts} Score & Reward Earned. Tap Start for next round!`;
+      } else {
+        btnEl.classList.add("bad");
+        playToneP5(240, 0.14);
+        fb.textContent = `💡 Answer: ${gObj.ans}. Tap Restart to try again!`;
+      }
+    }
+
+    const origOpenModP4 = openModule;
+    openModule = function(modKey) {
+      document.querySelectorAll(".nav-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.mod === modKey);
+      });
+      const dgSec = document.getElementById("mod-dino-games");
+      const sgSec = document.getElementById("mod-space-games");
+      [dgSec, sgSec].forEach((el) => { if (el) el.classList.remove("active"); });
+
+      if (modKey === "dino-games") {
+        if (dgSec) dgSec.classList.add("active");
+        renderGameCenter("dino");
+        return;
+      }
+      if (modKey === "space-games") {
+        if (sgSec) sgSec.classList.add("active");
+        renderGameCenter("space");
+        return;
+      }
+      origOpenModP4(modKey);
+    };
+
+
+    const SCIENCE_15 = [
+      { id: "sc1", title: "Gravity", icon: "🧲", desc: "Gravity attracts objects with mass and keeps planets orbiting the Sun and feet on Earth.", act: "Drop a soft ball safely onto a cushion and observe how it falls.", q: "What keeps moons in orbit around planets?", ans: "Gravity", opts: ["Gravity", "Wind", "Ice", "Sound"] },
+      { id: "sc2", title: "Motion", icon: "🏃", desc: "Motion is a change in position over time relative to a reference point.", act: "Compare slow and fast movement across a short table span.", q: "What describes a change in position over time?", ans: "Motion", opts: ["Motion", "Color", "Density", "Rust"] },
+      { id: "sc3", title: "Force", icon: "💪", desc: "A push or pull that can start, stop, or change the direction of motion.", act: "Gently push a toy car across a smooth floor.", q: "What is a force in science?", ans: "A push or pull", opts: ["A push or pull", "A type of cloud", "A star", "A mineral"] },
+      { id: "sc4", title: "Light", icon: "🔦", desc: "Light travels in waves/rays and lets us see objects when reflected into our eyes.", act: "Observe light passing through clear glass vs. opaque card.", q: "How do we see non-glowing objects?", ans: "Light reflects off them into our eyes", opts: ["Light reflects off them into our eyes", "Sound waves push them", "Magnetic pull", "Heat alone"] },
+      { id: "sc5", title: "Sound", icon: "🔊", desc: "Sound is produced by vibrations traveling through air, water, or solids.", act: "Hum gently and feel subtle vibration near your throat.", q: "What produces sound?", ans: "Vibrations", opts: ["Vibrations", "Static electricity", "Frozen water", "Sand"] },
+      { id: "sc6", title: "Energy", icon: "⚡", desc: "Energy is the ability to do work or cause change, taking forms like light, heat, and motion.", act: "Rub palms together briskly to notice warmth from motion energy.", q: "Which is a form of energy?", ans: "Light and heat energy", opts: ["Light and heat energy", "A rock layer", "A dinosaur tail", "A crater"] },
+      { id: "sc7", title: "Solar Energy", icon: "☀️", desc: "Energy from the Sun that warms Earth, drives weather, and powers solar cells.", act: "Compare a sunlit spot with a shady spot.", q: "Where does solar energy come from?", ans: "The Sun", opts: ["The Sun", "The Moon", "Ocean salt", "Fossils"] },
+      { id: "sc8", title: "Magnetism", icon: "🧭", desc: "Magnets exert forces on magnetic materials like iron and align compass needles.", act: "Test a safe magnet near paperclips/iron objects.", q: "Which metal is strongly attracted to a magnet?", ans: "Iron", opts: ["Iron", "Plastic", "Wood", "Glass"] },
+      { id: "sc9", title: "Earth and Space", icon: "🌍", desc: "Earth orbits the Sun while rotating on its axis within our Solar System.", act: "Trace Earth's day-night spin and year-long orbit.", q: "Which object is a planet?", ans: "Mars", opts: ["Mars", "The Sun", "A nebula", "A star cluster"] },
+      { id: "sc10", title: "Fossils", icon: "🦴", desc: "Preserved remains or traces of ancient organisms in rock layers.", act: "Inspect fossil shapes in the Fossil Discovery Lab.", q: "Where are most fossils found?", ans: "Sedimentary rock layers", opts: ["Sedimentary rock layers", "Molten lava", "Cloud tops", "Vacuum space"] },
+      { id: "sc11", title: "Rocks and Minerals", icon: "🪨", desc: "Rocks are made of minerals or mineral matter; igneous, sedimentary, and metamorphic are main types.", act: "Sort rock traits like texture, color, and grain size.", q: "What are rocks made of?", ans: "Minerals or mineral grains", opts: ["Minerals or mineral grains", "Water vapor", "Sunlight", "Sound"] },
+      { id: "sc12", title: "Evolution and Adaptation", icon: "🦎", desc: "Traits that help organisms survive and reproduce in their environment over generations.", act: "Compare camouflage and limb shapes in animals.", q: "What is an adaptation?", ans: "A trait aiding survival in an environment", opts: ["A trait aiding survival in an environment", "A random typo", "A spaceship wheel", "A cloud"] },
+      { id: "sc13", title: "Food Chains", icon: "🌿", desc: "Shows how energy and nutrients pass from producers to consumers in an ecosystem.", act: "Order plant producers and animal consumers.", q: "What do green plants act as in a food chain?", ans: "Producers", opts: ["Producers", "Comets", "Craters", "Rockets"] },
+      { id: "sc14", title: "Habitats", icon: "🌲", desc: "The natural home or environment where an organism lives.", act: "Match forests, deserts, and oceans to wildlife.", q: "What is a habitat?", ans: "The environment where an organism lives", opts: ["The environment where an organism lives", "A rocket engine", "A planet ring", "A fossil brush"] },
+      { id: "sc15", title: "Weather and Climate", icon: "🌦️", desc: "Weather is short-term air conditions; climate is long-term regional patterns.", act: "Note today's sky and temperature vs. seasonal climate.", q: "What is climate?", ans: "Long-term weather patterns of a region", opts: ["Long-term weather patterns of a region", "One 5-minute breeze", "A single star", "A moon crater"] }
+    ];
+
+    const MISSIONS_20 = Array.from({ length: 20 }, (_, i) => {
+      const idx = i + 1;
+      const isSpace = idx > 10;
+      const names = [
+        "Meet Baby Tiko", "Discover T-Rex", "Explore Jurassic Forest", "Find a Fossil", "Rescue a Baby Dinosaur",
+        "Discover Dinosaur Footprints", "Build a Dinosaur Skeleton", "Escape Volcano Island", "Visit the Dinosaur Museum", "Become Dino Explorer",
+        "Build Your First Spaceship", "Launch from Earth", "Land on the Moon", "Explore Mars", "Visit Saturn",
+        "Collect Asteroid Samples", "Discover a New Galaxy", "Repair the Space Station", "Complete the Solar System Challenge", "Become Galactic Explorer"
+      ];
+      return {
+        id: idx,
+        title: `MISSION ${idx}: ${names[i]}`,
+        kind: isSpace ? "Space Mission" : "Dino Mission",
+        xp: 20
+      };
+    });
+
+    const ARENA_BANK = [
+      { q: "Which dinosaur had three horns and a bony neck frill?", ans: "Triceratops", opts: ["Triceratops", "Diplodocus", "Pteranodon", "Ichthyosaurus"], exp: "Triceratops is a Late Cretaceous ceratopsian known for its three horns and frill." },
+      { q: "Which planet is famous for its prominent rings?", ans: "Saturn", opts: ["Saturn", "Mercury", "Venus", "Mars"], exp: "Saturn has an extensive ring system made of ice and rock particles." },
+      { q: "What causes day and night on Earth?", ans: "Earth's rotation on its axis", opts: ["Earth's rotation on its axis", "Moon eclipsing the Sun daily", "Comets passing Earth", "Ocean tides"], exp: "As Earth rotates roughly once every 24 hours, different sides face the Sun." },
+      { q: "What do paleontologists study?", ans: "Fossils and ancient life", opts: ["Fossils and ancient life", "Stock prices", "Car engines", "Weather apps"], exp: "Paleontology studies fossils to understand prehistoric organisms and environments." }
+    ];
+
+    ramState.completedSciIds = Array.isArray(ramState.completedSciIds) ? ramState.completedSciIds : [];
+    ramState.selectedSciId = ramState.selectedSciId || "sc1";
+    ramState.completedMissionIds = Array.isArray(ramState.completedMissionIds) ? ramState.completedMissionIds : [];
+    ramState.arenaScore = typeof ramState.arenaScore === "number" ? ramState.arenaScore : 0;
+    let arenaIdx = 0;
+
+    const RamVoice = {
+      speak(txt) {
+        if (!ramState.sfx || !("speechSynthesis" in window)) return;
+        try {
+          window.speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(txt);
+          u.rate = 0.96;
+          const st = document.getElementById("ram-voice-status");
+          if (st) st.textContent = "Speaking...";
+          u.onend = () => { if (st) st.textContent = "Voice Ready"; };
+          window.speechSynthesis.speak(u);
+        } catch (_) {}
+      },
+      pause() { if ("speechSynthesis" in window && window.speechSynthesis.speaking && !window.speechSynthesis.paused) window.speechSynthesis.pause(); },
+      resume() { if ("speechSynthesis" in window && window.speechSynthesis.paused) window.speechSynthesis.resume(); },
+      stop() { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); },
+      readCurrentScience() {
+        const s = SCIENCE_15.find((x) => x.id === ramState.selectedSciId) || SCIENCE_15[0];
+        this.speak(`${s.title}. ${s.desc} ${s.act}`);
+      },
+      readSelectedDino() {
+        speakSelectedDino();
+      }
+    };
+
+    function renderScience15() {
+      const pill = document.getElementById("sci-lab-pill");
+      if (pill) pill.textContent = `${ramState.completedSciIds.length} / 15 Completed`;
+      const grid = document.getElementById("sci-lab-grid");
+      if (grid) {
+        grid.innerHTML = SCIENCE_15.map((s, i) => {
+          const done = ramState.completedSciIds.includes(s.id);
+          return `<div class="card-p6 ${done ? "done-p6" : ""}"><div style="font-weight:900;">${s.icon} ${i + 1}. ${s.title}</div><button class="btn-cyan" style="padding:6px 10px; min-height:32px; font-size:0.76rem;" onclick="openScience15('${s.id}')">${done ? "✓ Learned" : "Explore"}</button></div>`;
+        }).join("");
+      }
+      openScience15(ramState.selectedSciId);
+    }
+
+    function openScience15(sId) {
+      const s = SCIENCE_15.find((x) => x.id === sId) || SCIENCE_15[0];
+      ramState.selectedSciId = s.id;
+      saveRamState();
+      document.getElementById("scil-title").textContent = `${s.icon} ${s.title}`;
+      document.getElementById("scil-desc").textContent = s.desc;
+      document.getElementById("scil-act").textContent = `Activity: ${s.act}`;
+      document.getElementById("scil-q").textContent = `Quick Check: ${s.q}`;
+      document.getElementById("scil-fb").textContent = "";
+      const sh = [...s.opts].sort(() => Math.random() - 0.5);
+      document.getElementById("scil-opts").innerHTML = sh.map((op) => {
+        const esc = op.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="opt-btn-p2" onclick="answerScience15(this, '${esc}')">${op}</button>`;
+      }).join("");
+    }
+
+    function answerScience15(btnEl, chosen) {
+      const s = SCIENCE_15.find((x) => x.id === ramState.selectedSciId) || SCIENCE_15[0];
+      document.querySelectorAll("#scil-opts .opt-btn-p2").forEach((b) => { b.disabled = true; });
+      const fb = document.getElementById("scil-fb");
+      if (chosen === s.ans) {
+        btnEl.classList.add("ok");
+        if (!ramState.completedSciIds.includes(s.id)) ramState.completedSciIds.push(s.id);
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 15;
+        saveRamState();
+        renderScience15();
+        document.getElementById("scil-fb").textContent = "🌟 Science check passed! (+15 XP).";
+      } else {
+        btnEl.classList.add("bad");
+        fb.textContent = `💡 Answer: ${s.ans}`;
+      }
+    }
+
+    function appendBuddyMsg(txt, isUser) {
+      const th = document.getElementById("ram-buddy-thread");
+      if (!th) return;
+      const d = document.createElement("div");
+      d.className = `bub-p6 ${isUser ? "bub-user" : "bub-buddy"}`;
+      d.textContent = txt;
+      th.appendChild(d);
+      th.scrollTop = th.scrollHeight;
+    }
+
+    function askDinoBuddy(qText) {
+      const q = (qText || "").trim();
+      if (!q) return;
+      appendBuddyMsg(q, true);
+      const ql = q.toLowerCase();
+      let ans = "🦖 Dino Buddy says: Every fossil and planet tells a science story! Try a Dino Game, Space Game, or Mission next.";
+      if (ql.includes("t-rex") || ql.includes("triceratops") || ql.includes("dino")) {
+        ans = "🦖 T-Rex had strong jaws and a balancing tail, while Triceratops had three horns and a frill—and they lived in the Late Cretaceous!";
+      } else if (ql.includes("space") || ql.includes("hint")) {
+        ans = "🚀 Space Hint: Saturn has ice-and-rock rings, Mars has iron-oxide dust, and rockets use thrust to reach orbit!";
+      } else if (ql.includes("story")) {
+        ans = "📖 Ram & Tiko set off in their custom ship to inspect ancient fern fossils and spot Saturn's bright icy rings!";
+      }
+      appendBuddyMsg(ans, false);
+      RamVoice.speak(ans);
+    }
+
+    function sendDinoBuddyMsg() {
+      const inp = document.getElementById("ram-buddy-inp");
+      if (!inp || !inp.value.trim()) return;
+      const v = inp.value.trim();
+      inp.value = "";
+      askDinoBuddy(v);
+    }
+
+    function renderArenaQuestion() {
+      const pill = document.getElementById("qa-score-pill");
+      if (pill) pill.textContent = `Arena Score: ${ramState.arenaScore}`;
+      const item = ARENA_BANK[arenaIdx % ARENA_BANK.length];
+      document.getElementById("qa-q-text").textContent = item.q;
+      document.getElementById("qa-q-exp").textContent = "";
+      const sh = [...item.opts].sort(() => Math.random() - 0.5);
+      document.getElementById("qa-q-opts").innerHTML = sh.map((op) => {
+        const esc = op.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+        return `<button class="opt-btn-p2" onclick="answerArenaQuestion(this, '${esc}')">${op}</button>`;
+      }).join("");
+    }
+
+    function answerArenaQuestion(btnEl, chosen) {
+      const item = ARENA_BANK[arenaIdx % ARENA_BANK.length];
+      document.querySelectorAll("#qa-q-opts .opt-btn-p2").forEach((b) => { b.disabled = true; });
+      const expEl = document.getElementById("qa-q-exp");
+      if (chosen === item.ans) {
+        btnEl.classList.add("ok");
+        ramState.arenaScore += 20;
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 20;
+        saveRamState();
+        document.getElementById("qa-score-pill").textContent = `Arena Score: ${ramState.arenaScore}`;
+        expEl.textContent = `✅ Correct! ${item.exp}`;
+      } else {
+        btnEl.classList.add("bad");
+        expEl.textContent = `💡 Answer: ${item.ans}. ${item.exp}`;
+      }
+    }
+
+    function nextArenaQuestion() {
+      arenaIdx += 1;
+      renderArenaQuestion();
+    }
+
+    function renderMissions20() {
+      const pill = document.getElementById("mc-count-pill");
+      if (pill) pill.textContent = `${ramState.completedMissionIds.length} / 20 Missions Done`;
+      const grid = document.getElementById("mc-missions-grid");
+      if (!grid) return;
+      grid.innerHTML = MISSIONS_20.map((m) => {
+        const done = ramState.completedMissionIds.includes(m.id);
+        return `<div class="card-p6 ${done ? "done-p6" : ""}"><div style="font-weight:900; font-size:0.88rem;">${m.title}</div><div style="font-size:0.75rem; color:var(--muted);">${m.kind} • +${m.xp} XP</div><button class="btn-amber" style="padding:6px 10px; min-height:32px; font-size:0.76rem;" onclick="toggleMission20(${m.id})">${done ? "✓ Completed" : "Complete Mission"}</button></div>`;
+      }).join("");
+    }
+
+    function toggleMission20(mId) {
+      if (!ramState.completedMissionIds.includes(mId)) {
+        ramState.completedMissionIds.push(mId);
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 20;
+        saveRamState();
+        renderMissions20();
+      }
+    }
+
+    const RAM_BADGES_10 = [
+      "Baby Dino Friend", "Jurassic Explorer", "Fossil Detective", "T-Rex Expert", "Space Explorer",
+      "Moon Mission Hero", "Mars Explorer", "Planet Scientist", "Galactic Champion", "Master Dino Space Explorer"
+    ];
+
+    function renderProgressAndCert() {
+      const totalPts = (ramState.dinoQuizXp || 0) + (ramState.arenaScore || 0) + (ramState.dinoGameScore || 0) + (ramState.spaceGameScore || 0);
+      const earnedBadges = Math.min(RAM_BADGES_10.length, Math.max(1, Math.floor(totalPts / 40)));
+      const kpis = document.getElementById("ram-prog-kpis");
+      if (kpis) {
+        kpis.innerHTML = `
+          <div class="meta-item-p2"><strong>Level:</strong> ${ramState.level}</div>
+          <div class="meta-item-p2"><strong>Guide Avatar:</strong> ${(ramState.characterId || "ram").toUpperCase()}</div>
+          <div class="meta-item-p2"><strong>Total XP &amp; Score:</strong> ${totalPts}</div>
+          <div class="meta-item-p2"><strong>Badges Earned:</strong> ${earnedBadges} / 10</div>
+        `;
+      }
+      const bGrid = document.getElementById("ram-badges-grid");
+      if (bGrid) {
+        bGrid.innerHTML = RAM_BADGES_10.map((bName, i) => {
+          const ok = i < earnedBadges;
+          return `<div class="card-p6 ${ok ? "done-p6" : ""}"><div style="font-weight:900; font-size:0.86rem;">🏅 ${bName}</div><div style="font-size:0.74rem; color:var(--muted);">${ok ? "Unlocked ✓" : "Locked"}</div></div>`;
+        }).join("");
+      }
+      const certD = document.getElementById("ram-cert-detail");
+      if (certD) {
+        certD.textContent = `${ramState.level} • Total XP: ${totalPts} • Badges: ${earnedBadges}/10 • Guided by Vishwendra Sir`;
+      }
+    }
+
+    function downloadRamProgressTxt() {
+      const txt = `RAM DINO SPACE QUEST — PROGRESS REPORT
+Level: ${ramState.level}
+Zones: ${ramState.completedZones.length}/12
+Missions: ${ramState.completedMissionIds.length}/20
+XP: ${ramState.dinoQuizXp}
+`;
+      const blob = new Blob([txt], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Ram_Dino_Space_Quest_Progress.txt";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function exportRamJsonBackup() {
+      const ta = document.getElementById("ram-backup-area");
+      if (ta) ta.value = JSON.stringify(ramState, null, 2);
+    }
+
+    function importRamJsonBackup() {
+      const ta = document.getElementById("ram-backup-area");
+      if (!ta || !ta.value.trim()) return;
+      try {
+        ramState = { ...ramState, ...JSON.parse(ta.value) };
+        saveRamState();
+        alert("Ram Dino Space Quest backup restored.");
+      } catch (_) {
+        alert("Invalid JSON.");
+      }
+    }
+
+    function resetRamProgress() {
+      if (!confirm("Reset Ram Dino Space Quest progress?")) return;
+      ramState.completedZones = [];
+      ramState.completedEras = [];
+      ramState.collectedFossils = [];
+      ramState.dugCells = [];
+      ramState.assembledParts = [];
+      ramState.completedSpaceDests = [];
+      ramState.completedSolarIds = [];
+      ramState.completedSciIds = [];
+      ramState.completedMissionIds = [];
+      ramState.completedDinoGames = [];
+      ramState.completedSpaceGames = [];
+      ramState.dinoQuizXp = 0;
+      ramState.dinoGameScore = 0;
+      ramState.spaceGameScore = 0;
+      ramState.arenaScore = 0;
+      saveRamState();
+    }
+
+    const origOpenModP5 = openModule;
+    openModule = function(modKey) {
+      document.querySelectorAll(".nav-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.mod === modKey);
+      });
+      const mapHooks = {
+        "science-lab": ["mod-science-lab", renderScience15],
+        "dino-buddy": ["mod-dino-buddy", null],
+        "quiz-arena": ["mod-quiz-arena", renderArenaQuestion],
+        "missions": ["mod-missions", renderMissions20],
+        "progress": ["mod-progress", renderProgressAndCert],
+        "badges-certs": ["mod-progress", renderProgressAndCert],
+        "parent-teacher": ["mod-admin", null],
+        "admin": ["mod-admin", null],
+        "settings": ["mod-admin", null]
+      };
+      ["mod-science-lab", "mod-dino-buddy", "mod-quiz-arena", "mod-missions", "mod-progress", "mod-admin"].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove("active");
+      });
+      if (mapHooks[modKey]) {
+        const [secId, fn] = mapHooks[modKey];
+        const secEl = document.getElementById(secId);
+        if (secEl) secEl.classList.add("active");
+        if (typeof fn === "function") fn();
+        return;
+      }
+      origOpenModP5(modKey);
+    };
+
+
+    const RAM_VID_CATS_12 = [
+      "All", "Dinosaur Documentaries", "Jurassic Adventures", "Dinosaur Facts", "Fossil Discoveries",
+      "Space Exploration", "Planet Documentaries", "Solar System Lessons", "Space Missions",
+      "Educational Stories", "Science Experiments", "Animated Shorts", "Class-wise Learning Videos"
+    ];
+
+    function buildRamScenes(title, cat, style, dur) {
+      return [
+        { p: "1. Opening Hook", t: `Exciting ${style} hook introducing "${title}" (${dur}).` },
+        { p: "2. Scene 1", t: `Ram & Tiko introduce the main setting of ${cat}.` },
+        { p: "3. Scene 2", t: `Close-up visual exploration of key details in ${cat}.` },
+        { p: "4. Scene 3", t: `Luna & Professor Dino connect ${cat} to real science.` },
+        { p: "5. Scientific Explanation", t: `Clear age-appropriate science breakdown of ${cat}.` },
+        { p: "6. Quick Recap", t: `Summary of top 3 takeaways for learners.` },
+        { p: "7. Quiz Question", t: `Check question for students watching ${title}.` },
+        { p: "8. Closing Message", t: `Encouraging message from Ram & Vishwendra Sir.` }
+      ];
+    }
+
+    function defaultRamVideos() {
+      return RAM_VID_CATS_12.filter((c) => c !== "All").map((cat, i) => {
+        const title = `${cat} — Adventure Episode ${i + 1}`;
+        return {
+          id: `rv-${i + 1}`,
+          title,
+          cat,
+          targetClass: "Classes 1–6",
+          dur: i % 2 === 0 ? "60 sec" : "2 min",
+          style: i % 2 === 0 ? "Cinematic 3D" : "Science Explainer",
+          srcType: "storyboard",
+          url: "",
+          prompt: `Educational ${i % 2 === 0 ? "Cinematic 3D" : "Science Explainer"} video on ${cat}, vibrant lighting, child-friendly visuals.`,
+          thumbPrompt: `Bright educational thumbnail for ${cat} featuring Ram, Tiko & Luna.`,
+          scenes: buildRamScenes(title, cat, "Cinematic 3D", "60 sec")
+        };
+      });
+    }
+
+    ramState.ramVideos = Array.isArray(ramState.ramVideos) && ramState.ramVideos.length ? ramState.ramVideos : defaultRamVideos();
+    ramState.watchedRamVideoIds = Array.isArray(ramState.watchedRamVideoIds) ? ramState.watchedRamVideoIds : [];
+    ramState.selectedRamVidCat = ramState.selectedRamVidCat || "All";
+    let currentRamVidId = ramState.ramVideos[0]?.id || "rv-1";
+
+    function initRamVideoStudio() {
+      const sel = document.getElementById("rvs-cat");
+      if (sel && sel.options.length === 0) {
+        sel.innerHTML = RAM_VID_CATS_12.filter((c) => c !== "All").map((c) => `<option value="${c}">${c}</option>`).join("");
+      }
+      const catsEl = document.getElementById("ram-vid-cats");
+      if (catsEl) {
+        catsEl.innerHTML = RAM_VID_CATS_12.map((c) => {
+          const act = ramState.selectedRamVidCat === c ? "active" : "";
+          const esc = c.replace(/'/g, "&#39;");
+          return `<button class="cat-pill-p2 ${act}" onclick="selectRamVidCat('${esc}')">${c}</button>`;
+        }).join("");
+      }
+    }
+
+    function selectRamVidCat(c) {
+      ramState.selectedRamVidCat = c;
+      saveRamState();
+      initRamVideoStudio();
+      renderRamVideoLibrary();
+    }
+
+    function renderRamVideoLibrary() {
+      const q = (document.getElementById("ram-vid-search")?.value || "").trim().toLowerCase();
+      const filtered = ramState.ramVideos.filter((v) => {
+        const cOk = ramState.selectedRamVidCat === "All" || v.cat === ramState.selectedRamVidCat;
+        if (!cOk) return false;
+        if (!q) return true;
+        return v.title.toLowerCase().includes(q) || v.cat.toLowerCase().includes(q);
+      });
+      const badge = document.getElementById("ram-vid-count");
+      if (badge) badge.textContent = `${filtered.length} Videos • ${ramState.watchedRamVideoIds.length} Watched`;
+
+      const grid = document.getElementById("ram-vid-grid");
+      if (!grid) return;
+      grid.innerHTML = filtered.map((v) => {
+        const watched = ramState.watchedRamVideoIds.includes(v.id);
+        return `
+          <div class="card-p6 ${watched ? "done-p6" : ""}">
+            <div>
+              <div style="font-weight:900; font-size:0.92rem;">🎬 ${v.title}</div>
+              <div style="font-size:0.76rem; color:var(--purple-nebula); font-weight:800;">${v.cat} • ${v.dur}</div>
+              <div style="font-size:0.74rem; color:var(--muted);">${v.targetClass} • ${v.style}</div>
+            </div>
+            <button class="btn-cyan" style="padding:6px 10px; min-height:32px; font-size:0.76rem;" onclick="openRamVideo('${v.id}')">${watched ? "✓ Watched • Open" : "Watch & Plan"}</button>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openRamVideo(vidId) {
+      const v = ramState.ramVideos.find((x) => x.id === vidId) || ramState.ramVideos[0];
+      if (!v) return;
+      currentRamVidId = v.id;
+      const box = document.getElementById("ram-vid-player");
+      box.classList.remove("hidden");
+      document.getElementById("rvp-meta").textContent = `${v.cat} • ${v.targetClass} • ${v.dur} • ${v.style}`;
+      document.getElementById("rvp-title").textContent = `🎬 ${v.title}`;
+
+      let embed = `<div class="meta-item-p2">🎬 <strong>Storyboard &amp; Prompt Plan Ready:</strong> Attach an MP4/WebM/YouTube/Drive URL or connect a video provider API to render video playback.</div>`;
+      if (v.srcType === "url" && v.url) {
+        embed = `<video controls style="width:100%; max-height:300px; border-radius:12px; background:#000;" src="${v.url}"></video>`;
+      } else if (v.srcType === "youtube" && v.url) {
+        const m = v.url.match(/(?:youtu\.be\/|v=|embed\/)([A-Za-z0-9_-]{6,})/);
+        if (m) embed = `<iframe style="width:100%; height:280px; border:0; border-radius:12px;" src="https://www.youtube.com/embed/${m[1]}" allowfullscreen></iframe>`;
+      } else if (v.srcType === "drive" && v.url) {
+        const m = v.url.match(/\/d\/([A-Za-z0-9_-]{10,})/);
+        if (m) embed = `<iframe style="width:100%; height:280px; border:0; border-radius:12px;" src="https://drive.google.com/file/d/${m[1]}/preview"></iframe>`;
+      }
+      document.getElementById("rvp-embed").innerHTML = embed;
+      document.getElementById("rvp-prompts").innerHTML = `<div>🤖 <strong>AI Video Prompt:</strong> ${v.prompt}</div><div style="margin-top:4px;">🖼️ <strong>Thumbnail Prompt:</strong> ${v.thumbPrompt}</div>`;
+      document.getElementById("rvp-scenes").innerHTML = (v.scenes || []).map((s) => `<div class="meta-item-p2"><strong>${s.p}:</strong> ${s.t}</div>`).join("");
+      box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function speakRamVideoPlan() {
+      const v = ramState.ramVideos.find((x) => x.id === currentRamVidId) || ramState.ramVideos[0];
+      if (!v) return;
+      RamVoice.speak(`${v.title}. ${(v.scenes || []).map((s) => s.t).join(" ")}`);
+    }
+
+    function markRamVideoWatched() {
+      if (!ramState.watchedRamVideoIds.includes(currentRamVidId)) {
+        ramState.watchedRamVideoIds.push(currentRamVidId);
+        ramState.dinoQuizXp = (ramState.dinoQuizXp || 0) + 15;
+        saveRamState();
+        renderRamVideoLibrary();
+      }
+    }
+
+    function deleteRamVideo() {
+      const v = ramState.ramVideos.find((x) => x.id === currentRamVidId);
+      if (!v || !confirm(`Remove "${v.title}"?`)) return;
+      ramState.ramVideos = ramState.ramVideos.filter((x) => x.id !== v.id);
+      saveRamState();
+      renderRamVideoLibrary();
+      document.getElementById("ram-vid-player").classList.add("hidden");
+    }
+
+    function publishRamVideo() {
+      const title = (document.getElementById("rvs-title")?.value || "").trim() || "New Dino Space Episode";
+      const cat = document.getElementById("rvs-cat")?.value || "Space Exploration";
+      const targetClass = (document.getElementById("rvs-class")?.value || "").trim() || "Classes 1–5";
+      const dur = document.getElementById("rvs-dur")?.value || "60 sec";
+      const style = document.getElementById("rvs-style")?.value || "Cinematic 3D";
+      const srcType = document.getElementById("rvs-src-type")?.value || "storyboard";
+      const url = (document.getElementById("rvs-url")?.value || "").trim();
+
+      const item = {
+        id: `rv-${Date.now()}`,
+        title, cat, targetClass, dur, style, srcType, url,
+        prompt: `Educational ${style} video for "${title}" (${cat}), ${dur}.`,
+        thumbPrompt: `Educational thumbnail for "${title}" with Ram, Tiko & Luna.`,
+        scenes: buildRamScenes(title, cat, style, dur)
+      };
+      ramState.ramVideos.unshift(item);
+      saveRamState();
+      renderRamVideoLibrary();
+      openRamVideo(item.id);
+    }
+
+    const origOpenModP6 = openModule;
+    openModule = function(modKey) {
+      document.querySelectorAll(".nav-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.mod === modKey);
+      });
+      const vSec = document.getElementById("mod-video-studio");
+      if (vSec) vSec.classList.remove("active");
+      if (modKey === "video-studio" || modKey === "video-lib") {
+        if (vSec) vSec.classList.add("active");
+        initRamVideoStudio();
+        renderRamVideoLibrary();
+        return;
+      }
+      origOpenModP6(modKey);
+    };
+
+    (function initRamPhase7() {
+      applyVisualSettings();
+      renderCharacters();
+      renderZones12();
+      renderDinoCategoryPills();
+      renderDinoEncyclopedia();
+      renderTimeEras6();
+      renderFossilLab();
+      renderSpace12();
+      renderSolarLab14();
+      openSolarTopic(ramState.selectedSolarId);
+      renderShipBuilder();
+      renderGameCenter('dino');
+      renderGameCenter('space');
+      renderScience15();
+      renderArenaQuestion();
+      renderMissions20();
+      renderProgressAndCert();
+      initRamVideoStudio();
+      renderRamVideoLibrary();
+      saveRamState();
+    })();
+  </script>
+</body>
+</html>
