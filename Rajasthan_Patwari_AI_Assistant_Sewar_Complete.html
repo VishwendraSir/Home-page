@@ -1,10 +1,999 @@
 <!DOCTYPE html>
-<!-- Rajasthan Patwari AI Assistant: entry point -->
-<!-- Full application is stored in Rajasthan_Patwari_AI_Assistant_Sewar_Complete.html -->
-<html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=./Rajasthan_Patwari_AI_Assistant_Sewar_Complete.html"><title>Rajasthan Patwari AI Assistant</title><script>location.replace('./Rajasthan_Patwari_AI_Assistant_Sewar_Complete.html');</script>
-<!-- SCLH shared Firebase display lock (automatically managed) -->
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="./firebase-config.js"></script>
-<script src="./site-lock.js?v=2"></script>
-</head><body><p>राजस्थान पटवारी AI सहायक खोल रहे हैं… <a href="./Rajasthan_Patwari_AI_Assistant_Sewar_Complete.html">यहाँ क्लिक करें</a></p></body></html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>राजस्थान पटवारी AI सहायक (Complete HTML5) | Rajasthan Patwari AI Assistant</title>
+  <meta name="theme-color" content="#0f2c59" />
+  <meta name="application-name" content="Rajasthan Patwari AI Assistant" />
+  <meta name="description" content="सेवर, भरतपुर के लिए ऑफलाइन राजस्व कार्यालय रिकॉर्ड, गिरदावरी, नामांतरण, कार्य और रिपोर्ट प्रबंधन।" />
+  <style>
+    :root {
+      --navy: #0f2c59;
+      --navy-2: #193f7a;
+      --saffron: #f59e0b;
+      --saffron-soft: #fff7ed;
+      --green: #15803d;
+      --green-soft: #f0fdf4;
+      --bg: #f4f6fa;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #cbd5e1;
+      --danger: #b91c1c;
+    }
+    body.dark {
+      --bg: #0b1320;
+      --card: #132036;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: #263859;
+      --saffron-soft: #291d0e;
+      --green-soft: #0c2618;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Noto Sans Devanagari", "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .topbar {
+      background: linear-gradient(120deg, var(--navy) 0%, var(--navy-2) 70%, #92400e 100%);
+      color: #fff;
+      padding: 12px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+    }
+    .brand-title { font-size: 1.08rem; font-weight: 700; }
+    .brand-sub { font-size: 0.8rem; opacity: 0.92; }
+    .top-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    button, select, input, textarea { font-family: inherit; font-size: 0.92rem; }
+    .btn {
+      background: var(--navy);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .btn-saffron { background: var(--saffron); color: #111827; border: none; }
+    .btn-green { background: var(--green); color: #fff; border: none; }
+    .btn-danger { background: var(--danger); color: #fff; border: none; }
+    .btn-outline { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+    .layout { display: grid; grid-template-columns: 245px 1fr; min-height: calc(100vh - 60px); }
+    .sidebar { background: var(--card); border-right: 1px solid var(--border); padding: 12px; }
+    .nav-btn {
+      width: 100%;
+      text-align: left;
+      padding: 10px 12px;
+      margin-bottom: 5px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .nav-btn:hover { background: var(--saffron-soft); }
+    .nav-btn.active { background: var(--navy); color: #fff; }
+    .main { padding: 18px; max-width: 1280px; width: 100%; margin: 0 auto; }
+    .hero-banner {
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(115deg, rgba(15,44,89,0.92), rgba(25,63,122,0.86)),
+        repeating-linear-gradient(45deg, rgba(245,158,11,0.08) 0px, rgba(245,158,11,0.08) 12px, transparent 12px, transparent 24px);
+      color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 14px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .kpi-num { font-size: 1.5rem; font-weight: 800; color: var(--navy); }
+    body.dark .kpi-num { color: #93c5fd; }
+    .kpi-label { font-size: 0.84rem; color: var(--muted); }
+    .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 10px; }
+    label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+    }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.88rem; }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+    th { background: var(--saffron-soft); font-weight: 700; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      background: var(--green-soft);
+      color: var(--green);
+      border: 1px solid rgba(21,128,61,0.25);
+    }
+    .badge-warn { background: var(--saffron-soft); color: #b45309; border-color: rgba(217,119,6,0.3); }
+    .output-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      white-space: pre-wrap;
+      font-size: 0.92rem;
+      min-height: 80px;
+    }
+    .notice-strip {
+      background: var(--saffron-soft);
+      border-left: 4px solid var(--saffron);
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      margin-bottom: 12px;
+    }
+    .hidden { display: none !important; }
+    @media (max-width: 860px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 8px;
+        gap: 6px;
+      }
+      .nav-btn { width: auto; margin-bottom: 0; }
+    }
+    @media print {
+      .topbar, .sidebar, .no-print { display: none !important; }
+      .main { padding: 0; max-width: 100%; }
+      .card { box-shadow: none; border: 1px solid #000; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="brand-title">राजस्थान पटवारी AI सहायक 2.0 | Rajasthan Patwari AI Assistant</div>
+      <div class="brand-sub">अधिकारी: विजय उपाध्याय (पटवारी) | पदस्थापना: सेवर, जिला: भरतपुर, राजस्थान</div>
+    </div>
+    <div class="top-actions no-print">
+      <span class="badge" id="netStatus">Online • Local Storage</span><span class="badge badge-warn">v2.0 Offline-ready</span>
+      <select id="langSelect" onchange="changeLanguage(this.value)" aria-label="Language">
+        <option value="hi">हिन्दी (Primary)</option>
+        <option value="en">English (Secondary)</option>
+      </select>
+      <button class="btn btn-outline" onclick="toggleTheme()">🌙 / ☀️</button>
+      <button class="btn btn-saffron" onclick="window.print()">🖨️ PDF / Print</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar no-print" id="sidebarNav"></aside>
+
+    <main class="main">
+      <div class="hero-banner" id="heroBanner">
+        <div>
+          <h2>राजस्व कार्यालय एवं क्षेत्र कार्य प्रणाली — सेवर, भरतपुर</h2>
+          <p>अधिकारी: <strong>विजय उपाध्याय</strong> | पटवारी हल्का: सेवर (तहसील भरतपुर, राजस्थान) | दिनांक: <span id="liveDate"></span></p>
+        </div>
+        <div class="top-actions">
+          <label class="btn btn-outline" style="cursor:pointer; margin:0;">
+            🖼️ Backdrop
+            <input type="file" accept="image/*" style="display:none" onchange="setCustomBackdrop(this)" />
+          </label>
+          <button class="btn btn-outline" onclick="resetBackdrop()">↺ Default</button>
+          <button class="btn btn-green" onclick="syncOfflineQueue()">🔄 Sync Data</button>
+        </div>
+      </div>
+
+      <div class="notice-strip">
+        <strong>सूचना:</strong> यह एकल-फ़ाइल HTML5 एप्लिकेशन स्थानीय कार्यालय प्रबंधन, रिकॉर्ड ट्रैकिंग व ड्राफ्टिंग के लिए है। आधिकारिक जमाबंदी/भू-नक्शा डेटा, प्रमाणित नकल, वैधानिक आदेश एवं विभागीय पोर्टल एकीकरण के लिए अधिकृत राजस्व पोर्टल व सक्षम प्राधिकारी के आदेश मान्य होंगे। डेमो प्रविष्टियां केवल परीक्षण हेतु हैं।
+      </div>
+
+      <div class="card no-print" id="globalFinderCard">
+        <h3>🔎 स्मार्ट रिकॉर्ड खोज / Smart Record Finder</h3>
+        <p class="kpi-label">खसरा, खाता, खातेदार, आवेदक, फसल, ग्राम या कार्य खोजें।</p>
+        <input id="globalSearch" type="search" placeholder="यहाँ कुछ भी खोजें… / Search all records" oninput="searchAllRecords(this.value)" autocomplete="off" />
+        <div id="globalSearchResults" aria-live="polite" class="output-box" style="margin-top:8px;min-height:48px;">खोजने के लिए लिखना शुरू करें।</div>
+      </div>
+
+      <!-- 1. DASHBOARD -->
+      <section id="sec-dashboard" class="module-sec">
+        <div class="grid-4">
+          <div class="card"><div class="kpi-label">कुल कार्य / Total Tasks</div><div class="kpi-num" id="kpiTasks">0</div></div>
+          <div class="card"><div class="kpi-label">लंबित नामांतरण / Pending Mutations</div><div class="kpi-num" id="kpiMut">0</div></div>
+          <div class="card"><div class="kpi-label">गिरदावरी प्रविष्टियां / Crop Records</div><div class="kpi-num" id="kpiCrop">0</div></div>
+          <div class="card"><div class="kpi-label">क्षेत्र भ्रमण / Field Visits</div><div class="kpi-num" id="kpiVisit">0</div></div>
+          <div class="card"><div class="kpi-label">कुल दर्ज भूमि / Recorded Area</div><div class="kpi-num" id="kpiArea">0.0000</div><small>हेक्टेयर (Ha)</small></div>
+          <div class="card"><div class="kpi-label">अवधि पार कार्य / Overdue Tasks</div><div class="kpi-num" id="kpiOverdue">0</div></div>
+        </div>
+        <div class="card">
+          <h3>त्वरित कार्य / Quick Actions</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;">
+            <button class="btn" onclick="openModule('land-mutation')">🗂️ भूमि व नामांतरण</button>
+            <button class="btn btn-green" onclick="openModule('girdawari-field')">🌾 गिरदावरी व भ्रमण</button>
+            <button class="btn btn-saffron" onclick="openModule('calc-drafts')">📐 माप कैलकुलेटर व ड्राफ्ट</button>
+            <button class="btn btn-outline" onclick="openModule('tasks-backup')">📋 कार्य, रिपोर्ट व बैकअप</button>
+          </div>
+          <h4 style="margin-top:14px;">आगामी कार्य / Upcoming Tasks</h4>
+          <ul id="dashTasksList" style="padding-left:18px; margin-top:6px; font-size:0.9rem;"></ul>
+        </div>
+      </section>
+
+      <!-- 2. LAND RECORDS & MUTATION -->
+      <section id="sec-land-mutation" class="module-sec hidden">
+        <div class="card">
+          <h3>भूमि अभिलेख / खसरा-जमाबंदी (Land Records)</h3>
+          <form id="landForm" onsubmit="saveLandRecord(event)">
+            <input type="hidden" id="lrEditId" />
+            <div class="form-row">
+              <div><label>ग्राम / Village</label><input id="lrVillage" value="सेवर" required /></div>
+              <div><label>हल्का / Circle</label><input id="lrCircle" value="सेवर" required /></div>
+              <div><label>खसरा / Khasra</label><input id="lrKhasra" required /></div>
+              <div><label>खाता / Khata</label><input id="lrKhata" required /></div>
+            </div>
+            <div class="form-row">
+              <div><label>खातेदार (सैंपल/दर्ज)</label><input id="lrOwner" required /></div>
+              <div><label>रकबा (Ha)</label><input id="lrAreaHa" type="number" step="0.0001" min="0" required /></div>
+              <div><label>वर्गीकरण / Class</label>
+                <select id="lrClass">
+                  <option>चाही / सिंचित</option>
+                  <option>बारानी / असिंचित</option>
+                  <option>गैर-मुमकिन</option>
+                  <option>चरागाह / सार्वजनिक</option>
+                </select>
+              </div>
+              <div><label>जमाबंदी / इतिहास टिप्पणी</label><input id="lrNotes" /></div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="submit" class="btn btn-green" id="lrSaveBtn">💾 भूमि रिकॉर्ड सहेजें</button>
+              <button type="button" class="btn btn-outline" onclick="resetLandForm()">↺ Reset</button>
+            </div>
+          </form>
+          <input id="lrSearch" oninput="renderLandTable()" placeholder="खसरा, खाता, ग्राम या नाम खोजें..." style="margin-top:12px;" />
+          <div style="overflow-x:auto;">
+            <table>
+              <thead><tr><th>ग्राम/हल्का</th><th>खसरा/खाता</th><th>खातेदार</th><th>रकबा (Ha)</th><th>वर्गीकरण</th><th>क्रिया</th></tr></thead>
+              <tbody id="landTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>नामांतरण पंजी (Mutation Register)</h3>
+          <form id="mutForm" onsubmit="saveMutation(event)">
+            <input type="hidden" id="mutEditId" />
+            <div class="form-row">
+              <div><label>आवेदन सं.</label><input id="mutAppNo" required /></div>
+              <div><label>आवेदक</label><input id="mutApplicant" required /></div>
+              <div><label>खसरा/खाता</label><input id="mutKhasraKhata" required /></div>
+              <div><label>श्रेणी</label>
+                <select id="mutCategory">
+                  <option>विरासत (Inheritance)</option>
+                  <option>बैनामा (Sale Deed)</option>
+                  <option>बंटवारा (Partition)</option>
+                  <option>अन्य (Other)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div><label>स्थिति</label>
+                <select id="mutStatus">
+                  <option>New</option>
+                  <option>Under Verification</option>
+                  <option>Notice Issued</option>
+                  <option>Hearing Pending</option>
+                  <option>Approved</option>
+                  <option>Rejected</option>
+                  <option>Completed</option>
+                </select>
+              </div>
+              <div><label>पेशी / आदेश संदर्भ</label><input id="mutOrderRef" /></div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="submit" class="btn btn-green" id="mutSaveBtn">💾 नामांतरण सहेजें</button>
+              <button type="button" class="btn btn-outline" onclick="resetMutForm()">↺ Reset</button>
+            </div>
+          </form>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead><tr><th>आवेदन सं.</th><th>आवेदक</th><th>खसरा/खाता</th><th>श्रेणी</th><th>स्थिति</th><th>क्रिया</th></tr></thead>
+              <tbody id="mutTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. GIRDAWARI & FIELD DIARY -->
+      <section id="sec-girdawari-field" class="module-sec hidden">
+        <div class="card">
+          <h3>गिरदावरी एवं फसल निरीक्षण (Girdawari)</h3>
+          <form id="cropForm" onsubmit="saveCrop(event)">
+            <input type="hidden" id="crEditId" />
+            <div class="form-row">
+              <div><label>ग्राम</label><input id="crVillage" value="सेवर" required /></div>
+              <div><label>खसरा</label><input id="crKhasra" required /></div>
+              <div><label>कृषक</label><input id="crFarmer" required /></div>
+              <div><label>फसल व ऋतु</label>
+                <select id="crSeason">
+                  <option>Kharif (खरीफ)</option>
+                  <option>Rabi (रबी)</option>
+                  <option>Zaid (जायद)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div><label>फसल नाम</label><input id="crCrop" placeholder="सरसों / गेहूं / बाजरा" required /></div>
+              <div><label>बोया क्षेत्र (Ha)</label><input id="crCultivated" type="number" step="0.0001" min="0" value="0.5000" required /></div>
+              <div><label>क्षति / स्थिति टिप्पणी</label><input id="crDamage" /></div>
+              <div><label>GPS (अनुमति से)</label>
+                <div style="display:flex; gap:6px;">
+                  <input id="crGps" readonly />
+                  <button type="button" class="btn btn-outline" onclick="fetchGps('crGps')">📍</button>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="submit" class="btn btn-green" id="crSaveBtn">💾 गिरदावरी सहेजें</button>
+              <button type="button" class="btn btn-outline" onclick="resetCropForm()">↺ Reset</button>
+            </div>
+          </form>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead><tr><th>ग्राम/खसरा</th><th>कृषक</th><th>ऋतु व फसल</th><th>क्षेत्र (Ha)</th><th>क्षति/GPS</th><th>क्रिया</th></tr></thead>
+              <tbody id="cropTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>क्षेत्र भ्रमण डायरी (Field Visit Diary)</h3>
+          <form id="visitForm" onsubmit="saveVisit(event)">
+            <input type="hidden" id="fvEditId" />
+            <div class="form-row">
+              <div><label>ग्राम</label><input id="fvVillage" value="सेवर" required /></div>
+              <div><label>खसरा</label><input id="fvKhasra" /></div>
+              <div><label>उद्देश्य</label><input id="fvPurpose" required /></div>
+              <div><label>अवलोकन / कार्यवाही</label><input id="fvObs" required /></div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="submit" class="btn btn-green" id="fvSaveBtn">💾 भ्रमण सहेजें</button>
+              <button type="button" class="btn btn-outline" onclick="resetVisitForm()">↺ Reset</button>
+            </div>
+          </form>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead><tr><th>ग्राम/खसरा</th><th>उद्देश्य</th><th>अवलोकन / कार्यवाही</th><th>क्रिया</th></tr></thead>
+              <tbody id="visitTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. LAND CALCULATOR & OFFICIAL DRAFTS -->
+      <section id="sec-calc-drafts" class="module-sec hidden">
+        <div class="card">
+          <h3>भूमि माप एवं हिस्सा कैलकुलेटर (Land & Share Calculator)</h3>
+          <div class="form-row">
+            <div><label>1 बीघा = वर्ग मीटर (स्थानीय समायोज्य)</label><input id="bighaSqm" type="number" step="0.01" min="0.01" value="2529.29" oninput="calcArea()" /></div>
+            <div><label>मान / Value</label><input id="calcVal" type="number" step="0.0001" min="0" value="1" oninput="calcArea()" /></div>
+            <div><label>इकाई / Unit</label>
+              <select id="calcUnit" onchange="calcArea()">
+                <option value="hectare">हैक्टेयर (Ha)</option>
+                <option value="acre">एकड़ (Acre)</option>
+                <option value="bigha">बीघा (Local)</option>
+                <option value="sqm">वर्ग मीटर (Sq.m)</option>
+                <option value="sqft">वर्ग फीट (Sq.ft)</option>
+              </select>
+            </div>
+            <div><label>अंश / Share (जैसे 1/2 या 1/4)</label><input id="shareFrac" value="1/2" oninput="calcArea()" /></div>
+          </div>
+          <div id="calcOut" class="output-box"></div>
+        </div>
+
+        <div class="card">
+          <h3>शासकीय पत्र / नोटिस / रिपोर्ट प्रारूप (Official Draft)</h3>
+          <div class="form-row">
+            <div><label>प्रकार</label>
+              <select id="draftType" onchange="makeDraft()">
+                <option value="शासकीय पत्र">शासकीय पत्र</option>
+                <option value="सूचना / नोटिस">सूचना / नोटिस</option>
+                <option value="जांच रिपोर्ट">जांच रिपोर्ट</option>
+                <option value="नामांतरण प्रारूप">नामांतरण प्रारूप</option>
+              </select>
+            </div>
+            <div><label>प्राप्तकर्ता</label><input id="draftTo" value="तहसीलदार महोदय, तहसील भरतपुर" oninput="makeDraft()" /></div>
+            <div><label>विषय</label><input id="draftSub" value="राजस्व प्रकरण / जांच आख्या बाबत" oninput="makeDraft()" /></div>
+          </div>
+          <textarea id="draftBody" rows="3" oninput="makeDraft()">पटवार हल्का सेवर, जिला भरतपुर के अंतर्गत संबंधित प्रकरण/खसरा की प्रारंभिक जांच का विवरण प्रस्तुत है। अंतिम निर्णय सक्षम प्राधिकारी के निर्देशानुसार होगा।</textarea>
+          <div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;">
+            <button class="btn btn-outline" onclick="copyText(document.getElementById('draftOut').innerText)">📋 Copy</button>
+            <button class="btn btn-green" onclick="downloadTxt('Patwari_Draft', document.getElementById('draftOut').innerText)">⬇️ .txt</button>
+          </div>
+          <div id="draftOut" class="output-box" style="margin-top:10px;"></div>
+        </div>
+      </section>
+
+      <!-- 5. TASKS, REPORTS & BACKUP -->
+      <section id="sec-tasks-backup" class="module-sec hidden">
+        <div class="card">
+          <h3>कार्य एवं अनुस्मारक (Tasks)</h3>
+          <form id="taskForm" onsubmit="saveTask(event)">
+            <input type="hidden" id="tkEditId" />
+            <div class="form-row">
+              <div><label>कार्य</label><input id="tkTitle" required /></div>
+              <div><label>प्राथमिकता</label>
+                <select id="tkPri"><option>High</option><option>Medium</option><option>Low</option></select>
+              </div>
+              <div><label>दिनांक</label><input id="tkDue" type="date" required /></div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button type="submit" class="btn btn-green" id="tkSaveBtn">➕ कार्य जोड़ें</button>
+              <button type="button" class="btn btn-outline" onclick="resetTaskForm()">↺ Reset</button>
+            </div>
+          </form>
+          <div style="overflow-x:auto;">
+            <table>
+              <thead><tr><th>कार्य</th><th>प्राथमिकता</th><th>दिनांक</th><th>स्थिति</th><th>क्रिया</th></tr></thead>
+              <tbody id="taskTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>रिपोर्ट, CSV, बैकअप व ऑडिट लॉग (Reports, Backup & Audit)</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+            <button class="btn btn-green" onclick="exportCsv()">⬇️ Export CSV</button>
+            <button class="btn btn-saffron" onclick="downloadJson()">⬇️ JSON Backup</button>
+            <label class="btn btn-outline" style="cursor:pointer; margin:0;">
+              ⬆️ Restore JSON
+              <input type="file" accept=".json" style="display:none" onchange="restoreJson(this)" />
+            </label>
+            <button class="btn btn-danger" onclick="clearAudit()">🧹 Clear Audit</button>
+          </div>
+          <div id="auditBox" class="output-box" style="max-height:180px; overflow-y:auto;"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const NAV_ITEMS = [
+      { id: "dashboard", hi: "1. डैशबोर्ड", en: "1. Dashboard" },
+      { id: "land-mutation", hi: "2. भूमि व नामांतरण", en: "2. Land & Mutation" },
+      { id: "girdawari-field", hi: "3. गिरदावरी व भ्रमण", en: "3. Girdawari & Visit" },
+      { id: "calc-drafts", hi: "4. माप व ड्राफ्ट", en: "4. Calc & Drafts" },
+      { id: "tasks-backup", hi: "5. कार्य, रिपोर्ट व बैकअप", en: "5. Tasks & Backup" }
+    ];
+
+    const STORAGE_KEY = "RPAA_SEWAR_COMPLETE_HTML5_V1";
+    let state = {
+      lang: "hi",
+      dark: false,
+      land: [],
+      mutations: [],
+      crops: [],
+      visits: [],
+      tasks: [],
+      audit: []
+    };
+
+    const APP_VERSION = "2.0.0";
+    function localISODate() {
+      const d = new Date();
+      return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+    }
+    function normalizeState(input) {
+      const base = { lang:"hi", dark:false, land:[], mutations:[], crops:[], visits:[], tasks:[], audit:[] };
+      const src = input && input.data ? input.data : input;
+      if (!src || typeof src !== "object" || Array.isArray(src)) throw new Error("Invalid backup structure");
+      ["land","mutations","crops","visits","tasks","audit"].forEach(k => {
+        if (src[k] !== undefined && !Array.isArray(src[k])) throw new Error(`Invalid ${k} data`);
+        if (Array.isArray(src[k])) base[k] = src[k].filter(x => x && typeof x === "object" && !Array.isArray(x));
+      });
+      base.lang = src.lang === "en" ? "en" : "hi";
+      base.dark = !!src.dark;
+      ["land","mutations","crops","visits","tasks"].forEach(k => base[k].forEach((x,i) => {
+        x.id = String(x.id || `${k}-${Date.now()}-${i}`).replace(/[^a-zA-Z0-9_-]/g, "_").slice(0,80);
+      }));
+      base.audit = base.audit.map(x => String(x).slice(0,1000)).slice(0,200);
+      return base;
+    }
+
+    function logAudit(msg) {
+      state.audit.unshift(`[${new Date().toLocaleString("hi-IN")}] विजय उपाध्याय (सेवर, भरतपुर): ${msg}`);
+      if (state.audit.length > 80) state.audit.pop();
+      persist(false);
+      renderAudit();
+    }
+
+    function clearAudit() {
+      if (!confirm("क्या आप पूरा ऑडिट लॉग साफ करना चाहते हैं?")) return;
+      state.audit = [];
+      persist(false);
+      renderAudit();
+    }
+
+    function persist(shouldRender = true) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+      catch (e) { console.error("Local save failed", e); alert("डिवाइस स्टोरेज उपलब्ध नहीं है। कृपया तुरंत JSON बैकअप डाउनलोड करें।"); }
+      if ("indexedDB" in window) {
+        const req = indexedDB.open("PatwariCompleteDB", 1);
+        req.onupgradeneeded = (ev) => {
+          const db = ev.target.result;
+          if (!db.objectStoreNames.contains("store")) db.createObjectStore("store", { keyPath: "id" });
+        };
+        req.onsuccess = (ev) => {
+          const tx = ev.target.result.transaction("store", "readwrite");
+          tx.objectStore("store").put({ id: "main", data: state });
+        };
+      }
+      if (shouldRender) renderAll();
+    }
+
+    function loadInitial() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        try { state = normalizeState(JSON.parse(raw)); } catch (e) { console.warn("Saved data could not be loaded safely", e); }
+      } else {
+        state.land = [{ id: "L1", village: "सेवर (सैंपल)", circle: "सेवर", khasra: "101/1", khata: "12", owner: "सैंपल खातेदार", areaHa: 0.65, cls: "चाही / सिंचित", notes: "सैंपल प्रविष्टि" }];
+        state.mutations = [{ id: "M1", appNo: "DEMO-1", applicant: "सैंपल आवेदक", khasraKhata: "101/1 / 12", category: "विरासत (Inheritance)", status: "Under Verification", orderRef: "" }];
+        state.crops = [{ id: "C1", village: "सेवर", khasra: "101/1", farmer: "सैंपल कृषक", season: "Rabi (रबी)", crop: "सरसों", cultivated: 0.60, damage: "सामान्य", gps: "" }];
+        state.visits = [{ id: "V1", village: "सेवर", khasra: "101/1", purpose: "खसरा व फसल अवलोकन", obs: "सैंपल भ्रमण प्रविष्टि" }];
+        state.tasks = [{ id: "T1", title: "नामांतरण अभिलेख मिलान (सेवर)", priority: "High", due: localISODate(), done: false }];
+      }
+      if (state.dark) document.body.classList.add("dark");
+      document.getElementById("langSelect").value = state.lang;
+      document.getElementById("liveDate").textContent = new Date().toLocaleDateString("hi-IN");
+      if (document.getElementById("tkDue")) document.getElementById("tkDue").value = localISODate();
+      updateNetBadge();
+    }
+
+    function updateNetBadge() {
+      const el = document.getElementById("netStatus");
+      if (el) el.textContent = navigator.onLine ? "Online • Local Storage" : "Offline • Local Mode";
+    }
+
+    function buildNav() {
+      const nav = document.getElementById("sidebarNav");
+      nav.innerHTML = "";
+      NAV_ITEMS.forEach((n, idx) => {
+        const b = document.createElement("button");
+        b.className = "nav-btn" + (idx === 0 ? " active" : "");
+        b.dataset.id = n.id;
+        b.textContent = state.lang === "hi" ? n.hi : n.en;
+        b.onclick = () => openModule(n.id);
+        nav.appendChild(b);
+      });
+    }
+
+    function openModule(id) {
+      document.querySelectorAll(".nav-btn").forEach(b => b.classList.toggle("active", b.dataset.id === id));
+      document.querySelectorAll(".module-sec").forEach(s => s.classList.add("hidden"));
+      document.getElementById("sec-" + id)?.classList.remove("hidden");
+      if (id === "calc-drafts") { calcArea(); makeDraft(); }
+    }
+
+    function changeLanguage(v) { state.lang = v; buildNav(); persist(false); }
+    function toggleTheme() { state.dark = !state.dark; document.body.classList.toggle("dark", state.dark); persist(false); }
+    function setCustomBackdrop(inp) {
+      const f = inp.files?.[0];
+      if (!f) return;
+      const r = new FileReader();
+      r.onload = (e) => {
+        document.getElementById("heroBanner").style.background = `linear-gradient(115deg, rgba(15,44,89,0.82), rgba(25,63,122,0.78)), url('${e.target.result}') center/cover no-repeat`;
+        logAudit(`बैनर इमेज बदली गई (${f.name})`);
+      };
+      r.readAsDataURL(f);
+    }
+    function resetBackdrop() { document.getElementById("heroBanner").style.background = ""; }
+    function syncOfflineQueue() {
+      updateNetBadge();
+      persist(true);
+      logAudit("स्थानीय डेटा सिंक किया गया");
+      alert("डेटा इस डिवाइस में सुरक्षित किया गया है। क्लाउड सर्वर से सिंक अभी कॉन्फ़िगर नहीं है।");
+    }
+
+    function searchAllRecords(value) {
+      const q = String(value || "").trim().toLocaleLowerCase("hi-IN");
+      const box = document.getElementById("globalSearchResults");
+      if (!box) return;
+      if (!q) { box.textContent = "खोजने के लिए लिखना शुरू करें।"; return; }
+      const groups = [
+        ["भूमि रिकॉर्ड", "land-mutation", state.land, x => [x.village,x.circle,x.khasra,x.khata,x.owner,x.cls,x.notes].join(" ")],
+        ["नामांतरण", "land-mutation", state.mutations, x => [x.appNo,x.applicant,x.khasraKhata,x.category,x.status,x.orderRef].join(" ")],
+        ["गिरदावरी", "girdawari-field", state.crops, x => [x.village,x.khasra,x.farmer,x.season,x.crop,x.damage].join(" ")],
+        ["क्षेत्र भ्रमण", "girdawari-field", state.visits, x => [x.village,x.khasra,x.purpose,x.obs].join(" ")],
+        ["कार्य", "tasks-backup", state.tasks, x => [x.title,x.priority,x.due,x.done ? "पूर्ण" : "लंबित"].join(" ")]
+      ];
+      const hits = [];
+      groups.forEach(([label,module,items,hay]) => items.forEach(item => { if (hay(item).toLocaleLowerCase("hi-IN").includes(q)) hits.push({label,module,item}); }));
+      box.innerHTML = hits.length ? hits.slice(0,40).map(h => `<div style="padding:7px 0;border-bottom:1px solid var(--border)"><b>${esc(h.label)}</b> · ${esc(h.item.khasra || h.item.appNo || h.item.title || h.item.village || "रिकॉर्ड")} — ${esc(h.item.owner || h.item.applicant || h.item.farmer || h.item.purpose || h.item.title || "")} <button class="btn btn-outline" style="padding:3px 8px" onclick="openModule('${h.module}')">खोलें</button></div>`).join("") : "कोई मिलान नहीं मिला।";
+    }
+
+    function saveLandRecord(e) {
+      e.preventDefault();
+      const editId = document.getElementById("lrEditId").value;
+      const rec = {
+        id: editId || ("L-" + Date.now()),
+        village: lrVillage.value.trim(),
+        circle: lrCircle.value.trim(),
+        khasra: lrKhasra.value.trim(),
+        khata: lrKhata.value.trim(),
+        owner: lrOwner.value.trim(),
+        areaHa: Math.max(0, parseFloat(lrAreaHa.value) || 0),
+        cls: lrClass.value,
+        notes: lrNotes.value.trim()
+      };
+      if (editId) {
+        const i = state.land.findIndex(x => x.id === editId);
+        if (i !== -1) state.land[i] = rec;
+        logAudit(`भूमि रिकॉर्ड अपडेट: खसरा ${rec.khasra}`);
+      } else {
+        state.land.unshift(rec);
+        logAudit(`भूमि रिकॉर्ड दर्ज: खसरा ${rec.khasra}`);
+      }
+      resetLandForm();
+      persist();
+    }
+
+    function startEditLand(id) {
+      const r = state.land.find(x => x.id === id);
+      if (!r) return;
+      document.getElementById("lrEditId").value = r.id;
+      lrVillage.value = r.village; lrCircle.value = r.circle; lrKhasra.value = r.khasra;
+      lrKhata.value = r.khata; lrOwner.value = r.owner; lrAreaHa.value = r.areaHa;
+      lrClass.value = r.cls; lrNotes.value = r.notes || "";
+      document.getElementById("lrSaveBtn").textContent = "✏️ अपडेट करें";
+    }
+
+    function resetLandForm() {
+      document.getElementById("lrEditId").value = "";
+      document.getElementById("landForm").reset();
+      lrVillage.value = "सेवर"; lrCircle.value = "सेवर";
+      document.getElementById("lrSaveBtn").textContent = "💾 भूमि रिकॉर्ड सहेजें";
+    }
+
+    function saveMutation(e) {
+      e.preventDefault();
+      const editId = document.getElementById("mutEditId").value;
+      const item = {
+        id: editId || ("M-" + Date.now()),
+        appNo: mutAppNo.value.trim(),
+        applicant: mutApplicant.value.trim(),
+        khasraKhata: mutKhasraKhata.value.trim(),
+        category: mutCategory.value,
+        status: mutStatus.value,
+        orderRef: mutOrderRef.value.trim()
+      };
+      if (editId) {
+        const i = state.mutations.findIndex(x => x.id === editId);
+        if (i !== -1) state.mutations[i] = item;
+        logAudit(`नामांतरण अपडेट: ${item.appNo}`);
+      } else {
+        state.mutations.unshift(item);
+        logAudit(`नामांतरण दर्ज: ${item.appNo}`);
+      }
+      resetMutForm();
+      persist();
+    }
+
+    function startEditMutation(id) {
+      const m = state.mutations.find(x => x.id === id);
+      if (!m) return;
+      document.getElementById("mutEditId").value = m.id;
+      mutAppNo.value = m.appNo; mutApplicant.value = m.applicant; mutKhasraKhata.value = m.khasraKhata;
+      mutCategory.value = m.category; mutStatus.value = m.status; mutOrderRef.value = m.orderRef || "";
+      document.getElementById("mutSaveBtn").textContent = "✏️ नामांतरण अपडेट करें";
+    }
+
+    function resetMutForm() {
+      document.getElementById("mutEditId").value = "";
+      document.getElementById("mutForm").reset();
+      document.getElementById("mutSaveBtn").textContent = "💾 नामांतरण सहेजें";
+    }
+
+    function fetchGps(id) {
+      if (!navigator.geolocation) {
+        document.getElementById(id).value = "Geolocation उपलब्ध नहीं";
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        p => { document.getElementById(id).value = `${p.coords.latitude.toFixed(5)}, ${p.coords.longitude.toFixed(5)}`; },
+        () => { document.getElementById(id).value = "अनुमति नहीं / उपलब्ध नहीं"; }
+      );
+    }
+
+    function saveCrop(e) {
+      e.preventDefault();
+      const editId = document.getElementById("crEditId").value;
+      const item = {
+        id: editId || ("C-" + Date.now()),
+        village: crVillage.value.trim(),
+        khasra: crKhasra.value.trim(),
+        farmer: crFarmer.value.trim(),
+        season: crSeason.value,
+        crop: crCrop.value.trim(),
+        cultivated: Math.max(0, parseFloat(crCultivated.value) || 0),
+        damage: crDamage.value.trim(),
+        gps: crGps.value.trim()
+      };
+      if (editId) {
+        const i = state.crops.findIndex(x => x.id === editId);
+        if (i !== -1) state.crops[i] = item;
+        logAudit(`गिरदावरी अपडेट: खसरा ${item.khasra}`);
+      } else {
+        state.crops.unshift(item);
+        logAudit(`गिरदावरी दर्ज: खसरा ${item.khasra}`);
+      }
+      resetCropForm();
+      persist();
+    }
+
+    function startEditCrop(id) {
+      const c = state.crops.find(x => x.id === id);
+      if (!c) return;
+      document.getElementById("crEditId").value = c.id;
+      crVillage.value = c.village; crKhasra.value = c.khasra; crFarmer.value = c.farmer;
+      crSeason.value = c.season; crCrop.value = c.crop; crCultivated.value = c.cultivated;
+      crDamage.value = c.damage || ""; crGps.value = c.gps || "";
+      document.getElementById("crSaveBtn").textContent = "✏️ गिरदावरी अपडेट करें";
+    }
+
+    function resetCropForm() {
+      document.getElementById("crEditId").value = "";
+      document.getElementById("cropForm").reset();
+      crVillage.value = "सेवर"; crCultivated.value = "0.5000";
+      document.getElementById("crSaveBtn").textContent = "💾 गिरदावरी सहेजें";
+    }
+
+    function saveVisit(e) {
+      e.preventDefault();
+      const editId = document.getElementById("fvEditId").value;
+      const item = {
+        id: editId || ("V-" + Date.now()),
+        village: fvVillage.value.trim(),
+        khasra: fvKhasra.value.trim(),
+        purpose: fvPurpose.value.trim(),
+        obs: fvObs.value.trim()
+      };
+      if (editId) {
+        const i = state.visits.findIndex(x => x.id === editId);
+        if (i !== -1) state.visits[i] = item;
+        logAudit(`भ्रमण अपडेट: ${item.village}`);
+      } else {
+        state.visits.unshift(item);
+        logAudit(`भ्रमण दर्ज: ${item.village}`);
+      }
+      resetVisitForm();
+      persist();
+    }
+
+    function startEditVisit(id) {
+      const v = state.visits.find(x => x.id === id);
+      if (!v) return;
+      document.getElementById("fvEditId").value = v.id;
+      fvVillage.value = v.village; fvKhasra.value = v.khasra || "";
+      fvPurpose.value = v.purpose; fvObs.value = v.obs;
+      document.getElementById("fvSaveBtn").textContent = "✏️ भ्रमण अपडेट करें";
+    }
+
+    function resetVisitForm() {
+      document.getElementById("fvEditId").value = "";
+      document.getElementById("visitForm").reset();
+      fvVillage.value = "सेवर";
+      document.getElementById("fvSaveBtn").textContent = "💾 भ्रमण सहेजें";
+    }
+
+    function saveTask(e) {
+      e.preventDefault();
+      const editId = document.getElementById("tkEditId").value;
+      if (editId) {
+        const i = state.tasks.findIndex(x => x.id === editId);
+        if (i !== -1) {
+          state.tasks[i].title = tkTitle.value.trim();
+          state.tasks[i].priority = tkPri.value;
+          state.tasks[i].due = tkDue.value;
+        }
+        logAudit("कार्य अपडेट किया गया");
+      } else {
+        state.tasks.unshift({
+          id: "T-" + Date.now(),
+          title: tkTitle.value.trim(),
+          priority: tkPri.value,
+          due: tkDue.value,
+          done: false
+        });
+        logAudit("नया कार्य जोड़ा गया");
+      }
+      resetTaskForm();
+      persist();
+    }
+
+    function startEditTask(id) {
+      const t = state.tasks.find(x => x.id === id);
+      if (!t) return;
+      document.getElementById("tkEditId").value = t.id;
+      tkTitle.value = t.title; tkPri.value = t.priority; tkDue.value = t.due;
+      document.getElementById("tkSaveBtn").textContent = "✏️ कार्य अपडेट करें";
+    }
+
+    function resetTaskForm() {
+      document.getElementById("tkEditId").value = "";
+      document.getElementById("taskForm").reset();
+      tkDue.value = localISODate();
+      document.getElementById("tkSaveBtn").textContent = "➕ कार्य जोड़ें";
+    }
+
+    function toggleTask(id) {
+      const t = state.tasks.find(x => x.id === id);
+      if (t) { t.done = !t.done; persist(); }
+    }
+
+    function removeRec(arr, id) {
+      if (!Array.isArray(state[arr])) return;
+      if (!confirm("क्या आप इस रिकॉर्ड को स्थायी रूप से हटाना चाहते हैं? पहले JSON बैकअप लेना उचित है।")) return;
+      state[arr] = state[arr].filter(x => x.id !== id);
+      logAudit(`रिकॉर्ड हटाया गया: ${arr}`);
+      persist();
+    }
+
+    function calcArea() {
+      const bighaSqm = Math.max(0.01, parseFloat(document.getElementById("bighaSqm").value) || 2529.29);
+      const v = Math.max(0, parseFloat(document.getElementById("calcVal").value) || 0);
+      const u = document.getElementById("calcUnit").value;
+      let sqm = 0;
+      if (u === "sqm") sqm = v;
+      else if (u === "hectare") sqm = v * 10000;
+      else if (u === "acre") sqm = v * 4046.8564224;
+      else if (u === "bigha") sqm = v * bighaSqm;
+      else if (u === "sqft") sqm = v * 0.09290304;
+
+      const ha = sqm / 10000;
+      const fracStr = (document.getElementById("shareFrac").value || "1").trim();
+      let ratio = 1;
+      if (fracStr.includes("/")) {
+        const [a, b] = fracStr.split("/").map(Number);
+        if (b > 0 && a >= 0 && !isNaN(a) && !isNaN(b)) ratio = a / b;
+        else ratio = 0;
+      } else {
+        ratio = parseFloat(fracStr) || 0;
+      }
+
+      document.getElementById("calcOut").innerText =
+        `हैक्टेयर: ${ha.toFixed(4)} Ha | एकड़: ${(sqm / 4046.8564224).toFixed(4)} | स्थानीय बीघा: ${(sqm / bighaSqm).toFixed(4)} | वर्ग मीटर: ${sqm.toFixed(2)}\n` +
+        `हिस्सा (${fracStr}): ${(ha * ratio).toFixed(4)} Ha (${(sqm * ratio).toFixed(2)} वर्ग मीटर)`;
+    }
+
+    function makeDraft() {
+      const t = document.getElementById("draftType").value;
+      const to = document.getElementById("draftTo").value;
+      const sub = document.getElementById("draftSub").value;
+      const body = document.getElementById("draftBody").value;
+      document.getElementById("draftOut").innerText =
+        `${t} (ड्राफ्ट — सक्षम प्राधिकारी से पुष्टि करें)\nदिनांक: ${new Date().toLocaleDateString("hi-IN")}\nप्रति: ${to}\nविषय: ${sub}\n\n${body}\n\nभवदीय,\nविजय उपाध्याय\nपटवारी, हल्का सेवर, जिला भरतपुर, राजस्थान`;
+    }
+
+    async function copyText(txt) {
+      try { await navigator.clipboard.writeText(txt); alert("कॉपी हो गया।"); }
+      catch (e) { alert("Clipboard अनुमति नहीं मिली। टेक्स्ट को चुनकर कॉपी करें।"); }
+    }
+    function downloadTxt(name, txt) {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([txt], { type: "text/plain;charset=utf-8" }));
+      a.download = `${name}.txt`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    }
+
+    function exportCsv() {
+      const rows = [["Type", "ID", "Details", "Status"]];
+      state.land.forEach(r => rows.push(["Land", r.khasra, `${r.village} - ${r.owner}`, `${r.areaHa} Ha`]));
+      state.mutations.forEach(m => rows.push(["Mutation", m.appNo, `${m.applicant} - ${m.khasraKhata}`, m.status]));
+      state.crops.forEach(c => rows.push(["Crop", c.khasra, `${c.farmer} - ${c.crop}`, c.season]));
+      state.visits.forEach(v => rows.push(["Visit", v.village, v.purpose, v.obs]));
+      state.tasks.forEach(t => rows.push(["Task", t.id, t.title, t.done ? "Done" : "Pending"]));
+      const csv = rows.map(r => r.map(c => {
+        let value = String(c ?? "");
+        if (/^[=+@\-\t\r]/.test(value)) value = "'" + value;
+        return `"${value.replace(/"/g, '""')}"`;
+      }).join(",")).join("\n");
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" }));
+      a.download = `Sewar_Patwari_HTML5_${localISODate()}.csv`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+      logAudit("CSV निर्यात किया गया");
+    }
+
+    function downloadJson() {
+      const backup = { app: "Rajasthan Patwari AI Assistant", version: APP_VERSION, exportedAt: new Date().toISOString(), data: state };
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" }));
+      a.download = `Patwari_Sewar_Backup_${localISODate()}.json`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+      logAudit("JSON बैकअप डाउनलोड किया गया");
+    }
+
+    function restoreJson(inp) {
+      const f = inp.files?.[0];
+      if (!f) return;
+      const r = new FileReader();
+      r.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          const restored = normalizeState(parsed);
+          const counts = [restored.land.length,restored.mutations.length,restored.crops.length,restored.visits.length,restored.tasks.length].reduce((a,b)=>a+b,0);
+          if (!confirm(`इस बैकअप में ${counts} रिकॉर्ड हैं। वर्तमान डेटा बदल जाएगा। पहले वर्तमान JSON बैकअप डाउनलोड करें। क्या आगे बढ़ें?`)) { inp.value = ""; return; }
+          downloadJson();
+          state = restored;
+          persist();
+          logAudit(`बैकअप पुनर्स्थापित (${f.name})`);
+        } catch (err) { console.error(err); alert("अमान्य या असंगत JSON बैकअप। वर्तमान डेटा नहीं बदला गया।"); }
+        inp.value = "";
+      };
+      r.readAsText(f);
+    }
+
+    function renderAudit() {
+      const el = document.getElementById("auditBox");
+      if (el) el.innerText = state.audit.join("\n") || "कोई लॉग नहीं।";
+    }
+
+    function renderAll() {
+      document.getElementById("kpiTasks").textContent = state.tasks.length;
+      document.getElementById("kpiMut").textContent = state.mutations.filter(m => !["Completed", "Rejected"].includes(m.status)).length;
+      document.getElementById("kpiCrop").textContent = state.crops.length;
+      document.getElementById("kpiVisit").textContent = state.visits.length;
+      document.getElementById("kpiArea").textContent = state.land.reduce((sum,r)=>sum+(Number(r.areaHa)||0),0).toFixed(4);
+      document.getElementById("kpiOverdue").textContent = state.tasks.filter(t=>!t.done && t.due && t.due < localISODate()).length;
+
+      document.getElementById("dashTasksList").innerHTML =
+        state.tasks.filter(t => !t.done).slice(0, 5).map(t => `<li><strong>${esc(t.title)}</strong> (${esc(t.due)})</li>`).join("") || "<li>कोई लंबित कार्य नहीं।</li>";
+
+      const q = (document.getElementById("lrSearch")?.value || "").toLowerCase();
+      const flLand = state.land.filter(r => !q || [r.village, r.khasra, r.khata, r.owner].some(v => (v || "").toLowerCase().includes(q)));
+      document.getElementById("landTableBody").innerHTML = flLand.map(r => `
+        <tr>
+          <td>${esc(r.village)} (${esc(r.circle)})</td>
+          <td>${esc(r.khasra)} / ${esc(r.khata)}</td>
+          <td>${esc(r.owner)}</td>
+          <td>${Number(r.areaHa).toFixed(4)}</td>
+          <td>${esc(r.cls)}</td>
+          <td>
+            <button class="btn btn-outline" onclick="startEditLand('${r.id}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('land','${r.id}')">🗑️</button>
+          </td>
+        </tr>
+      `).join("") || `<tr><td colspan="6">कोई रिकॉर्ड नहीं।</td></tr>`;
