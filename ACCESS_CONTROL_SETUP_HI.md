@@ -2,8 +2,8 @@
 
 ## क्या जोड़ा गया
 - Firebase Email/Password Owner Login.
-- Firestore siteControl/global, siteControl/pages और siteControl/modules switches.
-- Owner audit trail: siteControl/audit.
+- Firestore siteControl/global, sitePages और siteModules switches.
+- Owner audit trail: siteAudit.
 - protectedContent और courseContent collections पर Firestore server-side read rules.
 - मौजूदा students, attempts, batchRequests और videos rules संरक्षित.
 
