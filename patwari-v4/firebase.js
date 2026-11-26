@@ -27,7 +27,7 @@ function mergeById(local, cloud) {
         const remoteTime=Number(remote.updatedAt||remote.clientUpdatedAt||remote.updatedAtMs||0);
         const localTime=Number(x.updatedAt||x.clientUpdatedAt||x.updatedAtMs||0);
         if(localTime>remoteTime) map.set(id,x);
-        else if(localTime===remoteTime) {
+        else if(localTime===remoteTime && JSON.stringify(x)!==JSON.stringify(remote)) {
           const conflictId=id+"-local-conflict-"+String(x.updatedAt||"undated")+"-"+String(JSON.stringify(x).length);
           if(!map.has(conflictId)) map.set(conflictId,{...x,id:conflictId,conflictOf:id,conflictNote:"Same-ID conflict preserved for manual review"});
         }
@@ -90,12 +90,12 @@ async function restoreCloudForUser(user) {
         // Re-read after applying the cloud state so edits made during restore are not dropped.
         const latest=clone(localState()||merged);
         const finalState=mergeById(latest,merged);
-        await writeSnapshotQueued(finalState, user, true);
+        await writeSnapshotQueued(finalState, user);
         emit("patwari-cloud-status","Cloud Restored • Local Backup");
       } else {
         // First sign-in: migrate the existing local data without clearing it.
         const latest=clone(localState()||local);
-        await writeSnapshotQueued(mergeById(latest,local),user,true);
+        await writeSnapshotQueued(mergeById(latest,local),user);
         emit("patwari-cloud-status","Local Data Migrated • Cloud Saved");
       }
     } catch(e) {
