@@ -98,7 +98,7 @@ function normRecord(q,i,source){
  return {...q,id:q.question_id||q.id||'AUTO-'+source+'-'+i,question_hi:String(qhi),question_en:String(qen),options:normalizedOptions,answer,explanation_hi:q.explanation_hi||expl.hi||q.explanation||q.solution||'',explanation_en:q.explanation_en||expl.en||q.explanation||q.solution||'',subject:q.subject||q.subject_id||q.category_hi||q.category||source,chapter:q.chapter||q.chapter_id||q.chapter_hi||q.section||q.exam||'',topic:q.topic||q.subtopic||q.topic_id||q.chapter||q.category_hi||'General',difficulty:String(q.difficulty||q.level||'Moderate').replace(/_/g,' '),source_type:q.source_type||q.provenance?.source_type||q.source||'Repository Master Data',verified:q.verification_status==='verified'||q.verified===true};
 }
 function keyOf(q){return String(q.question_en||q.question_hi||q.question||'').trim().toLowerCase().replace(/\s+/g,' ')+'|'+q.options.map(o=>(o.en||o.hi).trim().toLowerCase()).join('|')}
-async async async function loadRepositoryBank(retryOnly=false){
+async function loadRepositoryBank(retryOnly=false){
  if(repositoryBankLoading)return;repositoryBankLoading=true;
  const status=$('message');status.textContent='🔄 Master Question Data auto-load शुरू…';
  const base='https://raw.githubusercontent.com/VishwendraSir/Home-page/main/';
