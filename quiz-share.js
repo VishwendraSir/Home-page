@@ -40,7 +40,7 @@ modal.innerHTML='<div class="panel"><button class="close" id="sclh-close">✕ Cl
 '<select id="sclh-ratio"><option value="portrait">1080 × 1350</option><option value="story">1080 × 1920</option></select>'+
 '<select id="sclh-lang"><option value="both">Hindi + English</option><option value="hi">Hindi</option><option value="en">English</option></select>'+
 '<input id="sclh-custom" value="Explore • Learn • Practice • Share" aria-label="Promotional text">'+
-'<select id="sclh-answer"><option value="no">Hide answers</option><option value="yes">Show visible answers</option></select></div>'+
+'<select id="sclh-answer"><option value="no">Hide answers</option><option value="yes">Show visible answers</option></select>'+\n'<select id="sclh-qr"><option value="yes">Show QR code</option><option value="no">Hide QR code</option></select></div>'+
 '<div class="actions"><button class="primary" id="sclh-generate">↻ Generate / Preview</button><button id="sclh-download">⬇ Download PNG</button><button id="sclh-jpeg">⬇ Download JPEG</button><button id="sclh-native">↗ Android Share</button><button id="sclh-copy">▣ Copy Image</button></div>'+
 '<div class="actions"><button id="sclh-wa">WhatsApp</button><button id="sclh-fb">Facebook</button><button id="sclh-tg">Telegram</button><button id="sclh-x">X</button><button id="sclh-class">Google Classroom</button><button id="sclh-link">Copy Quiz URL</button></div>'+
 '<div class="preview"><canvas id="sclh-canvas" width="1080" height="1350"></canvas></div><p id="sclh-share-status" aria-live="polite"></p><small>Real content is read from this page. Platform image-upload support varies; use Android Share or Download where direct upload is unavailable.</small></div>';
