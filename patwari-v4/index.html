@@ -782,27 +782,20 @@
     function saveLandRecord(e) {
       e.preventDefault();
       const editId = document.getElementById("lrEditId").value;
-      const rec = {
-        id: editId || ("L-" + Date.now()),
-        village: lrVillage.value.trim(),
-        circle: lrCircle.value.trim(),
-        khasra: lrKhasra.value.trim(),
-        khata: lrKhata.value.trim(),
-        owner: lrOwner.value.trim(),
-        areaHa: Math.max(0, parseFloat(lrAreaHa.value) || 0),
-        cls: lrClass.value,
-        notes: lrNotes.value.trim()
-      };
-      if (editId) {
-        const i = state.land.findIndex(x => x.id === editId);
-        if (i !== -1) state.land[i] = rec;
-        logAudit(`भूमि रिकॉर्ड अपडेट: खसरा ${rec.khasra}`);
-      } else {
-        state.land.unshift(rec);
-        logAudit(`भूमि रिकॉर्ड दर्ज: खसरा ${rec.khasra}`);
+      const area = Number(lrAreaHa.value);
+      if (!lrVillage.value.trim() || !lrKhasra.value.trim() || !lrOwner.value.trim() || !Number.isFinite(area) || area <= 0) {
+        alert("ग्राम, खसरा, खातेदार और शून्य से अधिक वैध क्षेत्रफल भरें।"); return;
       }
-      resetLandForm();
-      persist();
+      const now=Date.now();
+      const rec = { id: editId || ("L-" + now + "-" + Math.random().toString(36).slice(2,7)), updatedAt:now,
+        village:lrVillage.value.trim(),circle:lrCircle.value.trim(),khasra:lrKhasra.value.trim(),
+        khata:lrKhata.value.trim(),owner:lrOwner.value.trim(),areaHa:area,cls:lrClass.value,notes:lrNotes.value.trim() };
+      if (editId) {
+        const i=state.land.findIndex(x=>x.id===editId);
+        if(i<0){alert("यह भूमि रिकॉर्ड नहीं मिला।");return;}
+        state.land[i]=rec; logAudit(`भूमि रिकॉर्ड अपडेट: खसरा ${rec.khasra}`);
+      } else { state.land.unshift(rec); logAudit(`भूमि रिकॉर्ड दर्ज: खसरा ${rec.khasra}`); }
+      resetLandForm(); persist();
     }
 
     function startEditLand(id) {
@@ -824,26 +817,15 @@
 
     function saveMutation(e) {
       e.preventDefault();
-      const editId = document.getElementById("mutEditId").value;
-      const item = {
-        id: editId || ("M-" + Date.now()),
-        appNo: mutAppNo.value.trim(),
-        applicant: mutApplicant.value.trim(),
-        khasraKhata: mutKhasraKhata.value.trim(),
-        category: mutCategory.value,
-        status: mutStatus.value,
-        orderRef: mutOrderRef.value.trim()
-      };
-      if (editId) {
-        const i = state.mutations.findIndex(x => x.id === editId);
-        if (i !== -1) state.mutations[i] = item;
-        logAudit(`नामांतरण अपडेट: ${item.appNo}`);
-      } else {
-        state.mutations.unshift(item);
-        logAudit(`नामांतरण दर्ज: ${item.appNo}`);
-      }
-      resetMutForm();
-      persist();
+      const editId=document.getElementById("mutEditId").value;
+      if(!mutAppNo.value.trim()||!mutApplicant.value.trim()||!mutKhasraKhata.value.trim()){alert("आवेदन संख्या, आवेदक और खसरा/खाता भरें।");return;}
+      const now=Date.now();
+      const item={id:editId||("M-"+now+"-"+Math.random().toString(36).slice(2,7)),updatedAt:now,
+        appNo:mutAppNo.value.trim(),applicant:mutApplicant.value.trim(),khasraKhata:mutKhasraKhata.value.trim(),
+        category:mutCategory.value,status:mutStatus.value,orderRef:mutOrderRef.value.trim()};
+      if(editId){const i=state.mutations.findIndex(x=>x.id===editId);if(i<0){alert("नामांतरण रिकॉर्ड नहीं मिला।");return;}state.mutations[i]=item;logAudit(`नामांतरण अपडेट: ${item.appNo}`);}
+      else{state.mutations.unshift(item);logAudit(`नामांतरण दर्ज: ${item.appNo}`);}
+      resetMutForm();persist();
     }
 
     function startEditMutation(id) {
@@ -874,28 +856,16 @@
 
     function saveCrop(e) {
       e.preventDefault();
-      const editId = document.getElementById("crEditId").value;
-      const item = {
-        id: editId || ("C-" + Date.now()),
-        village: crVillage.value.trim(),
-        khasra: crKhasra.value.trim(),
-        farmer: crFarmer.value.trim(),
-        season: crSeason.value,
-        crop: crCrop.value.trim(),
-        cultivated: Math.max(0, parseFloat(crCultivated.value) || 0),
-        damage: crDamage.value.trim(),
-        gps: crGps.value.trim()
-      };
-      if (editId) {
-        const i = state.crops.findIndex(x => x.id === editId);
-        if (i !== -1) state.crops[i] = item;
-        logAudit(`गिरदावरी अपडेट: खसरा ${item.khasra}`);
-      } else {
-        state.crops.unshift(item);
-        logAudit(`गिरदावरी दर्ज: खसरा ${item.khasra}`);
-      }
-      resetCropForm();
-      persist();
+      const editId=document.getElementById("crEditId").value;
+      const area=Number(crCultivated.value);
+      if(!crVillage.value.trim()||!crKhasra.value.trim()||!crFarmer.value.trim()||!crCrop.value.trim()||!Number.isFinite(area)||area<=0){alert("ग्राम, खसरा, कृषक, फसल और वैध क्षेत्रफल भरें।");return;}
+      const now=Date.now();
+      const item={id:editId||("C-"+now+"-"+Math.random().toString(36).slice(2,7)),updatedAt:now,
+        village:crVillage.value.trim(),khasra:crKhasra.value.trim(),farmer:crFarmer.value.trim(),
+        season:crSeason.value,crop:crCrop.value.trim(),cultivated:area,damage:crDamage.value.trim(),gps:crGps.value.trim()};
+      if(editId){const i=state.crops.findIndex(x=>x.id===editId);if(i<0){alert("गिरदावरी रिकॉर्ड नहीं मिला।");return;}state.crops[i]=item;logAudit(`गिरदावरी अपडेट: खसरा ${item.khasra}`);}
+      else{state.crops.unshift(item);logAudit(`गिरदावरी दर्ज: खसरा ${item.khasra}`);}
+      resetCropForm();persist();
     }
 
     function startEditCrop(id) {
@@ -917,24 +887,14 @@
 
     function saveVisit(e) {
       e.preventDefault();
-      const editId = document.getElementById("fvEditId").value;
-      const item = {
-        id: editId || ("V-" + Date.now()),
-        village: fvVillage.value.trim(),
-        khasra: fvKhasra.value.trim(),
-        purpose: fvPurpose.value.trim(),
-        obs: fvObs.value.trim()
-      };
-      if (editId) {
-        const i = state.visits.findIndex(x => x.id === editId);
-        if (i !== -1) state.visits[i] = item;
-        logAudit(`भ्रमण अपडेट: ${item.village}`);
-      } else {
-        state.visits.unshift(item);
-        logAudit(`भ्रमण दर्ज: ${item.village}`);
-      }
-      resetVisitForm();
-      persist();
+      const editId=document.getElementById("fvEditId").value;
+      if(!fvVillage.value.trim()||!fvPurpose.value.trim()){alert("ग्राम और भ्रमण का उद्देश्य भरें।");return;}
+      const now=Date.now();
+      const item={id:editId||("V-"+now+"-"+Math.random().toString(36).slice(2,7)),updatedAt:now,
+        village:fvVillage.value.trim(),khasra:fvKhasra.value.trim(),purpose:fvPurpose.value.trim(),obs:fvObs.value.trim()};
+      if(editId){const i=state.visits.findIndex(x=>x.id===editId);if(i<0){alert("भ्रमण रिकॉर्ड नहीं मिला।");return;}state.visits[i]=item;logAudit(`भ्रमण अपडेट: ${item.village}`);}
+      else{state.visits.unshift(item);logAudit(`भ्रमण दर्ज: ${item.village}`);}
+      resetVisitForm();persist();
     }
 
     function startEditVisit(id) {
@@ -955,27 +915,15 @@
 
     function saveTask(e) {
       e.preventDefault();
-      const editId = document.getElementById("tkEditId").value;
-      if (editId) {
-        const i = state.tasks.findIndex(x => x.id === editId);
-        if (i !== -1) {
-          state.tasks[i].title = tkTitle.value.trim();
-          state.tasks[i].priority = tkPri.value;
-          state.tasks[i].due = tkDue.value;
-        }
+      const editId=document.getElementById("tkEditId").value;
+      const title=tkTitle.value.trim();
+      if(!title||!tkDue.value){alert("कार्य का नाम और नियत तारीख भरें।");return;}
+      const now=Date.now();
+      if(editId){const i=state.tasks.findIndex(x=>x.id===editId);if(i<0){alert("कार्य रिकॉर्ड नहीं मिला।");return;}
+        state.tasks[i]={...state.tasks[i],title,priority:tkPri.value,due:tkDue.value,updatedAt:now};
         logAudit("कार्य अपडेट किया गया");
-      } else {
-        state.tasks.unshift({
-          id: "T-" + Date.now(),
-          title: tkTitle.value.trim(),
-          priority: tkPri.value,
-          due: tkDue.value,
-          done: false
-        });
-        logAudit("नया कार्य जोड़ा गया");
-      }
-      resetTaskForm();
-      persist();
+      }else{state.tasks.unshift({id:"T-"+now+"-"+Math.random().toString(36).slice(2,7),title,priority:tkPri.value,due:tkDue.value,done:false,updatedAt:now});logAudit("नया कार्य जोड़ा गया");}
+      resetTaskForm();persist();
     }
 
     function startEditTask(id) {
@@ -994,8 +942,8 @@
     }
 
     function toggleTask(id) {
-      const t = state.tasks.find(x => x.id === id);
-      if (t) { t.done = !t.done; persist(); }
+      const t=state.tasks.find(x=>x.id===id);
+      if(t){t.done=!t.done;t.updatedAt=Date.now();persist();}
     }
 
     function removeRec(arr, id) {
