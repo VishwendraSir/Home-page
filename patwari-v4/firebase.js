@@ -5,7 +5,7 @@ import { initializeFirestore, getFirestore, persistentLocalCache, persistentSing
 const KEY = "RPAA_V4_FIREBASE_CONFIG";
 const PENDING_KEY = "RPAA_V4_PENDING_CLOUD_STATE";
 const STATE_KEY = "RPAA_SEWAR_COMPLETE_HTML5_V1";
-let app, auth, db, currentUser = null, saveTimer = null, restoring = false, initPromise = null, lastSavedJSON = "";
+let app, auth, db, currentUser = null, saveTimer = null, restoring = false, initPromise = null, activeConfigFingerprint = "", lastSavedJSON = "";
 let cloudWriteChain = Promise.resolve();
 
 const valid = c => c && ["apiKey","authDomain","projectId","appId"].every(k =>
@@ -21,11 +21,16 @@ function mergeById(local, cloud) {
     const map = new Map();
     (cloud?.[k]||[]).forEach(x=>map.set(String(x.id),x));
     (local?.[k]||[]).forEach(x=>{
-      const id=String(x.id);
-      if(!map.has(id)) map.set(id,x);
+      const id=String(x.id), remote=map.get(id);
+      if(!remote) map.set(id,x);
       else {
-        const a=map.get(id), ta=Number(a.updatedAt||a.clientUpdatedAt||0), tb=Number(x.updatedAt||x.clientUpdatedAt||0);
-        if(tb>ta) map.set(id,x);
+        const remoteTime=Number(remote.updatedAt||remote.clientUpdatedAt||remote.updatedAtMs||0);
+        const localTime=Number(x.updatedAt||x.clientUpdatedAt||x.updatedAtMs||0);
+        if(localTime>remoteTime) map.set(id,x);
+        else if(localTime===remoteTime && JSON.stringify(x)!==JSON.stringify(remote)) {
+          const conflictId=id+"-local-conflict-"+String(x.updatedAt||"undated")+"-"+String(JSON.stringify(x).length);
+          if(!map.has(conflictId)) map.set(conflictId,{...x,id:conflictId,conflictOf:id,conflictNote:"Same-ID conflict preserved for manual review"});
+        }
       }
     });
     out[k]=Array.from(map.values());
@@ -38,7 +43,14 @@ function mergeById(local, cloud) {
 
 async function init(c) {
   if (!valid(c)) return {ok:false, reason:"Firebase config incomplete."};
-  if (initPromise) return initPromise;
+  const fingerprint = JSON.stringify(c);
+  if (initPromise) {
+    if (activeConfigFingerprint && activeConfigFingerprint !== fingerprint) {
+      return {ok:false,reason:"Firebase config इस session में पहले से initialize है। नया project/config लागू करने के लिए page refresh करें।"};
+    }
+    return initPromise;
+  }
+  activeConfigFingerprint = fingerprint;
   initPromise = (async()=>{
     try {
       const existing=getApps().find(a=>a.options.projectId===c.projectId);
@@ -61,7 +73,7 @@ async function init(c) {
       });
       window.addEventListener("online",()=>flushPending().catch(e=>emit("patwari-cloud-status","Sync Failed: "+e.message)));
       return {ok:true};
-    } catch(e) { initPromise=null; return {ok:false,reason:e.message||String(e)}; }
+    } catch(e) { initPromise=null; activeConfigFingerprint=""; return {ok:false,reason:e.message||String(e)}; }
   })();
   return initPromise;
 }
@@ -82,12 +94,15 @@ async function restoreCloudForUser(user) {
         const remote=snap.data();
         const merged=mergeById(local,remote.state||{});
         window.PatwariApplyCloudState?.(merged);
-        // Persist merged state so local-only records migrate without deleting cloud records.
-        await writeSnapshotQueued(merged, user, true);
+        // Re-read after applying the cloud state so edits made during restore are not dropped.
+        const latest=clone(localState()||merged);
+        const finalState=mergeById(latest,merged);
+        await writeSnapshotQueued(finalState, user);
         emit("patwari-cloud-status","Cloud Restored • Local Backup");
       } else {
         // First sign-in: migrate the existing local data without clearing it.
-        await writeSnapshotQueued(local,user,true);
+        const latest=clone(localState()||local);
+        await writeSnapshotQueued(mergeById(latest,local),user);
         emit("patwari-cloud-status","Local Data Migrated • Cloud Saved");
       }
     } catch(e) {
@@ -95,7 +110,12 @@ async function restoreCloudForUser(user) {
       emit("patwari-cloud-status","Sync Failed • Local data retained");
       throw e;
     } finally { restoring=false; }
-    // Flush queued offline edits only after restore has released its write lock.
+    // Reconcile edits made while restore held the lock; persist latest local state before clearing pending data.
+    const afterRestore = clone(localState() || {});
+    if (JSON.stringify(afterRestore) !== lastSavedJSON) {
+      const latestSave = await saveStateNow(afterRestore);
+      if (!latestSave?.ok) throw new Error(latestSave?.reason || "Edits made during restore remain local and need retry.");
+    }
     await flushPending();
   })();
   try { return await restoreTask; }
@@ -108,6 +128,11 @@ async function writeSnapshot(state,user=currentUser,force=false) {
   const snap=await getDoc(ref);
   let finalState=state;
   if(snap.exists()&&!force) finalState=mergeById(state,snap.data().state||{});
+  const stateBytes = new TextEncoder().encode(JSON.stringify(finalState)).byteLength;
+  // Firestore document hard limit is 1 MiB; keep a safety margin for metadata.
+  if (stateBytes > 900 * 1024) {
+    throw new Error("Cloud backup 900 KB से बड़ा है। JSON backup डाउनलोड करें और पुराने audit entries/अनावश्यक records कम करें; डेटा truncate नहीं किया गया।");
+  }
   const now=Date.now();
   const payload={ownerUid:user.uid,state:finalState,clientUpdatedAt:now,serverUpdatedAt:serverTimestamp(),schemaVersion:2};
   await setDoc(ref,payload);
@@ -195,7 +220,7 @@ async function exportCloudBackup(){
 }
 
 window.PatwariFirebase={
-  isConfigured:()=>!!db,getCurrentUser:()=>currentUser,getSavedConfig,saveAndConnectConfig,loginGoogle,logoutUser,getIdToken,
+  isConfigured:()=>!!(db&&auth),getCurrentUser:()=>currentUser,getSavedConfig,saveAndConnectConfig,loginGoogle,logoutUser,getIdToken,
   queueSave,saveStateNow,restoreCloud:()=>restoreCloudForUser(currentUser),flushPending,exportCloudBackup
 };
 const saved=getSavedConfig();

@@ -291,7 +291,7 @@
               <button type="button" class="btn btn-outline" onclick="resetLandForm()">↺ Reset</button>
             </div>
           </form>
-          <input id="lrSearch" oninput="renderLandTable()" placeholder="खसरा, खाता, ग्राम या नाम खोजें..." style="margin-top:12px;" />
+          <input id="lrSearch" oninput="renderAll()" placeholder="खसरा, खाता, ग्राम या नाम खोजें..." style="margin-top:12px;" />
           <div style="overflow-x:auto;">
             <table>
               <thead><tr><th>ग्राम/हल्का</th><th>खसरा/खाता</th><th>खातेदार</th><th>रकबा (Ha)</th><th>वर्गीकरण</th><th>क्रिया</th></tr></thead>
@@ -567,28 +567,43 @@
       audit: []
     };
 
-    const APP_VERSION = "3.0.0";
+    const APP_VERSION = "4.3.0";
     function localISODate() {
       const d = new Date();
       return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
     }
     function normalizeState(input) {
-      const base = { lang:"hi", dark:false, land:[], mutations:[], crops:[], visits:[], tasks:[], audit:[] };
-      const src = input && input.data ? input.data : input;
-      if (!src || typeof src !== "object" || Array.isArray(src)) throw new Error("Invalid backup structure");
-      ["land","mutations","crops","visits","tasks","audit"].forEach(k => {
-        if (src[k] !== undefined && !Array.isArray(src[k])) throw new Error(`Invalid ${k} data`);
-        if (Array.isArray(src[k])) base[k] = src[k].filter(x => x && typeof x === "object" && !Array.isArray(x));
-      });
-      base.lang = src.lang === "en" ? "en" : "hi";
-      base.dark = !!src.dark;
-      ["land","mutations","crops","visits","tasks"].forEach(k => base[k].forEach((x,i) => {
-        x.id = String(x.id || `${k}-${Date.now()}-${i}`).replace(/[^a-zA-Z0-9_-]/g, "_").slice(0,80);
-      }));
-      base.audit = base.audit.map(x => String(x).slice(0,1000)).slice(0,200);
+      const base={lang:"hi",dark:false,land:[],mutations:[],crops:[],visits:[],tasks:[],audit:[]};
+      const src=input&&input.data?input.data:input;
+      if(!src||typeof src!=="object"||Array.isArray(src)) throw new Error("Invalid backup structure");
+      const collections=["land","mutations","crops","visits","tasks"];
+      for(const key of [...collections,"audit"]){
+        if(src[key]!==undefined&&!Array.isArray(src[key])) throw new Error("Invalid "+key+" data");
+      }
+      for(const key of collections){
+        if(Array.isArray(src[key])){
+          if(src[key].some(item=>!item||typeof item!=="object"||Array.isArray(item))) throw new Error("Invalid record in "+key);
+          base[key]=src[key].map(item=>({...item}));
+        }
+      }
+      if(Array.isArray(src.audit)){
+        if(src.audit.some(item=>typeof item!=="string")) throw new Error("Invalid audit entry");
+        base.audit=src.audit.map(item=>item.slice(0,1000)).slice(0,200);
+      }
+      base.lang=src.lang==="en"?"en":"hi";
+      base.dark=!!src.dark;
+      for(const key of collections){
+        const seen=new Set();
+        base[key]=base[key].map((item,index)=>{
+          const raw=String(item.id||key+"-"+Date.now()+"-"+index);
+          let id=raw.replace(/[^a-zA-Z0-9_-]/g,"_").slice(0,80)||key+"-"+index;
+          if(seen.has(id)) id=id+"-"+index;
+          seen.add(id);
+          return {...item,id,updatedAt:Number(item.updatedAt||item.clientUpdatedAt||0)||undefined};
+        });
+      }
       return base;
     }
-
     function logAudit(msg) {
       state.audit.unshift(`[${new Date().toLocaleString("hi-IN")}] विजय उपाध्याय (सेवर, भरतपुर): ${msg}`);
       if (state.audit.length > 80) state.audit.pop();
@@ -604,43 +619,111 @@
     }
 
     function persist(shouldRender = true) {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-      catch (e) { console.error("Local save failed", e); alert("डिवाइस स्टोरेज उपलब्ध नहीं है। कृपया तुरंत JSON बैकअप डाउनलोड करें।"); }
+      let localSaved = false;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        localSaved = true;
+      } catch (error) {
+        console.error("Local Storage save failed", error);
+        alert("Local Storage में जगह/अनुमति की समस्या है। JSON बैकअप डाउनलोड करें।");
+      }
       if ("indexedDB" in window) {
-        const req = indexedDB.open("PatwariCompleteDB", 1);
-        req.onupgradeneeded = (ev) => {
-          const db = ev.target.result;
-          if (!db.objectStoreNames.contains("store")) db.createObjectStore("store", { keyPath: "id" });
-        };
-        req.onsuccess = (ev) => {
-          const tx = ev.target.result.transaction("store", "readwrite");
-          tx.objectStore("store").put({ id: "main", data: state });
-        };
+        try {
+          const req = indexedDB.open("PatwariCompleteDB", 1);
+          req.onupgradeneeded = ev => {
+            const db=ev.target.result;
+            if(!db.objectStoreNames.contains("store")) db.createObjectStore("store",{keyPath:"id"});
+          };
+          req.onerror = () => {
+            console.error("IndexedDB open failed", req.error);
+            const badge=document.getElementById("netStatus");
+            if(badge) badge.textContent="IndexedDB backup failed • Export JSON";
+          };
+          req.onsuccess = ev => {
+            const db=ev.target.result;
+            try {
+              const tx=db.transaction("store","readwrite");
+              tx.objectStore("store").put({id:"main",data:JSON.parse(JSON.stringify(state)),savedAt:Date.now()});
+              tx.oncomplete=()=>db.close();
+              tx.onerror=()=>{console.error("IndexedDB transaction failed",tx.error);db.close();};
+              tx.onabort=()=>db.close();
+            } catch(error) {
+              console.error("IndexedDB write failed",error);
+              db.close();
+            }
+          };
+        } catch(error) { console.error("IndexedDB unavailable",error); }
       }
-      if (window.PatwariFirebase?.queueSave && window.PatwariFirebase.getCurrentUser()) {
-        window.PatwariFirebase.queueSave(state);
-      }
-      if (shouldRender) renderAll();
+      const fb=window.PatwariFirebase;
+      if(fb?.queueSave && fb.getCurrentUser?.()) fb.queueSave(state);
+      if(shouldRender) renderAll();
+      return { localSaved };
+    }
+    async function recoverIndexedDbState() {
+      if (!("indexedDB" in window)) return null;
+      return new Promise(resolve => {
+        let settled = false;
+        const finish = value => { if (!settled) { settled = true; resolve(value); } };
+        try {
+          const req = indexedDB.open("PatwariCompleteDB", 1);
+          req.onupgradeneeded = ev => {
+            const db = ev.target.result;
+            if (!db.objectStoreNames.contains("store")) db.createObjectStore("store", {keyPath:"id"});
+          };
+          req.onerror = () => finish(null);
+          req.onsuccess = ev => {
+            const db = ev.target.result;
+            try {
+              const tx = db.transaction("store","readonly");
+              const get = tx.objectStore("store").get("main");
+              get.onsuccess = () => {
+                const data = get.result?.data;
+                try { finish(data ? normalizeState(data) : null); } catch { finish(null); }
+                db.close();
+              };
+              get.onerror = () => { db.close(); finish(null); };
+            } catch { db.close(); finish(null); }
+          };
+        } catch { finish(null); }
+      });
     }
 
-    function loadInitial() {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        try { state = normalizeState(JSON.parse(raw)); } catch (e) { console.warn("Saved data could not be loaded safely", e); }
-      } else {
-        state.land = [{ id: "L1", village: "सेवर (सैंपल)", circle: "सेवर", khasra: "101/1", khata: "12", owner: "सैंपल खातेदार", areaHa: 0.65, cls: "चाही / सिंचित", notes: "सैंपल प्रविष्टि" }];
-        state.mutations = [{ id: "M1", appNo: "DEMO-1", applicant: "सैंपल आवेदक", khasraKhata: "101/1 / 12", category: "विरासत (Inheritance)", status: "Under Verification", orderRef: "" }];
-        state.crops = [{ id: "C1", village: "सेवर", khasra: "101/1", farmer: "सैंपल कृषक", season: "Rabi (रबी)", crop: "सरसों", cultivated: 0.60, damage: "सामान्य", gps: "" }];
-        state.visits = [{ id: "V1", village: "सेवर", khasra: "101/1", purpose: "खसरा व फसल अवलोकन", obs: "सैंपल भ्रमण प्रविष्टि" }];
-        state.tasks = [{ id: "T1", title: "नामांतरण अभिलेख मिलान (सेवर)", priority: "High", due: localISODate(), done: false }];
+    async function loadInitial() {
+      let loaded = false;
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          state = normalizeState(JSON.parse(raw));
+          loaded = true;
+        }
+      } catch (error) {
+        console.warn("Local Storage state invalid; trying IndexedDB recovery.", error);
+      }
+      if (!loaded) {
+        const recovered = await recoverIndexedDbState();
+        if (recovered) {
+          state = recovered;
+          loaded = true;
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) { console.warn("Recovered state could not be copied to Local Storage.", error); }
+          const notice = document.getElementById("netStatus");
+          if (notice) notice.textContent = "Recovered from IndexedDB • Local Backup";
+        }
+      }
+      if (!loaded) {
+        // Do not silently populate a user's account with fake landholder/office data.
+        // A blank workspace is the safe first-run default; sample records must be explicit opt-in.
+        state = { lang: "hi", dark: false, land: [], mutations: [], crops: [], visits: [], tasks: [], audit: [] };
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) { console.warn("Initial local state could not be persisted.", error); }
       }
       if (state.dark) document.body.classList.add("dark");
       document.getElementById("langSelect").value = state.lang;
       document.getElementById("liveDate").textContent = new Date().toLocaleDateString("hi-IN");
       if (document.getElementById("tkDue")) document.getElementById("tkDue").value = localISODate();
       updateNetBadge();
+      if (loaded && document.getElementById("netStatus")?.textContent.includes("Recovered")) {
+        document.getElementById("netStatus").textContent = "Recovered from IndexedDB • Local Backup";
+      }
     }
-
     function updateNetBadge() {
       const el = document.getElementById("netStatus");
       if (el) el.textContent = navigator.onLine ? "Online • Local Storage" : "Offline • Local Mode";
@@ -669,16 +752,29 @@
     function changeLanguage(v) { state.lang = v; buildNav(); persist(false); }
     function toggleTheme() { state.dark = !state.dark; document.body.classList.toggle("dark", state.dark); persist(false); }
     function setCustomBackdrop(inp) {
-      const f = inp.files?.[0];
-      if (!f) return;
-      const r = new FileReader();
-      r.onload = (e) => {
-        document.getElementById("heroBanner").style.background = `linear-gradient(115deg, rgba(15,44,89,0.82), rgba(25,63,122,0.78)), url('${e.target.result}') center/cover no-repeat`;
-        logAudit(`बैनर इमेज बदली गई (${f.name})`);
+      const file=inp.files?.[0]; if(!file)return;
+      if(!/^image\/(png|jpeg|webp)$/.test(file.type)||file.size>2*1024*1024){
+        alert("केवल PNG/JPEG/WebP image चुनें। अधिकतम आकार 2 MB है।");inp.value="";return;
+      }
+      const reader=new FileReader();
+      reader.onload=event=>{
+        const image=new Image();
+        image.onload=()=>{
+          document.getElementById("heroBanner").style.backgroundImage=
+            "linear-gradient(115deg, rgba(15,44,89,0.82), rgba(25,63,122,0.78)), url("+JSON.stringify(event.target.result)+")";
+          logAudit("Custom banner image applied");
+        };
+        image.onerror=()=>{alert("Image file पढ़ा नहीं जा सका।");inp.value="";};
+        image.src=event.target.result;
       };
-      r.readAsDataURL(f);
+      reader.onerror=()=>{alert("Image पढ़ने में त्रुटि।");inp.value="";};
+      reader.readAsDataURL(file);
     }
-    function resetBackdrop() { document.getElementById("heroBanner").style.background = ""; }
+    function resetBackdrop() {
+      document.getElementById("heroBanner").style.backgroundImage="";
+      const input=document.querySelector('input[type="file"][accept*="image"]');
+      if(input)input.value="";
+    }
     async function syncOfflineQueue() {
       updateNetBadge();
       // Always keep a local copy before attempting any network operation.
@@ -735,27 +831,20 @@
     function saveLandRecord(e) {
       e.preventDefault();
       const editId = document.getElementById("lrEditId").value;
-      const rec = {
-        id: editId || ("L-" + Date.now()),
-        village: lrVillage.value.trim(),
-        circle: lrCircle.value.trim(),
-        khasra: lrKhasra.value.trim(),
-        khata: lrKhata.value.trim(),
-        owner: lrOwner.value.trim(),
-        areaHa: Math.max(0, parseFloat(lrAreaHa.value) || 0),
-        cls: lrClass.value,
-        notes: lrNotes.value.trim()
-      };
-      if (editId) {
-        const i = state.land.findIndex(x => x.id === editId);
-        if (i !== -1) state.land[i] = rec;
-        logAudit(`भूमि रिकॉर्ड अपडेट: खसरा ${rec.khasra}`);
-      } else {
-        state.land.unshift(rec);
-        logAudit(`भूमि रिकॉर्ड दर्ज: खसरा ${rec.khasra}`);
+      const area = Number(lrAreaHa.value);
+      if (!lrVillage.value.trim() || !lrKhasra.value.trim() || !lrOwner.value.trim() || !Number.isFinite(area) || area <= 0) {
+        alert("ग्राम, खसरा, खातेदार और शून्य से अधिक वैध क्षेत्रफल भरें।"); return;
       }
-      resetLandForm();
-      persist();
+      const now=Date.now();
+      const rec = { id: editId || ("L-" + now + "-" + Math.random().toString(36).slice(2,7)), updatedAt:now,
+        village:lrVillage.value.trim(),circle:lrCircle.value.trim(),khasra:lrKhasra.value.trim(),
+        khata:lrKhata.value.trim(),owner:lrOwner.value.trim(),areaHa:area,cls:lrClass.value,notes:lrNotes.value.trim() };
+      if (editId) {
+        const i=state.land.findIndex(x=>x.id===editId);
+        if(i<0){alert("यह भूमि रिकॉर्ड नहीं मिला।");return;}
+        state.land[i]=rec; logAudit(`भूमि रिकॉर्ड अपडेट: खसरा ${rec.khasra}`);
+      } else { state.land.unshift(rec); logAudit(`भूमि रिकॉर्ड दर्ज: खसरा ${rec.khasra}`); }
+      resetLandForm(); persist();
     }
 
     function startEditLand(id) {
@@ -777,26 +866,15 @@
 
     function saveMutation(e) {
       e.preventDefault();
-      const editId = document.getElementById("mutEditId").value;
-      const item = {
-        id: editId || ("M-" + Date.now()),
-        appNo: mutAppNo.value.trim(),
-        applicant: mutApplicant.value.trim(),
-        khasraKhata: mutKhasraKhata.value.trim(),
-        category: mutCategory.value,
-        status: mutStatus.value,
-        orderRef: mutOrderRef.value.trim()
-      };
-      if (editId) {
-        const i = state.mutations.findIndex(x => x.id === editId);
-        if (i !== -1) state.mutations[i] = item;
-        logAudit(`नामांतरण अपडेट: ${item.appNo}`);
-      } else {
-        state.mutations.unshift(item);
-        logAudit(`नामांतरण दर्ज: ${item.appNo}`);
-      }
-      resetMutForm();
-      persist();
+      const editId=document.getElementById("mutEditId").value;
+      if(!mutAppNo.value.trim()||!mutApplicant.value.trim()||!mutKhasraKhata.value.trim()){alert("आवेदन संख्या, आवेदक और खसरा/खाता भरें।");return;}
+      const now=Date.now();
+      const item={id:editId||("M-"+now+"-"+Math.random().toString(36).slice(2,7)),updatedAt:now,
+        appNo:mutAppNo.value.trim(),applicant:mutApplicant.value.trim(),khasraKhata:mutKhasraKhata.value.trim(),
+        category:mutCategory.value,status:mutStatus.value,orderRef:mutOrderRef.value.trim()};
+      if(editId){const i=state.mutations.findIndex(x=>x.id===editId);if(i<0){alert("नामांतरण रिकॉर्ड नहीं मिला।");return;}state.mutations[i]=item;logAudit(`नामांतरण अपडेट: ${item.appNo}`);}
+      else{state.mutations.unshift(item);logAudit(`नामांतरण दर्ज: ${item.appNo}`);}
+      resetMutForm();persist();
     }
 
     function startEditMutation(id) {
@@ -827,28 +905,16 @@
 
     function saveCrop(e) {
       e.preventDefault();
-      const editId = document.getElementById("crEditId").value;
-      const item = {
-        id: editId || ("C-" + Date.now()),
-        village: crVillage.value.trim(),
-        khasra: crKhasra.value.trim(),
-        farmer: crFarmer.value.trim(),
-        season: crSeason.value,
-        crop: crCrop.value.trim(),
-        cultivated: Math.max(0, parseFloat(crCultivated.value) || 0),
-        damage: crDamage.value.trim(),
-        gps: crGps.value.trim()
-      };
-      if (editId) {
-        const i = state.crops.findIndex(x => x.id === editId);
-        if (i !== -1) state.crops[i] = item;
-        logAudit(`गिरदावरी अपडेट: खसरा ${item.khasra}`);
-      } else {
-        state.crops.unshift(item);
-        logAudit(`गिरदावरी दर्ज: खसरा ${item.khasra}`);
-      }
-      resetCropForm();
-      persist();
+      const editId=document.getElementById("crEditId").value;
+      const area=Number(crCultivated.value);
+      if(!crVillage.value.trim()||!crKhasra.value.trim()||!crFarmer.value.trim()||!crCrop.value.trim()||!Number.isFinite(area)||area<=0){alert("ग्राम, खसरा, कृषक, फसल और वैध क्षेत्रफल भरें।");return;}
+      const now=Date.now();
+      const item={id:editId||("C-"+now+"-"+Math.random().toString(36).slice(2,7)),updatedAt:now,
+        village:crVillage.value.trim(),khasra:crKhasra.value.trim(),farmer:crFarmer.value.trim(),
+        season:crSeason.value,crop:crCrop.value.trim(),cultivated:area,damage:crDamage.value.trim(),gps:crGps.value.trim()};
+      if(editId){const i=state.crops.findIndex(x=>x.id===editId);if(i<0){alert("गिरदावरी रिकॉर्ड नहीं मिला।");return;}state.crops[i]=item;logAudit(`गिरदावरी अपडेट: खसरा ${item.khasra}`);}
+      else{state.crops.unshift(item);logAudit(`गिरदावरी दर्ज: खसरा ${item.khasra}`);}
+      resetCropForm();persist();
     }
 
     function startEditCrop(id) {
@@ -870,24 +936,14 @@
 
     function saveVisit(e) {
       e.preventDefault();
-      const editId = document.getElementById("fvEditId").value;
-      const item = {
-        id: editId || ("V-" + Date.now()),
-        village: fvVillage.value.trim(),
-        khasra: fvKhasra.value.trim(),
-        purpose: fvPurpose.value.trim(),
-        obs: fvObs.value.trim()
-      };
-      if (editId) {
-        const i = state.visits.findIndex(x => x.id === editId);
-        if (i !== -1) state.visits[i] = item;
-        logAudit(`भ्रमण अपडेट: ${item.village}`);
-      } else {
-        state.visits.unshift(item);
-        logAudit(`भ्रमण दर्ज: ${item.village}`);
-      }
-      resetVisitForm();
-      persist();
+      const editId=document.getElementById("fvEditId").value;
+      if(!fvVillage.value.trim()||!fvPurpose.value.trim()){alert("ग्राम और भ्रमण का उद्देश्य भरें।");return;}
+      const now=Date.now();
+      const item={id:editId||("V-"+now+"-"+Math.random().toString(36).slice(2,7)),updatedAt:now,
+        village:fvVillage.value.trim(),khasra:fvKhasra.value.trim(),purpose:fvPurpose.value.trim(),obs:fvObs.value.trim()};
+      if(editId){const i=state.visits.findIndex(x=>x.id===editId);if(i<0){alert("भ्रमण रिकॉर्ड नहीं मिला।");return;}state.visits[i]=item;logAudit(`भ्रमण अपडेट: ${item.village}`);}
+      else{state.visits.unshift(item);logAudit(`भ्रमण दर्ज: ${item.village}`);}
+      resetVisitForm();persist();
     }
 
     function startEditVisit(id) {
@@ -908,27 +964,15 @@
 
     function saveTask(e) {
       e.preventDefault();
-      const editId = document.getElementById("tkEditId").value;
-      if (editId) {
-        const i = state.tasks.findIndex(x => x.id === editId);
-        if (i !== -1) {
-          state.tasks[i].title = tkTitle.value.trim();
-          state.tasks[i].priority = tkPri.value;
-          state.tasks[i].due = tkDue.value;
-        }
+      const editId=document.getElementById("tkEditId").value;
+      const title=tkTitle.value.trim();
+      if(!title||!tkDue.value){alert("कार्य का नाम और नियत तारीख भरें।");return;}
+      const now=Date.now();
+      if(editId){const i=state.tasks.findIndex(x=>x.id===editId);if(i<0){alert("कार्य रिकॉर्ड नहीं मिला।");return;}
+        state.tasks[i]={...state.tasks[i],title,priority:tkPri.value,due:tkDue.value,updatedAt:now};
         logAudit("कार्य अपडेट किया गया");
-      } else {
-        state.tasks.unshift({
-          id: "T-" + Date.now(),
-          title: tkTitle.value.trim(),
-          priority: tkPri.value,
-          due: tkDue.value,
-          done: false
-        });
-        logAudit("नया कार्य जोड़ा गया");
-      }
-      resetTaskForm();
-      persist();
+      }else{state.tasks.unshift({id:"T-"+now+"-"+Math.random().toString(36).slice(2,7),title,priority:tkPri.value,due:tkDue.value,done:false,updatedAt:now});logAudit("नया कार्य जोड़ा गया");}
+      resetTaskForm();persist();
     }
 
     function startEditTask(id) {
@@ -947,8 +991,8 @@
     }
 
     function toggleTask(id) {
-      const t = state.tasks.find(x => x.id === id);
-      if (t) { t.done = !t.done; persist(); }
+      const t=state.tasks.find(x=>x.id===id);
+      if(t){t.done=!t.done;t.updatedAt=Date.now();persist();}
     }
 
     function removeRec(arr, id) {
@@ -960,30 +1004,30 @@
     }
 
     function calcArea() {
-      const bighaSqm = Math.max(0.01, parseFloat(document.getElementById("bighaSqm").value) || 2529.29);
-      const v = Math.max(0, parseFloat(document.getElementById("calcVal").value) || 0);
-      const u = document.getElementById("calcUnit").value;
-      let sqm = 0;
-      if (u === "sqm") sqm = v;
-      else if (u === "hectare") sqm = v * 10000;
-      else if (u === "acre") sqm = v * 4046.8564224;
-      else if (u === "bigha") sqm = v * bighaSqm;
-      else if (u === "sqft") sqm = v * 0.09290304;
-
-      const ha = sqm / 10000;
-      const fracStr = (document.getElementById("shareFrac").value || "1").trim();
-      let ratio = 1;
-      if (fracStr.includes("/")) {
-        const [a, b] = fracStr.split("/").map(Number);
-        if (b > 0 && a >= 0 && !isNaN(a) && !isNaN(b)) ratio = a / b;
-        else ratio = 0;
-      } else {
-        ratio = parseFloat(fracStr) || 0;
+      const unit=document.getElementById("calcUnit").value;
+      const bighaInput=Number(document.getElementById("bighaSqm").value);
+      const value=Number(document.getElementById("calcVal").value);
+      const out=document.getElementById("calcOut");
+      if(!Number.isFinite(value)||value<0){out.textContent="कृपया शून्य या उससे अधिक वैध क्षेत्रफल भरें।";return;}
+      if(!Number.isFinite(bighaInput)||bighaInput<=0){out.textContent="स्थानीय बीघा का वर्ग मीटर मान शून्य से अधिक होना चाहिए।";return;}
+      const bighaSqm=bighaInput;
+      const units={sqm:1,hectare:10000,acre:4046.8564224,bigha:bighaSqm,sqft:0.09290304};
+      if(!(unit in units)){out.textContent="क्षेत्रफल की इकाई मान्य नहीं है।";return;}
+      const sqm=value*units[unit],ha=sqm/10000;
+      const fraction=(document.getElementById("shareFrac").value||"1").trim();
+      let numerator,denominator;
+      if(fraction.includes("/")){
+        const parts=fraction.split("/");
+        if(parts.length!==2){out.textContent="हिस्सा 1/2 जैसे रूप में लिखें।";return;}
+        numerator=Number(parts[0]);denominator=Number(parts[1]);
+      }else{numerator=Number(fraction);denominator=1;}
+      if(!Number.isFinite(numerator)||!Number.isFinite(denominator)||denominator<=0||numerator<0||numerator>denominator){
+        out.textContent="हिस्सा 0 से 1 के बीच वैध संख्या या 1/2 जैसे रूप में भरें।";return;
       }
-
-      document.getElementById("calcOut").innerText =
-        `हैक्टेयर: ${ha.toFixed(4)} Ha | एकड़: ${(sqm / 4046.8564224).toFixed(4)} | स्थानीय बीघा: ${(sqm / bighaSqm).toFixed(4)} | वर्ग मीटर: ${sqm.toFixed(2)}\n` +
-        `हिस्सा (${fracStr}): ${(ha * ratio).toFixed(4)} Ha (${(sqm * ratio).toFixed(2)} वर्ग मीटर)`;
+      const ratio=numerator/denominator;
+      out.textContent=
+        `हैक्टेयर: ${ha.toFixed(4)} Ha | एकड़: ${(sqm/4046.8564224).toFixed(4)} | स्थानीय बीघा: ${(sqm/bighaSqm).toFixed(4)} | वर्ग मीटर: ${sqm.toFixed(2)}\n`+
+        `हिस्सा (${fraction}): ${(ha*ratio).toFixed(4)} Ha (${(sqm*ratio).toFixed(2)} वर्ग मीटर)`;
     }
 
     function makeDraft() {
@@ -1016,7 +1060,7 @@
       state.tasks.forEach(t => rows.push(["Task", t.id, t.title, t.done ? "Done" : "Pending"]));
       const csv = rows.map(r => r.map(c => {
         let value = String(c ?? "");
-        if (/^[=+@\-\t\r]/.test(value)) value = "'" + value;
+        if (/^[\s\u0000-\u001F]*[=+\-@]/.test(value)) value = "'" + value;
         return `"${value.replace(/"/g, '""')}"`;
       }).join(",")).join("\n");
       const a = document.createElement("a");
@@ -1038,23 +1082,27 @@
     }
 
     function restoreJson(inp) {
-      const f = inp.files?.[0];
-      if (!f) return;
-      const r = new FileReader();
-      r.onload = (e) => {
-        try {
-          const parsed = JSON.parse(e.target.result);
-          const restored = normalizeState(parsed);
-          const counts = [restored.land.length,restored.mutations.length,restored.crops.length,restored.visits.length,restored.tasks.length].reduce((a,b)=>a+b,0);
-          if (!confirm(`इस बैकअप में ${counts} रिकॉर्ड हैं। वर्तमान डेटा बदल जाएगा। पहले वर्तमान JSON बैकअप डाउनलोड करें। क्या आगे बढ़ें?`)) { inp.value = ""; return; }
+      const file=inp.files?.[0]; if(!file)return;
+      if(file.size>5*1024*1024){alert("Backup file 5 MB से बड़ी है। कृपया छोटा JSON backup चुनें।");inp.value="";return;}
+      const reader=new FileReader();
+      reader.onerror=()=>{alert("Backup file पढ़ने में त्रुटि।");inp.value="";};
+      reader.onload=()=>{
+        const previous=state;
+        try{
+          const parsed=JSON.parse(reader.result);
+          const restored=normalizeState(parsed);
+          const total=["land","mutations","crops","visits","tasks"].reduce((sum,key)=>sum+restored[key].length,0);
+          if(!confirm("इस backup में "+total+" records हैं। वर्तमान डेटा का JSON backup डाउनलोड होगा। Restore जारी रखें?")){inp.value="";return;}
           downloadJson();
-          state = restored;
-          persist();
-          logAudit(`बैकअप पुनर्स्थापित (${f.name})`);
-        } catch (err) { console.error(err); alert("अमान्य या असंगत JSON बैकअप। वर्तमान डेटा नहीं बदला गया।"); }
-        inp.value = "";
+          state=restored;
+          const result=persist(false);
+          if(!result?.localSaved){state=previous;persist(false);throw new Error("Local storage में restore save नहीं हुआ; पुराना data वापस रखा गया है।");}
+          logAudit("Backup restored: "+file.name);
+          alert("Backup सफलतापूर्वक restore हुआ।");
+        }catch(error){state=previous;persist(false);console.error("Backup restore failed",error);alert("Backup restore नहीं हुआ: "+(error.message||String(error)));}
+        finally{inp.value="";}
       };
-      r.readAsText(f);
+      reader.readAsText(file);
     }
 
     function renderAudit() {
@@ -1083,8 +1131,8 @@
           <td>${Number(r.areaHa).toFixed(4)}</td>
           <td>${esc(r.cls)}</td>
           <td>
-            <button class="btn btn-outline" onclick="startEditLand('${r.id}')">✏️</button>
-            <button class="btn btn-outline" onclick="removeRec('land','${r.id}')">🗑️</button>
+            <button class="btn btn-outline" onclick="startEditLand('${esc(r.id)}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('land','${esc(r.id)}')">🗑️</button>
           </td>
         </tr>
       `).join("") || `<tr><td colspan="6">कोई रिकॉर्ड नहीं।</td></tr>`;
@@ -1094,8 +1142,8 @@
           <td>${esc(m.appNo)}</td><td>${esc(m.applicant)}</td><td>${esc(m.khasraKhata)}</td>
           <td>${esc(m.category)}</td><td><span class="badge badge-warn">${esc(m.status)}</span></td>
           <td>
-            <button class="btn btn-outline" onclick="startEditMutation('${m.id}')">✏️</button>
-            <button class="btn btn-outline" onclick="removeRec('mutations','${m.id}')">🗑️</button>
+            <button class="btn btn-outline" onclick="startEditMutation('${esc(m.id)}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('mutations','${esc(m.id)}')">🗑️</button>
           </td>
         </tr>
       `).join("") || `<tr><td colspan="6">कोई नामांतरण नहीं।</td></tr>`;
@@ -1106,8 +1154,8 @@
           <td>${esc(c.season)} — ${esc(c.crop)}</td><td>${Number(c.cultivated).toFixed(4)} Ha</td>
           <td>${esc(c.damage || "-")} ${c.gps ? "(" + esc(c.gps) + ")" : ""}</td>
           <td>
-            <button class="btn btn-outline" onclick="startEditCrop('${c.id}')">✏️</button>
-            <button class="btn btn-outline" onclick="removeRec('crops','${c.id}')">🗑️</button>
+            <button class="btn btn-outline" onclick="startEditCrop('${esc(c.id)}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('crops','${esc(c.id)}')">🗑️</button>
           </td>
         </tr>
       `).join("") || `<tr><td colspan="6">कोई गिरदावरी रिकॉर्ड नहीं।</td></tr>`;
@@ -1117,8 +1165,8 @@
           <td>${esc(v.village)} ${v.khasra ? "(" + esc(v.khasra) + ")" : ""}</td>
           <td>${esc(v.purpose)}</td><td>${esc(v.obs)}</td>
           <td>
-            <button class="btn btn-outline" onclick="startEditVisit('${v.id}')">✏️</button>
-            <button class="btn btn-outline" onclick="removeRec('visits','${v.id}')">🗑️</button>
+            <button class="btn btn-outline" onclick="startEditVisit('${esc(v.id)}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('visits','${esc(v.id)}')">🗑️</button>
           </td>
         </tr>
       `).join("") || `<tr><td colspan="4">कोई भ्रमण नहीं।</td></tr>`;
@@ -1129,9 +1177,9 @@
           <td>${esc(t.priority)}</td><td>${esc(t.due)}</td>
           <td>${t.done ? "पूर्ण" : "लंबित"}</td>
           <td>
-            <button class="btn btn-outline" onclick="toggleTask('${t.id}')">✓</button>
-            <button class="btn btn-outline" onclick="startEditTask('${t.id}')">✏️</button>
-            <button class="btn btn-outline" onclick="removeRec('tasks','${t.id}')">🗑️</button>
+            <button class="btn btn-outline" onclick="toggleTask('${esc(t.id)}')">✓</button>
+            <button class="btn btn-outline" onclick="startEditTask('${esc(t.id)}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('tasks','${esc(t.id)}')">🗑️</button>
           </td>
         </tr>
       `).join("") || `<tr><td colspan="5">कोई कार्य नहीं।</td></tr>`;
@@ -1143,7 +1191,106 @@
       return String(s || "").replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
     }
 
-    async function patwariLogin(){try{await window.patwariSignIn();}catch(e){alert("Login: "+e.message);}}\n    async function patwariCloudSync(){try{if(!window.firebaseAuth?.currentUser)throw new Error("पहले Login करें");if(confirm("OK = Cloud backup को इस device पर Restore करें (मौजूदा local data बदल सकता है)। Cancel = इस device का data Cloud पर Upload करें।")){const remote=await window.patwariCloudLoad();if(!remote)throw new Error("Cloud पर कोई backup नहीं मिला");downloadJson();state=normalizeState(remote);persist();logAudit("Cloud backup restored");alert("Cloud backup restore हो गया।");}else{await window.patwariCloudSave(state);logAudit("Local data uploaded to cloud");alert("इस device का data Cloud पर सुरक्षित किया गया।");}}catch(e){alert("Cloud sync उपलब्ध नहीं: "+e.message);}}\n    window.addEventListener("patwari-auth",e=>{const el=document.getElementById("authStatus");if(el)el.textContent=e.detail.user?("Signed in: "+e.detail.user.email):"Local mode";});\n    async function runPatwariAI() {\n      const prompt = document.getElementById("aiPrompt").value.trim();\n      const output = document.getElementById("aiOutput");\n      const status = document.getElementById("aiStatus");\n      if (!prompt) { alert("कृपया प्रश्न या प्रकरण का विवरण लिखें।"); return; }\n      const cfg = window.PATWARI_CONFIG || {};\n      if (!cfg.workerUrl || !window.firebaseAuth || !window.firebaseAuth.currentUser) { status.textContent = "AI अभी कनेक्ट नहीं है। Worker URL और Firebase Authentication configuration सेट करें; API key को HTML में न डालें।"; return; }\n      status.textContent = "AI उत्तर तैयार हो रहा है…"; output.textContent = "कृपया प्रतीक्षा करें…";\n      try { const token = await window.firebaseAuth.currentUser.getIdToken(); const response = await fetch(cfg.workerUrl, { method:"POST", headers:{"Content-Type":"application/json","Authorization":"Bearer "+token}, body:JSON.stringify({ prompt, taskType:document.getElementById("aiTaskType").value, language:document.getElementById("aiLang").value }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error || "AI request failed"); output.textContent = data.text || "कोई उत्तर प्राप्त नहीं हुआ।"; status.textContent = "उत्तर तैयार। आधिकारिक उपयोग से पहले तथ्य सत्यापित करें।"; logAudit("AI मसौदा तैयार किया गया"); } catch (e) { status.textContent = "AI सेवा त्रुटि: " + e.message; output.textContent = "कनेक्शन उपलब्ध नहीं। कृपया Worker/Firebase configuration जाँचें।"; }\n    }\n    function renderCalendarTasks() { const date=document.getElementById("calendarDate").value; const filter=document.getElementById("calendarFilter").value; const list=state.tasks.filter(t=>(!date||t.due===date)&&(filter==="all"||(filter==="done"?t.done:!t.done))); document.getElementById("calendarTaskList").textContent=list.length?list.map(t=>`${t.done?"✓":"○"} ${t.title} | ${t.priority} | ${t.due}`).join("\\n"):"इस चयन में कोई कार्य नहीं।"; }\n    function generateMonthlyReport() { const m=document.getElementById("reportMonth").value; if(!m){alert("कृपया माह चुनें।");return;} const tasks=state.tasks.filter(t=>(t.due||"").startsWith(m)); const lines=[`मासिक राजस्व कार्यालय रिपोर्ट — ${m}`,`हल्का: सेवर, तहसील/जिला: भरतपुर, राजस्थान`,`भूमि रिकॉर्ड: ${state.land.length}`,`कुल दर्ज क्षेत्रफल: ${state.land.reduce((a,x)=>a+(Number(x.areaHa)||0),0).toFixed(4)} Ha`,`नामांतरण: ${state.mutations.length}`,`गिरदावरी प्रविष्टियां: ${state.crops.length}`,`क्षेत्र भ्रमण: ${state.visits.length}`,`इस माह निर्धारित कार्य: ${tasks.length}`,`पूर्ण कार्य: ${tasks.filter(t=>t.done).length}`,`लंबित कार्य: ${tasks.filter(t=>!t.done).length}`]; document.getElementById("monthlyReportOutput").textContent=lines.join("\\n"); logAudit("मासिक रिपोर्ट बनाई गई: "+m); }\n\n    // V4.1 cloud-state bridge: merge by stable record id; cloud wins on conflicts.
+    // V4.3: one Firebase API for all app controls. No legacy globals.
+    async function patwariLogin() {
+      const fb = window.PatwariFirebase;
+      try {
+        if (!fb) throw new Error("Firebase module अभी load नहीं हुआ। पेज refresh करें।");
+        if (!fb.isConfigured?.()) {
+          document.getElementById("v4CloudPanel")?.scrollIntoView({behavior:"smooth",block:"start"});
+          throw new Error("पहले Firebase Web App config भरकर Save & Connect Firebase करें।");
+        }
+        await fb.loginGoogle();
+      } catch (error) {
+        const msg = error?.message || String(error);
+        const status = document.getElementById("v4AuthStatus");
+        if (status) status.textContent = "Login error: " + msg;
+        alert("Google Login: " + msg);
+      }
+    }
+    async function patwariCloudSync() {
+      const fb = window.PatwariFirebase;
+      try {
+        if (!fb) throw new Error("Firebase module load नहीं हुआ। पेज refresh करें।");
+        if (!fb.isConfigured?.()) throw new Error("पहले Firebase config connect करें।");
+        if (!fb.getCurrentUser?.()) throw new Error("पहले Google Login करें।");
+        const choice = prompt("Cloud operation चुनें: SAVE = इस डिवाइस का डेटा सुरक्षित करें; RESTORE = Cloud backup का preview और merge करें।");
+        if (!choice) return;
+        if (choice.trim().toUpperCase() === "SAVE") {
+          const result = await fb.saveStateNow(state);
+          if (!result?.ok) throw new Error(result?.reason || "Cloud save confirm नहीं हुआ।");
+          logAudit("Manual Firebase cloud save completed");
+          alert("Cloud पर डेटा सुरक्षित हो गया।");
+        } else if (choice.trim().toUpperCase() === "RESTORE") {
+          const backup = await fb.exportCloudBackup();
+          if (!backup) throw new Error("Cloud पर कोई backup नहीं मिला।");
+          const counts = ["land","mutations","crops","visits","tasks"].reduce((n,k)=>n+(Array.isArray(backup[k])?backup[k].length:0),0);
+          if (!confirm("Cloud backup में " + counts + " records हैं। Restore करने से पहले वर्तमान local JSON backup डाउनलोड होगा और ID के आधार पर merge होगा। आगे बढ़ें?")) return;
+          downloadJson();
+          window.PatwariApplyCloudState?.(backup);
+          const result = await fb.saveStateNow(state);
+          if (!result?.ok) throw new Error(result?.reason || "Merged restore cloud save confirm नहीं हुआ।");
+          logAudit("Cloud backup restored and merged");
+          alert("Cloud backup merge होकर local storage में restore हो गया।");
+        } else {
+          throw new Error("कृपया SAVE या RESTORE लिखें।");
+        }
+      } catch (error) {
+        const msg = error?.message || String(error);
+        const status = document.getElementById("v4AuthStatus");
+        if (status) status.textContent = "Cloud error: " + msg;
+        alert("Cloud Sync: " + msg);
+      }
+    }
+    window.addEventListener("patwari-auth",e=>{
+      const el=document.getElementById("authStatus");
+      if(el) el.textContent=e.detail?.user ? ("Signed in: "+e.detail.user.email) : "Local mode";
+    });
+    async function requestPatwariAI({prompt,taskType="draft",language="hi",output,status}) {
+      const fb=window.PatwariFirebase;
+      const set=(el,msg)=>{if(el)el.textContent=msg;};
+      if(!prompt.trim()) throw new Error("कृपया प्रश्न या प्रकरण का विवरण लिखें।");
+      const url=(localStorage.getItem("RPAA_V4_WORKER_URL")||"").trim();
+      if(!url) throw new Error("पहले Firebase / AI Settings में Cloudflare Worker URL सेव करें।");
+      let parsed;
+      try { parsed=new URL(url); } catch { throw new Error("Worker URL मान्य नहीं है।"); }
+      if(parsed.protocol!=="https:") throw new Error("Worker URL HTTPS होना चाहिए।");
+      if(!fb?.getIdToken) throw new Error("Firebase module उपलब्ध नहीं है। पेज refresh करें।");
+      const token=await fb.getIdToken();
+      if(!token) throw new Error("पहले Google Login करें।");
+      set(status,"AI उत्तर तैयार हो रहा है…");
+      set(output,"कृपया प्रतीक्षा करें…");
+      const controller=new AbortController();
+      const timeout=setTimeout(()=>controller.abort(),45000);
+      try {
+        const response=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({prompt,taskType,language}),signal:controller.signal});
+        const raw=await response.text();
+        let data;
+        try { data=JSON.parse(raw); } catch { throw new Error("AI Worker ने मान्य JSON response नहीं दिया (HTTP "+response.status+")"); }
+        if(!response.ok) throw new Error(data.error||("AI request failed (HTTP "+response.status+")"));
+        if(typeof data.text!=="string"||!data.text.trim()) throw new Error("AI से खाली या invalid response मिला।");
+        set(output,data.text+(data.disclaimer?"\n\n"+data.disclaimer:""));
+        set(status,"उत्तर तैयार। आधिकारिक उपयोग से पहले अभिलेख और विभागीय निर्देश सत्यापित करें।");
+        logAudit("AI draft generated");
+        return data;
+      } catch(error) {
+        if(error.name==="AbortError") throw new Error("AI request timeout हुआ। नेटवर्क जाँचकर पुनः प्रयास करें।");
+        throw error;
+      } finally { clearTimeout(timeout); }
+    }
+
+    async function runPatwariAI() {
+      const prompt=document.getElementById("aiPrompt").value.trim();
+      const output=document.getElementById("aiOutput");
+      const status=document.getElementById("aiStatus");
+      try { await requestPatwariAI({prompt,taskType:document.getElementById("aiTaskType").value,language:document.getElementById("aiLang").value,output,status}); }
+      catch(error) { status.textContent="AI सेवा त्रुटि: "+(error.message||String(error)); output.textContent="कनेक्शन उपलब्ध नहीं। Worker URL, Google Login और सेवा सेटिंग जाँचें।"; }
+    }
+
+    function renderCalendarTasks() { const date=document.getElementById("calendarDate").value; const filter=document.getElementById("calendarFilter").value; const list=state.tasks.filter(t=>(!date||t.due===date)&&(filter==="all"||(filter==="done"?t.done:!t.done))); document.getElementById("calendarTaskList").textContent=list.length?list.map(t=>`${t.done?"✓":"○"} ${t.title} | ${t.priority} | ${t.due}`).join("\n"):"इस चयन में कोई कार्य नहीं।"; }
+    function generateMonthlyReport() { const m=document.getElementById("reportMonth").value; if(!m){alert("कृपया माह चुनें।");return;} const tasks=state.tasks.filter(t=>(t.due||"").startsWith(m)); const lines=[`मासिक राजस्व कार्यालय रिपोर्ट — ${m}`,`हल्का: सेवर, तहसील/जिला: भरतपुर, राजस्थान`,`भूमि रिकॉर्ड: ${state.land.length}`,`कुल दर्ज क्षेत्रफल: ${state.land.reduce((a,x)=>a+(Number(x.areaHa)||0),0).toFixed(4)} Ha`,`नामांतरण: ${state.mutations.length}`,`गिरदावरी प्रविष्टियां: ${state.crops.length}`,`क्षेत्र भ्रमण: ${state.visits.length}`,`इस माह निर्धारित कार्य: ${tasks.length}`,`पूर्ण कार्य: ${tasks.filter(t=>t.done).length}`,`लंबित कार्य: ${tasks.filter(t=>!t.done).length}`]; document.getElementById("monthlyReportOutput").textContent=lines.join("\n"); logAudit("मासिक रिपोर्ट बनाई गई: "+m); }
+
+    // V4.1 cloud-state bridge: merge by stable record id; cloud wins on conflicts.
     function mergeCloudState(local, remote) {
       const merged = normalizeState(remote || {});
       const src = normalizeState(local || {});
@@ -1156,14 +1303,20 @@
           else {
             const cloudTime = Number(cloudRecord.updatedAt || cloudRecord.clientUpdatedAt || cloudRecord.updatedAtMs || 0);
             const localTime = Number(x.updatedAt || x.clientUpdatedAt || x.updatedAtMs || 0);
-            if (localTime > cloudTime) byId.set(id, x);
+            if (localTime > cloudTime) {
+              byId.set(id, x);
+            } else if (localTime === cloudTime && JSON.stringify(x) !== JSON.stringify(cloudRecord)) {
+              // Preserve equal/unknown timestamp conflicts without altering the user's record ID.
+              const conflictId = id + "-local-conflict-" + String(x.updatedAt || "undated") + "-" + String(JSON.stringify(x).length);
+              if (!byId.has(conflictId)) byId.set(conflictId, {...x, id:conflictId, conflictOf:id, conflictNote:"Same-ID conflict preserved for manual review"});
+            }
           }
         });
         merged[k] = Array.from(byId.values());
       });
       merged.audit = [...(merged.audit || []), ...(src.audit || [])].slice(-200);
       merged.lang = src.lang || merged.lang;
-      merged.dark = !!src.dark;
+      merged.dark = !!(src.dark ?? merged.dark);
       return merged;
     }
     window.PatwariGetLocalState = () => state;
@@ -1189,18 +1342,24 @@
     });
     window.addEventListener("online", updateNetBadge);
     window.addEventListener("offline", updateNetBadge);
-    window.addEventListener("DOMContentLoaded", () => {
-      loadInitial();
-      buildNav();
-      renderAll();
-      calcArea();
-      makeDraft();
+    window.addEventListener("DOMContentLoaded", async () => {
+      try {
+        await loadInitial();
+        buildNav();
+        renderAll();
+        calcArea();
+        makeDraft();
+      } catch (error) {
+        console.error("Application startup failed", error);
+        const banner = document.getElementById("netStatus");
+        if (banner) banner.textContent = "Startup error • Check local data and refresh";
+      }
     });
   </script>
-  <footer style="text-align:center;padding:14px;color:#64748b;font-size:12px">Rajasthan Patwari AI Assistant v4.2 · Local + Firebase cloud sync · आधिकारिक राजस्व रिकॉर्ड का विकल्प नहीं</footer>
+  <footer style="text-align:center;padding:14px;color:#64748b;font-size:12px">Rajasthan Patwari AI Assistant v4.3 · Local + Firebase cloud sync · आधिकारिक राजस्व रिकॉर्ड का विकल्प नहीं</footer>
 
 <section id="v4CloudPanel" style="margin:18px auto;max-width:1100px;padding:18px;background:var(--card,#fff);border:1px solid var(--border,#cbd5e1);border-radius:16px;color:var(--text,#0f172a)">
-<h2>V4.2 · Automatic Save, Restore & AI Workspace</h2>
+<h2>V4.3 · Automatic Save, Restore & AI Workspace</h2>
 <style>#v4CloudPanel button{background:#173b70;color:#fff;border:0;border-radius:9px;padding:11px 14px;font:600 15px inherit;cursor:pointer}#v4CloudPanel button:active{transform:scale(.98)}#v4CloudPanel input,#v4CloudPanel textarea{box-sizing:border-box;border:1px solid #cbd5e1;border-radius:9px;background:#f8fafc;color:#0f172a;font:16px inherit}#v4CloudPanel input{min-height:46px}#v4CloudPanel p[role=status]{overflow-wrap:anywhere;font-weight:600}#v4AuthStatus{padding:9px 10px;border-radius:8px;background:#f1f5f9}</style>
 <p style="margin:6px 0 14px;color:var(--muted,#475569)">Firebase configuration is stored only in this browser. Gemini API key stays in Cloudflare Worker Secrets.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
@@ -1221,13 +1380,25 @@
 <pre id="v4AiOutput" style="white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f9;color:#0f172a;padding:12px;border-radius:10px;margin-top:10px"></pre>
 </section>
 <script type="module">
-import "./firebase.js?v=4.2.2";
+import "./firebase.js?v=4.3.0";
 const status=()=>document.getElementById("v4AuthStatus");
 const setStatus=(message)=>{status().textContent=message;const top=document.getElementById("authStatus");if(top)top.textContent=message;};
 const savedCfg=window.PatwariFirebase?.getSavedConfig?.();
 const workerInput=document.getElementById("v4WorkerUrl");
 if(workerInput) workerInput.value=localStorage.getItem("RPAA_V4_WORKER_URL")||"";
-workerInput?.addEventListener("change",()=>localStorage.setItem("RPAA_V4_WORKER_URL",workerInput.value.trim()));
+workerInput?.addEventListener("change",()=>{
+  try {
+    const value=workerInput.value.trim();
+    if(!value){localStorage.removeItem("RPAA_V4_WORKER_URL");return;}
+    const url=new URL(value);
+    if(url.protocol!=="https:") throw new Error("Worker URL HTTPS hona chahiye.");
+    localStorage.setItem("RPAA_V4_WORKER_URL",url.href);
+    setStatus("Worker URL saved.");
+  } catch(error) {
+    setStatus("Worker URL error: "+error.message);
+    workerInput.focus();
+  }
+});
 if(savedCfg){for(const [id,key] of [["v4ApiKey","apiKey"],["v4AuthDomain","authDomain"],["v4ProjectId","projectId"],["v4AppId","appId"]]){const el=document.getElementById(id);if(el&&!el.value)el.value=savedCfg[key]||"";}}
 window.v4Connect=async()=>{try{const cfg={apiKey:document.getElementById("v4ApiKey").value.trim(),authDomain:document.getElementById("v4AuthDomain").value.trim(),projectId:document.getElementById("v4ProjectId").value.trim(),appId:document.getElementById("v4AppId").value.trim()};const r=await window.PatwariFirebase.saveAndConnectConfig(cfg);setStatus(r.ok?"Firebase connected. अब Google Login दबाएँ।":r.reason);}catch(e){status().textContent="Connect error: "+e.message;}};
 window.v4GoogleLogin=async()=>{try{if(!window.PatwariFirebase?.isConfigured()){document.getElementById("v4CloudPanel").scrollIntoView({behavior:"smooth",block:"start"});setStatus("पहले Firebase Console से Web App Config भरें और Save & Connect Firebase दबाएँ।");document.getElementById("v4ApiKey").focus();return;}setStatus("Google sign-in खुल रहा है…");await window.PatwariFirebase.loginGoogle();}catch(e){setStatus("Login error: "+(e.message||String(e)));}};
@@ -1235,15 +1406,32 @@ window.v4Logout=async()=>{try{await window.PatwariFirebase.logoutUser();setStatu
 window.v4CloudSync=async()=>{try{
   const fb=window.PatwariFirebase;
   if(!fb) throw new Error("Firebase module load नहीं हुआ। पेज को hard refresh करें।");
-  if(typeof fb.restoreCloud!=="function") throw new Error("पुराना Firebase module cache में है। पेज बंद करके नया V4.2 लिंक खोलें।");
+  if(typeof fb.restoreCloud!=="function") throw new Error("पुराना Firebase module cache में है। पेज बंद करके नया V4.3 लिंक खोलें।");
   if(!fb.getCurrentUser()) throw new Error("पहले Google Login करें।");
   setStatus("Cloud sync running…");
   await fb.restoreCloud();
   await fb.flushPending();
   setStatus("Cloud sync request पूरी हुई। Firestore Data tab में users/UID/app_state/main जाँचें।");
 }catch(e){setStatus("Cloud sync failed: "+(e.message||String(e)));}};
-window.v4AskAI=async()=>{const out=document.getElementById("v4AiOutput");try{const url=document.getElementById("v4WorkerUrl").value.trim();if(!url)throw new Error("Cloudflare Worker URL enter करें.");
-localStorage.setItem("RPAA_V4_WORKER_URL",url);const token=await window.PatwariFirebase.getIdToken();if(!token)throw new Error("पहले Firebase Google Login करें.");const prompt=document.getElementById("v4AiPrompt").value.trim();if(!prompt)throw new Error("अपना प्रश्न लिखें.");out.textContent="Working…";const res=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({prompt,mode:"chat",language:"hi"})});const data=await res.json();if(!res.ok)throw new Error(data.error||"AI request failed");out.textContent=data.text+"\n\n"+(data.disclaimer||"");}catch(e){out.textContent=e.message;}};
+window.v4AskAI=async()=>{
+  const out=document.getElementById("v4AiOutput");
+  const prompt=document.getElementById("v4AiPrompt").value.trim();
+  try {
+    const worker=document.getElementById("v4WorkerUrl").value.trim();
+    if(worker){
+      const u=new URL(worker);
+      if(u.protocol!=="https:") throw new Error("Worker URL HTTPS होना चाहिए।");
+      localStorage.setItem("RPAA_V4_WORKER_URL",u.href);
+    }
+    await requestPatwariAI({
+      prompt,
+      taskType:"chat",
+      language:document.getElementById("langSelect")?.value||"hi",
+      output:out,
+      status:document.getElementById("v4AuthStatus")
+    });
+  } catch(error) { out.textContent=error?.message||String(error); }
+};
 window.addEventListener("patwari-login-error",e=>{setStatus("Google Login error: "+e.detail);});
 window.addEventListener("patwari-auth",e=>{setStatus(e.detail?.user?"Signed in: "+e.detail.user.email:"Signed out • Local mode");});
 // Buttons use their inline handlers; do not attach duplicate click listeners.

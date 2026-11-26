@@ -1,0 +1,26 @@
+name: Patwari V4.3 Quality Checks
+on:
+  pull_request:
+    paths:
+      - "patwari-v4/**"
+      - ".github/workflows/patwari-v4-ci.yml"
+  push:
+    branches: [patwari-v4.3-full-audit-upgrade]
+    paths:
+      - "patwari-v4/**"
+      - ".github/workflows/patwari-v4-ci.yml"
+permissions:
+  contents: read
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: patwari-v4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run static, UI contract and Worker mock tests
+        run: npm test
