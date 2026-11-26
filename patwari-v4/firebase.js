@@ -21,11 +21,16 @@ function mergeById(local, cloud) {
     const map = new Map();
     (cloud?.[k]||[]).forEach(x=>map.set(String(x.id),x));
     (local?.[k]||[]).forEach(x=>{
-      const id=String(x.id);
-      if(!map.has(id)) map.set(id,x);
+      const id=String(x.id), remote=map.get(id);
+      if(!remote) map.set(id,x);
       else {
-        const a=map.get(id), ta=Number(a.updatedAt||a.clientUpdatedAt||0), tb=Number(x.updatedAt||x.clientUpdatedAt||0);
-        if(tb>ta) map.set(id,x);
+        const remoteTime=Number(remote.updatedAt||remote.clientUpdatedAt||remote.updatedAtMs||0);
+        const localTime=Number(x.updatedAt||x.clientUpdatedAt||x.updatedAtMs||0);
+        if(localTime>remoteTime) map.set(id,x);
+        else if(localTime===remoteTime) {
+          const conflictId=id+"-local-conflict-"+String(x.updatedAt||"undated")+"-"+String(JSON.stringify(x).length);
+          if(!map.has(conflictId)) map.set(conflictId,{...x,id:conflictId,conflictOf:id,conflictNote:"Same-ID conflict preserved for manual review"});
+        }
       }
     });
     out[k]=Array.from(map.values());
