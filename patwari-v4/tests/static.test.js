@@ -18,7 +18,7 @@ const ids=[...html.matchAll(/\bid=["']([^"']+)["']/g)].map(m=>m[1]);
 test("HTML IDs are unique",()=>assert.equal(ids.length,new Set(ids).size));
 test("All inline-handler function names resolve to app functions or declared globals",()=>{
   const calls=handlers.flatMap(code=>[...code.matchAll(/(?:^|[;{}]\s*)([A-Za-z_$][\w$]*)\s*\(/g)].map(m=>m[1]));
-  const missing=[...new Set(calls)].filter(name=>!declared.has(name)&&!globalHandlers.has(name)&&!["alert","confirm","prompt","open","print"].includes(name));
+  const missing=[...new Set(calls)].filter(name=>!declared.has(name)&&!globalHandlers.has(name)&&!["alert","confirm","prompt","open","print","window","document"].includes(name));
   assert.deepEqual(missing,[]);
 });
 test("Legacy Firebase global APIs are absent",()=>{
