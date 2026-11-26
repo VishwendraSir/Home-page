@@ -5,7 +5,7 @@ import { initializeFirestore, getFirestore, persistentLocalCache, persistentSing
 const KEY = "RPAA_V4_FIREBASE_CONFIG";
 const PENDING_KEY = "RPAA_V4_PENDING_CLOUD_STATE";
 const STATE_KEY = "RPAA_SEWAR_COMPLETE_HTML5_V1";
-let app, auth, db, currentUser = null, saveTimer = null, restoring = false, initPromise = null, lastSavedJSON = "";
+let app, auth, db, currentUser = null, saveTimer = null, restoring = false, initPromise = null, activeConfigFingerprint = "", lastSavedJSON = "";
 let cloudWriteChain = Promise.resolve();
 
 const valid = c => c && ["apiKey","authDomain","projectId","appId"].every(k =>
@@ -43,7 +43,14 @@ function mergeById(local, cloud) {
 
 async function init(c) {
   if (!valid(c)) return {ok:false, reason:"Firebase config incomplete."};
-  if (initPromise) return initPromise;
+  const fingerprint = JSON.stringify(c);
+  if (initPromise) {
+    if (activeConfigFingerprint && activeConfigFingerprint !== fingerprint) {
+      return {ok:false,reason:"Firebase config इस session में पहले से initialize है। नया project/config लागू करने के लिए page refresh करें।"};
+    }
+    return initPromise;
+  }
+  activeConfigFingerprint = fingerprint;
   initPromise = (async()=>{
     try {
       const existing=getApps().find(a=>a.options.projectId===c.projectId);
@@ -66,7 +73,7 @@ async function init(c) {
       });
       window.addEventListener("online",()=>flushPending().catch(e=>emit("patwari-cloud-status","Sync Failed: "+e.message)));
       return {ok:true};
-    } catch(e) { initPromise=null; return {ok:false,reason:e.message||String(e)}; }
+    } catch(e) { initPromise=null; activeConfigFingerprint=""; return {ok:false,reason:e.message||String(e)}; }
   })();
   return initPromise;
 }
