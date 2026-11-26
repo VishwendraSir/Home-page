@@ -1198,7 +1198,48 @@
       const el=document.getElementById("authStatus");
       if(el) el.textContent=e.detail?.user ? ("Signed in: "+e.detail.user.email) : "Local mode";
     });
-    async function runPatwariAI() {\n      const prompt = document.getElementById("aiPrompt").value.trim();\n      const output = document.getElementById("aiOutput");\n      const status = document.getElementById("aiStatus");\n      if (!prompt) { alert("कृपया प्रश्न या प्रकरण का विवरण लिखें।"); return; }\n      const cfg = window.PATWARI_CONFIG || {};\n      if (!cfg.workerUrl || !window.firebaseAuth || !window.firebaseAuth.currentUser) { status.textContent = "AI अभी कनेक्ट नहीं है। Worker URL और Firebase Authentication configuration सेट करें; API key को HTML में न डालें।"; return; }\n      status.textContent = "AI उत्तर तैयार हो रहा है…"; output.textContent = "कृपया प्रतीक्षा करें…";\n      try { const token = await window.firebaseAuth.currentUser.getIdToken(); const response = await fetch(cfg.workerUrl, { method:"POST", headers:{"Content-Type":"application/json","Authorization":"Bearer "+token}, body:JSON.stringify({ prompt, taskType:document.getElementById("aiTaskType").value, language:document.getElementById("aiLang").value }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error || "AI request failed"); output.textContent = data.text || "कोई उत्तर प्राप्त नहीं हुआ।"; status.textContent = "उत्तर तैयार। आधिकारिक उपयोग से पहले तथ्य सत्यापित करें।"; logAudit("AI मसौदा तैयार किया गया"); } catch (e) { status.textContent = "AI सेवा त्रुटि: " + e.message; output.textContent = "कनेक्शन उपलब्ध नहीं। कृपया Worker/Firebase configuration जाँचें।"; }\n    }\n    function renderCalendarTasks() { const date=document.getElementById("calendarDate").value; const filter=document.getElementById("calendarFilter").value; const list=state.tasks.filter(t=>(!date||t.due===date)&&(filter==="all"||(filter==="done"?t.done:!t.done))); document.getElementById("calendarTaskList").textContent=list.length?list.map(t=>`${t.done?"✓":"○"} ${t.title} | ${t.priority} | ${t.due}`).join("\\n"):"इस चयन में कोई कार्य नहीं।"; }\n    function generateMonthlyReport() { const m=document.getElementById("reportMonth").value; if(!m){alert("कृपया माह चुनें।");return;} const tasks=state.tasks.filter(t=>(t.due||"").startsWith(m)); const lines=[`मासिक राजस्व कार्यालय रिपोर्ट — ${m}`,`हल्का: सेवर, तहसील/जिला: भरतपुर, राजस्थान`,`भूमि रिकॉर्ड: ${state.land.length}`,`कुल दर्ज क्षेत्रफल: ${state.land.reduce((a,x)=>a+(Number(x.areaHa)||0),0).toFixed(4)} Ha`,`नामांतरण: ${state.mutations.length}`,`गिरदावरी प्रविष्टियां: ${state.crops.length}`,`क्षेत्र भ्रमण: ${state.visits.length}`,`इस माह निर्धारित कार्य: ${tasks.length}`,`पूर्ण कार्य: ${tasks.filter(t=>t.done).length}`,`लंबित कार्य: ${tasks.filter(t=>!t.done).length}`]; document.getElementById("monthlyReportOutput").textContent=lines.join("\\n"); logAudit("मासिक रिपोर्ट बनाई गई: "+m); }\n\n    // V4.1 cloud-state bridge: merge by stable record id; cloud wins on conflicts.
+    async function requestPatwariAI({prompt,taskType="draft",language="hi",output,status}) {
+      const fb=window.PatwariFirebase;
+      const set=(el,msg)=>{if(el)el.textContent=msg;};
+      if(!prompt.trim()) throw new Error("कृपया प्रश्न या प्रकरण का विवरण लिखें।");
+      const url=(localStorage.getItem("RPAA_V4_WORKER_URL")||"").trim();
+      if(!url) throw new Error("पहले Firebase / AI Settings में Cloudflare Worker URL सेव करें।");
+      let parsed;
+      try { parsed=new URL(url); } catch { throw new Error("Worker URL मान्य नहीं है।"); }
+      if(parsed.protocol!=="https:") throw new Error("Worker URL HTTPS होना चाहिए।");
+      if(!fb?.getIdToken) throw new Error("Firebase module उपलब्ध नहीं है। पेज refresh करें।");
+      const token=await fb.getIdToken();
+      if(!token) throw new Error("पहले Google Login करें।");
+      set(status,"AI उत्तर तैयार हो रहा है…");
+      set(output,"कृपया प्रतीक्षा करें…");
+      const controller=new AbortController();
+      const timeout=setTimeout(()=>controller.abort(),45000);
+      try {
+        const response=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({prompt,taskType,language}),signal:controller.signal});
+        const raw=await response.text();
+        let data;
+        try { data=JSON.parse(raw); } catch { throw new Error("AI Worker ने मान्य JSON response नहीं दिया (HTTP "+response.status+")"); }
+        if(!response.ok) throw new Error(data.error||("AI request failed (HTTP "+response.status+")"));
+        if(typeof data.text!=="string"||!data.text.trim()) throw new Error("AI से खाली या invalid response मिला।");
+        set(output,data.text+(data.disclaimer?"\n\n"+data.disclaimer:""));
+        set(status,"उत्तर तैयार। आधिकारिक उपयोग से पहले अभिलेख और विभागीय निर्देश सत्यापित करें।");
+        logAudit("AI draft generated");
+        return data;
+      } catch(error) {
+        if(error.name==="AbortError") throw new Error("AI request timeout हुआ। नेटवर्क जाँचकर पुनः प्रयास करें।");
+        throw error;
+      } finally { clearTimeout(timeout); }
+    }
+
+    async function runPatwariAI() {
+      const prompt=document.getElementById("aiPrompt").value.trim();
+      const output=document.getElementById("aiOutput");
+      const status=document.getElementById("aiStatus");
+      try { await requestPatwariAI({prompt,taskType:document.getElementById("aiTaskType").value,language:document.getElementById("aiLang").value,output,status}); }
+      catch(error) { status.textContent="AI सेवा त्रुटि: "+(error.message||String(error)); output.textContent="कनेक्शन उपलब्ध नहीं। Worker URL, Google Login और सेवा सेटिंग जाँचें।"; }
+    }
+
+    function renderCalendarTasks() { const date=document.getElementById("calendarDate").value; const filter=document.getElementById("calendarFilter").value; const list=state.tasks.filter(t=>(!date||t.due===date)&&(filter==="all"||(filter==="done"?t.done:!t.done))); document.getElementById("calendarTaskList").textContent=list.length?list.map(t=>`${t.done?"✓":"○"} ${t.title} | ${t.priority} | ${t.due}`).join("\\n"):"इस चयन में कोई कार्य नहीं।"; }\n    function generateMonthlyReport() { const m=document.getElementById("reportMonth").value; if(!m){alert("कृपया माह चुनें।");return;} const tasks=state.tasks.filter(t=>(t.due||"").startsWith(m)); const lines=[`मासिक राजस्व कार्यालय रिपोर्ट — ${m}`,`हल्का: सेवर, तहसील/जिला: भरतपुर, राजस्थान`,`भूमि रिकॉर्ड: ${state.land.length}`,`कुल दर्ज क्षेत्रफल: ${state.land.reduce((a,x)=>a+(Number(x.areaHa)||0),0).toFixed(4)} Ha`,`नामांतरण: ${state.mutations.length}`,`गिरदावरी प्रविष्टियां: ${state.crops.length}`,`क्षेत्र भ्रमण: ${state.visits.length}`,`इस माह निर्धारित कार्य: ${tasks.length}`,`पूर्ण कार्य: ${tasks.filter(t=>t.done).length}`,`लंबित कार्य: ${tasks.filter(t=>!t.done).length}`]; document.getElementById("monthlyReportOutput").textContent=lines.join("\\n"); logAudit("मासिक रिपोर्ट बनाई गई: "+m); }\n\n    // V4.1 cloud-state bridge: merge by stable record id; cloud wins on conflicts.
     function mergeCloudState(local, remote) {
       const merged = normalizeState(remote || {});
       const src = normalizeState(local || {});
@@ -1297,7 +1338,7 @@ window.v4CloudSync=async()=>{try{
   await fb.flushPending();
   setStatus("Cloud sync request पूरी हुई। Firestore Data tab में users/UID/app_state/main जाँचें।");
 }catch(e){setStatus("Cloud sync failed: "+(e.message||String(e)));}};
-window.v4AskAI=async()=>{const out=document.getElementById("v4AiOutput");try{const url=document.getElementById("v4WorkerUrl").value.trim();if(!url)throw new Error("Cloudflare Worker URL enter करें.");
+window.v4AskAI=async()=>{const out=document.getElementById("v4AiOutput");const prompt=document.getElementById("v4AiPrompt").value.trim();try{const worker=document.getElementById("v4WorkerUrl").value.trim();if(worker){const u=new URL(worker);if(u.protocol!=="https:")throw new Error("Worker URL HTTPS होना चाहिए।");localStorage.setItem("RPAA_V4_WORKER_URL",u.href);}await requestPatwariAI({prompt,taskType:"chat",language:document.getElementById("langSelect")?.value||"hi",output:out,status:document.getElementById("v4AuthStatus")});}catch(e){out.textContent=e.message||String(e);}};try{const url=document.getElementById("v4WorkerUrl").value.trim();if(!url)throw new Error("Cloudflare Worker URL enter करें.");
 localStorage.setItem("RPAA_V4_WORKER_URL",url);const token=await window.PatwariFirebase.getIdToken();if(!token)throw new Error("पहले Firebase Google Login करें.");const prompt=document.getElementById("v4AiPrompt").value.trim();if(!prompt)throw new Error("अपना प्रश्न लिखें.");out.textContent="Working…";const res=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({prompt,mode:"chat",language:"hi"})});const data=await res.json();if(!res.ok)throw new Error(data.error||"AI request failed");out.textContent=data.text+"\n\n"+(data.disclaimer||"");}catch(e){out.textContent=e.message;}};
 window.addEventListener("patwari-login-error",e=>{setStatus("Google Login error: "+e.detail);});
 window.addEventListener("patwari-auth",e=>{setStatus(e.detail?.user?"Signed in: "+e.detail.user.email:"Signed out • Local mode");});
