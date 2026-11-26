@@ -75,3 +75,20 @@ test("Worker returns sanitized upstream failure", async()=>{
   assert.equal(JSON.stringify(data).includes("secret upstream details"),false);
 });
 test.after(()=>{globalThis.fetch=originalFetch;});
+
+
+test("Worker applies per-user request throttling",async()=>{
+  globalThis.fetch=async(url,init)=>{
+    if(String(url).includes("identitytoolkit")) return responseJson({users:[{localId:"rate-limit-user"}]});
+    return responseJson({candidates:[{content:{parts:[{text:"ok"}]}}]});
+  };
+  let last;
+  for(let i=0;i<21;i++){
+    last=await worker.fetch(new Request("https://worker.test",{
+      method:"POST",
+      headers:{Origin:env.ALLOWED_ORIGIN,Authorization:"Bearer valid","Content-Type":"application/json","CF-Connecting-IP":"203.0.113.77"},
+      body:JSON.stringify({prompt:"test"})
+    }),env);
+  }
+  assert.equal(last.status,429);
+});
