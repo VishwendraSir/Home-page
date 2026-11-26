@@ -3,23 +3,23 @@
 ## Automated checks — passed
 Run from `patwari-v4/` with `npm test`.
 
-- GitHub Actions run: <https://github.com/VishwendraSir/Home-page/actions/runs/45755215138>
-- Tested commit: `17f1d46359b5313c61b29b7a018d69dd45226278`
-- Result: **31 tests passed, 0 failed**.
+- GitHub Actions run: <https://github.com/VishwendraSir/Home-page/actions/runs/45755577026>
+- Tested commit: `db3acc2e6625e514a2a860f69be9835cfece5053`
+- Result: **36 tests passed, 0 failed**.
 
 Coverage:
 - Unique HTML IDs and inline handler function resolution.
-- Stale Firebase global absence.
-- Shared AI request helper and token retrieval.
+- Stale Firebase global absence and shared AI client/token use.
 - IndexedDB recovery and blank first-run initialization.
-- CRUD timestamp presence.
-- Land search renderer wiring.
-- App/manifest/module/service-worker version and icon consistency.
-- Service Worker cache boundaries.
+- CRUD timestamps and Firebase config-switch guard.
+- Static DOM selector existence and inline JavaScript parsing.
+- Firebase and Service Worker syntax; version/cache and PWA icon consistency.
 - Owner-only Firestore rule source contract.
-- Worker CORS, HTTP method, missing/invalid token, missing Gemini secret, malformed JSON, prompt length, success, sanitized upstream failure, per-user request throttling and bilingual prompt mode.
-- Inline JavaScript parsing; Firebase and Service Worker syntax; static DOM selector references.
-- CSV formula guard, record ID escaping and imported record cloning/validation.
+- Worker CORS, HTTP method, missing/invalid token, missing Gemini secret, malformed JSON, prompt limits, success, sanitized upstream failure, per-user throttling and bilingual prompt mode.
+- Executable app-function tests with a controlled fake DOM: imported-state cloning/validation, area conversions/share validation, task validation and timestamped persistence, and safe record search output.
+- CSV formula guard and record ID escaping.
+
+The fake-DOM tests exercise selected functions, but they are not a substitute for a real browser/device test.
 
 ## Manual / integration tests still required
 1. Google redirect login with intended Firebase project and Authorized Domain.
