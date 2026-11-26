@@ -1361,7 +1361,19 @@ const setStatus=(message)=>{status().textContent=message;const top=document.getE
 const savedCfg=window.PatwariFirebase?.getSavedConfig?.();
 const workerInput=document.getElementById("v4WorkerUrl");
 if(workerInput) workerInput.value=localStorage.getItem("RPAA_V4_WORKER_URL")||"";
-workerInput?.addEventListener("change",()=>localStorage.setItem("RPAA_V4_WORKER_URL",workerInput.value.trim()));
+workerInput?.addEventListener("change",()=>{
+  try {
+    const value=workerInput.value.trim();
+    if(!value){localStorage.removeItem("RPAA_V4_WORKER_URL");return;}
+    const url=new URL(value);
+    if(url.protocol!=="https:") throw new Error("Worker URL HTTPS hona chahiye.");
+    localStorage.setItem("RPAA_V4_WORKER_URL",url.href);
+    setStatus("Worker URL saved.");
+  } catch(error) {
+    setStatus("Worker URL error: "+error.message);
+    workerInput.focus();
+  }
+});
 if(savedCfg){for(const [id,key] of [["v4ApiKey","apiKey"],["v4AuthDomain","authDomain"],["v4ProjectId","projectId"],["v4AppId","appId"]]){const el=document.getElementById(id);if(el&&!el.value)el.value=savedCfg[key]||"";}}
 window.v4Connect=async()=>{try{const cfg={apiKey:document.getElementById("v4ApiKey").value.trim(),authDomain:document.getElementById("v4AuthDomain").value.trim(),projectId:document.getElementById("v4ProjectId").value.trim(),appId:document.getElementById("v4AppId").value.trim()};const r=await window.PatwariFirebase.saveAndConnectConfig(cfg);setStatus(r.ok?"Firebase connected. अब Google Login दबाएँ।":r.reason);}catch(e){status().textContent="Connect error: "+e.message;}};
 window.v4GoogleLogin=async()=>{try{if(!window.PatwariFirebase?.isConfigured()){document.getElementById("v4CloudPanel").scrollIntoView({behavior:"smooth",block:"start"});setStatus("पहले Firebase Console से Web App Config भरें और Save & Connect Firebase दबाएँ।");document.getElementById("v4ApiKey").focus();return;}setStatus("Google sign-in खुल रहा है…");await window.PatwariFirebase.loginGoogle();}catch(e){setStatus("Login error: "+(e.message||String(e)));}};
