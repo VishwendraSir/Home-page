@@ -7,7 +7,7 @@ const themes=[["Ocean Blue",["#062a55","#087eae","#36d5e8"]],["Royal Purple",["#
 let state={type:"poster",theme:0,ratio:"portrait",language:"both",answers:false,qr:true,custom:"Explore • Learn • Practice • Share",blob:null};
 function readLive(){
  const title=document.title.replace(/\s*[|—-]\s*Science Centre Learning Hub.*$/i,"").trim()||"Learning Challenge";
- const question=pick(["#mockQ","#practiceQ","#question","#qtext","#qhi","#qno","#qen",".question-text",".qtext"]);
+ const question=pick(["#mockQ","#practiceQ","#question","#qtext","#qhi","#qen",".question-text",".qtext"]);
  const root=["#mockOpts","#practiceOpts","#options","#opts",".options",".option-list"].map($).find(e=>e&&e.children.length);
  let options=root?[...root.querySelectorAll("button,label,[role=option],.option")].map(txt).filter(Boolean):[];
  if(!options.length&&root)options=[...root.children].map(txt).filter(Boolean);
@@ -15,9 +15,9 @@ function readLive(){
  const totalText=(document.body.innerText.match(/(?:80|100|50|40|20|10|[0-9]{1,4})\s*(?:प्रश्न|questions|MCQ)/i)||[])[0]||"";
  const section=pick(["#mockSubject","#practiceSubject","#modeLabel","#sectionTag"]);
  const score=pick(["#scoreValue","#score","#finalScore","#scoreLive"]);
- const summary=pick(["#summary","#resultText","#scoreMeta","#resultMessage"]);
+ const summary=pick(["#summary","#resultText","#scoreMeta","#resultMessage"]);\n const answer=pick(["#feedback .answer","#feedback",".answer",".correct","[data-correct=\\"true\\"]","#explain"]);
  const result=!!(["#mockResult","#result"].map($).find(e=>e&&!e.classList.contains("hidden")&&getComputedStyle(e).display!=="none"));
- return {title,question,options:options.slice(0,6),counter,totalText,section,score,summary,result,url:location.href};
+ return {title,question,options:options.slice(0,6),counter,totalText,section,score,summary,answer,result,url:location.href};
 }
 function loadQr(){if(window.QRCode)return Promise.resolve(true);if(!navigator.onLine)return Promise.resolve(false);return new Promise(resolve=>{const s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";s.onload=()=>resolve(!!window.QRCode);s.onerror=()=>resolve(false);document.head.appendChild(s)})}
 const css=document.createElement("style");css.textContent=
@@ -60,7 +60,7 @@ async function generate(){
  if(d.section)y=draw("SUBJECT / SECTION: "+d.section,100,y,880,25,"#365d86",750,2)+14;
  if(state.type==="question"){
   y=draw("QUESTION",100,y,880,25,"#0b7a99",900,1)+12;y=draw(d.question||"No active question detected on this page.",100,y,880,34,"#17233f",800,5)+18;
-  d.options.forEach((o,i)=>{round(100,y,880,64,15,"#edf5ff");y=draw(String.fromCharCode(65+i)+". "+o,125,y+41,830,25,"#17233f",700,2)+12});
+  d.options.forEach((o,i)=>{round(100,y,880,64,15,"#edf5ff");y=draw(String.fromCharCode(65+i)+". "+o,125,y+41,830,25,"#17233f",700,2)+12});if(state.answers&&d.answer)y=draw("Answer: "+d.answer,110,y+10,850,25,"#16834b",900,2)+12;
  }else if(state.type==="result"){
   y=draw(d.result?[d.score,d.summary].filter(Boolean).join(" • "):"Complete the quiz to display your actual result here.",100,y,880,34,d.result?"#17233f":"#9b3c2d",800,6)+22;
  }else{
@@ -86,6 +86,6 @@ $("#sclh-tg").onclick=()=>open("https://t.me/share/url?url="+encodeURIComponent(
 $("#sclh-fb").onclick=()=>open("https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(location.href));
 $("#sclh-x").onclick=()=>open("https://twitter.com/intent/tweet?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title));
 $("#sclh-class").onclick=async()=>{try{await navigator.clipboard.writeText(location.href);setStatus("URL copied. Paste it into Google Classroom.")}catch(e){setStatus(location.href)}};
-["type","theme","ratio","lang","answer","custom"].forEach(k=>$("#sclh-"+k).addEventListener("change",e=>{if(k==="theme")state.theme=Number(e.target.value);else if(k==="answer")state.answers=e.target.value==="yes";else state[k]=e.target.value;generate().catch(err=>setStatus(err.message))}));
+["type","theme","ratio","lang","answer","custom","qr"].forEach(k=>$("#sclh-"+k).addEventListener("change",e=>{if(k==="theme")state.theme=Number(e.target.value);else if(k==="answer")state.answers=e.target.value==="yes";else if(k==="qr")state.qr=e.target.value==="yes";else state[k]=e.target.value;generate().catch(err=>setStatus(err.message))}));
 modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("open")});
 })();
