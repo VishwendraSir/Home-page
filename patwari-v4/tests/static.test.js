@@ -49,6 +49,8 @@ test("V4.3 app, Firebase, manifest and worker cache versions agree",()=>{
   assert.match(html,/APP_VERSION = "4\.3\.0"/);
   assert.match(html,/firebase\.js\?v=4\.3\.0/);
   assert.match(manifest.name,/V4\.3/);
+  assert.ok(manifest.icons?.some(icon=>icon.src==="./icon.svg"),"PWA icon must be registered");
+  assert.match(sw,/icon\.svg/);
   assert.match(sw,/v43-audit/);
   assert.match(sw,/firebase\.js\?v=4\.3\.0/);
 });
