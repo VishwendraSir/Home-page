@@ -93,7 +93,7 @@ function renderRoleCards(){
  el.querySelectorAll("[data-role]").forEach(b=>b.addEventListener("click",()=>{activeAudience=b.dataset.role;activeCategory="All Applications";renderRoleCards();renderFilters();render();document.getElementById("all-projects").scrollIntoView({behavior:"smooth",block:"start"})}));
 }
 function renderFilters(){
- filters.innerHTML=categoryDefs.filter(c=>c.name!=="Other Digital Tools"||activeCategory===c.name).map(c=>'<button class="filter '+(activeCategory===c.name?'active':'')+'" data-cat="'+esc(c.name)+'">'+esc(c.name)+'</button>').join("");
+ filters.innerHTML=categoryDefs.map(c=>'<button class="filter '+(activeCategory===c.name?'active':'')+'" data-cat="'+esc(c.name)+'">'+esc(c.name)+'</button>').join("");
  filters.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{activeCategory=b.dataset.cat;renderFilters();render()}));
 }
 function render(){
