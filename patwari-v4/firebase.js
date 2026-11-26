@@ -116,6 +116,11 @@ async function writeSnapshot(state,user=currentUser,force=false) {
   const snap=await getDoc(ref);
   let finalState=state;
   if(snap.exists()&&!force) finalState=mergeById(state,snap.data().state||{});
+  const stateBytes = new TextEncoder().encode(JSON.stringify(finalState)).byteLength;
+  // Firestore document hard limit is 1 MiB; keep a safety margin for metadata.
+  if (stateBytes > 900 * 1024) {
+    throw new Error("Cloud backup 900 KB से बड़ा है। JSON backup डाउनलोड करें और पुराने audit entries/अनावश्यक records कम करें; डेटा truncate नहीं किया गया।");
+  }
   const now=Date.now();
   const payload={ownerUid:user.uid,state:finalState,clientUpdatedAt:now,serverUpdatedAt:serverTimestamp(),schemaVersion:2};
   await setDoc(ref,payload);
@@ -203,7 +208,7 @@ async function exportCloudBackup(){
 }
 
 window.PatwariFirebase={
-  isConfigured:()=>!!db,getCurrentUser:()=>currentUser,getSavedConfig,saveAndConnectConfig,loginGoogle,logoutUser,getIdToken,
+  isConfigured:()=>!!(db&&auth),getCurrentUser:()=>currentUser,getSavedConfig,saveAndConnectConfig,loginGoogle,logoutUser,getIdToken,
   queueSave,saveStateNow,restoreCloud:()=>restoreCloudForUser(currentUser),flushPending,exportCloudBackup
 };
 const saved=getSavedConfig();
