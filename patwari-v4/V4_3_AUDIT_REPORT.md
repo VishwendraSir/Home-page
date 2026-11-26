@@ -3,10 +3,10 @@
 Branch: `patwari-v4.3-full-audit-upgrade`
 
 ## Automated CI result
-- GitHub Actions run: <https://github.com/VishwendraSir/Home-page/actions/runs/45755577026>
-- Tested commit: `db3acc2e6625e514a2a860f69be9835cfece5053`
-- Node test runner: **36 passed, 0 failed**.
-- Tests include static UI contracts, inline handler resolution, unique DOM IDs, inline JavaScript parsing, DOM selector references, Firebase/Service Worker syntax, mocked Worker CORS/auth/input/rate-limit/bilingual/upstream behavior, and executable app-function tests using a controlled fake DOM.
+- GitHub Actions run: <https://github.com/VishwendraSir/Home-page/actions/runs/45755766540>
+- Tested commit: `c0c79bc4c70dbaf1136527c902fcbaa4f6a6dc89`
+- Node test runner: **37 passed, 0 failed**.
+- Tests include static UI contracts, inline handler resolution, unique DOM IDs, inline JavaScript parsing, DOM selector references, Firebase/Service Worker syntax, mocked Worker CORS/auth/input/rate-limit/bilingual/upstream behavior, and executable app-function tests using a controlled fake DOM, including cloud merge conflict behavior.
 - This is not real-browser E2E, Firebase Emulator, Google sign-in, live Firestore or live Gemini proof.
 
 ## Source inventory
