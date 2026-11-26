@@ -20,4 +20,5 @@ const mini=document.createElement("button");mini.id="sch-social-mini";mini.type=
 bar.querySelector("#sch-hide-social").onclick=()=>{bar.hidden=true;mini.hidden=false;};
 mini.onclick=()=>{bar.hidden=false;mini.hidden=true;};
 bar.querySelector("#sch-share-site").onclick=async()=>{const data={title:document.title||"Science Centre Learning Hub",text:"SCIENCE CENTRE LEARNING HUB — Guided by Vishwendra Sir",url:location.origin+location.pathname};try{if(navigator.share)await navigator.share(data);else if(navigator.clipboard){await navigator.clipboard.writeText(location.origin+location.pathname);mini.textContent="✓ Link copied";setTimeout(()=>mini.textContent="🌐 Follow",2200);}else prompt("Copy page link:",location.origin+location.pathname);}catch(e){if(e.name!=="AbortError")prompt("Copy page link:",location.origin+location.pathname);}};
+const q=document.createElement("script");q.src="https://vishwendrasir.github.io/Home-page/quiz-share.js?v=1";q.defer=true;document.head.appendChild(q);
 })();
