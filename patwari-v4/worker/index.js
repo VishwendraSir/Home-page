@@ -87,7 +87,7 @@ export default {
       return respond({ error: "Prompt or document text exceeds the allowed limit" }, 413, origin, env);
     }
 
-    const language = body.language === "en" ? "English" : "Hindi";
+    const language = body.language === "en" ? "English" : body.language === "both" ? "Hindi and English (provide both languages in clearly separated sections)" : "Hindi";
     const taskType = typeof body.taskType === "string" ? body.taskType.slice(0, 40) : "draft";
     const system = [
       "You are a careful Rajasthan revenue-office drafting assistant.",
