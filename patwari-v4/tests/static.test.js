@@ -86,12 +86,12 @@ test("No duplicate module import path or stale V4.2 cache versions",()=>{
 
 test("Inline JavaScript blocks parse without syntax errors",()=>{
   let count=0;
-  for(const match of html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/gi)){
+  for(const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)){
     const attrs=match[1]||"";
-    if(/\\bsrc\\s*=/.test(attrs)) continue;
+    if(/\bsrc\s*=/.test(attrs)) continue;
     let code=match[2]||"";
-    if(/\\btype=["']module["']/.test(attrs)){
-      code=code.replace(/^\\s*import\\s+[^;]+;\\s*$/gm,"");
+    if(/\btype=["']module["']/.test(attrs)){
+      code=code.replace(/^\s*import\s+[^;]+;\s*$/gm,"");
     }
     new vm.Script(code,{filename:"index.html:inline-script-"+(++count)});
   }
@@ -99,12 +99,12 @@ test("Inline JavaScript blocks parse without syntax errors",()=>{
 });
 test("Static DOM selectors resolve to declared element IDs",()=>{
   const declared=new Set(ids);
-  const references=[...html.matchAll(/getElementById\\(["']([^"']+)["']\\)/g)].map(m=>m[1]);
+  const references=[...html.matchAll(/getElementById\(["']([^"']+)["']\)/g)].map(m=>m[1]);
   const missing=[...new Set(references)].filter(id=>!declared.has(id));
   assert.deepEqual(missing,[]);
 });
 test("Firebase and service-worker JavaScript parse",()=>{
-  const firebaseSource=firebase.replace(/^\\s*import\\s+[^;]+;\\s*$/gm,"");
+  const firebaseSource=firebase.replace(/^\s*import\s+[^;]+;\s*$/gm,"");
   new vm.Script(firebaseSource,{filename:"firebase.js"});
   new vm.Script(sw,{filename:"service-worker.js"});
   // Worker syntax is also checked by importing it in worker.test.js.
