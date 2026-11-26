@@ -679,11 +679,40 @@
       r.readAsDataURL(f);
     }
     function resetBackdrop() { document.getElementById("heroBanner").style.background = ""; }
-    function syncOfflineQueue() {
+    async function syncOfflineQueue() {
       updateNetBadge();
-      persist(true);
-      logAudit("स्थानीय डेटा सिंक किया गया");
-      alert("डेटा इस डिवाइस में सुरक्षित किया गया है। क्लाउड सर्वर से सिंक अभी कॉन्फ़िगर नहीं है।");
+      // Always keep a local copy before attempting any network operation.
+      persist(false);
+      const fb = window.PatwariFirebase;
+      if (!fb || !fb.isConfigured?.()) {
+        renderAll();
+        alert("स्थानीय डेटा सुरक्षित है। Firebase कॉन्फ़िगर नहीं है; पहले Save & Connect Firebase करें।");
+        return;
+      }
+      if (!fb.getCurrentUser?.()) {
+        renderAll();
+        alert("स्थानीय डेटा सुरक्षित है। Cloud Sync के लिए पहले Google Login करें।");
+        return;
+      }
+      const btn = document.querySelector("#heroBanner .btn-green");
+      const oldLabel = btn?.textContent || "🔄 Sync Data";
+      if (btn) { btn.disabled = true; btn.textContent = "⏳ Cloud Sync…"; }
+      try {
+        const result = await fb.saveStateNow(state);
+        if (!result?.ok) throw new Error(result?.reason || "Cloud save was not confirmed");
+        logAudit("Firebase Cloud Sync सफल");
+        renderAll();
+        const net = document.getElementById("netStatus");
+        if (net) net.textContent = "Cloud Saved • Local Backup";
+        alert("Cloud Sync सफल। आपका डेटा Firebase में सुरक्षित किया गया है।");
+      } catch (err) {
+        console.error("Manual cloud sync failed", err);
+        const net = document.getElementById("netStatus");
+        if (net) net.textContent = "Cloud Sync Failed • Local Backup सुरक्षित";
+        alert("Cloud Sync विफल: " + (err.message || String(err)) + "\nआपका Local Data सुरक्षित है।");
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = oldLabel; }
+      }
     }
 
     function searchAllRecords(value) {
@@ -1191,7 +1220,7 @@
 <pre id="v4AiOutput" style="white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f9;color:#0f172a;padding:12px;border-radius:10px;margin-top:10px"></pre>
 </section>
 <script type="module">
-import "./firebase.js?v=4.1.3";
+import "./firebase.js?v=4.1.4";
 const status=()=>document.getElementById("v4AuthStatus");
 const setStatus=(message)=>{status().textContent=message;const top=document.getElementById("authStatus");if(top)top.textContent=message;};
 const savedCfg=window.PatwariFirebase?.getSavedConfig?.();
