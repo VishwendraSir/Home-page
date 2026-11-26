@@ -67,6 +67,8 @@ test("Firestore rules remain owner-only",()=>{
 test("Firebase config changes cannot silently reuse an old initialized project",()=>{
   assert.match(firebase,/activeConfigFingerprint !== fingerprint/);
   assert.match(firebase,/page refresh करें/);
+  assert.match(firebase,/afterRestore/);
+  assert.match(firebase,/latestSave = await saveStateNow\(afterRestore\)/);
 });
 test("Worker bounds body and prompt sizes",()=>{
   assert.match(worker,/MAX_BODY_BYTES/);
