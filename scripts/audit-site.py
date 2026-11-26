@@ -28,10 +28,13 @@ def resolve_target(source, value):
     value = value.strip()
     if not value or value.startswith("#") or re.match(r"^(?:[a-z][a-z0-9+.-]*:|//)", value, re.I):
         return None, ""
-    if any(x in value for x in ("\${", "{{", "}}", "<%", "%}")):
+    if any(x in value for x in ("\${", "{{", "}}", "<%", "%}", "'+", "'+")):
         return None, ""
     parts = urlsplit(value)
     raw = unquote(parts.path)
+    # GitHub Pages project sites are mounted below /Home-page/ rather than the domain root.
+    if raw.startswith("/Home-page/"):
+        raw = raw[len("/Home-page/"):]
     if not raw:
         return source, unquote(parts.fragment)
     target = (ROOT / raw.lstrip("/")) if raw.startswith("/") else (source.parent / raw)
@@ -72,6 +75,9 @@ for page in html_files:
 
 for page in html_files:
     rel = page.relative_to(ROOT).as_posix()
+    # Archived copies are retained for recovery, but they are not live navigation paths.
+    if rel.startswith(("archive/", "backups/")):
+        continue
     try:
         parser = PageParser()
         parser.feed(page.read_text(encoding="utf-8", errors="ignore"))
