@@ -10,3 +10,6 @@
 - Added PWA icon and updated shell cache.
 
 This is a candidate branch, not yet merged or published. CI results, live Firebase/Gemini tests and Android/browser QA must be reviewed before release.
+
+
+Automated CI: 37 tests passed, 0 failed. [Run details](https://github.com/VishwendraSir/Home-page/actions/runs/45755766540).
