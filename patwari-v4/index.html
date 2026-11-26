@@ -1360,8 +1360,25 @@ window.v4CloudSync=async()=>{try{
   await fb.flushPending();
   setStatus("Cloud sync request पूरी हुई। Firestore Data tab में users/UID/app_state/main जाँचें।");
 }catch(e){setStatus("Cloud sync failed: "+(e.message||String(e)));}};
-window.v4AskAI=async()=>{const out=document.getElementById("v4AiOutput");const prompt=document.getElementById("v4AiPrompt").value.trim();try{const worker=document.getElementById("v4WorkerUrl").value.trim();if(worker){const u=new URL(worker);if(u.protocol!=="https:")throw new Error("Worker URL HTTPS होना चाहिए।");localStorage.setItem("RPAA_V4_WORKER_URL",u.href);}await requestPatwariAI({prompt,taskType:"chat",language:document.getElementById("langSelect")?.value||"hi",output:out,status:document.getElementById("v4AuthStatus")});}catch(e){out.textContent=e.message||String(e);}};try{const url=document.getElementById("v4WorkerUrl").value.trim();if(!url)throw new Error("Cloudflare Worker URL enter करें.");
-localStorage.setItem("RPAA_V4_WORKER_URL",url);const token=await window.PatwariFirebase.getIdToken();if(!token)throw new Error("पहले Firebase Google Login करें.");const prompt=document.getElementById("v4AiPrompt").value.trim();if(!prompt)throw new Error("अपना प्रश्न लिखें.");out.textContent="Working…";const res=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+token},body:JSON.stringify({prompt,mode:"chat",language:"hi"})});const data=await res.json();if(!res.ok)throw new Error(data.error||"AI request failed");out.textContent=data.text+"\n\n"+(data.disclaimer||"");}catch(e){out.textContent=e.message;}};
+window.v4AskAI=async()=>{
+  const out=document.getElementById("v4AiOutput");
+  const prompt=document.getElementById("v4AiPrompt").value.trim();
+  try {
+    const worker=document.getElementById("v4WorkerUrl").value.trim();
+    if(worker){
+      const u=new URL(worker);
+      if(u.protocol!=="https:") throw new Error("Worker URL HTTPS होना चाहिए।");
+      localStorage.setItem("RPAA_V4_WORKER_URL",u.href);
+    }
+    await requestPatwariAI({
+      prompt,
+      taskType:"chat",
+      language:document.getElementById("langSelect")?.value||"hi",
+      output:out,
+      status:document.getElementById("v4AuthStatus")
+    });
+  } catch(error) { out.textContent=error?.message||String(error); }
+};
 window.addEventListener("patwari-login-error",e=>{setStatus("Google Login error: "+e.detail);});
 window.addEventListener("patwari-auth",e=>{setStatus(e.detail?.user?"Signed in: "+e.detail.user.email:"Signed out • Local mode");});
 // Buttons use their inline handlers; do not attach duplicate click listeners.
