@@ -109,3 +109,13 @@ test("Firebase and service-worker JavaScript parse",()=>{
   new vm.Script(sw,{filename:"service-worker.js"});
   // Worker syntax is also checked by importing it in worker.test.js.
 });
+
+
+test("CSV export mitigates formula injection and record IDs are escaped",()=>{
+  assert.ok(html.includes(String.raw`/^[\s\u0000-\u001F]*[=+\-@]/`));
+  assert.doesNotMatch(html,/\$\{[rmcvt]\.id\}/);
+});
+test("Imported records are cloned and malformed entries are rejected",()=>{
+  assert.match(html,/src\[key\]\.map\(item=>\(\{\.\.\.item\}\)\)/);
+  assert.match(html,/Invalid record in/);
+});
