@@ -138,8 +138,13 @@ function queueSave(state) {
   emit("patwari-cloud-status","Syncing…");
   clearTimeout(saveTimer);
   saveTimer=setTimeout(async()=>{
-    try { await saveStateNow(snapshot); }
-    catch(e) {
+    try {
+      const result=await saveStateNow(snapshot);
+      if(!result?.ok) {
+        try { localStorage.setItem(PENDING_KEY,JSON.stringify(snapshot)); } catch{}
+        emit("patwari-cloud-status","Cloud save queued • Local backup retained");
+      }
+    } catch(e) {
       try { localStorage.setItem(PENDING_KEY,JSON.stringify(snapshot)); } catch{}
       emit("patwari-cloud-status","Sync Failed • Pending save retained");
       emit("patwari-cloud-error",e.message||String(e));
@@ -153,7 +158,8 @@ async function flushPending() {
   if(pending){
     // Merge queued offline edits with the latest local state before uploading.
     const latest=clone(localState()||{});
-    await saveStateNow(mergeById(pending,latest));
+    const result=await saveStateNow(mergeById(pending,latest));
+    if(!result?.ok) throw new Error(result?.reason||"Pending cloud save was not completed");
   }
 }
 async function saveAndConnectConfig(c) {
