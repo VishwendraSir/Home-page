@@ -573,22 +573,32 @@
       return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
     }
     function normalizeState(input) {
-      const base = { lang:"hi", dark:false, land:[], mutations:[], crops:[], visits:[], tasks:[], audit:[] };
-      const src = input && input.data ? input.data : input;
-      if (!src || typeof src !== "object" || Array.isArray(src)) throw new Error("Invalid backup structure");
-      ["land","mutations","crops","visits","tasks","audit"].forEach(k => {
-        if (src[k] !== undefined && !Array.isArray(src[k])) throw new Error(`Invalid ${k} data`);
-        if (Array.isArray(src[k])) base[k] = src[k].filter(x => x && typeof x === "object" && !Array.isArray(x));
-      });
-      base.lang = src.lang === "en" ? "en" : "hi";
-      base.dark = !!src.dark;
-      ["land","mutations","crops","visits","tasks"].forEach(k => base[k].forEach((x,i) => {
-        x.id = String(x.id || `${k}-${Date.now()}-${i}`).replace(/[^a-zA-Z0-9_-]/g, "_").slice(0,80);
-      }));
-      base.audit = base.audit.map(x => String(x).slice(0,1000)).slice(0,200);
+      const base={lang:"hi",dark:false,land:[],mutations:[],crops:[],visits:[],tasks:[],audit:[]};
+      const src=input&&input.data?input.data:input;
+      if(!src||typeof src!=="object"||Array.isArray(src)) throw new Error("Invalid backup structure");
+      const keys=["land","mutations","crops","visits","tasks","audit"];
+      for(const key of keys){
+        if(src[key]!==undefined&&!Array.isArray(src[key])) throw new Error("Invalid "+key+" data");
+        if(Array.isArray(src[key])){
+          if(src[key].some(item=>!item||typeof item!=="object"||Array.isArray(item))) throw new Error("Invalid record in "+key);
+          base[key]=src[key].map(item=>({...item}));
+        }
+      }
+      base.lang=src.lang==="en"?"en":"hi";
+      base.dark=!!src.dark;
+      const seen=new Set();
+      for(const key of ["land","mutations","crops","visits","tasks"]){
+        base[key]=base[key].map((item,index)=>{
+          const raw=String(item.id||key+"-"+Date.now()+"-"+index);
+          let id=raw.replace(/[^a-zA-Z0-9_-]/g,"_").slice(0,80)||key+"-"+index;
+          if(seen.has(key+":"+id)) id=id+"-"+index;
+          seen.add(key+":"+id);
+          return {...item,id,updatedAt:Number(item.updatedAt||item.clientUpdatedAt||0)||undefined};
+        });
+      }
+      base.audit=base.audit.map(item=>String(item).slice(0,1000)).slice(0,200);
       return base;
     }
-
     function logAudit(msg) {
       state.audit.unshift(`[${new Date().toLocaleString("hi-IN")}] विजय उपाध्याय (सेवर, भरतपुर): ${msg}`);
       if (state.audit.length > 80) state.audit.pop();
