@@ -110,7 +110,12 @@ async function restoreCloudForUser(user) {
       emit("patwari-cloud-status","Sync Failed • Local data retained");
       throw e;
     } finally { restoring=false; }
-    // Flush queued offline edits only after restore has released its write lock.
+    // Reconcile edits made while restore held the lock; persist latest local state before clearing pending data.
+    const afterRestore = clone(localState() || {});
+    if (JSON.stringify(afterRestore) !== lastSavedJSON) {
+      const latestSave = await saveStateNow(afterRestore);
+      if (!latestSave?.ok) throw new Error(latestSave?.reason || "Edits made during restore remain local and need retry.");
+    }
     await flushPending();
   })();
   try { return await restoreTask; }
