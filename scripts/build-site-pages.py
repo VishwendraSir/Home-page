@@ -29,14 +29,18 @@ for path in sorted(ROOT.rglob("*.html")):
         source = path.read_text(encoding="utf-8", errors="ignore")
     except OSError:
         continue
-    if rel.as_posix() == "owner-dashboard.html":
-        continue
+    is_owner_dashboard = rel.as_posix() == "owner-dashboard.html"
 
     relative_root = os.path.relpath(ROOT, path.parent).replace(os.sep, "/")
     prefix = "./" if relative_root == "." else relative_root.rstrip("/") + "/"
     page_id = slug(rel.as_posix())
     fallback = path.stem.replace("_", " ").replace("-", " ").strip() or rel.as_posix()
     items.append({"id": page_id, "path": rel.as_posix(), "title": title_of(source, fallback)})
+
+    # The owner dashboard belongs in the catalogue but must not receive the
+    # shared display-lock loader: it is the control surface for that lock.
+    if is_owner_dashboard:
+        continue
 
     if "site-lock.js" not in source:
         loader = (
