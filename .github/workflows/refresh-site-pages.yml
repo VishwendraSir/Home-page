@@ -18,6 +18,15 @@ jobs:
           python-version: "3.x"
       - name: Build catalogue and wire page lock
         run: python scripts/build-site-pages.py
+      - name: Audit all HTML pages and local navigation
+        run: python scripts/audit-site.py --output /tmp/site-audit-report.json
+      - name: Upload site audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-audit-report
+          path: /tmp/site-audit-report.json
+          if-no-files-found: ignore
       - name: Commit generated catalogue and page integrations
         run: |
           if ! git diff --quiet; then
