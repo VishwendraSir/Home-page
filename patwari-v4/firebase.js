@@ -126,10 +126,18 @@ async function saveStateNow(state) {
   if(!currentUser||!db||!state||restoring) return {ok:false,reason:"Login required or restore in progress"};
   clearTimeout(saveTimer);
   emit("patwari-cloud-status","Syncing…");
-  await writeSnapshotQueued(clone(state));
-  try{localStorage.removeItem(PENDING_KEY);}catch{}
-  emit("patwari-cloud-status","Cloud Saved");
-  return {ok:true};
+  try {
+    await writeSnapshotQueued(clone(state));
+    try{localStorage.removeItem(PENDING_KEY);}catch{}
+    emit("patwari-cloud-status","Cloud Saved");
+    return {ok:true};
+  } catch(error) {
+    // Preserve even a manually-triggered failed upload for the next online retry.
+    try{localStorage.setItem(PENDING_KEY,JSON.stringify(state));}catch{}
+    emit("patwari-cloud-status","Cloud Sync Failed • Pending save retained");
+    emit("patwari-cloud-error",error?.message||String(error));
+    throw error;
+  }
 }
 function queueSave(state) {
   try { localStorage.setItem(STATE_KEY,JSON.stringify(state)); } catch(e) { console.warn("Local backup failed",e); }
