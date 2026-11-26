@@ -6,5 +6,13 @@
   "display": "standalone",
   "background_color": "#0f2c59",
   "theme_color": "#0f2c59",
-  "description": "Sewar, Bharatpur revenue office and field management assistant. Local-first workflow helper."
+  "description": "Sewar, Bharatpur revenue office and field management assistant. Local-first workflow helper.",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
