@@ -92,3 +92,20 @@ test("Worker applies per-user request throttling",async()=>{
   }
   assert.equal(last.status,429);
 });
+
+
+test("Worker requests both Hindi and English when language is both",async()=>{
+  let upstreamBody=null;
+  globalThis.fetch=async(url,init)=>{
+    if(String(url).includes("identitytoolkit")) return responseJson({users:[{localId:"bilingual-user"}]});
+    upstreamBody=JSON.parse(init.body);
+    return responseJson({candidates:[{content:{parts:[{text:"हिन्दी / English"}]}}]});
+  };
+  const res=await worker.fetch(new Request("https://worker.test",{
+    method:"POST",
+    headers:{Origin:env.ALLOWED_ORIGIN,Authorization:"Bearer valid","Content-Type":"application/json"},
+    body:JSON.stringify({prompt:"prepare bilingual note",language:"both"})
+  }),env);
+  assert.equal(res.status,200);
+  assert.match(upstreamBody.systemInstruction.parts[0].text,/Hindi and English/);
+});
