@@ -752,23 +752,28 @@
     function changeLanguage(v) { state.lang = v; buildNav(); persist(false); }
     function toggleTheme() { state.dark = !state.dark; document.body.classList.toggle("dark", state.dark); persist(false); }
     function setCustomBackdrop(inp) {
-      const file=inp.files?.[0];if(!file)return;
-      if(!file.type.startsWith("image/")){alert("केवल image file चुनें।");inp.value="";return;}
-      if(file.size>2*1024*1024){alert("इमेज अधिकतम 2 MB की होनी चाहिए।");inp.value="";return;}
+      const file=inp.files?.[0]; if(!file)return;
+      if(!/^image\/(png|jpeg|webp)$/.test(file.type)||file.size>2*1024*1024){
+        alert("केवल PNG/JPEG/WebP image चुनें। अधिकतम आकार 2 MB है।");inp.value="";return;
+      }
       const reader=new FileReader();
       reader.onload=event=>{
-        const hero=document.getElementById("heroBanner");
-        hero.style.backgroundImage=`linear-gradient(115deg, rgba(15,44,89,.82), rgba(25,63,122,.78)), url("${event.target.result}")`;
-        hero.style.backgroundSize="cover";hero.style.backgroundPosition="center";
-        logAudit("बैनर इमेज बदली गई");
+        const image=new Image();
+        image.onload=()=>{
+          document.getElementById("heroBanner").style.backgroundImage=
+            "linear-gradient(115deg, rgba(15,44,89,0.82), rgba(25,63,122,0.78)), url("+JSON.stringify(event.target.result)+")";
+          logAudit("Custom banner image applied");
+        };
+        image.onerror=()=>{alert("Image file पढ़ा नहीं जा सका।");inp.value="";};
+        image.src=event.target.result;
       };
-      reader.onerror=()=>alert("इमेज पढ़ी नहीं जा सकी।");
+      reader.onerror=()=>{alert("Image पढ़ने में त्रुटि।");inp.value="";};
       reader.readAsDataURL(file);
     }
     function resetBackdrop() {
-      const hero=document.getElementById("heroBanner");
-      hero.style.backgroundImage="";hero.style.backgroundSize="";hero.style.backgroundPosition="";
-      const fileInput=document.querySelector('#heroBanner input[type="file"]');if(fileInput)fileInput.value="";
+      document.getElementById("heroBanner").style.backgroundImage="";
+      const input=document.querySelector('input[type="file"][accept*="image"]');
+      if(input)input.value="";
     }
     async function syncOfflineQueue() {
       updateNetBadge();
@@ -999,22 +1004,30 @@
     }
 
     function calcArea() {
-      const bighaRaw=Number(document.getElementById("bighaSqm").value);
-      const bighaSqm=Number.isFinite(bighaRaw)&&bighaRaw>0?bighaRaw:2529.29;
-      const raw=Number(document.getElementById("calcVal").value);
-      const v=Number.isFinite(raw)&&raw>=0?raw:0;
-      const u=document.getElementById("calcUnit").value;
-      const factors={sqm:1,hectare:10000,acre:4046.8564224,bigha:bighaSqm,sqft:0.09290304};
-      const sqm=v*(factors[u]||1);
-      const ha=sqm/10000;
-      const fracStr=(document.getElementById("shareFrac").value||"1").trim();
-      let ratio=NaN;
-      if(/^\d+(?:\.\d+)?\s*\/\s*\d+(?:\.\d+)?$/.test(fracStr)){
-        const [a,b]=fracStr.split("/").map(Number);if(b>0)ratio=a/b;
-      }else if(/^\d+(?:\.\d+)?$/.test(fracStr))ratio=Number(fracStr);
+      const unit=document.getElementById("calcUnit").value;
+      const bighaInput=Number(document.getElementById("bighaSqm").value);
+      const value=Number(document.getElementById("calcVal").value);
       const out=document.getElementById("calcOut");
-      if(!Number.isFinite(ratio)||ratio<0){out.textContent="हिस्से का मान सही लिखें, जैसे 1/2 या 0.5।";return;}
-      out.textContent=`हैक्टेयर: ${ha.toFixed(4)} Ha | एकड़: ${(sqm/4046.8564224).toFixed(4)} | स्थानीय बीघा: ${(sqm/bighaSqm).toFixed(4)} | वर्ग मीटर: ${sqm.toFixed(2)}\nहिस्सा (${fracStr}): ${(ha*ratio).toFixed(4)} Ha (${(sqm*ratio).toFixed(2)} वर्ग मीटर)`;
+      if(!Number.isFinite(value)||value<0){out.textContent="कृपया शून्य या उससे अधिक वैध क्षेत्रफल भरें।";return;}
+      if(!Number.isFinite(bighaInput)||bighaInput<=0){out.textContent="स्थानीय बीघा का वर्ग मीटर मान शून्य से अधिक होना चाहिए।";return;}
+      const bighaSqm=bighaInput;
+      const units={sqm:1,hectare:10000,acre:4046.8564224,bigha:bighaSqm,sqft:0.09290304};
+      if(!(unit in units)){out.textContent="क्षेत्रफल की इकाई मान्य नहीं है।";return;}
+      const sqm=value*units[unit],ha=sqm/10000;
+      const fraction=(document.getElementById("shareFrac").value||"1").trim();
+      let numerator,denominator;
+      if(fraction.includes("/")){
+        const parts=fraction.split("/");
+        if(parts.length!==2){out.textContent="हिस्सा 1/2 जैसे रूप में लिखें।";return;}
+        numerator=Number(parts[0]);denominator=Number(parts[1]);
+      }else{numerator=Number(fraction);denominator=1;}
+      if(!Number.isFinite(numerator)||!Number.isFinite(denominator)||denominator<=0||numerator<0||numerator>denominator){
+        out.textContent="हिस्सा 0 से 1 के बीच वैध संख्या या 1/2 जैसे रूप में भरें।";return;
+      }
+      const ratio=numerator/denominator;
+      out.textContent=
+        `हैक्टेयर: ${ha.toFixed(4)} Ha | एकड़: ${(sqm/4046.8564224).toFixed(4)} | स्थानीय बीघा: ${(sqm/bighaSqm).toFixed(4)} | वर्ग मीटर: ${sqm.toFixed(2)}\n`+
+        `हिस्सा (${fraction}): ${(ha*ratio).toFixed(4)} Ha (${(sqm*ratio).toFixed(2)} वर्ग मीटर)`;
     }
 
     function makeDraft() {
@@ -1047,7 +1060,7 @@
       state.tasks.forEach(t => rows.push(["Task", t.id, t.title, t.done ? "Done" : "Pending"]));
       const csv = rows.map(r => r.map(c => {
         let value = String(c ?? "");
-        if (/^[=+@\-\t\r]/.test(value)) value = "'" + value;
+        if (/^[\\s\\u0000-\\u001F]*[=+\\-@]/.test(value)) value = "'" + value;
         return `"${value.replace(/"/g, '""')}"`;
       }).join(",")).join("\n");
       const a = document.createElement("a");
@@ -1069,32 +1082,26 @@
     }
 
     function restoreJson(inp) {
-      const file=inp.files?.[0];if(!file)return;
-      if(file.size>10*1024*1024){alert("Backup अधिकतम 10 MB की हो सकती है।");inp.value="";return;}
+      const file=inp.files?.[0]; if(!file)return;
+      if(file.size>5*1024*1024){alert("Backup file 5 MB से बड़ी है। कृपया छोटा JSON backup चुनें।");inp.value="";return;}
       const reader=new FileReader();
-      reader.onload=event=>{
-        try {
-          const parsed=JSON.parse(event.target.result);
+      reader.onerror=()=>{alert("Backup file पढ़ने में त्रुटि।");inp.value="";};
+      reader.onload=()=>{
+        const previous=state;
+        try{
+          const parsed=JSON.parse(reader.result);
           const restored=normalizeState(parsed);
-          const counts=["land","mutations","crops","visits","tasks"].reduce((sum,key)=>sum+restored[key].length,0);
-          if(!confirm(`इस backup में ${counts} रिकॉर्ड हैं। वर्तमान डेटा के साथ ID के आधार पर merge होगा। पहले वर्तमान JSON backup डाउनलोड होगा। आगे बढ़ें?`)){inp.value="";return;}
+          const total=["land","mutations","crops","visits","tasks"].reduce((sum,key)=>sum+restored[key].length,0);
+          if(!confirm("इस backup में "+total+" records हैं। वर्तमान डेटा का JSON backup डाउनलोड होगा। Restore जारी रखें?")){inp.value="";return;}
           downloadJson();
-          const merged={...state};
-          ["land","mutations","crops","visits","tasks"].forEach(key=>{
-            const map=new Map((state[key]||[]).map(item=>[String(item.id),item]));
-            restored[key].forEach(item=>map.set(String(item.id),item));
-            merged[key]=Array.from(map.values());
-          });
-          merged.audit=[...(state.audit||[]),...(restored.audit||[])].slice(-200);
-          merged.lang=restored.lang||state.lang;merged.dark=restored.dark??state.dark;
-          state=normalizeState(merged);persist();logAudit(`Backup import merged (${file.name})`);
-          alert("Backup सफलतापूर्वक merge हुआ। मौजूदा अलग ID वाले रिकॉर्ड सुरक्षित रखे गए।");
-        } catch(error) {
-          console.error("Backup import failed",error);
-          alert("अमान्य backup। वर्तमान डेटा नहीं बदला गया।");
-        } finally { inp.value=""; }
+          state=restored;
+          const result=persist(false);
+          if(!result?.localSaved){state=previous;persist(false);throw new Error("Local storage में restore save नहीं हुआ; पुराना data वापस रखा गया है।");}
+          logAudit("Backup restored: "+file.name);
+          alert("Backup सफलतापूर्वक restore हुआ।");
+        }catch(error){state=previous;persist(false);console.error("Backup restore failed",error);alert("Backup restore नहीं हुआ: "+(error.message||String(error)));}
+        finally{inp.value="";}
       };
-      reader.onerror=()=>{alert("Backup file पढ़ी नहीं जा सकी।");inp.value="";};
       reader.readAsText(file);
     }
 
