@@ -1060,7 +1060,7 @@
       state.tasks.forEach(t => rows.push(["Task", t.id, t.title, t.done ? "Done" : "Pending"]));
       const csv = rows.map(r => r.map(c => {
         let value = String(c ?? "");
-        if (/^[\\s\\u0000-\\u001F]*[=+\\-@]/.test(value)) value = "'" + value;
+        if (/^[\s\u0000-\u001F]*[=+\-@]/.test(value)) value = "'" + value;
         return `"${value.replace(/"/g, '""')}"`;
       }).join(",")).join("\n");
       const a = document.createElement("a");
