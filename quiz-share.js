@@ -15,7 +15,8 @@ function readLive(){
  const totalText=(document.body.innerText.match(/(?:80|100|50|40|20|10|[0-9]{1,4})\s*(?:प्रश्न|questions|MCQ)/i)||[])[0]||"";
  const section=pick(["#mockSubject","#practiceSubject","#modeLabel","#sectionTag"]);
  const score=pick(["#scoreValue","#score","#finalScore","#scoreLive"]);
- const summary=pick(["#summary","#resultText","#scoreMeta","#resultMessage"]);\n const answer=pick(["#feedback .answer","#feedback",".answer",".correct","[data-correct=\\"true\\"]","#explain"]);
+ const summary=pick(["#summary","#resultText","#scoreMeta","#resultMessage"]);
+ const answer=pick(["#feedback .answer","#feedback",".answer",".correct","#explain"]);
  const result=!!(["#mockResult","#result"].map($).find(e=>e&&!e.classList.contains("hidden")&&getComputedStyle(e).display!=="none"));
  return {title,question,options:options.slice(0,6),counter,totalText,section,score,summary,answer,result,url:location.href};
 }
