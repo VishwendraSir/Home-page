@@ -1325,10 +1325,10 @@
       }
     });
   </script>
-  <footer style="text-align:center;padding:14px;color:#64748b;font-size:12px">Rajasthan Patwari AI Assistant v4.2 · Local + Firebase cloud sync · आधिकारिक राजस्व रिकॉर्ड का विकल्प नहीं</footer>
+  <footer style="text-align:center;padding:14px;color:#64748b;font-size:12px">Rajasthan Patwari AI Assistant v4.3 · Local + Firebase cloud sync · आधिकारिक राजस्व रिकॉर्ड का विकल्प नहीं</footer>
 
 <section id="v4CloudPanel" style="margin:18px auto;max-width:1100px;padding:18px;background:var(--card,#fff);border:1px solid var(--border,#cbd5e1);border-radius:16px;color:var(--text,#0f172a)">
-<h2>V4.2 · Automatic Save, Restore & AI Workspace</h2>
+<h2>V4.3 · Automatic Save, Restore & AI Workspace</h2>
 <style>#v4CloudPanel button{background:#173b70;color:#fff;border:0;border-radius:9px;padding:11px 14px;font:600 15px inherit;cursor:pointer}#v4CloudPanel button:active{transform:scale(.98)}#v4CloudPanel input,#v4CloudPanel textarea{box-sizing:border-box;border:1px solid #cbd5e1;border-radius:9px;background:#f8fafc;color:#0f172a;font:16px inherit}#v4CloudPanel input{min-height:46px}#v4CloudPanel p[role=status]{overflow-wrap:anywhere;font-weight:600}#v4AuthStatus{padding:9px 10px;border-radius:8px;background:#f1f5f9}</style>
 <p style="margin:6px 0 14px;color:var(--muted,#475569)">Firebase configuration is stored only in this browser. Gemini API key stays in Cloudflare Worker Secrets.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
@@ -1349,7 +1349,7 @@
 <pre id="v4AiOutput" style="white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f9;color:#0f172a;padding:12px;border-radius:10px;margin-top:10px"></pre>
 </section>
 <script type="module">
-import "./firebase.js?v=4.2.2";
+import "./firebase.js?v=4.3.0";
 const status=()=>document.getElementById("v4AuthStatus");
 const setStatus=(message)=>{status().textContent=message;const top=document.getElementById("authStatus");if(top)top.textContent=message;};
 const savedCfg=window.PatwariFirebase?.getSavedConfig?.();
@@ -1363,7 +1363,7 @@ window.v4Logout=async()=>{try{await window.PatwariFirebase.logoutUser();setStatu
 window.v4CloudSync=async()=>{try{
   const fb=window.PatwariFirebase;
   if(!fb) throw new Error("Firebase module load नहीं हुआ। पेज को hard refresh करें।");
-  if(typeof fb.restoreCloud!=="function") throw new Error("पुराना Firebase module cache में है। पेज बंद करके नया V4.2 लिंक खोलें।");
+  if(typeof fb.restoreCloud!=="function") throw new Error("पुराना Firebase module cache में है। पेज बंद करके नया V4.3 लिंक खोलें।");
   if(!fb.getCurrentUser()) throw new Error("पहले Google Login करें।");
   setStatus("Cloud sync running…");
   await fb.restoreCloud();
