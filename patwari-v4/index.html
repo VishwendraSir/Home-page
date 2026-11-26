@@ -567,7 +567,7 @@
       audit: []
     };
 
-    const APP_VERSION = "3.0.0";
+    const APP_VERSION = "4.3.0";
     function localISODate() {
       const d = new Date();
       return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
@@ -1054,23 +1054,33 @@
     }
 
     function restoreJson(inp) {
-      const f = inp.files?.[0];
-      if (!f) return;
-      const r = new FileReader();
-      r.onload = (e) => {
+      const file=inp.files?.[0];if(!file)return;
+      if(file.size>10*1024*1024){alert("Backup अधिकतम 10 MB की हो सकती है।");inp.value="";return;}
+      const reader=new FileReader();
+      reader.onload=event=>{
         try {
-          const parsed = JSON.parse(e.target.result);
-          const restored = normalizeState(parsed);
-          const counts = [restored.land.length,restored.mutations.length,restored.crops.length,restored.visits.length,restored.tasks.length].reduce((a,b)=>a+b,0);
-          if (!confirm(`इस बैकअप में ${counts} रिकॉर्ड हैं। वर्तमान डेटा बदल जाएगा। पहले वर्तमान JSON बैकअप डाउनलोड करें। क्या आगे बढ़ें?`)) { inp.value = ""; return; }
+          const parsed=JSON.parse(event.target.result);
+          const restored=normalizeState(parsed);
+          const counts=["land","mutations","crops","visits","tasks"].reduce((sum,key)=>sum+restored[key].length,0);
+          if(!confirm(`इस backup में ${counts} रिकॉर्ड हैं। वर्तमान डेटा के साथ ID के आधार पर merge होगा। पहले वर्तमान JSON backup डाउनलोड होगा। आगे बढ़ें?`)){inp.value="";return;}
           downloadJson();
-          state = restored;
-          persist();
-          logAudit(`बैकअप पुनर्स्थापित (${f.name})`);
-        } catch (err) { console.error(err); alert("अमान्य या असंगत JSON बैकअप। वर्तमान डेटा नहीं बदला गया।"); }
-        inp.value = "";
+          const merged={...state};
+          ["land","mutations","crops","visits","tasks"].forEach(key=>{
+            const map=new Map((state[key]||[]).map(item=>[String(item.id),item]));
+            restored[key].forEach(item=>map.set(String(item.id),item));
+            merged[key]=Array.from(map.values());
+          });
+          merged.audit=[...(state.audit||[]),...(restored.audit||[])].slice(-200);
+          merged.lang=restored.lang||state.lang;merged.dark=restored.dark??state.dark;
+          state=normalizeState(merged);persist();logAudit(`Backup import merged (${file.name})`);
+          alert("Backup सफलतापूर्वक merge हुआ। मौजूदा अलग ID वाले रिकॉर्ड सुरक्षित रखे गए।");
+        } catch(error) {
+          console.error("Backup import failed",error);
+          alert("अमान्य backup। वर्तमान डेटा नहीं बदला गया।");
+        } finally { inp.value=""; }
       };
-      r.readAsText(f);
+      reader.onerror=()=>{alert("Backup file पढ़ी नहीं जा सकी।");inp.value="";};
+      reader.readAsText(file);
     }
 
     function renderAudit() {
