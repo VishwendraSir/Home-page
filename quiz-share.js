@@ -9,7 +9,10 @@ let state={type:"poster",theme:0,ratio:"portrait",language:"both",answers:false,
 function readLive(){
  for(const adapter of sclhAdapters){try{const custom=adapter();if(custom&&(custom.title||custom.question||custom.questions?.length))return {...custom,url:custom.url||location.href,options:custom.options||[]}}catch(err){console.warn('[SCLH Share] adapter error',err)}}
  const title=document.title.replace(/\s*[|—-]\s*Science Centre Learning Hub.*$/i,"").trim()||"Learning Challenge";
- const question=pick(["#mockQ","#practiceQ","#question","#qtext","#qhi","#qen",".question-text",".qtext"]);
+ const hiQuestion=pick(["#qhi","[data-question-hi]","[lang='hi'] .question-text"]);
+ const enQuestion=pick(["#qen","[data-question-en]","[lang='en'] .question-text"]);
+ const genericQuestion=pick(["#mockQ","#practiceQ","#question","#qtext",".question-text",".qtext"]);
+ const question=state.language==="hi"?(hiQuestion||genericQuestion):state.language==="en"?(enQuestion||genericQuestion):(hiQuestion&&enQuestion&&hiQuestion!==enQuestion?hiQuestion+" / "+enQuestion:(genericQuestion||hiQuestion||enQuestion));
  const root=["#mockOpts","#practiceOpts","#options","#opts",".options",".option-list"].map($).find(e=>e&&e.children.length);
  let options=root?[...root.querySelectorAll("button,label,[role=option],.option")].map(txt).filter(Boolean):[];
  if(!options.length&&root)options=[...root.children].map(txt).filter(Boolean);
@@ -26,7 +29,11 @@ function readLive(){
  const answer=pick(["#feedback .answer","#feedback",".answer",".correct","#explain"]);
  const result=!!(["#mockResult","#result"].map($).find(e=>e&&!e.classList.contains("hidden")&&getComputedStyle(e).display!=="none"));
  const resultData=[student&&("Student: "+student),score&&(totalMarks?score+" / "+totalMarks:score),correct&&("Correct: "+correct),wrong&&("Incorrect: "+wrong),accuracy&&("Accuracy: "+accuracy),summary].filter(Boolean).join(" • ");
- return {title,question,options:options.slice(0,6),counter,totalText,section,score,summary,answer,student,resultData,result,url:location.href};
+ const d={title,question,options:options.slice(0,6),counter,totalText,section,score,summary,answer,student,resultData,result,url:location.href};
+ if(state.language==="hi"){d.title=d.titleHi||d.title_hi||d.title;d.question=d.questionHi||d.question_hi||d.question;d.answer=d.answerHi||d.answer_hi||d.answer}
+ if(state.language==="en"){d.title=d.titleEn||d.title_en||d.title;d.question=d.questionEn||d.question_en||d.question;d.answer=d.answerEn||d.answer_en||d.answer}
+ if(state.language==="both"){const h=d.questionHi||d.question_hi||"";const e=d.questionEn||d.question_en||"";if(h&&e)d.question=h+" / "+e}
+ return d;
 }
 function loadQr(){if(window.QRCode)return Promise.resolve(true);if(!navigator.onLine)return Promise.resolve(false);return new Promise(resolve=>{const s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";s.onload=()=>resolve(!!window.QRCode);s.onerror=()=>resolve(false);document.head.appendChild(s)})}
 const css=document.createElement("style");css.textContent=
@@ -96,7 +103,7 @@ $("#sclh-tg").onclick=()=>open("https://t.me/share/url?url="+encodeURIComponent(
 $("#sclh-fb").onclick=()=>open("https://www.facebook.com/sharer/sharer.php?u="+encodeURIComponent(location.href));
 $("#sclh-x").onclick=()=>open("https://twitter.com/intent/tweet?url="+encodeURIComponent(location.href)+"&text="+encodeURIComponent(document.title));
 $("#sclh-class").onclick=async()=>{try{await navigator.clipboard.writeText(location.href);setStatus("URL copied. Paste it into Google Classroom.")}catch(e){setStatus(location.href)}};
-["type","theme","ratio","lang","answer","custom","qr"].forEach(k=>$("#sclh-"+k).addEventListener("change",e=>{if(k==="theme")state.theme=Number(e.target.value);else if(k==="answer")state.answers=e.target.value==="yes";else if(k==="qr")state.qr=e.target.value==="yes";else state[k]=e.target.value;generate().catch(err=>setStatus(err.message))}));
+["type","theme","ratio","lang","answer","custom","qr"].forEach(k=>$("#sclh-"+k).addEventListener("change",e=>{if(k==="theme")state.theme=Number(e.target.value);else if(k==="answer")state.answers=e.target.value==="yes";else if(k==="qr")state.qr=e.target.value==="yes";else if(k==="lang")state.language=e.target.value;else state[k]=e.target.value;generate().catch(err=>setStatus(err.message))}));
 modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("open")});
 window.SCLHQuizShare={
  version:"3",
