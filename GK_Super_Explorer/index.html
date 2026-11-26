@@ -566,7 +566,7 @@ if('serviceWorker' in navigator && location.protocol.startsWith('http')){
  #slideShow .slide-btn{padding:9px 10px;font-size:12px;min-height:42px}
 }
 </style>
-<script id="GK_SLIDE_ENGINE_V2">
+<script id="GK_SLIDE_ENGINE_V2_SCRIPT">
 window.gkSlideAnswers = {};
 window.gkSlideScore = 0;
 window.gkSlideLanguage = "both";
@@ -699,7 +699,7 @@ function restartSlideDeck(){window.gkSlideFinished=false;window.gkSlideAnswers={
   <div class="gk-option-actions" id="gkOptionActions"></div>
  </div>
 </div>
-<script id="GK_OPTION_SLIDE_ROUTER_V3">
+<script id="GK_OPTION_SLIDE_ROUTER_V3_SCRIPT">
 function gkOpenOptionSlide(data){
  const d=data||{},box=document.getElementById("gkOptionSlide");
  document.getElementById("gkOptionIcon").textContent=d.icon||"📘";
