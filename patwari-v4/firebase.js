@@ -66,31 +66,40 @@ async function init(c) {
   return initPromise;
 }
 
+let restoreTask = null;
 async function restoreCloudForUser(user) {
-  if(!user||!db||restoring) return;
-  restoring=true;
-  emit("patwari-cloud-status","Restoring Cloud Data…");
-  try {
-    const ref=doc(db,"users",user.uid,"app_state","main");
-    const snap=await getDoc(ref);
-    const local=clone(localState()||{});
-    if(snap.exists()) {
-      const remote=snap.data();
-      const merged=mergeById(local,remote.state||{});
-      window.PatwariApplyCloudState?.(merged);
-      // Persist merged state so local-only records migrate without deleting cloud records.
-      await writeSnapshotQueued(merged, user, true);
-      emit("patwari-cloud-status","Cloud Restored • Local Backup");
-    } else {
-      // First sign-in: migrate the existing local data without clearing it.
-      await writeSnapshotQueued(local,user,true);
-      emit("patwari-cloud-status","Local Data Migrated • Cloud Saved");
-    }
+  if(!user||!db) return;
+  // If auth state and a manual sync trigger arrive together, share one restore operation.
+  if(restoreTask) return restoreTask;
+  restoreTask=(async()=>{
+    restoring=true;
+    emit("patwari-cloud-status","Restoring Cloud Data…");
+    try {
+      const ref=doc(db,"users",user.uid,"app_state","main");
+      const snap=await getDoc(ref);
+      const local=clone(localState()||{});
+      if(snap.exists()) {
+        const remote=snap.data();
+        const merged=mergeById(local,remote.state||{});
+        window.PatwariApplyCloudState?.(merged);
+        // Persist merged state so local-only records migrate without deleting cloud records.
+        await writeSnapshotQueued(merged, user, true);
+        emit("patwari-cloud-status","Cloud Restored • Local Backup");
+      } else {
+        // First sign-in: migrate the existing local data without clearing it.
+        await writeSnapshotQueued(local,user,true);
+        emit("patwari-cloud-status","Local Data Migrated • Cloud Saved");
+      }
+    } catch(e) {
+      emit("patwari-cloud-error",e.message||String(e));
+      emit("patwari-cloud-status","Sync Failed • Local data retained");
+      throw e;
+    } finally { restoring=false; }
+    // Flush queued offline edits only after restore has released its write lock.
     await flushPending();
-  } catch(e) {
-    emit("patwari-cloud-error",e.message||String(e));
-    emit("patwari-cloud-status","Sync Failed • Local data retained");
-  } finally { restoring=false; }
+  })();
+  try { return await restoreTask; }
+  finally { restoreTask=null; }
 }
 
 async function writeSnapshot(state,user=currentUser,force=false) {
