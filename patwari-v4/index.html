@@ -737,16 +737,24 @@
     function changeLanguage(v) { state.lang = v; buildNav(); persist(false); }
     function toggleTheme() { state.dark = !state.dark; document.body.classList.toggle("dark", state.dark); persist(false); }
     function setCustomBackdrop(inp) {
-      const f = inp.files?.[0];
-      if (!f) return;
-      const r = new FileReader();
-      r.onload = (e) => {
-        document.getElementById("heroBanner").style.background = `linear-gradient(115deg, rgba(15,44,89,0.82), rgba(25,63,122,0.78)), url('${e.target.result}') center/cover no-repeat`;
-        logAudit(`बैनर इमेज बदली गई (${f.name})`);
+      const file=inp.files?.[0];if(!file)return;
+      if(!file.type.startsWith("image/")){alert("केवल image file चुनें।");inp.value="";return;}
+      if(file.size>2*1024*1024){alert("इमेज अधिकतम 2 MB की होनी चाहिए।");inp.value="";return;}
+      const reader=new FileReader();
+      reader.onload=event=>{
+        const hero=document.getElementById("heroBanner");
+        hero.style.backgroundImage=`linear-gradient(115deg, rgba(15,44,89,.82), rgba(25,63,122,.78)), url("${event.target.result}")`;
+        hero.style.backgroundSize="cover";hero.style.backgroundPosition="center";
+        logAudit("बैनर इमेज बदली गई");
       };
-      r.readAsDataURL(f);
+      reader.onerror=()=>alert("इमेज पढ़ी नहीं जा सकी।");
+      reader.readAsDataURL(file);
     }
-    function resetBackdrop() { document.getElementById("heroBanner").style.background = ""; }
+    function resetBackdrop() {
+      const hero=document.getElementById("heroBanner");
+      hero.style.backgroundImage="";hero.style.backgroundSize="";hero.style.backgroundPosition="";
+      const fileInput=document.querySelector('#heroBanner input[type="file"]');if(fileInput)fileInput.value="";
+    }
     async function syncOfflineQueue() {
       updateNetBadge();
       // Always keep a local copy before attempting any network operation.
@@ -976,30 +984,22 @@
     }
 
     function calcArea() {
-      const bighaSqm = Math.max(0.01, parseFloat(document.getElementById("bighaSqm").value) || 2529.29);
-      const v = Math.max(0, parseFloat(document.getElementById("calcVal").value) || 0);
-      const u = document.getElementById("calcUnit").value;
-      let sqm = 0;
-      if (u === "sqm") sqm = v;
-      else if (u === "hectare") sqm = v * 10000;
-      else if (u === "acre") sqm = v * 4046.8564224;
-      else if (u === "bigha") sqm = v * bighaSqm;
-      else if (u === "sqft") sqm = v * 0.09290304;
-
-      const ha = sqm / 10000;
-      const fracStr = (document.getElementById("shareFrac").value || "1").trim();
-      let ratio = 1;
-      if (fracStr.includes("/")) {
-        const [a, b] = fracStr.split("/").map(Number);
-        if (b > 0 && a >= 0 && !isNaN(a) && !isNaN(b)) ratio = a / b;
-        else ratio = 0;
-      } else {
-        ratio = parseFloat(fracStr) || 0;
-      }
-
-      document.getElementById("calcOut").innerText =
-        `हैक्टेयर: ${ha.toFixed(4)} Ha | एकड़: ${(sqm / 4046.8564224).toFixed(4)} | स्थानीय बीघा: ${(sqm / bighaSqm).toFixed(4)} | वर्ग मीटर: ${sqm.toFixed(2)}\n` +
-        `हिस्सा (${fracStr}): ${(ha * ratio).toFixed(4)} Ha (${(sqm * ratio).toFixed(2)} वर्ग मीटर)`;
+      const bighaRaw=Number(document.getElementById("bighaSqm").value);
+      const bighaSqm=Number.isFinite(bighaRaw)&&bighaRaw>0?bighaRaw:2529.29;
+      const raw=Number(document.getElementById("calcVal").value);
+      const v=Number.isFinite(raw)&&raw>=0?raw:0;
+      const u=document.getElementById("calcUnit").value;
+      const factors={sqm:1,hectare:10000,acre:4046.8564224,bigha:bighaSqm,sqft:0.09290304};
+      const sqm=v*(factors[u]||1);
+      const ha=sqm/10000;
+      const fracStr=(document.getElementById("shareFrac").value||"1").trim();
+      let ratio=NaN;
+      if(/^\d+(?:\.\d+)?\s*\/\s*\d+(?:\.\d+)?$/.test(fracStr)){
+        const [a,b]=fracStr.split("/").map(Number);if(b>0)ratio=a/b;
+      }else if(/^\d+(?:\.\d+)?$/.test(fracStr))ratio=Number(fracStr);
+      const out=document.getElementById("calcOut");
+      if(!Number.isFinite(ratio)||ratio<0){out.textContent="हिस्से का मान सही लिखें, जैसे 1/2 या 0.5।";return;}
+      out.textContent=`हैक्टेयर: ${ha.toFixed(4)} Ha | एकड़: ${(sqm/4046.8564224).toFixed(4)} | स्थानीय बीघा: ${(sqm/bighaSqm).toFixed(4)} | वर्ग मीटर: ${sqm.toFixed(2)}\nहिस्सा (${fracStr}): ${(ha*ratio).toFixed(4)} Ha (${(sqm*ratio).toFixed(2)} वर्ग मीटर)`;
     }
 
     function makeDraft() {
