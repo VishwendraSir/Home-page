@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
+import vm from "node:vm";
 
 const root=process.cwd();
 const html=fs.readFileSync(path.join(root,"index.html"),"utf8");
@@ -78,4 +79,31 @@ test("Worker returns draft disclaimer and never embeds a Gemini key",()=>{
 test("No duplicate module import path or stale V4.2 cache versions",()=>{
   assert.equal((html.match(/import "\.\/firebase\.js\?v=4\.3\.0"/g)||[]).length,1);
   assert.doesNotMatch(sw,/v42-cloud-sync|firebase\.js\?v=4\.2/);
+});
+
+
+test("Inline JavaScript blocks parse without syntax errors",()=>{
+  let count=0;
+  for(const match of html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/gi)){
+    const attrs=match[1]||"";
+    if(/\\bsrc\\s*=/.test(attrs)) continue;
+    let code=match[2]||"";
+    if(/\\btype=["']module["']/.test(attrs)){
+      code=code.replace(/^\\s*import\\s+[^;]+;\\s*$/gm,"");
+    }
+    new vm.Script(code,{filename:"index.html:inline-script-"+(++count)});
+  }
+  assert.ok(count>0,"expected inline scripts to parse");
+});
+test("Static DOM selectors resolve to declared element IDs",()=>{
+  const declared=new Set(ids);
+  const references=[...html.matchAll(/getElementById\\(["']([^"']+)["']\\)/g)].map(m=>m[1]);
+  const missing=[...new Set(references)].filter(id=>!declared.has(id));
+  assert.deepEqual(missing,[]);
+});
+test("Firebase and service-worker JavaScript parse",()=>{
+  const firebaseSource=firebase.replace(/^\\s*import\\s+[^;]+;\\s*$/gm,"");
+  new vm.Script(firebaseSource,{filename:"firebase.js"});
+  new vm.Script(sw,{filename:"service-worker.js"});
+  // Worker syntax is also checked by importing it in worker.test.js.
 });
