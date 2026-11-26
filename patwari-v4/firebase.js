@@ -6,6 +6,7 @@ const KEY = "RPAA_V4_FIREBASE_CONFIG";
 const PENDING_KEY = "RPAA_V4_PENDING_CLOUD_STATE";
 const STATE_KEY = "RPAA_SEWAR_COMPLETE_HTML5_V1";
 let app, auth, db, currentUser = null, saveTimer = null, restoring = false, initPromise = null, lastSavedJSON = "";
+let cloudWriteChain = Promise.resolve();
 
 const valid = c => c && ["apiKey","authDomain","projectId","appId"].every(k =>
   typeof c[k] === "string" && c[k].trim().length > 5 && !/YOUR_|FAKE|EXAMPLE/i.test(c[k])
@@ -78,11 +79,11 @@ async function restoreCloudForUser(user) {
       const merged=mergeById(local,remote.state||{});
       window.PatwariApplyCloudState?.(merged);
       // Persist merged state so local-only records migrate without deleting cloud records.
-      await writeSnapshot(merged, user, true);
+      await writeSnapshotQueued(merged, user, true);
       emit("patwari-cloud-status","Cloud Restored • Local Backup");
     } else {
       // First sign-in: migrate the existing local data without clearing it.
-      await writeSnapshot(local,user,true);
+      await writeSnapshotQueued(local,user,true);
       emit("patwari-cloud-status","Local Data Migrated • Cloud Saved");
     }
     await flushPending();
@@ -105,10 +106,18 @@ async function writeSnapshot(state,user=currentUser,force=false) {
   return {ok:true};
 }
 
+// Serialize cloud writes so an older autosave cannot finish after a newer manual sync.
+function writeSnapshotQueued(state,user=currentUser,force=false) {
+  const task=cloudWriteChain.then(()=>writeSnapshot(state,user,force));
+  cloudWriteChain=task.catch(()=>{});
+  return task;
+}
+
 async function saveStateNow(state) {
   if(!currentUser||!db||!state||restoring) return {ok:false,reason:"Login required or restore in progress"};
+  clearTimeout(saveTimer);
   emit("patwari-cloud-status","Syncing…");
-  await writeSnapshot(clone(state));
+  await writeSnapshotQueued(clone(state));
   try{localStorage.removeItem(PENDING_KEY);}catch{}
   emit("patwari-cloud-status","Cloud Saved");
   return {ok:true};
@@ -132,7 +141,11 @@ async function flushPending() {
   if(!currentUser||!db||!navigator.onLine) return;
   let pending=null;
   try{pending=JSON.parse(localStorage.getItem(PENDING_KEY)||"null");}catch{}
-  if(pending){await saveStateNow(pending);}
+  if(pending){
+    // Merge queued offline edits with the latest local state before uploading.
+    const latest=clone(localState()||{});
+    await saveStateNow(mergeById(pending,latest));
+  }
 }
 async function saveAndConnectConfig(c) {
   if(!valid(c)) return {ok:false,reason:"apiKey, authDomain, projectId and appId are required."};
@@ -140,6 +153,11 @@ async function saveAndConnectConfig(c) {
   return init(c);
 }
 async function loginGoogle() {
+  if(!auth && initPromise) await initPromise;
+  if(!auth) {
+    const saved=getSavedConfig();
+    if(saved && valid(saved)) await init(saved);
+  }
   if(!auth) throw Error("Firebase not configured. पहले Save & Connect Firebase करें.");
   const p=new GoogleAuthProvider();
   p.setCustomParameters({prompt:"select_account"});
@@ -158,4 +176,12 @@ window.PatwariFirebase={
   queueSave,saveStateNow,restoreCloud:()=>restoreCloudForUser(currentUser),flushPending,exportCloudBackup
 };
 const saved=getSavedConfig();
-if(saved && valid(saved)) init(saved);
+if(saved && valid(saved)) init(saved).then(result=>{
+  if(!result?.ok) {
+    emit("patwari-cloud-error",result?.reason||"Firebase initialization failed");
+    emit("patwari-cloud-status","Firebase setup required");
+  }
+}).catch(error=>{
+  emit("patwari-cloud-error",error?.message||String(error));
+  emit("patwari-cloud-status","Firebase initialization failed");
+});
