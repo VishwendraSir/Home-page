@@ -1305,7 +1305,7 @@
             const localTime = Number(x.updatedAt || x.clientUpdatedAt || x.updatedAtMs || 0);
             if (localTime > cloudTime) {
               byId.set(id, x);
-            } else if (localTime === cloudTime) {
+            } else if (localTime === cloudTime && JSON.stringify(x) !== JSON.stringify(cloudRecord)) {
               // Preserve equal/unknown timestamp conflicts without altering the user's record ID.
               const conflictId = id + "-local-conflict-" + String(x.updatedAt || "undated") + "-" + String(JSON.stringify(x).length);
               if (!byId.has(conflictId)) byId.set(conflictId, {...x, id:conflictId, conflictOf:id, conflictNote:"Same-ID conflict preserved for manual review"});
