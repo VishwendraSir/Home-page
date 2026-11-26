@@ -1124,8 +1124,8 @@
           <td>${Number(r.areaHa).toFixed(4)}</td>
           <td>${esc(r.cls)}</td>
           <td>
-            <button class="btn btn-outline" onclick="startEditLand('${r.id}')">✏️</button>
-            <button class="btn btn-outline" onclick="removeRec('land','${r.id}')">🗑️</button>
+            <button class="btn btn-outline" onclick="startEditLand('${esc(r.id)}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('land','${esc(r.id)}')">🗑️</button>
           </td>
         </tr>
       `).join("") || `<tr><td colspan="6">कोई रिकॉर्ड नहीं।</td></tr>`;
@@ -1135,8 +1135,8 @@
           <td>${esc(m.appNo)}</td><td>${esc(m.applicant)}</td><td>${esc(m.khasraKhata)}</td>
           <td>${esc(m.category)}</td><td><span class="badge badge-warn">${esc(m.status)}</span></td>
           <td>
-            <button class="btn btn-outline" onclick="startEditMutation('${m.id}')">✏️</button>
-            <button class="btn btn-outline" onclick="removeRec('mutations','${m.id}')">🗑️</button>
+            <button class="btn btn-outline" onclick="startEditMutation('${esc(m.id)}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('mutations','${esc(m.id)}')">🗑️</button>
           </td>
         </tr>
       `).join("") || `<tr><td colspan="6">कोई नामांतरण नहीं।</td></tr>`;
@@ -1147,8 +1147,8 @@
           <td>${esc(c.season)} — ${esc(c.crop)}</td><td>${Number(c.cultivated).toFixed(4)} Ha</td>
           <td>${esc(c.damage || "-")} ${c.gps ? "(" + esc(c.gps) + ")" : ""}</td>
           <td>
-            <button class="btn btn-outline" onclick="startEditCrop('${c.id}')">✏️</button>
-            <button class="btn btn-outline" onclick="removeRec('crops','${c.id}')">🗑️</button>
+            <button class="btn btn-outline" onclick="startEditCrop('${esc(c.id)}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('crops','${esc(c.id)}')">🗑️</button>
           </td>
         </tr>
       `).join("") || `<tr><td colspan="6">कोई गिरदावरी रिकॉर्ड नहीं।</td></tr>`;
@@ -1158,8 +1158,8 @@
           <td>${esc(v.village)} ${v.khasra ? "(" + esc(v.khasra) + ")" : ""}</td>
           <td>${esc(v.purpose)}</td><td>${esc(v.obs)}</td>
           <td>
-            <button class="btn btn-outline" onclick="startEditVisit('${v.id}')">✏️</button>
-            <button class="btn btn-outline" onclick="removeRec('visits','${v.id}')">🗑️</button>
+            <button class="btn btn-outline" onclick="startEditVisit('${esc(v.id)}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('visits','${esc(v.id)}')">🗑️</button>
           </td>
         </tr>
       `).join("") || `<tr><td colspan="4">कोई भ्रमण नहीं।</td></tr>`;
@@ -1170,9 +1170,9 @@
           <td>${esc(t.priority)}</td><td>${esc(t.due)}</td>
           <td>${t.done ? "पूर्ण" : "लंबित"}</td>
           <td>
-            <button class="btn btn-outline" onclick="toggleTask('${t.id}')">✓</button>
-            <button class="btn btn-outline" onclick="startEditTask('${t.id}')">✏️</button>
-            <button class="btn btn-outline" onclick="removeRec('tasks','${t.id}')">🗑️</button>
+            <button class="btn btn-outline" onclick="toggleTask('${esc(t.id)}')">✓</button>
+            <button class="btn btn-outline" onclick="startEditTask('${esc(t.id)}')">✏️</button>
+            <button class="btn btn-outline" onclick="removeRec('tasks','${esc(t.id)}')">🗑️</button>
           </td>
         </tr>
       `).join("") || `<tr><td colspan="5">कोई कार्य नहीं।</td></tr>`;
