@@ -33,11 +33,12 @@ def resolve_target(source, value):
     parts = urlsplit(value)
     raw = unquote(parts.path)
     # GitHub Pages project sites are mounted below /Home-page/ rather than the domain root.
-    if raw.startswith("/Home-page/"):
+    repo_root_path = raw.startswith("/Home-page/")
+    if repo_root_path:
         raw = raw[len("/Home-page/"):]
     if not raw:
         return source, unquote(parts.fragment)
-    target = (ROOT / raw.lstrip("/")) if raw.startswith("/") else (source.parent / raw)
+    target = (ROOT / raw.lstrip("/")) if (repo_root_path or raw.startswith("/")) else (source.parent / raw)
     target = target.resolve()
     if target.is_dir():
         target = target / "index.html"
