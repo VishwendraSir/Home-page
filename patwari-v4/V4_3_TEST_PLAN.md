@@ -3,9 +3,9 @@
 ## Automated checks — passed
 Run from `patwari-v4/` with `npm test`.
 
-- GitHub Actions run: <https://github.com/VishwendraSir/Home-page/actions/runs/45755577026>
-- Tested commit: `db3acc2e6625e514a2a860f69be9835cfece5053`
-- Result: **36 tests passed, 0 failed**.
+- GitHub Actions run: <https://github.com/VishwendraSir/Home-page/actions/runs/45755766540>
+- Tested commit: `c0c79bc4c70dbaf1136527c902fcbaa4f6a6dc89`
+- Result: **37 tests passed, 0 failed**.
 
 Coverage:
 - Unique HTML IDs and inline handler function resolution.
@@ -16,7 +16,7 @@ Coverage:
 - Firebase and Service Worker syntax; version/cache and PWA icon consistency.
 - Owner-only Firestore rule source contract.
 - Worker CORS, HTTP method, missing/invalid token, missing Gemini secret, malformed JSON, prompt limits, success, sanitized upstream failure, per-user throttling and bilingual prompt mode.
-- Executable app-function tests with a controlled fake DOM: imported-state cloning/validation, area conversions/share validation, task validation and timestamped persistence, and safe record search output.
+- Executable app-function tests with a controlled fake DOM: imported-state cloning/validation, area conversions/share validation, task validation and timestamped persistence, safe record search output, and cloud merge conflict resolution.
 - CSV formula guard and record ID escaping.
 
 The fake-DOM tests exercise selected functions, but they are not a substitute for a real browser/device test.
