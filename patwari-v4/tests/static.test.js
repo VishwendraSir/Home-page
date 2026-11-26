@@ -95,7 +95,7 @@ test("Inline JavaScript blocks parse without syntax errors",()=>{
     }
     count++;
     try { new vm.Script(code,{filename:"index.html:inline-script-"+count}); }
-    catch(error) { throw new Error("Inline script "+count+" parse failed: "+error.message+"\\n"+code.slice(0,1800)); }
+    catch(error) { throw new Error("Inline script "+count+" parse failed: "+error.stack+"\\n"+code.slice(0,1800)); }
   }
   assert.ok(count>0,"expected inline scripts to parse");
 });
