@@ -42,6 +42,7 @@ function makeAppContext() {
     .find(m=>!/\bsrc\s*=/.test(m[1]||"")&&!/\btype=["']module["']/.test(m[1]||""));
   assert.ok(script,"main inline application script should exist");
   vm.runInContext(script[2],context,{filename:"patwari-main-inline.js"});
+  for(const id of ["tkTitle","tkPri","tkDue"]) context[id]=document.getElementById(id);
   return {context,elements:{get:id=>document.getElementById(id)},local};
 }
 test("normalizeState clones input, sanitizes IDs and preserves audit strings",()=>{
