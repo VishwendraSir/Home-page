@@ -1278,7 +1278,12 @@
           else {
             const cloudTime = Number(cloudRecord.updatedAt || cloudRecord.clientUpdatedAt || cloudRecord.updatedAtMs || 0);
             const localTime = Number(x.updatedAt || x.clientUpdatedAt || x.updatedAtMs || 0);
-            if (localTime > cloudTime) byId.set(id, x);
+            if (localTime > cloudTime) {
+              // Preserve both versions when timestamps tie or ordering is unknown.
+              byId.set(id, {...x, id:id+"-local-"+String(x.updatedAt||Date.now())});
+            } else if (localTime === cloudTime) {
+              byId.set(id, {...x, id:id+"-local-"+String(x.updatedAt||"tie")});
+            }
           }
         });
         merged[k] = Array.from(byId.values());
