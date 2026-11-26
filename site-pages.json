@@ -390,6 +390,11 @@
     "title": "Offline | Science Centre Learning Hub"
   },
   {
+    "id": "owner-dashboard-html",
+    "path": "owner-dashboard.html",
+    "title": "Owner Access Control | Science Centre"
+  },
+  {
     "id": "patwari-v4-index-html",
     "path": "patwari-v4/index.html",
     "title": "राजस्थान पटवारी AI सहायक (Complete HTML5) | Rajasthan Patwari AI Assistant"
