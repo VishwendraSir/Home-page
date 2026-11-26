@@ -91,3 +91,19 @@ test("record search finds tasks and renders escaped user text",()=>{
   assert.match(elements.get("globalSearchResults").innerHTML,/&lt;script&gt;/);
   assert.doesNotMatch(elements.get("globalSearchResults").innerHTML,/<script>/);
 });
+
+
+test("cloud merge avoids identical duplicates and preserves true timestamp conflicts",()=>{
+  const {context}=makeAppContext();
+  context.__local={land:[{id:"L1",owner:"same",updatedAt:10}],mutations:[],crops:[],visits:[],tasks:[],audit:[]};
+  context.__remote={land:[{id:"L1",owner:"same",updatedAt:10}],mutations:[],crops:[],visits:[],tasks:[],audit:[]};
+  let result=vm.runInContext("mergeCloudState(__local,__remote)",context);
+  assert.equal(result.land.length,1);
+  context.__local.land[0]={id:"L1",owner:"local-different",updatedAt:10};
+  result=vm.runInContext("mergeCloudState(__local,__remote)",context);
+  assert.equal(result.land.length,2);
+  assert.ok(result.land.some(x=>x.conflictOf==="L1"));
+  context.__local.land[0]={id:"L1",owner:"newer-local",updatedAt:11};
+  result=vm.runInContext("mergeCloudState(__local,__remote)",context);
+  assert.equal(result.land.find(x=>x.id==="L1").owner,"newer-local");
+});
