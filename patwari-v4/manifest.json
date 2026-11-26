@@ -1,10 +1,10 @@
 {
-  "name": "Rajasthan Patwari AI Assistant V4.0",
-  "short_name": "Patwari AI V4",
+  "name": "Rajasthan Patwari AI Assistant V4.3",
+  "short_name": "Patwari AI V4.3",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#0f2c59",
   "theme_color": "#0f2c59",
-  "description": "Sewar, Bharatpur revenue office and field management assistant."
+  "description": "Sewar, Bharatpur revenue office and field management assistant. Local-first workflow helper."
 }
