@@ -604,25 +604,46 @@
     }
 
     function persist(shouldRender = true) {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-      catch (e) { console.error("Local save failed", e); alert("डिवाइस स्टोरेज उपलब्ध नहीं है। कृपया तुरंत JSON बैकअप डाउनलोड करें।"); }
+      let localSaved = false;
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        localSaved = true;
+      } catch (error) {
+        console.error("Local Storage save failed", error);
+        alert("Local Storage में जगह/अनुमति की समस्या है। JSON बैकअप डाउनलोड करें।");
+      }
       if ("indexedDB" in window) {
-        const req = indexedDB.open("PatwariCompleteDB", 1);
-        req.onupgradeneeded = (ev) => {
-          const db = ev.target.result;
-          if (!db.objectStoreNames.contains("store")) db.createObjectStore("store", { keyPath: "id" });
-        };
-        req.onsuccess = (ev) => {
-          const tx = ev.target.result.transaction("store", "readwrite");
-          tx.objectStore("store").put({ id: "main", data: state });
-        };
+        try {
+          const req = indexedDB.open("PatwariCompleteDB", 1);
+          req.onupgradeneeded = ev => {
+            const db=ev.target.result;
+            if(!db.objectStoreNames.contains("store")) db.createObjectStore("store",{keyPath:"id"});
+          };
+          req.onerror = () => {
+            console.error("IndexedDB open failed", req.error);
+            const badge=document.getElementById("netStatus");
+            if(badge) badge.textContent="IndexedDB backup failed • Export JSON";
+          };
+          req.onsuccess = ev => {
+            const db=ev.target.result;
+            try {
+              const tx=db.transaction("store","readwrite");
+              tx.objectStore("store").put({id:"main",data:JSON.parse(JSON.stringify(state)),savedAt:Date.now()});
+              tx.oncomplete=()=>db.close();
+              tx.onerror=()=>{console.error("IndexedDB transaction failed",tx.error);db.close();};
+              tx.onabort=()=>db.close();
+            } catch(error) {
+              console.error("IndexedDB write failed",error);
+              db.close();
+            }
+          };
+        } catch(error) { console.error("IndexedDB unavailable",error); }
       }
-      if (window.PatwariFirebase?.queueSave && window.PatwariFirebase.getCurrentUser()) {
-        window.PatwariFirebase.queueSave(state);
-      }
-      if (shouldRender) renderAll();
+      const fb=window.PatwariFirebase;
+      if(fb?.queueSave && fb.getCurrentUser?.()) fb.queueSave(state);
+      if(shouldRender) renderAll();
+      return { localSaved };
     }
-
     async function recoverIndexedDbState() {
       if (!("indexedDB" in window)) return null;
       return new Promise(resolve => {
