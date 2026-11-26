@@ -56,7 +56,7 @@ async function init(c) {
       onAuthStateChanged(auth, async user=>{
         currentUser=user;
         emit("patwari-auth",{user:user?{uid:user.uid,email:user.email||""}:null});
-        if(user) await restoreCloudForUser(user);
+        if(user) restoreCloudForUser(user).catch(()=>{});
         else emit("patwari-cloud-status","Local Saved • Login to sync");
       });
       window.addEventListener("online",()=>flushPending().catch(e=>emit("patwari-cloud-status","Sync Failed: "+e.message)));
