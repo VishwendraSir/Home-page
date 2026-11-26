@@ -33,6 +33,13 @@ async function verifyFirebaseToken(token, apiKey) {
 function rateLimit(key, now = Date.now()) {
   const current = buckets.get(key);
   if (!current || now - current.start >= WINDOW_MS) {
+    // Bound isolate memory when many distinct users/IPs hit a warm Worker.
+    if (buckets.size >= 5000) {
+      for (const [bucketKey, bucket] of buckets) {
+        if (now - bucket.start >= WINDOW_MS) buckets.delete(bucketKey);
+      }
+      if (buckets.size >= 5000) return false;
+    }
     buckets.set(key, { start: now, count: 1 });
     return true;
   }
