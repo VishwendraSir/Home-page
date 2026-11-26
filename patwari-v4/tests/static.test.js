@@ -64,10 +64,15 @@ test("Firestore rules remain owner-only",()=>{
   assert.match(rules,/request\.auth\.uid == uid/);
   assert.match(rules,/request\.resource\.data\.ownerUid == uid/);
 });
+test("Firebase config changes cannot silently reuse an old initialized project",()=>{
+  assert.match(firebase,/activeConfigFingerprint !== fingerprint/);
+  assert.match(firebase,/page refresh करें/);
+});
 test("Worker bounds body and prompt sizes",()=>{
   assert.match(worker,/MAX_BODY_BYTES/);
   assert.match(worker,/MAX_PROMPT_CHARS/);
   assert.match(worker,/MAX_DOCUMENT_CHARS/);
+  assert.match(worker,/buckets\.size >= 5000/);
 });
 test("Worker implements exact-origin CORS and token verification",()=>{
   assert.match(worker,/origin !== allowedOrigin/);
