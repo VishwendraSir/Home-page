@@ -14,11 +14,11 @@ function readLive(){
  const counter=pick(["#counter","#position","#mockPosition","#practiceNumber","#progressText"]);
  const totalText=(document.body.innerText.match(/(?:80|100|50|40|20|10|[0-9]{1,4})\s*(?:प्रश्न|questions|MCQ)/i)||[])[0]||"";
  const section=pick(["#mockSubject","#practiceSubject","#modeLabel","#sectionTag"]);
- const score=pick(["#scoreValue","#score","#finalScore","#scoreLive"]);
+ const score=pick(["#scoreValue","#score","#finalScore","#scoreLive"]);\n const student=pick(["#studentName","#learnerName","#student-name"]);\n const totalMarks=pick(["#totalMarks","#maxScore","#totalScore"]);\n const correct=pick(["#correctCount","#totalCorrect"]);\n const wrong=pick(["#wrongCount","#totalWrong","#incorrectCount"]);\n const accuracy=pick(["#accuracy","#percentage","#percent"]);
  const summary=pick(["#summary","#resultText","#scoreMeta","#resultMessage"]);
  const answer=pick(["#feedback .answer","#feedback",".answer",".correct","#explain"]);
  const result=!!(["#mockResult","#result"].map($).find(e=>e&&!e.classList.contains("hidden")&&getComputedStyle(e).display!=="none"));
- return {title,question,options:options.slice(0,6),counter,totalText,section,score,summary,answer,result,url:location.href};
+ const resultData=[student&&("Student: "+student),score&&(totalMarks?score+" / "+totalMarks:score),correct&&("Correct: "+correct),wrong&&("Incorrect: "+wrong),accuracy&&("Accuracy: "+accuracy),summary].filter(Boolean).join(" • ");\n return {title,question,options:options.slice(0,6),counter,totalText,section,score,summary,answer,student,resultData,result,url:location.href};
 }
 function loadQr(){if(window.QRCode)return Promise.resolve(true);if(!navigator.onLine)return Promise.resolve(false);return new Promise(resolve=>{const s=document.createElement("script");s.src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";s.onload=()=>resolve(!!window.QRCode);s.onerror=()=>resolve(false);document.head.appendChild(s)})}
 const css=document.createElement("style");css.textContent=
@@ -64,7 +64,7 @@ async function generate(){
   y=draw("QUESTION",100,y,880,25,"#0b7a99",900,1)+12;y=draw(d.question||"No active question detected on this page.",100,y,880,34,"#17233f",800,5)+18;
   d.options.forEach((o,i)=>{round(100,y,880,64,15,"#edf5ff");y=draw(String.fromCharCode(65+i)+". "+o,125,y+41,830,25,"#17233f",700,2)+12});if(state.answers&&d.answer)y=draw("Answer: "+d.answer,110,y+10,850,25,"#16834b",900,2)+12;
  }else if(state.type==="result"){
-  y=draw(d.result?[d.score,d.summary].filter(Boolean).join(" • "):"Complete the quiz to display your actual result here.",100,y,880,34,d.result?"#17233f":"#9b3c2d",800,6)+22;
+  y=draw(d.result?(d.resultData||"Actual result data is not exposed by this application."):"Complete the quiz to display your actual result here.",100,y,880,34,d.result?"#17233f":"#9b3c2d",800,6)+22;
  }else{
   y=draw("Explore • Learn • Practice • Achieve",100,y,880,30,"#0b7a99",850,2)+22;
   y=draw(d.totalText||d.counter||"Interactive Learning Challenge",100,y,880,27,"#304e76",750,2)+24;
