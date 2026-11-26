@@ -32,7 +32,7 @@
 
 ## QA status
 - Automated tests are included under `tests/` and run in GitHub Actions.
-- Verified run for application commit `17f1d46359b5313c61b29b7a018d69dd45226278`: **31 passed, 0 failed**. [View GitHub Actions run](https://github.com/VishwendraSir/Home-page/actions/runs/45755215138).
+- Verified run for application commit `db3acc2e6625e514a2a860f69be9835cfece5053`: **36 passed, 0 failed**, including selected app-function tests with a fake DOM. [View GitHub Actions run](https://github.com/VishwendraSir/Home-page/actions/runs/45755577026).
 - Documentation-only updates after that tested commit trigger a fresh CI run; review the latest run before merge.
 - Live Firebase/Gemini smoke tests and Android/browser QA require the owner's configured project, Cloudflare secrets and a dedicated test account.
 - The Worker in-memory rate limiter is best-effort per Worker isolate, not a globally coordinated production quota. Use Cloudflare Durable Objects or a managed rate-limit binding before high-volume deployment.
