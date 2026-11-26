@@ -623,24 +623,71 @@
       if (shouldRender) renderAll();
     }
 
-    function loadInitial() {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        try { state = normalizeState(JSON.parse(raw)); } catch (e) { console.warn("Saved data could not be loaded safely", e); }
-      } else {
-        state.land = [{ id: "L1", village: "सेवर (सैंपल)", circle: "सेवर", khasra: "101/1", khata: "12", owner: "सैंपल खातेदार", areaHa: 0.65, cls: "चाही / सिंचित", notes: "सैंपल प्रविष्टि" }];
-        state.mutations = [{ id: "M1", appNo: "DEMO-1", applicant: "सैंपल आवेदक", khasraKhata: "101/1 / 12", category: "विरासत (Inheritance)", status: "Under Verification", orderRef: "" }];
-        state.crops = [{ id: "C1", village: "सेवर", khasra: "101/1", farmer: "सैंपल कृषक", season: "Rabi (रबी)", crop: "सरसों", cultivated: 0.60, damage: "सामान्य", gps: "" }];
-        state.visits = [{ id: "V1", village: "सेवर", khasra: "101/1", purpose: "खसरा व फसल अवलोकन", obs: "सैंपल भ्रमण प्रविष्टि" }];
-        state.tasks = [{ id: "T1", title: "नामांतरण अभिलेख मिलान (सेवर)", priority: "High", due: localISODate(), done: false }];
+    async function recoverIndexedDbState() {
+      if (!("indexedDB" in window)) return null;
+      return new Promise(resolve => {
+        let settled = false;
+        const finish = value => { if (!settled) { settled = true; resolve(value); } };
+        try {
+          const req = indexedDB.open("PatwariCompleteDB", 1);
+          req.onupgradeneeded = ev => {
+            const db = ev.target.result;
+            if (!db.objectStoreNames.contains("store")) db.createObjectStore("store", {keyPath:"id"});
+          };
+          req.onerror = () => finish(null);
+          req.onsuccess = ev => {
+            const db = ev.target.result;
+            try {
+              const tx = db.transaction("store","readonly");
+              const get = tx.objectStore("store").get("main");
+              get.onsuccess = () => {
+                const data = get.result?.data;
+                try { finish(data ? normalizeState(data) : null); } catch { finish(null); }
+                db.close();
+              };
+              get.onerror = () => { db.close(); finish(null); };
+            } catch { db.close(); finish(null); }
+          };
+        } catch { finish(null); }
+      });
+    }
+
+    async function loadInitial() {
+      let loaded = false;
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          state = normalizeState(JSON.parse(raw));
+          loaded = true;
+        }
+      } catch (error) {
+        console.warn("Local Storage state invalid; trying IndexedDB recovery.", error);
+      }
+      if (!loaded) {
+        const recovered = await recoverIndexedDbState();
+        if (recovered) {
+          state = recovered;
+          loaded = true;
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) { console.warn("Recovered state could not be copied to Local Storage.", error); }
+          const notice = document.getElementById("netStatus");
+          if (notice) notice.textContent = "Recovered from IndexedDB • Local Backup";
+        }
+      }
+      if (!loaded) {
+        // Do not silently populate a user's account with fake landholder/office data.
+        // A blank workspace is the safe first-run default; sample records must be explicit opt-in.
+        state = { lang: "hi", dark: false, land: [], mutations: [], crops: [], visits: [], tasks: [], audit: [] };
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) { console.warn("Initial local state could not be persisted.", error); }
       }
       if (state.dark) document.body.classList.add("dark");
       document.getElementById("langSelect").value = state.lang;
       document.getElementById("liveDate").textContent = new Date().toLocaleDateString("hi-IN");
       if (document.getElementById("tkDue")) document.getElementById("tkDue").value = localISODate();
       updateNetBadge();
+      if (loaded && document.getElementById("netStatus")?.textContent.includes("Recovered")) {
+        document.getElementById("netStatus").textContent = "Recovered from IndexedDB • Local Backup";
+      }
     }
-
     function updateNetBadge() {
       const el = document.getElementById("netStatus");
       if (el) el.textContent = navigator.onLine ? "Online • Local Storage" : "Offline • Local Mode";
@@ -1285,12 +1332,18 @@
     });
     window.addEventListener("online", updateNetBadge);
     window.addEventListener("offline", updateNetBadge);
-    window.addEventListener("DOMContentLoaded", () => {
-      loadInitial();
-      buildNav();
-      renderAll();
-      calcArea();
-      makeDraft();
+    window.addEventListener("DOMContentLoaded", async () => {
+      try {
+        await loadInitial();
+        buildNav();
+        renderAll();
+        calcArea();
+        makeDraft();
+      } catch (error) {
+        console.error("Application startup failed", error);
+        const banner = document.getElementById("netStatus");
+        if (banner) banner.textContent = "Startup error • Check local data and refresh";
+      }
     });
   </script>
   <footer style="text-align:center;padding:14px;color:#64748b;font-size:12px">Rajasthan Patwari AI Assistant v4.2 · Local + Firebase cloud sync · आधिकारिक राजस्व रिकॉर्ड का विकल्प नहीं</footer>
