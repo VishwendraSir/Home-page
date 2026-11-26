@@ -1279,10 +1279,12 @@
             const cloudTime = Number(cloudRecord.updatedAt || cloudRecord.clientUpdatedAt || cloudRecord.updatedAtMs || 0);
             const localTime = Number(x.updatedAt || x.clientUpdatedAt || x.updatedAtMs || 0);
             if (localTime > cloudTime) {
-              // Preserve both versions when timestamps tie or ordering is unknown.
-              byId.set(id, {...x, id:id+"-local-"+String(x.updatedAt||Date.now())});
+              byId.set(id, {...x});
             } else if (localTime === cloudTime) {
-              byId.set(id, {...x, id:id+"-local-"+String(x.updatedAt||"tie")});
+              // Equal/unknown timestamps are conflicts: retain both rather than silently dropping either.
+              const suffix = String(x.updatedAt || "undated") + "-" + String(JSON.stringify(x).length);
+              const conflictId = id + "-local-conflict-" + suffix;
+              if (!byId.has(conflictId)) byId.set(conflictId, {...x, id:conflictId, conflictOf:id, conflictNote:"Same-ID conflict preserved for manual review"});
             }
           }
         });
@@ -1290,7 +1292,7 @@
       });
       merged.audit = [...(merged.audit || []), ...(src.audit || [])].slice(-200);
       merged.lang = src.lang || merged.lang;
-      merged.dark = !!src.dark;
+      merged.dark = !!(src.dark ?? merged.dark);
       return merged;
     }
     window.PatwariGetLocalState = () => state;
