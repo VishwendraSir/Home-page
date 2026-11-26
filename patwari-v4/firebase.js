@@ -87,12 +87,15 @@ async function restoreCloudForUser(user) {
         const remote=snap.data();
         const merged=mergeById(local,remote.state||{});
         window.PatwariApplyCloudState?.(merged);
-        // Persist merged state so local-only records migrate without deleting cloud records.
-        await writeSnapshotQueued(merged, user, true);
+        // Re-read after applying the cloud state so edits made during restore are not dropped.
+        const latest=clone(localState()||merged);
+        const finalState=mergeById(latest,merged);
+        await writeSnapshotQueued(finalState, user, true);
         emit("patwari-cloud-status","Cloud Restored • Local Backup");
       } else {
         // First sign-in: migrate the existing local data without clearing it.
-        await writeSnapshotQueued(local,user,true);
+        const latest=clone(localState()||local);
+        await writeSnapshotQueued(mergeById(latest,local),user,true);
         emit("patwari-cloud-status","Local Data Migrated • Cloud Saved");
       }
     } catch(e) {
