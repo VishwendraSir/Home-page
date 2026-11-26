@@ -1,11 +1,13 @@
 /* SCIENCE CENTRE LEARNING HUB — UNIVERSAL QUIZ IMAGE SHARE ENGINE */
 (()=>{"use strict";
-if(window.__SCLH_QUIZ_SHARE_V1__)return;window.__SCLH_QUIZ_SHARE_V1__=true;
+if(window.SCLHQuizShare?.version==='3')return;window.__SCLH_QUIZ_SHARE_V3__=true;
+const sclhAdapters=[];
 const $=s=>document.querySelector(s),txt=e=>(e?.innerText||e?.textContent||"").replace(/\s+/g," ").trim();
 const pick=a=>{for(const s of a){const e=$(s);if(e&&txt(e))return txt(e)}return""};
 const themes=[["Ocean Blue",["#062a55","#087eae","#36d5e8"]],["Royal Purple",["#24105a","#5531a8","#b06bff"]],["Science Cyan",["#003b55","#007e9e","#52e4ee"]],["Forest Green",["#073b32","#147a55","#7be0a6"]],["Sunrise",["#5a2146","#c14d55","#ffc46b"]],["Midnight",["#10182f","#263b70","#6f8cff"]],["Kids Rainbow",["#193d8b","#713fc0","#ff9fcb"]],["Exam Gold",["#26314c","#8a5c13","#f8d66d"]],["Coral Reef",["#06435c","#087d86","#ff8e75"]],["Clean White",["#e8f4ff","#cbdcff","#8bd9ee"]]];
 let state={type:"poster",theme:0,ratio:"portrait",language:"both",answers:false,qr:true,custom:"Explore • Learn • Practice • Share",blob:null};
 function readLive(){
+ for(const adapter of sclhAdapters){try{const custom=adapter();if(custom&&(custom.title||custom.question||custom.questions?.length))return {...custom,url:custom.url||location.href,options:custom.options||[]}}catch(err){console.warn('[SCLH Share] adapter error',err)}}
  const title=document.title.replace(/\s*[|—-]\s*Science Centre Learning Hub.*$/i,"").trim()||"Learning Challenge";
  const question=pick(["#mockQ","#practiceQ","#question","#qtext","#qhi","#qen",".question-text",".qtext"]);
  const root=["#mockOpts","#practiceOpts","#options","#opts",".options",".option-list"].map($).find(e=>e&&e.children.length);
@@ -96,4 +98,13 @@ $("#sclh-x").onclick=()=>open("https://twitter.com/intent/tweet?url="+encodeURIC
 $("#sclh-class").onclick=async()=>{try{await navigator.clipboard.writeText(location.href);setStatus("URL copied. Paste it into Google Classroom.")}catch(e){setStatus(location.href)}};
 ["type","theme","ratio","lang","answer","custom","qr"].forEach(k=>$("#sclh-"+k).addEventListener("change",e=>{if(k==="theme")state.theme=Number(e.target.value);else if(k==="answer")state.answers=e.target.value==="yes";else if(k==="qr")state.qr=e.target.value==="yes";else state[k]=e.target.value;generate().catch(err=>setStatus(err.message))}));
 modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("open")});
+window.SCLHQuizShare={
+ version:"3",
+ registerAdapter(fn){if(typeof fn!=="function")throw new TypeError("Adapter must be a function");sclhAdapters.unshift(fn);return ()=>{const i=sclhAdapters.indexOf(fn);if(i>=0)sclhAdapters.splice(i,1)}},
+ readCurrentQuiz(){return readLive()},
+ openStudio(){modal.classList.add("open");return generate()},
+ generateImage(){return generate()},
+ getPreviewCanvas(){return canvas},
+ getImageBlob(){return state.blob}
+};
 })();
