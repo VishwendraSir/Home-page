@@ -1,5 +1,5 @@
 const CACHE = "patwari-sewar-v4-v43-audit-1";
-const SHELL = ["./", "./index.html", "./manifest.json", "./firebase.js?v=4.3.0"];
+const SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg", "./firebase.js?v=4.3.0"];
 
 self.addEventListener("install", event => {
   event.waitUntil((async () => {
