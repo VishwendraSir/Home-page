@@ -1,37 +1,37 @@
-# Rajasthan Patwari AI Assistant V4.2
+# Rajasthan Patwari AI Assistant V4.3
 
-## Cloud sync and backup
-- Local Storage and IndexedDB remain enabled as device backups.
-- Google sign-in loads the per-user Firestore snapshot at `users/{uid}/app_state/main`.
-- First sign-in migrates the existing local state when no cloud snapshot exists.
-- App changes queue debounced cloud saves while signed in.
-- Failed saves are retained in `RPAA_V4_PENDING_CLOUD_STATE` and retried when connectivity returns.
-- Manual **Cloud Sync** and **Sync Data** both use the same Firebase save/restore layer.
-- Firestore writes are serialized to prevent an older autosave from overwriting a newer manual sync.
-- Restore merges records by stable IDs and persists the merged result to Local Storage and IndexedDB.
-- Restore releases its lock before flushing the offline queue.
-- Existing app sections and offline workflows are retained.
+## V4.3 changes on this branch
+- Removed the legacy `patwariSignIn/firebaseAuth/patwariCloudLoad/patwariCloudSave` integration and retained one `PatwariFirebase` API for the legacy assistant controls.
+- Unified both AI interfaces through one authenticated Worker request service.
+- Added IndexedDB recovery before starting a blank local workspace when Local Storage is absent or corrupt.
+- New clean installs start with an empty workspace rather than silent sample revenue/land records.
+- Added field validation and `updatedAt` timestamps for land, mutation, crop, visit and task create/edit workflows.
+- Added area calculator input validation and image type/size checks for the custom backdrop.
+- JSON import now previews record count and merges by stable IDs instead of replacing unrelated records.
+- Hardened Cloudflare Worker request size limits, strict allowed-origin CORS, token-based per-user rate limits, timeout and upstream error handling.
+- Updated app, manifest and Service Worker to V4.3; safe shell-only caching. Auth/private API responses are not cached.
 
 ## Firebase setup
-1. In Firebase Authentication, enable the Google provider.
+1. Enable Google provider in Firebase Authentication.
 2. Add `vishwendrasir.github.io` to Authentication > Settings > Authorized domains.
-3. Create a Firestore database.
-4. Publish the full contents of `firestore.rules` in Firestore > Rules.
-5. Open the app's Firebase panel and enter the Firebase Web App config.
-6. Never put Gemini API keys or service-account credentials in HTML or GitHub.
-7. In Firestore, verify that signed-in data appears at `users/{uid}/app_state/main`.
+3. Create Firestore Database and publish the current owner-only `firestore.rules`.
+4. Enter the Firebase Web App config in the in-app Firebase panel.
+5. Keep Gemini API key and Firebase verification API key as Cloudflare Worker Secrets. Never place secrets in HTML, browser JavaScript or Git.
+6. Configure Worker URL in the panel and verify the Cloudflare Worker environment contains `ALLOWED_ORIGIN=https://vishwendrasir.github.io`, `GEMINI_API_KEY`, and `FIREBASE_WEB_API_KEY`.
 
-## Verification checklist
-- Sign in and confirm the email appears in the status.
-- Add a clearly labelled test record and wait for **Cloud Saved**.
-- Confirm the document `users/{uid}/app_state/main` exists in Firestore.
-- Refresh the page and confirm the record returns.
-- Open the same account on a second device and confirm the record is restored.
-- Test offline: make a test edit, reconnect, and wait for **Cloud Saved**.
-- Confirm the local record remains available if Firebase is unavailable.
+## Storage and sync
+- Local Storage and IndexedDB are retained as device-local backups.
+- Existing keys `RPAA_SEWAR_COMPLETE_HTML5_V1` and `RPAA_V4_PENDING_CLOUD_STATE` are preserved.
+- Cloud state is per Firebase UID at `users/{uid}/app_state/main`.
+- First login migrates local state; autosave and both manual Sync controls use the Firebase module.
+- A browser-only app cannot guarantee sync after the browser/app is fully closed.
+- Multi-device behavior still requires authenticated end-to-end tests against the intended Firebase project.
 
-## Important limitations
-- This app stores one snapshot per Firebase user; do not share one login between staff.
-- A browser-only app cannot guarantee background sync after it has been fully closed.
-- The app is an office-workflow and draft assistant, not a certified Rajasthan government portal or source of official land records.
-- AI-generated drafts must be checked against official records and current departmental instructions.
+## QA status
+- This branch contains source repairs and preliminary audit findings.
+- Static source checks, parser tests and automated tests must be run and their actual results recorded in `V4_3_TEST_PLAN.md` and the pull request.
+- Live Firebase and Gemini smoke tests require the owner's configured project and Cloudflare Worker secrets. Do not report those as passed unless executed with evidence.
+
+## Limitations
+- The app is a workflow and draft assistant, not an official Rajasthan government portal or source of certified land records.
+- Verify AI-created drafts against official records and current departmental instructions before use.
