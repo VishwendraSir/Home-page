@@ -93,7 +93,9 @@ test("Inline JavaScript blocks parse without syntax errors",()=>{
     if(/\btype=["']module["']/.test(attrs)){
       code=code.replace(/^\s*import\s+[^;]+;\s*$/gm,"");
     }
-    new vm.Script(code,{filename:"index.html:inline-script-"+(++count)});
+    count++;
+    try { new vm.Script(code,{filename:"index.html:inline-script-"+count}); }
+    catch(error) { throw new Error("Inline script "+count+" parse failed: "+error.message+"\\n"+code.slice(0,1800)); }
   }
   assert.ok(count>0,"expected inline scripts to parse");
 });
