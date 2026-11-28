@@ -40,6 +40,11 @@
     "title": "Exam Brahmastra Deployment Audit"
   },
   {
+    "id": "exam-brahmastra-master-portal-html",
+    "path": "EXAM_BRAHMASTRA/MASTER_PORTAL.html",
+    "title": "EXAM BRAHMASTRA | Unified Exam & Learning Portal"
+  },
+  {
     "id": "exam-brahmastra-question-bank-qc-v9-html",
     "path": "EXAM_BRAHMASTRA/QUESTION_BANK_QC_V9.html",
     "title": "Question Bank QC V9"
