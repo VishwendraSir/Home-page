@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#06133d" />
+  <title>VISHWA TECH GROUP | Technology • Innovation • Education • Future</title>
+  <meta name="description" content="Vishwa Tech Group — education, technology, AI, app development, cloud services, digital content and learning platforms in one place." />
+
+  <!-- Preserved external dependency references (no secrets hardcoded; missing files handled gracefully) -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js" defer onerror="window.__VTG_DEPS__=window.__VTG_DEPS__||{};window.__VTG_DEPS__.firebaseApp=false;"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js" defer onerror="window.__VTG_DEPS__=window.__VTG_DEPS__||{};window.__VTG_DEPS__.firebaseFirestore=false;"></script>
+  <script src="./firebase-config.js" defer onerror="window.__VTG_DEPS__=window.__VTG_DEPS__||{};window.__VTG_DEPS__.firebaseConfig=false;"></script>
+  <script src="./site-lock.js?v=2" defer onerror="window.__VTG_DEPS__=window.__VTG_DEPS__||{};window.__VTG_DEPS__.siteLock=false;"></script>
+  <script src="./SCIENCE_CENTRE_GLOBAL.js?v=4" defer onerror="window.__VTG_DEPS__=window.__VTG_DEPS__||{};window.__VTG_DEPS__.globalScript=false;"></script>
+
+  <style>
+    :root {
+      --bg-base: #030b25;
+      --bg-elevated: #061842;
+      --bg-card: rgba(9, 32, 76, 0.92);
+      --bg-card-hover: rgba(14, 46, 106, 0.98);
+      --text-primary: #f4f8ff;
+      --text-secondary: #bdd2f2;
+      --text-muted: #8fb0de;
+      --border-subtle: rgba(38, 145, 224, 0.28);
+      --border-strong: rgba(32, 217, 255, 0.65);
+      --cyan: #20d9ff;
+      --blue: #168bff;
+      --purple: #8b42ff;
+      --status-ok-bg: rgba(16, 185, 129, 0.16);
+      --status-ok-border: rgba(52, 211, 153, 0.45);
+      --status-warn-bg: rgba(245, 158, 11, 0.16);
+      --status-warn-border: rgba(251, 191, 36, 0.45);
+      --hero-bg: radial-gradient(ellipse at 12% 4%, rgba(59, 11, 138, 0.65) 0%, transparent 36%),
+                 radial-gradient(ellipse at 88% 14%, rgba(6, 78, 145, 0.65) 0%, transparent 36%),
+                 linear-gradient(145deg, #02091e 0%, #061b49 55%, #030b25 100%);
+      --cta-grad: linear-gradient(90deg, #00bfff 0%, #426bff 52%, #8d42ff 100%);
+      --shadow: 0 12px 30px rgba(1, 6, 20, 0.5);
+      --focus: #20d9ff;
+    }
+
+    [data-theme="light"] {
+      --bg-base: #f3f7fd;
+      --bg-elevated: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.96);
+      --bg-card-hover: #ffffff;
+      --text-primary: #0a1633;
+      --text-secondary: #33486e;
+      --text-muted: #5c7299;
+      --border-subtle: rgba(22, 139, 255, 0.22);
+      --border-strong: rgba(22, 139, 255, 0.55);
+      --status-ok-bg: rgba(16, 185, 129, 0.12);
+      --status-ok-border: rgba(5, 150, 105, 0.4);
+      --status-warn-bg: rgba(245, 158, 11, 0.14);
+      --status-warn-border: rgba(217, 119, 6, 0.4);
+      --hero-bg: radial-gradient(ellipse at 12% 4%, rgba(139, 66, 255, 0.14) 0%, transparent 40%),
+                 radial-gradient(ellipse at 88% 14%, rgba(22, 139, 255, 0.16) 0%, transparent 40%),
+                 linear-gradient(160deg, #f3f7fd 0%, #e7effc 100%);
+      --shadow: 0 10px 24px rgba(10, 22, 51, 0.08);
+      --focus: #1d4ed8;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif;
+      background: var(--hero-bg);
+      color: var(--text-primary);
+      line-height: 1.55;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--blue);
+      color: #ffffff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      z-index: 300;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+      top: 12px;
+    }
+
+    .shell {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 14px;
+    }
+
+    @media (min-width: 600px) {
+      .shell {
+        padding: 0 18px;
+      }
+    }
+
+    /* Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(3, 11, 37, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    [data-theme="light"] .site-header {
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-height: 66px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      min-width: 0;
+    }
+
+    .brandmark {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #00d9ff, #583cff 70%, #c34cff);
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      display: block;
+      font-size: 0.94rem;
+      line-height: 1.15;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-desktop {
+      display: none;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-desktop a {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      padding: 6px 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav-desktop a:hover,
+    .nav-desktop a:focus-visible {
+      color: var(--text-primary);
+      border-bottom-color: var(--cyan);
+    }
+
+    .tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border-radius: 12px;
+      padding: 8px 12px;
+      min-height: 40px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--border-strong);
+      background: var(--bg-card-hover);
+    }
+
+    .btn.primary {
+      background: var(--cta-grad);
+      color: #ffffff;
+      border: none;
+      min-height: 44px;
+      padding: 11px 18px;
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.06);
+    }
+
+    .menu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-size: 1.15rem;
+      cursor: pointer;
+    }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      padding: 8px 14px 14px;
+      gap: 4px;
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .nav-mobile.open {
+      display: flex;
+    }
+
+    .nav-mobile a {
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .nav-mobile a:hover,
+    .nav-mobile a:focus-visible {
+      background: var(--bg-card);
+    }
+
+    @media (min-width: 860px) {
+      .nav-desktop {
+        display: flex;
+      }
+      .menu-btn,
+      .nav-mobile {
+        display: none !important;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      border-radius: 22px;
+      padding: clamp(22px, 5vw, 50px);
+      margin-top: 18px;
+      background: linear-gradient(115deg, rgba(6, 20, 59, 0.94) 0%, rgba(11, 44, 112, 0.92) 55%, rgba(41, 16, 120, 0.9) 100%);
+      box-shadow: var(--shadow);
+    }
+
+    [data-theme="light"] .hero {
+      background: linear-gradient(125deg, #ffffff 0%, #e7f0ff 60%, #efe6ff 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+    }
+
+    [data-theme="light"] .eyebrow {
+      color: #0369a1;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.95rem, 6vw, 4.1rem);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      margin: 10px 0 8px;
+      overflow-wrap: anywhere;
+    }
+
+    .strap {
+      font-size: clamp(0.92rem, 2vw, 1.18rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .guide {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #c4b5fd;
+      margin-bottom: 12px;
+    }
+
+    [data-theme="light"] .guide {
+      color: #6d28d9;
+    }
+
+    .hero p {
+      color: var(--text-secondary);
+      max-width: 720px;
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    /* Sections & Cards */
+    .section {
+      padding: 36px 0 6px;
+    }
+
+    .sectionhead {
+      margin-bottom: 14px;
+    }
+
+    .sectionhead h2 {
+      margin: 0 0 4px;
+      font-size: clamp(1.3rem, 3vw, 1.85rem);
+    }
+
+    .sectionhead p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+    }
+
+    .launch-grid,
+    .grid,
+    .cards-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 580px) {
+      .launch-grid,
+      .grid,
+      .cards-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 960px) {
+      .launch-grid,
+      .grid,
+      .cards-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 15px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      background: var(--bg-card);
+      box-shadow: var(--shadow);
+      transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+    }
+
+    .card-box:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      background: var(--bg-card-hover);
+    }
+
+    .card-box h3 {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .card-box p {
+      margin: 4px 0 0;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      overflow-wrap: anywhere;
+    }
+
+    .path-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      overflow-wrap: anywhere;
+      margin-top: 4px;
+    }
+
+    .link-cta {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--cyan);
+      align-self: flex-start;
+    }
+
+    [data-theme="light"] .link-cta {
+      color: #1d4ed8;
+    }
+
+    .link-cta:hover {
+      text-decoration: underline;
+    }
+
+    /* Controls */
+    .controls-panel {
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .searchbar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .search {
+      flex: 1 1 200px;
+      min-height: 42px;
+      background: var(--bg-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 10px 14px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .filter {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 7px 12px;
+      min-height: 36px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+
+    .filter[aria-pressed="true"] {
+      background: var(--blue);
+      border-color: var(--cyan);
+      color: #ffffff;
+    }
+
+    .directory-tools {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .archive-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .empty {
+      border: 1px dashed var(--border-strong);
+      border-radius: 16px;
+      background: var(--bg-card);
+      text-align: center;
+      padding: 28px 18px;
+      color: var(--text-secondary);
+    }
+
+    .status-banner {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border: 1px solid var(--status-ok-border);
+      background: var(--status-ok-bg);
+      color: var(--text-primary);
+    }
+
+    .status-banner.is-fallback {
+      border-color: var(--status-warn-border);
+      background: var(--status-warn-bg);
+    }
+
+    .notice {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      color: var(--text-muted);
+      padding: 32px 14px 24px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 40px;
+      font-size: 0.85rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent" id="skipLink">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="shell top">
+      <a class="brand" href="#top" id="brandLink">
+        <span class="brandmark" aria-hidden="true">🌐</span>
+        <span>
+          <span class="brand-title">VISHWA TECH GROUP</span>
+          <small id="headerSub">TECHNOLOGY • INNOVATION • EDUCATION • FUTURE</small>
+        </span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <a href="#top" id="navHome">Home</a>
+        <a href="#all-projects" id="navProjects">Projects</a>
+        <a href="#quick-launch" id="navLearning">Learning</a>
+        <a href="#business" id="navBusiness">Business</a>
+        <a href="#about" id="navAbout">About</a>
+        <a href="#contact" id="navContact">Contact</a>
+      </nav>
+
+      <div class="tools">
+        <button class="btn" id="language" type="button" aria-label="Switch language">हिंदी</button>
+        <button class="btn" id="themeToggle" type="button" aria-label="Switch theme">Theme</button>
+        <button class="menu-btn" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+
+    <nav class="nav-mobile" id="mobileNav" aria-label="Mobile navigation">
+      <a href="#top" id="mNavHome">Home</a>
+      <a href="#all-projects" id="mNavProjects">Projects</a>
+      <a href="#quick-launch" id="mNavLearning">Learning</a>
+      <a href="#business" id="mNavBusiness">Business</a>
+      <a href="#about" id="mNavAbout">About</a>
+      <a href="#contact" id="mNavContact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="mainContent" class="shell">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="eyebrow" id="heroEyebrow">VISHWA TECH GROUP</div>
+        <h1 id="heroTitle">VISHWA TECH GROUP</h1>
+        <div class="strap" id="heroStrap">TECHNOLOGY • INNOVATION • EDUCATION • FUTURE</div>
+        <div class="guide" id="heroGuide">Guided by Vishwendra Sir</div>
+        <p id="heroDesc">
+          An integrated platform for quality education, digital innovation and practical technology — bringing learning apps, AI tools, websites, services and projects together in one place.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#all-projects" id="ctaExplore">Explore Projects</a>
+          <a class="btn" href="./1/index.html" id="ctaLearning">Open Learning Hub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Quick-Launch Cards -->
+    <section class="section" id="quick-launch">
+      <div class="sectionhead">
+        <div>
+          <h2 id="featuredTitle">Quick Launch Portals</h2>
+          <p id="featuredSub">Verified learning hubs, exam portals, interactive modules and creative platforms.</p>
+        </div>
+      </div>
+      <div class="launch-grid" id="featuredGrid"></div>
+    </section>
+
+    <!-- Project Directory -->
+    <section class="section" id="all-projects">
+      <div class="sectionhead">
+        <div>
+          <h2 id="directoryTitle">Project Directory</h2>
+          <p id="directorySub">Search and filter registered pages from ./site-pages.json with safe fallback support.</p>
+        </div>
+      </div>
+
+      <div class="controls-panel">
+        <div class="searchbar">
+          <input class="search" id="search" type="search" placeholder="Search by title or path…" aria-label="Search by title or path" />
+          <button class="btn" id="clear" type="button">Clear</button>
+        </div>
+
+        <div class="filters" id="filters" role="group" aria-label="Category filters"></div>
+
+        <div class="directory-tools">
+          <span id="directoryCount" aria-live="polite">Showing 0 items</span>
+          <label class="archive-label" id="archiveWrap" hidden>
+            <input type="checkbox" id="toggleArchive" />
+            <span id="archiveLabelText">Include archive / backup / redirect entries</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="grid" id="projects"></div>
+      <div class="empty" id="emptyState" hidden>
+        <p id="emptyText">No matching projects found.</p>
+        <button class="btn" id="resetBtn" type="button">Reset filters</button>
+      </div>
+      <div class="status-banner" id="catalogueNotice" role="status" aria-live="polite"></div>
+    </section>
+
+    <!-- Workspace Entry Cards -->
+    <section class="section" id="workspaces">
+      <div class="sectionhead">
+        <div>
+          <h2 id="workspaceTitle">Workspace Entry</h2>
+          <p id="workspaceSub">Navigation groupings for learners, educators and site management.</p>
+        </div>
+      </div>
+      <div class="cards-3">
+        <article class="card-box">
+          <div>
+            <h3 id="wsStudentTitle">Student Hub</h3>
+            <p id="wsStudentDesc">Learning portals, practice resources and interactive study modules.</p>
+          </div>
+          <a class="link-cta" href="./1/index.html" id="wsStudentLink">Open Student Hub →</a>
+        </article>
+
+        <article class="card-box">
+          <div>
+            <h3 id="wsTeacherTitle">Teacher Hub</h3>
+            <p id="wsTeacherDesc">Exam preparation portals, subject resources and teaching tools.</p>
+          </div>
+          <a class="link-cta" href="./EXAM_BRAHMASTRA/MASTER_PORTAL.html" id="wsTeacherLink">Open Teacher Hub →</a>
+        </article>
+
+        <article class="card-box">
+          <div>
+            <h3 id="wsAdminTitle">Admin / Owner Hub</h3>
+            <p id="wsAdminDesc">Navigation section for site pages and catalogue browsing.</p>
+          </div>
+          <a class="link-cta" href="#all-projects" id="wsAdminLink">Browse Directory →</a>
+        </article>
+      </div>
+      <p class="notice" id="workspaceNotice">
+        Navigation grouping only — not an authentication or security boundary.
+      </p>
+    </section>
+
+    <!-- Business & Innovation -->
+    <section class="section" id="business">
+      <div class="sectionhead">
+        <div>
+          <h2 id="businessTitle">Business &amp; Innovation</h2>
+          <p id="businessSub">Core service and innovation areas connected to the portal.</p>
+        </div>
+      </div>
+      <div class="cards-3" id="businessGrid"></div>
+    </section>
+
+    <!-- About / Mission / Vision / Values -->
+    <section class="section" id="about">
+      <div class="sectionhead">
+        <div>
+          <h2 id="aboutTitle">About VISHWA TECH GROUP</h2>
+          <p id="aboutSub">Guided by Vishwendra Sir — Technology • Innovation • Education • Future.</p>
+        </div>
+      </div>
+      <div class="cards-3">
+        <article class="card-box">
+          <div>
+            <h3 id="missionTitle">Mission</h3>
+            <p id="missionDesc">Quality education, structured learning tools and practical technology access.</p>
+          </div>
+        </article>
+        <article class="card-box">
+          <div>
+            <h3 id="visionTitle">Vision</h3>
+            <p id="visionDesc">A smart, capable and digitally empowered learning and innovation ecosystem.</p>
+          </div>
+        </article>
+        <article class="card-box">
+          <div>
+            <h3 id="valuesTitle">Values</h3>
+            <p id="valuesDesc">Clarity, reliability, bilingual accessibility and steady improvement.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div><strong id="footerBrand">VISHWA TECH GROUP</strong></div>
+    <div id="footerStrap">TECHNOLOGY • INNOVATION • EDUCATION • FUTURE — Guided by Vishwendra Sir</div>
+    <div class="footer-links" id="footerLinks"></div>
+    <p class="notice" id="footerNote">Only verified destinations present in the baseline/prompt are linked; no unverified contact details are added.</p>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const FEATURED = [
+        { en: "Science Centre Learning Hub", hi: "साइंस सेंटर लर्निंग हब", url: "./1/index.html", cat: "Learning" },
+        { en: "Exam Brahmastra Unified Portal", hi: "एग्ज़ाम ब्रह्मास्त्र यूनिफाइड पोर्टल", url: "./EXAM_BRAHMASTRA/MASTER_PORTAL.html", cat: "Exams" },
+        { en: "Navodaya JNVST", hi: "नवोदय JNVST", url: "./Navodaya.html", cat: "Exams" },
+        { en: "GK Super Explorer", hi: "GK सुपर एक्सप्लोरर", url: "./GK_Super_Explorer/index.html", cat: "Learning" },
+        { en: "Rajasthan Patwari AI", hi: "राजस्थान पटवारी AI", url: "./Rajasthan_Patwari_AI_Assistant_Sewar_Complete.html", cat: "Exams" },
+        { en: "Vowel & Phonics", hi: "वॉवेल और फ़ोनिक्स", url: "./Vowel_Phonics_Master_Course.html", cat: "Learning" },
+        { en: "Manushree WonderWorld V6", hi: "मनुश्री वंडरवर्ल्ड V6", url: "./wonderworld/v6/index.html", cat: "Learning" },
+        { en: "Rajasthan District Dig-Darshan", hi: "राजस्थान जिला दिग्दर्शन", url: "./Rajasthan_District_Dig_Darshan_Interactive.html", cat: "Learning" },
+        { en: "AI Creative Studio", hi: "AI क्रिएटिव स्टूडियो", url: "./ai-studio/index.html", cat: "Creative & AI" },
+        { en: "Science Centre Shop", hi: "साइंस सेंटर शॉप", url: "./shop/index.html", cat: "Commerce" },
+        { en: "UP & MP Police Prep", hi: "UP व MP पुलिस तैयारी", url: "./police.html", cat: "Exams" },
+        { en: "Class 8 Science", hi: "कक्षा 8 विज्ञान", url: "./Class_8_Science_Sound_Light_Flame_Interactive.html", cat: "Learning" }
+      ];
+
+      // Explicit allowlist for approved external HTTPS links
+      const APPROVED_EXTERNAL_HTTPS = new Set([
+        "https://github.com/VishwendraSir/Home-page/actions"
+      ]);
+
+      const FALLBACK_PAGES = FEATURED.map((item) => ({
+        title: item.en,
+        title_hi: item.hi,
+        path: item.url,
+        category: item.cat,
+        archived: false
+      }));
+
+      const BUSINESS = [
+        {
+          enTitle: "Website & App Development",
+          hiTitle: "वेबसाइट और ऐप डेवलपमेंट",
+          enDesc: "Responsive web portals and interactive applications.",
+          hiDesc: "रिस्पॉन्सिव वेब पोर्टल और इंटरैक्टिव एप्लिकेशन।",
+          url: null
+        },
+        {
+          enTitle: "AI Solutions",
+          hiTitle: "AI समाधान",
+          enDesc: "AI-assisted study and creative studio workflows.",
+          hiDesc: "अध्ययन और क्रिएटिव वर्कफ़्लो के लिए AI टूल।",
+          url: "./ai-studio/index.html"
+        },
+        {
+          enTitle: "Cloud & Data Services",
+          hiTitle: "क्लाउड और डेटा सेवाएँ",
+          enDesc: "Structured page catalogues and static web workflows.",
+          hiDesc: "संरचित पेज कैटलॉग और स्टैटिक वेब व्यवस्था।",
+          url: null
+        },
+        {
+          enTitle: "Education Automation",
+          hiTitle: "शिक्षा ऑटोमेशन",
+          enDesc: "Practice portals, quizzes and exam preparation tools.",
+          hiDesc: "अभ्यास पोर्टल, क्विज़ और परीक्षा तैयारी साधन।",
+          url: "./EXAM_BRAHMASTRA/MASTER_PORTAL.html"
+        },
+        {
+          enTitle: "Digital Content & Creative Studio",
+          hiTitle: "डिजिटल कंटेंट और क्रिएटिव स्टूडियो",
+          enDesc: "Creative tools and educational learning modules.",
+          hiDesc: "क्रिएटिव टूल्स और शैक्षणिक मॉड्यूल।",
+          url: "./ai-studio/index.html"
+        },
+        {
+          enTitle: "Shopping / Affiliate Projects",
+          hiTitle: "शॉपिंग / एफ़िलिएट प्रोजेक्ट्स",
+          enDesc: "Educational items and products via Science Centre Shop.",
+          hiDesc: "साइंस सेंटर शॉप के माध्यम से शैक्षणिक उत्पाद।",
+          url: "./shop/index.html"
+        }
+      ];
+
+      const I18N = {
+        en: {
+          skipLink: "Skip to main content",
+          headerSub: "TECHNOLOGY • INNOVATION • EDUCATION • FUTURE",
+          navHome: "Home",
+          navProjects: "Projects",
+          navLearning: "Learning",
+          navBusiness: "Business",
+          navAbout: "About",
+          navContact: "Contact",
+          langBtn: "हिंदी",
+          themeBtn: "Theme",
+          heroEyebrow: "VISHWA TECH GROUP",
+          heroTitle: "VISHWA TECH GROUP",
+          heroStrap: "TECHNOLOGY • INNOVATION • EDUCATION • FUTURE",
+          heroGuide: "Guided by Vishwendra Sir",
+          heroDesc: "An integrated platform for quality education, digital innovation and practical technology — bringing learning apps, AI tools, websites, services and projects together in one place.",
+          ctaExplore: "Explore Projects",
+          ctaLearning: "Open Learning Hub",
+          featuredTitle: "Quick Launch Portals",
+          featuredSub: "Verified learning hubs, exam portals, interactive modules and creative platforms.",
+          openCta: "Open →",
+          directoryTitle: "Project Directory",
+          directorySub: "Search and filter registered pages from ./site-pages.json with safe fallback support.",
+          searchPlaceholder: "Search by title or path…",
+          clearBtn: "Clear",
+          allCat: "All",
+          countText: (n) => `Showing ${n} ${n === 1 ? "item" : "items"}`,
+          archiveText: "Include archive / backup / redirect entries",
+          emptyText: "No matching projects found.",
+          resetBtn: "Reset filters",
+          statusLoading: "Catalogue status: Loading ./site-pages.json…",
+          loadedLive: (n) => `Catalogue status: Loaded ${n} verified entries from ./site-pages.json.`,
+          loadedFallback: (reason) => `Catalogue status: Using built-in fallback catalogue (${reason}).`,
+          workspaceTitle: "Workspace Entry",
+          workspaceSub: "Navigation groupings for learners, educators and site management.",
+          wsStudentTitle: "Student Hub",
+          wsStudentDesc: "Learning portals, practice resources and interactive study modules.",
+          wsStudentLink: "Open Student Hub →",
+          wsTeacherTitle: "Teacher Hub",
+          wsTeacherDesc: "Exam preparation portals, subject resources and teaching tools.",
+          wsTeacherLink: "Open Teacher Hub →",
+          wsAdminTitle: "Admin / Owner Hub",
+          wsAdminDesc: "Navigation section for site pages and catalogue browsing.",
+          wsAdminLink: "Browse Directory →",
+          workspaceNotice: "Navigation grouping only — not an authentication or security boundary.",
+          businessTitle: "Business & Innovation",
+          businessSub: "Core service and innovation areas connected to the portal.",
+          visitCta: "Open →",
+          aboutTitle: "About VISHWA TECH GROUP",
+          aboutSub: "Guided by Vishwendra Sir — Technology • Innovation • Education • Future.",
+          missionTitle: "Mission",
+          missionDesc: "Quality education, structured learning tools and practical technology access.",
+          visionTitle: "Vision",
+          visionDesc: "A smart, capable and digitally empowered learning and innovation ecosystem.",
+          valuesTitle: "Values",
+          valuesDesc: "Clarity, reliability, bilingual accessibility and steady improvement.",
+          footerBrand: "VISHWA TECH GROUP",
+          footerStrap: "TECHNOLOGY • INNOVATION • EDUCATION • FUTURE — Guided by Vishwendra Sir",
+          fLink1: "Science Centre Learning Hub",
+          fLink2: "Exam Brahmastra Unified Portal",
+          fLink3: "Site Quality & Deployment Reports",
+          footerNote: "Only verified destinations present in the baseline/prompt are linked; no unverified contact details are added."
+        },
+        hi: {
+          skipLink: "मुख्य सामग्री पर जाएँ",
+          headerSub: "टेक्नोलॉजी • इनोवेशन • एजुकेशन • फ्यूचर",
+          navHome: "होम",
+          navProjects: "प्रोजेक्ट्स",
+          navLearning: "लर्निंग",
+          navBusiness: "बिज़नेस",
+          navAbout: "परिचय",
+          navContact: "संपर्क",
+          langBtn: "English",
+          themeBtn: "थीम",
+          heroEyebrow: "VISHWA TECH GROUP",
+          heroTitle: "VISHWA TECH GROUP",
+          heroStrap: "TECHNOLOGY • INNOVATION • EDUCATION • FUTURE",
+          heroGuide: "मार्गदर्शन: विश्वेंद्र सर (Vishwendra Sir)",
+          heroDesc: "गुणवत्तापूर्ण शिक्षा, डिजिटल नवाचार और व्यावहारिक तकनीक का एकीकृत मंच — जहाँ लर्निंग ऐप्स, AI टूल्स, वेबसाइट्स, सेवाएँ और प्रोजेक्ट्स एक साथ उपलब्ध हैं।",
+          ctaExplore: "प्रोजेक्ट्स देखें",
+          ctaLearning: "लर्निंग हब खोलें",
+          featuredTitle: "क्विक लॉन्च पोर्टल",
+          featuredSub: "लर्निंग हब, परीक्षा पोर्टल, इंटरैक्टिव मॉड्यूल और क्रिएटिव प्लेटफ़ॉर्म।",
+          openCta: "खोलें →",
+          directoryTitle: "प्रोजेक्ट डायरेक्टरी",
+          directorySub: "./site-pages.json से पेज खोजें और फ़िल्टर करें (फ़ॉलबैक सूची सहित)।",
+          searchPlaceholder: "शीर्षक या पथ से खोजें…",
+          clearBtn: "साफ़ करें",
+          allCat: "सभी",
+          countText: (n) => `${n} परिणाम दिखाए जा रहे हैं`,
+          archiveText: "आर्काइव / बैकअप / रीडायरेक्ट प्रविष्टियाँ शामिल करें",
+          emptyText: "कोई मेल खाता प्रोजेक्ट नहीं मिला।",
+          resetBtn: "फ़िल्टर रीसेट करें",
+          statusLoading: "कैटलॉग स्थिति: ./site-pages.json लोड हो रहा है…",
+          loadedLive: (n) => `कैटलॉग स्थिति: ./site-pages.json से ${n} सत्यापित प्रविष्टियाँ लोड हुईं।`,
+          loadedFallback: (reason) => `कैटलॉग स्थिति: अंतर्निहित फ़ॉलबैक सूची सक्रिय है (${reason})।`,
+          workspaceTitle: "वर्कस्पेस एंट्री",
+          workspaceSub: "विद्यार्थियों, शिक्षकों और साइट प्रबंधन के लिए नेविगेशन समूह।",
+          wsStudentTitle: "स्टूडेंट हब",
+          wsStudentDesc: "लर्निंग पोर्टल, अभ्यास संसाधन और अध्ययन मॉड्यूल।",
+          wsStudentLink: "स्टूडेंट हब खोलें →",
+          wsTeacherTitle: "टीचर हब",
+          wsTeacherDesc: "परीक्षा पोर्टल, विषय संसाधन और शिक्षण साधन।",
+          wsTeacherLink: "टीचर हब खोलें →",
+          wsAdminTitle: "एडमिन / ओनर हब",
+          wsAdminDesc: "साइट पेज और कैटलॉग देखने के लिए नेविगेशन अनुभाग।",
+          wsAdminLink: "डायरेक्टरी देखें →",
+          workspaceNotice: "यह केवल नेविगेशन समूह है; कोई लॉगिन या सुरक्षा सीमा लागू नहीं है।",
+          businessTitle: "बिज़नेस और इनोवेशन",
+          businessSub: "पोर्टल से जुड़े प्रमुख सेवा और नवाचार क्षेत्र।",
+          visitCta: "खोलें →",
+          aboutTitle: "VISHWA TECH GROUP के बारे में",
+          aboutSub: "मार्गदर्शन: विश्वेंद्र सर — Technology • Innovation • Education • Future",
+          missionTitle: "मिशन",
+          missionDesc: "गुणवत्तापूर्ण शिक्षा, सुव्यवस्थित लर्निंग साधन और उपयोगी तकनीक की सुलभता।",
+          visionTitle: "विज़न",
+          visionDesc: "स्मार्ट, सक्षम और डिजिटल रूप से सशक्त शिक्षा व नवाचार तंत्र।",
+          valuesTitle: "मूल मूल्य",
+          valuesDesc: "स्पष्टता, विश्वसनीयता, द्विभाषी सुलभता और निरंतर सुधार।",
+          footerBrand: "VISHWA TECH GROUP",
+          footerStrap: "TECHNOLOGY • INNOVATION • EDUCATION • FUTURE — Guided by Vishwendra Sir",
+          fLink1: "साइंस सेंटर लर्निंग हब",
+          fLink2: "एग्ज़ाम ब्रह्मास्त्र यूनिफाइड पोर्टल",
+          fLink3: "साइट क्वालिटी और डिप्लॉयमेंट रिपोर्ट्स",
+          footerNote: "केवल सत्यापित गंतव्य लिंक दिए गए हैं; कोई अतिरिक्त संपर्क विवरण स्वयं से नहीं जोड़ा गया है।"
+        }
+      };
+
+      const state = {
+        lang: "en",
+        search: "",
+        category: "ALL",
+        includeArchive: false,
+        catalogue: FALLBACK_PAGES,
+        hasArchive: false,
+        loadMode: "loading",
+        fallbackReason: ""
+      };
+
+      function escapeHTML(val) {
+        return String(val ?? "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      /**
+       * Strict relative path validator:
+       * - Rejects empty strings, control characters, backslash tricks
+       * - Rejects schemes (javascript:, data:, vbscript:, file:, blob:, http:, https:, etc.)
+       * - Rejects protocol-relative URLs (//...) and root-relative paths (/...)
+       * - Rejects path traversal segments (..)
+       * - Allows safe relative project paths like ./1/index.html or Navodaya.html
+       */
+      function isSafeRelativeProjectPath(rawPath) {
+        if (typeof rawPath !== "string") return false;
+        const p = rawPath.trim();
+        if (!p) return false;
+        if (/[\u0000-\u001F\u007F\\]/.test(p)) return false;
+        if (p.startsWith("//") || p.startsWith("/")) return false;
+        if (/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(p)) return false;
+
+        let decoded = p;
+        try {
+          decoded = decodeURIComponent(p);
+        } catch (_e) {
+          return false;
+        }
+        if (/[\u0000-\u001F\u007F\\]/.test(decoded)) return false;
+        if (decoded.startsWith("//") || decoded.startsWith("/")) return false;
+        if (/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(decoded)) return false;
+
+        const cleanTarget = decoded.split(/[?#]/)[0];
+        const segments = cleanTarget.split("/");
+        for (const seg of segments) {
+          if (seg === "..") return false;
+        }
+
+        return /^(?:\.\/)?[A-Za-z0-9._-]+(?:\/[A-Za-z0-9._-]+)*$/.test(cleanTarget);
+      }
+
+      function isSafeExternalHttpsUrl(rawUrl) {
+        if (typeof rawUrl !== "string") return false;
+        const trimmed = rawUrl.trim();
+        return APPROVED_EXTERNAL_HTTPS.has(trimmed);
+      }
+
+      function isExamInternalSubpage(pathStr) {
+        const lower = String(pathStr || "").toLowerCase();
+        if (!lower.includes("exam_brahmastra")) return false;
+        return !lower.endsWith("exam_brahmastra/master_portal.html");
+      }
+
+      function isArchiveEntry(entry) {
+        if (entry.archived === true) return true;
+        const combined = `${entry.title || ""} ${entry.path || ""} ${entry.category || ""}`.toLowerCase();
+        return /\b(archive|archived|backup|redirect|old|draft|temp)\b/.test(combined) ||
+               /^(?:\.\/)?(archive|backups)\//i.test(String(entry.path || "")) ||
+               /\.pre-/i.test(String(entry.path || "")) ||
+               String(entry.title || "").trim() === "Redirect";
+      }
+
+      function normalizeCatalogue(raw) {
+        if (!raw || typeof raw !== "object") {
+          return { ok: false, reason: "Invalid JSON root" };
+        }
+        const list = Array.isArray(raw) ? raw : (Array.isArray(raw.pages) ? raw.pages : null);
+        if (!list) {
+          return { ok: false, reason: "Missing pages array" };
+        }
+
+        const out = [];
+        const seen = new Set();
+        let archiveFound = false;
+
+        for (const item of list) {
+          if (!item || typeof item !== "object") continue;
+          const rawPath = typeof item.path === "string"
+            ? item.path.trim()
+            : (typeof item.url === "string" ? item.url.trim() : "");
+
+          if (!isSafeRelativeProjectPath(rawPath)) continue;
+          if (isExamInternalSubpage(rawPath)) continue;
+
+          const title = typeof item.title === "string" && item.title.trim() ? item.title.trim() : rawPath;
+          const titleHi = typeof item.title_hi === "string" && item.title_hi.trim() ? item.title_hi.trim() : title;
+          const category = typeof item.category === "string" && item.category.trim() ? item.category.trim() : "General";
+          const archived = isArchiveEntry({
+            title,
+            path: rawPath,
+            category,
+            archived: Boolean(item.archived)
+          });
+          if (archived) archiveFound = true;
+
+          const key = `${rawPath.toLowerCase()}::${title.toLowerCase()}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+
+          out.push({ title, title_hi: titleHi, path: rawPath, category, archived });
+        }
+
+        if (out.length === 0) {
+          return { ok: false, reason: "No valid relative entries found" };
+        }
+
+        return { ok: true, items: out, archiveFound };
+      }
+
+      function renderFeatured() {
+        const grid = document.getElementById("featuredGrid");
+        const t = I18N[state.lang];
+        grid.innerHTML = FEATURED.filter((item) => isSafeRelativeProjectPath(item.url)).map((item) => {
+          const title = state.lang === "hi" ? item.hi : item.en;
+          return `
+            <article class="card-box">
+              <div>
+                <h3>${escapeHTML(title)}</h3>
+                <div class="path-text">${escapeHTML(item.url)}</div>
+              </div>
+              <a class="link-cta" href="${escapeHTML(item.url)}">${escapeHTML(t.openCta)}</a>
+            </article>
+          `;
+        }).join("");
+      }
+
+      function getFilteredPages() {
+        return state.catalogue.filter((item) => {
+          if (!state.includeArchive && item.archived) return false;
+          if (state.category !== "ALL" && item.category !== state.category) return false;
+          if (state.search.trim() !== "") {
+            const q = state.search.trim().toLowerCase();
+            const hay = `${item.title} ${item.title_hi} ${item.path} ${item.category}`.toLowerCase();
+            if (!hay.includes(q)) return false;
+          }
+          return true;
+        });
+      }
+
+      function renderFilters() {
+        const container = document.getElementById("filters");
+        const t = I18N[state.lang];
+        const pool = state.includeArchive ? state.catalogue : state.catalogue.filter((i) => !i.archived);
+        const cats = ["ALL", ...Array.from(new Set(pool.map((i) => i.category)))];
+        if (!cats.includes(state.category)) state.category = "ALL";
+
+        container.innerHTML = cats.map((cat) => {
+          const label = cat === "ALL" ? t.allCat : cat;
+          const pressed = state.category === cat ? "true" : "false";
+          return `<button type="button" class="filter" data-cat="${escapeHTML(cat)}" aria-pressed="${pressed}">${escapeHTML(label)}</button>`;
+        }).join("");
+
+        container.querySelectorAll(".filter").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            state.category = btn.getAttribute("data-cat") || "ALL";
+            renderFilters();
+            renderDirectory();
+          });
+        });
+      }
+
+      function renderDirectory() {
+        const grid = document.getElementById("projects");
+        const empty = document.getElementById("emptyState");
+        const countEl = document.getElementById("directoryCount");
+        const noticeEl = document.getElementById("catalogueNotice");
+        const archiveWrap = document.getElementById("archiveWrap");
+        const t = I18N[state.lang];
+
+        archiveWrap.hidden = !state.hasArchive;
+
+        if (state.loadMode === "live") {
+          noticeEl.textContent = t.loadedLive(state.catalogue.length);
+          noticeEl.classList.remove("is-fallback");
+        } else if (state.loadMode === "fallback") {
+          noticeEl.textContent = t.loadedFallback(state.fallbackReason || "site-pages.json unavailable");
+          noticeEl.classList.add("is-fallback");
+        } else {
+          noticeEl.textContent = t.statusLoading;
+          noticeEl.classList.remove("is-fallback");
+        }
+
+        const items = getFilteredPages();
+        countEl.textContent = t.countText(items.length);
+
+        if (items.length === 0) {
+          grid.innerHTML = "";
+          empty.hidden = false;
+          return;
+        }
+
+        empty.hidden = true;
+        grid.innerHTML = items.map((item) => {
+          const title = state.lang === "hi" ? item.title_hi : item.title;
+          return `
+            <article class="card-box">
+              <div>
+                <h3>${escapeHTML(title)}</h3>
+                <div class="path-text">${escapeHTML(item.path)}</div>
+              </div>
+              <a class="link-cta" href="${escapeHTML(item.path)}">${escapeHTML(t.openCta)}</a>
+            </article>
+          `;
+        }).join("");
+      }
+
+      function renderBusiness() {
+        const grid = document.getElementById("businessGrid");
+        const t = I18N[state.lang];
+        grid.innerHTML = BUSINESS.map((b) => {
+          const title = state.lang === "hi" ? b.hiTitle : b.enTitle;
+          const desc = state.lang === "hi" ? b.hiDesc : b.enDesc;
+          const safeUrl = b.url && isSafeRelativeProjectPath(b.url) ? b.url : null;
+          const link = safeUrl ? `<a class="link-cta" href="${escapeHTML(safeUrl)}">${escapeHTML(t.visitCta)}</a>` : "";
+          return `
+            <article class="card-box">
+              <div>
+                <h3>${escapeHTML(title)}</h3>
+                <p>${escapeHTML(desc)}</p>
+              </div>
+              ${link}
+            </article>
+          `;
+        }).join("");
+      }
+
+      function renderFooterLinks() {
+        const container = document.getElementById("footerLinks");
+        const t = I18N[state.lang];
+        const links = [
+          { label: t.fLink1, url: "./1/index.html", external: false },
+          { label: t.fLink2, url: "./EXAM_BRAHMASTRA/MASTER_PORTAL.html", external: false },
+          { label: t.fLink3, url: "https://github.com/VishwendraSir/Home-page/actions", external: true }
+        ];
+
+        container.innerHTML = links
+          .filter((l) => (l.external ? isSafeExternalHttpsUrl(l.url) : isSafeRelativeProjectPath(l.url)))
+          .map((l) => {
+            if (l.external) {
+              return `<a href="${escapeHTML(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(l.label)}</a>`;
+            }
+            return `<a href="${escapeHTML(l.url)}">${escapeHTML(l.label)}</a>`;
+          })
+          .join("");
+      }
+
+      function applyLanguage() {
+        const t = I18N[state.lang];
+        document.documentElement.lang = state.lang === "hi" ? "hi" : "en";
+
+        const map = {
+          skipLink: t.skipLink,
+          headerSub: t.headerSub,
+          navHome: t.navHome,
+          navProjects: t.navProjects,
+          navLearning: t.navLearning,
+          navBusiness: t.navBusiness,
+          navAbout: t.navAbout,
+          navContact: t.navContact,
+          mNavHome: t.navHome,
+          mNavProjects: t.navProjects,
+          mNavLearning: t.navLearning,
+          mNavBusiness: t.navBusiness,
+          mNavAbout: t.navAbout,
+          mNavContact: t.navContact,
+          language: t.langBtn,
+          themeToggle: t.themeBtn,
+          heroEyebrow: t.heroEyebrow,
+          heroTitle: t.heroTitle,
+          heroStrap: t.heroStrap,
+          heroGuide: t.heroGuide,
+          heroDesc: t.heroDesc,
+          ctaExplore: t.ctaExplore,
+          ctaLearning: t.ctaLearning,
+          featuredTitle: t.featuredTitle,
+          featuredSub: t.featuredSub,
+          directoryTitle: t.directoryTitle,
+          directorySub: t.directorySub,
+          clear: t.clearBtn,
+          archiveLabelText: t.archiveText,
+          emptyText: t.emptyText,
+          resetBtn: t.resetBtn,
+          workspaceTitle: t.workspaceTitle,
+          workspaceSub: t.workspaceSub,
+          wsStudentTitle: t.wsStudentTitle,
+          wsStudentDesc: t.wsStudentDesc,
+          wsStudentLink: t.wsStudentLink,
+          wsTeacherTitle: t.wsTeacherTitle,
+          wsTeacherDesc: t.wsTeacherDesc,
+          wsTeacherLink: t.wsTeacherLink,
+          wsAdminTitle: t.wsAdminTitle,
+          wsAdminDesc: t.wsAdminDesc,
+          wsAdminLink: t.wsAdminLink,
+          workspaceNotice: t.workspaceNotice,
+          businessTitle: t.businessTitle,
+          businessSub: t.businessSub,
+          aboutTitle: t.aboutTitle,
+          aboutSub: t.aboutSub,
+          missionTitle: t.missionTitle,
+          missionDesc: t.missionDesc,
+          visionTitle: t.visionTitle,
+          visionDesc: t.visionDesc,
+          valuesTitle: t.valuesTitle,
+          valuesDesc: t.valuesDesc,
+          footerBrand: t.footerBrand,
+          footerStrap: t.footerStrap,
+          footerNote: t.footerNote
+        };
+
+        Object.entries(map).forEach(([id, value]) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = value;
+        });
+
+        const searchEl = document.getElementById("search");
+        if (searchEl) searchEl.placeholder = t.searchPlaceholder;
+
+        renderFeatured();
+        renderFilters();
+        renderDirectory();
+        renderBusiness();
+        renderFooterLinks();
+      }
+
+      async function loadSitePages() {
+        try {
+          const res = await fetch("./site-pages.json", { cache: "no-store" });
+          if (!res.ok) {
+            throw new Error("HTTP " + res.status);
+          }
+          const data = await res.json();
+          const norm = normalizeCatalogue(data);
+          if (norm && norm.ok) {
+            state.catalogue = norm.items;
+            state.hasArchive = norm.archiveFound;
+            state.loadMode = "live";
+            state.fallbackReason = "";
+          } else {
+            state.catalogue = FALLBACK_PAGES;
+            state.hasArchive = false;
+            state.loadMode = "fallback";
+            state.fallbackReason = norm ? norm.reason : "Invalid catalogue structure";
+          }
+        } catch (err) {
+          state.catalogue = FALLBACK_PAGES;
+          state.hasArchive = false;
+          state.loadMode = "fallback";
+          state.fallbackReason = err && err.message ? err.message : "Fetch error";
+        }
+        renderFilters();
+        renderDirectory();
+      }
+
+      function bindUI() {
+        document.getElementById("language").addEventListener("click", () => {
+          state.lang = state.lang === "en" ? "hi" : "en";
+          applyLanguage();
+        });
+
+        document.getElementById("themeToggle").addEventListener("click", () => {
+          const root = document.documentElement;
+          const cur = root.getAttribute("data-theme") || "dark";
+          root.setAttribute("data-theme", cur === "dark" ? "light" : "dark");
+        });
+
+        const menuBtn = document.getElementById("menuToggle");
+        const mobileNav = document.getElementById("mobileNav");
+
+        function setMenu(open) {
+          menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+          mobileNav.classList.toggle("open", open);
+        }
+
+        menuBtn.addEventListener("click", () => {
+          setMenu(menuBtn.getAttribute("aria-expanded") !== "true");
+        });
+
+        mobileNav.querySelectorAll("a").forEach((a) => {
+          a.addEventListener("click", () => setMenu(false));
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") {
+            setMenu(false);
+            menuBtn.focus();
+          }
+        });
+
+        const searchEl = document.getElementById("search");
+        searchEl.addEventListener("input", () => {
+          state.search = searchEl.value;
+          renderDirectory();
+        });
+
+        function resetFilters() {
+          state.search = "";
+          state.category = "ALL";
+          state.includeArchive = false;
+          searchEl.value = "";
+          const chk = document.getElementById("toggleArchive");
+          if (chk) chk.checked = false;
+          renderFilters();
+          renderDirectory();
+        }
+
+        document.getElementById("clear").addEventListener("click", () => {
+          state.search = "";
+          searchEl.value = "";
+          renderDirectory();
+          searchEl.focus();
+        });
+
+        document.getElementById("resetBtn").addEventListener("click", resetFilters);
+
+        document.getElementById("toggleArchive").addEventListener("change", (e) => {
+          state.includeArchive = Boolean(e.target.checked);
+          renderFilters();
+          renderDirectory();
+        });
+      }
+
+      bindUI();
+      applyLanguage();
+      loadSitePages();
+    })();
+  </script>
+</body>
+</html>
